@@ -1,0 +1,42 @@
+./services /database.py:            "hawk_aeye_status": "TEXT DEFAULT ''",
+./services /database.py:            "hawk_aeye_confidence": "REAL DEFAULT 0",
+./services /database.py:            "hawk_aeye_notes": "TEXT DEFAULT ''",
+./services /hawk_eye_service.py:                "hawk_aeye_status": "No Image",
+./services /hawk_eye_service.py:                "hawk_aeye_confidence": 0,
+./services /hawk_eye_service.py:                "hawk_aeye_notes": "No valid image file provided.",
+./services /hawk_eye_service.py:            "hawk_aeye_status": "Fingerprint Created",
+./services /hawk_eye_service.py:            "hawk_aeye_confidence": 25,
+./services /hawk_eye_service.py:            "hawk_aeye_notes": "Hawk A⦿Eye™ V1 fingerprint created. Recognition pending.",
+./services /intelligence_service.py:from engines.hawk_aeye_engine import HawkAEyeEngine
+./config/constants.py:CANONICAL_AEYE_PACKAGE = "hawk_aeye"
+./config/constants.py:DEPRECATED_AEYE_PACKAGE = "cardhawk_aeye"
+./platform/router.py:        "hawk_aeye": ("platform.pages.hawk_aeye", "render"),
+./hawk_aeye/asset_dna_builder.py:            "hawk_aeye_confidence": AssetDNABuilder.confidence(results),
+./hawk_aeye/vision_pipeline.py:from hawk_aeye.ocr_runtime import OCRRuntime
+./hawk_aeye/vision_pipeline.py:from hawk_aeye.card_classifier import CardClassifier
+./hawk_aeye/vision_pipeline.py:from hawk_aeye.player_detector import PlayerDetector
+./hawk_aeye/vision_pipeline.py:from hawk_aeye.brand_detector import BrandDetector
+./hawk_aeye/vision_pipeline.py:from hawk_aeye.year_detector import YearDetector
+./hawk_aeye/vision_pipeline.py:from hawk_aeye.parallel_detector import ParallelDetector
+./hawk_aeye/vision_pipeline.py:from hawk_aeye.serial_detector import SerialDetector
+./hawk_aeye/vision_pipeline.py:from hawk_aeye.condition_estimator import ConditionEstimator
+./hawk_aeye/vision_pipeline.py:from hawk_aeye.asset_dna_builder import AssetDNABuilder
+./architecture/import_migrator.py:        "from cardhawk_aeye.": "from hawk_aeye.",
+./architecture/import_migrator.py:        "import cardhawk_aeye.": "import hawk_aeye.",
+./architecture/import_migrator.py:        "hawk_a_eye": "hawk_aeye",
+./architecture/dependency_graph.py:            "hawk_aeye", "cardhawk_aeye", "thorx", "pipeline", "eventbus",
+./architecture/project_auditor.py:        "deprecated_cardhawk_aeye_package": ["from cardhawk_aeye", "import cardhawk_aeye"],
+./architecture/project_auditor.py:        if (root / "cardhawk_aeye").exists() and (root / "hawk_aeye").exists():
+./architecture/project_auditor.py:            report.add("project_root", "duplicate_aeye_folders", "Both cardhawk_aeye/ and hawk_aeye/ exist. Canonical package is hawk_aeye/.")
+./cardhawk_platform/navigation.py:        ("Hawk A•Eye", "hawk_aeye", "👁️"),
+./cardhawk_platform/router.py:    "hawk_aeye": ("cardhawk_platform.pages.hawk_aeye", "render"),
+./cardhawk_aeye/cardhawk_aeye.py:            from hawk_aeye.vision_pipeline import VisionPipeline
+./cardhawk_aeye/__init__.py:from cardhawk_aeye.cardhawk_aeye import CardHawkAEye
+./config/constants.py:DEPRECATED_AEYE_PACKAGE = "cardhawk_aeye"
+./architecture/import_migrator.py:        "from cardhawk_aeye.": "from hawk_aeye.",
+./architecture/import_migrator.py:        "import cardhawk_aeye.": "import hawk_aeye.",
+./architecture/dependency_graph.py:            "hawk_aeye", "cardhawk_aeye", "thorx", "pipeline", "eventbus",
+./architecture/project_auditor.py:        "deprecated_cardhawk_aeye_package": ["from cardhawk_aeye", "import cardhawk_aeye"],
+./architecture/project_auditor.py:        if (root / "cardhawk_aeye").exists() and (root / "hawk_aeye").exists():
+./architecture/project_auditor.py:            report.add("project_root", "duplicate_aeye_folders", "Both cardhawk_aeye/ and hawk_aeye/ exist. Canonical package is hawk_aeye/.")
+./cardhawk_aeye/__init__.py:from cardhawk_aeye.cardhawk_aeye import CardHawkAEye

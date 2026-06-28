@@ -1,0 +1,72 @@
+./providers/mercari_live.py:from providers.base_provider import BaseProvider, RawListing
+./providers/comc_live.py:from providers.base_provider import BaseProvider, RawListing
+./providers/ebay_live.py:from providers.base_provider import BaseProvider, RawListing
+./providers/goldin_live.py:from providers.base_provider import BaseProvider, RawListing
+./providers/centerstage_live.py:from providers.base_provider import BaseProvider, RawListing
+./providers/fanatics_live.py:from providers.base_provider import BaseProvider, RawListing
+./providers/marketmovers_live.py:from providers.base_provider import BaseProvider, RawListing
+./providers/facebook_live.py:from providers.base_provider import BaseProvider, RawListing
+./providers/pwcc_live.py:from providers.base_provider import BaseProvider, RawListing
+./providers/cardladder_live.py:from providers.base_provider import BaseProvider, RawListing
+./health/system_health.py:            "providers_registered": provider_registry.names(),
+./continuous_scout/continuous_scout_service.py:    def __init__(self, providers=None):
+./continuous_scout/continuous_scout_service.py:        self.providers = providers or []
+./continuous_scout/continuous_scout_service.py:        for provider in self.providers:
+./adaptive_intelligence/deployment/deployment_profiles.py:            "live_providers": False,
+./adaptive_intelligence/deployment/deployment_profiles.py:            "live_providers": False,
+./adaptive_intelligence/deployment/deployment_profiles.py:            "live_providers": False,
+./adaptive_intelligence/deployment/deployment_profiles.py:            "live_providers": True,
+./live_data/live_data_service.py:from live_data.providers.demo_provider import DemoLiveProvider
+./live_data/live_data_service.py:    def __init__(self, providers=None):
+./live_data/live_data_service.py:        self.providers = providers or [DemoLiveProvider()]
+./live_data/live_data_service.py:        for provider in self.providers:
+./live_data/providers/demo_provider.py:from live_data.providers.provider_contract import ProviderContract, LiveListing
+./architecture/dependency_graph.py:            "datalake", "founder", "providers", "marketplace_normalizer",
+./registry/provider_registry.py:        self.providers = {}
+./registry/provider_registry.py:        self.providers[name] = provider
+./registry/provider_registry.py:        return self.providers.get(name)
+./registry/provider_registry.py:        return self.providers
+./registry/provider_registry.py:        return sorted(self.providers.keys())
+./registry/provider_registry.py:            "ebay": ("providers.ebay_live", "EbayLive"),
+./registry/provider_registry.py:            "mercari": ("providers.mercari_live", "MercariLive"),
+./registry/provider_registry.py:            "comc": ("providers.comc_live", "ComcLive"),
+./registry/provider_registry.py:            "goldin": ("providers.goldin_live", "GoldinLive"),
+./registry/provider_registry.py:            "pwcc": ("providers.pwcc_live", "PwccLive"),
+./registry/provider_registry.py:            "fanatics": ("providers.fanatics_live", "FanaticsLive"),
+./operations_live/operations_service.py:            "provider_health": {p: "ready" for p in snap.get("providers", [])},
+./venv/lib/python3.14/site-packages/streamlit/auth_util.py:    # but we handle existing params defensively for non-standard providers.
+./venv/lib/python3.14/site-packages/streamlit/web/server/starlette/starlette_auth_routes.py:            # Use `or []` to handle providers that return null for this field
+./venv/lib/python3.14/site-packages/streamlit/web/server/starlette/starlette_auth_routes.py:        # This is safer than redirecting to root as some providers seem to
+./venv/lib/python3.14/site-packages/streamlit/runtime/stats.py:        The StatsManager uses this property to determine which providers to call
+./venv/lib/python3.14/site-packages/streamlit/runtime/stats.py:        self._providers_by_family: dict[str, list[StatsProvider]] = {}
+./venv/lib/python3.14/site-packages/streamlit/runtime/stats.py:            if family not in self._providers_by_family:
+./venv/lib/python3.14/site-packages/streamlit/runtime/stats.py:                self._providers_by_family[family] = []
+./venv/lib/python3.14/site-packages/streamlit/runtime/stats.py:            self._providers_by_family[family].append(provider)
+./venv/lib/python3.14/site-packages/streamlit/runtime/stats.py:            from all providers.
+./venv/lib/python3.14/site-packages/streamlit/runtime/stats.py:        families_to_query = family_names or list(self._providers_by_family.keys())
+./venv/lib/python3.14/site-packages/streamlit/runtime/stats.py:        # Track which providers we've already queried to avoid duplicates.
+./venv/lib/python3.14/site-packages/streamlit/runtime/stats.py:        queried_providers: set[int] = set()
+./venv/lib/python3.14/site-packages/streamlit/runtime/stats.py:            for provider in self._providers_by_family.get(family, []):
+./venv/lib/python3.14/site-packages/streamlit/runtime/stats.py:                if provider_id in queried_providers:
+./venv/lib/python3.14/site-packages/streamlit/runtime/stats.py:                queried_providers.add(provider_id)
+./venv/lib/python3.14/site-packages/streamlit/runtime/stats.py:                    # This is needed for type covariance: providers return
+./venv/lib/python3.14/site-packages/streamlit/user_info.py:    is an extension of OAuth 2.0, you can't use generic OAuth providers.
+./venv/lib/python3.14/site-packages/streamlit/user_info.py:    For all providers, there are three shared settings, ``redirect_uri``,
+./venv/lib/python3.14/site-packages/streamlit/user_info.py:    **Example 3: Use multiple, named providers**
+./venv/lib/python3.14/site-packages/streamlit/user_info.py:    configure multiple providers and give them each a unique name. The
+./venv/lib/python3.14/site-packages/streamlit/user_info.py:    providers when a user is already logged into their account. If a user is
+./venv/lib/python3.14/site-packages/streamlit/user_info.py:    identity providers, the same tokens must be exposed for all providers in
+./venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/provider.py:from pip._vendor.resolvelib.providers import AbstractProvider
+./venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/provider.py:    from pip._vendor.resolvelib.providers import Preference
+./venv/lib/python3.14/site-packages/pip/_vendor/pkg_resources/__init__.py:    """Register `provider_factory` to make providers for `loader_type`
+./venv/lib/python3.14/site-packages/pip/_vendor/pkg_resources/__init__.py:        This method should only be called by resource providers that need to
+./venv/lib/python3.14/site-packages/pip/_vendor/pkg_resources/__init__.py:        Resource providers should call this method ONLY after successfully
+./venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/__init__.py:from .providers import AbstractProvider
+./venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/abstract.py:    from ..providers import AbstractProvider
+./venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/resolution.py:    from ..providers import AbstractProvider, Preference
+./venv/lib/python3.14/site-packages/dateutil/tz/tz.py:                        # time zone providers because it depends on environment
+./venv/lib/python3.14/site-packages/pydeck/bindings/map_styles.py:        Not all map styles are available for all providers.
+./venv/lib/python3.14/site-packages/pydeck/bindings/deck.py:            Dictionary of geospatial API service providers, where the keys are ``mapbox``, ``google_maps``, or ``carto``
+./intelligence_convergence/engines/autonomous_scout.py:    def __init__(self, providers=None):
+./intelligence_convergence/engines/autonomous_scout.py:        self.providers = providers or []
+./intelligence_convergence/engines/autonomous_scout.py:        for provider in self.providers:

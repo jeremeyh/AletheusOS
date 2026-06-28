@@ -1,0 +1,10 @@
+./workflow_automation/__init__.py:from workflow_automation.workflow_service import WorkflowAutomationService
+./workflow_automation/workflow_service.py:    workflow_type: str
+./workflow_automation/workflow_service.py:    def start(cls, workflow_type, subject=""):
+./workflow_automation/workflow_service.py:        steps = [WorkflowStep(name=s) for s in cls.TEMPLATES.get(workflow_type, [])]
+./workflow_automation/workflow_service.py:        run = WorkflowRun(workflow_type=workflow_type, subject=subject, steps=steps, status="active")
+./workflow_automation/pages/workflows.py:from workflow_automation.workflow_service import WorkflowAutomationService
+./workflow_automation/pages/workflows.py:        workflow_type = st.selectbox("Workflow", list(WorkflowAutomationService.TEMPLATES.keys()))
+./workflow_automation/pages/workflows.py:            WorkflowAutomationService.start(workflow_type, subject)
+./workflow_automation/pages/workflows.py:            st.write(f"**{run.workflow_type}** — {run.subject}")
+./cardhawk_platform/router.py:    "workflows": ("workflow_automation.pages.workflows", "render"),
