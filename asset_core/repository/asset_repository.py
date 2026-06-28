@@ -13,7 +13,8 @@ class AssetRepository:
         conn = sqlite3.connect(DB)
         cur = conn.cursor()
 
-        cur.execute("""
+        cur.execute(
+            """
             INSERT INTO assets (
                 player,
                 year,
@@ -24,24 +25,20 @@ class AssetRepository:
                 uuid
             )
             VALUES (?, ?, ?, ?, ?, ?, ?)
-        """, (
-            card.get("player"),
-            card.get("year"),
-            card.get("brand"),
-            card.get("set"),
-            card.get("grade"),
-            datetime.utcnow().isoformat(),
-            str(uuid.uuid4())
-        ))
+            """,
+            (
+                card.get("player"),
+                card.get("year"),
+                card.get("brand"),
+                card.get("set"),
+                card.get("grade"),
+                datetime.utcnow().isoformat(),
+                str(uuid.uuid4()),
+            ),
+        )
 
         conn.commit()
-
         asset_id = cur.lastrowid
-
-        conn.close()
-
-        return asset_id
-
         conn.close()
 
         return asset_id
@@ -59,6 +56,32 @@ class AssetRepository:
             WHERE id = ?
             """,
             (score, asset_id),
+        )
+
+        conn.commit()
+        conn.close()
+
+    @staticmethod
+    def update_market(asset_id: int, value: dict):
+
+        conn = sqlite3.connect(DB)
+        cur = conn.cursor()
+
+        cur.execute(
+            """
+            UPDATE assets
+            SET
+                current_value = ?,
+                floor = ?,
+                ceiling = ?
+            WHERE id = ?
+            """,
+            (
+                value["current_value"],
+                value["floor"],
+                value["ceiling"],
+                asset_id,
+            ),
         )
 
         conn.commit()
