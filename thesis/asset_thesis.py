@@ -1,3 +1,5 @@
 """asset_thesis.py"""
 
-class AssetThesis:\n    def evaluate(self, asset):\n        return {'score':0}
+class AssetThesis:
+    def evaluate(self, asset):
+        return {'score':0}

@@ -1,3 +1,5 @@
 """market_thesis.py"""
 
-class MarketThesis:\n    def evaluate(self):\n        return {'trend':'Neutral'}
+class MarketThesis:
+    def evaluate(self):
+        return {'trend':'Neutral'}

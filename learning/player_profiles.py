@@ -1,3 +1,5 @@
 """player_profiles.py"""
 
-class PlayerProfiles:\n    def score(self, player):\n        return {}
+class PlayerProfiles:
+    def score(self, player):
+        return {}

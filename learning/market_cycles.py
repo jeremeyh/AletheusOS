@@ -1,3 +1,5 @@
 """market_cycles.py"""
 
-class MarketCycles:\n    def phase(self):\n        return 'Accumulation'
+class MarketCycles:
+    def phase(self):
+        return 'Accumulation'

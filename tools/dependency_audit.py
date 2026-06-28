@@ -6,6 +6,16 @@ ROOT = Path(".")
 
 failures = []
 
+
+def check_module(pyfile, module):
+    try:
+        spec = importlib.util.find_spec(module)
+        if spec is None:
+            failures.append((str(pyfile), module))
+    except Exception:
+        failures.append((str(pyfile), module))
+
+
 for py in ROOT.rglob("*.py"):
     try:
         source = py.read_text(encoding="utf-8")
@@ -14,27 +24,20 @@ for py in ROOT.rglob("*.py"):
         continue
 
     for node in ast.walk(tree):
-        module = None
-
         if isinstance(node, ast.Import):
             for alias in node.names:
-                module = alias.name
-                if importlib.util.find_spec(module) is None:
-                    failures.append((str(py), module))
+                check_module(py, alias.name)
 
         elif isinstance(node, ast.ImportFrom):
             if node.module:
-                module = node.module
-                if importlib.util.find_spec(module) is None:
-                    failures.append((str(py), module))
+                check_module(py, node.module)
 
 print("=" * 80)
-print("UNRESOLVED IMPORTS")
+print("MISSING IMPORTS")
 print("=" * 80)
 
-if not failures:
-    print("None")
-else:
-    for file, module in sorted(set(failures)):
-        print(f"{file}")
-        print(f"  -> {module}")
+for path, module in sorted(set(failures)):
+    print(f"{path}: {module}")
+
+print()
+print(f"Total: {len(set(failures))}")

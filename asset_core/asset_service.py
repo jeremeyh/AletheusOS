@@ -1,6 +1,6 @@
-from asset.asset_factory import AssetFactory
-from asset.asset_search import AssetSearch
-from asset.asset_filters import AssetFilters
+from asset_core.asset_factory import AssetFactory
+from asset_core.asset_search import AssetSearch
+from asset_core.asset_filters import AssetFilters
 from services.asset_service import AssetService as CoreAssetService
 
 class DomainAssetService:

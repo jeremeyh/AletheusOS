@@ -58,3 +58,21 @@ def yes_no(value):
 def decimal(value, places=2):
 
     return round(Decimal(str(safe_float(value))), places)
+def roi_percent(cost, value):
+    """
+    Return ROI percentage.
+
+    ROI = ((value - cost) / cost) * 100
+    """
+
+    try:
+        cost = float(cost)
+        value = float(value)
+
+        if cost <= 0:
+            return 0.0
+
+        return ((value - cost) / cost) * 100.0
+
+    except Exception:
+        return 0.0

@@ -1,3 +1,5 @@
 """parallel_history.py"""
 
-class ParallelHistory:\n    def timeline(self, parallel):\n        return []
+class ParallelHistory:
+    def timeline(self, parallel):
+        return []
