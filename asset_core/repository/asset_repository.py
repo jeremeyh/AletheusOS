@@ -1,17 +1,65 @@
-"""
-Asset Repository
-"""
+import sqlite3
+import uuid
+from datetime import datetime
+
+DB = "data/cardhawk.db"
+
 
 class AssetRepository:
 
-    def save(self, asset):
-        pass
+    @staticmethod
+    def save(card):
 
-    def load(self, asset_id):
-        pass
+        conn = sqlite3.connect(DB)
+        cur = conn.cursor()
 
-    def search(self, query):
-        return []
+        cur.execute("""
+            INSERT INTO assets (
+                player,
+                year,
+                brand,
+                set_name,
+                grade,
+                created_at,
+                uuid
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            card.get("player"),
+            card.get("year"),
+            card.get("brand"),
+            card.get("set"),
+            card.get("grade"),
+            datetime.utcnow().isoformat(),
+            str(uuid.uuid4())
+        ))
 
-    def delete(self, asset_id):
-        pass
+        conn.commit()
+
+        asset_id = cur.lastrowid
+
+        conn.close()
+
+        return asset_id
+
+        conn.close()
+
+        return asset_id
+
+    @staticmethod
+    def update_thorx(asset_id: int, score: float):
+
+        conn = sqlite3.connect(DB)
+        cur = conn.cursor()
+
+        cur.execute(
+            """
+            UPDATE assets
+            SET thorx_score = ?
+            WHERE id = ?
+            """,
+            (score, asset_id),
+        )
+
+        conn.commit()
+        conn.close()
