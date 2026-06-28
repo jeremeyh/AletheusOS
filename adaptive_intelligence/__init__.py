@@ -1,0 +1,1 @@
+from adaptive_intelligence.adaptive_service import AdaptiveIntelligenceService

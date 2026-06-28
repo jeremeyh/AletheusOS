@@ -1,0 +1,1319 @@
+from pathlib import Path
+import base64
+import sqlite3
+from datetime import datetime, timedelta
+
+import pandas as pd
+import streamlit as st
+
+
+# ==========================================================
+# CardHawkOS v3 — Premium Single-File Dashboard
+# Drop this file into ~/CardHawkOS/app.py
+# ==========================================================
+
+BASE_DIR = Path(__file__).resolve().parent
+ASSETS_DIR = BASE_DIR / "assets"
+DB_FILE = BASE_DIR / "cardhawk.db"
+
+LOGO_CANDIDATES = [
+    ASSETS_DIR / "cardhawkos_logo.png",
+    ASSETS_DIR / "cardhawk_logo.png",
+    ASSETS_DIR / "CardHawkOS.png",
+    ASSETS_DIR / "logo.png",
+]
+
+HEADER_LOGO_CANDIDATES = [
+    ASSETS_DIR / "cardhawk_header_logo.png",
+    ASSETS_DIR / "cardhawk_mark.png",
+    ASSETS_DIR / "gold_hawk_mark.png",
+    ASSETS_DIR / "hawk_mark.png",
+]
+
+
+# ==========================================================
+# App Setup
+# ==========================================================
+
+st.set_page_config(
+    page_title="CardHawkOS",
+    page_icon="🦅",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+
+# ==========================================================
+# Logo Helpers
+# ==========================================================
+
+def find_logo() -> Path | None:
+    for logo in LOGO_CANDIDATES:
+        if logo.exists():
+            return logo
+
+    if ASSETS_DIR.exists():
+        for pattern in ("*.png", "*.jpg", "*.jpeg", "*.webp"):
+            matches = list(ASSETS_DIR.glob(pattern))
+            if matches:
+                return matches[0]
+    return None
+
+
+def image_to_base64(path: Path) -> str:
+    return base64.b64encode(path.read_bytes()).decode("utf-8")
+
+
+LOGO_FILE = find_logo()
+
+
+def find_header_logo() -> Path | None:
+    for logo in HEADER_LOGO_CANDIDATES:
+        if logo.exists():
+            return logo
+    return LOGO_FILE
+
+
+HEADER_LOGO_FILE = find_header_logo()
+
+
+# ==========================================================
+# Database
+# ==========================================================
+
+ASSET_COLUMNS = {
+    "asset_name": "TEXT NOT NULL DEFAULT ''",
+    "category": "TEXT DEFAULT 'Card'",
+    "player": "TEXT DEFAULT ''",
+    "team": "TEXT DEFAULT ''",
+    "year": "TEXT DEFAULT ''",
+    "set_name": "TEXT DEFAULT ''",
+    "serial_number": "TEXT DEFAULT ''",
+    "purchase_price": "REAL DEFAULT 0",
+    "current_value": "REAL DEFAULT 0",
+    "status": "TEXT DEFAULT 'Owned'",
+    "notes": "TEXT DEFAULT ''",
+    "created_at": "TEXT",
+}
+
+WATCHLIST_COLUMNS = {
+    "asset_name": "TEXT NOT NULL DEFAULT ''",
+    "player": "TEXT DEFAULT ''",
+    "target_price": "REAL DEFAULT 0",
+    "asking_price": "REAL DEFAULT 0",
+    "source": "TEXT DEFAULT ''",
+    "priority": "TEXT DEFAULT 'Medium'",
+    "notes": "TEXT DEFAULT ''",
+    "created_at": "TEXT",
+}
+
+
+def get_connection():
+    return sqlite3.connect(DB_FILE)
+
+
+def ensure_columns(conn, table_name: str, columns: dict):
+    existing = {
+        row[1]
+        for row in conn.execute(f"PRAGMA table_info({table_name})").fetchall()
+    }
+    for column_name, column_def in columns.items():
+        if column_name not in existing:
+            conn.execute(f"ALTER TABLE {table_name} ADD COLUMN {column_name} {column_def}")
+
+
+def initialize_database():
+    with get_connection() as conn:
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS assets (
+                id INTEGER PRIMARY KEY AUTOINCREMENT
+            )
+            """
+        )
+        ensure_columns(conn, "assets", ASSET_COLUMNS)
+
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS watchlist (
+                id INTEGER PRIMARY KEY AUTOINCREMENT
+            )
+            """
+        )
+        ensure_columns(conn, "watchlist", WATCHLIST_COLUMNS)
+        conn.commit()
+
+
+def load_assets() -> pd.DataFrame:
+    initialize_database()
+    with get_connection() as conn:
+        return pd.read_sql_query(
+            "SELECT * FROM assets ORDER BY COALESCE(created_at, '') DESC, id DESC",
+            conn,
+        )
+
+
+def load_watchlist() -> pd.DataFrame:
+    initialize_database()
+    with get_connection() as conn:
+        return pd.read_sql_query(
+            "SELECT * FROM watchlist ORDER BY COALESCE(created_at, '') DESC, id DESC",
+            conn,
+        )
+
+
+def add_asset(data: dict):
+    initialize_database()
+    with get_connection() as conn:
+        conn.execute(
+            """
+            INSERT INTO assets (
+                asset_name, category, player, team, year, set_name,
+                serial_number, purchase_price, current_value, status, notes, created_at
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                data.get("asset_name", ""),
+                data.get("category", "Card"),
+                data.get("player", ""),
+                data.get("team", ""),
+                data.get("year", ""),
+                data.get("set_name", ""),
+                data.get("serial_number", ""),
+                float(data.get("purchase_price", 0) or 0),
+                float(data.get("current_value", 0) or 0),
+                data.get("status", "Owned"),
+                data.get("notes", ""),
+                datetime.now().isoformat(timespec="seconds"),
+            ),
+        )
+        conn.commit()
+
+
+def add_watchlist_item(data: dict):
+    initialize_database()
+    with get_connection() as conn:
+        conn.execute(
+            """
+            INSERT INTO watchlist (
+                asset_name, player, target_price, asking_price, source, priority, notes, created_at
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                data.get("asset_name", ""),
+                data.get("player", ""),
+                float(data.get("target_price", 0) or 0),
+                float(data.get("asking_price", 0) or 0),
+                data.get("source", ""),
+                data.get("priority", "Medium"),
+                data.get("notes", ""),
+                datetime.now().isoformat(timespec="seconds"),
+            ),
+        )
+        conn.commit()
+
+
+# ==========================================================
+# Data Helpers
+# ==========================================================
+
+def money(value) -> str:
+    try:
+        return f"${float(value):,.2f}"
+    except Exception:
+        return "$0.00"
+
+
+def numeric_sum(df: pd.DataFrame, col: str) -> float:
+    if df.empty or col not in df.columns:
+        return 0.0
+    return float(pd.to_numeric(df[col], errors="coerce").fillna(0).sum())
+
+
+def get_asset_snapshot(df: pd.DataFrame):
+    if df.empty:
+        return {
+            "portfolio_value": 0.0,
+            "purchase_basis": 0.0,
+            "asset_count": 0,
+            "cards": 0,
+            "memorabilia": 0,
+            "pops": 0,
+            "bobbleheads": 0,
+            "change_30": 0.0,
+            "change_pct": 0.0,
+        }
+
+    portfolio_value = numeric_sum(df, "current_value")
+    purchase_basis = numeric_sum(df, "purchase_price")
+
+    category_series = df["category"].fillna("").str.lower() if "category" in df.columns else pd.Series([])
+    cards = int(category_series.str.contains("card").sum()) if not category_series.empty else 0
+    memorabilia = int(category_series.str.contains("memorabilia").sum()) if not category_series.empty else 0
+    pops = int(category_series.str.contains("funko|pop").sum()) if not category_series.empty else 0
+    bobbleheads = int(category_series.str.contains("bobble").sum()) if not category_series.empty else 0
+
+    gain = portfolio_value - purchase_basis
+    pct = (gain / purchase_basis * 100) if purchase_basis else 0.0
+
+    return {
+        "portfolio_value": portfolio_value,
+        "purchase_basis": purchase_basis,
+        "asset_count": len(df),
+        "cards": cards,
+        "memorabilia": memorabilia,
+        "pops": pops,
+        "bobbleheads": bobbleheads,
+        "change_30": gain,
+        "change_pct": pct,
+    }
+
+
+def demo_value_series(total_value: float) -> pd.DataFrame:
+    if total_value <= 0:
+        total_value = 5023.12
+
+    start = max(total_value * 0.78, 100)
+    values = []
+    today = datetime.now().date()
+    for i in range(30):
+        step = i / 29
+        wave = ((i % 7) - 3) * total_value * 0.004
+        values.append(
+            {
+                "Date": today - timedelta(days=29 - i),
+                "Value": round(start + (total_value - start) * step + wave, 2),
+            }
+        )
+    return pd.DataFrame(values)
+
+
+# ==========================================================
+# CSS
+# ==========================================================
+
+st.markdown(
+    """
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    :root{
+        --bg:#05070B;
+        --panel:#090C12;
+        --panel2:#0D1118;
+        --gold:#D4AF37;
+        --gold2:#F4C542;
+        --muted:#A8AFBC;
+        --white:#F8FAFC;
+        --green:#35D66B;
+        --line:rgba(212,175,55,.30);
+    }
+
+    html, body, [class*="css"]{font-family:'Inter', sans-serif;}
+
+    .stApp{
+        background:
+            radial-gradient(circle at 50% 2%, rgba(212,175,55,.12), transparent 31%),
+            radial-gradient(circle at 5% 20%, rgba(212,175,55,.07), transparent 24%),
+            linear-gradient(135deg, #05070B 0%, #080B10 48%, #030407 100%);
+        color:var(--white);
+    }
+
+    .block-container{
+        max-width:1340px;
+        padding-top:1.2rem;
+        padding-bottom:2rem;
+    }
+
+    header[data-testid="stHeader"]{
+        background:rgba(0,0,0,0);
+    }
+
+    section[data-testid="stSidebar"]{
+        width:300px !important;
+        background:
+            radial-gradient(circle at 50% 5%, rgba(212,175,55,.16), transparent 30%),
+            linear-gradient(180deg, #05070A 0%, #070A0F 100%) !important;
+        border-right:1px solid rgba(212,175,55,.50);
+    }
+
+    section[data-testid="stSidebar"] > div{
+        padding-top:1.5rem;
+    }
+
+    section[data-testid="stSidebar"] *{color:var(--white);}
+    div[data-testid="stSidebarNav"]{display:none;}
+
+    .sidebar-logo-wrap{
+        text-align:center;
+        margin-top:.05rem;
+        margin-bottom:.45rem;
+    }
+
+    .sidebar-logo{
+        width:235px;
+        max-width:92%;
+        display:block;
+        margin:0 auto;
+        filter:drop-shadow(0 0 18px rgba(212,175,55,.18));
+    }
+
+    .sidebar-title{
+        text-align:center;
+        font-size:1.78rem;
+        font-weight:900;
+        letter-spacing:-.04em;
+        margin-top:8px;
+    }
+
+    .sidebar-title span{color:var(--gold2);}
+    .sidebar-caption{
+        text-align:center;
+        color:var(--gold2);
+        font-size:.92rem;
+        margin-top:6px;
+        margin-bottom:32px;
+    }
+
+    .sidebar-section{
+        color:var(--gold2);
+        font-size:.72rem;
+        font-weight:900;
+        letter-spacing:.16em;
+        text-transform:uppercase;
+        margin:22px 0 12px 10px;
+    }
+
+    .stRadio > div{
+        gap:6px;
+    }
+
+    .stRadio label{
+        border-radius:10px;
+        padding:7px 10px !important;
+    }
+
+    .stRadio label:has(input:checked){
+        background:linear-gradient(90deg, rgba(212,175,55,.28), rgba(212,175,55,.05));
+        border-left:4px solid var(--gold2);
+    }
+
+    .sidebar-footer{
+        border:1px solid rgba(212,175,55,.55);
+        border-radius:14px;
+        padding:18px;
+        margin:38px 8px 28px 8px;
+        background:linear-gradient(180deg, rgba(212,175,55,.08), rgba(255,255,255,.02));
+    }
+
+    .sidebar-footer-title{
+        color:var(--gold2);
+        font-size:.82rem;
+        font-weight:900;
+        letter-spacing:.08em;
+        text-transform:uppercase;
+    }
+
+    .sidebar-footer-caption{
+        color:#E5E7EB;
+        margin-top:12px;
+        font-size:.86rem;
+    }
+
+    .hero{
+        text-align:center;
+        padding-top:8px;
+    }
+
+    .hero-mark{
+        width:188px;
+        max-width:28vw;
+        display:block;
+        margin:0 auto;
+        filter:drop-shadow(0 0 34px rgba(212,175,55,.42));
+        opacity:.98;
+    }
+
+    .hero-title{
+        color:var(--gold2);
+        font-size:1.10rem;
+        font-weight:800;
+        letter-spacing:.48em;
+        text-transform:uppercase;
+        margin-top:20px;
+        text-shadow:0 0 18px rgba(212,175,55,.22);
+    }
+
+    .hero-divider{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:14px;
+        margin:25px 0 26px 0;
+    }
+
+    .hero-divider:before,
+    .hero-divider:after{
+        content:"";
+        height:1px;
+        flex:1;
+        background:linear-gradient(90deg, transparent, rgba(212,175,55,.60));
+    }
+
+    .hero-divider:after{
+        background:linear-gradient(90deg, rgba(212,175,55,.60), transparent);
+    }
+
+    .diamond{
+        color:var(--gold2);
+        font-size:1rem;
+        line-height:1;
+    }
+
+    .metric-card{
+        background:
+            radial-gradient(circle at 50% 0%, rgba(212,175,55,.09), transparent 36%),
+            linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012));
+        border:1px solid rgba(255,255,255,.18);
+        border-radius:10px;
+        min-height:184px;
+        padding:22px 18px 18px 18px;
+        text-align:center;
+        box-shadow:0 12px 34px rgba(0,0,0,.30);
+    }
+
+    .metric-card:hover{
+        border-color:rgba(212,175,55,.72);
+        transition:.18s ease;
+    }
+
+    .metric-icon{
+        width:64px;
+        height:64px;
+        border:1px solid var(--gold2);
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:var(--gold2);
+        margin:0 auto 18px auto;
+        font-size:1.58rem;
+        background:rgba(212,175,55,.065);
+        box-shadow:0 0 22px rgba(212,175,55,.13);
+    }
+
+    .metric-label{
+        color:var(--gold2);
+        text-transform:uppercase;
+        font-weight:900;
+        font-size:.73rem;
+        letter-spacing:.12em;
+        margin-bottom:10px;
+    }
+
+    .metric-value{
+        color:#FFFFFF;
+        font-size:2rem;
+        font-weight:900;
+        letter-spacing:-.045em;
+        line-height:1.05;
+    }
+
+    .metric-sub{
+        color:#D5D9E2;
+        font-size:.86rem;
+        margin-top:14px;
+    }
+
+    .metric-sub .up{
+        color:var(--green);
+        margin-right:9px;
+    }
+
+    .panel{
+        background:
+            radial-gradient(circle at 40% 0%, rgba(212,175,55,.055), transparent 31%),
+            linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+        border:1px solid rgba(255,255,255,.13);
+        border-radius:9px;
+        padding:20px 22px;
+        min-height:245px;
+        box-shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+
+    .panel-title{
+        color:var(--gold2);
+        font-size:.86rem;
+        font-weight:900;
+        text-transform:uppercase;
+        letter-spacing:.17em;
+        margin-bottom:18px;
+    }
+
+    .panel-link{
+        color:var(--gold2);
+        font-size:.82rem;
+        float:right;
+        margin-top:-36px;
+    }
+
+    .row-item{
+        display:grid;
+        grid-template-columns:56px 1fr auto;
+        gap:14px;
+        align-items:center;
+        padding:10px 0;
+        border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .thumb{
+        width:48px;
+        height:48px;
+        border-radius:6px;
+        background:linear-gradient(135deg, rgba(212,175,55,.50), rgba(90,63,19,.30));
+        border:1px solid rgba(212,175,55,.25);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:1.3rem;
+    }
+
+    .item-title{
+        color:#FFFFFF;
+        font-size:.94rem;
+        font-weight:600;
+        margin-bottom:4px;
+    }
+
+    .item-sub{
+        color:var(--muted);
+        font-size:.79rem;
+    }
+
+    .item-price{
+        color:#FFFFFF;
+        font-size:.92rem;
+        text-align:right;
+        white-space:nowrap;
+    }
+
+    .trend{
+        color:var(--green);
+        font-size:.86rem;
+        font-weight:700;
+        margin-right:20px;
+    }
+
+    .breakdown-row{
+        display:grid;
+        grid-template-columns:18px 1fr auto;
+        align-items:center;
+        gap:12px;
+        margin:17px 0;
+    }
+
+    .legend-box{
+        width:16px;
+        height:16px;
+        border-radius:4px;
+        background:var(--gold2);
+        box-shadow:0 0 16px rgba(212,175,55,.45);
+    }
+
+    .legend-blue{background:#4BA3E3;}
+    .legend-purple{background:#7357D6;}
+    .legend-violet{background:#8D4CC2;}
+
+    .legend-label{
+        color:#F2F4F8;
+        font-size:.92rem;
+    }
+
+    .legend-value{
+        color:#F2F4F8;
+        font-size:.90rem;
+        white-space:nowrap;
+    }
+
+    .donut-shell{
+        width:235px;
+        height:235px;
+        max-width:100%;
+        margin:4px auto 0 auto;
+        border-radius:50%;
+        position:relative;
+        background:
+            conic-gradient(
+                var(--gold2) 0deg var(--cards-deg),
+                #4BA3E3 var(--cards-deg) var(--memo-deg),
+                #7357D6 var(--memo-deg) var(--pops-deg),
+                #8D4CC2 var(--pops-deg) 360deg
+            );
+        box-shadow:
+            0 0 34px rgba(212,175,55,.18),
+            inset 0 0 18px rgba(0,0,0,.45);
+    }
+
+    .donut-shell:after{
+        content:"";
+        position:absolute;
+        inset:58px;
+        border-radius:50%;
+        background:#070A0F;
+        box-shadow:inset 0 0 18px rgba(0,0,0,.65);
+    }
+
+    .gold-chart{
+        width:100%;
+        height:245px;
+        display:block;
+        overflow:visible;
+    }
+
+    .chart-grid{
+        stroke:rgba(255,255,255,.10);
+        stroke-width:1;
+    }
+
+    .chart-line{
+        fill:none;
+        stroke:#F4C542;
+        stroke-width:3.2;
+        filter:drop-shadow(0 0 7px rgba(244,197,66,.45));
+    }
+
+    .chart-area{
+        fill:url(#goldGradient);
+        opacity:.70;
+    }
+
+    .chart-label{
+        fill:#A8AFBC;
+        font-size:11px;
+        font-family:Inter, sans-serif;
+    }
+
+
+    .stButton > button{
+        background:linear-gradient(135deg, #F4C542, #9B6A15);
+        color:#090A0D;
+        border:none;
+        border-radius:10px;
+        font-weight:900;
+    }
+
+    .stButton > button:hover{
+        filter:brightness(1.08);
+        color:#090A0D;
+        border:none;
+    }
+
+    div[data-testid="stDataFrame"]{
+        border:1px solid rgba(212,175,55,.20);
+        border-radius:10px;
+        overflow:hidden;
+    }
+
+    div[data-baseweb="select"] > div,
+    div[data-testid="stTextInput"] input,
+    div[data-testid="stNumberInput"] input,
+    textarea{
+        background:#0B0F16 !important;
+        color:#FFFFFF !important;
+        border-color:rgba(212,175,55,.22) !important;
+    }
+
+    .footer{
+        text-align:center;
+        color:#7E8593;
+        font-size:.80rem;
+        margin:28px 0 8px 0;
+    }
+
+    @media(max-width:900px){
+        section[data-testid="stSidebar"]{width:260px !important;}
+        .sidebar-logo{width:190px;}
+        .hero-mark{width:150px;max-width:50vw;}
+        .hero-title{font-size:.84rem;letter-spacing:.20em;}
+        .metric-value{font-size:1.65rem;}
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+
+# ==========================================================
+# Rendering Components
+# ==========================================================
+
+NAV_ITEMS = [
+    ("🏠", "Dashboard"),
+    ("📦", "Asset Vault"),
+    ("◔", "Portfolio"),
+    ("📊", "Market Intelligence"),
+    ("⚡", "THORᵡ Intelligence"),
+    ("☆", "Watchlist"),
+    ("⊕", "Add Asset"),
+    ("⚙", "Settings"),
+]
+
+
+def logo_img_tag(path: Path, css_class: str) -> str:
+    if path and path.exists():
+        ext = path.suffix.lower().replace(".", "")
+        mime = "jpeg" if ext in ("jpg", "jpeg") else ext
+        return f'<img class="{css_class}" src="data:image/{mime};base64,{image_to_base64(path)}" />'
+    return f'<div class="{css_class}" style="font-size:6rem;">🦅</div>'
+
+
+def render_sidebar():
+    with st.sidebar:
+        st.markdown(
+            f"""
+            <div class="sidebar-logo-wrap">
+                {logo_img_tag(LOGO_FILE, "sidebar-logo") if LOGO_FILE else '<div style="font-size:7rem;">🦅</div>'}
+                <div class="sidebar-title">CardHawk<span>OS</span></div>
+                <div class="sidebar-caption">Luxury Collectible Intelligence</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        st.markdown('<div class="sidebar-section">Navigation</div>', unsafe_allow_html=True)
+
+        labels = [f"{icon}  {name}" for icon, name in NAV_ITEMS]
+        selected = st.radio("", labels, index=0, label_visibility="collapsed")
+        page = selected.split("  ", 1)[1]
+
+        st.markdown(
+            """
+            <div class="sidebar-footer">
+                <div class="sidebar-footer-title">● Card Hawk Collectibles</div>
+                <div class="sidebar-footer-caption">Insight. Intelligence. Advantage.</div>
+            </div>
+            <div class="footer">© 2026 Card Hawk Collectibles</div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        return page
+
+
+def render_hero():
+    # Main dashboard hero uses the stripped-down header emblem.
+    # Put the file here: assets/cardhawk_header_logo.png
+    mark = HEADER_LOGO_FILE
+
+    st.markdown(
+        f"""
+        <div class="hero">
+            {logo_img_tag(mark, "hero-mark") if mark else '<div style="font-size:6rem;">🦅</div>'}
+            <div class="hero-title">The Operating System For Luxury Collectible Assets</div>
+            <div class="hero-divider"><span class="diamond">✦</span></div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def metric_card(icon, label, value, sub=""):
+    st.markdown(
+        f"""
+        <div class="metric-card">
+            <div class="metric-icon">{icon}</div>
+            <div class="metric-label">{label}</div>
+            <div class="metric-value">{value}</div>
+            <div class="metric-sub">{sub}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def render_metrics(snapshot):
+    cols = st.columns(4)
+    with cols[0]:
+        metric_card(
+            "≋",
+            "Total Portfolio Value",
+            money(snapshot["portfolio_value"]),
+            f'<span class="up">↑ {snapshot["change_pct"]:.2f}%</span> vs last 30 days',
+        )
+    with cols[1]:
+        metric_card(
+            "⬡",
+            "Total Assets",
+            f'{snapshot["asset_count"]:,}',
+            f'Cards <span style="color:#F4C542;">{snapshot["cards"]}</span> · Memorabilia <span style="color:#F4C542;">{snapshot["memorabilia"]}</span> · Pops <span style="color:#F4C542;">{snapshot["pops"]}</span>',
+        )
+    with cols[2]:
+        metric_card(
+            "↗",
+            "30 Day Change",
+            money(snapshot["change_30"]),
+            f'<span class="up">↑ {snapshot["change_pct"]:.2f}%</span> vs last 30 days',
+        )
+    with cols[3]:
+        metric_card(
+            "▰",
+            "Total Cost Basis",
+            money(snapshot["purchase_basis"]),
+            "All time purchases",
+        )
+
+
+def panel_start(title: str, link: str = ""):
+    link_html = f'<div class="panel-link">{link}</div>' if link else ""
+    st.markdown(
+        f'<div class="panel"><div class="panel-title">{title}</div>{link_html}',
+        unsafe_allow_html=True,
+    )
+
+
+def panel_end():
+    st.markdown("</div>", unsafe_allow_html=True)
+
+
+def fake_thumbnail(category="", name=""):
+    lowered = f"{category} {name}".lower()
+    if "basket" in lowered or "matas" in lowered or "amen" in lowered:
+        return "🏀"
+    if "funko" in lowered or "pop" in lowered:
+        return "🧸"
+    if "helmet" in lowered or "memorabilia" in lowered:
+        return "🏈"
+    return "🃏"
+
+
+def render_recent_assets(df: pd.DataFrame):
+    panel_start("Recent Acquisitions", "View All")
+    if df.empty:
+        rows = [
+            ("Rome Odunze Contenders Optic RPA /25", "Football • 2024", "$150.00", "🃏"),
+            ("Matas Buzelis Court Kings Sapphire /25", "Basketball • 2024", "$33.00", "🏀"),
+            ("Caleb Williams Leaf Metal State Pride /15", "Football • 2022", "$105.00", "🃏"),
+        ]
+    else:
+        rows = []
+        for _, row in df.head(4).iterrows():
+            title = row.get("asset_name", "Asset")
+            sub = " • ".join(
+                [str(x) for x in [row.get("category", ""), row.get("year", "")] if str(x)]
+            )
+            price = money(row.get("purchase_price", row.get("current_value", 0)))
+            thumb = fake_thumbnail(row.get("category", ""), title)
+            rows.append((title, sub, price, thumb))
+
+    for title, sub, price, thumb in rows:
+        st.markdown(
+            f"""
+            <div class="row-item">
+                <div class="thumb">{thumb}</div>
+                <div>
+                    <div class="item-title">{title}</div>
+                    <div class="item-sub">{sub}</div>
+                </div>
+                <div class="item-price">{price}<br><span class="item-sub">{datetime.now().strftime('%b %d, %Y')}</span></div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    panel_end()
+
+
+def render_top_movers(df: pd.DataFrame):
+    panel_start("Top Movers (30 Days)", "View All")
+    if df.empty:
+        rows = [
+            ("Caleb Williams Leaf Flash Orange /10", "↑ 32.41%", "$155.00", "🃏"),
+            ("Rome Odunze Luminance /25", "↑ 18.75%", "$175.00", "🃏"),
+            ("Amen Thompson Red Cracked Ice PSA 10", "↑ 15.38%", "$85.00", "🏀"),
+        ]
+    else:
+        rows = []
+        temp = df.copy()
+        temp["current_value"] = pd.to_numeric(temp.get("current_value", 0), errors="coerce").fillna(0)
+        temp["purchase_price"] = pd.to_numeric(temp.get("purchase_price", 0), errors="coerce").fillna(0)
+        temp["gain"] = temp["current_value"] - temp["purchase_price"]
+        temp = temp.sort_values("gain", ascending=False).head(4)
+        for _, row in temp.iterrows():
+            purchase = float(row.get("purchase_price", 0) or 0)
+            gain = float(row.get("gain", 0) or 0)
+            pct = (gain / purchase * 100) if purchase else 0
+            rows.append(
+                (
+                    row.get("asset_name", "Asset"),
+                    f"↑ {pct:.2f}%",
+                    money(row.get("current_value", 0)),
+                    fake_thumbnail(row.get("category", ""), row.get("asset_name", "")),
+                )
+            )
+
+    for title, trend, price, thumb in rows:
+        st.markdown(
+            f"""
+            <div class="row-item">
+                <div class="thumb">{thumb}</div>
+                <div class="item-title">{title}</div>
+                <div class="item-price"><span class="trend">{trend}</span>{price}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    panel_end()
+
+
+def render_asset_breakdown(snapshot):
+    panel_start("Asset Breakdown")
+
+    raw_items = [
+        ("Cards", int(snapshot["cards"]), "legend-box"),
+        ("Memorabilia", int(snapshot["memorabilia"]), "legend-box legend-blue"),
+        ("Funko Pops", int(snapshot["pops"]), "legend-box legend-purple"),
+        ("Bobbleheads", int(snapshot["bobbleheads"]), "legend-box legend-violet"),
+    ]
+
+    # Use tasteful demo distribution when empty so the dashboard still looks designed.
+    display_items = raw_items
+    if sum(count for _, count, _ in display_items) == 0:
+        display_items = [
+            ("Cards", 105, "legend-box"),
+            ("Memorabilia", 13, "legend-box legend-blue"),
+            ("Funko Pops", 12, "legend-box legend-purple"),
+            ("Bobbleheads", 3, "legend-box legend-violet"),
+        ]
+
+    total = max(sum(count for _, count, _ in display_items), 1)
+    cards_deg = display_items[0][1] / total * 360
+    memo_deg = cards_deg + display_items[1][1] / total * 360
+    pops_deg = memo_deg + display_items[2][1] / total * 360
+
+    left, right = st.columns([.95, 1.05])
+    with left:
+        st.markdown(
+            f"""
+            <div class="donut-shell" style="
+                --cards-deg:{cards_deg:.2f}deg;
+                --memo-deg:{memo_deg:.2f}deg;
+                --pops-deg:{pops_deg:.2f}deg;">
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    with right:
+        real_total = max(int(snapshot["asset_count"]), 1)
+        for label, count, cls in raw_items:
+            pct = (count / real_total * 100) if real_total else 0
+            st.markdown(
+                f"""
+                <div class="breakdown-row">
+                    <div class="{cls}"></div>
+                    <div class="legend-label">{label}</div>
+                    <div class="legend-value">{count} ({pct:.1f}%)</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+    panel_end()
+
+
+def render_value_chart(snapshot):
+    panel_start("Portfolio Value Over Time")
+    series = demo_value_series(snapshot["portfolio_value"])
+    values = [float(v) for v in series["Value"].tolist()]
+    dates = list(series["Date"].astype(str))
+
+    width, height = 760, 245
+    pad_l, pad_r, pad_t, pad_b = 46, 18, 18, 34
+    chart_w = width - pad_l - pad_r
+    chart_h = height - pad_t - pad_b
+
+    v_min = min(values)
+    v_max = max(values)
+    if v_max == v_min:
+        v_max = v_min + 1
+
+    def xy(i, v):
+        x = pad_l + (i / max(len(values) - 1, 1)) * chart_w
+        y = pad_t + (1 - (v - v_min) / (v_max - v_min)) * chart_h
+        return x, y
+
+    points = [xy(i, v) for i, v in enumerate(values)]
+    point_str = " ".join(f"{x:.1f},{y:.1f}" for x, y in points)
+
+    area_points = (
+        f"{pad_l},{height-pad_b} "
+        + point_str
+        + f" {width-pad_r},{height-pad_b}"
+    )
+
+    grid_lines = ""
+    y_labels = ""
+    for j in range(4):
+        y = pad_t + (j / 3) * chart_h
+        val = v_max - (j / 3) * (v_max - v_min)
+        grid_lines += f'<line class="chart-grid" x1="{pad_l}" y1="{y:.1f}" x2="{width-pad_r}" y2="{y:.1f}" />'
+        y_labels += f'<text class="chart-label" x="4" y="{y+4:.1f}">${val:,.0f}</text>'
+
+    x_labels = ""
+    for idx in [0, 7, 14, 21, 29]:
+        if idx < len(dates):
+            x, _ = xy(idx, values[idx])
+            label = pd.to_datetime(dates[idx]).strftime("%b %d")
+            x_labels += f'<text class="chart-label" x="{x-16:.1f}" y="{height-8}">{label}</text>'
+
+    st.markdown(
+        f"""
+        <svg class="gold-chart" viewBox="0 0 {width} {height}" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="goldGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#F4C542" stop-opacity=".38"/>
+                    <stop offset="100%" stop-color="#F4C542" stop-opacity=".03"/>
+                </linearGradient>
+            </defs>
+            {grid_lines}
+            {y_labels}
+            {x_labels}
+            <polygon class="chart-area" points="{area_points}" />
+            <polyline class="chart-line" points="{point_str}" />
+            <circle cx="{points[-1][0]:.1f}" cy="{points[-1][1]:.1f}" r="5.2" fill="#F4C542" />
+        </svg>
+        """,
+        unsafe_allow_html=True,
+    )
+    panel_end()
+
+
+# ==========================================================
+# Pages
+# ==========================================================
+
+def dashboard_page(assets_df, watchlist_df, snapshot):
+    render_hero()
+    render_metrics(snapshot)
+    st.markdown("<div style='height:16px;'></div>", unsafe_allow_html=True)
+
+    chart_col, breakdown_col = st.columns([1, 1.05])
+    with chart_col:
+        render_value_chart(snapshot)
+    with breakdown_col:
+        render_asset_breakdown(snapshot)
+
+    st.markdown("<div style='height:16px;'></div>", unsafe_allow_html=True)
+
+    recent_col, movers_col = st.columns([1, 1.05])
+    with recent_col:
+        render_recent_assets(assets_df)
+    with movers_col:
+        render_top_movers(assets_df)
+
+
+def asset_vault_page(assets_df, snapshot):
+    render_hero()
+    render_metrics(snapshot)
+    st.markdown('<div class="panel"><div class="panel-title">Asset Vault</div>', unsafe_allow_html=True)
+    if assets_df.empty:
+        st.info("No assets loaded yet. Use Add Asset to begin building the vault.")
+    else:
+        visible_cols = [
+            "asset_name", "category", "player", "team", "year",
+            "serial_number", "purchase_price", "current_value", "status"
+        ]
+        existing_cols = [c for c in visible_cols if c in assets_df.columns]
+        st.dataframe(assets_df[existing_cols], use_container_width=True, hide_index=True)
+    panel_end()
+
+
+def portfolio_page(assets_df, snapshot):
+    render_hero()
+    render_metrics(snapshot)
+    c1, c2 = st.columns([1, 1])
+    with c1:
+        render_value_chart(snapshot)
+    with c2:
+        render_asset_breakdown(snapshot)
+
+
+def market_page(snapshot):
+    render_hero()
+    render_metrics(snapshot)
+    st.markdown(
+        """
+        <div class="panel">
+            <div class="panel-title">Market Intelligence</div>
+            <div class="row-item"><div class="thumb">📡</div><div><div class="item-title">Market Scanner Standby</div><div class="item-sub">Future comp scanner, listing intelligence, and price alerts.</div></div><div class="item-price">Ready</div></div>
+            <div class="row-item"><div class="thumb">☢️</div><div><div class="item-title">Nuclear Cloud Modeling</div><div class="item-sub">Tracks high-upside long-term player thesis opportunities.</div></div><div class="item-price">Active</div></div>
+            <div class="row-item"><div class="thumb">🦅</div><div><div class="item-title">Strike Zone Watch</div><div class="item-sub">Built for Floor / Ceiling / Nuclear Cloud price projections.</div></div><div class="item-price">Queued</div></div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def thorx_page(snapshot):
+    render_hero()
+    render_metrics(snapshot)
+    c1, c2 = st.columns(2)
+    with c1:
+        st.markdown(
+            """
+            <div class="panel">
+                <div class="panel-title">Q-DEF Evaluation Mode</div>
+                <div class="row-item"><div class="thumb">⚡</div><div><div class="item-title">Quick View</div><div class="item-sub">Fast buy/pass evaluation.</div></div><div class="item-price">Online</div></div>
+                <div class="row-item"><div class="thumb">📊</div><div><div class="item-title">Card Hawk Score</div><div class="item-sub">Scarcity, player upside, eye appeal, and liquidity.</div></div><div class="item-price">Ready</div></div>
+                <div class="row-item"><div class="thumb">☢️</div><div><div class="item-title">Price Projection</div><div class="item-sub">Floor, ceiling, and nuclear cloud.</div></div><div class="item-price">Ready</div></div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    with c2:
+        st.markdown(
+            """
+            <div class="panel">
+                <div class="panel-title">D-DEF Deep Mode</div>
+                <div class="row-item"><div class="thumb">🧠</div><div><div class="item-title">Market Context</div><div class="item-sub">Comps, timing, alternatives, and portfolio fit.</div></div><div class="item-price">Queued</div></div>
+                <div class="row-item"><div class="thumb">🏆</div><div><div class="item-title">Premium Doctrine</div><div class="item-sub">Low serials, autos, RPAs, patches, inscriptions, shields.</div></div><div class="item-price">Active</div></div>
+                <div class="row-item"><div class="thumb">🎯</div><div><div class="item-title">Strike Zone</div><div class="item-sub">Target bid and max buy thresholds.</div></div><div class="item-price">Ready</div></div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+
+def watchlist_page(watchlist_df, snapshot):
+    render_hero()
+    render_metrics(snapshot)
+
+    with st.expander("Add Watchlist Target", expanded=watchlist_df.empty):
+        with st.form("watchlist_form"):
+            asset_name = st.text_input("Asset Name")
+            player = st.text_input("Player / Subject")
+            c1, c2 = st.columns(2)
+            with c1:
+                target_price = st.number_input("Target Price", min_value=0.0, step=1.0)
+            with c2:
+                asking_price = st.number_input("Asking Price", min_value=0.0, step=1.0)
+            source = st.text_input("Source / Marketplace")
+            priority = st.selectbox("Priority", ["Low", "Medium", "High", "THORᵡ"])
+            notes = st.text_area("Notes")
+            if st.form_submit_button("Add Target") and asset_name:
+                add_watchlist_item(
+                    {
+                        "asset_name": asset_name,
+                        "player": player,
+                        "target_price": target_price,
+                        "asking_price": asking_price,
+                        "source": source,
+                        "priority": priority,
+                        "notes": notes,
+                    }
+                )
+                st.success("Watchlist target added.")
+                st.rerun()
+
+    st.markdown('<div class="panel"><div class="panel-title">Watchlist</div>', unsafe_allow_html=True)
+    if watchlist_df.empty:
+        st.info("No watchlist targets yet.")
+    else:
+        st.dataframe(watchlist_df, use_container_width=True, hide_index=True)
+    panel_end()
+
+
+def add_asset_page(snapshot):
+    render_hero()
+    render_metrics(snapshot)
+
+    st.markdown('<div class="panel"><div class="panel-title">Add Asset</div>', unsafe_allow_html=True)
+    with st.form("asset_form"):
+        asset_name = st.text_input("Asset Name", placeholder="2024 Rome Odunze Contenders Optic RPA /25")
+        category = st.selectbox("Category", ["Card", "Memorabilia", "Funko Pop", "Bobblehead", "Other"])
+
+        c1, c2, c3 = st.columns(3)
+        with c1:
+            player = st.text_input("Player / Subject")
+            year = st.text_input("Year")
+        with c2:
+            team = st.text_input("Team")
+            set_name = st.text_input("Set / Product")
+        with c3:
+            serial_number = st.text_input("Serial Number", placeholder="23/25")
+            status = st.selectbox("Status", ["Owned", "Incoming", "Sold", "Watch"])
+
+        c4, c5 = st.columns(2)
+        with c4:
+            purchase_price = st.number_input("Purchase Price", min_value=0.0, step=1.0)
+        with c5:
+            current_value = st.number_input("Current Value", min_value=0.0, step=1.0)
+
+        notes = st.text_area("Notes")
+
+        if st.form_submit_button("Add to Asset Vault"):
+            if not asset_name:
+                st.error("Asset Name is required.")
+            else:
+                add_asset(
+                    {
+                        "asset_name": asset_name,
+                        "category": category,
+                        "player": player,
+                        "team": team,
+                        "year": year,
+                        "set_name": set_name,
+                        "serial_number": serial_number,
+                        "purchase_price": purchase_price,
+                        "current_value": current_value,
+                        "status": status,
+                        "notes": notes,
+                    }
+                )
+                st.success("Asset added to the Card Hawk Asset Vault.")
+                st.rerun()
+    panel_end()
+
+
+def settings_page(snapshot):
+    render_hero()
+    st.markdown(
+        f"""
+        <div class="panel">
+            <div class="panel-title">Settings</div>
+            <div class="row-item"><div class="thumb">🗃️</div><div><div class="item-title">Database</div><div class="item-sub">{DB_FILE}</div></div><div class="item-price">SQLite</div></div>
+            <div class="row-item"><div class="thumb">🦅</div><div><div class="item-title">Sidebar Logo</div><div class="item-sub">{LOGO_FILE if LOGO_FILE else "No logo found in assets folder"}</div></div><div class="item-price">Active</div></div>
+            <div class="row-item"><div class="thumb">🛡️</div><div><div class="item-title">Header Emblem</div><div class="item-sub">{HEADER_LOGO_FILE if HEADER_LOGO_FILE else "No header logo found"}</div></div><div class="item-price">Active</div></div>
+            <div class="row-item"><div class="thumb">✨</div><div><div class="item-title">Build</div><div class="item-sub">CardHawkOS v3 Premium Dashboard</div></div><div class="item-price">{datetime.now().strftime("%Y-%m-%d")}</div></div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+# ==========================================================
+# Main
+# ==========================================================
+
+page = render_sidebar()
+
+assets_df = load_assets()
+watchlist_df = load_watchlist()
+snapshot = get_asset_snapshot(assets_df)
+
+if page == "Dashboard":
+    dashboard_page(assets_df, watchlist_df, snapshot)
+elif page == "Asset Vault":
+    asset_vault_page(assets_df, snapshot)
+elif page == "Portfolio":
+    portfolio_page(assets_df, snapshot)
+elif page == "Market Intelligence":
+    market_page(snapshot)
+elif page == "THORᵡ Intelligence":
+    thorx_page(snapshot)
+elif page == "Watchlist":
+    watchlist_page(watchlist_df, snapshot)
+elif page == "Add Asset":
+    add_asset_page(snapshot)
+else:
+    settings_page(snapshot)

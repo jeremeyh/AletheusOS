@@ -1,0 +1,1 @@
+from capital_allocation.capital_allocator import CapitalAllocator

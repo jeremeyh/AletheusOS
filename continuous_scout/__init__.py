@@ -1,0 +1,1 @@
+from continuous_scout.continuous_scout_service import ContinuousScoutService
