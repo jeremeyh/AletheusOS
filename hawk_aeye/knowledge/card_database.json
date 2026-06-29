@@ -1,0 +1,59 @@
+{
+  "players": [
+    "CALEB WILLIAMS",
+    "ROME ODUNZE",
+    "COLSTON LOVELAND",
+    "LUTHER BURDEN III",
+    "MATAS BUZELIS",
+    "AMEN THOMPSON",
+    "AUSAR THOMPSON",
+    "JALEN CARTER",
+    "CJ STROUD"
+  ],
+
+  "brands": [
+    "LEAF",
+    "PANINI",
+    "TOPPS",
+    "BOWMAN",
+    "PRIZM",
+    "SELECT",
+    "OPTIC",
+    "ORIGINS",
+    "REVOLUTION",
+    "OBSIDIAN",
+    "NATIONAL TREASURES",
+    "IMMACULATE"
+  ],
+
+  "sets": [
+    "METAL DRAFT",
+    "PRIZM",
+    "SELECT",
+    "ORIGINS",
+    "REVOLUTION",
+    "OBSIDIAN",
+    "NATIONAL TREASURES",
+    "IMMACULATE"
+  ],
+
+  "parallels": [
+    "BLACK FINITE",
+    "GOLD VINYL",
+    "GOLD SHIMMER",
+    "ORANGE CRYSTAL",
+    "GREEN GEOMETRIC",
+    "RED CRACKED ICE",
+    "GOLD",
+    "BLACK",
+    "GREEN",
+    "ORANGE",
+    "BLUE",
+    "RED",
+    "PURPLE",
+    "PINK",
+    "MOJO",
+    "WAVE",
+    "REFRACTOR"
+  ]
+}

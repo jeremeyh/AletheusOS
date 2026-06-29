@@ -1,50 +1,55 @@
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Any
+from typing import List
+
 
 @dataclass
-class AssetGenomeEvent:
+class GenomeEvent:
     """
-    Asset Genome™ Event
+    A single event in an asset's lifecycle.
+    """
 
-    A single lifecycle event in an asset's history.
-    """
-    event_type: str
-    description: str
-    value: Any = None
-    metadata: dict = field(default_factory=dict)
-    timestamp: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+    timestamp: str
+    event: str
+    source: str
+    details: str
+
 
 @dataclass
 class AssetGenome:
     """
-    Asset Genome™
+    Living historical timeline for every CardHawk asset.
 
-    Living historical timeline for every asset.
+    Every significant event is permanently recorded.
     """
-    events: list[AssetGenomeEvent] = field(default_factory=list)
 
-    def add(self, event_type: str, description: str, value=None, metadata=None):
-        event = AssetGenomeEvent(
-            event_type=event_type,
-            description=description,
-            value=value,
-            metadata=metadata or {},
+    asset_uuid: str
+
+    timeline: List[GenomeEvent] = field(default_factory=list)
+
+    def add_event(
+        self,
+        event,
+        source,
+        details,
+    ):
+
+        self.timeline.append(
+
+            GenomeEvent(
+
+                timestamp=datetime.utcnow().isoformat(),
+
+                event=event,
+
+                source=source,
+
+                details=details,
+
+            )
+
         )
-        self.events.append(event)
-        return event
 
-    def purchase(self, price: float):
-        return self.add("PURCHASE", "Asset acquired.", price)
+    def history(self):
 
-    def valuation(self, value: float):
-        return self.add("VALUATION", "Asset valuation updated.", value)
-
-    def thorx(self, score: float):
-        return self.add("THORX", "THORᵡ™ score updated.", score)
-
-    def note(self, text: str):
-        return self.add("FOUNDER_NOTE", text)
-
-    def to_list(self):
-        return [event.__dict__ for event in self.events]
+        return self.timeline

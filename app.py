@@ -1,40 +1,84 @@
 import streamlit as st
 
-from kernel.runtime import kernel
-from themes.cardhawk_theme import apply_cardhawk_theme
+from portfolio.digital_twin.engine import PortfolioDigitalTwin
 
 st.set_page_config(
     page_title="CardHawk OS™",
     page_icon="🦅",
     layout="wide",
-    initial_sidebar_state="expanded",
 )
 
-apply_cardhawk_theme()
-
-kernel.boot()
+snapshot = PortfolioDigitalTwin.snapshot()
 
 st.title("🦅 CardHawk OS™")
-st.caption("Intelligence Fabric™ Runtime")
-
-status = kernel.status()
+st.caption("Collectible Intelligence Platform")
 
 c1, c2, c3, c4 = st.columns(4)
 
-c1.metric("Engines", status["engines"])
-c2.metric("Services", status["services"])
-c3.metric("Projections", status["projections"])
-c4.metric("Listeners", sum(status["listeners"].values()))
+c1.metric(
+    "Portfolio",
+    f"${snapshot['total_value']:,.2f}"
+)
+
+c2.metric(
+    "Gain/Loss",
+    f"${snapshot['gain_loss']:,.2f}"
+)
+
+c3.metric(
+    "Assets",
+    snapshot["asset_count"]
+)
+
+c4.metric(
+    "Avg THORᵡ",
+    snapshot["average_thorx"]
+)
 
 st.divider()
 
-st.success("CardHawk OS™ Kernel is running.")
+left, right = st.columns([2, 1])
 
-st.subheader("Runtime Status")
+with left:
 
-st.json(status)
+    st.subheader("Mission Status")
 
-st.info(
-    "The legacy navigation system has been temporarily bypassed while "
-    "the application is migrated to the new Kernel architecture."
-)
+    st.success("CardHawk OS™ operational")
+
+    st.write("Registered Engines")
+
+    st.code(
+        """
+✓ Hawk A•Eye™
+✓ THORᵡ
+✓ Marketplace Intelligence™
+✓ Negotiation AI™
+✓ Founder AI™
+✓ Portfolio Digital Twin™
+✓ Founder Copilot™
+"""
+    )
+
+with right:
+
+    st.subheader("Quick Actions")
+
+    st.page_link(
+        "pages/01_Asset_Intake.py",
+        label="Asset Intake™"
+    )
+
+    st.page_link(
+        "pages/03_Asset_Explorer.py",
+        label="Asset Explorer™"
+    )
+
+    st.page_link(
+        "pages/04_Asset_Intelligence.py",
+        label="Asset Intelligence™"
+    )
+
+    st.page_link(
+        "pages/98_Command_Center.py",
+        label="Mission Control™"
+    )
