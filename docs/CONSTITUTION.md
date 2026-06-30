@@ -43,3 +43,15 @@ Composition over accumulation. Runtime orchestration modules shall compose speci
 - Patch scripts belong under `tools/patches/`.
 - Verification scripts belong under `tools/verification/`.
 - `runtime/core.py` must remain a composition root, not an infinite implementation sink.
+
+## Principle XV — Repository Determinism
+
+The repository shall remain structurally deterministic.
+
+Every file shall have one canonical location.
+
+Temporary engineering artifacts — including patches, migration utilities, experiments, debugging tools, and verification scripts — shall reside only within designated tooling directories.
+
+The repository root shall contain only permanent project artifacts.
+
+Repository organization is part of runtime integrity.

@@ -1,6 +1,6 @@
 # AletheusOS Runtime Documentation
 
-Generated: 2026-06-30T14:59:23.367632
+Generated: 2026-06-30T15:11:09.871417
 Runtime Version: 4.2.1
 
 ## Compatibility Aliases
