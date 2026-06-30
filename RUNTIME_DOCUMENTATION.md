@@ -1,7 +1,7 @@
 # AletheusOS Runtime Documentation
 
-Generated: 2026-06-30T14:49:44.070122
-Runtime Version: 4.1.1
+Generated: 2026-06-30T14:59:23.367632
+Runtime Version: 4.2.1
 
 ## Compatibility Aliases
 - agents
@@ -253,11 +253,15 @@ Runtime Version: 4.1.1
 - `release.status`
 - `release.validate`
 - `runtime.audit`
+- `runtime.boot.validate`
 - `runtime.dashboard`
 - `runtime.diagnostics`
 - `runtime.docs`
+- `runtime.doctor`
 - `runtime.events`
 - `runtime.health`
+- `runtime.health_report`
+- `runtime.invariants`
 - `runtime.metrics`
 - `runtime.queue`
 - `runtime.run_next_job`

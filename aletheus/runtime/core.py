@@ -57,6 +57,7 @@ from aletheus.runtime.registries import EngineRegistry, ServiceRegistry
 from aletheus.runtime.scheduler import Scheduler
 from aletheus.runtime.workflow import WorkflowExecutor, WorkflowGraph
 from aletheus.runtime.hardening import RuntimeHardening
+from aletheus.runtime.integrity import RuntimeDoctor, RuntimeInvariantEngine, RuntimeBootValidator
 
 
 class AletheusRuntime:
@@ -64,7 +65,7 @@ class AletheusRuntime:
         self.organization = "6th Dimension Multimedia"
         self.product = "Aletheus™"
         self.product_type = "Universal Intelligence Operating System"
-        self.version = "4.1.1"
+        self.version = "4.2.1"
         self.status = "created"
 
         self.events = EventBus()
@@ -127,6 +128,10 @@ class AletheusRuntime:
         self.boot()
         self._bootstrap_compatibility()
         self.hardening = RuntimeHardening(self)
+        self.runtime_doctor = RuntimeDoctor(self)
+        self.runtime_invariants = RuntimeInvariantEngine(self)
+        self.boot_validator = RuntimeBootValidator(self)
+
 
     def boot(self) -> None:
         self.status = "online"
@@ -142,6 +147,10 @@ class AletheusRuntime:
         self.commands.register("runtime.snapshot", self._cmd_runtime_snapshot)
         self.commands.register("runtime.audit", self._cmd_runtime_audit)
         self.commands.register("runtime.docs", self._cmd_runtime_docs)
+        self.commands.register("runtime.doctor", self._cmd_runtime_doctor)
+        self.commands.register("runtime.invariants", self._cmd_runtime_invariants)
+        self.commands.register("runtime.boot.validate", self._cmd_runtime_boot_validate)
+        self.commands.register("runtime.health_report", self._cmd_runtime_health_report)
         self.commands.register("runtime.metrics", self._cmd_metrics)
         self.commands.register("runtime.events", self._cmd_events)
         self.commands.register("runtime.queue", self._cmd_queue)
@@ -3619,6 +3628,28 @@ class AletheusRuntime:
     def _cmd_runtime_docs(self, context: RuntimeContext) -> RuntimeContext:
         path = context.payload.get("path", "RUNTIME_DOCUMENTATION.md")
         context.add_result("documentation", self.hardening.write_documentation(path))
+        return context
+
+
+
+    # ==========================================================
+    # v4.2.1 Runtime Integrity Commands
+    # ==========================================================
+
+    def _cmd_runtime_doctor(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("doctor", self.runtime_doctor.run())
+        return context
+
+    def _cmd_runtime_invariants(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("invariants", self.runtime_invariants.validate())
+        return context
+
+    def _cmd_runtime_boot_validate(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("boot_validation", self.boot_validator.validate())
+        return context
+
+    def _cmd_runtime_health_report(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("health_report", self.runtime_doctor.write_reports())
         return context
 
 
