@@ -1,0 +1,37 @@
+from __future__ import annotations
+
+import importlib
+from typing import Dict, List
+
+from plugins.base_plugin import BasePlugin
+
+
+DEFAULT_PLUGIN_MODULES = [
+    "plugins.perch",
+    "plugins.talon",
+    "plugins.strike",
+    "plugins.soar",
+    "plugins.roost",
+]
+
+
+class PluginLoader:
+    def __init__(self) -> None:
+        self.plugins: Dict[str, BasePlugin] = {}
+
+    def load_defaults(self) -> Dict[str, BasePlugin]:
+        for module_name in DEFAULT_PLUGIN_MODULES:
+            self.load(module_name)
+        return self.plugins
+
+    def load(self, module_name: str) -> BasePlugin:
+        module = importlib.import_module(module_name)
+        plugin = module.Plugin()
+        self.plugins[plugin.name] = plugin
+        return plugin
+
+    def manifests(self) -> List[dict]:
+        return [plugin.manifest() for plugin in self.plugins.values()]
+
+    def enabled_plugins(self) -> List[BasePlugin]:
+        return [plugin for plugin in self.plugins.values() if plugin.enabled]

@@ -1,25 +1,52 @@
-from abc import ABC
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 
 
 class MarketplaceProvider(ABC):
     """
-    Base class for all marketplace providers.
+    Base class for every CardHawk marketplace provider.
+
+    Every provider must implement the same interface.
     """
 
+    @property
     @abstractmethod
-    def search(self, card):
+    def name(self):
         """
-        Returns a normalized list of comparable sales.
+        Marketplace name.
+        """
+        pass
 
-        Example:
+    @abstractmethod
+    def search(self, query):
+        """
+        Search marketplace.
+        """
+        pass
 
-        [
-            {
-                "price":125,
-                "source":"eBay",
-                "title":"..."
-            }
-        ]
+    @abstractmethod
+    def get_comps(self, card):
+        """
+        Return sold comparable sales.
+        """
+        pass
+
+    @abstractmethod
+    def get_listings(self, card):
+        """
+        Return active listings.
+        """
+        pass
+
+    @abstractmethod
+    def get_sales(self, card):
+        """
+        Return historical sales.
+        """
+        pass
+
+    @abstractmethod
+    def health_check(self):
+        """
+        Verify provider availability.
         """
         pass

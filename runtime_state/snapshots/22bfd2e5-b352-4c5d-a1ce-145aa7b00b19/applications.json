@@ -1,0 +1,156 @@
+[
+  {
+    "application_id": "cardhawk.foundation",
+    "app_runtime_id": "403dd8a3-feb7-4402-8df1-fa5c2505a683",
+    "name": "Card Hawk Foundation\u2122",
+    "version": "2.0.0-beta",
+    "status": "running",
+    "health": "healthy",
+    "lifecycle": "running",
+    "manifest": {
+      "app_id": "cardhawk.foundation",
+      "name": "Card Hawk Foundation\u2122",
+      "version": "2.0.0-beta",
+      "author": "6th Dimension Multimedia",
+      "description": "Flagship native AletheusOS reference application.",
+      "autostart": true,
+      "permissions": [
+        "memory",
+        "knowledge",
+        "semantic",
+        "planning",
+        "prediction",
+        "learning",
+        "optimization",
+        "agents",
+        "kernel"
+      ],
+      "dependencies": [
+        "Aletheus Runtime Core",
+        "Aletheus v2 Autonomous Kernel",
+        "Aletheus Memory Core",
+        "Aletheus Knowledge Graph Engine",
+        "Aletheus Predictive Intelligence Layer",
+        "Aletheus Adaptive Learning Engine"
+      ],
+      "commands": [
+        "cardhawk.status",
+        "cardhawk.start",
+        "cardhawk.stop",
+        "cardhawk.foundation.bootstrap"
+      ],
+      "services": [
+        "Asset Vault",
+        "Portfolio Engine",
+        "Marketplace Intelligence",
+        "Hawk A\u2022Eye\u2122",
+        "THOR\u1d61",
+        "DEF",
+        "FALCON\u2122",
+        "NEST\u2122"
+      ]
+    },
+    "dependencies": [
+      "Aletheus Runtime Core",
+      "Aletheus v2 Autonomous Kernel",
+      "Aletheus Memory Core",
+      "Aletheus Knowledge Graph Engine",
+      "Aletheus Predictive Intelligence Layer",
+      "Aletheus Adaptive Learning Engine"
+    ],
+    "commands": [
+      "cardhawk.status",
+      "cardhawk.start",
+      "cardhawk.stop",
+      "cardhawk.foundation.bootstrap"
+    ],
+    "services": [
+      "Asset Vault",
+      "Portfolio Engine",
+      "Marketplace Intelligence",
+      "Hawk A\u2022Eye\u2122",
+      "THOR\u1d61",
+      "DEF",
+      "FALCON\u2122",
+      "NEST\u2122"
+    ],
+    "permissions": [
+      "memory",
+      "knowledge",
+      "semantic",
+      "planning",
+      "prediction",
+      "learning",
+      "optimization",
+      "agents",
+      "kernel"
+    ],
+    "events": [
+      {
+        "app_id": "cardhawk.foundation",
+        "event_type": "application.installed",
+        "message": "Card Hawk Foundation\u2122 installed.",
+        "payload": {
+          "manifest": {
+            "app_id": "cardhawk.foundation",
+            "name": "Card Hawk Foundation\u2122",
+            "version": "2.0.0-beta",
+            "author": "6th Dimension Multimedia",
+            "description": "Flagship native AletheusOS reference application.",
+            "autostart": true,
+            "permissions": [
+              "memory",
+              "knowledge",
+              "semantic",
+              "planning",
+              "prediction",
+              "learning",
+              "optimization",
+              "agents",
+              "kernel"
+            ],
+            "dependencies": [
+              "Aletheus Runtime Core",
+              "Aletheus v2 Autonomous Kernel",
+              "Aletheus Memory Core",
+              "Aletheus Knowledge Graph Engine",
+              "Aletheus Predictive Intelligence Layer",
+              "Aletheus Adaptive Learning Engine"
+            ],
+            "commands": [
+              "cardhawk.status",
+              "cardhawk.start",
+              "cardhawk.stop",
+              "cardhawk.foundation.bootstrap"
+            ],
+            "services": [
+              "Asset Vault",
+              "Portfolio Engine",
+              "Marketplace Intelligence",
+              "Hawk A\u2022Eye\u2122",
+              "THOR\u1d61",
+              "DEF",
+              "FALCON\u2122",
+              "NEST\u2122"
+            ]
+          }
+        },
+        "event_id": "ff438fdf-4df5-446d-b9bb-05b13a27de72",
+        "created_at": "2026-06-30T11:13:03.119052"
+      },
+      {
+        "app_id": "cardhawk.foundation",
+        "event_type": "application.started",
+        "message": "Card Hawk Foundation\u2122 started.",
+        "payload": {},
+        "event_id": "57bfe067-3f45-40d9-bb33-eb79b6d2fc5f",
+        "created_at": "2026-06-30T11:13:03.119062"
+      }
+    ],
+    "event_count": 2,
+    "installed_at": "2026-06-30T11:13:03.119044",
+    "started_at": "2026-06-30T11:13:03.119054",
+    "stopped_at": null,
+    "last_heartbeat": "2026-06-30T11:13:03.119055"
+  }
+]

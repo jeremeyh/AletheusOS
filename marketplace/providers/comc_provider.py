@@ -3,14 +3,29 @@ from marketplace.providers.base_provider import MarketplaceProvider
 
 class COMCProvider(MarketplaceProvider):
 
-    def search(self, card):
+    @property
+    def name(self):
+        return "COMC"
 
+    def search(self, query):
         return [
-
             {
                 "source": "COMC",
                 "price": 121,
-                "title": f"{card['player']} Comparable"
+                "title": "Caleb Williams Comparable",
             }
-
         ]
+
+    def get_comps(self, card):
+        return self.search(card)
+
+    def get_listings(self, card):
+        return []
+
+    def get_sales(self, card):
+        return self.search(card)
+
+    def health_check(self):
+        return {
+            "status": "ONLINE"
+        }

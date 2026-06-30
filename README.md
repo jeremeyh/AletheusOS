@@ -1,19 +1,13 @@
-# CardHawk OS™
+# Aletheus™ Genesis 0.3 / Sprint A3 — Runtime Core
 
-Proprietary collectibles operating system powering CardHawk.
+Adds Runtime Context, Engine Registry, Service Registry, Command Bus, Event Bus, Pipeline Executor, Workflow Graph, Scheduler, Job Queue, Runtime Metrics, Plugin Manager, Diagnostics, Runtime Console, and smoke tests.
 
-## Core Systems
+Launch:
+```bash
+PYTHONPATH=. streamlit run ui/pages/aletheus_runtime_console.py
+```
 
-- Asset Vault™
-- Asset DNA™
-- Asset Genome™
-- Hawk A⦿Eye™
-- THORᵡ™
-- DEF™
-- DEX™
-- Portfolio Engine™
-- Marketplace Intelligence™
-
-## Motto
-
-THORᵡ hunts. DEF decides. DEX executes. CardHawk strikes.
+Test:
+```bash
+PYTHONPATH=. python tests/test_aletheus_runtime_a3.py
+```

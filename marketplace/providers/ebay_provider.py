@@ -3,24 +3,23 @@ from marketplace.providers.base_provider import MarketplaceProvider
 
 class EbayProvider(MarketplaceProvider):
 
-    def search(self, card):
+    @property
+    def name(self):
+        return "eBay"
 
-        #
-        # Placeholder
-        #
+    def search(self, query):
+        return []
 
-        return [
+    def get_comps(self, card):
+        return []
 
-            {
-                "source": "eBay",
-                "price": 122,
-                "title": f"{card['player']} Comparable"
-            },
+    def get_listings(self, card):
+        return []
 
-            {
-                "source": "eBay",
-                "price": 129,
-                "title": f"{card['player']} Comparable"
-            }
+    def get_sales(self, card):
+        return []
 
-        ]
+    def health_check(self):
+        return {
+            "status": "ONLINE"
+        }

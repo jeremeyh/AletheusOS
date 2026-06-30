@@ -1,0 +1,49 @@
+{
+  "cluster_id": "e91f8edf-8196-495d-8ec1-bb0040043562",
+  "name": "AletheusOS Primary Cluster",
+  "leader_node_id": "df6d8316-76c8-4063-bfb5-ed38a1a4db5d",
+  "health": "healthy",
+  "created_at": "2026-06-30T11:13:03.120826",
+  "node_count": 1,
+  "nodes": [
+    {
+      "node_id": "df6d8316-76c8-4063-bfb5-ed38a1a4db5d",
+      "node_name": "Founder Runtime",
+      "version": "3.0.0",
+      "status": "online",
+      "health": "healthy",
+      "capabilities": [
+        "kernel",
+        "memory",
+        "knowledge",
+        "reasoning",
+        "decision",
+        "agents",
+        "workflow",
+        "planning"
+      ],
+      "services": [
+        "Runtime Core",
+        "Memory Mesh",
+        "Knowledge Graph",
+        "Reasoning Engine",
+        "Decision Engine",
+        "Agent Runtime",
+        "Workflow Engine",
+        "Planning Engine"
+      ],
+      "agents": [
+        "Founder Agent",
+        "Research Agent",
+        "Marketplace Agent",
+        "Portfolio Agent"
+      ],
+      "workflows": [],
+      "plans": [],
+      "created_at": "2026-06-30T11:13:03.120834",
+      "last_seen": "2026-06-30T11:13:03.120835",
+      "heartbeat_count": 0
+    }
+  ],
+  "jobs": []
+}

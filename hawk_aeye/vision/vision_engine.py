@@ -1,41 +1,37 @@
-from PIL import Image
-
-from hawk_aeye.vision.color_detector import ColorDetector
-from hawk_aeye.vision.parallel_detector import ParallelDetector
-from hawk_aeye.vision.patch_detector import PatchDetector
-from hawk_aeye.vision.auto_detector import AutoDetector
-from hawk_aeye.vision.slab_detector import SlabDetector
+from hawk_aeye.vision.image_intelligence import ImageIntelligence
 
 
 class VisionEngine:
     """
-    Hawk A•Eye™
-
-    Computer Vision Intelligence Layer.
-
-    This analyzes the IMAGE itself rather than OCR text.
+    Hawk A•Eye™ Vision Engine
     """
 
     @staticmethod
     def analyze(image_path):
 
-        image = Image.open(image_path)
+        image = ImageIntelligence.analyze(image_path)
+
+        if not image.get("exists"):
+            return {
+                "dominant_color": "Unknown",
+                "parallel": None,
+                "patch": False,
+                "autograph": False,
+                "slab": {
+                    "graded": False,
+                    "company": None,
+                },
+                "image": image,
+            }
 
         return {
-
-            "dominant_color":
-                ColorDetector.detect(image),
-
-            "parallel":
-                ParallelDetector.detect(image),
-
-            "patch":
-                PatchDetector.detect(image),
-
-            "autograph":
-                AutoDetector.detect(image),
-
-            "slab":
-                SlabDetector.detect(image),
-
+            "dominant_color": "Unknown",
+            "parallel": None,
+            "patch": False,
+            "autograph": False,
+            "slab": {
+                "graded": False,
+                "company": None,
+            },
+            "image": image,
         }

@@ -1,12 +1,8 @@
 class NegotiationAI:
     """
-    CardHawk Negotiation AI™
+    CardHawkOS™
 
-    Determines offer strategy using:
-
-    • Marketplace Intelligence
-    • THORᵡ
-    • Asking Price
+    Negotiation Intelligence Engine
     """
 
     @staticmethod
@@ -15,75 +11,70 @@ class NegotiationAI:
         market,
         thorx,
     ):
+        """
+        Returns negotiation recommendation.
 
-        current = market["current_value"]
+        Safe against zero asking price.
+        """
 
-        score = thorx["score"]
-
-        #
-        # Premium multiplier
-        #
-
-        premium = score / 100
-
-        #
-        # Maximum Offer
-        #
-
-        max_offer = round(
-            current * premium,
-            2,
+        current = float(
+            market.get("current_value", 0)
         )
 
-        #
-        # Deal Rating
-        #
+        asking_price = float(
+            asking_price or 0
+        )
 
-        if asking_price <= current * 0.80:
+        score = float(
+            thorx.get("score", 0)
+        )
+
+        # ----------------------------------
+        # Prevent divide-by-zero
+        # ----------------------------------
+
+        if asking_price <= 0:
+
+            return {
+                "rating": "UNKNOWN",
+                "discount": None,
+                "recommendation":
+                    "Seller asking price not provided.",
+                "current_value": current,
+                "asking_price": asking_price,
+                "thorx": score,
+            }
+
+        discount = (
+            (current - asking_price)
+            / asking_price
+        ) * 100
+
+        if discount >= 25:
 
             rating = "STEAL"
+            recommendation = "Buy immediately."
 
-        elif asking_price <= current * 0.90:
+        elif discount >= 10:
 
             rating = "BUY"
+            recommendation = "Strong purchase."
 
-        elif asking_price <= current:
+        elif discount >= 0:
 
             rating = "FAIR"
-
-        elif asking_price <= current * 1.10:
-
-            rating = "NEGOTIATE"
+            recommendation = "Fair market value."
 
         else:
 
             rating = "PASS"
-
-        #
-        # ROI
-
-        roi = round(
-
-            (
-                current - asking_price
-            )
-            / asking_price
-            * 100,
-
-            2,
-
-        )
+            recommendation = "Currently overpriced."
 
         return {
-
-            "asking_price": asking_price,
-
-            "market_value": current,
-
-            "maximum_offer": max_offer,
-
-            "expected_roi": roi,
-
             "rating": rating,
-
+            "discount": round(discount, 2),
+            "recommendation": recommendation,
+            "current_value": current,
+            "asking_price": asking_price,
+            "thorx": score,
         }

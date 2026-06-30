@@ -1,0 +1,74 @@
+{
+  "agents": [
+    {
+      "agent_id": "3b579b21-6703-4301-b198-5f0560f07af0",
+      "name": "Founder Agent",
+      "role": "Founder",
+      "status": "idle",
+      "mission": "",
+      "priority": 0,
+      "state": "ready",
+      "heartbeat": 0,
+      "tasks_completed": 0,
+      "messages": 0,
+      "created_at": "2026-06-30T11:13:03.119071",
+      "last_active": "2026-06-30T11:13:03.119073"
+    },
+    {
+      "agent_id": "656431f8-9b01-49fe-9fdf-a94e2a079b3f",
+      "name": "Research Agent",
+      "role": "Research",
+      "status": "idle",
+      "mission": "",
+      "priority": 0,
+      "state": "ready",
+      "heartbeat": 0,
+      "tasks_completed": 0,
+      "messages": 0,
+      "created_at": "2026-06-30T11:13:03.119079",
+      "last_active": "2026-06-30T11:13:03.119080"
+    },
+    {
+      "agent_id": "fb286a8e-c135-4468-9c5d-4acf7d1fb531",
+      "name": "Marketplace Agent",
+      "role": "Marketplace",
+      "status": "idle",
+      "mission": "",
+      "priority": 0,
+      "state": "ready",
+      "heartbeat": 0,
+      "tasks_completed": 0,
+      "messages": 0,
+      "created_at": "2026-06-30T11:13:03.119085",
+      "last_active": "2026-06-30T11:13:03.119086"
+    },
+    {
+      "agent_id": "a2829901-e5b6-4740-97cf-8e2672182897",
+      "name": "Portfolio Agent",
+      "role": "Portfolio",
+      "status": "idle",
+      "mission": "",
+      "priority": 0,
+      "state": "ready",
+      "heartbeat": 0,
+      "tasks_completed": 0,
+      "messages": 0,
+      "created_at": "2026-06-30T11:13:03.119090",
+      "last_active": "2026-06-30T11:13:03.119091"
+    },
+    {
+      "agent_id": "6fc9b1a4-af78-4633-aec0-8be9b39c3f26",
+      "name": "Operations Agent",
+      "role": "Operations",
+      "status": "idle",
+      "mission": "",
+      "priority": 0,
+      "state": "ready",
+      "heartbeat": 0,
+      "tasks_completed": 0,
+      "messages": 0,
+      "created_at": "2026-06-30T11:13:03.119095",
+      "last_active": "2026-06-30T11:13:03.119096"
+    }
+  ]
+}

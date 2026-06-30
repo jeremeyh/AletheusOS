@@ -1,0 +1,12 @@
+[
+  {
+    "snapshot_id": "1e499419-9d78-48ca-8751-6f7cdf7e8e3b",
+    "name": "Regression Snapshot",
+    "created_at": "2026-06-30T11:12:14.992053",
+    "path": "runtime_state/snapshots/1e499419-9d78-48ca-8751-6f7cdf7e8e3b",
+    "metadata": {
+      "engine": "Aletheus Persistence Engine",
+      "version": "3.2.0"
+    }
+  }
+]
