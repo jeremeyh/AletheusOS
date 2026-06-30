@@ -180,6 +180,10 @@ class AletheusAutonomousAgentRuntime:
         return [a.to_dict() for a in self.agents.values()]
 
 
+
+    def stats(self):
+        return self.statistics()
+
     def statistics(self):
 
         return {

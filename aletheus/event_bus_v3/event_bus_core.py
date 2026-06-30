@@ -50,13 +50,11 @@ class AletheusEventBus:
 
     # -----------------------------------------------------
 
-    def publish(
-        self,
+    def publish(self,
         topic,
         payload,
         publisher="runtime",
-        priority="normal",
-    ):
+        priority="normal", source=None, **kwargs):
 
         event = Event(
 

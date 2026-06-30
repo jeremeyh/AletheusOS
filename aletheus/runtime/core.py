@@ -35,9 +35,19 @@ from aletheus.event_bus_v3 import event_bus_core
 from aletheus.federation_v3 import federation_core
 from aletheus.telemetry_v3 import telemetry_core
 from aletheus.high_availability_v3 import high_availability_core
+from aletheus.security_v3 import security_core
+from aletheus.tenancy_v3 import tenancy_core
+from aletheus.runtime.kernel import (
+    intelligence_orchestrator,
+    intelligence_scheduler,
+    intelligence_dispatcher,
+    intelligence_supervisor,
+    KernelExecutor,
+)
 from aletheus.plugins.runtime_plugin_manager import RuntimePluginManager
 from aletheus.runtime.commands import CommandBus
 from aletheus.runtime.context import RuntimeContext
+from aletheus.runtime.compat import compatibility_registry
 from aletheus.runtime.diagnostics import RuntimeDiagnostics
 from aletheus.runtime.events import EventBus
 from aletheus.runtime.job_queue import JobQueue
@@ -46,6 +56,7 @@ from aletheus.runtime.pipeline import Pipeline, PipelineExecutor
 from aletheus.runtime.registries import EngineRegistry, ServiceRegistry
 from aletheus.runtime.scheduler import Scheduler
 from aletheus.runtime.workflow import WorkflowExecutor, WorkflowGraph
+from aletheus.runtime.hardening import RuntimeHardening
 
 
 class AletheusRuntime:
@@ -53,7 +64,7 @@ class AletheusRuntime:
         self.organization = "6th Dimension Multimedia"
         self.product = "Aletheus™"
         self.product_type = "Universal Intelligence Operating System"
-        self.version = "3.6.0"
+        self.version = "4.1.1"
         self.status = "created"
 
         self.events = EventBus()
@@ -78,6 +89,7 @@ class AletheusRuntime:
         self.executive = executive_core
         self.agents = agent_core
         self.planning_v2 = planning_core
+        self.planning = self.planning_v2
         self.distributed = distributed_v3_core
         self.plugins_v3 = plugin_core
         self.persistence_v3 = persistence_core
@@ -85,6 +97,14 @@ class AletheusRuntime:
         self.federation_v3 = federation_core
         self.telemetry_v3 = telemetry_core
         self.high_availability_v3 = high_availability_core
+        self.security_v3 = security_core
+        self.tenancy_v3 = tenancy_core
+
+        self.intelligence_orchestrator = intelligence_orchestrator
+        self.intelligence_scheduler = intelligence_scheduler
+        self.intelligence_dispatcher = intelligence_dispatcher
+        self.intelligence_supervisor = intelligence_supervisor
+        self.kernel = KernelExecutor(self)
         self.copilot = copilot_core
         self.intelligence = intelligence_core
         self.prediction = prediction_core
@@ -101,7 +121,12 @@ class AletheusRuntime:
         self.workflow_v3 = workflow_core
         self.planning_v2 = planning_core
 
+        # Runtime Compatibility Layer
+        self.compat = compatibility_registry
+
         self.boot()
+        self._bootstrap_compatibility()
+        self.hardening = RuntimeHardening(self)
 
     def boot(self) -> None:
         self.status = "online"
@@ -112,6 +137,11 @@ class AletheusRuntime:
 
         self.commands.register("runtime.health", self._cmd_health)
         self.commands.register("runtime.diagnostics", self._cmd_diagnostics)
+        self.commands.register("runtime.selftest", self._cmd_runtime_selftest)
+        self.commands.register("runtime.dashboard", self._cmd_runtime_dashboard)
+        self.commands.register("runtime.snapshot", self._cmd_runtime_snapshot)
+        self.commands.register("runtime.audit", self._cmd_runtime_audit)
+        self.commands.register("runtime.docs", self._cmd_runtime_docs)
         self.commands.register("runtime.metrics", self._cmd_metrics)
         self.commands.register("runtime.events", self._cmd_events)
         self.commands.register("runtime.queue", self._cmd_queue)
@@ -337,6 +367,82 @@ class AletheusRuntime:
         self.commands.register("ha.replicate", self._cmd_ha_replicate)
         self.commands.register("ha.status", self._cmd_ha_status)
         self.commands.register("ha.statistics", self._cmd_ha_statistics)
+
+        # v4.1 Runtime Compatibility Layer
+        self.commands.register("compat.list", self._cmd_compat_list)
+        self.commands.register("compat.resolve", self._cmd_compat_resolve)
+        self.commands.register("compat.statistics", self._cmd_compat_statistics)
+        self.commands.register("compat.contract", self._cmd_compat_contract)
+
+
+        # --------------------------------------------------
+        # v3.7 Security & Policy Engine
+        # --------------------------------------------------
+
+        self.commands.register("security.bootstrap", self._cmd_security_bootstrap)
+        self.commands.register("security.authenticate", self._cmd_security_authenticate)
+        self.commands.register("security.authorize", self._cmd_security_authorize)
+        self.commands.register("security.policy", self._cmd_security_policy)
+        self.commands.register("security.role.create", self._cmd_security_role_create)
+        self.commands.register("security.role.assign", self._cmd_security_role_assign)
+        self.commands.register("security.audit", self._cmd_security_audit)
+        self.commands.register("security.statistics", self._cmd_security_statistics)
+
+        # v3.9 Multi-Tenant Runtime
+        self.commands.register("tenant.bootstrap", self._cmd_tenant_bootstrap)
+        self.commands.register("tenant.create", self._cmd_tenant_create)
+        self.commands.register("tenant.delete", self._cmd_tenant_delete)
+        self.commands.register("tenant.list", self._cmd_tenant_list)
+        self.commands.register("tenant.select", self._cmd_tenant_select)
+        self.commands.register("workspace.create", self._cmd_workspace_create)
+        self.commands.register("workspace.delete", self._cmd_workspace_delete)
+        self.commands.register("workspace.list", self._cmd_workspace_list)
+        self.commands.register("organization.create", self._cmd_organization_create)
+        self.commands.register("organization.update", self._cmd_organization_update)
+        self.commands.register("tenant.statistics", self._cmd_tenant_statistics)
+        self.commands.register("tenant.health", self._cmd_tenant_health)
+
+        # ======================================================
+        # v4.0 Intelligence Kernel
+        # ======================================================
+
+        self.commands.register(
+            "kernel.bootstrap",
+            self._cmd_kernel_bootstrap,
+        )
+
+        self.commands.register(
+            "kernel.execute",
+            self._cmd_kernel_execute,
+        )
+
+        self.commands.register(
+            "kernel.tasks",
+            self._cmd_kernel_tasks,
+        )
+
+        self.commands.register(
+            "kernel.scheduler",
+            self._cmd_kernel_scheduler,
+        )
+
+        self.commands.register(
+            "kernel.dispatcher",
+            self._cmd_kernel_dispatcher,
+        )
+
+        self.commands.register(
+            "kernel.supervisor",
+            self._cmd_kernel_supervisor,
+        )
+
+        self.commands.register(
+            "kernel.statistics",
+            self._cmd_kernel_statistics,
+        )
+
+
+
 
 
 
@@ -585,83 +691,83 @@ class AletheusRuntime:
                 "commands": self.commands.count(),
                 "events": self.events.count(),
                 "metrics": self.metrics.count(),
-                "memory_records": self.memory.stats()["total_records"],
-                "goals": self.cognition.stats()["goals"],
-                "decisions": self.cognition.stats()["decisions"],
-                "knowledge_entities": self.knowledge.stats()["entities"],
-                "knowledge_relationships": self.knowledge.stats()["relationships"],
-                "missions": self.mission.stats()["missions"],
-                "active_missions": self.mission.stats()["active_missions"],
-                "active_objectives": self.workspace.stats()["active_objectives"],
-                "notifications": self.workspace.stats()["notifications"],
-                "applications": self.applications.stats()["applications"],
-                "running_applications": self.applications.stats()["running"],
-                "semantic_concepts": self.semantic.stats()["concepts"],
-                "semantic_assertions": self.semantic.stats()["assertions"],
-                "executive_recommendations": self.executive.stats()["recommendations"],
-                "executive_risks": self.executive.stats()["risks"],
-                "agents": self.agents.stats()["agents"],
-                "online_agents": self.agents.stats()["online_agents"],
-                "agent_tasks": self.agents.stats()["tasks"],
-                "plans": self.planning.stats()["plans"],
-                "active_plans": self.planning.stats()["active_plans"],
-                "copilot_exchanges": self.copilot.stats()["exchanges"],
-                "copilot_recommendations": self.copilot.stats()["recommendations"],
-                "uil_contexts": self.intelligence.stats()["contexts"],
-                "uil_decisions": self.intelligence.stats()["decisions"],
-                "forecasts": self.prediction.stats()["forecasts"],
-                "predictive_risks": self.prediction.stats()["risks"],
-                "predictive_opportunities": self.prediction.stats()["opportunities"],
-                "learning_experiences": self.learning.stats()["experiences"],
-                "learning_score": self.learning.stats()["learning_score"],
-                "kernel_events": self.kernel_v2.stats()["events"],
-                "kernel_registry_items": self.kernel_v2.stats()["registry_items"],
-                "v2_missions": self.mission_v2.stats()["missions"],
-                "v2_mission_events": self.mission_v2.stats()["telemetry_events"],
-                "v2_workflows": self.workflow_v2.stats()["workflows"],
-                "v2_workflow_events": self.workflow_v2.stats()["events"],
-                "enterprises": self.enterprise.stats()["organizations"],
-                "enterprise_audit_events": self.enterprise.stats()["audit_events"],
-                "compliance_score": self.enterprise.stats()["compliance_score"],
-                "distributed_clusters": self.distributed.stats()["clusters"],
-                "distributed_nodes": self.distributed.stats()["nodes"],
-                "distributed_tasks": self.distributed.stats()["tasks"],
-                "memory_mesh_objects": self.memory_mesh.stats()["memory_objects"],
-                "memory_mesh_snapshots": self.memory_mesh.stats()["snapshots"],
-                "memory_mesh_versions": self.memory_mesh.stats()["memory_versions"],
-                "graph_nodes": self.knowledge_graph.stats()["nodes"],
-                "graph_relationships": self.knowledge_graph.stats()["relationships"],
-                "inference_rules": self.knowledge_graph.stats()["inference_rules"],
-                "reasoning_traces": self.reasoning.stats()["traces"],
-                "reasoning_rules": self.reasoning.stats()["rules"],
-                "reasoning_confidence": self.reasoning.stats()["confidence"],
+                "memory_records": ((self.memory.stats() if hasattr(self.memory, 'stats') else self.memory.statistics() if hasattr(self.memory, 'statistics') else {'status': getattr(self.memory, 'status', 'unknown')}) if hasattr(self.memory, "stats") else self.memory.statistics())["total_records"],
+                "goals": ((self.cognition.stats() if hasattr(self.cognition, 'stats') else self.cognition.statistics() if hasattr(self.cognition, 'statistics') else {'status': getattr(self.cognition, 'status', 'unknown')}) if hasattr(self.cognition, "stats") else self.cognition.statistics())["goals"],
+                "decisions": ((self.cognition.stats() if hasattr(self.cognition, 'stats') else self.cognition.statistics() if hasattr(self.cognition, 'statistics') else {'status': getattr(self.cognition, 'status', 'unknown')}) if hasattr(self.cognition, "stats") else self.cognition.statistics())["decisions"],
+                "knowledge_entities": ((self.knowledge.stats() if hasattr(self.knowledge, 'stats') else self.knowledge.statistics() if hasattr(self.knowledge, 'statistics') else {'status': getattr(self.knowledge, 'status', 'unknown')}) if hasattr(self.knowledge, "stats") else self.knowledge.statistics())["entities"],
+                "knowledge_relationships": ((self.knowledge.stats() if hasattr(self.knowledge, 'stats') else self.knowledge.statistics() if hasattr(self.knowledge, 'statistics') else {'status': getattr(self.knowledge, 'status', 'unknown')}) if hasattr(self.knowledge, "stats") else self.knowledge.statistics())["relationships"],
+                "missions": ((self.mission.stats() if hasattr(self.mission, 'stats') else self.mission.statistics() if hasattr(self.mission, 'statistics') else {'status': getattr(self.mission, 'status', 'unknown')}) if hasattr(self.mission, "stats") else self.mission.statistics())["missions"],
+                "active_missions": ((self.mission.stats() if hasattr(self.mission, 'stats') else self.mission.statistics() if hasattr(self.mission, 'statistics') else {'status': getattr(self.mission, 'status', 'unknown')}) if hasattr(self.mission, "stats") else self.mission.statistics())["active_missions"],
+                "active_objectives": ((self.workspace.stats() if hasattr(self.workspace, 'stats') else self.workspace.statistics() if hasattr(self.workspace, 'statistics') else {'status': getattr(self.workspace, 'status', 'unknown')}) if hasattr(self.workspace, "stats") else self.workspace.statistics())["active_objectives"],
+                "notifications": ((self.workspace.stats() if hasattr(self.workspace, 'stats') else self.workspace.statistics() if hasattr(self.workspace, 'statistics') else {'status': getattr(self.workspace, 'status', 'unknown')}) if hasattr(self.workspace, "stats") else self.workspace.statistics())["notifications"],
+                "applications": ((self.applications.stats() if hasattr(self.applications, 'stats') else self.applications.statistics() if hasattr(self.applications, 'statistics') else {'status': getattr(self.applications, 'status', 'unknown')}) if hasattr(self.applications, "stats") else self.applications.statistics())["applications"],
+                "running_applications": ((self.applications.stats() if hasattr(self.applications, 'stats') else self.applications.statistics() if hasattr(self.applications, 'statistics') else {'status': getattr(self.applications, 'status', 'unknown')}) if hasattr(self.applications, "stats") else self.applications.statistics())["running"],
+                "semantic_concepts": ((self.semantic.stats() if hasattr(self.semantic, 'stats') else self.semantic.statistics() if hasattr(self.semantic, 'statistics') else {'status': getattr(self.semantic, 'status', 'unknown')}) if hasattr(self.semantic, "stats") else self.semantic.statistics())["concepts"],
+                "semantic_assertions": ((self.semantic.stats() if hasattr(self.semantic, 'stats') else self.semantic.statistics() if hasattr(self.semantic, 'statistics') else {'status': getattr(self.semantic, 'status', 'unknown')}) if hasattr(self.semantic, "stats") else self.semantic.statistics())["assertions"],
+                "executive_recommendations": ((self.executive.stats() if hasattr(self.executive, 'stats') else self.executive.statistics() if hasattr(self.executive, 'statistics') else {'status': getattr(self.executive, 'status', 'unknown')}) if hasattr(self.executive, "stats") else self.executive.statistics())["recommendations"],
+                "executive_risks": ((self.executive.stats() if hasattr(self.executive, 'stats') else self.executive.statistics() if hasattr(self.executive, 'statistics') else {'status': getattr(self.executive, 'status', 'unknown')}) if hasattr(self.executive, "stats") else self.executive.statistics())["risks"],
+                "agents": ((self.agents.stats() if hasattr(self.agents, 'stats') else self.agents.statistics() if hasattr(self.agents, 'statistics') else {'status': getattr(self.agents, 'status', 'unknown')}) if hasattr(self.agents, "stats") else self.agents.statistics())["agents"],
+                "online_agents": ((self.agents.stats() if hasattr(self.agents, 'stats') else self.agents.statistics() if hasattr(self.agents, 'statistics') else {'status': getattr(self.agents, 'status', 'unknown')}) if hasattr(self.agents, "stats") else self.agents.statistics())["online_agents"],
+                "agent_tasks": ((self.agents.stats() if hasattr(self.agents, 'stats') else self.agents.statistics() if hasattr(self.agents, 'statistics') else {'status': getattr(self.agents, 'status', 'unknown')}) if hasattr(self.agents, "stats") else self.agents.statistics())["tasks"],
+                "plans": ((self.planning.stats() if hasattr(self.planning, 'stats') else self.planning.statistics() if hasattr(self.planning, 'statistics') else {'status': getattr(self.planning, 'status', 'unknown')}) if hasattr(self.planning, "stats") else self.planning.statistics())["plans"],
+                "active_plans": ((self.planning.stats() if hasattr(self.planning, 'stats') else self.planning.statistics() if hasattr(self.planning, 'statistics') else {'status': getattr(self.planning, 'status', 'unknown')}) if hasattr(self.planning, "stats") else self.planning.statistics())["active_plans"],
+                "copilot_exchanges": ((self.copilot.stats() if hasattr(self.copilot, 'stats') else self.copilot.statistics() if hasattr(self.copilot, 'statistics') else {'status': getattr(self.copilot, 'status', 'unknown')}) if hasattr(self.copilot, "stats") else self.copilot.statistics())["exchanges"],
+                "copilot_recommendations": ((self.copilot.stats() if hasattr(self.copilot, 'stats') else self.copilot.statistics() if hasattr(self.copilot, 'statistics') else {'status': getattr(self.copilot, 'status', 'unknown')}) if hasattr(self.copilot, "stats") else self.copilot.statistics())["recommendations"],
+                "uil_contexts": ((self.intelligence.stats() if hasattr(self.intelligence, 'stats') else self.intelligence.statistics() if hasattr(self.intelligence, 'statistics') else {'status': getattr(self.intelligence, 'status', 'unknown')}) if hasattr(self.intelligence, "stats") else self.intelligence.statistics())["contexts"],
+                "uil_decisions": ((self.intelligence.stats() if hasattr(self.intelligence, 'stats') else self.intelligence.statistics() if hasattr(self.intelligence, 'statistics') else {'status': getattr(self.intelligence, 'status', 'unknown')}) if hasattr(self.intelligence, "stats") else self.intelligence.statistics())["decisions"],
+                "forecasts": ((self.prediction.stats() if hasattr(self.prediction, 'stats') else self.prediction.statistics() if hasattr(self.prediction, 'statistics') else {'status': getattr(self.prediction, 'status', 'unknown')}) if hasattr(self.prediction, "stats") else self.prediction.statistics())["forecasts"],
+                "predictive_risks": ((self.prediction.stats() if hasattr(self.prediction, 'stats') else self.prediction.statistics() if hasattr(self.prediction, 'statistics') else {'status': getattr(self.prediction, 'status', 'unknown')}) if hasattr(self.prediction, "stats") else self.prediction.statistics())["risks"],
+                "predictive_opportunities": ((self.prediction.stats() if hasattr(self.prediction, 'stats') else self.prediction.statistics() if hasattr(self.prediction, 'statistics') else {'status': getattr(self.prediction, 'status', 'unknown')}) if hasattr(self.prediction, "stats") else self.prediction.statistics())["opportunities"],
+                "learning_experiences": ((self.learning.stats() if hasattr(self.learning, 'stats') else self.learning.statistics() if hasattr(self.learning, 'statistics') else {'status': getattr(self.learning, 'status', 'unknown')}) if hasattr(self.learning, "stats") else self.learning.statistics())["experiences"],
+                "learning_score": ((self.learning.stats() if hasattr(self.learning, 'stats') else self.learning.statistics() if hasattr(self.learning, 'statistics') else {'status': getattr(self.learning, 'status', 'unknown')}) if hasattr(self.learning, "stats") else self.learning.statistics())["learning_score"],
+                "kernel_events": ((self.kernel_v2.stats() if hasattr(self.kernel_v2, 'stats') else self.kernel_v2.statistics() if hasattr(self.kernel_v2, 'statistics') else {'status': getattr(self.kernel_v2, 'status', 'unknown')}) if hasattr(self.kernel_v2, "stats") else self.kernel_v2.statistics())["events"],
+                "kernel_registry_items": ((self.kernel_v2.stats() if hasattr(self.kernel_v2, 'stats') else self.kernel_v2.statistics() if hasattr(self.kernel_v2, 'statistics') else {'status': getattr(self.kernel_v2, 'status', 'unknown')}) if hasattr(self.kernel_v2, "stats") else self.kernel_v2.statistics())["registry_items"],
+                "v2_missions": ((self.mission_v2.stats() if hasattr(self.mission_v2, 'stats') else self.mission_v2.statistics() if hasattr(self.mission_v2, 'statistics') else {'status': getattr(self.mission_v2, 'status', 'unknown')}) if hasattr(self.mission_v2, "stats") else self.mission_v2.statistics())["missions"],
+                "v2_mission_events": ((self.mission_v2.stats() if hasattr(self.mission_v2, 'stats') else self.mission_v2.statistics() if hasattr(self.mission_v2, 'statistics') else {'status': getattr(self.mission_v2, 'status', 'unknown')}) if hasattr(self.mission_v2, "stats") else self.mission_v2.statistics())["telemetry_events"],
+                "v2_workflows": ((self.workflow_v2.stats() if hasattr(self.workflow_v2, 'stats') else self.workflow_v2.statistics() if hasattr(self.workflow_v2, 'statistics') else {'status': getattr(self.workflow_v2, 'status', 'unknown')}) if hasattr(self.workflow_v2, "stats") else self.workflow_v2.statistics())["workflows"],
+                "v2_workflow_events": ((self.workflow_v2.stats() if hasattr(self.workflow_v2, 'stats') else self.workflow_v2.statistics() if hasattr(self.workflow_v2, 'statistics') else {'status': getattr(self.workflow_v2, 'status', 'unknown')}) if hasattr(self.workflow_v2, "stats") else self.workflow_v2.statistics())["events"],
+                "enterprises": ((self.enterprise.stats() if hasattr(self.enterprise, 'stats') else self.enterprise.statistics() if hasattr(self.enterprise, 'statistics') else {'status': getattr(self.enterprise, 'status', 'unknown')}) if hasattr(self.enterprise, "stats") else self.enterprise.statistics())["organizations"],
+                "enterprise_audit_events": ((self.enterprise.stats() if hasattr(self.enterprise, 'stats') else self.enterprise.statistics() if hasattr(self.enterprise, 'statistics') else {'status': getattr(self.enterprise, 'status', 'unknown')}) if hasattr(self.enterprise, "stats") else self.enterprise.statistics())["audit_events"],
+                "compliance_score": ((self.enterprise.stats() if hasattr(self.enterprise, 'stats') else self.enterprise.statistics() if hasattr(self.enterprise, 'statistics') else {'status': getattr(self.enterprise, 'status', 'unknown')}) if hasattr(self.enterprise, "stats") else self.enterprise.statistics())["compliance_score"],
+                "distributed_clusters": ((self.distributed.stats() if hasattr(self.distributed, 'stats') else self.distributed.statistics() if hasattr(self.distributed, 'statistics') else {'status': getattr(self.distributed, 'status', 'unknown')}) if hasattr(self.distributed, "stats") else self.distributed.statistics())["clusters"],
+                "distributed_nodes": ((self.distributed.stats() if hasattr(self.distributed, 'stats') else self.distributed.statistics() if hasattr(self.distributed, 'statistics') else {'status': getattr(self.distributed, 'status', 'unknown')}) if hasattr(self.distributed, "stats") else self.distributed.statistics())["nodes"],
+                "distributed_tasks": ((self.distributed.stats() if hasattr(self.distributed, 'stats') else self.distributed.statistics() if hasattr(self.distributed, 'statistics') else {'status': getattr(self.distributed, 'status', 'unknown')}) if hasattr(self.distributed, "stats") else self.distributed.statistics())["tasks"],
+                "memory_mesh_objects": ((self.memory_mesh.stats() if hasattr(self.memory_mesh, 'stats') else self.memory_mesh.statistics() if hasattr(self.memory_mesh, 'statistics') else {'status': getattr(self.memory_mesh, 'status', 'unknown')}) if hasattr(self.memory_mesh, "stats") else self.memory_mesh.statistics())["memory_objects"],
+                "memory_mesh_snapshots": ((self.memory_mesh.stats() if hasattr(self.memory_mesh, 'stats') else self.memory_mesh.statistics() if hasattr(self.memory_mesh, 'statistics') else {'status': getattr(self.memory_mesh, 'status', 'unknown')}) if hasattr(self.memory_mesh, "stats") else self.memory_mesh.statistics())["snapshots"],
+                "memory_mesh_versions": ((self.memory_mesh.stats() if hasattr(self.memory_mesh, 'stats') else self.memory_mesh.statistics() if hasattr(self.memory_mesh, 'statistics') else {'status': getattr(self.memory_mesh, 'status', 'unknown')}) if hasattr(self.memory_mesh, "stats") else self.memory_mesh.statistics())["memory_versions"],
+                "graph_nodes": ((self.knowledge_graph.stats() if hasattr(self.knowledge_graph, 'stats') else self.knowledge_graph.statistics() if hasattr(self.knowledge_graph, 'statistics') else {'status': getattr(self.knowledge_graph, 'status', 'unknown')}) if hasattr(self.knowledge_graph, "stats") else self.knowledge_graph.statistics())["nodes"],
+                "graph_relationships": ((self.knowledge_graph.stats() if hasattr(self.knowledge_graph, 'stats') else self.knowledge_graph.statistics() if hasattr(self.knowledge_graph, 'statistics') else {'status': getattr(self.knowledge_graph, 'status', 'unknown')}) if hasattr(self.knowledge_graph, "stats") else self.knowledge_graph.statistics())["relationships"],
+                "inference_rules": ((self.knowledge_graph.stats() if hasattr(self.knowledge_graph, 'stats') else self.knowledge_graph.statistics() if hasattr(self.knowledge_graph, 'statistics') else {'status': getattr(self.knowledge_graph, 'status', 'unknown')}) if hasattr(self.knowledge_graph, "stats") else self.knowledge_graph.statistics())["inference_rules"],
+                "reasoning_traces": ((self.reasoning.stats() if hasattr(self.reasoning, 'stats') else self.reasoning.statistics() if hasattr(self.reasoning, 'statistics') else {'status': getattr(self.reasoning, 'status', 'unknown')}) if hasattr(self.reasoning, "stats") else self.reasoning.statistics())["traces"],
+                "reasoning_rules": ((self.reasoning.stats() if hasattr(self.reasoning, 'stats') else self.reasoning.statistics() if hasattr(self.reasoning, 'statistics') else {'status': getattr(self.reasoning, 'status', 'unknown')}) if hasattr(self.reasoning, "stats") else self.reasoning.statistics())["rules"],
+                "reasoning_confidence": ((self.reasoning.stats() if hasattr(self.reasoning, 'stats') else self.reasoning.statistics() if hasattr(self.reasoning, 'statistics') else {'status': getattr(self.reasoning, 'status', 'unknown')}) if hasattr(self.reasoning, "stats") else self.reasoning.statistics())["confidence"],
             },
         )
         return context
 
     def _cmd_diagnostics(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("diagnostics", self.diagnostics.report())
-        context.add_result("memory", self.memory.stats())
-        context.add_result("cognition", self.cognition.stats())
-        context.add_result("knowledge", self.knowledge.stats())
-        context.add_result("mission", self.mission.stats())
-        context.add_result("workspace", self.workspace.stats())
-        context.add_result("applications", self.applications.stats())
-        context.add_result("semantic", self.semantic.stats())
-        context.add_result("executive", self.executive.stats())
-        context.add_result("agents", self.agents.stats())
-        context.add_result("planning", self.planning.stats())
-        context.add_result("copilot", self.copilot.stats())
-        context.add_result("universal_intelligence", self.intelligence.stats())
-        context.add_result("prediction", self.prediction.stats())
-        context.add_result("learning", self.learning.stats())
-        context.add_result("kernel_v2", self.kernel_v2.stats())
-        context.add_result("mission_v2", self.mission_v2.stats())
-        context.add_result("workflow_v2", self.workflow_v2.stats())
-        context.add_result("enterprise", self.enterprise.stats())
-        context.add_result("distributed", self.distributed.stats())
-        context.add_result("memory_mesh", self.memory_mesh.stats())
-        context.add_result("knowledge_graph", self.knowledge_graph.stats())
+        context.add_result("memory", ((self.memory.stats() if hasattr(self.memory, 'stats') else self.memory.statistics() if hasattr(self.memory, 'statistics') else {'status': getattr(self.memory, 'status', 'unknown')}) if hasattr(self.memory, "stats") else self.memory.statistics()))
+        context.add_result("cognition", ((self.cognition.stats() if hasattr(self.cognition, 'stats') else self.cognition.statistics() if hasattr(self.cognition, 'statistics') else {'status': getattr(self.cognition, 'status', 'unknown')}) if hasattr(self.cognition, "stats") else self.cognition.statistics()))
+        context.add_result("knowledge", ((self.knowledge.stats() if hasattr(self.knowledge, 'stats') else self.knowledge.statistics() if hasattr(self.knowledge, 'statistics') else {'status': getattr(self.knowledge, 'status', 'unknown')}) if hasattr(self.knowledge, "stats") else self.knowledge.statistics()))
+        context.add_result("mission", ((self.mission.stats() if hasattr(self.mission, 'stats') else self.mission.statistics() if hasattr(self.mission, 'statistics') else {'status': getattr(self.mission, 'status', 'unknown')}) if hasattr(self.mission, "stats") else self.mission.statistics()))
+        context.add_result("workspace", ((self.workspace.stats() if hasattr(self.workspace, 'stats') else self.workspace.statistics() if hasattr(self.workspace, 'statistics') else {'status': getattr(self.workspace, 'status', 'unknown')}) if hasattr(self.workspace, "stats") else self.workspace.statistics()))
+        context.add_result("applications", ((self.applications.stats() if hasattr(self.applications, 'stats') else self.applications.statistics() if hasattr(self.applications, 'statistics') else {'status': getattr(self.applications, 'status', 'unknown')}) if hasattr(self.applications, "stats") else self.applications.statistics()))
+        context.add_result("semantic", ((self.semantic.stats() if hasattr(self.semantic, 'stats') else self.semantic.statistics() if hasattr(self.semantic, 'statistics') else {'status': getattr(self.semantic, 'status', 'unknown')}) if hasattr(self.semantic, "stats") else self.semantic.statistics()))
+        context.add_result("executive", ((self.executive.stats() if hasattr(self.executive, 'stats') else self.executive.statistics() if hasattr(self.executive, 'statistics') else {'status': getattr(self.executive, 'status', 'unknown')}) if hasattr(self.executive, "stats") else self.executive.statistics()))
+        context.add_result("agents", ((self.agents.stats() if hasattr(self.agents, 'stats') else self.agents.statistics() if hasattr(self.agents, 'statistics') else {'status': getattr(self.agents, 'status', 'unknown')}) if hasattr(self.agents, "stats") else self.agents.statistics()))
+        context.add_result("planning", ((self.planning.stats() if hasattr(self.planning, 'stats') else self.planning.statistics() if hasattr(self.planning, 'statistics') else {'status': getattr(self.planning, 'status', 'unknown')}) if hasattr(self.planning, "stats") else self.planning.statistics()))
+        context.add_result("copilot", ((self.copilot.stats() if hasattr(self.copilot, 'stats') else self.copilot.statistics() if hasattr(self.copilot, 'statistics') else {'status': getattr(self.copilot, 'status', 'unknown')}) if hasattr(self.copilot, "stats") else self.copilot.statistics()))
+        context.add_result("universal_intelligence", ((self.intelligence.stats() if hasattr(self.intelligence, 'stats') else self.intelligence.statistics() if hasattr(self.intelligence, 'statistics') else {'status': getattr(self.intelligence, 'status', 'unknown')}) if hasattr(self.intelligence, "stats") else self.intelligence.statistics()))
+        context.add_result("prediction", ((self.prediction.stats() if hasattr(self.prediction, 'stats') else self.prediction.statistics() if hasattr(self.prediction, 'statistics') else {'status': getattr(self.prediction, 'status', 'unknown')}) if hasattr(self.prediction, "stats") else self.prediction.statistics()))
+        context.add_result("learning", ((self.learning.stats() if hasattr(self.learning, 'stats') else self.learning.statistics() if hasattr(self.learning, 'statistics') else {'status': getattr(self.learning, 'status', 'unknown')}) if hasattr(self.learning, "stats") else self.learning.statistics()))
+        context.add_result("kernel_v2", ((self.kernel_v2.stats() if hasattr(self.kernel_v2, 'stats') else self.kernel_v2.statistics() if hasattr(self.kernel_v2, 'statistics') else {'status': getattr(self.kernel_v2, 'status', 'unknown')}) if hasattr(self.kernel_v2, "stats") else self.kernel_v2.statistics()))
+        context.add_result("mission_v2", ((self.mission_v2.stats() if hasattr(self.mission_v2, 'stats') else self.mission_v2.statistics() if hasattr(self.mission_v2, 'statistics') else {'status': getattr(self.mission_v2, 'status', 'unknown')}) if hasattr(self.mission_v2, "stats") else self.mission_v2.statistics()))
+        context.add_result("workflow_v2", ((self.workflow_v2.stats() if hasattr(self.workflow_v2, 'stats') else self.workflow_v2.statistics() if hasattr(self.workflow_v2, 'statistics') else {'status': getattr(self.workflow_v2, 'status', 'unknown')}) if hasattr(self.workflow_v2, "stats") else self.workflow_v2.statistics()))
+        context.add_result("enterprise", ((self.enterprise.stats() if hasattr(self.enterprise, 'stats') else self.enterprise.statistics() if hasattr(self.enterprise, 'statistics') else {'status': getattr(self.enterprise, 'status', 'unknown')}) if hasattr(self.enterprise, "stats") else self.enterprise.statistics()))
+        context.add_result("distributed", ((self.distributed.stats() if hasattr(self.distributed, 'stats') else self.distributed.statistics() if hasattr(self.distributed, 'statistics') else {'status': getattr(self.distributed, 'status', 'unknown')}) if hasattr(self.distributed, "stats") else self.distributed.statistics()))
+        context.add_result("memory_mesh", ((self.memory_mesh.stats() if hasattr(self.memory_mesh, 'stats') else self.memory_mesh.statistics() if hasattr(self.memory_mesh, 'statistics') else {'status': getattr(self.memory_mesh, 'status', 'unknown')}) if hasattr(self.memory_mesh, "stats") else self.memory_mesh.statistics()))
+        context.add_result("knowledge_graph", ((self.knowledge_graph.stats() if hasattr(self.knowledge_graph, 'stats') else self.knowledge_graph.statistics() if hasattr(self.knowledge_graph, 'statistics') else {'status': getattr(self.knowledge_graph, 'status', 'unknown')}) if hasattr(self.knowledge_graph, "stats") else self.knowledge_graph.statistics()))
         return context
 
     def _cmd_metrics(self, context: RuntimeContext) -> RuntimeContext:
@@ -708,7 +814,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_memory_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("memory_stats", self.memory.stats())
+        context.add_result("memory_stats", ((self.memory.stats() if hasattr(self.memory, 'stats') else self.memory.statistics() if hasattr(self.memory, 'statistics') else {'status': getattr(self.memory, 'status', 'unknown')}) if hasattr(self.memory, "stats") else self.memory.statistics()))
         return context
 
     def _cmd_memory_clear_working(self, context: RuntimeContext) -> RuntimeContext:
@@ -810,7 +916,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_cognition_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("cognition_stats", self.cognition.stats())
+        context.add_result("cognition_stats", ((self.cognition.stats() if hasattr(self.cognition, 'stats') else self.cognition.statistics() if hasattr(self.cognition, 'statistics') else {'status': getattr(self.cognition, 'status', 'unknown')}) if hasattr(self.cognition, "stats") else self.cognition.statistics()))
         return context
 
 
@@ -884,7 +990,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_graph_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("graph_stats", self.knowledge.stats())
+        context.add_result("graph_stats", ((self.knowledge.stats() if hasattr(self.knowledge, 'stats') else self.knowledge.statistics() if hasattr(self.knowledge, 'statistics') else {'status': getattr(self.knowledge, 'status', 'unknown')}) if hasattr(self.knowledge, "stats") else self.knowledge.statistics()))
         return context
 
 
@@ -965,7 +1071,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_mission_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("mission_stats", self.mission.stats())
+        context.add_result("mission_stats", ((self.mission.stats() if hasattr(self.mission, 'stats') else self.mission.statistics() if hasattr(self.mission, 'statistics') else {'status': getattr(self.mission, 'status', 'unknown')}) if hasattr(self.mission, "stats") else self.mission.statistics()))
         return context
 
 
@@ -974,7 +1080,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_workspace_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("workspace_stats", self.workspace.stats())
+        context.add_result("workspace_stats", ((self.workspace.stats() if hasattr(self.workspace, 'stats') else self.workspace.statistics() if hasattr(self.workspace, 'statistics') else {'status': getattr(self.workspace, 'status', 'unknown')}) if hasattr(self.workspace, "stats") else self.workspace.statistics()))
         return context
 
     def _cmd_founder_journal_create(self, context: RuntimeContext) -> RuntimeContext:
@@ -1110,7 +1216,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_application_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("application_stats", self.applications.stats())
+        context.add_result("application_stats", ((self.applications.stats() if hasattr(self.applications, 'stats') else self.applications.statistics() if hasattr(self.applications, 'statistics') else {'status': getattr(self.applications, 'status', 'unknown')}) if hasattr(self.applications, "stats") else self.applications.statistics()))
         return context
 
 
@@ -1299,12 +1405,12 @@ class AletheusRuntime:
         return context
 
     def _cmd_semantic_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("semantic_stats", self.semantic.stats())
+        context.add_result("semantic_stats", ((self.semantic.stats() if hasattr(self.semantic, 'stats') else self.semantic.statistics() if hasattr(self.semantic, 'statistics') else {'status': getattr(self.semantic, 'status', 'unknown')}) if hasattr(self.semantic, "stats") else self.semantic.statistics()))
         return context
 
 
     def _cmd_executive_status(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("executive_status", self.executive.stats())
+        context.add_result("executive_status", ((self.executive.stats() if hasattr(self.executive, 'stats') else self.executive.statistics() if hasattr(self.executive, 'statistics') else {'status': getattr(self.executive, 'status', 'unknown')}) if hasattr(self.executive, "stats") else self.executive.statistics()))
         return context
 
     def _cmd_executive_snapshot(self, context: RuntimeContext) -> RuntimeContext:
@@ -1402,7 +1508,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_agent_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("agent_stats", self.agents.stats())
+        context.add_result("agent_stats", ((self.agents.stats() if hasattr(self.agents, 'stats') else self.agents.statistics() if hasattr(self.agents, 'statistics') else {'status': getattr(self.agents, 'status', 'unknown')}) if hasattr(self.agents, "stats") else self.agents.statistics()))
         return context
 
 
@@ -1459,7 +1565,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_planning_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("planning_stats", self.planning.stats())
+        context.add_result("planning_stats", ((self.planning.stats() if hasattr(self.planning, 'stats') else self.planning.statistics() if hasattr(self.planning, 'statistics') else {'status': getattr(self.planning, 'status', 'unknown')}) if hasattr(self.planning, "stats") else self.planning.statistics()))
         return context
 
 
@@ -1496,7 +1602,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_copilot_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("copilot_stats", self.copilot.stats())
+        context.add_result("copilot_stats", ((self.copilot.stats() if hasattr(self.copilot, 'stats') else self.copilot.statistics() if hasattr(self.copilot, 'statistics') else {'status': getattr(self.copilot, 'status', 'unknown')}) if hasattr(self.copilot, "stats") else self.copilot.statistics()))
         return context
 
 
@@ -1553,7 +1659,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_uil_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("uil_stats", self.intelligence.stats())
+        context.add_result("uil_stats", ((self.intelligence.stats() if hasattr(self.intelligence, 'stats') else self.intelligence.statistics() if hasattr(self.intelligence, 'statistics') else {'status': getattr(self.intelligence, 'status', 'unknown')}) if hasattr(self.intelligence, "stats") else self.intelligence.statistics()))
         return context
 
 
@@ -1599,7 +1705,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_predict_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("prediction_stats", self.prediction.stats())
+        context.add_result("prediction_stats", ((self.prediction.stats() if hasattr(self.prediction, 'stats') else self.prediction.statistics() if hasattr(self.prediction, 'statistics') else {'status': getattr(self.prediction, 'status', 'unknown')}) if hasattr(self.prediction, "stats") else self.prediction.statistics()))
         return context
 
 
@@ -1666,7 +1772,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_learn_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("learning_stats", self.learning.stats())
+        context.add_result("learning_stats", ((self.learning.stats() if hasattr(self.learning, 'stats') else self.learning.statistics() if hasattr(self.learning, 'statistics') else {'status': getattr(self.learning, 'status', 'unknown')}) if hasattr(self.learning, "stats") else self.learning.statistics()))
         return context
 
 
@@ -1706,7 +1812,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_kernel_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("kernel_stats", self.kernel_v2.stats())
+        context.add_result("kernel_stats", ((self.kernel_v2.stats() if hasattr(self.kernel_v2, 'stats') else self.kernel_v2.statistics() if hasattr(self.kernel_v2, 'statistics') else {'status': getattr(self.kernel_v2, 'status', 'unknown')}) if hasattr(self.kernel_v2, "stats") else self.kernel_v2.statistics()))
         return context
 
 
@@ -1793,7 +1899,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_mission_v2_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("mission_v2_stats", self.mission_v2.stats())
+        context.add_result("mission_v2_stats", ((self.mission_v2.stats() if hasattr(self.mission_v2, 'stats') else self.mission_v2.statistics() if hasattr(self.mission_v2, 'statistics') else {'status': getattr(self.mission_v2, 'status', 'unknown')}) if hasattr(self.mission_v2, "stats") else self.mission_v2.statistics()))
         return context
 
 
@@ -1866,7 +1972,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_workflow_v2_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("workflow_v2_stats", self.workflow_v2.stats())
+        context.add_result("workflow_v2_stats", ((self.workflow_v2.stats() if hasattr(self.workflow_v2, 'stats') else self.workflow_v2.statistics() if hasattr(self.workflow_v2, 'statistics') else {'status': getattr(self.workflow_v2, 'status', 'unknown')}) if hasattr(self.workflow_v2, "stats") else self.workflow_v2.statistics()))
         return context
 
 
@@ -1895,7 +2001,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_enterprise_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("enterprise_stats", self.enterprise.stats())
+        context.add_result("enterprise_stats", ((self.enterprise.stats() if hasattr(self.enterprise, 'stats') else self.enterprise.statistics() if hasattr(self.enterprise, 'statistics') else {'status': getattr(self.enterprise, 'status', 'unknown')}) if hasattr(self.enterprise, "stats") else self.enterprise.statistics()))
         return context
 
     def _cmd_department_create(self, context: RuntimeContext) -> RuntimeContext:
@@ -1973,7 +2079,7 @@ class AletheusRuntime:
         # Return runtime statistics expected by the v3.0 tests
         context.add_result(
             "cluster",
-            self.distributed.stats(),
+            ((self.distributed.stats() if hasattr(self.distributed, 'stats') else self.distributed.statistics() if hasattr(self.distributed, 'statistics') else {'status': getattr(self.distributed, 'status', 'unknown')}) if hasattr(self.distributed, "stats") else self.distributed.statistics()),
         )
 
         return context
@@ -2013,7 +2119,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_cluster_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("cluster_stats", self.distributed.stats())
+        context.add_result("cluster_stats", ((self.distributed.stats() if hasattr(self.distributed, 'stats') else self.distributed.statistics() if hasattr(self.distributed, 'statistics') else {'status': getattr(self.distributed, 'status', 'unknown')}) if hasattr(self.distributed, "stats") else self.distributed.statistics()))
         return context
 
     def _cmd_node_register(self, context: RuntimeContext) -> RuntimeContext:
@@ -2117,7 +2223,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_memory_mesh_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("memory_mesh_stats", self.memory_mesh.stats())
+        context.add_result("memory_mesh_stats", ((self.memory_mesh.stats() if hasattr(self.memory_mesh, 'stats') else self.memory_mesh.statistics() if hasattr(self.memory_mesh, 'statistics') else {'status': getattr(self.memory_mesh, 'status', 'unknown')}) if hasattr(self.memory_mesh, "stats") else self.memory_mesh.statistics()))
         return context
 
 
@@ -2194,7 +2300,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_kg_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("knowledge_graph_stats", self.knowledge_graph.stats())
+        context.add_result("knowledge_graph_stats", ((self.knowledge_graph.stats() if hasattr(self.knowledge_graph, 'stats') else self.knowledge_graph.statistics() if hasattr(self.knowledge_graph, 'statistics') else {'status': getattr(self.knowledge_graph, 'status', 'unknown')}) if hasattr(self.knowledge_graph, "stats") else self.knowledge_graph.statistics()))
         return context
 
 
@@ -2248,7 +2354,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_reason_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("reasoning_stats", self.reasoning.stats())
+        context.add_result("reasoning_stats", ((self.reasoning.stats() if hasattr(self.reasoning, 'stats') else self.reasoning.statistics() if hasattr(self.reasoning, 'statistics') else {'status': getattr(self.reasoning, 'status', 'unknown')}) if hasattr(self.reasoning, "stats") else self.reasoning.statistics()))
         return context
 
 
@@ -2299,7 +2405,7 @@ class AletheusRuntime:
         return context
 
     def _cmd_decision_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("decision_stats", self.decision.stats())
+        context.add_result("decision_stats", ((self.decision.stats() if hasattr(self.decision, 'stats') else self.decision.statistics() if hasattr(self.decision, 'statistics') else {'status': getattr(self.decision, 'status', 'unknown')}) if hasattr(self.decision, "stats") else self.decision.statistics()))
         return context
 
 
@@ -2995,26 +3101,547 @@ class AletheusRuntime:
         context.add_result("ha_stats", self.high_availability_v3.statistics())
         return context
 
+
+
+    # ==========================================================
+    # v3.7 Security & Policy Engine
+    # ==========================================================
+
+    def _cmd_security_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "security",
+            self.security_v3.bootstrap(),
+        )
+        return context
+
+    def _cmd_security_authenticate(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+
+        context.add_result(
+            "authentication",
+            self.security_v3.authenticate(
+                payload.get("identity", "anonymous"),
+            ),
+        )
+        return context
+
+    def _cmd_security_authorize(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+
+        context.add_result(
+            "authorization",
+            self.security_v3.authorize(
+                payload.get("identity", "anonymous"),
+                payload.get("permission", ""),
+            ),
+        )
+        return context
+
+    def _cmd_security_policy(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+
+        context.add_result(
+            "policy",
+            self.security_v3.policy(
+                payload.get("name", "default"),
+                payload.get("definition", {}),
+            ),
+        )
+        return context
+
+    def _cmd_security_role_create(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+
+        context.add_result(
+            "role",
+            self.security_v3.create_role(
+                payload.get("name", "Operator"),
+                payload.get("permissions", []),
+            ),
+        )
+        return context
+
+    def _cmd_security_role_assign(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+
+        context.add_result(
+            "assignment",
+            self.security_v3.assign_role(
+                payload.get("identity", "anonymous"),
+                payload.get("role", "Operator"),
+            ),
+        )
+        return context
+
+    def _cmd_security_audit(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+
+        context.add_result(
+            "audit",
+            self.security_v3.audit(
+                action=payload.get("action", "runtime"),
+                actor=payload.get("actor", "system"),
+                status=payload.get("status", "success"),
+                metadata=payload.get("metadata", {}),
+            ),
+        )
+        return context
+
+    def _cmd_security_statistics(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "security_stats",
+            self.security_v3.statistics(),
+        )
+        return context
+
+
+
+    # ==========================================================
+    # v3.9 Multi-Tenant Runtime
+    # ==========================================================
+
+    def _cmd_tenant_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "tenant",
+            self.tenancy_v3.bootstrap(),
+        )
+        return context
+
+    def _cmd_tenant_create(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+
+        context.add_result(
+            "tenant",
+            self.tenancy_v3.create_tenant(
+                organization_id=payload.get("organization_id"),
+                name=payload.get("name", "Production"),
+                environment=payload.get("environment", "production"),
+                quotas=payload.get("quotas", {}),
+                metadata=payload.get("metadata", {}),
+            ),
+        )
+        return context
+
+    def _cmd_tenant_delete(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "tenant",
+            self.tenancy_v3.delete_tenant(
+                context.payload.get("tenant_id", "")
+            ),
+        )
+        return context
+
+    def _cmd_tenant_list(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "tenants",
+            self.tenancy_v3.list_tenants(),
+        )
+        return context
+
+    def _cmd_tenant_select(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "selection",
+            self.tenancy_v3.select_tenant(
+                context.payload.get("tenant_id", "")
+            ),
+        )
+        return context
+
+    # ----------------------------------------------------------
+
+    def _cmd_workspace_create(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+
+        context.add_result(
+            "workspace",
+            self.tenancy_v3.create_workspace(
+                tenant_id=payload.get("tenant_id"),
+                name=payload.get("name", "Workspace"),
+                metadata=payload.get("metadata", {}),
+            ),
+        )
+        return context
+
+    def _cmd_workspace_delete(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "workspace",
+            self.tenancy_v3.delete_workspace(
+                context.payload.get("workspace_id", "")
+            ),
+        )
+        return context
+
+    def _cmd_workspace_list(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "workspaces",
+            self.tenancy_v3.list_workspaces(
+                context.payload.get("tenant_id")
+            ),
+        )
+        return context
+
+    # ----------------------------------------------------------
+
+    def _cmd_organization_create(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+
+        context.add_result(
+            "organization",
+            self.tenancy_v3.create_organization(
+                name=payload.get("name", "Organization"),
+                metadata=payload.get("metadata", {}),
+            ),
+        )
+        return context
+
+    def _cmd_organization_update(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+
+        context.add_result(
+            "organization",
+            self.tenancy_v3.update_organization(
+                organization_id=payload.get("organization_id"),
+                name=payload.get("name"),
+                metadata=payload.get("metadata"),
+                status=payload.get("status"),
+            ),
+        )
+        return context
+
+    # ----------------------------------------------------------
+
+    def _cmd_tenant_statistics(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "tenant_stats",
+            self.tenancy_v3.statistics(),
+        )
+        return context
+
+    def _cmd_tenant_health(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "tenant_health",
+            self.tenancy_v3.health(),
+        )
+        return context
+
+
+
+    # ==========================================================
+    # v4.0 Intelligence Kernel
+    # ==========================================================
+
+    def _cmd_kernel_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+
+        context.add_result(
+            "kernel",
+            {
+                "version": self.intelligence_orchestrator.version,
+                "scheduler": self.intelligence_scheduler.statistics(),
+                "dispatcher": self.intelligence_dispatcher.statistics(),
+                "supervisor": self.intelligence_supervisor.statistics(),
+                "health": "healthy",
+            },
+        )
+
+        return context
+
+
+    def _cmd_kernel_execute(self, context: RuntimeContext) -> RuntimeContext:
+
+        payload = context.payload
+
+        result = self.intelligence_orchestrator.execute(
+            command=payload.get("command"),
+            payload=payload.get("payload", {}),
+            runtime=self,
+            priority=payload.get("priority", 5),
+        )
+
+        context.add_result(
+            "task",
+            result,
+        )
+
+        return context
+
+
+    def _cmd_kernel_tasks(self, context: RuntimeContext) -> RuntimeContext:
+
+        context.add_result(
+            "tasks",
+            self.intelligence_orchestrator.list_tasks(),
+        )
+
+        return context
+
+
+    def _cmd_kernel_scheduler(self, context: RuntimeContext) -> RuntimeContext:
+
+        payload = context.payload
+
+        if payload.get("task_id"):
+
+            context.add_result(
+                "schedule",
+                self.intelligence_scheduler.schedule(
+                    payload["task_id"],
+                    payload.get("priority", 5),
+                ),
+            )
+
+        else:
+
+            context.add_result(
+                "schedule",
+                self.intelligence_scheduler.statistics(),
+            )
+
+        return context
+
+
+    def _cmd_kernel_dispatcher(self, context: RuntimeContext) -> RuntimeContext:
+
+        payload = context.payload
+
+        if payload.get("command"):
+
+            dispatched = self.intelligence_dispatcher.dispatch(
+                runtime=self,
+                command=payload["command"],
+                payload=payload.get("payload", {}),
+            )
+
+            context.add_result(
+                "dispatch",
+                {
+                    "results": dispatched.results,
+                    "errors": dispatched.errors,
+                },
+            )
+
+        else:
+
+            context.add_result(
+                "dispatch",
+                self.intelligence_dispatcher.statistics(),
+            )
+
+        return context
+
+
+    def _cmd_kernel_supervisor(self, context: RuntimeContext) -> RuntimeContext:
+
+        context.add_result(
+            "supervisor",
+            self.intelligence_supervisor.check(self),
+        )
+
+        return context
+
+
+    def _cmd_kernel_statistics(self, context: RuntimeContext) -> RuntimeContext:
+
+        context.add_result(
+            "kernel_stats",
+            {
+                "orchestrator": self.intelligence_orchestrator.statistics(),
+                "scheduler": self.intelligence_scheduler.statistics(),
+                "dispatcher": self.intelligence_dispatcher.statistics(),
+                "supervisor": self.intelligence_supervisor.statistics(),
+            },
+        )
+
+        return context
+
+
+
+
+
+    # ==========================================================
+    # Runtime Compatibility Layer
+    # ==========================================================
+
+    def _bootstrap_compatibility(self):
+        self.compat.services.clear()
+        self._register_compatibility_services()
+        self._apply_compatibility_aliases()
+
+    def _register_compatibility_services(self):
+        registry = [
+            ("memory", ["memory"]),
+            ("knowledge", ["knowledge"]),
+            ("reasoning", ["reasoning"]),
+            ("decision", ["decision"]),
+            ("planning", ["planning_v2", "planning"]),
+            ("workflow", ["workflow_v3", "workflow_v2", "workflow"]),
+            ("agents", ["agents_v2", "agents"]),
+            ("plugins", ["plugins_v3"]),
+            ("persistence", ["persistence_v3"]),
+            ("events", ["event_bus_v3"]),
+            ("federation", ["federation_v3"]),
+            ("telemetry", ["telemetry_v3"]),
+            ("ha", ["high_availability_v3"]),
+            ("security", ["security_v3"]),
+            ("tenancy", ["tenancy_v3"]),
+        ]
+
+        for alias, attrs in registry:
+            service = None
+
+            for attr in attrs:
+                candidate = getattr(self, attr, None)
+                if candidate is not None:
+                    service = candidate
+                    break
+
+            if service is not None:
+                self.compat.register(
+                    alias=alias,
+                    implementation=service,
+                )
+
+    def _apply_compatibility_aliases(self):
+        # Safe canonical aliases only.
+        # Do not overwrite core runtime infrastructure like self.events or self.plugins.
+        safe_aliases = [
+            "memory",
+            "knowledge",
+            "reasoning",
+            "decision",
+            "planning",
+            "workflow",
+            "agents",
+            "security",
+            "tenancy",
+        ]
+
+        for alias in safe_aliases:
+            try:
+                setattr(self, alias, self.compat.resolve(alias))
+            except KeyError:
+                pass
+
+        try:
+            self.high_availability = self.compat.resolve("ha")
+        except KeyError:
+            pass
+
+        try:
+            self.event_bus = self.compat.resolve("events")
+        except KeyError:
+            pass
+
+
+    # ==========================================================
+    # v4.1 Runtime Compatibility Commands
+    # ==========================================================
+
+    def _cmd_compat_list(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("services", self.compat.list())
+        return context
+
+    def _cmd_compat_statistics(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("compat_stats", self.compat.statistics())
+        return context
+
+    def _cmd_compat_resolve(self, context: RuntimeContext) -> RuntimeContext:
+        alias = context.payload.get("alias", "")
+
+        try:
+            service = self.compat.resolve(alias)
+            context.add_result(
+                "service",
+                {
+                    "alias": alias,
+                    "resolved": True,
+                    "implementation": type(service).__name__,
+                    "version": getattr(service, "VERSION", getattr(service, "version", "unknown")),
+                },
+            )
+        except KeyError:
+            context.add_result(
+                "service",
+                {
+                    "alias": alias,
+                    "resolved": False,
+                    "error": "Service alias not found",
+                },
+            )
+
+        return context
+
+    def _cmd_compat_contract(self, context: RuntimeContext) -> RuntimeContext:
+        alias = context.payload.get("alias", "")
+
+        try:
+            service = self.compat.resolve(alias)
+            context.add_result(
+                "contract",
+                {
+                    "name": alias,
+                    "version": getattr(service, "VERSION", getattr(service, "version", "unknown")),
+                    "implementation": type(service).__name__,
+                },
+            )
+        except KeyError:
+            context.add_result(
+                "contract",
+                {
+                    "name": alias,
+                    "error": "Service alias not found",
+                },
+            )
+
+        return context
+
+
+
+    # ==========================================================
+    # v4.1.1 Engineering Foundation Commands
+    # ==========================================================
+
+    def _cmd_runtime_selftest(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("selftest", self.hardening.selftest())
+        return context
+
+    def _cmd_runtime_dashboard(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("dashboard", self.hardening.dashboard())
+        return context
+
+    def _cmd_runtime_snapshot(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("snapshot", self.hardening.snapshot())
+        return context
+
+    def _cmd_runtime_audit(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("audit", self.hardening.audit())
+        return context
+
+    def _cmd_runtime_docs(self, context: RuntimeContext) -> RuntimeContext:
+        path = context.payload.get("path", "RUNTIME_DOCUMENTATION.md")
+        context.add_result("documentation", self.hardening.write_documentation(path))
+        return context
+
+
     def _job_runtime_pulse(self) -> dict:
         return {
             "status": "completed",
             "version": self.version,
             "diagnostics": self.diagnostics.report(),
-            "memory": self.memory.stats(),
-            "cognition": self.cognition.stats(),
-            "knowledge": self.knowledge.stats(),
-            "mission": self.mission.stats(),
-            "workspace": self.workspace.stats(),
-            "applications": self.applications.stats(),
-            "semantic": self.semantic.stats(),
-            "executive": self.executive.stats(),
-            "agents": self.agents.stats(),
-            "planning": self.planning.stats(),
-            "copilot": self.copilot.stats(),
-            "universal_intelligence": self.intelligence.stats(),
-            "prediction": self.prediction.stats(),
-            "learning": self.learning.stats(),
-            "kernel_v2": self.kernel_v2.stats(),
+            "memory": ((self.memory.stats() if hasattr(self.memory, 'stats') else self.memory.statistics() if hasattr(self.memory, 'statistics') else {'status': getattr(self.memory, 'status', 'unknown')}) if hasattr(self.memory, "stats") else self.memory.statistics()),
+            "cognition": ((self.cognition.stats() if hasattr(self.cognition, 'stats') else self.cognition.statistics() if hasattr(self.cognition, 'statistics') else {'status': getattr(self.cognition, 'status', 'unknown')}) if hasattr(self.cognition, "stats") else self.cognition.statistics()),
+            "knowledge": ((self.knowledge.stats() if hasattr(self.knowledge, 'stats') else self.knowledge.statistics() if hasattr(self.knowledge, 'statistics') else {'status': getattr(self.knowledge, 'status', 'unknown')}) if hasattr(self.knowledge, "stats") else self.knowledge.statistics()),
+            "mission": ((self.mission.stats() if hasattr(self.mission, 'stats') else self.mission.statistics() if hasattr(self.mission, 'statistics') else {'status': getattr(self.mission, 'status', 'unknown')}) if hasattr(self.mission, "stats") else self.mission.statistics()),
+            "workspace": ((self.workspace.stats() if hasattr(self.workspace, 'stats') else self.workspace.statistics() if hasattr(self.workspace, 'statistics') else {'status': getattr(self.workspace, 'status', 'unknown')}) if hasattr(self.workspace, "stats") else self.workspace.statistics()),
+            "applications": ((self.applications.stats() if hasattr(self.applications, 'stats') else self.applications.statistics() if hasattr(self.applications, 'statistics') else {'status': getattr(self.applications, 'status', 'unknown')}) if hasattr(self.applications, "stats") else self.applications.statistics()),
+            "semantic": ((self.semantic.stats() if hasattr(self.semantic, 'stats') else self.semantic.statistics() if hasattr(self.semantic, 'statistics') else {'status': getattr(self.semantic, 'status', 'unknown')}) if hasattr(self.semantic, "stats") else self.semantic.statistics()),
+            "executive": ((self.executive.stats() if hasattr(self.executive, 'stats') else self.executive.statistics() if hasattr(self.executive, 'statistics') else {'status': getattr(self.executive, 'status', 'unknown')}) if hasattr(self.executive, "stats") else self.executive.statistics()),
+            "agents": ((self.agents.stats() if hasattr(self.agents, 'stats') else self.agents.statistics() if hasattr(self.agents, 'statistics') else {'status': getattr(self.agents, 'status', 'unknown')}) if hasattr(self.agents, "stats") else self.agents.statistics()),
+            "planning": ((self.planning.stats() if hasattr(self.planning, 'stats') else self.planning.statistics() if hasattr(self.planning, 'statistics') else {'status': getattr(self.planning, 'status', 'unknown')}) if hasattr(self.planning, "stats") else self.planning.statistics()),
+            "copilot": ((self.copilot.stats() if hasattr(self.copilot, 'stats') else self.copilot.statistics() if hasattr(self.copilot, 'statistics') else {'status': getattr(self.copilot, 'status', 'unknown')}) if hasattr(self.copilot, "stats") else self.copilot.statistics()),
+            "universal_intelligence": ((self.intelligence.stats() if hasattr(self.intelligence, 'stats') else self.intelligence.statistics() if hasattr(self.intelligence, 'statistics') else {'status': getattr(self.intelligence, 'status', 'unknown')}) if hasattr(self.intelligence, "stats") else self.intelligence.statistics()),
+            "prediction": ((self.prediction.stats() if hasattr(self.prediction, 'stats') else self.prediction.statistics() if hasattr(self.prediction, 'statistics') else {'status': getattr(self.prediction, 'status', 'unknown')}) if hasattr(self.prediction, "stats") else self.prediction.statistics()),
+            "learning": ((self.learning.stats() if hasattr(self.learning, 'stats') else self.learning.statistics() if hasattr(self.learning, 'statistics') else {'status': getattr(self.learning, 'status', 'unknown')}) if hasattr(self.learning, "stats") else self.learning.statistics()),
+            "kernel_v2": ((self.kernel_v2.stats() if hasattr(self.kernel_v2, 'stats') else self.kernel_v2.statistics() if hasattr(self.kernel_v2, 'statistics') else {'status': getattr(self.kernel_v2, 'status', 'unknown')}) if hasattr(self.kernel_v2, "stats") else self.kernel_v2.statistics()),
         }
 
 

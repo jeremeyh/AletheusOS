@@ -25,6 +25,8 @@ class RuntimeDiagnostics:
             ("federation_v3", "Aletheus Federated Knowledge Fabric"),
             ("telemetry_v3", "Aletheus Observability Platform"),
             ("high_availability_v3", "Aletheus High Availability Platform"),
+            ("security_v3", "Aletheus Security & Policy Engine"),
+            ("tenancy_v3", "Aletheus Multi-Tenant Runtime"),
             ("distributed", "Aletheus Distributed Intelligence Fabric"),
             ("enterprise", "Aletheus Enterprise Intelligence Platform"),
             ("workflow_v2", "Aletheus v2 Autonomous Workflow Fabric"),
