@@ -11,3 +11,6 @@ uploads/*
 *.swo
 *.swx
 *~
+
+# Generated runtime health reports
+reports/

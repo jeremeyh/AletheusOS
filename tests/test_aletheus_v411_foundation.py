@@ -44,4 +44,4 @@ if __name__ == "__main__":
     test_audit()
     test_docs()
 
-    print("\n✔ AletheusOS v4.1.1 Engineering Foundation tests passed.")
+    print("\n✔ AletheusOS Runtime Engineering Foundation tests passed.")
