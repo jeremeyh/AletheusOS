@@ -507,42 +507,6 @@ class AletheusRuntime:
         self.commands.register("knowledge.bootstrap.cardhawk", self._cmd_kg_bootstrap_cardhawk)
         self.commands.register("knowledge.statistics", self._cmd_kg_statistics)
 
-        # v2.5 Cognitive Reasoning Engine
-        self.commands.register("reason.bootstrap", self._cmd_reason_bootstrap)
-        self.commands.register("reason.rule.add", self._cmd_reason_rule_add)
-        self.commands.register("reason.evaluate", self._cmd_reason_evaluate)
-        self.commands.register("reason.explain", self._cmd_reason_explain)
-        self.commands.register("reason.trace", self._cmd_reason_trace)
-        self.commands.register("reason.decision", self._cmd_reason_decision)
-        self.commands.register("reason.confidence", self._cmd_reason_confidence)
-        self.commands.register("reason.statistics", self._cmd_reason_statistics)
-
-        # v2.6 Autonomous Decision Engine
-        self.commands.register("decision.bootstrap", self._cmd_decision_bootstrap)
-        self.commands.register("decision.policy.add", self._cmd_decision_policy_add)
-        self.commands.register("decision.evaluate", self._cmd_decision_evaluate)
-        self.commands.register("decision.execute", self._cmd_decision_execute)
-        self.commands.register("decision.rollback", self._cmd_decision_rollback)
-        self.commands.register("decision.explain", self._cmd_decision_explain)
-        self.commands.register("decision.history", self._cmd_decision_history)
-        self.commands.register("decision.statistics", self._cmd_decision_statistics)
-
-        # -----------------------------
-        # v2.7 Autonomous Agent Runtime
-        # -----------------------------
-        self.commands.register("agent.bootstrap", self._cmd_agent_bootstrap)
-        self.commands.register("agent.spawn", self._cmd_agent_spawn)
-        self.commands.register("agent.assign", self._cmd_agent_assign)
-        self.commands.register("agent.message", self._cmd_agent_message)
-        self.commands.register("agent.pause", self._cmd_agent_pause)
-        self.commands.register("agent.resume", self._cmd_agent_resume)
-        self.commands.register("agent.stop", self._cmd_agent_stop)
-        self.commands.register("agent.heartbeat", self._cmd_agent_heartbeat)
-        self.commands.register("agent.statistics", self._cmd_agent_statistics)
-
-        # v2.8 Workflow Intelligence
-        self.commands.register("workflow.bootstrap", self._cmd_workflow_bootstrap)
-        self.commands.register("workflow.create", self._cmd_workflow_create)
         self.commands.register("workflow.start", self._cmd_workflow_start)
         self.commands.register("workflow.pause", self._cmd_workflow_pause)
         self.commands.register("workflow.resume", self._cmd_workflow_resume)
