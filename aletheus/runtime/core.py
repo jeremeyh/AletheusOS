@@ -57,7 +57,9 @@ from aletheus.runtime.registries import EngineRegistry, ServiceRegistry
 from aletheus.runtime.scheduler import Scheduler
 from aletheus.runtime.workflow import WorkflowExecutor, WorkflowGraph
 from aletheus.runtime.hardening import RuntimeHardening
-from aletheus.runtime.integrity import RuntimeDoctor, RuntimeInvariantEngine, RuntimeBootValidator
+from aletheus.runtime.integrity import RuntimeDoctor
+from aletheus.runtime.governance import GovernanceEngine
+from aletheus.runtime.integrity import RuntimeInvariantEngine, RuntimeBootValidator
 
 
 class AletheusRuntime:
@@ -129,6 +131,7 @@ class AletheusRuntime:
         self._bootstrap_compatibility()
         self.hardening = RuntimeHardening(self)
         self.runtime_doctor = RuntimeDoctor(self)
+        self.governance = GovernanceEngine(self)
         self.runtime_invariants = RuntimeInvariantEngine(self)
         self.boot_validator = RuntimeBootValidator(self)
 
