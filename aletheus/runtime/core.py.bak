@@ -53,16 +53,11 @@ from aletheus.runtime.events import EventBus
 from aletheus.runtime.job_queue import JobQueue
 from aletheus.runtime.metrics import RuntimeMetrics
 from aletheus.runtime.pipeline import Pipeline, PipelineExecutor
-from aletheus.runtime.registries import EngineRegistry
+from aletheus.runtime.registries import EngineRegistry, ServiceRegistry
 from aletheus.runtime.scheduler import Scheduler
 from aletheus.runtime.workflow import WorkflowExecutor, WorkflowGraph
 from aletheus.runtime.hardening import RuntimeHardening
 from aletheus.runtime.integrity import RuntimeDoctor
-from aletheus.runtime.governance import (
-    GovernanceEngine,
-    PrincipleXValidator,
-)
-from aletheus.runtime.services import ServiceRegistry
 from aletheus.runtime.governance import GovernanceEngine, PrincipleXValidator
 from aletheus.runtime.integrity import RuntimeInvariantEngine, RuntimeBootValidator
 
@@ -133,20 +128,6 @@ class AletheusRuntime:
         self.compat = compatibility_registry
 
 
-        self.boot()
-        self._bootstrap_compatibility()
-        self.hardening = RuntimeHardening(self)
-        self.runtime_doctor = RuntimeDoctor(self)
-
-        self.governance = GovernanceEngine(self)
-        self.principle_x = PrincipleXValidator(self)
-        self.runtime_invariants = RuntimeInvariantEngine(self)
-        self.boot_validator = RuntimeBootValidator(self)
-
-        # --------------------------------------------------
-        # Runtime Service Registry
-        # --------------------------------------------------
-
         self.services.register("commands", self.commands)
         self.services.register("events", self.events)
         self.services.register("metrics", self.metrics)
@@ -156,6 +137,15 @@ class AletheusRuntime:
         self.services.register("doctor", self.runtime_doctor)
         self.services.register("boot_validator", self.boot_validator)
         self.services.register("invariants", self.runtime_invariants)
+
+        self.boot()
+        self._bootstrap_compatibility()
+        self.hardening = RuntimeHardening(self)
+        self.runtime_doctor = RuntimeDoctor(self)
+        self.governance = GovernanceEngine(self)
+        self.principle_x = PrincipleXValidator(self)
+        self.runtime_invariants = RuntimeInvariantEngine(self)
+        self.boot_validator = RuntimeBootValidator(self)
 
 
     def boot(self) -> None:
@@ -476,6 +466,14 @@ class AletheusRuntime:
         )
 
 
+
+
+
+
+
+
+
+
         self.commands.register("cluster.list", self._cmd_cluster_list)
         self.commands.register("cluster.status", self._cmd_cluster_status)
         self.commands.register("cluster.broadcast", self._cmd_cluster_broadcast)
@@ -559,6 +557,9 @@ class AletheusRuntime:
         self.commands.register("plan.complete", self._cmd_plan_complete)
         self.commands.register("plan.status", self._cmd_plan_status)
         self.commands.register("plan.statistics", self._cmd_plan_statistics)
+
+
+
 
 
         self.services.register(
@@ -681,6 +682,7 @@ class AletheusRuntime:
         self.events.publish("runtime.engine.registered", {"engine": name}, source="runtime")
 
     def register_service(self, name: str, service: Any) -> None:
+        self.services.register(name, service)
 
         self.services.register(
             "Aletheus Cognitive Reasoning Engine",
@@ -2537,6 +2539,7 @@ class AletheusRuntime:
         return context
 
 
+
     # ==========================================================
     # v2.9 Autonomous Planning Engine
     # ==========================================================
@@ -2632,6 +2635,7 @@ class AletheusRuntime:
         return context
 
 
+
     # ==========================================================
     # v3.1 Plugin Manager
     # ==========================================================
@@ -2703,6 +2707,7 @@ class AletheusRuntime:
         return context
 
 
+
     # ==========================================================
     # v3.2 Persistence Engine
     # ==========================================================
@@ -2769,6 +2774,7 @@ class AletheusRuntime:
             self.persistence_v3.statistics(),
         )
         return context
+
 
 
     # ==========================================================
@@ -2858,6 +2864,7 @@ class AletheusRuntime:
         return context
 
 
+
     # ==========================================================
     # v3.4 Federated Knowledge Fabric
     # ==========================================================
@@ -2933,6 +2940,7 @@ class AletheusRuntime:
         )
 
         return context
+
 
 
     # ==========================================================
@@ -3050,6 +3058,7 @@ class AletheusRuntime:
         return context
 
 
+
     # ==========================================================
     # v3.6 High Availability & Replication
     # ==========================================================
@@ -3115,6 +3124,7 @@ class AletheusRuntime:
     def _cmd_ha_statistics(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("ha_stats", self.high_availability_v3.statistics())
         return context
+
 
 
     # ==========================================================
@@ -3207,6 +3217,7 @@ class AletheusRuntime:
             self.security_v3.statistics(),
         )
         return context
+
 
 
     # ==========================================================
@@ -3338,6 +3349,7 @@ class AletheusRuntime:
         return context
 
 
+
     # ==========================================================
     # v4.0 Intelligence Kernel
     # ==========================================================
@@ -3464,6 +3476,9 @@ class AletheusRuntime:
         )
 
         return context
+
+
+
 
 
     # ==========================================================
@@ -3604,6 +3619,7 @@ class AletheusRuntime:
         return context
 
 
+
     # ==========================================================
     # v4.1.1 Engineering Foundation Commands
     # ==========================================================
@@ -3628,6 +3644,7 @@ class AletheusRuntime:
         path = context.payload.get("path", "RUNTIME_DOCUMENTATION.md")
         context.add_result("documentation", self.hardening.write_documentation(path))
         return context
+
 
 
     # ==========================================================
