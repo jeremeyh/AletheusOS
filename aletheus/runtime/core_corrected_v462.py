@@ -63,12 +63,10 @@ from aletheus.runtime.governance import (
     PrincipleXValidator,
 )
 from aletheus.runtime.services import ServiceRegistry
+from aletheus.runtime.integrity import RuntimeInvariantEngine, RuntimeBootValidator
 from aletheus.runtime.registrations import (
-    register_runtime_commands,
     register_memory_commands,
 )
-from aletheus.runtime.governance import GovernanceEngine, PrincipleXValidator
-from aletheus.runtime.integrity import RuntimeInvariantEngine, RuntimeBootValidator
 
 
 class AletheusRuntime:
