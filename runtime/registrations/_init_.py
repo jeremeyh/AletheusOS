@@ -1,7 +1,7 @@
 """
 AletheusOS Runtime Registration Package
 
-Version 5.0.1
+Version 4.8.1
 """
 
 from .runtime_commands import register_runtime_commands
