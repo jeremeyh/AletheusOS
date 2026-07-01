@@ -1,6 +1,6 @@
 # AletheusOS Runtime Documentation
 
-Generated: 2026-06-30T15:11:09.871417
+Generated: 2026-07-01T02:54:26.952461
 Runtime Version: 4.2.1
 
 ## Compatibility Aliases
@@ -21,20 +21,12 @@ Runtime Version: 4.2.1
 - workflow
 
 ## Commands
-- `agent.assign`
 - `agent.bootstrap`
-- `agent.heartbeat`
 - `agent.list`
-- `agent.message`
 - `agent.orchestrate`
-- `agent.pause`
 - `agent.register`
-- `agent.resume`
 - `agent.run`
-- `agent.spawn`
-- `agent.statistics`
 - `agent.stats`
-- `agent.stop`
 - `agent.task.assign`
 - `application.bootstrap.defaults`
 - `application.events`
@@ -79,15 +71,8 @@ Runtime Version: 4.2.1
 - `copilot.recommend`
 - `copilot.stats`
 - `copilot.timeline`
-- `decision.bootstrap`
-- `decision.evaluate`
-- `decision.execute`
-- `decision.explain`
 - `decision.history`
-- `decision.policy.add`
 - `decision.record`
-- `decision.rollback`
-- `decision.statistics`
 - `department.create`
 - `enterprise.bootstrap.cardhawk`
 - `enterprise.create`
@@ -239,15 +224,8 @@ Runtime Version: 4.2.1
 - `predict.scenario`
 - `predict.stats`
 - `predict.timeline`
-- `reason.bootstrap`
-- `reason.confidence`
-- `reason.decision`
 - `reason.evaluate`
-- `reason.explain`
 - `reason.history`
-- `reason.rule.add`
-- `reason.statistics`
-- `reason.trace`
 - `relationship.create`
 - `relationship.search`
 - `release.status`
@@ -314,9 +292,7 @@ Runtime Version: 4.2.1
 - `uil.stats`
 - `uil.synthesize`
 - `uil.timeline`
-- `workflow.bootstrap`
 - `workflow.cancel`
-- `workflow.create`
 - `workflow.pause`
 - `workflow.resume`
 - `workflow.start`
