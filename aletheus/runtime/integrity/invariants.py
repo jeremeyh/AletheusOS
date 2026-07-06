@@ -4,7 +4,7 @@ from typing import Any, Dict, List
 
 
 class RuntimeInvariantEngine:
-    VERSION = "4.6.2"
+    VERSION = "4.2.1"
 
     def __init__(self, runtime: Any):
         self.runtime = runtime
