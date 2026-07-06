@@ -2,10 +2,6 @@ from __future__ import annotations
 
 from typing import Any
 
-from aletheus.identity_engine import identity_engine
-from aletheus.capability_engine import capability_engine
-from aletheus.aos_search import aos_search
-
 from aletheus.memory import memory_core
 from aletheus.cognition import cognition_core
 from aletheus.knowledge import knowledge_core
@@ -49,22 +45,8 @@ from aletheus.runtime.kernel import (
     KernelExecutor,
 )
 from aletheus.plugins.runtime_plugin_manager import RuntimePluginManager
-from aletheus.runtime.command_bus import CommandBus
+from aletheus.runtime.commands import CommandBus
 from aletheus.runtime.context import RuntimeContext
-from aletheus.runtime.composition import RuntimeCompositionRoot
-from aletheus.intent_runtime.core import intent_runtime
-from aletheus.intent_runtime.models import (
-    Intent,
-    IntentPriority,
-    IntentStatus,
-)
-from aletheus.unified_cognitive_index.core import uci_service
-from aletheus.unified_cognitive_index.models import (
-    UCINode,
-    UCINodeType,
-    UCIRelationship,
-    UCIRelationshipType,
-)
 from aletheus.runtime.compat import compatibility_registry
 from aletheus.runtime.diagnostics import RuntimeDiagnostics
 from aletheus.runtime.events import EventBus
@@ -97,31 +79,15 @@ from aletheus.runtime.registrations import (
     register_copilot_commands,
     register_uil_commands,
 )
-
-from aletheus.runtime.commands import (
-    register_uci_commands,
-    register_intent_commands,
-    register_diagnostics_commands,
-)
 from aletheus.runtime.integrity import RuntimeInvariantEngine, RuntimeBootValidator
-from aletheus.runtime.managers.runtime_inspector import RuntimeInspector
 
-
-class MissingIntentException(RuntimeError):
-    """
-    Runtime Invariant RI-001
-
-    Every meaningful execution inside AletheusOS must possess
-    a valid Intent before intelligence, planning, governance,
-    or execution services are invoked.
-    """
 
 class AletheusRuntime:
     def __init__(self) -> None:
         self.organization = "6th Dimension Multimedia"
         self.product = "Aletheus™"
         self.product_type = "Universal Intelligence Operating System"
-        self.version = "4.6.2"
+        self.version = "4.2.1"
         self.status = "created"
 
         self.events = EventBus()
@@ -129,22 +95,6 @@ class AletheusRuntime:
         self.services = ServiceRegistry()
         self.metrics = RuntimeMetrics()
         self.commands = CommandBus(self)
-
-        # Genesis 6 Runtime Composition
-        # The composition root owns object graph construction.
-        self.composition_root = RuntimeCompositionRoot()
-        self.composition = self.composition_root.build()
-
-        self.kernel_bus = self.composition.kernel_bus
-        self.registry = self.composition.registry
-        self.health_monitor = self.composition.health_monitor
-        self.health = self.composition.health_monitor
-        self.registry_manager = self.composition.registry_manager
-        self.ctf = self.composition.ctf
-
-        self.kernel_bus.boot(self)
-        self.intent_runtime = intent_runtime
-        self.uci = uci_service
         self.pipelines = PipelineExecutor(self)
         self.workflows = WorkflowExecutor(self)
         self.scheduler = Scheduler()
@@ -197,10 +147,6 @@ class AletheusRuntime:
         # Runtime Compatibility Layer
         self.compat = compatibility_registry
 
-        # Runtime Managers
-        # Genesis 53: Managers are wired before boot so future
-        # consolidation can migrate boot/registration safely.
-        self.runtime_inspector = RuntimeInspector(self)
 
         self.boot()
         self._bootstrap_compatibility()
@@ -217,8 +163,6 @@ class AletheusRuntime:
         # --------------------------------------------------
 
         self.services.register("commands", self.commands)
-        self.services.register("intent_runtime", self.intent_runtime)
-        self.services.register("unified_cognitive_index", self.uci)
         self.services.register("events", self.events)
         self.services.register("metrics", self.metrics)
         self.services.register("compatibility", self.compat)
@@ -238,14 +182,6 @@ class AletheusRuntime:
 
         register_runtime_commands(self)
 
-        register_uci_commands(self)
-        register_intent_commands(self)
-        register_diagnostics_commands(self)
-        self.commands.register("runtime.kernel_bus.summary", lambda context: self._cmd_kernel_bus_summary(context))
-        self.commands.register("runtime.kernel_bus.health", lambda context: self._cmd_kernel_bus_health(context))
-        self.commands.register("runtime.registry.summary", lambda context: self._cmd_registry_summary(context))
-        self.commands.register("runtime.ctf.summary", lambda context: self._cmd_ctf_summary(context))
-
         register_memory_commands(self)
 
         self.commands.register("goal.create", self._cmd_goal_create)
@@ -255,6 +191,7 @@ class AletheusRuntime:
         self.commands.register("plan.list", self._cmd_plan_list)
         register_reasoning_commands(self)
         register_decision_commands(self)
+        self.commands.register("cognition.stats", self._cmd_cognition_stats)
 
         register_graph_commands(self)
 
@@ -263,8 +200,11 @@ class AletheusRuntime:
         register_workspace_commands(self)
 
         register_application_commands(self)
+        self.commands.register("cardhawk.foundation.bootstrap", self._cmd_cardhawk_foundation_bootstrap)
+        self.commands.register("cardhawk.status", self._cmd_cardhawk_status)
         self.commands.register("cardhawk.start", self._cmd_cardhawk_start)
         self.commands.register("cardhawk.stop", self._cmd_cardhawk_stop)
+        self.commands.register("release.status", self._cmd_release_status)
         self.commands.register("release.validate", self._cmd_release_validate)
         register_semantic_commands(self)
         register_executive_commands(self)
@@ -278,13 +218,20 @@ class AletheusRuntime:
         self.commands.register("predict.opportunities", self._cmd_predict_opportunities)
         self.commands.register("predict.recommend", self._cmd_predict_recommend)
         self.commands.register("predict.timeline", self._cmd_predict_timeline)
+        self.commands.register("predict.stats", self._cmd_predict_stats)
         self.commands.register("learn.record", self._cmd_learn_record)
         self.commands.register("learn.lesson", self._cmd_learn_lesson)
         self.commands.register("learn.feedback", self._cmd_learn_feedback)
         self.commands.register("learn.patterns", self._cmd_learn_patterns)
         self.commands.register("learn.improve", self._cmd_learn_improve)
+        self.commands.register("learn.snapshot", self._cmd_learn_snapshot)
+        self.commands.register("learn.stats", self._cmd_learn_stats)
+        self.commands.register("kernel.boot", self._cmd_kernel_boot)
+        self.commands.register("kernel.status", self._cmd_kernel_status)
         self.commands.register("kernel.sync", self._cmd_kernel_sync)
         self.commands.register("kernel.publish", self._cmd_kernel_publish)
+        self.commands.register("kernel.snapshot", self._cmd_kernel_snapshot)
+        self.commands.register("kernel.stats", self._cmd_kernel_stats)
         self.commands.register("mission.v2.create", self._cmd_mission_v2_create)
         self.commands.register("mission.v2.plan", self._cmd_mission_v2_plan)
         self.commands.register("mission.v2.execute_next", self._cmd_mission_v2_execute_next)
@@ -294,6 +241,7 @@ class AletheusRuntime:
         self.commands.register("mission.v2.cancel", self._cmd_mission_v2_cancel)
         self.commands.register("mission.v2.list", self._cmd_mission_v2_list)
         self.commands.register("mission.v2.telemetry", self._cmd_mission_v2_telemetry)
+        self.commands.register("mission.v2.stats", self._cmd_mission_v2_stats)
         self.commands.register("workflow.v2.create", self._cmd_workflow_v2_create)
         self.commands.register("workflow.v2.execute_next", self._cmd_workflow_v2_execute_next)
         self.commands.register("workflow.v2.execute", self._cmd_workflow_v2_execute)
@@ -302,13 +250,18 @@ class AletheusRuntime:
         self.commands.register("workflow.v2.cancel", self._cmd_workflow_v2_cancel)
         self.commands.register("workflow.v2.list", self._cmd_workflow_v2_list)
         self.commands.register("workflow.v2.history", self._cmd_workflow_v2_history)
+        self.commands.register("workflow.v2.stats", self._cmd_workflow_v2_stats)
+        self.commands.register("enterprise.bootstrap.cardhawk", self._cmd_enterprise_bootstrap_cardhawk)
         self.commands.register("enterprise.create", self._cmd_enterprise_create)
         self.commands.register("enterprise.list", self._cmd_enterprise_list)
+        self.commands.register("enterprise.stats", self._cmd_enterprise_stats)
         self.commands.register("department.create", self._cmd_department_create)
         self.commands.register("team.create", self._cmd_team_create)
         self.commands.register("policy.create", self._cmd_policy_create)
         self.commands.register("governance.check", self._cmd_governance_check)
+        self.commands.register("audit.history", self._cmd_audit_history)
         self.commands.register("cluster.create", self._cmd_cluster_create)
+        self.commands.register("cluster.bootstrap", self._cmd_cluster_bootstrap)
 
         self.commands.register("cluster.join", self._cmd_cluster_join)
         self.commands.register("cluster.leave", self._cmd_cluster_leave)
@@ -319,23 +272,28 @@ class AletheusRuntime:
         self.commands.register("cluster.statistics", self._cmd_cluster_statistics)
 
         # v3.1 Plugin Framework
+        self.commands.register("plugin.bootstrap", self._cmd_plugin_bootstrap)
         self.commands.register("plugin.install", self._cmd_plugin_install)
         self.commands.register("plugin.enable", self._cmd_plugin_enable)
         self.commands.register("plugin.disable", self._cmd_plugin_disable)
         self.commands.register("plugin.update", self._cmd_plugin_update)
         self.commands.register("plugin.remove", self._cmd_plugin_remove)
         self.commands.register("plugin.list", self._cmd_plugin_list)
+        self.commands.register("plugin.status", self._cmd_plugin_status)
         self.commands.register("plugin.statistics", self._cmd_plugin_statistics)
 
         # v3.2 Persistence Engine
+        self.commands.register("state.bootstrap", self._cmd_state_bootstrap)
         self.commands.register("state.save", self._cmd_state_save)
         self.commands.register("state.load", self._cmd_state_load)
+        self.commands.register("state.snapshot", self._cmd_state_snapshot)
         self.commands.register("state.restore", self._cmd_state_restore)
         self.commands.register("state.export", self._cmd_state_export)
         self.commands.register("state.import", self._cmd_state_import)
         self.commands.register("state.statistics", self._cmd_state_statistics)
 
         # v3.3 Event Bus
+        self.commands.register("event.bootstrap", self._cmd_event_bootstrap)
         self.commands.register("event.publish", self._cmd_event_publish)
         self.commands.register("event.subscribe", self._cmd_event_subscribe)
         self.commands.register("event.unsubscribe", self._cmd_event_unsubscribe)
@@ -344,6 +302,7 @@ class AletheusRuntime:
         self.commands.register("event.statistics", self._cmd_event_statistics)
 
         # v3.4 Federation
+        self.commands.register("federation.bootstrap", self._cmd_federation_bootstrap)
         self.commands.register("federation.join", self._cmd_federation_join)
         self.commands.register("federation.leave", self._cmd_federation_leave)
         self.commands.register("federation.discover", self._cmd_federation_discover)
@@ -352,14 +311,18 @@ class AletheusRuntime:
         self.commands.register("federation.statistics", self._cmd_federation_statistics)
 
         # v3.5 Observability Platform
+        self.commands.register("telemetry.bootstrap", self._cmd_telemetry_bootstrap)
         self.commands.register("telemetry.record", self._cmd_telemetry_record)
+        self.commands.register("telemetry.metric", self._cmd_telemetry_metric)
         self.commands.register("telemetry.log", self._cmd_telemetry_log)
         self.commands.register("telemetry.trace", self._cmd_telemetry_trace)
+        self.commands.register("telemetry.health", self._cmd_telemetry_health)
         self.commands.register("telemetry.timeline", self._cmd_telemetry_timeline)
         self.commands.register("telemetry.statistics", self._cmd_telemetry_statistics)
 
         # v3.6 High Availability
 
+        self.commands.register("ha.bootstrap", self._cmd_ha_bootstrap)
         self.commands.register("ha.join", self._cmd_ha_join)
         self.commands.register("ha.leave", self._cmd_ha_leave)
         self.commands.register("ha.promote", self._cmd_ha_promote)
@@ -367,6 +330,7 @@ class AletheusRuntime:
         self.commands.register("ha.failover", self._cmd_ha_failover)
         self.commands.register("ha.recover", self._cmd_ha_recover)
         self.commands.register("ha.replicate", self._cmd_ha_replicate)
+        self.commands.register("ha.status", self._cmd_ha_status)
         self.commands.register("ha.statistics", self._cmd_ha_statistics)
 
         # v4.1 Runtime Compatibility Layer
@@ -380,14 +344,17 @@ class AletheusRuntime:
         # v3.7 Security & Policy Engine
         # --------------------------------------------------
 
+        self.commands.register("security.bootstrap", self._cmd_security_bootstrap)
         self.commands.register("security.authenticate", self._cmd_security_authenticate)
         self.commands.register("security.authorize", self._cmd_security_authorize)
         self.commands.register("security.policy", self._cmd_security_policy)
         self.commands.register("security.role.create", self._cmd_security_role_create)
         self.commands.register("security.role.assign", self._cmd_security_role_assign)
+        self.commands.register("security.audit", self._cmd_security_audit)
         self.commands.register("security.statistics", self._cmd_security_statistics)
 
         # v3.9 Multi-Tenant Runtime
+        self.commands.register("tenant.bootstrap", self._cmd_tenant_bootstrap)
         self.commands.register("tenant.create", self._cmd_tenant_create)
         self.commands.register("tenant.delete", self._cmd_tenant_delete)
         self.commands.register("tenant.list", self._cmd_tenant_list)
@@ -398,6 +365,7 @@ class AletheusRuntime:
         self.commands.register("organization.create", self._cmd_organization_create)
         self.commands.register("organization.update", self._cmd_organization_update)
         self.commands.register("tenant.statistics", self._cmd_tenant_statistics)
+        self.commands.register("tenant.health", self._cmd_tenant_health)
 
         # ======================================================
         # v4.0 Intelligence Kernel
@@ -440,25 +408,51 @@ class AletheusRuntime:
 
 
         self.commands.register("cluster.list", self._cmd_cluster_list)
+        self.commands.register("cluster.status", self._cmd_cluster_status)
         self.commands.register("cluster.broadcast", self._cmd_cluster_broadcast)
         self.commands.register("cluster.task.assign", self._cmd_cluster_task_assign)
         self.commands.register("cluster.history", self._cmd_cluster_history)
+        self.commands.register("cluster.stats", self._cmd_cluster_stats)
         self.commands.register("node.register", self._cmd_node_register)
         self.commands.register("node.remove", self._cmd_node_remove)
         self.commands.register("node.heartbeat", self._cmd_node_heartbeat)
+        self.commands.register("memory.mesh.store", self._cmd_memory_mesh_store)
+        self.commands.register("memory.mesh.retrieve", self._cmd_memory_mesh_retrieve)
+        self.commands.register("memory.mesh.search", self._cmd_memory_mesh_search)
+        self.commands.register("memory.mesh.snapshot", self._cmd_memory_mesh_snapshot)
+        self.commands.register("memory.mesh.restore", self._cmd_memory_mesh_restore)
+        self.commands.register("memory.mesh.replicate", self._cmd_memory_mesh_replicate)
+        self.commands.register("memory.mesh.sync", self._cmd_memory_mesh_sync)
+        self.commands.register("memory.mesh.history", self._cmd_memory_mesh_history)
+        self.commands.register("memory.mesh.cache", self._cmd_memory_mesh_cache)
+        self.commands.register("memory.mesh.stats", self._cmd_memory_mesh_stats)
+        self.commands.register("knowledge.entity.create", self._cmd_kg_entity_create)
+        self.commands.register("knowledge.entity.update", self._cmd_kg_entity_update)
+        self.commands.register("knowledge.entity.delete", self._cmd_kg_entity_delete)
+        self.commands.register("knowledge.relationship.create", self._cmd_kg_relationship_create)
+        self.commands.register("knowledge.relationship.delete", self._cmd_kg_relationship_delete)
+        self.commands.register("knowledge.search", self._cmd_kg_search)
+        self.commands.register("knowledge.graph", self._cmd_kg_graph)
+        self.commands.register("knowledge.neighbors", self._cmd_kg_neighbors)
+        self.commands.register("knowledge.infer", self._cmd_kg_infer)
+        self.commands.register("knowledge.bootstrap.cardhawk", self._cmd_kg_bootstrap_cardhawk)
+        self.commands.register("knowledge.statistics", self._cmd_kg_statistics)
 
         self.commands.register("workflow.start", self._cmd_workflow_start)
         self.commands.register("workflow.pause", self._cmd_workflow_pause)
         self.commands.register("workflow.resume", self._cmd_workflow_resume)
         self.commands.register("workflow.cancel", self._cmd_workflow_cancel)
+        self.commands.register("workflow.status", self._cmd_workflow_status)
         self.commands.register("workflow.statistics", self._cmd_workflow_statistics)
 
         # v2.9 Planning Engine
+        self.commands.register("plan.bootstrap", self._cmd_plan_bootstrap)
         self.commands.register("plan.create", self._cmd_plan_create)
         self.commands.register("plan.execute", self._cmd_plan_execute)
         self.commands.register("plan.progress", self._cmd_plan_progress)
         self.commands.register("plan.replan", self._cmd_plan_replan)
         self.commands.register("plan.complete", self._cmd_plan_complete)
+        self.commands.register("plan.status", self._cmd_plan_status)
         self.commands.register("plan.statistics", self._cmd_plan_statistics)
 
 
@@ -557,14 +551,6 @@ class AletheusRuntime:
             {"status": "online", "version": self.decision.version},
         )
 
-        # --------------------------------------------------
-        # Constitutional Foundation Services
-        # Genesis 21.9
-        # --------------------------------------------------
-        self.services.register("identity_engine", identity_engine)
-        self.services.register("capability_engine", capability_engine)
-        self.services.register("aos_search", aos_search)
-
         self.scheduler.register(
             "Runtime Pulse",
             "Runtime diagnostic pulse.",
@@ -590,7 +576,14 @@ class AletheusRuntime:
         self.events.publish("runtime.engine.registered", {"engine": name}, source="runtime")
 
     def register_service(self, name: str, service: Any) -> None:
-        self.services.register(name, service)
+
+        self.services.register(
+            "Aletheus Cognitive Reasoning Engine",
+            {
+                "status": "online",
+                "version": self.reasoning.version,
+            },
+        )
         self.events.publish("runtime.service.registered", {"service": name}, source="runtime")
 
     def register_pipeline(self, pipeline: Pipeline) -> None:
@@ -600,238 +593,6 @@ class AletheusRuntime:
     def register_workflow(self, workflow: WorkflowGraph) -> None:
         self.workflows.register(workflow)
         self.events.publish("runtime.workflow.registered", {"workflow": workflow.name}, source="runtime")
-
-    # ==========================================================
-    # Genesis 4.3 Cognitive Foundation
-    # Runtime Intent Enforcement + UCI Execution Indexing
-    # ==========================================================
-
-    def _intent_exempt_commands(self) -> set[str]:
-        """
-        Read-only, diagnostic, and bootstrapping commands are allowed
-        to execute without explicit user/business Intent.
-
-        These commands observe the platform; they do not perform
-        meaningful cognitive work on behalf of an objective.
-        """
-
-        return {
-            "health",
-            "runtime.health",
-            "runtime.status",
-            "runtime.stats",
-            "runtime.dashboard",
-            "runtime.snapshot",
-            "runtime.audit",
-            "runtime.docs",
-            "runtime.selftest",
-            "runtime.doctor",
-            "runtime.invariants",
-            "runtime.boot.validate",
-            "runtime.health_report",
-            "uci.health",
-            "uci.stats",
-            "uci.search",
-            "uci.explain",
-            "intent.stats",
-            "intent.list",
-        }
-
-    def _command_is_intent_exempt(self, command: str) -> bool:
-        if not command:
-            return False
-
-        if command in self._intent_exempt_commands():
-            return True
-
-        read_only_suffixes = (
-            ".health",
-            ".status",
-            ".stats",
-            ".statistics",
-            ".list",
-            ".search",
-            ".dashboard",
-            ".snapshot",
-            ".audit",
-            ".docs",
-        )
-
-        return command.endswith(read_only_suffixes)
-
-    def _build_system_observation_intent(
-        self,
-        context: RuntimeContext,
-    ) -> Intent:
-        """
-        Create a lightweight system Intent for read-only observations.
-
-        This preserves the principle that all context is explainable
-        while avoiding unnecessary friction for diagnostics.
-        """
-
-        return Intent(
-            intent_id=f"system-observe-{context.request_id}",
-            mission="Observe AletheusOS platform state",
-            objective=f"Execute read-only command: {context.command}",
-            beneficiary="AletheusOS",
-            priority=IntentPriority.LOW,
-            status=IntentStatus.ACTIVE,
-            source="runtime",
-            steward="runtime",
-            metadata={
-                "command": context.command,
-                "request_id": context.request_id,
-                "auto_generated": True,
-                "runtime_invariant": "RI-001",
-            },
-        )
-
-    def ensure_intent(
-        self,
-        context: RuntimeContext,
-    ) -> RuntimeContext:
-        """
-        Runtime Invariant RI-001
-
-        Every meaningful execution must possess a valid Intent
-        before intelligence, planning, governance, or execution
-        services are invoked.
-        """
-
-        command = getattr(context, "command", "")
-
-        if context.intent is None:
-
-            if self._command_is_intent_exempt(command):
-                context.intent = self._build_system_observation_intent(
-                    context
-                )
-
-            else:
-                raise MissingIntentException(
-                    "Execution rejected because RuntimeContext has no Intent. "
-                    f"command={command!r}, request_id={context.request_id}"
-                )
-
-        self.intent_runtime.register(context.intent)
-        self.intent_runtime.activate(context.intent.intent_id)
-
-        context.add_trace(
-            "intent_registered",
-            {
-                "intent_id": context.intent.intent_id,
-                "mission": context.intent.mission,
-                "objective": context.intent.objective,
-                "command": command,
-                "request_id": context.request_id,
-            },
-        )
-
-        self._publish_execution_to_uci(context)
-
-        return context
-
-    def _publish_execution_to_uci(
-        self,
-        context: RuntimeContext,
-    ) -> None:
-        """
-        Publish a lightweight execution node to the UCI.
-
-        The UCI indexes the execution relationship; it does not own
-        the RuntimeContext, command payload, or result data.
-        """
-
-        if context.intent is None:
-            return
-
-        execution_node_id = f"execution:{context.request_id}"
-
-        self.uci.publish_node(
-            UCINode(
-                node_id=execution_node_id,
-                node_type=UCINodeType.EXECUTION,
-                title=f"Runtime execution: {context.command}",
-                description=(
-                    "Execution indexed by AletheusOS Runtime "
-                    "under Runtime Invariant RI-001."
-                ),
-                source_system="runtime",
-                intent_id=context.intent.intent_id,
-                steward="runtime",
-                tags=[
-                    "runtime",
-                    "execution",
-                    "intent-bound",
-                    context.application,
-                ],
-                metadata={
-                    "request_id": context.request_id,
-                    "command": context.command,
-                    "application": context.application,
-                    "founder": context.founder,
-                },
-            )
-        )
-
-        self.uci.publish_relationship(
-            UCIRelationship(
-                relationship_id=(
-                    f"relationship:{context.intent.intent_id}:"
-                    f"{execution_node_id}"
-                ),
-                source_node_id=context.intent.intent_id,
-                target_node_id=execution_node_id,
-                relationship_type=UCIRelationshipType.TRIGGERED,
-                weight=1.0,
-                confidence=1.0,
-                metadata={
-                    "runtime_invariant": "RI-001",
-                    "request_id": context.request_id,
-                    "command": context.command,
-                },
-            )
-        )
-
-    def execute_command(
-        self,
-        command: str,
-        payload: dict | None = None,
-        intent: Intent | None = None,
-        application: str = "system",
-        founder: str = "Founder",
-    ) -> RuntimeContext:
-        """
-        Intent-aware command execution entry point.
-
-        Prefer this method for new runtime callers. It creates a
-        RuntimeContext, enforces Intent, indexes execution through
-        the UCI, and then delegates to the CommandBus.
-        """
-
-        context = RuntimeContext(
-            command=command,
-            payload=payload or {},
-            application=application,
-            founder=founder,
-            intent=intent,
-        )
-
-        self.ensure_intent(context)
-
-        if hasattr(self.commands, "execute"):
-            return self.commands.execute(command, context)
-
-        if hasattr(self.commands, "dispatch"):
-            return self.commands.dispatch(command, context)
-
-        if hasattr(self.commands, "run"):
-            return self.commands.run(command, context)
-
-        raise RuntimeError(
-            "CommandBus does not expose execute(), dispatch(), or run()."
-        )
 
     def _cmd_health(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result(
@@ -1070,6 +831,11 @@ class AletheusRuntime:
     def _cmd_decision_history(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("decisions", self.cognition.decision_history())
         return context
+
+    def _cmd_cognition_stats(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("cognition_stats", ((self.cognition.stats() if hasattr(self.cognition, 'stats') else self.cognition.statistics() if hasattr(self.cognition, 'statistics') else {'status': getattr(self.cognition, 'status', 'unknown')}) if hasattr(self.cognition, "stats") else self.cognition.statistics()))
+        return context
+
 
     def _cmd_entity_create(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
@@ -1435,6 +1201,32 @@ class AletheusRuntime:
         context.add_result("applications", apps)
         return context
 
+    def _cmd_cardhawk_foundation_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+        application = self.applications.register_card_hawk_foundation()
+        self.knowledge.create_entity(
+            label="Card Hawk Foundation™",
+            entity_type="application",
+            properties={
+                "application_id": application.application_id,
+                "version": application.version,
+                "reference_implementation": True,
+            },
+        )
+        self.memory.remember(
+            key="cardhawk_foundation_bootstrapped",
+            value=application.to_dict(),
+            namespace="cardhawk.foundation",
+            memory_type="persistent",
+            tags=["cardhawk", "application", "foundation"],
+        )
+        context.add_result("application", application.to_dict())
+        return context
+
+    def _cmd_cardhawk_status(self, context: RuntimeContext) -> RuntimeContext:
+        result = self.applications.health(name="Card Hawk Foundation™")
+        context.add_result("cardhawk", result)
+        return context
+
     def _cmd_cardhawk_start(self, context: RuntimeContext) -> RuntimeContext:
         result = self.applications.start_application(name="Card Hawk Foundation™")
         context.add_result("cardhawk", result)
@@ -1445,6 +1237,10 @@ class AletheusRuntime:
         context.add_result("cardhawk", result)
         return context
 
+
+    def _cmd_release_status(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("release", self.release.status())
+        return context
 
     def _cmd_release_validate(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("validation", self.release.validate_runtime(self))
@@ -1825,6 +1621,11 @@ class AletheusRuntime:
         context.add_result("timeline", self.prediction.timeline(self))
         return context
 
+    def _cmd_predict_stats(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("prediction_stats", ((self.prediction.stats() if hasattr(self.prediction, 'stats') else self.prediction.statistics() if hasattr(self.prediction, 'statistics') else {'status': getattr(self.prediction, 'status', 'unknown')}) if hasattr(self.prediction, "stats") else self.prediction.statistics()))
+        return context
+
+
     def _cmd_learn_record(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
         experience = self.learning.record_experience(
@@ -1883,6 +1684,24 @@ class AletheusRuntime:
         context.add_result("improvements", self.learning.improve(self))
         return context
 
+    def _cmd_learn_snapshot(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("snapshot", self.learning.snapshot())
+        return context
+
+    def _cmd_learn_stats(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("learning_stats", ((self.learning.stats() if hasattr(self.learning, 'stats') else self.learning.statistics() if hasattr(self.learning, 'statistics') else {'status': getattr(self.learning, 'status', 'unknown')}) if hasattr(self.learning, "stats") else self.learning.statistics()))
+        return context
+
+
+    def _cmd_kernel_boot(self, context: RuntimeContext) -> RuntimeContext:
+        result = self.kernel_v2.boot(self)
+        context.add_result("kernel", result)
+        return context
+
+    def _cmd_kernel_status(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("kernel", self.kernel_v2.status())
+        return context
+
     def _cmd_kernel_sync(self, context: RuntimeContext) -> RuntimeContext:
         result = self.kernel_v2.sync_runtime(self)
         self.memory.remember(
@@ -1904,6 +1723,15 @@ class AletheusRuntime:
         )
         context.add_result("event", result)
         return context
+
+    def _cmd_kernel_snapshot(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("snapshot", self.kernel_v2.snapshot())
+        return context
+
+    def _cmd_kernel_stats(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("kernel_stats", ((self.kernel_v2.stats() if hasattr(self.kernel_v2, 'stats') else self.kernel_v2.statistics() if hasattr(self.kernel_v2, 'statistics') else {'status': getattr(self.kernel_v2, 'status', 'unknown')}) if hasattr(self.kernel_v2, "stats") else self.kernel_v2.statistics()))
+        return context
+
 
     def _cmd_mission_v2_create(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
@@ -1987,6 +1815,11 @@ class AletheusRuntime:
         )
         return context
 
+    def _cmd_mission_v2_stats(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("mission_v2_stats", ((self.mission_v2.stats() if hasattr(self.mission_v2, 'stats') else self.mission_v2.statistics() if hasattr(self.mission_v2, 'statistics') else {'status': getattr(self.mission_v2, 'status', 'unknown')}) if hasattr(self.mission_v2, "stats") else self.mission_v2.statistics()))
+        return context
+
+
     def _cmd_workflow_v2_create(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
         workflow = self.workflow_v2.create_workflow(
@@ -2055,6 +1888,21 @@ class AletheusRuntime:
         )
         return context
 
+    def _cmd_workflow_v2_stats(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("workflow_v2_stats", ((self.workflow_v2.stats() if hasattr(self.workflow_v2, 'stats') else self.workflow_v2.statistics() if hasattr(self.workflow_v2, 'statistics') else {'status': getattr(self.workflow_v2, 'status', 'unknown')}) if hasattr(self.workflow_v2, "stats") else self.workflow_v2.statistics()))
+        return context
+
+
+    def _cmd_enterprise_bootstrap_cardhawk(self, context: RuntimeContext) -> RuntimeContext:
+        org = self.enterprise.bootstrap_cardhawk_enterprise()
+        self.kernel_v2.publish(
+            event_type="enterprise.cardhawk.bootstrapped",
+            source="enterprise_core",
+            payload=org.to_dict(),
+        )
+        context.add_result("enterprise", org.to_dict())
+        return context
+
     def _cmd_enterprise_create(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
         org = self.enterprise.create_organization(
@@ -2067,6 +1915,10 @@ class AletheusRuntime:
 
     def _cmd_enterprise_list(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("enterprises", self.enterprise.list_organizations())
+        return context
+
+    def _cmd_enterprise_stats(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("enterprise_stats", ((self.enterprise.stats() if hasattr(self.enterprise, 'stats') else self.enterprise.statistics() if hasattr(self.enterprise, 'statistics') else {'status': getattr(self.enterprise, 'status', 'unknown')}) if hasattr(self.enterprise, "stats") else self.enterprise.statistics()))
         return context
 
     def _cmd_department_create(self, context: RuntimeContext) -> RuntimeContext:
@@ -2115,6 +1967,11 @@ class AletheusRuntime:
         context.add_result("governance", result)
         return context
 
+    def _cmd_audit_history(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("audit", self.enterprise.audit_history())
+        return context
+
+
     def _cmd_cluster_create(self, context: RuntimeContext) -> RuntimeContext:
         cluster = self.distributed.create_cluster(
             name=context.payload.get("name", "Aletheus Primary Cluster"),
@@ -2127,8 +1984,30 @@ class AletheusRuntime:
         context.add_result("cluster", cluster.to_dict())
         return context
 
+    def _cmd_cluster_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+        cluster = self.distributed.bootstrap_primary_cluster()
+
+        self.kernel_v2.publish(
+            event_type="cluster.bootstrapped",
+            source="distributed_fabric",
+            payload=cluster.to_dict(),
+        )
+
+        # Return runtime statistics expected by the v3.0 tests
+        context.add_result(
+            "cluster",
+            ((self.distributed.stats() if hasattr(self.distributed, 'stats') else self.distributed.statistics() if hasattr(self.distributed, 'statistics') else {'status': getattr(self.distributed, 'status', 'unknown')}) if hasattr(self.distributed, "stats") else self.distributed.statistics()),
+        )
+
+        return context
+
     def _cmd_cluster_list(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("clusters", self.distributed.list_clusters())
+        return context
+
+    def _cmd_cluster_status(self, context: RuntimeContext) -> RuntimeContext:
+        result = self.distributed.cluster_status(context.payload.get("cluster_id", ""))
+        context.add_result("cluster_status", result)
         return context
 
     def _cmd_cluster_broadcast(self, context: RuntimeContext) -> RuntimeContext:
@@ -2154,6 +2033,10 @@ class AletheusRuntime:
 
     def _cmd_cluster_history(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("history", self.distributed.history())
+        return context
+
+    def _cmd_cluster_stats(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("cluster_stats", ((self.distributed.stats() if hasattr(self.distributed, 'stats') else self.distributed.statistics() if hasattr(self.distributed, 'statistics') else {'status': getattr(self.distributed, 'status', 'unknown')}) if hasattr(self.distributed, "stats") else self.distributed.statistics()))
         return context
 
     def _cmd_node_register(self, context: RuntimeContext) -> RuntimeContext:
@@ -2185,6 +2068,156 @@ class AletheusRuntime:
             node_id=payload.get("node_id", ""),
         )
         context.add_result("heartbeat", result)
+        return context
+
+
+    def _cmd_memory_mesh_store(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+        result = self.memory_mesh.store(
+            key=payload.get("key", "untitled"),
+            value=payload.get("value"),
+            namespace=payload.get("namespace", "global"),
+            object_type=payload.get("object_type", "generic"),
+            tags=payload.get("tags", []),
+            owner=payload.get("owner", context.application),
+            metadata=payload.get("metadata", {}),
+        )
+        context.add_result("memory_object", result)
+        return context
+
+    def _cmd_memory_mesh_retrieve(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+        result = self.memory_mesh.retrieve(
+            object_id=payload.get("object_id", ""),
+            key=payload.get("key", ""),
+            namespace=payload.get("namespace", "global"),
+        )
+        context.add_result("memory_object", result)
+        return context
+
+    def _cmd_memory_mesh_search(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+        result = self.memory_mesh.search(
+            query=payload.get("query", ""),
+            tags=payload.get("tags", []),
+            namespace=payload.get("namespace", ""),
+        )
+        context.add_result("results", result)
+        return context
+
+    def _cmd_memory_mesh_snapshot(self, context: RuntimeContext) -> RuntimeContext:
+        result = self.memory_mesh.snapshot(context.payload.get("name", "Memory Mesh Snapshot"))
+        context.add_result("snapshot", result)
+        return context
+
+    def _cmd_memory_mesh_restore(self, context: RuntimeContext) -> RuntimeContext:
+        result = self.memory_mesh.restore(context.payload.get("snapshot_id", ""))
+        context.add_result("restore", result)
+        return context
+
+    def _cmd_memory_mesh_replicate(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+        result = self.memory_mesh.replicate(
+            object_id=payload.get("object_id", ""),
+            target_node=payload.get("target_node", "primary"),
+        )
+        context.add_result("replication", result)
+        return context
+
+    def _cmd_memory_mesh_sync(self, context: RuntimeContext) -> RuntimeContext:
+        result = self.memory_mesh.sync(context.payload.get("node", "distributed_fabric"))
+        context.add_result("sync", result)
+        return context
+
+    def _cmd_memory_mesh_history(self, context: RuntimeContext) -> RuntimeContext:
+        result = self.memory_mesh.history(context.payload.get("object_id", ""))
+        context.add_result("history", result)
+        return context
+
+    def _cmd_memory_mesh_cache(self, context: RuntimeContext) -> RuntimeContext:
+        result = self.memory_mesh.cache(context.payload.get("object_id", ""))
+        context.add_result("cache", result)
+        return context
+
+    def _cmd_memory_mesh_stats(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("memory_mesh_stats", ((self.memory_mesh.stats() if hasattr(self.memory_mesh, 'stats') else self.memory_mesh.statistics() if hasattr(self.memory_mesh, 'statistics') else {'status': getattr(self.memory_mesh, 'status', 'unknown')}) if hasattr(self.memory_mesh, "stats") else self.memory_mesh.statistics()))
+        return context
+
+
+    def _cmd_kg_entity_create(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+        result = self.knowledge_graph.create_entity(
+            name=payload.get("name", "Untitled Entity"),
+            node_type=payload.get("node_type", "entity"),
+            properties=payload.get("properties", {}),
+            metadata=payload.get("metadata", {}),
+        )
+        context.add_result("entity", result)
+        return context
+
+    def _cmd_kg_entity_update(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+        result = self.knowledge_graph.update_entity(
+            node_id=payload.get("node_id", ""),
+            properties=payload.get("properties", {}),
+            metadata=payload.get("metadata", {}),
+        )
+        context.add_result("entity", result)
+        return context
+
+    def _cmd_kg_entity_delete(self, context: RuntimeContext) -> RuntimeContext:
+        result = self.knowledge_graph.delete_entity(context.payload.get("node_id", ""))
+        context.add_result("entity", result)
+        return context
+
+    def _cmd_kg_relationship_create(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+        result = self.knowledge_graph.create_relationship(
+            source_id=payload.get("source_id", ""),
+            target_id=payload.get("target_id", ""),
+            relationship_type=payload.get("relationship_type", "related_to"),
+            properties=payload.get("properties", {}),
+        )
+        context.add_result("relationship", result)
+        return context
+
+    def _cmd_kg_relationship_delete(self, context: RuntimeContext) -> RuntimeContext:
+        result = self.knowledge_graph.delete_relationship(context.payload.get("relationship_id", ""))
+        context.add_result("relationship", result)
+        return context
+
+    def _cmd_kg_search(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+        result = self.knowledge_graph.search(
+            query=payload.get("query", ""),
+            node_type=payload.get("node_type", ""),
+        )
+        context.add_result("results", result)
+        return context
+
+    def _cmd_kg_graph(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("graph", self.knowledge_graph.graph())
+        return context
+
+    def _cmd_kg_neighbors(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+        result = self.knowledge_graph.neighbors(
+            node_id=payload.get("node_id", ""),
+            direction=payload.get("direction", "both"),
+        )
+        context.add_result("neighbors", result)
+        return context
+
+    def _cmd_kg_infer(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("inference", self.knowledge_graph.infer())
+        return context
+
+    def _cmd_kg_bootstrap_cardhawk(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("graph", self.knowledge_graph.bootstrap_cardhawk_graph())
+        return context
+
+    def _cmd_kg_statistics(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("knowledge_graph_stats", ((self.knowledge_graph.stats() if hasattr(self.knowledge_graph, 'stats') else self.knowledge_graph.statistics() if hasattr(self.knowledge_graph, 'statistics') else {'status': getattr(self.knowledge_graph, 'status', 'unknown')}) if hasattr(self.knowledge_graph, "stats") else self.knowledge_graph.statistics()))
         return context
 
 
@@ -2390,6 +2423,10 @@ class AletheusRuntime:
         context.add_result("workflow", result)
         return context
 
+    def _cmd_workflow_status(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("workflow_status", self.workflow_v3.status())
+        return context
+
     def _cmd_workflow_statistics(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("workflow_stats", self.workflow_v3.statistics())
         return context
@@ -2398,6 +2435,10 @@ class AletheusRuntime:
     # ==========================================================
     # v2.9 Autonomous Planning Engine
     # ==========================================================
+
+    def _cmd_plan_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("planning", self.planning_v2.bootstrap())
+        return context
 
     def _cmd_plan_create(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
@@ -2433,6 +2474,13 @@ class AletheusRuntime:
             context.payload.get("plan_id", "")
         )
         context.add_result("plan", result)
+        return context
+
+    def _cmd_plan_status(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "plans",
+            self.planning_v2.status(),
+        )
         return context
 
     def _cmd_plan_statistics(self, context: RuntimeContext) -> RuntimeContext:
@@ -2483,6 +2531,13 @@ class AletheusRuntime:
     # v3.1 Plugin Manager
     # ==========================================================
 
+    def _cmd_plugin_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "plugin",
+            self.plugins_v3.bootstrap(),
+        )
+        return context
+
     def _cmd_plugin_install(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result(
             "plugin",
@@ -2528,6 +2583,13 @@ class AletheusRuntime:
         )
         return context
 
+    def _cmd_plugin_status(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "plugin_status",
+            self.plugins_v3.status(),
+        )
+        return context
+
     def _cmd_plugin_statistics(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result(
             "plugin_stats",
@@ -2540,6 +2602,13 @@ class AletheusRuntime:
     # v3.2 Persistence Engine
     # ==========================================================
 
+    def _cmd_state_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "state",
+            self.persistence_v3.bootstrap(),
+        )
+        return context
+
     def _cmd_state_save(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result(
             "state",
@@ -2551,6 +2620,16 @@ class AletheusRuntime:
         context.add_result(
             "state",
             self.persistence_v3.load(),
+        )
+        return context
+
+    def _cmd_state_snapshot(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "snapshot",
+            self.persistence_v3.snapshot(
+                name=context.payload.get("name", "Runtime Snapshot"),
+                runtime=self,
+            ),
         )
         return context
 
@@ -2590,6 +2669,13 @@ class AletheusRuntime:
     # ==========================================================
     # v3.3 Event Streaming & Message Bus
     # ==========================================================
+
+    def _cmd_event_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "event_bus",
+            self.event_bus_v3.bootstrap(),
+        )
+        return context
 
     def _cmd_event_publish(self, context: RuntimeContext) -> RuntimeContext:
 
@@ -2671,6 +2757,13 @@ class AletheusRuntime:
     # v3.4 Federated Knowledge Fabric
     # ==========================================================
 
+    def _cmd_federation_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "federation",
+            self.federation_v3.bootstrap(),
+        )
+        return context
+
     def _cmd_federation_join(self, context: RuntimeContext) -> RuntimeContext:
 
         payload = context.payload
@@ -2741,6 +2834,13 @@ class AletheusRuntime:
     # v3.5 Observability & Telemetry Platform
     # ==========================================================
 
+    def _cmd_telemetry_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "telemetry",
+            self.telemetry_v3.bootstrap(),
+        )
+        return context
+
     def _cmd_telemetry_record(self, context: RuntimeContext) -> RuntimeContext:
 
         payload = context.payload
@@ -2748,6 +2848,22 @@ class AletheusRuntime:
         context.add_result(
             "record",
             self.telemetry_v3.record(
+                name=payload.get("name", "runtime.metric"),
+                value=payload.get("value"),
+                category=payload.get("category", "runtime"),
+                metadata=payload.get("metadata", {}),
+            ),
+        )
+
+        return context
+
+    def _cmd_telemetry_metric(self, context: RuntimeContext) -> RuntimeContext:
+
+        payload = context.payload
+
+        context.add_result(
+            "metric",
+            self.telemetry_v3.metric(
                 name=payload.get("name", "runtime.metric"),
                 value=payload.get("value"),
                 category=payload.get("category", "runtime"),
@@ -2790,6 +2906,20 @@ class AletheusRuntime:
 
         return context
 
+    def _cmd_telemetry_health(self, context: RuntimeContext) -> RuntimeContext:
+
+        payload = context.payload
+
+        context.add_result(
+            "health",
+            self.telemetry_v3.health(
+                component=payload.get("component", "runtime"),
+                status=payload.get("status", "healthy"),
+            ),
+        )
+
+        return context
+
     def _cmd_telemetry_timeline(self, context: RuntimeContext) -> RuntimeContext:
 
         payload = context.payload
@@ -2818,6 +2948,10 @@ class AletheusRuntime:
     # ==========================================================
     # v3.6 High Availability & Replication
     # ==========================================================
+
+    def _cmd_ha_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("ha", self.high_availability_v3.bootstrap())
+        return context
 
     def _cmd_ha_join(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
@@ -2869,6 +3003,10 @@ class AletheusRuntime:
         )
         return context
 
+    def _cmd_ha_status(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result("ha_status", self.high_availability_v3.status())
+        return context
+
     def _cmd_ha_statistics(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("ha_stats", self.high_availability_v3.statistics())
         return context
@@ -2877,6 +3015,13 @@ class AletheusRuntime:
     # ==========================================================
     # v3.7 Security & Policy Engine
     # ==========================================================
+
+    def _cmd_security_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "security",
+            self.security_v3.bootstrap(),
+        )
+        return context
 
     def _cmd_security_authenticate(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
@@ -2937,6 +3082,20 @@ class AletheusRuntime:
         )
         return context
 
+    def _cmd_security_audit(self, context: RuntimeContext) -> RuntimeContext:
+        payload = context.payload
+
+        context.add_result(
+            "audit",
+            self.security_v3.audit(
+                action=payload.get("action", "runtime"),
+                actor=payload.get("actor", "system"),
+                status=payload.get("status", "success"),
+                metadata=payload.get("metadata", {}),
+            ),
+        )
+        return context
+
     def _cmd_security_statistics(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result(
             "security_stats",
@@ -2948,6 +3107,13 @@ class AletheusRuntime:
     # ==========================================================
     # v3.9 Multi-Tenant Runtime
     # ==========================================================
+
+    def _cmd_tenant_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "tenant",
+            self.tenancy_v3.bootstrap(),
+        )
+        return context
 
     def _cmd_tenant_create(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
@@ -3058,6 +3224,18 @@ class AletheusRuntime:
             self.tenancy_v3.statistics(),
         )
         return context
+
+    def _cmd_tenant_health(self, context: RuntimeContext) -> RuntimeContext:
+        context.add_result(
+            "tenant_health",
+            self.tenancy_v3.health(),
+        )
+        return context
+
+
+    # ==========================================================
+    # v4.0 Intelligence Kernel
+    # ==========================================================
 
     def _cmd_kernel_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
 
@@ -3348,7 +3526,7 @@ class AletheusRuntime:
 
 
     # ==========================================================
-    # v4.6.2 Runtime Integrity Commands
+    # v4.2.1 Runtime Integrity Commands
     # ==========================================================
 
     def _cmd_runtime_doctor(self, context: RuntimeContext) -> RuntimeContext:
@@ -3367,117 +3545,6 @@ class AletheusRuntime:
         context.add_result("health_report", self.runtime_doctor.write_reports())
         return context
 
-
-
-    # ==========================================================
-    # Genesis 6 Runtime Kernel Bus Diagnostics
-    # ==========================================================
-
-    def kernel_bus_summary(self) -> dict:
-        if hasattr(self, "kernel_bus"):
-            return self.kernel_bus.summary()
-
-        return {
-            "bus": "Runtime Kernel Bus",
-            "attached_circuits": 0,
-            "circuits": [],
-            "status": "unavailable",
-        }
-
-    def kernel_bus_health(self) -> list:
-        if hasattr(self, "kernel_bus"):
-            return self.kernel_bus.health()
-
-        return []
-
-    def registry_summary(self) -> dict:
-        if hasattr(self, "registry_manager"):
-            return self.registry_manager.boot_summary()
-
-        if hasattr(self, "registry"):
-            return self.registry.boot_summary()
-
-        return {
-            "status": "unavailable",
-            "components": 0,
-            "health": {},
-            "layers": {},
-        }
-
-    def list_components(self):
-        if hasattr(self, "registry_manager"):
-            return self.registry_manager.list_components()
-
-        if hasattr(self, "registry"):
-            return self.registry.all()
-
-        return []
-
-    def component(self, component_id: str):
-        if hasattr(self, "registry_manager"):
-            return self.registry_manager.component(component_id)
-
-        if hasattr(self, "registry"):
-            return self.registry.get(component_id)
-
-        return None
-
-    def ctf_summary(self) -> dict:
-        if hasattr(self, "ctf"):
-            return self.ctf.boot_summary()
-
-        return {
-            "component": "CTF",
-            "registered_routes": 0,
-            "recorded_pathways": 0,
-            "status": "unavailable",
-        }
-
-    # ==========================================================
-    # Genesis 4.3 UCI + Intent Runtime Commands
-    # ==========================================================
-
-
-    # ==========================================================
-    # Genesis 6 Runtime Kernel Bus Commands
-    # ==========================================================
-
-    def _cmd_kernel_bus_summary(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "kernel_bus_summary",
-            self.kernel_bus_summary(),
-        )
-        return context
-
-    def _cmd_kernel_bus_health(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "kernel_bus_health",
-            [
-                {
-                    "circuit_id": health.circuit_id,
-                    "status": health.status.value,
-                    "score": health.score,
-                    "message": health.message,
-                    "metrics": health.metrics,
-                }
-                for health in self.kernel_bus_health()
-            ],
-        )
-        return context
-
-    def _cmd_registry_summary(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "registry_summary",
-            self.registry_summary(),
-        )
-        return context
-
-    def _cmd_ctf_summary(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "ctf_summary",
-            self.ctf_summary(),
-        )
-        return context
 
     def _job_runtime_pulse(self) -> dict:
         return {
