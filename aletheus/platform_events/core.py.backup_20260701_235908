@@ -1,0 +1,56 @@
+from __future__ import annotations
+
+from typing import Callable
+
+from .models import PlatformEvent
+
+
+class PlatformEventEngine:
+    GENESIS = "15.2"
+    VERSION = "0.1.0"
+
+    def __init__(self):
+        self._events: list[PlatformEvent] = []
+        self._subscribers: list[Callable[[PlatformEvent], None]] = []
+
+    def publish(self, event_type: str, source: str, payload: dict | None = None):
+        event = PlatformEvent(
+            event_type=event_type,
+            source=source,
+            payload=payload or {},
+        )
+
+        self._events.append(event)
+
+        for subscriber in self._subscribers:
+            subscriber(event)
+
+        return event.to_dict()
+
+    def subscribe(self, callback: Callable[[PlatformEvent], None]):
+        self._subscribers.append(callback)
+        return {
+            "subscribers": len(self._subscribers),
+        }
+
+    def history(self):
+        return [event.to_dict() for event in self._events]
+
+    def health(self):
+        return {
+            "name": "Platform Event Engine",
+            "genesis": self.GENESIS,
+            "version": self.VERSION,
+            "status": "online",
+            "events": len(self._events),
+            "subscribers": len(self._subscribers),
+        }
+
+    def statistics(self):
+        return {
+            "events": len(self._events),
+            "subscribers": len(self._subscribers),
+        }
+
+
+platform_events = PlatformEventEngine()

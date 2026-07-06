@@ -1,0 +1,5 @@
+from .platform_contract import PlatformContract
+
+__all__ = [
+    "PlatformContract",
+]

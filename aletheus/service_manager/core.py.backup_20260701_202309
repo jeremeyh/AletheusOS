@@ -1,0 +1,52 @@
+from __future__ import annotations
+
+from .models import ServiceRegistration
+from .registry import ServiceRegistry
+
+
+class ServiceManager:
+    GENESIS = "8.2"
+    VERSION = "0.1.0"
+
+    def __init__(self):
+        self.registry = ServiceRegistry()
+
+    def register(
+        self,
+        service_id: str,
+        name: str,
+        version: str = "0.1.0",
+        priority: int = 100,
+        critical: bool = False,
+        dependencies: list[str] | None = None,
+        metadata: dict | None = None,
+    ):
+        return self.registry.register(
+            ServiceRegistration(
+                service_id=service_id,
+                name=name,
+                version=version,
+                priority=priority,
+                critical=critical,
+                dependencies=dependencies or [],
+                metadata=metadata or {},
+            )
+        )
+
+    def health(self):
+        return {
+            "name": "Service Manager",
+            "genesis": self.GENESIS,
+            "version": self.VERSION,
+            "status": "online",
+            "registry": self.registry.statistics(),
+        }
+
+    def statistics(self):
+        return {
+            "services": self.registry.count(),
+            "registered": [s.service_id for s in self.registry.list()],
+        }
+
+
+service_manager = ServiceManager()

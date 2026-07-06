@@ -1,7 +1,7 @@
 import sqlite3
 
 from marketplace.runtime.value import MarketplaceValue
-from engines.thorx.runtime import ThorX
+from engines.thorx.engine import ThorX
 
 from asset_core.repository.asset_repository import AssetRepository
 

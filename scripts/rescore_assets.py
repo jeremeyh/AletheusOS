@@ -6,7 +6,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 import sqlite3
 
-from engines.thorx.runtime import ThorX
+from engines.thorx.engine import ThorX
 from asset_core.repository.asset_repository import AssetRepository
 
 DB = "data/cardhawk.db"

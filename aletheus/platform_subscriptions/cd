@@ -1,0 +1,11 @@
+
+mkdir -p platform_subscriptions
+
+cd platform_subscriptions
+
+touch __init__.py
+touch models.py
+touch registry.py
+touch core.py
+touch health.py
+touch statistics.py

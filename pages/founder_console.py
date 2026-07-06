@@ -1,3 +1,51 @@
+import os
+import sys
+from pathlib import Path
+import pandas as pd
+import streamlit as st
+
+
+def safe_dataframe(data):
+    """
+    Converts arbitrary runtime objects into a dataframe that Streamlit
+    and PyArrow can always serialize.
+    """
+
+    df = pd.DataFrame(data)
+
+    if df.empty:
+        return df
+
+    for col in df.columns:
+        # Force every object column to clean strings
+        if df[col].dtype == "object":
+            df[col] = (
+                df[col]
+                .apply(
+                    lambda x:
+                        ""
+                        if x is None else
+                        str(x)
+                )
+                .astype("string")
+            )
+
+    return df
+ROOT = Path(__file__).resolve().parents[1]
+
+print("ROOT =", ROOT)
+print("CWD  =", os.getcwd())
+print("sys.path BEFORE")
+for p in sys.path:
+    print(" ", p)
+
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+print("sys.path AFTER")
+for p in sys.path:
+    print(" ", p)
+
 import pandas as pd
 import streamlit as st
 

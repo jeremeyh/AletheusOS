@@ -1,13 +1,5 @@
-"""
-Aletheus Runtime Managers
-
-Version 5.0.1
-"""
-
-from .registration_manager import RegistrationManager
-from .lifecycle_manager import LifecycleManager
+from aletheus.runtime.managers.registry_manager import RegistryManager
 
 __all__ = [
-    "RegistrationManager",
-    "LifecycleManager",
+    "RegistryManager",
 ]

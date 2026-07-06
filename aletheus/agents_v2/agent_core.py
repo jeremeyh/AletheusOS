@@ -182,7 +182,20 @@ class AletheusAutonomousAgentRuntime:
 
 
     def stats(self):
-        return self.statistics()
+        """
+        Genesis 7.9 Contract Convergence™
+
+        Compatibility wrapper for legacy runtime callers.
+        """
+
+        data = self.statistics()
+
+        return {
+            **data,
+            "online_agents": data["running"] + data["idle"],
+            "offline_agents": data["stopped"],
+            "tasks": data["tasks_completed"],
+        }
 
     def statistics(self):
 

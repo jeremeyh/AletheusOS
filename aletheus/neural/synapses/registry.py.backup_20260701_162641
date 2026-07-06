@@ -1,0 +1,31 @@
+from __future__ import annotations
+
+from typing import Any
+
+from .models import Synapse
+
+
+class SynapseRegistry:
+    VERSION = "0.1.0"
+
+    def __init__(self):
+        self._synapses: dict[str, Synapse] = {}
+
+    def register(self, id: str, source: str, target: str, purpose: str, status: str = "inactive", metadata: dict[str, Any] | None = None):
+        synapse = Synapse(id=id, source=source, target=target, purpose=purpose, status=status, metadata=metadata or {})
+        self._synapses[id] = synapse
+        return synapse
+
+    def list(self):
+        return list(self._synapses.values())
+
+    def count(self):
+        return len(self._synapses)
+
+    def health(self):
+        return {
+            "name": "Synapse Registry",
+            "version": self.VERSION,
+            "status": "online",
+            "synapses": self.count(),
+        }

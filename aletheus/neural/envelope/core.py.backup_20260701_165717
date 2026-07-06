@@ -1,0 +1,169 @@
+from __future__ import annotations
+
+from typing import Any
+
+from aletheus.neural.cortex import CortexRegistry
+from aletheus.neural.neurons import NeuronRegistry
+from aletheus.neural.state import BrainStateManager
+from aletheus.neural.synapses import SynapseRegistry
+
+
+class NeuralEnvelope:
+    """
+    Neural Envelope™
+
+    The bounded intelligence context of AletheusOS.
+
+    Runtime executes.
+    The Neural Envelope organizes cognition.
+    """
+
+    GENESIS = "6.2"
+    VERSION = "0.3.0"
+
+    def __init__(self):
+        self.state = BrainStateManager()
+        self.cortex = CortexRegistry()
+        self.neurons = NeuronRegistry()
+        self.synapses = SynapseRegistry()
+
+    def boot(self):
+        self.state.set("online")
+        self._bootstrap_default_cortices()
+        self._bootstrap_default_neurons()
+        self._bootstrap_default_synapses()
+        return True
+
+    def _bootstrap_default_cortices(self):
+        defaults = [
+            ("executive", "Executive Cortex", "governance, prioritization, and capability routing"),
+            ("memory", "Memory Cortex", "memory, knowledge, semantic recall, and Repository DNA"),
+            ("reasoning", "Reasoning Cortex", "logic, inference, scoring, and decisions"),
+            ("planning", "Planning Cortex", "missions, workflows, objectives, and execution plans"),
+            ("perception", "Perception Cortex", "vision, OCR, sensory input, and Hawk A•eye"),
+            ("communication", "Communication Cortex", "messages, channels, notifications, and human interaction"),
+            ("immune", "Immune System", "Guardian, Conclave, Watch Tower, Sentinel, and integrity defense"),
+        ]
+
+        for id, name, role in defaults:
+            if id not in self.cortex._cortices:
+                self.cortex.register(id=id, name=name, role=role, status="online")
+
+    def _bootstrap_default_neurons(self):
+        defaults = [
+            ("founder_console", "Founder Console", "executive", "aletheus.founder_console", "platform observability cockpit"),
+            ("executive_kernel", "Executive Kernel", "executive", "aletheus.executive_kernel", "capability routing"),
+            ("council", "Council", "executive", "aletheus.council", "governance review and recommendations"),
+            ("memory", "Memory", "memory", "aletheus.memory", "working and long-term memory"),
+            ("knowledge", "Knowledge", "memory", "aletheus.knowledge", "knowledge storage and recall"),
+            ("semantic", "Semantic", "memory", "aletheus.semantic", "semantic concepts and assertions"),
+            ("reasoning", "Reasoning", "reasoning", "aletheus.reasoning", "rules, inference, and confidence"),
+            ("decision", "Decision", "reasoning", "aletheus.decision_v2", "policy-based decisions"),
+            ("prediction", "Prediction", "reasoning", "aletheus.prediction", "forecasting and risk analysis"),
+            ("mission", "Mission", "planning", "aletheus.mission", "mission creation and execution"),
+            ("planning", "Planning", "planning", "aletheus.planning", "plans and objectives"),
+            ("workflow", "Workflow", "planning", "aletheus.workflow_v3", "workflow execution"),
+            ("hawk_a_eye", "Hawk A•eye", "perception", "engine.hawk_a_eye", "visual recognition and OCR"),
+            ("communications", "Communications", "communication", "aletheus.communications", "messaging and interaction layer"),
+            ("guardian", "Guardian", "immune", "aletheus.runtime.guardian", "integrity protection"),
+            ("conclave", "Conclave", "immune", "aletheus.runtime.conclave", "containment and defensive review"),
+            ("watch_tower", "Watch Tower", "immune", "watch_tower", "repository integrity scanning"),
+            ("sentinel", "Sentinel", "immune", "aletheus.runtime.sentinel", "operational health monitoring"),
+        ]
+
+        for id, name, cortex, package, role in defaults:
+            if self.neurons.get(id) is None:
+                self.neurons.register(
+                    id=id,
+                    name=name,
+                    cortex=cortex,
+                    package=package,
+                    role=role,
+                    status="online",
+                )
+
+    def _bootstrap_default_synapses(self):
+        defaults = [
+            ("syn-immune-executive", "guardian", "executive_kernel", "integrity findings escalate to executive routing"),
+            ("syn-council-founder-console", "council", "founder_console", "governance decisions surface to the Founder Console"),
+            ("syn-reasoning-knowledge", "reasoning", "knowledge", "reasoning requests knowledge evidence"),
+            ("syn-reasoning-memory", "reasoning", "memory", "reasoning requests remembered context"),
+            ("syn-prediction-planning", "prediction", "planning", "forecasting informs planning"),
+            ("syn-planning-mission", "planning", "mission", "plans become executable missions"),
+            ("syn-perception-reasoning", "hawk_a_eye", "reasoning", "visual findings feed reasoning"),
+        ]
+
+        for id, source, target, purpose in defaults:
+            if id not in self.synapses._synapses:
+                self.synapses.register(
+                    id=id,
+                    source=source,
+                    target=target,
+                    purpose=purpose,
+                    status="active",
+                )
+
+    def set_state(self, state: str):
+        return self.state.set(state)
+
+    def register_neuron(
+        self,
+        id: str,
+        name: str,
+        cortex: str,
+        package: str,
+        role: str,
+        status: str = "online",
+        metadata: dict[str, Any] | None = None,
+    ):
+        return self.neurons.register(
+            id=id,
+            name=name,
+            cortex=cortex,
+            package=package,
+            role=role,
+            status=status,
+            metadata=metadata,
+        )
+
+    def connect(
+        self,
+        id: str,
+        source: str,
+        target: str,
+        purpose: str,
+        status: str = "active",
+        metadata: dict[str, Any] | None = None,
+    ):
+        return self.synapses.register(
+            id=id,
+            source=source,
+            target=target,
+            purpose=purpose,
+            status=status,
+            metadata=metadata,
+        )
+
+    def health(self):
+        return {
+            "name": "Neural Envelope",
+            "genesis": self.GENESIS,
+            "version": self.VERSION,
+            "status": self.state.get().name,
+            "cortices": self.cortex.count(),
+            "neurons": self.neurons.count(),
+            "synapses": self.synapses.count(),
+            "brain_state": self.state.health(),
+        }
+
+    def statistics(self):
+        return {
+            "state": self.state.statistics(),
+            "cortex": self.cortex.health(),
+            "neurons": self.neurons.statistics(),
+            "synapses": self.synapses.health(),
+        }
+
+
+neural_envelope = NeuralEnvelope()
+brain = neural_envelope

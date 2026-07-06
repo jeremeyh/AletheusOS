@@ -1,4 +1,4 @@
-from aletheus.context import AletheusContext
+from aletheus.runtime.context import AletheusContext
 ENGINE_NAME = "FALCON™"
 ENGINE_DESCRIPTION = "Analytics and trend intelligence engine."
 def run(context: AletheusContext) -> AletheusContext:

@@ -1,4 +1,4 @@
-from aletheus.context import AletheusContext
+from aletheus.runtime.context import AletheusContext
 ENGINE_NAME = "ROOST™"
 ENGINE_DESCRIPTION = "Institutional memory and archive engine."
 def run(context: AletheusContext) -> AletheusContext:

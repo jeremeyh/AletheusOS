@@ -1,4 +1,4 @@
-from aletheus.context import AletheusContext
+from aletheus.runtime.context import AletheusContext
 ENGINE_NAME = "Hawk A•Eye™"
 ENGINE_DESCRIPTION = "Visual intelligence and image recognition engine."
 def run(context: AletheusContext) -> AletheusContext:

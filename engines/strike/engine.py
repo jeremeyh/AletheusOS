@@ -1,4 +1,4 @@
-from aletheus.context import AletheusContext
+from aletheus.runtime.context import AletheusContext
 ENGINE_NAME = "STRIKE™"
 ENGINE_DESCRIPTION = "Deal scoring and opportunity strike engine."
 def run(context: AletheusContext) -> AletheusContext:

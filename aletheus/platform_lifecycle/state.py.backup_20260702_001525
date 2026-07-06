@@ -1,0 +1,114 @@
+from __future__ import annotations
+from aletheus.platform_events import platform_events
+from dataclasses import dataclass
+from datetime import UTC, datetime
+
+
+class PlatformState:
+    OFFLINE = "OFFLINE"
+    ASSEMBLING = "ASSEMBLING"
+    PLANNING = "PLANNING"
+    BOOTING = "BOOTING"
+    VERIFYING = "VERIFYING"
+    ONLINE = "ONLINE"
+    DEGRADED = "DEGRADED"
+    RECOVERING = "RECOVERING"
+    SHUTTING_DOWN = "SHUTTING_DOWN"
+
+
+@dataclass(slots=True)
+class StateTransition:
+    previous: str
+    current: str
+    reason: str
+    timestamp: str
+
+    def to_dict(self):
+        return {
+            "previous": self.previous,
+            "current": self.current,
+            "reason": self.reason,
+            "timestamp": self.timestamp,
+        }
+
+
+class PlatformStateEngine:
+    GENESIS = "15.1"
+    VERSION = "0.1.0"
+
+    VALID_STATES = {
+        PlatformState.OFFLINE,
+        PlatformState.ASSEMBLING,
+        PlatformState.PLANNING,
+        PlatformState.BOOTING,
+        PlatformState.VERIFYING,
+        PlatformState.ONLINE,
+        PlatformState.DEGRADED,
+        PlatformState.RECOVERING,
+        PlatformState.SHUTTING_DOWN,
+    }
+
+    def __init__(self):
+        self.current = PlatformState.OFFLINE
+        self.history: list[StateTransition] = []
+
+    def transition(self, state: str, reason: str = ""):
+
+    if state not in self.VALID_STATES:
+        raise ValueError(f"Invalid platform state: {state}")
+
+    previous = self.current
+
+    self.current = state
+
+    transition = StateTransition(
+        previous=previous,
+        current=state,
+        reason=reason,
+        timestamp=datetime.now(UTC).isoformat(),
+    )
+
+    self.history.append(transition)
+
+    platform_events.publish(
+        event_type=f"platform.{state.lower()}",
+        source="platform_state",
+        payload={
+            "previous": previous,
+            "current": state,
+            "reason": reason,
+        },
+    )
+
+    return transition.to_dict()
+
+        
+
+        
+
+    def status(self):
+        return self.current
+
+    def health(self):
+        return {
+            "name": "Platform State Engine",
+            "genesis": self.GENESIS,
+            "version": self.VERSION,
+            "status": "online",
+            "current": self.current,
+        }
+
+    def statistics(self):
+        return {
+            "current": self.current,
+            "transitions": len(self.history),
+        }
+
+    def snapshot(self):
+        return {
+            "current": self.current,
+            "history": [item.to_dict() for item in self.history],
+        }
+
+
+platform_state = PlatformStateEngine()

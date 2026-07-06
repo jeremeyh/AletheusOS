@@ -1,0 +1,126 @@
+from __future__ import annotations
+
+from aletheus.contracts import PlatformComponentContract
+from aletheus.platform_registry import platform_registry
+
+from aletheus.service_manager import service_manager
+
+# Optional imports. As additional platform components mature,
+# simply uncomment and register them.
+#
+# from aletheus.kernel import kernel
+# from aletheus.platform_governor import platform_governor
+# from aletheus.runtime_supervisor import runtime_supervisor
+# from aletheus.application_runtime import application_runtime
+
+
+class SelfAssembly:
+    """
+    Genesis 13.7
+
+    Runtime Self-Assembly™
+
+    Responsible for:
+
+    • Discovering platform components
+    • Verifying platform contracts
+    • Registering components
+    • Producing assembly reports
+
+    Dependency resolution and automatic boot sequencing
+    are introduced in later Genesis releases.
+    """
+
+    GENESIS = "13.7"
+    VERSION = "0.1.0"
+
+    def __init__(self):
+        self._components = []
+
+    def discover(self):
+        """
+        First implementation is deterministic.
+        Later releases become automatic.
+        """
+
+        self._components = [
+            (
+                "aletheus.service_manager",
+                "Service Manager",
+                service_manager,
+            ),
+        ]
+
+        return self._components
+
+    def verify(self):
+
+        verified = []
+
+        for component_id, _, instance in self._components:
+
+            verified.append(
+                {
+                    "component": component_id,
+                    "verified": isinstance(
+                        instance,
+                        PlatformComponentContract,
+                    ),
+                }
+            )
+
+        return verified
+
+    def assemble(self):
+
+        discovered = self.discover()
+
+        registered = 0
+
+        for component_id, name, instance in discovered:
+
+            if not isinstance(instance, PlatformComponentContract):
+                continue
+
+            platform_registry.register(
+                component_id=component_id,
+                instance=instance,
+                name=name,
+                version=getattr(instance, "VERSION", "0.1.0"),
+                genesis=getattr(instance, "GENESIS", "unknown"),
+                critical=True,
+            )
+
+            registered += 1
+
+        return {
+            "status": "PASS",
+            "discovered": len(discovered),
+            "registered": registered,
+            "verified": registered,
+            "failed": len(discovered) - registered,
+        }
+
+    def report(self):
+
+        return {
+            "genesis": self.GENESIS,
+            "version": self.VERSION,
+            "platform": platform_registry.statistics(),
+        }
+
+    def health(self):
+
+        return {
+            "name": "Runtime Self Assembly",
+            "genesis": self.GENESIS,
+            "version": self.VERSION,
+            "status": "online",
+        }
+
+    def statistics(self):
+
+        return self.report()
+
+
+self_assembly = SelfAssembly()

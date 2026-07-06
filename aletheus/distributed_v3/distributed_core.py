@@ -211,6 +211,10 @@ class AletheusDistributedRuntimeFabric:
                 "health": "offline",
                 "heartbeats": 0,
                 "services": 0,
+
+                # Genesis 7.11 Contract Convergence™
+                "tasks": 0,
+                "jobs": 0,
             }
 
         nodes = list(self.cluster.nodes.values())
@@ -225,6 +229,9 @@ class AletheusDistributedRuntimeFabric:
             "services": sum(len(n.services) for n in nodes),
             "capabilities": sum(len(n.capabilities) for n in nodes),
             "jobs": len(self.cluster.jobs),
+
+            # Genesis 7.11 Contract Convergence™
+            "tasks": len(self.cluster.jobs),
         }
 
 

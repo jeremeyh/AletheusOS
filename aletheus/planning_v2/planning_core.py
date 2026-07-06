@@ -242,22 +242,35 @@ class AletheusPlanningEngine:
 
     def statistics(self):
 
+        plans = len(self.plans)
+
+        running = sum(
+            p.status == "running"
+            for p in self.plans.values()
+        )
+
+        completed = sum(
+            p.status == "completed"
+            for p in self.plans.values()
+        )
+
+        replanned = sum(
+            p.status == "replanned"
+            for p in self.plans.values()
+        )
+
         return {
             "version": self.VERSION,
+
+            # Native v2 statistics
             "strategies": len(self.strategies),
-            "plans": len(self.plans),
-            "running": sum(
-                p.status == "running"
-                for p in self.plans.values()
-            ),
-            "completed": sum(
-                p.status == "completed"
-                for p in self.plans.values()
-            ),
-            "replanned": sum(
-                p.status == "replanned"
-                for p in self.plans.values()
-            ),
+            "plans": plans,
+            "running": running,
+            "completed": completed,
+            "replanned": replanned,
+
+            # Genesis 7.10 Contract Convergence™
+            "active_plans": running,
         }
 
 

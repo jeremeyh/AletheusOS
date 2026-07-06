@@ -4,7 +4,7 @@ from typing import Any, Dict
 
 
 class RuntimeBootValidator:
-    VERSION = "4.2.1"
+    VERSION = "4.6.2"
 
     def __init__(self, runtime: Any):
         self.runtime = runtime

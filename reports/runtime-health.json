@@ -1,7 +1,7 @@
 {
-  "version": "4.2.1",
-  "timestamp": "2026-07-01T02:54:27.083460",
-  "runtime_version": "4.2.1",
+  "version": "4.6.2",
+  "timestamp": "2026-07-03T06:11:45.823522",
+  "runtime_version": "4.6.2",
   "status": "pass",
   "checks": {
     "runtime_online": true,
@@ -13,7 +13,7 @@
     "hardening_available": true
   },
   "failed": [],
-  "commands": 291,
+  "commands": 305,
   "duplicate_commands": [],
   "compatibility": {
     "version": "4.1.0",

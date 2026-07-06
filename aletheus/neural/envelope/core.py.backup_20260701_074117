@@ -1,0 +1,76 @@
+from __future__ import annotations
+
+from typing import Any
+
+from aletheus.neural.cortex import CortexRegistry
+from aletheus.neural.synapses import SynapseRegistry
+
+
+class NeuralEnvelope:
+    """
+    Neural Envelope™
+
+    The bounded intelligence context of AletheusOS.
+
+    Runtime executes.
+    The Neural Envelope organizes cognition.
+    """
+
+    GENESIS = "6.0"
+    VERSION = "0.1.0"
+
+    def __init__(self):
+        self.state = "idle"
+        self.cortex = CortexRegistry()
+        self.synapses = SynapseRegistry()
+
+    def boot(self):
+        self.state = "online"
+        self._bootstrap_default_cortices()
+        return True
+
+    def _bootstrap_default_cortices(self):
+        defaults = [
+            ("executive", "Executive Cortex", "governance, prioritization, and capability routing"),
+            ("memory", "Memory Cortex", "memory, knowledge, semantic recall, and Repository DNA"),
+            ("reasoning", "Reasoning Cortex", "logic, inference, scoring, and decisions"),
+            ("planning", "Planning Cortex", "missions, workflows, objectives, and execution plans"),
+            ("perception", "Perception Cortex", "vision, OCR, sensory input, and Hawk A•eye"),
+            ("communication", "Communication Cortex", "messages, channels, notifications, and human interaction"),
+            ("immune", "Immune System", "Guardian, Conclave, Watch Tower, Sentinel, and integrity defense"),
+        ]
+
+        for id, name, role in defaults:
+            if id not in self.cortex._cortices:
+                self.cortex.register(id=id, name=name, role=role, status="online")
+
+    def connect(self, id: str, source: str, target: str, purpose: str, status: str = "active", metadata: dict[str, Any] | None = None):
+        return self.synapses.register(
+            id=id,
+            source=source,
+            target=target,
+            purpose=purpose,
+            status=status,
+            metadata=metadata,
+        )
+
+    def health(self):
+        return {
+            "name": "Neural Envelope",
+            "genesis": self.GENESIS,
+            "version": self.VERSION,
+            "status": self.state,
+            "cortices": self.cortex.count(),
+            "synapses": self.synapses.count(),
+        }
+
+    def statistics(self):
+        return {
+            "state": self.state,
+            "cortex": self.cortex.health(),
+            "synapses": self.synapses.health(),
+        }
+
+
+neural_envelope = NeuralEnvelope()
+brain = neural_envelope

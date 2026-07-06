@@ -22,6 +22,9 @@ class ServiceRegistry:
     def list(self):
         return sorted(self._services.keys())
 
+    def count(self):
+        return len(self._services)
+
     def statistics(self):
         return {
             "registered": len(self._services),

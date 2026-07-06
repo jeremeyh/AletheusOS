@@ -1,0 +1,45 @@
+from __future__ import annotations
+
+from typing import Any
+
+from .loader import application_loader
+
+
+class ApplicationRuntime:
+    """
+    AletheusOS Application Runtime™
+
+    Public runtime interface for installing and managing
+    SDK applications.
+    """
+
+    GENESIS = "13.1"
+    VERSION = "0.1.0"
+
+    def install(self, app: Any):
+        return application_loader.install(app)
+
+    def uninstall(self, app_id: str):
+        return application_loader.uninstall(app_id)
+
+    def start(self, app_id: str):
+        return application_loader.start(app_id)
+
+    def stop(self, app_id: str):
+        return application_loader.stop(app_id)
+
+    def restart(self, app_id: str):
+        return application_loader.restart(app_id)
+
+    def list(self):
+        return application_loader.list()
+
+    def health(self):
+        return application_loader.health()
+
+    def statistics(self):
+        return application_loader.statistics()
+
+
+application_runtime = ApplicationRuntime()
+
