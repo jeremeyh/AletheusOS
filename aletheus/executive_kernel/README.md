@@ -1,26 +1,21 @@
-# Executive Context Update 01
+# Executive Composition Engine Update 01
 
-Complete Executive Kernel package with Executive Context.
+Adds Genesis 7.0 Executive Composition Engine and Executive Bootstrap.
 
-Includes:
-- context.py
-- kernel.py
-- registry.py
-- capabilities.py
-- policies.py
-- decisions.py
-- bus.py
-- __init__.py
-
-Principle:
-Executive Kernel coordinates. Executive Context owns executive composition.
-Runtime core remains protected.
+Files:
+- aletheus/executive_kernel/composition.py
+- aletheus/executive_kernel/bootstrap.py
+- aletheus/executive_kernel/context.py
+- aletheus/executive_kernel/kernel.py
+- aletheus/executive_kernel/__init__.py
 
 Verification:
 python -m py_compile \
   aletheus/executive_kernel/__init__.py \
   aletheus/executive_kernel/kernel.py \
   aletheus/executive_kernel/context.py \
+  aletheus/executive_kernel/composition.py \
+  aletheus/executive_kernel/bootstrap.py \
   aletheus/executive_kernel/registry.py \
   aletheus/executive_kernel/capabilities.py \
   aletheus/executive_kernel/policies.py \

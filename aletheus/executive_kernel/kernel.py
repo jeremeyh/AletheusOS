@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Any, Dict, List
 
+from aletheus.executive_kernel.bootstrap import ExecutiveBootstrap
 from aletheus.executive_kernel.bus import (
     ExecutiveBusEvent,
     ExecutiveBusEventType,
@@ -40,7 +41,7 @@ class ExecutiveKernel:
         context: ExecutiveContext | None = None,
     ) -> None:
         self.runtime: Any | None = None
-        self.context = context or ExecutiveContext.build()
+        self.context = context or ExecutiveBootstrap().build_context()
         self.boot_events: List[Dict[str, Any]] = []
 
     @property

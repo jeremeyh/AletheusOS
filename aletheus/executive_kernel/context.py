@@ -34,8 +34,8 @@ class ExecutiveContext:
     """
     Composition context for the Executive Kernel.
 
-    The Executive Kernel should remain small and rely on this context
-    for its executive components.
+    Executive Kernel coordinates through this context instead of owning
+    each dependency directly.
     """
 
     bus: ExecutiveBus
