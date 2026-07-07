@@ -231,14 +231,6 @@ class AletheusRuntime:
         # v3.4 Federation
 
         # v3.5 Observability Platform
-        self.commands.register("telemetry.bootstrap", self._cmd_telemetry_bootstrap)
-        self.commands.register("telemetry.record", self._cmd_telemetry_record)
-        self.commands.register("telemetry.metric", self._cmd_telemetry_metric)
-        self.commands.register("telemetry.log", self._cmd_telemetry_log)
-        self.commands.register("telemetry.trace", self._cmd_telemetry_trace)
-        self.commands.register("telemetry.health", self._cmd_telemetry_health)
-        self.commands.register("telemetry.timeline", self._cmd_telemetry_timeline)
-        self.commands.register("telemetry.statistics", self._cmd_telemetry_statistics)
 
         # v3.6 High Availability
 

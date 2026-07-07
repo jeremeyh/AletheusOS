@@ -11,6 +11,7 @@ from aletheus.runtime.registrations.prediction_commands import register_predicti
 from aletheus.runtime.registrations.reasoning_commands import register_reasoning_commands
 from aletheus.runtime.registrations.runtime_commands import register_runtime_commands
 from aletheus.runtime.registrations.state_commands import register_state_commands
+from aletheus.runtime.registrations.telemetry_commands import register_telemetry_commands
 from aletheus.runtime.registrations.workflow_v2_commands import register_workflow_v2_commands
 
 
@@ -37,5 +38,6 @@ class RuntimeCommandBootstrapper:
         register_state_commands(runtime)
         register_event_commands(runtime)
         register_federation_commands(runtime)
+        register_telemetry_commands(runtime)
 
         return runtime
