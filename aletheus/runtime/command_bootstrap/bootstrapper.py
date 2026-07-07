@@ -2,6 +2,7 @@ from aletheus.runtime.registrations.cluster_commands import register_cluster_com
 from aletheus.runtime.registrations.enterprise_commands import register_enterprise_commands
 from aletheus.runtime.registrations.event_commands import register_event_commands
 from aletheus.runtime.registrations.federation_commands import register_federation_commands
+from aletheus.runtime.registrations.ha_commands import register_ha_commands
 from aletheus.runtime.registrations.kernel_commands import register_kernel_commands
 from aletheus.runtime.registrations.learning_commands import register_learning_commands
 from aletheus.runtime.registrations.memory_commands import register_memory_commands
@@ -39,5 +40,6 @@ class RuntimeCommandBootstrapper:
         register_event_commands(runtime)
         register_federation_commands(runtime)
         register_telemetry_commands(runtime)
+        register_ha_commands(runtime)
 
         return runtime

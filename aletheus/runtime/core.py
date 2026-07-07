@@ -234,16 +234,6 @@ class AletheusRuntime:
 
         # v3.6 High Availability
 
-        self.commands.register("ha.bootstrap", self._cmd_ha_bootstrap)
-        self.commands.register("ha.join", self._cmd_ha_join)
-        self.commands.register("ha.leave", self._cmd_ha_leave)
-        self.commands.register("ha.promote", self._cmd_ha_promote)
-        self.commands.register("ha.demote", self._cmd_ha_demote)
-        self.commands.register("ha.failover", self._cmd_ha_failover)
-        self.commands.register("ha.recover", self._cmd_ha_recover)
-        self.commands.register("ha.replicate", self._cmd_ha_replicate)
-        self.commands.register("ha.status", self._cmd_ha_status)
-        self.commands.register("ha.statistics", self._cmd_ha_statistics)
 
         # v4.1 Runtime Compatibility Layer
         self.commands.register("compat.list", self._cmd_compat_list)
