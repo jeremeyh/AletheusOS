@@ -174,11 +174,9 @@ class AletheusRuntime:
 
 
     def boot(self) -> None:
-        self.status = "online"
+        from aletheus.runtime.boot_phases import RuntimeStateBootPhase
 
-        self.metrics.record("runtime.version", self.version)
-        self.metrics.record("runtime.status", self.status)
-        self.events.publish("runtime.booted", {"version": self.version}, source="runtime")
+        RuntimeStateBootPhase().run(self)
 
         register_runtime_commands(self)
 
