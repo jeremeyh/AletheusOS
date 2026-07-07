@@ -7,9 +7,9 @@ class RuntimeServiceRegistrationPhase:
 
     def run(self, runtime):
 
-        #
+        ####################################################################
         # Core Runtime
-        #
+        ####################################################################
 
         runtime.services.register(
             "Aletheus Runtime Core",
@@ -31,9 +31,9 @@ class RuntimeServiceRegistrationPhase:
             {"status": "online", "version": runtime.knowledge.version},
         )
 
-        #
-        # Foundation Services
-        #
+        ####################################################################
+        # Foundation
+        ####################################################################
 
         runtime.services.register(
             "Aletheus Autonomous Mission Engine",
@@ -55,9 +55,9 @@ class RuntimeServiceRegistrationPhase:
             {"status": "online", "version": runtime.release.manifest.version},
         )
 
-        #
-        # Intelligence Services
-        #
+        ####################################################################
+        # Intelligence
+        ####################################################################
 
         runtime.services.register(
             "Aletheus Semantic Intelligence Layer",
@@ -79,11 +79,36 @@ class RuntimeServiceRegistrationPhase:
             {"status": "online", "version": runtime.planning_v2.VERSION},
         )
 
+        ####################################################################
+        # AI Platform
+        ####################################################################
+
+        runtime.services.register(
+            "Aletheus Founder Copilot",
+            {"status": "online", "version": runtime.copilot.version},
+        )
+
+        runtime.services.register(
+            "Aletheus Universal Intelligence Layer",
+            {"status": "online", "version": runtime.intelligence.version},
+        )
+
+        runtime.services.register(
+            "Aletheus Predictive Intelligence Layer",
+            {"status": "online", "version": runtime.prediction.version},
+        )
+
+        runtime.services.register(
+            "Aletheus Adaptive Learning Engine",
+            {"status": "online", "version": runtime.learning.version},
+        )
+
         return {
-            "registered": 12,
+            "registered": 16,
             "groups": [
                 "core",
                 "foundation",
                 "intelligence",
+                "ai_platform",
             ],
         }
