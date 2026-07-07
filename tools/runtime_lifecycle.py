@@ -1,33 +1,19 @@
-from aletheus.runtime.lifecycle import (
-    RuntimeLifecycleManager,
-    RuntimeLifecycleReporter,
-)
+from aletheus.runtime.lifecycle import RuntimeLifecycleState
 
 
 def main():
 
-    lifecycle = RuntimeLifecycleManager()
+    print("========================================================")
+    print("ALETHEUSOS RUNTIME LIFECYCLE")
+    print("========================================================")
+    print()
 
-    lifecycle.transition(
-        "booting",
-        "Boot Pipeline started",
-    )
+    for state in RuntimeLifecycleState:
+        print(state.value)
 
-    lifecycle.transition(
-        "ready",
-        "Boot Pipeline completed",
-    )
-
-    lifecycle.transition(
-        "running",
-        "Runtime accepted control",
-    )
-
-    print(
-        RuntimeLifecycleReporter().render(
-            lifecycle
-        )
-    )
+    print()
+    print("States.........................", len(RuntimeLifecycleState))
+    print("========================================================")
 
 
 if __name__ == "__main__":
