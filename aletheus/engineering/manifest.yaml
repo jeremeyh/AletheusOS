@@ -1,0 +1,19 @@
+genesis_package: GP-00036
+title: Repository DNA ↔ Atlas Integration
+version: 1.0.0
+classification: PATCH_ADDITIVE
+authority: Repository DNA™ / Atlas™
+family: Platform Intelligence
+risk: LOW
+merge:
+  adds:
+    - aletheus/repository_dna/inventory_provider.py
+    - aletheus/repository_dna/events.py
+    - aletheus/atlas/repository_dna_adapter.py
+    - aletheus/atlas/repository_dna_service.py
+  modifies: []
+  deletes: []
+verification:
+  - python -m pytest tests/test_repository_dna_atlas_integration.py
+rollback:
+  - remove added files listed above
