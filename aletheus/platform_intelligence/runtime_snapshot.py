@@ -1,3 +1,6 @@
+from .statistics_adapter import RuntimeStatisticsAdapter
+
+
 class RuntimeSnapshotService:
     """
     Runtime Snapshot Service™
@@ -31,20 +34,7 @@ class RuntimeSnapshotService:
         ("knowledge_graph", "knowledge_graph"),
     ]
 
-    @staticmethod
-    def _statistics(component):
-        if component is None:
-            return {"status": "missing"}
-
-        if hasattr(component, "stats"):
-            return component.stats()
-
-        if hasattr(component, "statistics"):
-            return component.statistics()
-
-        return {
-            "status": getattr(component, "status", "unknown")
-        }
+    _statistics = RuntimeStatisticsAdapter.collect
 
     def collect(self, runtime):
 
