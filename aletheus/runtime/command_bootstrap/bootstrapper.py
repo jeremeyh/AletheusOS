@@ -14,6 +14,7 @@ from aletheus.runtime.registrations.runtime_commands import register_runtime_com
 from aletheus.runtime.registrations.security_commands import register_security_commands
 from aletheus.runtime.registrations.state_commands import register_state_commands
 from aletheus.runtime.registrations.telemetry_commands import register_telemetry_commands
+from aletheus.runtime.registrations.tenancy_commands import register_tenancy_commands
 from aletheus.runtime.registrations.workflow_v2_commands import register_workflow_v2_commands
 
 
@@ -32,6 +33,7 @@ class RuntimeCommandBootstrapper:
         register_prediction_commands(runtime)
         register_learning_commands(runtime)
         register_kernel_commands(runtime)
+
         register_mission_v2_commands(runtime)
         register_workflow_v2_commands(runtime)
 
@@ -40,10 +42,13 @@ class RuntimeCommandBootstrapper:
 
         register_plugin_commands(runtime)
         register_state_commands(runtime)
+
         register_event_commands(runtime)
         register_federation_commands(runtime)
         register_telemetry_commands(runtime)
+
         register_ha_commands(runtime)
         register_security_commands(runtime)
+        register_tenancy_commands(runtime)
 
         return runtime

@@ -248,18 +248,6 @@ class AletheusRuntime:
 
 
         # v3.9 Multi-Tenant Runtime
-        self.commands.register("tenant.bootstrap", self._cmd_tenant_bootstrap)
-        self.commands.register("tenant.create", self._cmd_tenant_create)
-        self.commands.register("tenant.delete", self._cmd_tenant_delete)
-        self.commands.register("tenant.list", self._cmd_tenant_list)
-        self.commands.register("tenant.select", self._cmd_tenant_select)
-        self.commands.register("workspace.create", self._cmd_workspace_create)
-        self.commands.register("workspace.delete", self._cmd_workspace_delete)
-        self.commands.register("workspace.list", self._cmd_workspace_list)
-        self.commands.register("organization.create", self._cmd_organization_create)
-        self.commands.register("organization.update", self._cmd_organization_update)
-        self.commands.register("tenant.statistics", self._cmd_tenant_statistics)
-        self.commands.register("tenant.health", self._cmd_tenant_health)
 
         # ======================================================
         # v4.0 Intelligence Kernel
