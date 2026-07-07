@@ -1680,60 +1680,6 @@ class AletheusRuntime:
         return context
 
 
-    def _cmd_reason_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("reasoning", self.reasoning.bootstrap_rules())
-        return context
-
-    def _cmd_reason_rule_add(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.reasoning.add_rule(
-            name=payload.get("name", "Untitled Rule"),
-            description=payload.get("description", ""),
-            rule_type=payload.get("rule_type", "general"),
-            weight=float(payload.get("weight", 0.75)),
-        )
-        context.add_result("rule", result)
-        return context
-
-    def _cmd_reason_evaluate(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.reasoning.evaluate(
-            question=payload.get("question", ""),
-            runtime=self,
-            context=payload.get("context", {}),
-        )
-        context.add_result("evaluation", result)
-        return context
-
-    def _cmd_reason_explain(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.reasoning.explain(context.payload.get("trace_id", ""))
-        context.add_result("explanation", result)
-        return context
-
-    def _cmd_reason_trace(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.reasoning.trace(context.payload.get("trace_id", ""))
-        context.add_result("trace", result)
-        return context
-
-    def _cmd_reason_decision(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.reasoning.decision(
-            question=payload.get("question", ""),
-            runtime=self,
-            context=payload.get("context", {}),
-        )
-        context.add_result("decision", result)
-        return context
-
-    def _cmd_reason_confidence(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("confidence", self.reasoning.confidence())
-        return context
-
-    def _cmd_reason_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("reasoning_stats", ((self.reasoning.stats() if hasattr(self.reasoning, 'stats') else self.reasoning.statistics() if hasattr(self.reasoning, 'statistics') else {'status': getattr(self.reasoning, 'status', 'unknown')}) if hasattr(self.reasoning, "stats") else self.reasoning.statistics()))
-        return context
-
-
     def _cmd_decision_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("decision", self.decision.bootstrap())
         return context

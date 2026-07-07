@@ -1,55 +1,57 @@
 """
 Reasoning Command Registration
 
-Version 4.7.0
+Genesis 7 Integration
 """
+
+from __future__ import annotations
+
+from aletheus.runtime.domains import ReasoningDomain
 
 
 def register_reasoning_commands(runtime):
+    """
+    Register reasoning command implementations.
+    """
 
-    commands = runtime.commands
+    domain = ReasoningDomain(runtime)
 
-    commands.register(
+    runtime.commands.register(
         "reason.bootstrap",
-        runtime._cmd_reason_bootstrap,
+        domain.bootstrap,
     )
 
-    commands.register(
+    runtime.commands.register(
         "reason.rule.add",
-        runtime._cmd_reason_rule_add,
+        domain.rule_add,
     )
 
-    commands.register(
+    runtime.commands.register(
         "reason.evaluate",
-        runtime._cmd_reason_evaluate,
+        domain.evaluate,
     )
 
-    commands.register(
-        "reason.history",
-        runtime._cmd_reason_history,
-    )
-
-    commands.register(
+    runtime.commands.register(
         "reason.explain",
-        runtime._cmd_reason_explain,
+        domain.explain,
     )
 
-    commands.register(
+    runtime.commands.register(
         "reason.trace",
-        runtime._cmd_reason_trace,
+        domain.trace,
     )
 
-    commands.register(
+    runtime.commands.register(
         "reason.decision",
-        runtime._cmd_reason_decision,
+        domain.decision,
     )
 
-    commands.register(
+    runtime.commands.register(
         "reason.confidence",
-        runtime._cmd_reason_confidence,
+        domain.confidence,
     )
 
-    commands.register(
+    runtime.commands.register(
         "reason.statistics",
-        runtime._cmd_reason_statistics,
+        domain.statistics,
     )
