@@ -223,15 +223,6 @@ class AletheusRuntime:
 
 
         # v3.1 Plugin Framework
-        self.commands.register("plugin.bootstrap", self._cmd_plugin_bootstrap)
-        self.commands.register("plugin.install", self._cmd_plugin_install)
-        self.commands.register("plugin.enable", self._cmd_plugin_enable)
-        self.commands.register("plugin.disable", self._cmd_plugin_disable)
-        self.commands.register("plugin.update", self._cmd_plugin_update)
-        self.commands.register("plugin.remove", self._cmd_plugin_remove)
-        self.commands.register("plugin.list", self._cmd_plugin_list)
-        self.commands.register("plugin.status", self._cmd_plugin_status)
-        self.commands.register("plugin.statistics", self._cmd_plugin_statistics)
 
         # v3.2 Persistence Engine
         self.commands.register("state.bootstrap", self._cmd_state_bootstrap)
