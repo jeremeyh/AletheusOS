@@ -220,16 +220,7 @@ class AletheusRuntime:
         self.commands.register("mission.v2.list", self._cmd_mission_v2_list)
         self.commands.register("mission.v2.telemetry", self._cmd_mission_v2_telemetry)
         self.commands.register("mission.v2.stats", self._cmd_mission_v2_stats)
-        self.commands.register("cluster.create", self._cmd_cluster_create)
-        self.commands.register("cluster.bootstrap", self._cmd_cluster_bootstrap)
 
-        self.commands.register("cluster.join", self._cmd_cluster_join)
-        self.commands.register("cluster.leave", self._cmd_cluster_leave)
-        self.commands.register("cluster.nodes", self._cmd_cluster_nodes)
-        self.commands.register("cluster.services", self._cmd_cluster_services)
-        self.commands.register("cluster.heartbeat", self._cmd_cluster_heartbeat)
-        self.commands.register("cluster.elect_leader", self._cmd_cluster_elect_leader)
-        self.commands.register("cluster.statistics", self._cmd_cluster_statistics)
 
         # v3.1 Plugin Framework
         self.commands.register("plugin.bootstrap", self._cmd_plugin_bootstrap)
@@ -367,15 +358,6 @@ class AletheusRuntime:
         )
 
 
-        self.commands.register("cluster.list", self._cmd_cluster_list)
-        self.commands.register("cluster.status", self._cmd_cluster_status)
-        self.commands.register("cluster.broadcast", self._cmd_cluster_broadcast)
-        self.commands.register("cluster.task.assign", self._cmd_cluster_task_assign)
-        self.commands.register("cluster.history", self._cmd_cluster_history)
-        self.commands.register("cluster.stats", self._cmd_cluster_stats)
-        self.commands.register("node.register", self._cmd_node_register)
-        self.commands.register("node.remove", self._cmd_node_remove)
-        self.commands.register("node.heartbeat", self._cmd_node_heartbeat)
         self.commands.register("memory.mesh.store", self._cmd_memory_mesh_store)
         self.commands.register("memory.mesh.retrieve", self._cmd_memory_mesh_retrieve)
         self.commands.register("memory.mesh.search", self._cmd_memory_mesh_search)
