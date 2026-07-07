@@ -500,16 +500,9 @@ class AletheusRuntime:
 
         RuntimeAgentBootPhase().run(self)
 
-        self.memory.remember(
-            key="genesis_09_boot",
-            value={
-                "message": "Aletheus Genesis 0.4 Memory Core online.",
-                "runtime_version": self.version,
-            },
-            namespace="aletheus",
-            memory_type="episodic",
-            tags=["boot", "genesis", "memory"],
-        )
+        from aletheus.runtime.boot_phases import RuntimeMemoryInitializationPhase
+
+        RuntimeMemoryInitializationPhase().run(self)
 
     def register_engine(self, name: str, handler: Any) -> None:
         self.engines.register(name, handler)
