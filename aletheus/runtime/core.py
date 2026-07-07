@@ -454,22 +454,10 @@ class AletheusRuntime:
         self.commands.register("plan.statistics", self._cmd_plan_statistics)
 
 
-        self.services.register(
-            "Aletheus Runtime Core",
-            {"status": "online", "version": self.version},
-        )
-        self.services.register(
-            "Aletheus Memory Core",
-            {"status": "online", "version": self.memory.version},
-        )
-        self.services.register(
-            "Aletheus Cognition Core",
-            {"status": "online", "version": self.cognition.version},
-        )
-        self.services.register(
-            "Aletheus Knowledge Graph Engine",
-            {"status": "online", "version": self.knowledge.version},
-        )
+        from aletheus.runtime.boot_phases import RuntimeServiceRegistrationPhase
+
+        RuntimeServiceRegistrationPhase().run(self)
+
         self.services.register(
             "Aletheus Autonomous Mission Engine",
             {"status": "online", "version": self.mission.version},
