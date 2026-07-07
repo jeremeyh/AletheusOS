@@ -6,6 +6,11 @@ class RuntimeServiceRegistrationPhase:
     """
 
     def run(self, runtime):
+
+        #
+        # Core Runtime
+        #
+
         runtime.services.register(
             "Aletheus Runtime Core",
             {"status": "online", "version": runtime.version},
@@ -26,6 +31,59 @@ class RuntimeServiceRegistrationPhase:
             {"status": "online", "version": runtime.knowledge.version},
         )
 
+        #
+        # Foundation Services
+        #
+
+        runtime.services.register(
+            "Aletheus Autonomous Mission Engine",
+            {"status": "online", "version": runtime.mission.version},
+        )
+
+        runtime.services.register(
+            "Aletheus Founder Workspace",
+            {"status": "online", "version": runtime.workspace.version},
+        )
+
+        runtime.services.register(
+            "Aletheus Native Application Manager",
+            {"status": "online", "version": runtime.applications.version},
+        )
+
+        runtime.services.register(
+            "Aletheus Genesis Release Core",
+            {"status": "online", "version": runtime.release.manifest.version},
+        )
+
+        #
+        # Intelligence Services
+        #
+
+        runtime.services.register(
+            "Aletheus Semantic Intelligence Layer",
+            {"status": "online", "version": runtime.semantic.version},
+        )
+
+        runtime.services.register(
+            "Aletheus Executive Intelligence Layer",
+            {"status": "online", "version": runtime.executive.version},
+        )
+
+        runtime.services.register(
+            "Aletheus Multi-Agent Orchestration Layer",
+            {"status": "online", "version": runtime.agents_v2.VERSION},
+        )
+
+        runtime.services.register(
+            "Aletheus Autonomous Planning Engine",
+            {"status": "online", "version": runtime.planning_v2.VERSION},
+        )
+
         return {
-            "registered": 4,
+            "registered": 12,
+            "groups": [
+                "core",
+                "foundation",
+                "intelligence",
+            ],
         }
