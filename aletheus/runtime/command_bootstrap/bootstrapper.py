@@ -1,3 +1,4 @@
+from aletheus.runtime.registrations.enterprise_commands import register_enterprise_commands
 from aletheus.runtime.registrations.kernel_commands import register_kernel_commands
 from aletheus.runtime.registrations.learning_commands import register_learning_commands
 from aletheus.runtime.registrations.memory_commands import register_memory_commands
@@ -25,5 +26,6 @@ class RuntimeCommandBootstrapper:
         register_kernel_commands(runtime)
         register_mission_v2_commands(runtime)
         register_workflow_v2_commands(runtime)
+        register_enterprise_commands(runtime)
 
         return runtime
