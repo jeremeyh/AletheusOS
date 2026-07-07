@@ -162,15 +162,9 @@ class AletheusRuntime:
         # Runtime Service Registry
         # --------------------------------------------------
 
-        self.services.register("commands", self.commands)
-        self.services.register("events", self.events)
-        self.services.register("metrics", self.metrics)
-        self.services.register("compatibility", self.compat)
-        self.services.register("kernel", self.kernel)
-        self.services.register("governance", self.governance)
-        self.services.register("doctor", self.runtime_doctor)
-        self.services.register("boot_validator", self.boot_validator)
-        self.services.register("invariants", self.runtime_invariants)
+        from aletheus.runtime.providers import RuntimeServiceProvider
+
+        RuntimeServiceProvider().register(self)
 
 
     def boot(self) -> None:
