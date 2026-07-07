@@ -1,0 +1,13 @@
+ATLAS_READY = "atlas.ready"
+ARCHITECTURE_UPDATED = "architecture.updated"
+DEPENDENCY_CHANGED = "dependency.changed"
+RELATIONSHIP_CHANGED = "relationship.changed"
+TOPOLOGY_UPDATED = "topology.updated"
+
+ATLAS_EVENTS = [
+    ATLAS_READY,
+    ARCHITECTURE_UPDATED,
+    DEPENDENCY_CHANGED,
+    RELATIONSHIP_CHANGED,
+    TOPOLOGY_UPDATED,
+]

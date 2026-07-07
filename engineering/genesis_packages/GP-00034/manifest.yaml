@@ -1,0 +1,22 @@
+genesis_package: GP-00030
+title: Genesis Platform Constructor
+classification: ADDITIVE
+authority: Genesis™
+family: Creation
+risk: LOW
+depends_on:
+  - GP-00017 Ontology Core
+  - GP-00029 Concept Collision Engine
+adds:
+  - aletheus/genesis/
+modifies: []
+deletes: []
+collision_check: PASS
+watch_tower: PENDING_RUNTIME_INTEGRATION
+repository_dna: READY_TO_RECORD
+rollback:
+  - Remove aletheus/genesis/
+verification:
+  - Import aletheus.genesis
+  - Run unit tests
+  - Build a sample Genesis Package

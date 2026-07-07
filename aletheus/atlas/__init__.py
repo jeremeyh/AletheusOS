@@ -1,8 +1,25 @@
 """
-Atlas™
-AletheusOS architecture graph, dependency map, and structural intelligence layer.
+AletheusOS Atlas™ Authority Core
+
+Atlas knows architecture.
 """
 
-from .atlas_engine import AtlasEngine
+from .models import (
+    AtlasNode,
+    AtlasEdge,
+    ArchitectureGraph,
+    TopologySnapshot,
+    AtlasReport,
+)
+from .service import AtlasService
+from .bootstrap import bootstrap_atlas_service
 
-__all__ = ["AtlasEngine"]
+__all__ = [
+    "AtlasNode",
+    "AtlasEdge",
+    "ArchitectureGraph",
+    "TopologySnapshot",
+    "AtlasReport",
+    "AtlasService",
+    "bootstrap_atlas_service",
+]

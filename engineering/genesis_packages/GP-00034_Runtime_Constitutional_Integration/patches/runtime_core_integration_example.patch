@@ -1,0 +1,11 @@
+# GP-00034 PATCH TEMPLATE — DO NOT APPLY BLINDLY
+# Add this only after reviewing your current aletheus/runtime/core.py
+
+from aletheus.runtime_constitutional_integration import bootstrap_runtime_constitutional_integration
+
+# During runtime boot:
+integration = bootstrap_runtime_constitutional_integration()
+runtime_report = integration.boot()
+
+# During runtime shutdown:
+integration.shutdown()
