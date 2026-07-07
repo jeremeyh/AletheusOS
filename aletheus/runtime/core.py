@@ -496,7 +496,9 @@ class AletheusRuntime:
         from aletheus.runtime.boot_phases import RuntimeApplicationBootPhase
 
         RuntimeApplicationBootPhase().run(self)
-        self.agents.register_default_agents()
+        from aletheus.runtime.boot_phases import RuntimeAgentBootPhase
+
+        RuntimeAgentBootPhase().run(self)
 
         self.memory.remember(
             key="genesis_09_boot",
