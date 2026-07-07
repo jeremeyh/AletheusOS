@@ -225,14 +225,6 @@ class AletheusRuntime:
         # v3.1 Plugin Framework
 
         # v3.2 Persistence Engine
-        self.commands.register("state.bootstrap", self._cmd_state_bootstrap)
-        self.commands.register("state.save", self._cmd_state_save)
-        self.commands.register("state.load", self._cmd_state_load)
-        self.commands.register("state.snapshot", self._cmd_state_snapshot)
-        self.commands.register("state.restore", self._cmd_state_restore)
-        self.commands.register("state.export", self._cmd_state_export)
-        self.commands.register("state.import", self._cmd_state_import)
-        self.commands.register("state.statistics", self._cmd_state_statistics)
 
         # v3.3 Event Bus
         self.commands.register("event.bootstrap", self._cmd_event_bootstrap)
