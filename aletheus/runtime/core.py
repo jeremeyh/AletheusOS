@@ -229,13 +229,6 @@ class AletheusRuntime:
         # v3.3 Event Bus
 
         # v3.4 Federation
-        self.commands.register("federation.bootstrap", self._cmd_federation_bootstrap)
-        self.commands.register("federation.join", self._cmd_federation_join)
-        self.commands.register("federation.leave", self._cmd_federation_leave)
-        self.commands.register("federation.discover", self._cmd_federation_discover)
-        self.commands.register("federation.query", self._cmd_federation_query)
-        self.commands.register("federation.broadcast", self._cmd_federation_broadcast)
-        self.commands.register("federation.statistics", self._cmd_federation_statistics)
 
         # v3.5 Observability Platform
         self.commands.register("telemetry.bootstrap", self._cmd_telemetry_bootstrap)
