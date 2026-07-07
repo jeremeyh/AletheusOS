@@ -1,4 +1,5 @@
 from aletheus.runtime.boot_phases.service_groups import (
+    AIPlatformServiceRegistrar,
     CoreServiceRegistrar,
     FoundationServiceRegistrar,
     IntelligenceServiceRegistrar,
@@ -7,11 +8,7 @@ from aletheus.runtime.boot_phases.service_groups import (
 
 class RuntimeServiceRegistrationPhase:
     """
-    Runtime Service Registration Phase™
-
     Coordinates runtime service registration.
-
-    Individual registrations are delegated to bounded registrars.
     """
 
     def __init__(self):
@@ -19,18 +16,18 @@ class RuntimeServiceRegistrationPhase:
             ("core", CoreServiceRegistrar()),
             ("foundation", FoundationServiceRegistrar()),
             ("intelligence", IntelligenceServiceRegistrar()),
+            ("ai_platform", AIPlatformServiceRegistrar()),
         ]
 
     def run(self, runtime):
-        total = 0
-        completed = []
+        registered = 0
+        groups = []
 
         for name, registrar in self._registrars:
-            count = registrar.register(runtime)
-            total += count
-            completed.append(name)
+            registered += registrar.register(runtime)
+            groups.append(name)
 
         return {
-            "registered": total,
-            "groups": completed,
+            "registered": registered,
+            "groups": groups,
         }

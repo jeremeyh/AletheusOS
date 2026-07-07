@@ -475,54 +475,6 @@ class AletheusRuntime:
             {"status": "online", "version": self.release.manifest.version},
         )
         self.services.register(
-            "Aletheus Semantic Intelligence Layer",
-            {"status": "online", "version": self.semantic.version},
-        )
-        self.services.register(
-            "Aletheus Executive Intelligence Layer",
-            {"status": "online", "version": self.executive.version},
-        )
-        self.services.register(
-            "Aletheus Multi-Agent Orchestration Layer",
-            {"status": "online", "version": self.agents_v2.VERSION},
-        )
-        self.services.register(
-            "Aletheus Autonomous Planning Engine",
-            {"status": "online", "version": self.planning_v2.VERSION},
-        )
-        self.services.register(
-            "Aletheus Founder Copilot",
-            {"status": "online", "version": self.copilot.version},
-        )
-        self.services.register(
-            "Aletheus Universal Intelligence Layer",
-            {"status": "online", "version": self.intelligence.version},
-        )
-        self.services.register(
-            "Aletheus Predictive Intelligence Layer",
-            {"status": "online", "version": self.prediction.version},
-        )
-        self.services.register(
-            "Aletheus Adaptive Learning Engine",
-            {"status": "online", "version": self.learning.version},
-        )
-        self.services.register(
-            "Aletheus v2 Autonomous Kernel",
-            {"status": "online", "version": self.kernel_v2.version},
-        )
-        self.services.register(
-            "Aletheus v2 Autonomous Mission Engine",
-            {"status": "online", "version": self.mission_v2.version},
-        )
-        self.services.register(
-            "Aletheus v2 Autonomous Workflow Fabric",
-            {"status": "online", "version": self.workflow_v2.version},
-        )
-        self.services.register(
-            "Aletheus Enterprise Intelligence Platform",
-            {"status": "online", "version": self.enterprise.version},
-        )
-        self.services.register(
             "Aletheus Distributed Intelligence Fabric",
             {"status": "online", "version": self.distributed.version},
         )
@@ -537,13 +489,13 @@ class AletheusRuntime:
             {"status": "online", "version": self.decision.version},
         )
 
-        self.scheduler.register(
-            "Runtime Pulse",
-            "Runtime diagnostic pulse.",
-            self._job_runtime_pulse,
-        )
+        from aletheus.runtime.boot_phases import RuntimeSchedulerBootPhase
 
-        self.applications.register_card_hawk_foundation()
+        RuntimeSchedulerBootPhase().run(self)
+
+        from aletheus.runtime.boot_phases import RuntimeApplicationBootPhase
+
+        RuntimeApplicationBootPhase().run(self)
         self.agents.register_default_agents()
 
         self.memory.remember(
