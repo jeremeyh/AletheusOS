@@ -1,29 +1,18 @@
 """
-AletheusOS Identity Engine™
+AletheusOS Repository
 
-Genesis 21.7
+Repository root for the AletheusOS project.
 
-Canonical constitutional identity services for
-people, organizations, applications, services,
-agents, runtime identities, and sessions.
+Canonical Python package:
+
+    aletheus
+
+The repository root intentionally contains no runtime imports.
+
+Identity services live under:
+
+    aletheus.identity_engine
+
+This file exists only to mark the repository root and should
+never perform package initialization or import application code.
 """
-
-from .authentication import identity_authentication
-from .authorization import identity_authorization
-from .core import identity_engine
-from .health import identity_health
-from .registry import identity_registry
-from .resolver import identity_resolver
-from .sessions import session_manager
-from .statistics import identity_statistics
-
-__all__ = [
-    "identity_engine",
-    "identity_registry",
-    "identity_resolver",
-    "identity_authentication",
-    "identity_authorization",
-    "session_manager",
-    "identity_statistics",
-    "identity_health",
-]
