@@ -1,5 +1,5 @@
 from pathlib import Path
-
+import os
 
 PLACEHOLDER_IMAGE = "https://placehold.co/300x420?text=Card"
 
@@ -20,26 +20,47 @@ class AssetImageService:
 
     @classmethod
     def get_image(cls, asset):
-        for field in cls.IMAGE_FIELDS:
-            path = asset.get(field)
+        print("\n========== IMAGE DEBUG ==========")
+        print("Current Working Directory:", os.getcwd())
+        print("Asset ID:", asset.get("id"))
 
-            if path and Path(path).exists():
-                return path
+        for field in cls.IMAGE_FIELDS:
+            value = asset.get(field)
+
+            print(f"{field}: {value}")
+
+            if value:
+                p = Path(value)
+
+                print("Resolved Path:", p.resolve())
+                print("Exists:", p.exists())
+
+                if p.exists():
+                    print("RETURNING:", str(p))
+                    return str(p)
+
+        print("\nSearching fallback folders...")
 
         asset_id = asset.get("id")
 
         if asset_id is not None:
-            for folder in [
+            for folder in (
                 "uploads/assets",
                 "uploads/scans",
                 "uploads/thumbnails",
                 "uploads/incoming",
-            ]:
+            ):
                 for ext in cls.EXTENSIONS:
-                    path = Path(folder) / f"{asset_id}.{ext}"
+                    p = Path(folder) / f"{asset_id}.{ext}"
 
-                    if path.exists():
-                        return str(path)
+                    print("Checking:", p)
+
+                    if p.exists():
+                        print("FOUND:", str(p))
+                        return str(p)
+
+        print("NO IMAGE FOUND")
+        print("Using Placeholder")
 
         return PLACEHOLDER_IMAGE
 
