@@ -1,56 +1,44 @@
-from .models import RuntimeState, LifecycleTransition
+from .state import RuntimeLifecycleState
 
 
 class RuntimeLifecycleManager:
     """
     Runtime Lifecycle Manager™
 
-    Owns runtime state transitions.
-
-    The Executive Kernel decides.
-    The Lifecycle Manager performs the transition.
+    Owns the canonical lifecycle of the runtime.
     """
 
-    VALID_STATES = [
-        "created",
-        "booting",
-        "ready",
-        "running",
-        "paused",
-        "recovering",
-        "stopping",
-        "stopped",
-    ]
-
     def __init__(self):
-        self.state = RuntimeState("created")
-        self.history = []
 
-    def transition(self, state: str, reason: str = ""):
-        if state not in self.VALID_STATES:
-            raise ValueError(f"Unknown runtime state: {state}")
+        self._state = RuntimeLifecycleState.CREATED
 
-        transition = LifecycleTransition(
-            previous=self.state.name,
-            current=state,
-            reason=reason,
-        )
+    @property
+    def state(self):
+        return self._state
 
-        self.history.append(transition)
-        self.state = RuntimeState(state)
+    def transition(self, state: RuntimeLifecycleState):
 
-        return transition
+        self._state = state
 
-    def health(self):
-        return {
-            "current_state": self.state.name,
-            "transition_count": len(self.history),
-            "history": [
-                {
-                    "from": t.previous,
-                    "to": t.current,
-                    "reason": t.reason,
-                }
-                for t in self.history
-            ],
-        }
+        return self._state
+
+    def initialize(self):
+        return self.transition(RuntimeLifecycleState.INITIALIZING)
+
+    def boot(self):
+        return self.transition(RuntimeLifecycleState.BOOTING)
+
+    def online(self):
+        return self.transition(RuntimeLifecycleState.ONLINE)
+
+    def degrade(self):
+        return self.transition(RuntimeLifecycleState.DEGRADED)
+
+    def recover(self):
+        return self.transition(RuntimeLifecycleState.RECOVERING)
+
+    def shutdown(self):
+        return self.transition(RuntimeLifecycleState.SHUTTING_DOWN)
+
+    def offline(self):
+        return self.transition(RuntimeLifecycleState.OFFLINE)
