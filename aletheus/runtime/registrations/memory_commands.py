@@ -1,29 +1,37 @@
 """
 Memory Command Registration
 
-Version 4.6.2
+Genesis 7 Integration
 """
 
+from __future__ import annotations
+
+from aletheus.runtime.domains import MemoryDomain
+
+
 def register_memory_commands(runtime):
+    """
+    Register memory command implementations.
+    """
 
-    commands = runtime.commands
+    domain = MemoryDomain(runtime)
 
-    commands.register(
+    runtime.commands.register(
         "memory.remember",
-        runtime._cmd_memory_remember,
+        domain.remember,
     )
 
-    commands.register(
+    runtime.commands.register(
         "memory.recall",
-        runtime._cmd_memory_recall,
+        domain.recall,
     )
 
-    commands.register(
+    runtime.commands.register(
         "memory.stats",
-        runtime._cmd_memory_stats,
+        domain.statistics,
     )
 
-    commands.register(
+    runtime.commands.register(
         "memory.clear_working",
-        runtime._cmd_memory_clear_working,
+        domain.clear_working,
     )
