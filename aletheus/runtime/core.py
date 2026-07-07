@@ -3489,25 +3489,14 @@ class AletheusRuntime:
 
 
     def _job_runtime_pulse(self) -> dict:
+        from aletheus.platform_intelligence.runtime_observatory import RuntimeObservatory
+
+        observatory = RuntimeObservatory()
+
         return {
             "status": "completed",
             "version": self.version,
-            "diagnostics": self.diagnostics.report(),
-            "memory": ((self.memory.stats() if hasattr(self.memory, 'stats') else self.memory.statistics() if hasattr(self.memory, 'statistics') else {'status': getattr(self.memory, 'status', 'unknown')}) if hasattr(self.memory, "stats") else self.memory.statistics()),
-            "cognition": ((self.cognition.stats() if hasattr(self.cognition, 'stats') else self.cognition.statistics() if hasattr(self.cognition, 'statistics') else {'status': getattr(self.cognition, 'status', 'unknown')}) if hasattr(self.cognition, "stats") else self.cognition.statistics()),
-            "knowledge": ((self.knowledge.stats() if hasattr(self.knowledge, 'stats') else self.knowledge.statistics() if hasattr(self.knowledge, 'statistics') else {'status': getattr(self.knowledge, 'status', 'unknown')}) if hasattr(self.knowledge, "stats") else self.knowledge.statistics()),
-            "mission": ((self.mission.stats() if hasattr(self.mission, 'stats') else self.mission.statistics() if hasattr(self.mission, 'statistics') else {'status': getattr(self.mission, 'status', 'unknown')}) if hasattr(self.mission, "stats") else self.mission.statistics()),
-            "workspace": ((self.workspace.stats() if hasattr(self.workspace, 'stats') else self.workspace.statistics() if hasattr(self.workspace, 'statistics') else {'status': getattr(self.workspace, 'status', 'unknown')}) if hasattr(self.workspace, "stats") else self.workspace.statistics()),
-            "applications": ((self.applications.stats() if hasattr(self.applications, 'stats') else self.applications.statistics() if hasattr(self.applications, 'statistics') else {'status': getattr(self.applications, 'status', 'unknown')}) if hasattr(self.applications, "stats") else self.applications.statistics()),
-            "semantic": ((self.semantic.stats() if hasattr(self.semantic, 'stats') else self.semantic.statistics() if hasattr(self.semantic, 'statistics') else {'status': getattr(self.semantic, 'status', 'unknown')}) if hasattr(self.semantic, "stats") else self.semantic.statistics()),
-            "executive": ((self.executive.stats() if hasattr(self.executive, 'stats') else self.executive.statistics() if hasattr(self.executive, 'statistics') else {'status': getattr(self.executive, 'status', 'unknown')}) if hasattr(self.executive, "stats") else self.executive.statistics()),
-            "agents": ((self.agents.stats() if hasattr(self.agents, 'stats') else self.agents.statistics() if hasattr(self.agents, 'statistics') else {'status': getattr(self.agents, 'status', 'unknown')}) if hasattr(self.agents, "stats") else self.agents.statistics()),
-            "planning": ((self.planning.stats() if hasattr(self.planning, 'stats') else self.planning.statistics() if hasattr(self.planning, 'statistics') else {'status': getattr(self.planning, 'status', 'unknown')}) if hasattr(self.planning, "stats") else self.planning.statistics()),
-            "copilot": ((self.copilot.stats() if hasattr(self.copilot, 'stats') else self.copilot.statistics() if hasattr(self.copilot, 'statistics') else {'status': getattr(self.copilot, 'status', 'unknown')}) if hasattr(self.copilot, "stats") else self.copilot.statistics()),
-            "universal_intelligence": ((self.intelligence.stats() if hasattr(self.intelligence, 'stats') else self.intelligence.statistics() if hasattr(self.intelligence, 'statistics') else {'status': getattr(self.intelligence, 'status', 'unknown')}) if hasattr(self.intelligence, "stats") else self.intelligence.statistics()),
-            "prediction": ((self.prediction.stats() if hasattr(self.prediction, 'stats') else self.prediction.statistics() if hasattr(self.prediction, 'statistics') else {'status': getattr(self.prediction, 'status', 'unknown')}) if hasattr(self.prediction, "stats") else self.prediction.statistics()),
-            "learning": ((self.learning.stats() if hasattr(self.learning, 'stats') else self.learning.statistics() if hasattr(self.learning, 'statistics') else {'status': getattr(self.learning, 'status', 'unknown')}) if hasattr(self.learning, "stats") else self.learning.statistics()),
-            "kernel_v2": ((self.kernel_v2.stats() if hasattr(self.kernel_v2, 'stats') else self.kernel_v2.statistics() if hasattr(self.kernel_v2, 'statistics') else {'status': getattr(self.kernel_v2, 'status', 'unknown')}) if hasattr(self.kernel_v2, "stats") else self.kernel_v2.statistics()),
+            **observatory.snapshot(self),
         }
 
 
