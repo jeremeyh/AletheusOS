@@ -2,20 +2,18 @@ class BootConditions:
     """
     Runtime Boot Conditions™
 
-    Determines whether optional boot phases should execute.
+    Determines whether boot phases should execute.
     """
 
     @staticmethod
     def should_run(runtime, phase):
 
-        #
-        # Future:
-        #   Enterprise Edition
-        #   Card Hawk
-        #   Federation
-        #   Cluster
-        #   Plugins
-        #   Development Mode
-        #
+        policy = getattr(runtime, "policy", None)
 
-        return True
+        if policy is None:
+            return True
+
+        return policy.evaluate(
+            runtime,
+            f"boot.phase.{phase}",
+        )
