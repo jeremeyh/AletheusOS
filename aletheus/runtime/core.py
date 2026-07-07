@@ -888,63 +888,6 @@ class AletheusRuntime:
         return context
 
 
-    def _cmd_planning_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        plan = self.planning.create_plan(
-            objective=payload.get("objective", "Untitled Objective"),
-            strategy=payload.get("strategy", ""),
-            priority=payload.get("priority", "high"),
-            steps=payload.get("steps"),
-        )
-        self.memory.remember(
-            key="autonomous_plan_created",
-            value=plan.to_dict(),
-            namespace="aletheus.planning",
-            memory_type="decision",
-            tags=["planning", "autonomous", "agents"],
-        )
-        context.add_result("plan", plan.to_dict())
-        return context
-
-    def _cmd_planning_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("plans", self.planning.list_plans(context.payload.get("status")))
-        return context
-
-    def _cmd_planning_execute_next(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.planning.execute_next_step(
-            plan_id=context.payload.get("plan_id", ""),
-            runtime=self,
-        )
-        self.memory.remember(
-            key="autonomous_plan_step_executed",
-            value=result,
-            namespace="aletheus.planning",
-            memory_type="episodic",
-            tags=["planning", "execution"],
-        )
-        context.add_result("execution", result)
-        return context
-
-    def _cmd_planning_execute(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.planning.execute_plan(
-            plan_id=context.payload.get("plan_id", ""),
-            runtime=self,
-        )
-        self.memory.remember(
-            key="autonomous_plan_executed",
-            value=result,
-            namespace="aletheus.planning",
-            memory_type="decision",
-            tags=["planning", "execution", "autonomous"],
-        )
-        context.add_result("execution", result)
-        return context
-
-    def _cmd_planning_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("planning_stats", ((self.planning.stats() if hasattr(self.planning, 'stats') else self.planning.statistics() if hasattr(self.planning, 'statistics') else {'status': getattr(self.planning, 'status', 'unknown')}) if hasattr(self.planning, "stats") else self.planning.statistics()))
-        return context
-
-
     def _cmd_copilot_ask(self, context: RuntimeContext) -> RuntimeContext:
         exchange = self.copilot.ask(
             prompt=context.payload.get("prompt", ""),
@@ -1677,57 +1620,6 @@ class AletheusRuntime:
 
     def _cmd_kg_statistics(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("knowledge_graph_stats", ((self.knowledge_graph.stats() if hasattr(self.knowledge_graph, 'stats') else self.knowledge_graph.statistics() if hasattr(self.knowledge_graph, 'statistics') else {'status': getattr(self.knowledge_graph, 'status', 'unknown')}) if hasattr(self.knowledge_graph, "stats") else self.knowledge_graph.statistics()))
-        return context
-
-
-    def _cmd_decision_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("decision", self.decision.bootstrap())
-        return context
-
-    def _cmd_decision_policy_add(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.decision.add_policy(
-            name=payload.get("name", "Untitled Policy"),
-            description=payload.get("description", ""),
-            policy_type=payload.get("policy_type", "general"),
-            weight=float(payload.get("weight", 1.0)),
-        )
-        context.add_result("policy", result)
-        return context
-
-    def _cmd_decision_evaluate(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.decision.evaluate(
-            title=payload.get("title", "Untitled Decision"),
-            objective=payload.get("objective", ""),
-            options=payload.get("options", []),
-            policy=payload.get("policy", "maximize_value"),
-            runtime=self,
-        )
-        context.add_result("decision", result)
-        return context
-
-    def _cmd_decision_execute(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.decision.execute(context.payload.get("decision_id", ""))
-        context.add_result("decision", result)
-        return context
-
-    def _cmd_decision_rollback(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.decision.rollback(context.payload.get("decision_id", ""))
-        context.add_result("decision", result)
-        return context
-
-    def _cmd_decision_explain(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.decision.explain(context.payload.get("decision_id", ""))
-        context.add_result("explanation", result)
-        return context
-
-    def _cmd_decision_history(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("history", self.decision.history())
-        return context
-
-    def _cmd_decision_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("decision_stats", ((self.decision.stats() if hasattr(self.decision, 'stats') else self.decision.statistics() if hasattr(self.decision, 'statistics') else {'status': getattr(self.decision, 'status', 'unknown')}) if hasattr(self.decision, "stats") else self.decision.statistics()))
         return context
 
 

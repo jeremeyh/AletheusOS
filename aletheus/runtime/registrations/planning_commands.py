@@ -1,35 +1,42 @@
 """
 Planning Command Registration
 
-Version 4.7.9
+Genesis 7 Integration
 """
+
+from __future__ import annotations
+
+from aletheus.runtime.domains import PlanningDomain
 
 
 def register_planning_commands(runtime):
+    """
+    Register planning commands.
+    """
 
-    commands = runtime.commands
+    domain = PlanningDomain(runtime)
 
-    commands.register(
+    runtime.commands.register(
         "planning.create",
-        runtime._cmd_planning_create,
+        domain.create,
     )
 
-    commands.register(
+    runtime.commands.register(
         "planning.list",
-        runtime._cmd_planning_list,
+        domain.list,
     )
 
-    commands.register(
-        "planning.execute_next",
-        runtime._cmd_planning_execute_next,
+    runtime.commands.register(
+        "planning.execute.next",
+        domain.execute_next,
     )
 
-    commands.register(
+    runtime.commands.register(
         "planning.execute",
-        runtime._cmd_planning_execute,
+        domain.execute,
     )
 
-    commands.register(
-        "planning.stats",
-        runtime._cmd_planning_stats,
+    runtime.commands.register(
+        "planning.statistics",
+        domain.statistics,
     )
