@@ -227,13 +227,6 @@ class AletheusRuntime:
         # v3.2 Persistence Engine
 
         # v3.3 Event Bus
-        self.commands.register("event.bootstrap", self._cmd_event_bootstrap)
-        self.commands.register("event.publish", self._cmd_event_publish)
-        self.commands.register("event.subscribe", self._cmd_event_subscribe)
-        self.commands.register("event.unsubscribe", self._cmd_event_unsubscribe)
-        self.commands.register("event.history", self._cmd_event_history)
-        self.commands.register("event.replay", self._cmd_event_replay)
-        self.commands.register("event.statistics", self._cmd_event_statistics)
 
         # v3.4 Federation
         self.commands.register("federation.bootstrap", self._cmd_federation_bootstrap)
