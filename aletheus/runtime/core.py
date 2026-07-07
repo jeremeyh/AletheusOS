@@ -3308,74 +3308,20 @@ class AletheusRuntime:
     # ==========================================================
 
     def _bootstrap_compatibility(self):
-        self.compat.services.clear()
-        self._register_compatibility_services()
-        self._apply_compatibility_aliases()
+        from aletheus.runtime.compatibility_layer import CompatibilityLayer
+
+        layer = CompatibilityLayer(self.compat)
+        layer.bootstrap(self)
 
     def _register_compatibility_services(self):
-        registry = [
-            ("memory", ["memory"]),
-            ("knowledge", ["knowledge"]),
-            ("reasoning", ["reasoning"]),
-            ("decision", ["decision"]),
-            ("planning", ["planning_v2", "planning"]),
-            ("workflow", ["workflow_v3", "workflow_v2", "workflow"]),
-            ("agents", ["agents_v2", "agents"]),
-            ("plugins", ["plugins_v3"]),
-            ("persistence", ["persistence_v3"]),
-            ("events", ["event_bus_v3"]),
-            ("federation", ["federation_v3"]),
-            ("telemetry", ["telemetry_v3"]),
-            ("ha", ["high_availability_v3"]),
-            ("security", ["security_v3"]),
-            ("tenancy", ["tenancy_v3"]),
-        ]
+        from aletheus.runtime.compatibility_layer import CompatibilityLayer
 
-        for alias, attrs in registry:
-            service = None
-
-            for attr in attrs:
-                candidate = getattr(self, attr, None)
-                if candidate is not None:
-                    service = candidate
-                    break
-
-            if service is not None:
-                self.compat.register(
-                    alias=alias,
-                    implementation=service,
-                )
+        CompatibilityLayer(self.compat).register_services(self)
 
     def _apply_compatibility_aliases(self):
-        # Safe canonical aliases only.
-        # Do not overwrite core runtime infrastructure like self.events or self.plugins.
-        safe_aliases = [
-            "memory",
-            "knowledge",
-            "reasoning",
-            "decision",
-            "planning",
-            "workflow",
-            "agents",
-            "security",
-            "tenancy",
-        ]
+        from aletheus.runtime.compatibility_layer import CompatibilityLayer
 
-        for alias in safe_aliases:
-            try:
-                setattr(self, alias, self.compat.resolve(alias))
-            except KeyError:
-                pass
-
-        try:
-            self.high_availability = self.compat.resolve("ha")
-        except KeyError:
-            pass
-
-        try:
-            self.event_bus = self.compat.resolve("events")
-        except KeyError:
-            pass
+        CompatibilityLayer(self.compat).apply_aliases(self)
 
 
     # ==========================================================
