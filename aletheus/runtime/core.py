@@ -246,14 +246,6 @@ class AletheusRuntime:
         # v3.7 Security & Policy Engine
         # --------------------------------------------------
 
-        self.commands.register("security.bootstrap", self._cmd_security_bootstrap)
-        self.commands.register("security.authenticate", self._cmd_security_authenticate)
-        self.commands.register("security.authorize", self._cmd_security_authorize)
-        self.commands.register("security.policy", self._cmd_security_policy)
-        self.commands.register("security.role.create", self._cmd_security_role_create)
-        self.commands.register("security.role.assign", self._cmd_security_role_assign)
-        self.commands.register("security.audit", self._cmd_security_audit)
-        self.commands.register("security.statistics", self._cmd_security_statistics)
 
         # v3.9 Multi-Tenant Runtime
         self.commands.register("tenant.bootstrap", self._cmd_tenant_bootstrap)
