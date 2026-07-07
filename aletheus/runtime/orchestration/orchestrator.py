@@ -3,9 +3,6 @@ class RuntimeOrchestrator:
     Runtime Orchestrator™
 
     Coordinates runtime orchestration components.
-
-    This class intentionally delegates rather than implements
-    subsystem behavior.
     """
 
     def __init__(
@@ -15,6 +12,7 @@ class RuntimeOrchestrator:
         health_monitor,
         recovery_manager,
         capability_registry,
+        policy_engine=None,
     ):
 
         self.lifecycle = lifecycle
@@ -22,8 +20,19 @@ class RuntimeOrchestrator:
         self.health_monitor = health_monitor
         self.recovery_manager = recovery_manager
         self.capability_registry = capability_registry
+        self.policy = policy_engine
+
+    def _allowed(self, runtime, policy):
+
+        if self.policy is None:
+            return True
+
+        return self.policy.evaluate(runtime, policy)
 
     def boot(self, runtime):
+
+        if not self._allowed(runtime, "runtime.boot"):
+            return False
 
         self.lifecycle.initialize()
         self.lifecycle.boot()
@@ -32,10 +41,12 @@ class RuntimeOrchestrator:
 
         self.lifecycle.online()
 
-    def health(
-        self,
-        container,
-    ):
+        return True
+
+    def health(self, runtime, container):
+
+        if not self._allowed(runtime, "runtime.health"):
+            return None
 
         return self.health_monitor.collect(
             self.lifecycle,
@@ -45,9 +56,13 @@ class RuntimeOrchestrator:
 
     def recover(
         self,
+        runtime,
         component,
         reason,
     ):
+
+        if not self._allowed(runtime, "runtime.recover"):
+            return None
 
         self.lifecycle.degrade()
 
