@@ -1,0 +1,75 @@
+{
+  "cognitive": {
+    "registries": [
+      "cognitive_mesh",
+      "unified_cognitive_index",
+      "memory_mesh",
+      "ontology"
+    ]
+  },
+
+  "knowledge": {
+    "registries": [
+      "ontology",
+      "capability_graph",
+      "unified_cognitive_index"
+    ]
+  },
+
+  "reasoning": {
+    "registries": [
+      "reason_engine",
+      "constitutional_reasoning"
+    ]
+  },
+
+  "agents": {
+    "registries": [
+      "identity_engine",
+      "engine_registry",
+      "cognitive_mesh"
+    ]
+  },
+
+  "capability": {
+    "registries": [
+      "capability_engine",
+      "capability_manifest",
+      "capability_graph"
+    ]
+  },
+
+  "runtime": {
+    "registries": [
+      "runtime_registry_v2",
+      "execution_graph",
+      "runtime/services"
+    ]
+  },
+
+  "governance": {
+    "registries": [
+      "council_registry",
+      "platform_governor",
+      "constitutional_policy",
+      "foundation_certification"
+    ]
+  },
+
+  "discovery": {
+    "registries": [
+      "discovery",
+      "runtime/discovery",
+      "service_fabric",
+      "self_assembly"
+    ]
+  },
+
+  "economy": {
+    "registries": [
+      "capability_engine",
+      "capability_manifest",
+      "marketplace"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "plugins": [
+    {
+      "plugin_id": "2dcd986d-1ffa-49b1-9266-aa474dabf7d2",
+      "name": "Card Hawk Foundation",
+      "version": "3.1.0",
+      "author": "6th Dimension Multimedia",
+      "description": "",
+      "enabled": true,
+      "installed_at": "2026-07-10T09:22:06.294383",
+      "updated_at": "2026-07-10T09:22:06.294390"
+    },
+    {
+      "plugin_id": "9f5eb8ed-9bb0-4eef-bea7-c2ae3c235ff7",
+      "name": "Sample Plugin",
+      "version": "1.0.0",
+      "author": "6th Dimension Multimedia",
+      "description": "",
+      "enabled": true,
+      "installed_at": "2026-07-10T09:22:06.294383",
+      "updated_at": "2026-07-10T09:22:06.294390"
+    }
+  ]
+}

@@ -18,7 +18,7 @@ class RuntimeDiagnostics:
             ("agents_v2", "Aletheus Autonomous Agent Runtime"),
             ("workflow_v3", "Aletheus Workflow Intelligence Engine"),
             ("planning_v2", "Aletheus Autonomous Planning Engine"),
-            ("distributed_v3", "Aletheus Distributed Runtime Fabric"),
+            ("distributed", "Aletheus Distributed Runtime Fabric"),
             ("plugins_v3", "Aletheus Plugin Manager"),
             ("persistence_v3", "Aletheus Persistence Engine"),
             ("event_bus_v3", "Aletheus Event Bus"),

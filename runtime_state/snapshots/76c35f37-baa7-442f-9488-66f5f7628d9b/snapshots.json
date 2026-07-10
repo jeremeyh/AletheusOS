@@ -1,0 +1,12 @@
+[
+  {
+    "snapshot_id": "59b17a61-cb89-414d-b25c-8820ad75cba8",
+    "name": "Debug Snapshot",
+    "created_at": "2026-07-01T05:10:57.418290",
+    "path": "runtime_state/snapshots/59b17a61-cb89-414d-b25c-8820ad75cba8",
+    "metadata": {
+      "engine": "Aletheus Persistence Engine",
+      "version": "3.2.0"
+    }
+  }
+]

@@ -1,76 +1,148 @@
-from __future__ import annotations
+"""
+Aletheus Agent Models
+
+Genesis 13.27
+Extended Genesis 81 Agent Foundation
+"""
 
 from dataclasses import dataclass, field
-from datetime import datetime
-from typing import Any, Dict, List
-import uuid
 
-
-def now() -> str:
-    return datetime.utcnow().isoformat()
 
 
 @dataclass
 class AgentCapability:
+    """
+    Defines a capability available to an Aletheus agent.
+    """
+
     name: str
+
     description: str = ""
 
-    def to_dict(self) -> Dict[str, Any]:
-        return self.__dict__
+    domain: str = ""
+
+
+
+    def describe(self):
+
+        return {
+
+            "capability":
+            self.name,
+
+            "description":
+            self.description,
+
+            "domain":
+            self.domain
+
+        }
+
 
 
 @dataclass
 class AgentTask:
-    title: str
-    payload: Dict[str, Any] = field(default_factory=dict)
-    status: str = "queued"
-    result: Dict[str, Any] = field(default_factory=dict)
-    task_id: str = field(default_factory=lambda: str(uuid.uuid4()))
-    created_at: str = field(default_factory=now)
-    completed_at: str | None = None
+    """
+    Represents a task assigned to an Aletheus agent.
+    """
 
-    def complete(self, result: Dict[str, Any]) -> None:
-        self.status = "completed"
-        self.result = result
-        self.completed_at = now()
+    task_id: str
 
-    def to_dict(self) -> Dict[str, Any]:
-        return self.__dict__
+    objective: str
+
+    context: dict = field(
+        default_factory=dict
+    )
+
+    status: str = "created"
+
 
 
 @dataclass
 class AletheusAgent:
+    """
+    Core Aletheus autonomous agent model.
+    """
+
+    agent_id: str
+
     name: str
-    role: str
-    description: str = ""
-    status: str = "online"
-    capabilities: List[AgentCapability] = field(default_factory=list)
-    tasks: List[AgentTask] = field(default_factory=list)
-    agent_id: str = field(default_factory=lambda: str(uuid.uuid4()))
-    created_at: str = field(default_factory=now)
 
-    def assign_task(self, title: str, payload: Dict[str, Any] | None = None) -> AgentTask:
-        task = AgentTask(title=title, payload=payload or {})
-        self.tasks.append(task)
-        return task
+    purpose: str
 
-    def complete_next_task(self) -> AgentTask | None:
-        pending = [task for task in self.tasks if task.status == "queued"]
-        if not pending:
-            return None
+    capabilities: list = field(
+        default_factory=list
+    )
 
-        task = pending[0]
-        task.complete(
-            {
-                "agent": self.name,
-                "role": self.role,
-                "message": f"{self.name} completed task: {task.title}",
-            }
+    status: str = "created"
+
+
+
+    def add_capability(
+        self,
+        capability
+    ):
+
+        self.capabilities.append(
+            capability
         )
-        return task
 
-    def to_dict(self) -> Dict[str, Any]:
-        data = self.__dict__.copy()
-        data["capabilities"] = [item.to_dict() for item in self.capabilities]
-        data["tasks"] = [item.to_dict() for item in self.tasks]
-        return data
+
+
+    def describe(self):
+
+        return {
+
+            "agent_id":
+            self.agent_id,
+
+            "name":
+            self.name,
+
+            "purpose":
+            self.purpose,
+
+            "capabilities":
+            len(self.capabilities),
+
+            "status":
+            self.status
+
+        }
+
+
+
+@dataclass
+class AgentDefinition:
+    """
+    Legacy compatibility model.
+    """
+
+    agent_id: str
+
+    name: str
+
+    purpose: str
+
+    capabilities: list = field(
+        default_factory=list
+    )
+
+    status: str = "created"
+
+
+
+@dataclass
+class AgentMission:
+    """
+    Agent mission definition.
+    """
+
+    mission_id: str
+
+    objective: str
+
+    constraints: dict = field(
+        default_factory=dict
+    )
+

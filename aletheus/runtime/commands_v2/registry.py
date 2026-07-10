@@ -1,74 +1,154 @@
+"""
+AletheusOS Runtime Command Registry
+
+Genesis 8 compiled-dispatch integration.
+
+The public Genesis 7 registry contract remains stable while runtime
+execution is delegated to an immutable compiled dispatcher.
+"""
+
+from __future__ import annotations
+
+from typing import Any, Callable
+
+from .dispatcher import CompiledRuntimeCommandDispatcher
 from .models import CommandRecord, CommandResult
 
 
 class RuntimeCommandRegistry:
     """
-    Runtime Command Registry™
+    Owns payload-command registration and compiled dispatch.
 
-    Owns command registration and dispatch.
-
-    Runtime/core.py should eventually delegate command ownership here.
+    Registration remains mutable for bootstrap compatibility. Every
+    successful mutation recompiles an immutable dispatcher snapshot.
+    Runtime command execution does not inspect or mutate the registry.
     """
 
-    def __init__(self):
-        self.commands = {}
+    def __init__(self) -> None:
+        self.commands: dict[str, CommandRecord] = {}
+        self._generation = 0
+        self._dispatcher = (
+            CompiledRuntimeCommandDispatcher(
+                self.commands,
+                generation=self._generation,
+            )
+        )
+
+    @property
+    def dispatcher(self) -> CompiledRuntimeCommandDispatcher:
+        return self._dispatcher
+
+    @property
+    def fingerprint(self) -> str:
+        return self._dispatcher.fingerprint
+
+    @property
+    def generation(self) -> int:
+        return self._generation
+
+    def _compile(self) -> None:
+        """
+        Compile the mutable registration surface into an immutable
+        runtime execution index.
+        """
+
+        self._generation += 1
+        self._dispatcher = (
+            CompiledRuntimeCommandDispatcher(
+                self.commands,
+                generation=self._generation,
+            )
+        )
 
     def register(
         self,
         name: str,
-        handler,
+        handler: Callable[..., Any],
         category: str = "general",
         description: str = "",
-        metadata=None,
-    ):
+        metadata: dict[str, Any] | None = None,
+        *,
+        replace: bool = False,
+    ) -> CommandRecord:
+        normalized_name = name.strip()
+
+        if not normalized_name:
+            raise ValueError("Command name cannot be empty.")
+
+        if normalized_name in self.commands:
+            if not replace:
+                # Genesis 7 idempotent-registration compatibility.
+                return self.commands[normalized_name]
+
+            self.commands.pop(normalized_name)
+
         record = CommandRecord(
-            name=name,
+            name=normalized_name,
             handler=handler,
             category=category,
             description=description,
             metadata=metadata or {},
         )
 
-        self.commands[name] = record
+        self.commands[normalized_name] = record
+        self._compile()
+
         return record
 
+    def unregister(self, name: str) -> bool:
+        removed = self.commands.pop(name, None) is not None
+
+        if removed:
+            self._compile()
+
+        return removed
+
     def has(self, name: str) -> bool:
-        return name in self.commands
+        return self._dispatcher.has(name)
 
-    def dispatch(self, name: str, payload=None):
-        payload = payload or {}
-        record = self.commands.get(name)
+    def get(self, name: str) -> CommandRecord | None:
+        return self._dispatcher.get(name)
 
-        if record is None:
-            return CommandResult(
-                command=name,
-                status="missing",
-                response={"error": f"Command '{name}' is not registered."},
-            )
+    def dispatch(
+        self,
+        name: str,
+        payload: dict[str, Any] | None = None,
+        *,
+        application: str = "system",
+    ) -> CommandResult:
+        return self._dispatcher.dispatch(
+            name,
+            payload,
+            application=application,
+        )
 
-        try:
-            response = record.handler(payload)
+    def count(self) -> int:
+        return len(self.commands)
 
-            return CommandResult(
-                command=name,
-                status="completed",
-                response=response if isinstance(response, dict) else {"result": response},
-            )
+    def list(self) -> list[str]:
+        return sorted(self.commands)
 
-        except Exception as exc:
-            return CommandResult(
-                command=name,
-                status="failed",
-                response={"error": str(exc)},
-            )
+    def categories(self) -> list[str]:
+        return sorted(
+            {
+                record.category
+                for record in self.commands.values()
+            }
+        )
 
-    def categories(self):
-        return sorted({record.category for record in self.commands.values()})
-
-    def health(self):
+    def health(self) -> dict[str, Any]:
         return {
             "status": "online",
-            "commands": len(self.commands),
+            "mode": "compiled",
+            "commands": self.count(),
             "categories": self.categories(),
-            "command_names": sorted(self.commands.keys()),
+            "command_names": self.list(),
+            "generation": self.generation,
+            "fingerprint": self.fingerprint,
+            "dispatcher": self._dispatcher.health(),
         }
+
+
+__all__ = [
+    "RuntimeCommandRegistry",
+]

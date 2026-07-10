@@ -1,0 +1,316 @@
+{
+    "engines": 29,
+    "bindings": [
+        {
+            "engine": "EpisodicMemoryEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "MemoryConsolidationEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "ShortTermMemoryEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "SemanticMemoryEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "LongTermMemoryEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "ContinuousLearningEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "SkillAcquisitionEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "AdaptationEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "PredictiveIntelligenceEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "FutureModelingEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "ScenarioSimulationEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "ProblemDecompositionEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "LogicalInferenceEngine",
+            "domain": "reasoning",
+            "registries": [
+                "reason_engine",
+                "constitutional_reasoning"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "IntelligenceSynthesisEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "AdvancedReasoningEngine",
+            "domain": "reasoning",
+            "registries": [
+                "reason_engine",
+                "constitutional_reasoning"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "HypothesisEngine",
+            "domain": "reasoning",
+            "registries": [
+                "reason_engine",
+                "constitutional_reasoning"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "KnowledgeLineageEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "KnowledgeGraphEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "KnowledgeDiscoveryEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "KnowledgeEvolutionEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "ReflectionEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "MetaReasoningEngine",
+            "domain": "reasoning",
+            "registries": [
+                "reason_engine",
+                "constitutional_reasoning"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "ContextAwarenessEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "PerceptionIntelligenceEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "SignalDetectionEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "GoalFormationEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "OpportunityDetectionEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "DecisionIntelligenceEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        },
+        {
+            "engine": "StrategicPlanningEngine",
+            "domain": "cognitive",
+            "registries": [
+                "cognitive_mesh",
+                "unified_cognitive_index",
+                "memory_mesh",
+                "ontology"
+            ],
+            "status": "wired"
+        }
+    ]
+}

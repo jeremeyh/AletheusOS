@@ -1,18 +1,11 @@
-from aletheus.prediction.prediction_core import AletheusPredictiveIntelligence, prediction_core
-from aletheus.prediction.models import (
-    Forecast,
-    PredictiveOpportunity,
-    PredictiveRecommendation,
-    PredictiveRisk,
-    Scenario,
-)
+"""
+AletheusOS Predictive Intelligence
+
+Post-Genesis 4351-4450
+"""
+
+from .engine import PredictiveIntelligenceEngine
 
 __all__ = [
-    "AletheusPredictiveIntelligence",
-    "prediction_core",
-    "Forecast",
-    "Scenario",
-    "PredictiveRisk",
-    "PredictiveOpportunity",
-    "PredictiveRecommendation",
+"PredictiveIntelligenceEngine"
 ]

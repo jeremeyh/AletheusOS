@@ -1,54 +1,58 @@
 """
 Enterprise Command Registration
 
-Genesis 6
+Genesis 6 Domain Migration
 """
+
+from aletheus.runtime.domains import EnterpriseDomain
+
 
 def register_enterprise_commands(runtime):
 
+    domain = EnterpriseDomain(runtime)
     commands = runtime.commands
 
     commands.register(
         "enterprise.bootstrap.cardhawk",
-        runtime._cmd_enterprise_bootstrap_cardhawk,
+        domain.bootstrap_cardhawk,
     )
 
     commands.register(
         "enterprise.create",
-        runtime._cmd_enterprise_create,
+        domain.create,
     )
 
     commands.register(
         "enterprise.list",
-        runtime._cmd_enterprise_list,
+        domain.list,
     )
 
     commands.register(
         "enterprise.stats",
-        runtime._cmd_enterprise_stats,
+        domain.stats,
     )
 
     commands.register(
         "department.create",
-        runtime._cmd_department_create,
+        domain.department_create,
     )
 
     commands.register(
         "team.create",
-        runtime._cmd_team_create,
+        domain.team_create,
     )
 
     commands.register(
         "policy.create",
-        runtime._cmd_policy_create,
+        domain.policy_create,
     )
 
     commands.register(
         "governance.check",
-        runtime._cmd_governance_check,
+        domain.governance_check,
     )
 
     commands.register(
         "audit.history",
-        runtime._cmd_audit_history,
+        domain.audit_history,
     )

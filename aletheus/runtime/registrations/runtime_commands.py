@@ -1,7 +1,9 @@
 """
 Runtime Command Registration
 
-Version 5.0.1
+Genesis 7
+
+Uses RuntimeCommandAdapter boundary.
 """
 
 
@@ -9,77 +11,56 @@ def register_runtime_commands(runtime):
 
     commands = runtime.commands
 
-    commands.register(
-        "runtime.health",
-        runtime._cmd_health,
-    )
-
-    commands.register(
-        "runtime.diagnostics",
-        runtime._cmd_diagnostics,
-    )
 
     commands.register(
         "runtime.selftest",
-        runtime._cmd_runtime_selftest,
+        runtime.runtime_adapter.selftest,
     )
+
 
     commands.register(
         "runtime.dashboard",
-        runtime._cmd_runtime_dashboard,
+        runtime.runtime_adapter.dashboard,
     )
+
 
     commands.register(
         "runtime.snapshot",
-        runtime._cmd_runtime_snapshot,
+        runtime.runtime_adapter.snapshot,
     )
+
 
     commands.register(
         "runtime.audit",
-        runtime._cmd_runtime_audit,
+        runtime.runtime_adapter.audit,
     )
+
 
     commands.register(
         "runtime.docs",
-        runtime._cmd_runtime_docs,
+        runtime.runtime_adapter.docs,
     )
+
 
     commands.register(
         "runtime.doctor",
-        runtime._cmd_runtime_doctor,
+        runtime.runtime_adapter.doctor,
     )
+
 
     commands.register(
         "runtime.invariants",
-        runtime._cmd_runtime_invariants,
+        runtime.runtime_adapter.invariants,
     )
+
 
     commands.register(
         "runtime.boot.validate",
-        runtime._cmd_runtime_boot_validate,
+        runtime.runtime_adapter.boot_validate,
     )
+
 
     commands.register(
         "runtime.health_report",
-        runtime._cmd_runtime_health_report,
-    )
-
-    commands.register(
-        "runtime.metrics",
-        runtime._cmd_metrics,
-    )
-
-    commands.register(
-        "runtime.events",
-        runtime._cmd_events,
-    )
-
-    commands.register(
-        "runtime.queue",
-        runtime._cmd_queue,
-    )
-
-    commands.register(
-        "runtime.run_next_job",
-        runtime._cmd_run_next_job,
+        runtime.runtime_adapter.health_report,
     )

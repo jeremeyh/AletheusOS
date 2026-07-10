@@ -1,0 +1,11 @@
+{
+  "timestamp": 1783549794.201049,
+  "certified": false,
+  "status": "REVIEW_REQUIRED",
+  "checks": {
+    "graph_available": false,
+    "nodes_detected": false,
+    "relationships_detected": true,
+    "governance_available": false
+  }
+}

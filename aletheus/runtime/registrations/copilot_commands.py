@@ -1,40 +1,47 @@
 """
 Copilot Command Registration
 
-Version 4.8.0
+Genesis 7 Integration
 """
+
+from __future__ import annotations
+
+from aletheus.runtime.domains import CopilotDomain
 
 
 def register_copilot_commands(runtime):
+    """
+    Register Copilot commands.
+    """
 
-    commands = runtime.commands
+    domain = CopilotDomain(runtime)
 
-    commands.register(
+    runtime.commands.register(
         "copilot.ask",
-        runtime._cmd_copilot_ask,
+        domain.ask,
     )
 
-    commands.register(
+    runtime.commands.register(
         "copilot.brief",
-        runtime._cmd_copilot_brief,
+        domain.brief,
     )
 
-    commands.register(
+    runtime.commands.register(
         "copilot.recommend",
-        runtime._cmd_copilot_recommend,
+        domain.recommend,
     )
 
-    commands.register(
+    runtime.commands.register(
         "copilot.timeline",
-        runtime._cmd_copilot_timeline,
+        domain.timeline,
     )
 
-    commands.register(
+    runtime.commands.register(
         "copilot.history",
-        runtime._cmd_copilot_history,
+        domain.history,
     )
 
-    commands.register(
-        "copilot.stats",
-        runtime._cmd_copilot_stats,
+    runtime.commands.register(
+        "copilot.statistics",
+        domain.statistics,
     )

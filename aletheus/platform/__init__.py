@@ -1,9 +1,16 @@
 """
-AletheusOS Platform Layer™
+AletheusOS Public Platform
 
-Hardware, OS, filesystem, Python, environment, and provider abstraction.
+Post-Genesis 4
 """
 
-from .platform_layer import PlatformLayer
 
-__all__ = ["PlatformLayer"]
+from .engine import PublicPlatformEngine
+
+
+__all__ = [
+
+    "PublicPlatformEngine"
+
+]
+

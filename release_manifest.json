@@ -1,0 +1,65 @@
+{
+  "platform": "AletheusOS",
+  "genesis": "Genesis 6",
+  "generated": "2026-07-08T06:38:23.503630+00:00",
+  "runtime": {
+    "version": "4.2.1"
+  },
+  "certification": {
+    "certified": false,
+    "status": "BLOCKED",
+    "checks": {
+      "boot": false,
+      "commands": true,
+      "registry": false,
+      "invariants": true,
+      "spa": false
+    }
+  },
+  "command_surface": {
+    "total": 176,
+    "healthy": true
+  },
+  "registry": {
+    "version": "2.0.0",
+    "healthy": true,
+    "domains": [
+      "runtime",
+      "memory",
+      "memory_mesh",
+      "reasoning",
+      "prediction",
+      "learning",
+      "kernel",
+      "enterprise",
+      "knowledge_graph",
+      "spa"
+    ],
+    "services": [
+      "command_bus",
+      "governance_engine",
+      "diagnostics"
+    ],
+    "components": [
+      "architecture_validator",
+      "spectrum_platform_analyzer",
+      "command_surface_auditor"
+    ],
+    "domain_count": 10,
+    "service_count": 3,
+    "component_count": 3
+  },
+  "spa": {
+    "analyzer": "Spectrum Platform Analyzer",
+    "status": "attention_required",
+    "checks": {
+      "runtime_initialized": true,
+      "commands_available": true,
+      "registry_available": false,
+      "diagnostics_available": true,
+      "invariants_available": true
+    },
+    "risk_count": 1
+  },
+  "release_ready": false
+}

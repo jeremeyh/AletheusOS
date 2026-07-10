@@ -1,18 +1,52 @@
 """
-State / Persistence Command Registration
+Persistence State Command Registration
 
 Genesis 6
 """
 
+from aletheus.runtime.domains import PersistenceDomain
+
+
 def register_state_commands(runtime):
-
     commands = runtime.commands
+    domain = PersistenceDomain(runtime)
 
-    commands.register("state.bootstrap", runtime._cmd_state_bootstrap)
-    commands.register("state.save", runtime._cmd_state_save)
-    commands.register("state.load", runtime._cmd_state_load)
-    commands.register("state.snapshot", runtime._cmd_state_snapshot)
-    commands.register("state.restore", runtime._cmd_state_restore)
-    commands.register("state.export", runtime._cmd_state_export)
-    commands.register("state.import", runtime._cmd_state_import)
-    commands.register("state.statistics", runtime._cmd_state_statistics)
+    commands.register(
+        "state.bootstrap",
+        domain.bootstrap,
+    )
+
+    commands.register(
+        "state.save",
+        domain.save,
+    )
+
+    commands.register(
+        "state.load",
+        domain.load,
+    )
+
+    commands.register(
+        "state.snapshot",
+        domain.snapshot,
+    )
+
+    commands.register(
+        "state.restore",
+        domain.restore,
+    )
+
+    commands.register(
+        "state.export",
+        domain.export,
+    )
+
+    commands.register(
+        "state.import",
+        domain.import_state,
+    )
+
+    commands.register(
+        "state.statistics",
+        domain.statistics,
+    )

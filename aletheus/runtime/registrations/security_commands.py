@@ -1,49 +1,20 @@
 """
 Security Command Registration
-
-Genesis 6
+Genesis 6 Domain Migration
 """
 
-def register_security_commands(runtime):
+from aletheus.runtime.domains import SecurityDomain
 
+
+def register_security_commands(runtime):
+    domain = SecurityDomain(runtime)
     commands = runtime.commands
 
-    commands.register(
-        "security.bootstrap",
-        runtime._cmd_security_bootstrap,
-    )
-
-    commands.register(
-        "security.authenticate",
-        runtime._cmd_security_authenticate,
-    )
-
-    commands.register(
-        "security.authorize",
-        runtime._cmd_security_authorize,
-    )
-
-    commands.register(
-        "security.policy",
-        runtime._cmd_security_policy,
-    )
-
-    commands.register(
-        "security.role.create",
-        runtime._cmd_security_role_create,
-    )
-
-    commands.register(
-        "security.role.assign",
-        runtime._cmd_security_role_assign,
-    )
-
-    commands.register(
-        "security.audit",
-        runtime._cmd_security_audit,
-    )
-
-    commands.register(
-        "security.statistics",
-        runtime._cmd_security_statistics,
-    )
+    commands.register("security.bootstrap", domain.bootstrap)
+    commands.register("security.authenticate", domain.authenticate)
+    commands.register("security.authorize", domain.authorize)
+    commands.register("security.policy", domain.policy)
+    commands.register("security.role_create", domain.role_create)
+    commands.register("security.role_assign", domain.role_assign)
+    commands.register("security.audit", domain.audit)
+    commands.register("security.statistics", domain.statistics)

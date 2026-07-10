@@ -4,41 +4,45 @@ Learning Command Registration
 Genesis 6
 """
 
+from aletheus.runtime.domains import LearningDomain
+
+
 def register_learning_commands(runtime):
 
     commands = runtime.commands
+    domain = LearningDomain(runtime)
 
     commands.register(
-        "learn.record",
-        runtime._cmd_learn_record,
+        "learning.record",
+        domain.record,
     )
 
     commands.register(
-        "learn.lesson",
-        runtime._cmd_learn_lesson,
+        "learning.lesson",
+        domain.lesson,
     )
 
     commands.register(
-        "learn.feedback",
-        runtime._cmd_learn_feedback,
+        "learning.feedback",
+        domain.feedback,
     )
 
     commands.register(
-        "learn.patterns",
-        runtime._cmd_learn_patterns,
+        "learning.patterns",
+        domain.patterns,
     )
 
     commands.register(
-        "learn.improve",
-        runtime._cmd_learn_improve,
+        "learning.improve",
+        domain.improve,
     )
 
     commands.register(
-        "learn.snapshot",
-        runtime._cmd_learn_snapshot,
+        "learning.snapshot",
+        domain.snapshot,
     )
 
     commands.register(
-        "learn.stats",
-        runtime._cmd_learn_stats,
+        "learning.statistics",
+        domain.statistics,
     )

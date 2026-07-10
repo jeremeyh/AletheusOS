@@ -1,0 +1,23 @@
+{
+    "project": "Card Hawk",
+    "range": "Genesis 23.1-24",
+    "purpose": "Autonomous Intelligence Operating Evolution",
+    "phases": [
+        "Intelligence Core",
+        "Orchestration",
+        "Command Center",
+        "Autonomous Workflows",
+        "Agent Coordination",
+        "Decision Engine",
+        "Context Intelligence",
+        "Governance",
+        "Operational Memory",
+        "Evolution Integration",
+        "Autonomous Ecosystem"
+    ],
+    "architecture": {
+        "foundation": "AletheusOS",
+        "intelligence": "Card Hawk",
+        "control": "Governance First"
+    }
+}

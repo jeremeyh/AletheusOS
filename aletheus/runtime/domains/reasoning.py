@@ -39,6 +39,7 @@ class ReasoningDomain:
         )
 
         context.add_result("evaluation", result)
+        context.add_result("reasoning", result)
         return context
 
     def explain(self, context):

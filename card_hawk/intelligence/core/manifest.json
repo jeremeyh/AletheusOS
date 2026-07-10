@@ -1,0 +1,13 @@
+{
+    "name": "Card Hawk Intelligence Core",
+    "genesis": "23.1",
+    "status": "foundation",
+    "purpose": "Central intelligence coordination layer",
+    "integrations": [
+        "AletheusOS",
+        "A-eye",
+        "THOR-x",
+        "Agent Network",
+        "Memory Architecture"
+    ]
+}

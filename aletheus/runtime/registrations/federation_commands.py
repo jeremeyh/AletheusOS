@@ -1,44 +1,19 @@
 """
 Federation Command Registration
-
-Genesis 6
+Genesis 6 Domain Migration
 """
 
-def register_federation_commands(runtime):
+from aletheus.runtime.domains import FederationDomain
 
+
+def register_federation_commands(runtime):
+    domain = FederationDomain(runtime)
     commands = runtime.commands
 
-    commands.register(
-        "federation.bootstrap",
-        runtime._cmd_federation_bootstrap,
-    )
-
-    commands.register(
-        "federation.join",
-        runtime._cmd_federation_join,
-    )
-
-    commands.register(
-        "federation.leave",
-        runtime._cmd_federation_leave,
-    )
-
-    commands.register(
-        "federation.discover",
-        runtime._cmd_federation_discover,
-    )
-
-    commands.register(
-        "federation.query",
-        runtime._cmd_federation_query,
-    )
-
-    commands.register(
-        "federation.broadcast",
-        runtime._cmd_federation_broadcast,
-    )
-
-    commands.register(
-        "federation.statistics",
-        runtime._cmd_federation_statistics,
-    )
+    commands.register("federation.bootstrap", domain.bootstrap)
+    commands.register("federation.join", domain.join)
+    commands.register("federation.leave", domain.leave)
+    commands.register("federation.discover", domain.discover)
+    commands.register("federation.query", domain.query)
+    commands.register("federation.broadcast", domain.broadcast)
+    commands.register("federation.statistics", domain.statistics)

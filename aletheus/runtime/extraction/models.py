@@ -1,21 +1,37 @@
 from dataclasses import dataclass, field
-from datetime import datetime, UTC
+from datetime import UTC, datetime
 
 
 @dataclass
-class ExtractionCandidate:
+class ExtractionTarget:
+    """
+    Represents a runtime extraction candidate.
+    """
+
     name: str
-    source: str
-    destination: str
-    estimated_lines: int
-    priority: int
-    confidence: float
+    priority: int = 0
     rationale: str = ""
+
+
+# Backwards-compatible public contract.
+ExtractionCandidate = ExtractionTarget
 
 
 @dataclass
 class ExtractionPlan:
-    candidates: list[ExtractionCandidate] = field(default_factory=list)
-    created_at: str = field(default_factory(
-        lambda: datetime.now(UTC).isoformat()
-    ))
+    """
+    Runtime extraction planning model.
+    """
+
+    target: str
+    actions: list[str] = field(default_factory=list)
+    created_at: str = field(
+        default_factory=lambda: datetime.now(UTC).isoformat()
+    )
+
+
+__all__ = [
+    "ExtractionTarget",
+    "ExtractionCandidate",
+    "ExtractionPlan",
+]

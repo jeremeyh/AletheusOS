@@ -1,55 +1,53 @@
 """
 Decision Command Registration
-
-Version 4.7.1
+Genesis 7 Integration
 """
+
+from __future__ import annotations
+
+from aletheus.runtime.domains import DecisionDomain
 
 
 def register_decision_commands(runtime):
 
-    commands = runtime.commands
+    domain = DecisionDomain(runtime)
 
-    commands.register(
+    runtime.commands.register(
         "decision.bootstrap",
-        runtime._cmd_decision_bootstrap,
+        domain.bootstrap,
     )
 
-    commands.register(
+    runtime.commands.register(
         "decision.policy.add",
-        runtime._cmd_decision_policy_add,
+        domain.policy_add,
     )
 
-    commands.register(
+    runtime.commands.register(
         "decision.evaluate",
-        runtime._cmd_decision_evaluate,
+        domain.evaluate,
     )
 
-    commands.register(
+    runtime.commands.register(
         "decision.execute",
-        runtime._cmd_decision_execute,
+        domain.execute,
     )
 
-    commands.register(
+    runtime.commands.register(
         "decision.rollback",
-        runtime._cmd_decision_rollback,
+        domain.rollback,
     )
 
-    commands.register(
+    runtime.commands.register(
         "decision.explain",
-        runtime._cmd_decision_explain,
+        domain.explain,
     )
 
-    commands.register(
-        "decision.record",
-        runtime._cmd_decision_record,
-    )
-
-    commands.register(
+    runtime.commands.register(
         "decision.history",
-        runtime._cmd_decision_history,
+        domain.history,
     )
 
-    commands.register(
+    runtime.commands.register(
         "decision.statistics",
-        runtime._cmd_decision_statistics,
+        domain.statistics,
     )

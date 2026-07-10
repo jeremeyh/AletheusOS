@@ -4,41 +4,45 @@ Prediction Command Registration
 Genesis 6
 """
 
+from aletheus.runtime.domains import PredictionDomain
+
+
 def register_prediction_commands(runtime):
 
     commands = runtime.commands
+    domain = PredictionDomain(runtime)
 
     commands.register(
-        "predict.forecast",
-        runtime._cmd_predict_forecast,
+        "prediction.forecast",
+        domain.forecast,
     )
 
     commands.register(
-        "predict.scenario",
-        runtime._cmd_predict_scenario,
+        "prediction.scenario",
+        domain.scenario,
     )
 
     commands.register(
-        "predict.risks",
-        runtime._cmd_predict_risks,
+        "prediction.risks",
+        domain.risks,
     )
 
     commands.register(
-        "predict.opportunities",
-        runtime._cmd_predict_opportunities,
+        "prediction.opportunities",
+        domain.opportunities,
     )
 
     commands.register(
-        "predict.recommend",
-        runtime._cmd_predict_recommend,
+        "prediction.recommend",
+        domain.recommend,
     )
 
     commands.register(
-        "predict.timeline",
-        runtime._cmd_predict_timeline,
+        "prediction.timeline",
+        domain.timeline,
     )
 
     commands.register(
-        "predict.stats",
-        runtime._cmd_predict_stats,
+        "prediction.statistics",
+        domain.statistics,
     )

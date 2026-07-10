@@ -1,43 +1,30 @@
 """
 Runtime Registration Manager
 
-Version 5.0.0
+Version 6.0.0
+
+Genesis 7:
+Command composition ownership delegated to bootstrap providers.
 """
 
-from aletheus.runtime import registrations
+from aletheus.runtime.command_bootstrap.bootstrapper import (
+    RuntimeCommandBootstrapper,
+)
 
 
 class RegistrationManager:
 
     def __init__(self, runtime):
         self.runtime = runtime
+        self.bootstrapper = RuntimeCommandBootstrapper()
 
     def register_all(self):
 
-        registrations.register_runtime_commands(self.runtime)
+        self.bootstrapper.bootstrap(
+            self.runtime
+        )
 
-        registrations.register_memory_commands(self.runtime)
-
-        registrations.register_reasoning_commands(self.runtime)
-
-        registrations.register_decision_commands(self.runtime)
-
-        registrations.register_graph_commands(self.runtime)
-
-        registrations.register_mission_commands(self.runtime)
-
-        registrations.register_workspace_commands(self.runtime)
-
-        registrations.register_application_commands(self.runtime)
-
-        registrations.register_semantic_commands(self.runtime)
-
-        registrations.register_executive_commands(self.runtime)
-
-        registrations.register_agent_commands(self.runtime)
-
-        registrations.register_planning_commands(self.runtime)
-
-        registrations.register_copilot_commands(self.runtime)
-
-        registrations.register_uil_commands(self.runtime)
+        return {
+            "registered": True,
+            "commands": self.runtime.commands.count(),
+        }

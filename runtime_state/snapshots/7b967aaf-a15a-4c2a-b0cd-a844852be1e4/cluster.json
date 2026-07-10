@@ -1,0 +1,69 @@
+{
+  "cluster_id": "fc95114f-91f1-4c4d-b057-cfc0d220680c",
+  "name": "AletheusOS Primary Cluster",
+  "leader_node_id": "09a2cc0a-e626-495b-92dc-f9d9f748e07c",
+  "health": "healthy",
+  "created_at": "2026-07-10T09:22:07.516305",
+  "node_count": 2,
+  "nodes": [
+    {
+      "node_id": "09a2cc0a-e626-495b-92dc-f9d9f748e07c",
+      "node_name": "Founder Runtime",
+      "version": "3.0.0",
+      "status": "online",
+      "health": "healthy",
+      "capabilities": [
+        "kernel",
+        "memory",
+        "knowledge",
+        "reasoning",
+        "decision",
+        "agents",
+        "workflow",
+        "planning"
+      ],
+      "services": [
+        "Runtime Core",
+        "Memory Mesh",
+        "Knowledge Graph",
+        "Reasoning Engine",
+        "Decision Engine",
+        "Agent Runtime",
+        "Workflow Engine",
+        "Planning Engine"
+      ],
+      "agents": [
+        "Founder Agent",
+        "Research Agent",
+        "Marketplace Agent",
+        "Portfolio Agent"
+      ],
+      "workflows": [],
+      "plans": [],
+      "created_at": "2026-07-10T09:22:07.516313",
+      "last_seen": "2026-07-10T09:22:07.518298",
+      "heartbeat_count": 1
+    },
+    {
+      "node_id": "d5f28071-b496-492f-a65b-ef77ef78d266",
+      "node_name": "Marketplace Runtime",
+      "version": "3.0.0",
+      "status": "online",
+      "health": "healthy",
+      "capabilities": [
+        "marketplace",
+        "pricing"
+      ],
+      "services": [
+        "Marketplace Intelligence"
+      ],
+      "agents": [],
+      "workflows": [],
+      "plans": [],
+      "created_at": "2026-07-10T09:22:07.516325",
+      "last_seen": "2026-07-10T09:22:07.518301",
+      "heartbeat_count": 1
+    }
+  ],
+  "jobs": []
+}

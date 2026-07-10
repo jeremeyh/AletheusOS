@@ -1,0 +1,262 @@
+# ============================================================
+# AletheusOS Runtime Composition Manifest
+#
+# Purpose:
+#   Defines runtime dependency topology, initialization order,
+#   and service ownership boundaries.
+#
+# Genesis:
+#   Runtime Stabilization / Registry Federation
+#
+# ============================================================
+
+
+manifest:
+  name: "AletheusOS Runtime Composition"
+  version: "1.0.0"
+  authority: "runtime.core"
+  status: "active"
+
+
+composition_order:
+
+  - foundation
+
+  - intelligence
+
+  - prediction
+
+  - diagnostics
+
+  - anchors
+
+  - governance
+
+  - registry_bootstrap
+
+  - runtime_ready
+
+
+
+components:
+
+
+  foundation:
+
+    description:
+      "Core runtime primitives"
+
+    provides:
+
+      - events
+      - engines
+      - services
+      - metrics
+
+
+    requires: []
+
+
+
+  intelligence:
+
+    description:
+      "Primary intelligence orchestration layer"
+
+    provides:
+
+      - intelligence_core
+      - intelligence_orchestrator
+      - intelligence_scheduler
+      - intelligence_dispatcher
+      - intelligence_supervisor
+
+
+    requires:
+
+      - foundation
+
+
+
+  prediction:
+
+    description:
+      "Prediction and forecasting capabilities"
+
+    provides:
+
+      - prediction_core
+
+
+    requires:
+
+      - intelligence
+
+
+
+  diagnostics:
+
+    description:
+      "Runtime diagnostics and health intelligence"
+
+    provides:
+
+      - RuntimeDiagnostics
+
+
+    requires:
+
+      - foundation
+
+
+
+  anchors:
+
+    description:
+      "Runtime Anchor Circuit attachment framework"
+
+    provides:
+
+      - AnchorRegistry
+      - AnchorLifecycleController
+      - AnchorDependencyGraph
+      - IntelligenceAnchorCircuit
+      - MemoryAnchorCircuit
+      - KnowledgeAnchorCircuit
+      - ApplicationAnchorCircuit
+
+
+    requires:
+
+      - intelligence
+      - diagnostics
+
+
+
+  governance:
+
+    description:
+      "Bounded runtime evolution governance"
+
+    provides:
+
+      - AnchorGovernanceCouncil
+
+
+    requires:
+
+      - prediction
+      - intelligence
+
+
+
+  registry_bootstrap:
+
+    description:
+      "Runtime registry federation initialization"
+
+    provides:
+
+      - runtime_registry
+      - service_registry
+      - capability_registry
+
+
+    requires:
+
+      - diagnostics
+      - governance
+      - anchors
+
+
+
+runtime_exports:
+
+
+  public:
+
+    - AletheusRuntime
+    - RuntimeContext
+    - runtime_core
+
+
+
+  singleton:
+
+    name:
+      runtime_core
+
+    owner:
+      runtime.core
+
+
+
+validation_rules:
+
+
+  dependency_validation:
+
+    enabled: true
+
+
+  initialization_order_validation:
+
+    enabled: true
+
+
+  missing_dependency_detection:
+
+    enabled: true
+
+
+  circular_dependency_detection:
+
+    enabled: true
+
+
+  constructor_signature_validation:
+
+    enabled: true
+
+
+
+failure_policy:
+
+
+  missing_required_dependency:
+
+    action:
+      block_boot
+
+
+  invalid_order:
+
+    action:
+      block_boot
+
+
+  optional_component_failure:
+
+    action:
+      warn
+
+
+
+observability:
+
+
+  emit_boot_graph:
+
+    enabled: true
+
+
+  emit_dependency_report:
+
+    enabled: true
+
+
+  emit_runtime_snapshot:
+
+    enabled: true
+
+

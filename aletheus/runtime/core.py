@@ -1,4 +1,23 @@
 from __future__ import annotations
+from aletheus.runtime.governance.architecture_rules import ArchitectureGovernanceRules
+from aletheus.runtime.governance.registry_rules import RegistryGovernanceRules
+from aletheus.runtime.governance.history import GovernanceHistory
+
+
+from aletheus.runtime.registry.runtime_registry import runtime_registry
+from aletheus.runtime.registry.compatibility import RegistryCompatibility
+from aletheus.runtime.certification.boot_certification import BootCertification
+from aletheus.runtime.readiness.snapshot import RuntimeReadinessSnapshot
+from aletheus.runtime.release.genesis6_report import Genesis6CertificationReport
+from aletheus.runtime.release.genesis6_review import Genesis6FreezeReview
+from aletheus.runtime.release.genesis6_validator import Genesis6Validator
+from aletheus.runtime.architecture.validator import ArchitectureValidator
+
+
+
+from aletheus.runtime.audit.command_surface import CommandSurfaceAuditor
+
+from aletheus.runtime.intelligence.spa_bridge import RuntimeSPABridge
 
 from typing import Any
 
@@ -15,7 +34,10 @@ from aletheus.agents import agent_core
 from aletheus.planning import planning_core
 from aletheus.copilot import copilot_core
 from aletheus.intelligence import intelligence_core
-from aletheus.prediction import prediction_core
+from aletheus.runtime.adapters.universal_intelligence_adapter import (
+    UniversalIntelligenceAdapter,
+)
+from aletheus.runtime.adapters.prediction_adapter import PredictionAdapter
 from aletheus.learning import learning_core
 from aletheus.kernel_v2 import kernel_core
 from aletheus.missions_v2 import mission_v2_core
@@ -63,23 +85,51 @@ from aletheus.runtime.governance import (
     PrincipleXValidator,
 )
 from aletheus.runtime.services import ServiceRegistry
-from aletheus.runtime.registrations import (
-    register_runtime_commands,
-    register_memory_commands,
-    register_reasoning_commands,
-    register_decision_commands,
-    register_graph_commands,
-    register_mission_commands,
-    register_workspace_commands,
-    register_application_commands,
-    register_semantic_commands,
-    register_executive_commands,
-    register_agent_commands,
-    register_planning_commands,
-    register_copilot_commands,
-    register_uil_commands,
-)
 from aletheus.runtime.integrity import RuntimeInvariantEngine, RuntimeBootValidator
+
+from aletheus.runtime.command_bootstrap.bootstrapper import (
+    RuntimeCommandBootstrapper
+)
+
+
+
+from aletheus.runtime.managers import (
+    CertificationManager,
+    SnapshotManager,
+    InvariantManager,
+
+
+    HealthManager,
+    ValidationManager,
+    RegistryManager,
+    CommandManager,
+    GovernanceManager,
+)
+
+
+from aletheus.runtime.managers.runtime_facade import RuntimeFacade
+from aletheus.runtime.adapters.graph_adapter import GraphCommandAdapter
+from aletheus.runtime.adapters.mission_adapter import MissionCommandAdapter
+from aletheus.runtime.adapters.event_adapter import EventCommandAdapter
+from aletheus.runtime.adapters.runtime_adapter import RuntimeCommandAdapter
+from aletheus.runtime.adapters.compatibility_adapter import CompatibilityCommandAdapter
+
+
+
+from aletheus.runtime.anchors.registry import AnchorRegistry
+
+
+
+from aletheus.runtime.anchors import (
+    AnchorRegistry,
+    AnchorLifecycleController,
+    AnchorDependencyGraph,
+    AnchorGovernanceCouncil,
+    IntelligenceAnchorCircuit,
+    MemoryAnchorCircuit,
+    KnowledgeAnchorCircuit,
+    ApplicationAnchorCircuit,
+)
 
 
 class AletheusRuntime:
@@ -94,13 +144,120 @@ class AletheusRuntime:
         self.engines = EngineRegistry()
         self.services = ServiceRegistry()
         self.metrics = RuntimeMetrics()
+        
+
+
         self.commands = CommandBus(self)
+
+        self.command_bootstrapper = (
+    RuntimeCommandBootstrapper()
+)
+
+
+
+
+        self.anchor_registry = AnchorRegistry(self)
+
+
+
+        self.anchor_lifecycle = (
+    AnchorLifecycleController(
+        self.anchor_registry
+    )
+)
+
+
+        self.anchor_dependencies = (
+    AnchorDependencyGraph(
+        self.anchor_registry
+    )
+)
+
+
+
+        # Anchor governance deferred until intelligence services initialize
+
+
+
+
+
+        self.anchor_registry.register(
+    "intelligence",
+    IntelligenceAnchorCircuit(self)
+)
+
+        self.anchor_registry.register(
+    "memory",
+    MemoryAnchorCircuit(self)
+)
+
+        self.anchor_registry.register(
+    "knowledge",
+    KnowledgeAnchorCircuit(self)
+)
+
+        self.anchor_registry.register(
+    "application",
+    ApplicationAnchorCircuit(self)
+)
+
+
+        self.anchor_registry.attach_all()
+
+
+
+
+        self.certification_manager = CertificationManager(self)
+        self.snapshot_manager = SnapshotManager(self)
+        self.invariant_manager = InvariantManager(self)
+
+
+
+
+        self.health_manager = HealthManager(self)
+        self.validation_manager = ValidationManager(self)
+        self.registry_manager = RegistryManager(self)
+        self.command_manager = CommandManager(self)
+        self.governance_manager = GovernanceManager(self)
+
+
+        self.graph_adapter = GraphCommandAdapter(self)
+        self.mission_adapter = MissionCommandAdapter(self)
+        self.event_adapter = EventCommandAdapter(self)
+        self.runtime_adapter = RuntimeCommandAdapter(self)
+        self.compatibility_adapter = CompatibilityCommandAdapter(self)
+        self.runtime_facade = RuntimeFacade(self)
+        self.registry = runtime_registry
+        self.registry_compatibility = RegistryCompatibility()
+        self.boot_certification = BootCertification()
+        self.readiness_snapshot = RuntimeReadinessSnapshot()
+        self.genesis6_report = Genesis6CertificationReport()
+        self.genesis6_review = Genesis6FreezeReview()
+        self.genesis6_validator = Genesis6Validator()
+
+        self._register_runtime_domains()
+        self.diagnostics = RuntimeDiagnostics(self)
+
+        self._bootstrap_runtime_registry()
+
+        self.architecture_validator = ArchitectureValidator(self)
+        self.architecture_governance = ArchitectureGovernanceRules(self)
+
+        self.registry_governance = RegistryGovernanceRules()
+        self.governance_history = GovernanceHistory()
+
+        self.registry.register_domain(
+            "runtime",
+            self,
+        )
+
+
         self.pipelines = PipelineExecutor(self)
         self.workflows = WorkflowExecutor(self)
         self.scheduler = Scheduler()
         self.queue = JobQueue(self)
         self.plugins = RuntimePluginManager(self)
-        self.diagnostics = RuntimeDiagnostics(self)
+
         self.memory = memory_core
         self.cognition = cognition_core
         self.knowledge = knowledge_core
@@ -130,15 +287,32 @@ class AletheusRuntime:
         self.kernel = KernelExecutor(self)
         self.copilot = copilot_core
         self.intelligence = intelligence_core
-        self.prediction = prediction_core
+
+
+
+        self.prediction = PredictionAdapter()
+
+        self.anchor_governance_analyzer = (
+            AnchorGovernanceCouncil(
+                self.prediction,
+                self.intelligence
+            )
+        )
         self.learning = learning_core
         self.kernel_v2 = kernel_core
         self.mission_v2 = mission_v2_core
         self.workflow_v2 = workflow_v2_core
         self.enterprise = enterprise_core
+
+        from aletheus.platform.service_registry import service_registry
+        self.service_registry = service_registry
+
+        from aletheus.platform.application_runtime import application_runtime
+        self.application_runtime = application_runtime
         self.memory_mesh = memory_mesh_core
         self.knowledge_graph = knowledge_graph_core
         self.reasoning = reasoning_core
+        self.uil = UniversalIntelligenceAdapter(self)
         self.decision = decision_core
         self.agents_v2 = agent_core
         self.workflow_v3 = workflow_core
@@ -148,6 +322,8 @@ class AletheusRuntime:
         self.compat = compatibility_registry
 
 
+        self.spa = RuntimeSPABridge(self)
+        self.command_auditor = CommandSurfaceAuditor(self)
         self.boot()
         self._bootstrap_compatibility()
         self.hardening = RuntimeHardening(self)
@@ -169,11 +345,15 @@ class AletheusRuntime:
 
     def boot(self) -> None:
 
+        self.command_bootstrapper.bootstrap(self)
+
         from aletheus.runtime.boot_pipeline import (
             build_runtime_boot_pipeline,
         )
 
         build_runtime_boot_pipeline().run(self)
+
+        self.bootstrap_registry()
 
 
     def register_engine(self, name: str, handler: Any) -> None:
@@ -198,6 +378,43 @@ class AletheusRuntime:
     def register_workflow(self, workflow: WorkflowGraph) -> None:
         self.workflows.register(workflow)
         self.events.publish("runtime.workflow.registered", {"workflow": workflow.name}, source="runtime")
+
+
+    def bootstrap_registry(self):
+        """
+        Register runtime domains and capabilities.
+
+        Genesis 6:
+        Runtime Registry v2 initialization.
+        """
+
+        registrations = {
+            "memory": getattr(self, "memory", None),
+            "memory_mesh": getattr(self, "memory_mesh", None),
+            "reasoning": getattr(self, "reasoning", None),
+            "prediction": getattr(self, "prediction", None),
+            "learning": getattr(self, "learning", None),
+            "kernel": getattr(self, "kernel", None),
+            "workflow": getattr(self, "workflow", None),
+            "enterprise": getattr(self, "enterprise", None),
+            "knowledge_graph": getattr(self, "knowledge_graph", None),
+            "security": getattr(self, "security", None),
+            "telemetry": getattr(self, "telemetry", None),
+            "federation": getattr(self, "federation", None),
+            "ha": getattr(self, "ha", None),
+            "spa": getattr(self, "spa", None),
+        }
+
+        for name, instance in registrations.items():
+
+            if instance is not None:
+
+                self.registry.register_domain(
+                    name,
+                    instance,
+                )
+
+        return self.registry.snapshot()
 
     def _cmd_goal_create(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
@@ -227,33 +444,6 @@ class AletheusRuntime:
         context.add_result("goals", self.cognition.list_goals(context.payload.get("status")))
         return context
 
-    def _cmd_plan_generate(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        plan = self.cognition.generate_plan(
-            goal_id=payload.get("goal_id", "ad-hoc"),
-            goal_title=payload.get("goal_title", payload.get("title", "")),
-        )
-        self.memory.remember(
-            key="plan_generated",
-            value=plan.to_dict(),
-            namespace="aletheus.cognition",
-            memory_type="working",
-            tags=["plan", "cognition"],
-        )
-        context.add_result("plan", plan.to_dict())
-        return context
-
-    def _cmd_plan_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("plans", self.cognition.list_plans())
-        return context
-
-    def _cmd_reason_evaluate(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        session = self.cognition.reason(
-            prompt=payload.get("prompt", ""),
-            evidence=payload.get("evidence", []),
-            assumptions=payload.get("assumptions", []),
-        )
         self.memory.remember(
             key="reasoning_session",
             value=session.to_dict(),
@@ -296,1676 +486,20 @@ class AletheusRuntime:
         return context
 
 
-    def _cmd_entity_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        entity = self.knowledge.create_entity(
-            label=payload.get("label", "Untitled Entity"),
-            entity_type=payload.get("entity_type", "generic"),
-            properties=payload.get("properties", {}),
-        )
-        self.memory.remember(
-            key="entity_created",
-            value=entity.to_dict(),
-            namespace="aletheus.knowledge",
-            memory_type="semantic",
-            tags=["entity", "knowledge"],
-        )
-        context.add_result("entity", entity.to_dict())
-        return context
 
-    def _cmd_entity_search(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        context.add_result(
-            "entities",
-            self.knowledge.search_entities(
-                label=payload.get("label"),
-                entity_type=payload.get("entity_type"),
-            ),
-        )
-        return context
 
-    def _cmd_relationship_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        relationship = self.knowledge.create_relationship(
-            source_id=payload.get("source_id", ""),
-            target_id=payload.get("target_id", ""),
-            relationship_type=payload.get("relationship_type", "related_to"),
-            properties=payload.get("properties", {}),
-        )
-        self.memory.remember(
-            key="relationship_created",
-            value=relationship.to_dict(),
-            namespace="aletheus.knowledge",
-            memory_type="semantic",
-            tags=["relationship", "knowledge"],
-        )
-        context.add_result("relationship", relationship.to_dict())
-        return context
 
-    def _cmd_relationship_search(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        context.add_result(
-            "relationships",
-            self.knowledge.search_relationships(
-                source_id=payload.get("source_id"),
-                target_id=payload.get("target_id"),
-                relationship_type=payload.get("relationship_type"),
-            ),
-        )
-        return context
 
-    def _cmd_graph_export(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("graph", self.knowledge.graph_export())
-        return context
 
-    def _cmd_graph_query(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "graph_query",
-            self.knowledge.graph_query(context.payload.get("entity_id", "")),
-        )
-        return context
 
-    def _cmd_graph_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("graph_stats", ((self.knowledge.stats() if hasattr(self.knowledge, 'stats') else self.knowledge.statistics() if hasattr(self.knowledge, 'statistics') else {'status': getattr(self.knowledge, 'status', 'unknown')}) if hasattr(self.knowledge, "stats") else self.knowledge.statistics()))
-        return context
 
 
-    def _cmd_mission_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        mission = self.mission.create_mission(
-            title=payload.get("title", "Untitled Mission"),
-            objective=payload.get("objective", ""),
-            application=payload.get("application", context.application),
-            priority=payload.get("priority", "medium"),
-            tasks=payload.get("tasks", []),
-        )
-        self.memory.remember(
-            key="mission_created",
-            value=mission.to_dict(),
-            namespace="aletheus.mission",
-            memory_type="episodic",
-            tags=["mission", "autonomous"],
-        )
-        entity = self.knowledge.create_entity(
-            label=mission.title,
-            entity_type="mission",
-            properties={"mission_id": mission.mission_id, "objective": mission.objective},
-        )
-        context.add_result("mission", mission.to_dict())
-        context.add_result("knowledge_entity", entity.to_dict())
-        return context
 
-    def _cmd_mission_from_goal(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        mission = self.mission.generate_mission_from_goal(
-            goal_title=payload.get("goal_title", payload.get("title", "Untitled Goal")),
-            goal_description=payload.get("goal_description", payload.get("description", "")),
-            application=payload.get("application", context.application),
-            priority=payload.get("priority", "high"),
-        )
-        self.memory.remember(
-            key="mission_generated_from_goal",
-            value=mission.to_dict(),
-            namespace="aletheus.mission",
-            memory_type="episodic",
-            tags=["mission", "goal", "autonomous"],
-        )
-        context.add_result("mission", mission.to_dict())
-        return context
 
-    def _cmd_mission_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("missions", self.mission.list_missions(context.payload.get("status")))
-        return context
 
-    def _cmd_mission_run(self, context: RuntimeContext) -> RuntimeContext:
-        run = self.mission.run_mission(context.payload.get("mission_id", ""))
-        self.memory.remember(
-            key="mission_run",
-            value=run.to_dict(),
-            namespace="aletheus.mission",
-            memory_type="decision",
-            tags=["mission", "run", "autonomous"],
-        )
-        context.add_result("mission_run", run.to_dict())
-        return context
 
-    def _cmd_mission_complete(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.mission.complete_mission(context.payload.get("mission_id", ""))
-        context.add_result("mission", result)
-        return context
 
-    def _cmd_mission_task_complete(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.mission.complete_task(
-            mission_id=context.payload.get("mission_id", ""),
-            task_id=context.payload.get("task_id", ""),
-        )
-        context.add_result("mission", result)
-        return context
 
-    def _cmd_mission_history(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("mission_history", self.mission.history())
-        return context
-
-    def _cmd_mission_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("mission_stats", ((self.mission.stats() if hasattr(self.mission, 'stats') else self.mission.statistics() if hasattr(self.mission, 'statistics') else {'status': getattr(self.mission, 'status', 'unknown')}) if hasattr(self.mission, "stats") else self.mission.statistics()))
-        return context
-
-
-    def _cmd_workspace_overview(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("workspace", self.workspace.overview(self))
-        return context
-
-    def _cmd_workspace_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("workspace_stats", ((self.workspace.stats() if hasattr(self.workspace, 'stats') else self.workspace.statistics() if hasattr(self.workspace, 'statistics') else {'status': getattr(self.workspace, 'status', 'unknown')}) if hasattr(self.workspace, "stats") else self.workspace.statistics()))
-        return context
-
-    def _cmd_founder_journal_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        entry = self.workspace.create_journal_entry(
-            title=payload.get("title", "Untitled Entry"),
-            body=payload.get("body", ""),
-            category=payload.get("category", "general"),
-            tags=payload.get("tags", []),
-        )
-        self.memory.remember(
-            key="founder_journal_entry",
-            value=entry.to_dict(),
-            namespace="aletheus.workspace",
-            memory_type="persistent",
-            tags=["founder", "journal", "workspace"],
-        )
-        context.add_result("journal_entry", entry.to_dict())
-        return context
-
-    def _cmd_founder_journal_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("journal", self.workspace.list_journal())
-        return context
-
-    def _cmd_objective_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        objective = self.workspace.create_objective(
-            title=payload.get("title", "Untitled Objective"),
-            description=payload.get("description", ""),
-            priority=payload.get("priority", "medium"),
-            application=payload.get("application", context.application),
-        )
-        self.memory.remember(
-            key="strategic_objective_created",
-            value=objective.to_dict(),
-            namespace="aletheus.workspace",
-            memory_type="persistent",
-            tags=["objective", "founder", "workspace"],
-        )
-        context.add_result("objective", objective.to_dict())
-        return context
-
-    def _cmd_objective_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("objectives", self.workspace.list_objectives(context.payload.get("status")))
-        return context
-
-    def _cmd_notification_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        notification = self.workspace.create_notification(
-            title=payload.get("title", "Notification"),
-            message=payload.get("message", ""),
-            severity=payload.get("severity", "info"),
-            source=payload.get("source", "aletheus"),
-        )
-        context.add_result("notification", notification.to_dict())
-        return context
-
-    def _cmd_notification_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "notifications",
-            self.workspace.list_notifications(
-                unread_only=bool(context.payload.get("unread_only", False))
-            ),
-        )
-        return context
-
-
-    def _cmd_application_register(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        application = self.applications.register_application(
-            name=payload.get("name", "Unnamed Application"),
-            version=payload.get("version", "0.1.0"),
-            description=payload.get("description", ""),
-            services=payload.get("services", []),
-            dependencies=payload.get("dependencies", []),
-            commands=payload.get("commands", []),
-        )
-        self.events.publish("application.registered", application.to_dict(), source="application_manager")
-        self.memory.remember(
-            key="application_registered",
-            value=application.to_dict(),
-            namespace="aletheus.applications",
-            memory_type="persistent",
-            tags=["application", "registry"],
-        )
-        context.add_result("application", application.to_dict())
-        return context
-
-    def _cmd_application_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("applications", self.applications.list_applications())
-        return context
-
-    def _cmd_application_start(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.applications.start_application(
-            app_id=payload.get("app_id", ""),
-            application_id=payload.get("application_id", ""),
-            name=payload.get("name", ""),
-        )
-        self.events.publish("application.started", result, source="application_manager")
-        context.add_result("application", result)
-        return context
-
-    def _cmd_application_stop(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.applications.stop_application(
-            app_id=payload.get("app_id", ""),
-            application_id=payload.get("application_id", ""),
-            name=payload.get("name", ""),
-        )
-        self.events.publish("application.stopped", result, source="application_manager")
-        context.add_result("application", result)
-        return context
-
-    def _cmd_application_restart(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.applications.restart_application(
-            app_id=payload.get("app_id", ""),
-            application_id=payload.get("application_id", ""),
-            name=payload.get("name", ""),
-        )
-        self.events.publish("application.restarted", result, source="application_manager")
-        context.add_result("application", result)
-        return context
-
-    def _cmd_application_health(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.applications.health(
-            application_id=payload.get("application_id", ""),
-            name=payload.get("name", ""),
-        )
-        context.add_result("application_health", result)
-        return context
-
-    def _cmd_application_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("application_stats", ((self.applications.stats() if hasattr(self.applications, 'stats') else self.applications.statistics() if hasattr(self.applications, 'statistics') else {'status': getattr(self.applications, 'status', 'unknown')}) if hasattr(self.applications, "stats") else self.applications.statistics()))
-        return context
-
-
-    def _cmd_application_install(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        app = self.applications.install_application(
-            app_id=payload.get("app_id", payload.get("application_id", "")),
-            name=payload.get("name", "Unnamed Application"),
-            version=payload.get("version", "1.0.0"),
-            author=payload.get("author", "6th Dimension Multimedia"),
-            description=payload.get("description", ""),
-            autostart=bool(payload.get("autostart", False)),
-            permissions=payload.get("permissions", []),
-            dependencies=payload.get("dependencies", []),
-            commands=payload.get("commands", []),
-            services=payload.get("services", []),
-        )
-        self.kernel_v2.publish(
-            event_type="application.installed",
-            source="application_manager",
-            payload=app.to_dict(),
-        )
-        context.add_result("application", app.to_dict())
-        return context
-
-    def _cmd_application_uninstall(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.applications.uninstall_application(
-            app_id=payload.get("app_id", payload.get("application_id", "")),
-            name=payload.get("name", ""),
-        )
-        self.kernel_v2.publish(
-            event_type="application.uninstalled",
-            source="application_manager",
-            payload=result,
-        )
-        context.add_result("application", result)
-        return context
-
-    def _cmd_application_manifest(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.applications.manifest(
-            app_id=payload.get("app_id", payload.get("application_id", "")),
-            name=payload.get("name", ""),
-        )
-        context.add_result("manifest", result)
-        return context
-
-    def _cmd_application_events(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.applications.events(
-            app_id=payload.get("app_id", payload.get("application_id", "")),
-            name=payload.get("name", ""),
-        )
-        context.add_result("events", result)
-        return context
-
-    def _cmd_application_bootstrap_defaults(self, context: RuntimeContext) -> RuntimeContext:
-        apps = self.applications.install_default_applications()
-        self.kernel_v2.publish(
-            event_type="applications.defaults_bootstrapped",
-            source="application_manager",
-            payload={"applications": apps},
-        )
-        context.add_result("applications", apps)
-        return context
-
-    def _cmd_cardhawk_foundation_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-        application = self.applications.register_card_hawk_foundation()
-        self.knowledge.create_entity(
-            label="Card Hawk Foundation™",
-            entity_type="application",
-            properties={
-                "application_id": application.application_id,
-                "version": application.version,
-                "reference_implementation": True,
-            },
-        )
-        self.memory.remember(
-            key="cardhawk_foundation_bootstrapped",
-            value=application.to_dict(),
-            namespace="cardhawk.foundation",
-            memory_type="persistent",
-            tags=["cardhawk", "application", "foundation"],
-        )
-        context.add_result("application", application.to_dict())
-        return context
-
-    def _cmd_cardhawk_status(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.applications.health(name="Card Hawk Foundation™")
-        context.add_result("cardhawk", result)
-        return context
-
-    def _cmd_cardhawk_start(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.applications.start_application(name="Card Hawk Foundation™")
-        context.add_result("cardhawk", result)
-        return context
-
-    def _cmd_cardhawk_stop(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.applications.stop_application(name="Card Hawk Foundation™")
-        context.add_result("cardhawk", result)
-        return context
-
-
-    def _cmd_release_status(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("release", self.release.status())
-        return context
-
-    def _cmd_release_validate(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("validation", self.release.validate_runtime(self))
-        return context
-
-
-    def _cmd_semantic_concept_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        concept = self.semantic.create_concept(
-            name=payload.get("name", "Untitled Concept"),
-            concept_type=payload.get("concept_type", "concept"),
-            description=payload.get("description", ""),
-            aliases=payload.get("aliases", []),
-            metadata=payload.get("metadata", {}),
-        )
-        context.add_result("concept", concept.to_dict())
-        return context
-
-    def _cmd_semantic_concept_search(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        context.add_result(
-            "concepts",
-            self.semantic.search_concepts(
-                query=payload.get("query", ""),
-                concept_type=payload.get("concept_type", ""),
-            ),
-        )
-        return context
-
-    def _cmd_semantic_assert(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        assertion = self.semantic.assert_fact(
-            subject=payload.get("subject", ""),
-            predicate=payload.get("predicate", ""),
-            object_value=payload.get("object_value", ""),
-            confidence=float(payload.get("confidence", 0.75)),
-            source=payload.get("source", context.application),
-            metadata=payload.get("metadata", {}),
-        )
-        self.memory.remember(
-            key="semantic_assertion",
-            value=assertion.to_dict(),
-            namespace="aletheus.semantic",
-            memory_type="semantic",
-            tags=["semantic", "assertion"],
-        )
-        context.add_result("assertion", assertion.to_dict())
-        return context
-
-    def _cmd_semantic_query(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        context.add_result(
-            "assertions",
-            self.semantic.query_assertions(
-                subject=payload.get("subject", ""),
-                predicate=payload.get("predicate", ""),
-                object_value=payload.get("object_value", ""),
-            ),
-        )
-        return context
-
-    def _cmd_semantic_explain(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "explanation",
-            self.semantic.explain_concept(context.payload.get("name", "")),
-        )
-        return context
-
-    def _cmd_semantic_bootstrap_cardhawk(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.semantic.bootstrap_cardhawk_semantics()
-        self.memory.remember(
-            key="cardhawk_semantics_bootstrapped",
-            value=result,
-            namespace="aletheus.semantic",
-            memory_type="semantic",
-            tags=["semantic", "cardhawk", "bootstrap"],
-        )
-        context.add_result("bootstrap", result)
-        return context
-
-    def _cmd_semantic_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("semantic_stats", ((self.semantic.stats() if hasattr(self.semantic, 'stats') else self.semantic.statistics() if hasattr(self.semantic, 'statistics') else {'status': getattr(self.semantic, 'status', 'unknown')}) if hasattr(self.semantic, "stats") else self.semantic.statistics()))
-        return context
-
-
-    def _cmd_executive_status(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("executive_status", ((self.executive.stats() if hasattr(self.executive, 'stats') else self.executive.statistics() if hasattr(self.executive, 'statistics') else {'status': getattr(self.executive, 'status', 'unknown')}) if hasattr(self.executive, "stats") else self.executive.statistics()))
-        return context
-
-    def _cmd_executive_snapshot(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("snapshot", self.executive.snapshot(self))
-        return context
-
-    def _cmd_executive_summary(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("summary", self.executive.summarize(self))
-        return context
-
-    def _cmd_executive_recommendations(self, context: RuntimeContext) -> RuntimeContext:
-        recommendations = self.executive.generate_recommendations(self)
-        context.add_result("recommendations", recommendations)
-        return context
-
-    def _cmd_executive_risks(self, context: RuntimeContext) -> RuntimeContext:
-        risks = self.executive.analyze_risks(self)
-        context.add_result("risks", risks)
-        return context
-
-    def _cmd_executive_daily_brief(self, context: RuntimeContext) -> RuntimeContext:
-        brief = self.executive.daily_brief(self)
-        self.memory.remember(
-            key="executive_daily_brief",
-            value=brief,
-            namespace="aletheus.executive",
-            memory_type="persistent",
-            tags=["executive", "brief", "founder"],
-        )
-        context.add_result("brief", brief)
-        return context
-
-    def _cmd_executive_system_report(self, context: RuntimeContext) -> RuntimeContext:
-        report = self.executive.system_report(self)
-        context.add_result("system_report", report)
-        return context
-
-
-    def _cmd_agent_register(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        agent = self.agents.register_agent(
-            name=payload.get("name", "Unnamed Agent"),
-            role=payload.get("role", "general"),
-            description=payload.get("description", ""),
-            capabilities=payload.get("capabilities", []),
-        )
-        context.add_result("agent", agent.to_dict())
-        return context
-
-    def _cmd_agent_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-        agents = self.agents.register_default_agents()
-        context.add_result("agents", agents)
-        return context
-
-    def _cmd_agent_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("agents", self.agents.list_agents())
-        return context
-
-    def _cmd_agent_task_assign(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        task = self.agents.assign_task(
-            agent_name=payload.get("agent_name", ""),
-            title=payload.get("title", "Untitled Agent Task"),
-            payload=payload.get("payload", {}),
-        )
-        context.add_result("task", task.to_dict() if task else {"error": "Agent not found."})
-        return context
-
-    def _cmd_agent_run(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.agents.run_agent(context.payload.get("agent_name", ""))
-        self.memory.remember(
-            key="agent_run",
-            value=result,
-            namespace="aletheus.agents",
-            memory_type="episodic",
-            tags=["agent", "orchestration"],
-        )
-        context.add_result("agent_run", result)
-        return context
-
-    def _cmd_agent_orchestrate(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.agents.orchestrate(
-            objective=payload.get("objective", "Untitled Objective"),
-            participating_agents=payload.get("participating_agents"),
-        )
-        self.memory.remember(
-            key="agent_orchestration",
-            value=result,
-            namespace="aletheus.agents",
-            memory_type="decision",
-            tags=["agent", "orchestration", "multi_agent"],
-        )
-        context.add_result("orchestration", result)
-        return context
-
-    def _cmd_agent_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("agent_stats", ((self.agents.stats() if hasattr(self.agents, 'stats') else self.agents.statistics() if hasattr(self.agents, 'statistics') else {'status': getattr(self.agents, 'status', 'unknown')}) if hasattr(self.agents, "stats") else self.agents.statistics()))
-        return context
-
-
-    def _cmd_copilot_ask(self, context: RuntimeContext) -> RuntimeContext:
-        exchange = self.copilot.ask(
-            prompt=context.payload.get("prompt", ""),
-            runtime=self,
-        )
-        self.memory.remember(
-            key="copilot_exchange",
-            value=exchange.to_dict(),
-            namespace="aletheus.copilot",
-            memory_type="persistent",
-            tags=["copilot", "founder"],
-        )
-        context.add_result("exchange", exchange.to_dict())
-        return context
-
-    def _cmd_copilot_brief(self, context: RuntimeContext) -> RuntimeContext:
-        brief = self.copilot.brief(self)
-        context.add_result("brief", brief)
-        return context
-
-    def _cmd_copilot_recommend(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("recommendations", self.copilot.recommend(self))
-        return context
-
-    def _cmd_copilot_timeline(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("timeline", self.copilot.timeline(self))
-        return context
-
-    def _cmd_copilot_history(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("history", self.copilot.history())
-        return context
-
-    def _cmd_copilot_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("copilot_stats", ((self.copilot.stats() if hasattr(self.copilot, 'stats') else self.copilot.statistics() if hasattr(self.copilot, 'statistics') else {'status': getattr(self.copilot, 'status', 'unknown')}) if hasattr(self.copilot, "stats") else self.copilot.statistics()))
-        return context
-
-
-    def _cmd_uil_context(self, context: RuntimeContext) -> RuntimeContext:
-        built = self.intelligence.build_context(
-            question=context.payload.get("question", "Current Aletheus context"),
-            runtime=self,
-        )
-        context.add_result("context", built.to_dict())
-        return context
-
-    def _cmd_uil_reason(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.intelligence.reason(
-            question=context.payload.get("question", "What should Aletheus do next?"),
-            runtime=self,
-        )
-        context.add_result("reasoning", result)
-        return context
-
-    def _cmd_uil_synthesize(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.intelligence.synthesize(
-            question=context.payload.get("question", "What should Aletheus synthesize?"),
-            runtime=self,
-        )
-        context.add_result("synthesis", result)
-        return context
-
-    def _cmd_uil_decide(self, context: RuntimeContext) -> RuntimeContext:
-        decision = self.intelligence.decide(
-            question=context.payload.get("question", "What should Aletheus decide?"),
-            runtime=self,
-        )
-        self.memory.remember(
-            key="universal_intelligence_decision",
-            value=decision.to_dict(),
-            namespace="aletheus.intelligence",
-            memory_type="decision",
-            tags=["uil", "decision", "intelligence"],
-        )
-        context.add_result("decision", decision.to_dict())
-        return context
-
-    def _cmd_uil_brief(self, context: RuntimeContext) -> RuntimeContext:
-        brief = self.intelligence.brief(self)
-        context.add_result("brief", brief)
-        return context
-
-    def _cmd_uil_snapshot(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("snapshot", self.intelligence.snapshot(self))
-        return context
-
-    def _cmd_uil_timeline(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("timeline", self.intelligence.timeline())
-        return context
-
-    def _cmd_uil_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("uil_stats", ((self.intelligence.stats() if hasattr(self.intelligence, 'stats') else self.intelligence.statistics() if hasattr(self.intelligence, 'statistics') else {'status': getattr(self.intelligence, 'status', 'unknown')}) if hasattr(self.intelligence, "stats") else self.intelligence.statistics()))
-        return context
-
-
-    def _cmd_predict_forecast(self, context: RuntimeContext) -> RuntimeContext:
-        forecast = self.prediction.forecast(
-            runtime=self,
-            horizon=context.payload.get("horizon", "next sprint"),
-        )
-        context.add_result("forecast", forecast.to_dict())
-        return context
-
-    def _cmd_predict_scenario(self, context: RuntimeContext) -> RuntimeContext:
-        scenario = self.prediction.scenario(
-            title=context.payload.get("title", "Untitled Scenario"),
-            premise=context.payload.get("premise", ""),
-            runtime=self,
-        )
-        context.add_result("scenario", scenario.to_dict())
-        return context
-
-    def _cmd_predict_risks(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("risks", self.prediction.risks(self))
-        return context
-
-    def _cmd_predict_opportunities(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("opportunities", self.prediction.opportunities(self))
-        return context
-
-    def _cmd_predict_recommend(self, context: RuntimeContext) -> RuntimeContext:
-        recommendations = self.prediction.recommend(self)
-        self.memory.remember(
-            key="predictive_recommendations",
-            value=recommendations,
-            namespace="aletheus.prediction",
-            memory_type="decision",
-            tags=["prediction", "recommendation"],
-        )
-        context.add_result("recommendations", recommendations)
-        return context
-
-    def _cmd_predict_timeline(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("timeline", self.prediction.timeline(self))
-        return context
-
-    def _cmd_predict_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("prediction_stats", ((self.prediction.stats() if hasattr(self.prediction, 'stats') else self.prediction.statistics() if hasattr(self.prediction, 'statistics') else {'status': getattr(self.prediction, 'status', 'unknown')}) if hasattr(self.prediction, "stats") else self.prediction.statistics()))
-        return context
-
-
-    def _cmd_learn_record(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        experience = self.learning.record_experience(
-            event_type=payload.get("event_type", "general"),
-            description=payload.get("description", ""),
-            source=payload.get("source", context.application),
-            outcome=payload.get("outcome", "unknown"),
-            confidence=float(payload.get("confidence", 0.75)),
-            metadata=payload.get("metadata", {}),
-        )
-        self.memory.remember(
-            key="learning_experience",
-            value=experience.to_dict(),
-            namespace="aletheus.learning",
-            memory_type="episodic",
-            tags=["learning", "experience"],
-        )
-        context.add_result("experience", experience.to_dict())
-        return context
-
-    def _cmd_learn_lesson(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        lesson = self.learning.create_lesson(
-            title=payload.get("title", "Untitled Lesson"),
-            lesson=payload.get("lesson", ""),
-            source_experience_id=payload.get("source_experience_id", ""),
-            confidence=float(payload.get("confidence", 0.75)),
-            tags=payload.get("tags", []),
-        )
-        self.memory.remember(
-            key="learned_lesson",
-            value=lesson.to_dict(),
-            namespace="aletheus.learning",
-            memory_type="semantic",
-            tags=["learning", "lesson"],
-        )
-        context.add_result("lesson", lesson.to_dict())
-        return context
-
-    def _cmd_learn_feedback(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.learning.feedback(
-            experience_id=payload.get("experience_id", ""),
-            outcome=payload.get("outcome", "unknown"),
-            lesson=payload.get("lesson", ""),
-            confidence=float(payload.get("confidence", 0.8)),
-        )
-        context.add_result("feedback", result)
-        return context
-
-    def _cmd_learn_patterns(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("patterns", self.learning.discover_patterns())
-        return context
-
-    def _cmd_learn_improve(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("improvements", self.learning.improve(self))
-        return context
-
-    def _cmd_learn_snapshot(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("snapshot", self.learning.snapshot())
-        return context
-
-    def _cmd_learn_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("learning_stats", ((self.learning.stats() if hasattr(self.learning, 'stats') else self.learning.statistics() if hasattr(self.learning, 'statistics') else {'status': getattr(self.learning, 'status', 'unknown')}) if hasattr(self.learning, "stats") else self.learning.statistics()))
-        return context
-
-
-    def _cmd_kernel_boot(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.kernel_v2.boot(self)
-        context.add_result("kernel", result)
-        return context
-
-    def _cmd_kernel_status(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("kernel", self.kernel_v2.status())
-        return context
-
-    def _cmd_kernel_sync(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.kernel_v2.sync_runtime(self)
-        self.memory.remember(
-            key="kernel_runtime_sync",
-            value=result,
-            namespace="aletheus.kernel",
-            memory_type="episodic",
-            tags=["kernel", "sync", "runtime"],
-        )
-        context.add_result("kernel", result)
-        return context
-
-    def _cmd_kernel_publish(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.kernel_v2.route_event(
-            event_type=payload.get("event_type", "kernel.event"),
-            source=payload.get("source", context.application),
-            payload=payload.get("payload", {}),
-        )
-        context.add_result("event", result)
-        return context
-
-    def _cmd_kernel_snapshot(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("snapshot", self.kernel_v2.snapshot())
-        return context
-
-    def _cmd_kernel_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("kernel_stats", ((self.kernel_v2.stats() if hasattr(self.kernel_v2, 'stats') else self.kernel_v2.statistics() if hasattr(self.kernel_v2, 'statistics') else {'status': getattr(self.kernel_v2, 'status', 'unknown')}) if hasattr(self.kernel_v2, "stats") else self.kernel_v2.statistics()))
-        return context
-
-
-    def _cmd_mission_v2_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        mission = self.mission_v2.create_mission(
-            title=payload.get("title", "Untitled Mission"),
-            objective=payload.get("objective", ""),
-            application=payload.get("application", "AletheusOS"),
-            priority=payload.get("priority", "high"),
-            tasks=payload.get("tasks"),
-        )
-        self.kernel_v2.publish(
-            event_type="mission.v2.created",
-            source="mission_v2",
-            payload=mission.to_dict(),
-        )
-        context.add_result("mission", mission.to_dict())
-        return context
-
-    def _cmd_mission_v2_plan(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.mission_v2.plan_mission(
-            mission_id=context.payload.get("mission_id", ""),
-            runtime=self,
-        )
-        self.kernel_v2.publish(
-            event_type="mission.v2.planned",
-            source="mission_v2",
-            payload=result,
-        )
-        context.add_result("planning", result)
-        return context
-
-    def _cmd_mission_v2_execute_next(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.mission_v2.execute_next(
-            mission_id=context.payload.get("mission_id", ""),
-            runtime=self,
-        )
-        self.kernel_v2.publish(
-            event_type="mission.v2.step_executed",
-            source="mission_v2",
-            payload=result,
-        )
-        context.add_result("execution", result)
-        return context
-
-    def _cmd_mission_v2_execute(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.mission_v2.execute_mission(
-            mission_id=context.payload.get("mission_id", ""),
-            runtime=self,
-        )
-        self.kernel_v2.publish(
-            event_type="mission.v2.executed",
-            source="mission_v2",
-            payload=result,
-        )
-        context.add_result("execution", result)
-        return context
-
-    def _cmd_mission_v2_pause(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.mission_v2.pause_mission(context.payload.get("mission_id", ""))
-        context.add_result("mission", result)
-        return context
-
-    def _cmd_mission_v2_resume(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.mission_v2.resume_mission(context.payload.get("mission_id", ""))
-        context.add_result("mission", result)
-        return context
-
-    def _cmd_mission_v2_cancel(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.mission_v2.cancel_mission(context.payload.get("mission_id", ""))
-        context.add_result("mission", result)
-        return context
-
-    def _cmd_mission_v2_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("missions", self.mission_v2.list_missions(context.payload.get("status")))
-        return context
-
-    def _cmd_mission_v2_telemetry(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "telemetry",
-            self.mission_v2.mission_telemetry(context.payload.get("mission_id", "")),
-        )
-        return context
-
-    def _cmd_mission_v2_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("mission_v2_stats", ((self.mission_v2.stats() if hasattr(self.mission_v2, 'stats') else self.mission_v2.statistics() if hasattr(self.mission_v2, 'statistics') else {'status': getattr(self.mission_v2, 'status', 'unknown')}) if hasattr(self.mission_v2, "stats") else self.mission_v2.statistics()))
-        return context
-
-
-    def _cmd_workflow_v2_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        workflow = self.workflow_v2.create_workflow(
-            title=payload.get("title", "Untitled Workflow"),
-            objective=payload.get("objective", ""),
-            application=payload.get("application", "AletheusOS"),
-            nodes=payload.get("nodes"),
-        )
-        self.kernel_v2.publish(
-            event_type="workflow.v2.created",
-            source="workflow_fabric",
-            payload=workflow.to_dict(),
-        )
-        context.add_result("workflow", workflow.to_dict())
-        return context
-
-    def _cmd_workflow_v2_execute_next(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.workflow_v2.execute_next(
-            workflow_id=context.payload.get("workflow_id", ""),
-            runtime=self,
-        )
-        self.kernel_v2.publish(
-            event_type="workflow.v2.node_executed",
-            source="workflow_fabric",
-            payload=result,
-        )
-        context.add_result("execution", result)
-        return context
-
-    def _cmd_workflow_v2_execute(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.workflow_v2.execute_workflow(
-            workflow_id=context.payload.get("workflow_id", ""),
-            runtime=self,
-        )
-        self.kernel_v2.publish(
-            event_type="workflow.v2.executed",
-            source="workflow_fabric",
-            payload=result,
-        )
-        context.add_result("execution", result)
-        return context
-
-    def _cmd_workflow_v2_pause(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.workflow_v2.pause(context.payload.get("workflow_id", ""))
-        context.add_result("workflow", result)
-        return context
-
-    def _cmd_workflow_v2_resume(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.workflow_v2.resume(context.payload.get("workflow_id", ""))
-        context.add_result("workflow", result)
-        return context
-
-    def _cmd_workflow_v2_cancel(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.workflow_v2.cancel(context.payload.get("workflow_id", ""))
-        context.add_result("workflow", result)
-        return context
-
-    def _cmd_workflow_v2_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("workflows", self.workflow_v2.list_workflows(context.payload.get("status")))
-        return context
-
-    def _cmd_workflow_v2_history(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "history",
-            self.workflow_v2.history(context.payload.get("workflow_id", "")),
-        )
-        return context
-
-    def _cmd_workflow_v2_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("workflow_v2_stats", ((self.workflow_v2.stats() if hasattr(self.workflow_v2, 'stats') else self.workflow_v2.statistics() if hasattr(self.workflow_v2, 'statistics') else {'status': getattr(self.workflow_v2, 'status', 'unknown')}) if hasattr(self.workflow_v2, "stats") else self.workflow_v2.statistics()))
-        return context
-
-
-    def _cmd_enterprise_bootstrap_cardhawk(self, context: RuntimeContext) -> RuntimeContext:
-        org = self.enterprise.bootstrap_cardhawk_enterprise()
-        self.kernel_v2.publish(
-            event_type="enterprise.cardhawk.bootstrapped",
-            source="enterprise_core",
-            payload=org.to_dict(),
-        )
-        context.add_result("enterprise", org.to_dict())
-        return context
-
-    def _cmd_enterprise_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        org = self.enterprise.create_organization(
-            name=payload.get("name", "Untitled Enterprise"),
-            description=payload.get("description", ""),
-            applications=payload.get("applications", []),
-        )
-        context.add_result("enterprise", org.to_dict())
-        return context
-
-    def _cmd_enterprise_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("enterprises", self.enterprise.list_organizations())
-        return context
-
-    def _cmd_enterprise_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("enterprise_stats", ((self.enterprise.stats() if hasattr(self.enterprise, 'stats') else self.enterprise.statistics() if hasattr(self.enterprise, 'statistics') else {'status': getattr(self.enterprise, 'status', 'unknown')}) if hasattr(self.enterprise, "stats") else self.enterprise.statistics()))
-        return context
-
-    def _cmd_department_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.enterprise.create_department(
-            organization_id=payload.get("organization_id", ""),
-            name=payload.get("name", "Untitled Department"),
-            description=payload.get("description", ""),
-        )
-        context.add_result("department", result)
-        return context
-
-    def _cmd_team_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.enterprise.create_team(
-            organization_id=payload.get("organization_id", ""),
-            department_id=payload.get("department_id", ""),
-            name=payload.get("name", "Untitled Team"),
-            description=payload.get("description", ""),
-            members=payload.get("members", []),
-        )
-        context.add_result("team", result)
-        return context
-
-    def _cmd_policy_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.enterprise.create_policy(
-            organization_id=payload.get("organization_id", ""),
-            name=payload.get("name", "Untitled Policy"),
-            description=payload.get("description", ""),
-            scope=payload.get("scope", "enterprise"),
-            rules=payload.get("rules", []),
-        )
-        context.add_result("policy", result)
-        return context
-
-    def _cmd_governance_check(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.enterprise.governed_action(
-            actor=payload.get("actor", "founder"),
-            action=payload.get("action", ""),
-            target=payload.get("target", ""),
-            organization_id=payload.get("organization_id", ""),
-            metadata=payload.get("metadata", {}),
-        )
-        context.add_result("governance", result)
-        return context
-
-    def _cmd_audit_history(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("audit", self.enterprise.audit_history())
-        return context
-
-
-    def _cmd_cluster_create(self, context: RuntimeContext) -> RuntimeContext:
-        cluster = self.distributed.create_cluster(
-            name=context.payload.get("name", "Aletheus Primary Cluster"),
-        )
-        self.kernel_v2.publish(
-            event_type="cluster.created",
-            source="distributed_fabric",
-            payload=cluster.to_dict(),
-        )
-        context.add_result("cluster", cluster.to_dict())
-        return context
-
-    def _cmd_cluster_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-        cluster = self.distributed.bootstrap_primary_cluster()
-
-        self.kernel_v2.publish(
-            event_type="cluster.bootstrapped",
-            source="distributed_fabric",
-            payload=cluster.to_dict(),
-        )
-
-        # Return runtime statistics expected by the v3.0 tests
-        context.add_result(
-            "cluster",
-            ((self.distributed.stats() if hasattr(self.distributed, 'stats') else self.distributed.statistics() if hasattr(self.distributed, 'statistics') else {'status': getattr(self.distributed, 'status', 'unknown')}) if hasattr(self.distributed, "stats") else self.distributed.statistics()),
-        )
-
-        return context
-
-    def _cmd_cluster_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("clusters", self.distributed.list_clusters())
-        return context
-
-    def _cmd_cluster_status(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.distributed.cluster_status(context.payload.get("cluster_id", ""))
-        context.add_result("cluster_status", result)
-        return context
-
-    def _cmd_cluster_broadcast(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.distributed.broadcast(
-            cluster_id=payload.get("cluster_id", ""),
-            message=payload.get("message", ""),
-            payload=payload.get("payload", {}),
-        )
-        context.add_result("broadcast", result)
-        return context
-
-    def _cmd_cluster_task_assign(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.distributed.assign_task(
-            cluster_id=payload.get("cluster_id", ""),
-            title=payload.get("title", "Untitled Distributed Task"),
-            objective=payload.get("objective", ""),
-            capability=payload.get("capability", ""),
-        )
-        context.add_result("task", result)
-        return context
-
-    def _cmd_cluster_history(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("history", self.distributed.history())
-        return context
-
-    def _cmd_cluster_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("cluster_stats", ((self.distributed.stats() if hasattr(self.distributed, 'stats') else self.distributed.statistics() if hasattr(self.distributed, 'statistics') else {'status': getattr(self.distributed, 'status', 'unknown')}) if hasattr(self.distributed, "stats") else self.distributed.statistics()))
-        return context
-
-    def _cmd_node_register(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.distributed.register_node(
-            cluster_id=payload.get("cluster_id", ""),
-            name=payload.get("name", "Unnamed Node"),
-            node_type=payload.get("node_type", "runtime"),
-            capabilities=payload.get("capabilities", []),
-            address=payload.get("address", "local"),
-            metadata=payload.get("metadata", {}),
-        )
-        context.add_result("node", result)
-        return context
-
-    def _cmd_node_remove(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.distributed.remove_node(
-            cluster_id=payload.get("cluster_id", ""),
-            node_id=payload.get("node_id", ""),
-        )
-        context.add_result("node", result)
-        return context
-
-    def _cmd_node_heartbeat(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.distributed.heartbeat(
-            cluster_id=payload.get("cluster_id", ""),
-            node_id=payload.get("node_id", ""),
-        )
-        context.add_result("heartbeat", result)
-        return context
-
-
-    def _cmd_memory_mesh_store(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.memory_mesh.store(
-            key=payload.get("key", "untitled"),
-            value=payload.get("value"),
-            namespace=payload.get("namespace", "global"),
-            object_type=payload.get("object_type", "generic"),
-            tags=payload.get("tags", []),
-            owner=payload.get("owner", context.application),
-            metadata=payload.get("metadata", {}),
-        )
-        context.add_result("memory_object", result)
-        return context
-
-    def _cmd_memory_mesh_retrieve(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.memory_mesh.retrieve(
-            object_id=payload.get("object_id", ""),
-            key=payload.get("key", ""),
-            namespace=payload.get("namespace", "global"),
-        )
-        context.add_result("memory_object", result)
-        return context
-
-    def _cmd_memory_mesh_search(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.memory_mesh.search(
-            query=payload.get("query", ""),
-            tags=payload.get("tags", []),
-            namespace=payload.get("namespace", ""),
-        )
-        context.add_result("results", result)
-        return context
-
-    def _cmd_memory_mesh_snapshot(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.memory_mesh.snapshot(context.payload.get("name", "Memory Mesh Snapshot"))
-        context.add_result("snapshot", result)
-        return context
-
-    def _cmd_memory_mesh_restore(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.memory_mesh.restore(context.payload.get("snapshot_id", ""))
-        context.add_result("restore", result)
-        return context
-
-    def _cmd_memory_mesh_replicate(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.memory_mesh.replicate(
-            object_id=payload.get("object_id", ""),
-            target_node=payload.get("target_node", "primary"),
-        )
-        context.add_result("replication", result)
-        return context
-
-    def _cmd_memory_mesh_sync(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.memory_mesh.sync(context.payload.get("node", "distributed_fabric"))
-        context.add_result("sync", result)
-        return context
-
-    def _cmd_memory_mesh_history(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.memory_mesh.history(context.payload.get("object_id", ""))
-        context.add_result("history", result)
-        return context
-
-    def _cmd_memory_mesh_cache(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.memory_mesh.cache(context.payload.get("object_id", ""))
-        context.add_result("cache", result)
-        return context
-
-    def _cmd_memory_mesh_stats(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("memory_mesh_stats", ((self.memory_mesh.stats() if hasattr(self.memory_mesh, 'stats') else self.memory_mesh.statistics() if hasattr(self.memory_mesh, 'statistics') else {'status': getattr(self.memory_mesh, 'status', 'unknown')}) if hasattr(self.memory_mesh, "stats") else self.memory_mesh.statistics()))
-        return context
-
-
-    def _cmd_kg_entity_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.knowledge_graph.create_entity(
-            name=payload.get("name", "Untitled Entity"),
-            node_type=payload.get("node_type", "entity"),
-            properties=payload.get("properties", {}),
-            metadata=payload.get("metadata", {}),
-        )
-        context.add_result("entity", result)
-        return context
-
-    def _cmd_kg_entity_update(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.knowledge_graph.update_entity(
-            node_id=payload.get("node_id", ""),
-            properties=payload.get("properties", {}),
-            metadata=payload.get("metadata", {}),
-        )
-        context.add_result("entity", result)
-        return context
-
-    def _cmd_kg_entity_delete(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.knowledge_graph.delete_entity(context.payload.get("node_id", ""))
-        context.add_result("entity", result)
-        return context
-
-    def _cmd_kg_relationship_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.knowledge_graph.create_relationship(
-            source_id=payload.get("source_id", ""),
-            target_id=payload.get("target_id", ""),
-            relationship_type=payload.get("relationship_type", "related_to"),
-            properties=payload.get("properties", {}),
-        )
-        context.add_result("relationship", result)
-        return context
-
-    def _cmd_kg_relationship_delete(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.knowledge_graph.delete_relationship(context.payload.get("relationship_id", ""))
-        context.add_result("relationship", result)
-        return context
-
-    def _cmd_kg_search(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.knowledge_graph.search(
-            query=payload.get("query", ""),
-            node_type=payload.get("node_type", ""),
-        )
-        context.add_result("results", result)
-        return context
-
-    def _cmd_kg_graph(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("graph", self.knowledge_graph.graph())
-        return context
-
-    def _cmd_kg_neighbors(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.knowledge_graph.neighbors(
-            node_id=payload.get("node_id", ""),
-            direction=payload.get("direction", "both"),
-        )
-        context.add_result("neighbors", result)
-        return context
-
-    def _cmd_kg_infer(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("inference", self.knowledge_graph.infer())
-        return context
-
-    def _cmd_kg_bootstrap_cardhawk(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("graph", self.knowledge_graph.bootstrap_cardhawk_graph())
-        return context
-
-    def _cmd_kg_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("knowledge_graph_stats", ((self.knowledge_graph.stats() if hasattr(self.knowledge_graph, 'stats') else self.knowledge_graph.statistics() if hasattr(self.knowledge_graph, 'statistics') else {'status': getattr(self.knowledge_graph, 'status', 'unknown')}) if hasattr(self.knowledge_graph, "stats") else self.knowledge_graph.statistics()))
-        return context
-
-
-    def _cmd_agent_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("agents", self.agents_v2.bootstrap())
-        return context
-
-    def _cmd_agent_spawn(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.agents_v2.spawn(
-            name=payload.get("name", "Unnamed Agent"),
-            role=payload.get("role", "General"),
-        )
-        context.add_result("agent", result)
-        return context
-
-    def _cmd_agent_assign(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.agents_v2.assign(
-            agent_id=payload.get("agent_id", ""),
-            mission=payload.get("mission", ""),
-        )
-        context.add_result("agent", result)
-        return context
-
-    def _cmd_agent_message(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.agents_v2.message(
-            sender=payload.get("sender", "Founder"),
-            recipient=payload.get("recipient", ""),
-            message=payload.get("message", ""),
-        )
-        context.add_result("message", result)
-        return context
-
-    def _cmd_agent_pause(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.agents_v2.pause(context.payload.get("agent_id", ""))
-        context.add_result("agent", result)
-        return context
-
-    def _cmd_agent_resume(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.agents_v2.resume(context.payload.get("agent_id", ""))
-        context.add_result("agent", result)
-        return context
-
-    def _cmd_agent_stop(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.agents_v2.stop(context.payload.get("agent_id", ""))
-        context.add_result("agent", result)
-        return context
-
-    def _cmd_agent_heartbeat(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("heartbeat", self.agents_v2.heartbeat())
-        return context
-
-    def _cmd_agent_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("agent_stats", self.agents_v2.statistics())
-        return context
-
-
-    def _cmd_workflow_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("workflow", self.workflow_v3.bootstrap())
-        return context
-
-    def _cmd_workflow_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.workflow_v3.create(
-            title=payload.get("title", "Untitled Workflow"),
-            description=payload.get("description", ""),
-        )
-        context.add_result("workflow", result)
-        return context
-
-    def _cmd_workflow_start(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.workflow_v3.start(
-            context.payload.get("workflow_id", "")
-        )
-        context.add_result("workflow", result)
-        return context
-
-    def _cmd_workflow_pause(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.workflow_v3.pause(
-            context.payload.get("workflow_id", "")
-        )
-        context.add_result("workflow", result)
-        return context
-
-    def _cmd_workflow_resume(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.workflow_v3.resume(
-            context.payload.get("workflow_id", "")
-        )
-        context.add_result("workflow", result)
-        return context
-
-    def _cmd_workflow_cancel(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.workflow_v3.cancel(
-            context.payload.get("workflow_id", "")
-        )
-        context.add_result("workflow", result)
-        return context
-
-    def _cmd_workflow_status(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("workflow_status", self.workflow_v3.status())
-        return context
-
-    def _cmd_workflow_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("workflow_stats", self.workflow_v3.statistics())
-        return context
-
-
-    # ==========================================================
-    # v2.9 Autonomous Planning Engine
-    # ==========================================================
-
-    def _cmd_plan_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("planning", self.planning_v2.bootstrap())
-        return context
-
-    def _cmd_plan_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.planning_v2.create(
-            goal=payload.get("goal", "Untitled Goal"),
-        )
-        context.add_result("plan", result)
-        return context
-
-    def _cmd_plan_execute(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.planning_v2.execute(
-            context.payload.get("plan_id", "")
-        )
-        context.add_result("plan", result)
-        return context
-
-    def _cmd_plan_progress(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.planning_v2.progress(
-            context.payload.get("plan_id", "")
-        )
-        context.add_result("plan", result)
-        return context
-
-    def _cmd_plan_replan(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.planning_v2.replan(
-            context.payload.get("plan_id", "")
-        )
-        context.add_result("plan", result)
-        return context
-
-    def _cmd_plan_complete(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.planning_v2.complete(
-            context.payload.get("plan_id", "")
-        )
-        context.add_result("plan", result)
-        return context
-
-    def _cmd_plan_status(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "plans",
-            self.planning_v2.status(),
-        )
-        return context
-
-    def _cmd_plan_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "planning_stats",
-            self.planning_v2.statistics(),
-        )
-        return context
-
-
-    def _cmd_cluster_join(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        result = self.distributed.join(
-            node_name=payload.get("node_name", "Unnamed Runtime"),
-            capabilities=payload.get("capabilities", []),
-            services=payload.get("services", []),
-        )
-        context.add_result("node", result)
-        return context
-
-    def _cmd_cluster_leave(self, context: RuntimeContext) -> RuntimeContext:
-        result = self.distributed.leave(context.payload.get("node_id", ""))
-        context.add_result("node", result)
-        return context
-
-    def _cmd_cluster_nodes(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("nodes", self.distributed.nodes())
-        return context
-
-    def _cmd_cluster_services(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("services", self.distributed.services())
-        return context
-
-    def _cmd_cluster_heartbeat(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("heartbeat", self.distributed.heartbeat())
-        return context
-
-    def _cmd_cluster_elect_leader(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("leader", self.distributed.elect_leader())
-        return context
-
-    def _cmd_cluster_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("cluster_stats", self.distributed.statistics())
-        return context
-
-
-    # ==========================================================
-    # v3.1 Plugin Manager
-    # ==========================================================
-
-    def _cmd_plugin_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "plugin",
-            self.plugins_v3.bootstrap(),
-        )
-        return context
-
-    def _cmd_plugin_install(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "plugin",
-            self.plugins_v3.install(**context.payload),
-        )
-        return context
-
-    def _cmd_plugin_enable(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "plugin",
-            self.plugins_v3.enable(context.payload.get("plugin_id", "")),
-        )
-        return context
-
-    def _cmd_plugin_disable(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "plugin",
-            self.plugins_v3.disable(context.payload.get("plugin_id", "")),
-        )
-        return context
-
-    def _cmd_plugin_update(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "plugin",
-            self.plugins_v3.update(
-                context.payload.get("plugin_id", ""),
-                context.payload.get("version"),
-            ),
-        )
-        return context
-
-    def _cmd_plugin_remove(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "plugin",
-            self.plugins_v3.remove(context.payload.get("plugin_id", "")),
-        )
-        return context
-
-    def _cmd_plugin_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "plugins",
-            self.plugins_v3.list(),
-        )
-        return context
-
-    def _cmd_plugin_status(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "plugin_status",
-            self.plugins_v3.status(),
-        )
-        return context
-
-    def _cmd_plugin_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "plugin_stats",
-            self.plugins_v3.statistics(),
-        )
-        return context
-
-
-    # ==========================================================
-    # v3.2 Persistence Engine
-    # ==========================================================
-
-    def _cmd_state_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "state",
-            self.persistence_v3.bootstrap(),
-        )
-        return context
-
-    def _cmd_state_save(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "state",
-            self.persistence_v3.save(self),
-        )
-        return context
-
-    def _cmd_state_load(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "state",
-            self.persistence_v3.load(),
-        )
-        return context
-
-    def _cmd_state_snapshot(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "snapshot",
-            self.persistence_v3.snapshot(
-                name=context.payload.get("name", "Runtime Snapshot"),
-                runtime=self,
-            ),
-        )
-        return context
-
-    def _cmd_state_restore(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "state",
-            self.persistence_v3.restore(
-                context.payload.get("snapshot_id", "")
-            ),
-        )
-        return context
-
-    def _cmd_state_export(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "state",
-            self.persistence_v3.export(),
-        )
-        return context
-
-    def _cmd_state_import(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "state",
-            self.persistence_v3.import_state(
-                context.payload.get("state", {})
-            ),
-        )
-        return context
-
-    def _cmd_state_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "state_stats",
-            self.persistence_v3.statistics(),
-        )
-        return context
-
-
-    # ==========================================================
-    # v3.3 Event Streaming & Message Bus
-    # ==========================================================
 
     def _cmd_event_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result(
@@ -2054,609 +588,25 @@ class AletheusRuntime:
     # v3.4 Federated Knowledge Fabric
     # ==========================================================
 
-    def _cmd_federation_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "federation",
-            self.federation_v3.bootstrap(),
-        )
-        return context
-
-    def _cmd_federation_join(self, context: RuntimeContext) -> RuntimeContext:
-
-        payload = context.payload
-
-        context.add_result(
-            "node",
-            self.federation_v3.join(
-                name=payload.get("name", "Remote Runtime"),
-                address=payload.get("address", "localhost"),
-                capabilities=payload.get("capabilities", []),
-                services=payload.get("services", []),
-            ),
-        )
-
-        return context
-
-    def _cmd_federation_leave(self, context: RuntimeContext) -> RuntimeContext:
-
-        context.add_result(
-            "node",
-            self.federation_v3.leave(
-                context.payload.get("node_id", ""),
-            ),
-        )
-
-        return context
-
-    def _cmd_federation_discover(self, context: RuntimeContext) -> RuntimeContext:
-
-        context.add_result(
-            "nodes",
-            self.federation_v3.discover(),
-        )
-
-        return context
-
-    def _cmd_federation_query(self, context: RuntimeContext) -> RuntimeContext:
-
-        context.add_result(
-            "federation",
-            self.federation_v3.query(),
-        )
-
-        return context
-
-    def _cmd_federation_broadcast(self, context: RuntimeContext) -> RuntimeContext:
-
-        context.add_result(
-            "broadcast",
-            self.federation_v3.broadcast(
-                context.payload.get("message", ""),
-            ),
-        )
-
-        return context
-
-    def _cmd_federation_statistics(self, context: RuntimeContext) -> RuntimeContext:
-
-        context.add_result(
-            "federation_stats",
-            self.federation_v3.statistics(),
-        )
-
-        return context
-
-
     # ==========================================================
     # v3.5 Observability & Telemetry Platform
     # ==========================================================
-
-    def _cmd_telemetry_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "telemetry",
-            self.telemetry_v3.bootstrap(),
-        )
-        return context
-
-    def _cmd_telemetry_record(self, context: RuntimeContext) -> RuntimeContext:
-
-        payload = context.payload
-
-        context.add_result(
-            "record",
-            self.telemetry_v3.record(
-                name=payload.get("name", "runtime.metric"),
-                value=payload.get("value"),
-                category=payload.get("category", "runtime"),
-                metadata=payload.get("metadata", {}),
-            ),
-        )
-
-        return context
-
-    def _cmd_telemetry_metric(self, context: RuntimeContext) -> RuntimeContext:
-
-        payload = context.payload
-
-        context.add_result(
-            "metric",
-            self.telemetry_v3.metric(
-                name=payload.get("name", "runtime.metric"),
-                value=payload.get("value"),
-                category=payload.get("category", "runtime"),
-                metadata=payload.get("metadata", {}),
-            ),
-        )
-
-        return context
-
-    def _cmd_telemetry_log(self, context: RuntimeContext) -> RuntimeContext:
-
-        payload = context.payload
-
-        context.add_result(
-            "log",
-            self.telemetry_v3.log(
-                level=payload.get("level", "INFO"),
-                message=payload.get("message", ""),
-                source=payload.get("source", "runtime"),
-                metadata=payload.get("metadata", {}),
-            ),
-        )
-
-        return context
-
-    def _cmd_telemetry_trace(self, context: RuntimeContext) -> RuntimeContext:
-
-        payload = context.payload
-
-        context.add_result(
-            "trace",
-            self.telemetry_v3.trace(
-                name=payload.get("name", "runtime.command"),
-                status=payload.get("status", "completed"),
-                parent_span=payload.get("parent_span"),
-                correlation_id=payload.get("correlation_id"),
-                metadata=payload.get("metadata", {}),
-            ),
-        )
-
-        return context
-
-    def _cmd_telemetry_health(self, context: RuntimeContext) -> RuntimeContext:
-
-        payload = context.payload
-
-        context.add_result(
-            "health",
-            self.telemetry_v3.health(
-                component=payload.get("component", "runtime"),
-                status=payload.get("status", "healthy"),
-            ),
-        )
-
-        return context
-
-    def _cmd_telemetry_timeline(self, context: RuntimeContext) -> RuntimeContext:
-
-        payload = context.payload
-
-        context.add_result(
-            "timeline",
-            self.telemetry_v3.timeline(
-                message=payload.get("message", ""),
-                source=payload.get("source", "runtime"),
-                metadata=payload.get("metadata", {}),
-            ),
-        )
-
-        return context
-
-    def _cmd_telemetry_statistics(self, context: RuntimeContext) -> RuntimeContext:
-
-        context.add_result(
-            "telemetry_stats",
-            self.telemetry_v3.statistics(),
-        )
-
-        return context
-
 
     # ==========================================================
     # v3.6 High Availability & Replication
     # ==========================================================
 
-    def _cmd_ha_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("ha", self.high_availability_v3.bootstrap())
-        return context
-
-    def _cmd_ha_join(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-        context.add_result(
-            "node",
-            self.high_availability_v3.join(
-                name=payload.get("name", "Replica Runtime"),
-                metadata=payload.get("metadata", {}),
-            ),
-        )
-        return context
-
-    def _cmd_ha_leave(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "node",
-            self.high_availability_v3.leave(context.payload.get("node_id", "")),
-        )
-        return context
-
-    def _cmd_ha_promote(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "node",
-            self.high_availability_v3.promote(context.payload.get("node_id", "")),
-        )
-        return context
-
-    def _cmd_ha_demote(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "node",
-            self.high_availability_v3.demote(context.payload.get("node_id", "")),
-        )
-        return context
-
-    def _cmd_ha_failover(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("failover", self.high_availability_v3.failover())
-        return context
-
-    def _cmd_ha_recover(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "recovery",
-            self.high_availability_v3.recover(context.payload.get("node_id", "")),
-        )
-        return context
-
-    def _cmd_ha_replicate(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "replication",
-            self.high_availability_v3.replicate(context.payload.get("payload", {})),
-        )
-        return context
-
-    def _cmd_ha_status(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("ha_status", self.high_availability_v3.status())
-        return context
-
-    def _cmd_ha_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("ha_stats", self.high_availability_v3.statistics())
-        return context
-
-
     # ==========================================================
     # v3.7 Security & Policy Engine
     # ==========================================================
-
-    def _cmd_security_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "security",
-            self.security_v3.bootstrap(),
-        )
-        return context
-
-    def _cmd_security_authenticate(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-
-        context.add_result(
-            "authentication",
-            self.security_v3.authenticate(
-                payload.get("identity", "anonymous"),
-            ),
-        )
-        return context
-
-    def _cmd_security_authorize(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-
-        context.add_result(
-            "authorization",
-            self.security_v3.authorize(
-                payload.get("identity", "anonymous"),
-                payload.get("permission", ""),
-            ),
-        )
-        return context
-
-    def _cmd_security_policy(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-
-        context.add_result(
-            "policy",
-            self.security_v3.policy(
-                payload.get("name", "default"),
-                payload.get("definition", {}),
-            ),
-        )
-        return context
-
-    def _cmd_security_role_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-
-        context.add_result(
-            "role",
-            self.security_v3.create_role(
-                payload.get("name", "Operator"),
-                payload.get("permissions", []),
-            ),
-        )
-        return context
-
-    def _cmd_security_role_assign(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-
-        context.add_result(
-            "assignment",
-            self.security_v3.assign_role(
-                payload.get("identity", "anonymous"),
-                payload.get("role", "Operator"),
-            ),
-        )
-        return context
-
-    def _cmd_security_audit(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-
-        context.add_result(
-            "audit",
-            self.security_v3.audit(
-                action=payload.get("action", "runtime"),
-                actor=payload.get("actor", "system"),
-                status=payload.get("status", "success"),
-                metadata=payload.get("metadata", {}),
-            ),
-        )
-        return context
-
-    def _cmd_security_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "security_stats",
-            self.security_v3.statistics(),
-        )
-        return context
-
 
     # ==========================================================
     # v3.9 Multi-Tenant Runtime
     # ==========================================================
 
-    def _cmd_tenant_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "tenant",
-            self.tenancy_v3.bootstrap(),
-        )
-        return context
-
-    def _cmd_tenant_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-
-        context.add_result(
-            "tenant",
-            self.tenancy_v3.create_tenant(
-                organization_id=payload.get("organization_id"),
-                name=payload.get("name", "Production"),
-                environment=payload.get("environment", "production"),
-                quotas=payload.get("quotas", {}),
-                metadata=payload.get("metadata", {}),
-            ),
-        )
-        return context
-
-    def _cmd_tenant_delete(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "tenant",
-            self.tenancy_v3.delete_tenant(
-                context.payload.get("tenant_id", "")
-            ),
-        )
-        return context
-
-    def _cmd_tenant_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "tenants",
-            self.tenancy_v3.list_tenants(),
-        )
-        return context
-
-    def _cmd_tenant_select(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "selection",
-            self.tenancy_v3.select_tenant(
-                context.payload.get("tenant_id", "")
-            ),
-        )
-        return context
-
-    # ----------------------------------------------------------
-
-    def _cmd_workspace_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-
-        context.add_result(
-            "workspace",
-            self.tenancy_v3.create_workspace(
-                tenant_id=payload.get("tenant_id"),
-                name=payload.get("name", "Workspace"),
-                metadata=payload.get("metadata", {}),
-            ),
-        )
-        return context
-
-    def _cmd_workspace_delete(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "workspace",
-            self.tenancy_v3.delete_workspace(
-                context.payload.get("workspace_id", "")
-            ),
-        )
-        return context
-
-    def _cmd_workspace_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "workspaces",
-            self.tenancy_v3.list_workspaces(
-                context.payload.get("tenant_id")
-            ),
-        )
-        return context
-
-    # ----------------------------------------------------------
-
-    def _cmd_organization_create(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-
-        context.add_result(
-            "organization",
-            self.tenancy_v3.create_organization(
-                name=payload.get("name", "Organization"),
-                metadata=payload.get("metadata", {}),
-            ),
-        )
-        return context
-
-    def _cmd_organization_update(self, context: RuntimeContext) -> RuntimeContext:
-        payload = context.payload
-
-        context.add_result(
-            "organization",
-            self.tenancy_v3.update_organization(
-                organization_id=payload.get("organization_id"),
-                name=payload.get("name"),
-                metadata=payload.get("metadata"),
-                status=payload.get("status"),
-            ),
-        )
-        return context
-
-    # ----------------------------------------------------------
-
-    def _cmd_tenant_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "tenant_stats",
-            self.tenancy_v3.statistics(),
-        )
-        return context
-
-    def _cmd_tenant_health(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result(
-            "tenant_health",
-            self.tenancy_v3.health(),
-        )
-        return context
-
-
     # ==========================================================
     # v4.0 Intelligence Kernel
     # ==========================================================
-
-    def _cmd_kernel_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
-
-        context.add_result(
-            "kernel",
-            {
-                "version": self.intelligence_orchestrator.version,
-                "scheduler": self.intelligence_scheduler.statistics(),
-                "dispatcher": self.intelligence_dispatcher.statistics(),
-                "supervisor": self.intelligence_supervisor.statistics(),
-                "health": "healthy",
-            },
-        )
-
-        return context
-
-
-    def _cmd_kernel_execute(self, context: RuntimeContext) -> RuntimeContext:
-
-        payload = context.payload
-
-        result = self.intelligence_orchestrator.execute(
-            command=payload.get("command"),
-            payload=payload.get("payload", {}),
-            runtime=self,
-            priority=payload.get("priority", 5),
-        )
-
-        context.add_result(
-            "task",
-            result,
-        )
-
-        return context
-
-
-    def _cmd_kernel_tasks(self, context: RuntimeContext) -> RuntimeContext:
-
-        context.add_result(
-            "tasks",
-            self.intelligence_orchestrator.list_tasks(),
-        )
-
-        return context
-
-
-    def _cmd_kernel_scheduler(self, context: RuntimeContext) -> RuntimeContext:
-
-        payload = context.payload
-
-        if payload.get("task_id"):
-
-            context.add_result(
-                "schedule",
-                self.intelligence_scheduler.schedule(
-                    payload["task_id"],
-                    payload.get("priority", 5),
-                ),
-            )
-
-        else:
-
-            context.add_result(
-                "schedule",
-                self.intelligence_scheduler.statistics(),
-            )
-
-        return context
-
-
-    def _cmd_kernel_dispatcher(self, context: RuntimeContext) -> RuntimeContext:
-
-        payload = context.payload
-
-        if payload.get("command"):
-
-            dispatched = self.intelligence_dispatcher.dispatch(
-                runtime=self,
-                command=payload["command"],
-                payload=payload.get("payload", {}),
-            )
-
-            context.add_result(
-                "dispatch",
-                {
-                    "results": dispatched.results,
-                    "errors": dispatched.errors,
-                },
-            )
-
-        else:
-
-            context.add_result(
-                "dispatch",
-                self.intelligence_dispatcher.statistics(),
-            )
-
-        return context
-
-
-    def _cmd_kernel_supervisor(self, context: RuntimeContext) -> RuntimeContext:
-
-        context.add_result(
-            "supervisor",
-            self.intelligence_supervisor.check(self),
-        )
-
-        return context
-
-
-    def _cmd_kernel_statistics(self, context: RuntimeContext) -> RuntimeContext:
-
-        context.add_result(
-            "kernel_stats",
-            {
-                "orchestrator": self.intelligence_orchestrator.statistics(),
-                "scheduler": self.intelligence_scheduler.statistics(),
-                "dispatcher": self.intelligence_dispatcher.statistics(),
-                "supervisor": self.intelligence_supervisor.statistics(),
-            },
-        )
-
-        return context
-
 
     # ==========================================================
     # Runtime Compatibility Layer
@@ -2683,68 +633,105 @@ class AletheusRuntime:
     # v4.1 Runtime Compatibility Commands
     # ==========================================================
 
-    def _cmd_compat_list(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("services", self.compat.list())
-        return context
 
-    def _cmd_compat_statistics(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("compat_stats", self.compat.statistics())
-        return context
 
-    def _cmd_compat_resolve(self, context: RuntimeContext) -> RuntimeContext:
-        alias = context.payload.get("alias", "")
 
-        try:
-            service = self.compat.resolve(alias)
-            context.add_result(
-                "service",
-                {
-                    "alias": alias,
-                    "resolved": True,
-                    "implementation": type(service).__name__,
-                    "version": getattr(service, "VERSION", getattr(service, "version", "unknown")),
-                },
-            )
-        except KeyError:
-            context.add_result(
-                "service",
-                {
-                    "alias": alias,
-                    "resolved": False,
-                    "error": "Service alias not found",
-                },
-            )
 
-        return context
+    def _cmd_registry_inspect(self, context):
 
-    def _cmd_compat_contract(self, context: RuntimeContext) -> RuntimeContext:
-        alias = context.payload.get("alias", "")
-
-        try:
-            service = self.compat.resolve(alias)
-            context.add_result(
-                "contract",
-                {
-                    "name": alias,
-                    "version": getattr(service, "VERSION", getattr(service, "version", "unknown")),
-                    "implementation": type(service).__name__,
-                },
-            )
-        except KeyError:
-            context.add_result(
-                "contract",
-                {
-                    "name": alias,
-                    "error": "Service alias not found",
-                },
-            )
+        context.add_result(
+            "registry",
+            self.registry_snapshot()
+        )
 
         return context
 
 
-    # ==========================================================
-    # v4.1.1 Engineering Foundation Commands
-    # ==========================================================
+
+    def _register_runtime_domains(self):
+        """
+        Genesis 6 Registry v2 domain registration.
+
+        The runtime core remains the composition root.
+        Domains represent bounded capabilities only.
+        """
+
+        domains = {
+            "memory": getattr(self, "memory", None),
+            "memory_mesh": getattr(self, "memory_mesh", None),
+            "knowledge_graph": getattr(self, "knowledge_graph", None),
+            "enterprise": getattr(self, "enterprise", None),
+            "workflow": getattr(self, "workflow", None),
+            "mission": getattr(self, "mission", None),
+            "security": getattr(self, "security", None),
+            "tenancy": getattr(self, "tenancy", None),
+            "federation": getattr(self, "federation", None),
+            "telemetry": getattr(self, "telemetry", None),
+            "ha": getattr(self, "ha", None),
+            "kernel": getattr(self, "kernel", None),
+        }
+
+        for name, domain in domains.items():
+            if domain is not None:
+                self.registry.register_domain(
+                    name,
+                    domain,
+                )
+
+        return self.registry.snapshot()
+
+
+    def _bootstrap_runtime_registry(self):
+        """
+        Genesis 6 Registry v2 component/service registration.
+
+        Registry becomes the authoritative runtime topology map.
+        """
+
+        self.registry.register_component(
+            "architecture_validator",
+            {
+                "status": "active",
+                "version": "1.0.0",
+            },
+        )
+
+        self.registry.register_component(
+            "spectrum_platform_analyzer",
+            {
+                "status": "active",
+                "version": "1.0.0",
+            },
+        )
+
+        self.registry.register_component(
+            "command_surface_auditor",
+            {
+                "status": "active",
+                "version": "1.0.0",
+            },
+        )
+
+        self.registry.register_service(
+            "command_bus",
+            self.commands,
+        )
+
+        self.registry.register_service(
+            "governance_engine",
+            getattr(
+                self,
+                "architecture_governance",
+                None,
+            ),
+        )
+
+        self.registry.register_service(
+            "diagnostics",
+            self.diagnostics,
+        )
+
+        return self.registry.snapshot()
 
     def _cmd_runtime_selftest(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("selftest", self.hardening.selftest())
@@ -2801,4 +788,601 @@ class AletheusRuntime:
         }
 
 
+
+    def health(self):
+        """
+        Runtime health contract.
+
+        Delegated to HealthManager.
+        Genesis 7.3
+        """
+
+        return self.health_manager.health()
+
+
+
+
+
+
+
+
+
+
+    def genesis6_validate(self):
+
+        """
+        Genesis validation contract.
+
+        Delegated to ValidationManager.
+        """
+
+        return self.validation_manager.genesis6_validate()
+
+    def genesis6_freeze_review(self):
+        """
+        Generate Genesis 6 freeze review.
+        """
+
+        return self.genesis6_review.review(
+            self
+        )
+
+
+
+    def boot_certification_validate(self):
+
+        """
+        Boot certification contract.
+
+        Delegated to ValidationManager.
+        """
+
+        return self.validation_manager.boot_certification()
+
+    def governance_record(
+        self,
+        event_type,
+        payload,
+    ):
+        """
+        Record governance event.
+        """
+
+        return self.governance_history.record(
+            event_type,
+            payload,
+        )
+
+
+
+
+
+
+
+    def registry_snapshot(self):
+
+        """
+        Registry snapshot contract.
+
+        Delegated to RegistryManager.
+        """
+
+        return self.registry_manager.snapshot()
+
+
+
+    def _cmd_spa_assess(self, context):
+        context.add_result(
+            "spa_assessment",
+            self.spa.assess(),
+        )
+        return context
+
+
+    def _cmd_spa_drift(self, context):
+        context.add_result(
+            "spa_drift",
+            self.spa.drift_report(),
+        )
+        return context
+
+
+
+
+    def _cmd_architecture_governance_check(
+        self,
+        context
+    ):
+
+        context.add_result(
+            "architecture_governance",
+            self.architecture_governance_validate()
+        )
+
+        return context
+
+
+    def _cmd_architecture_validate(self, context):
+        context.add_result(
+            "architecture_validation",
+            {
+                "architecture": self.architecture_snapshot(),
+                "invariants": self.invariants(),
+                "spa": self.spa.assess(),
+            },
+        )
+        return context
+
+
+    def _cmd_runtime_audit(self, context):
+        context.add_result(
+            "runtime_audit",
+            {
+                "diagnostics": self.diagnostics,
+                "registry": self.registry_snapshot(),
+                "spa": self.spa.assess(),
+            },
+        )
+        return context
+
+
+
+
+    def command_surface_audit(self):
+
+        """
+        Command inventory contract.
+
+        Delegated to CommandManager.
+        """
+
+        return {
+            "count":
+                self.command_manager.count(),
+
+            "commands":
+                self.command_manager.list()
+        }
+
+
+
+    def anchor_governance_status(self):
+
+        return (
+            self.anchor_governance_analyzer
+            .analyze()
+        )
+
+
+
+    def anchor_lifecycle_status(self):
+
+        return {
+
+            "anchors":
+                self.anchor_registry.list(),
+
+            "health":
+                self.anchor_lifecycle.health(),
+
+            "history":
+                self.anchor_lifecycle.history_snapshot()
+
+        }
+
+
+
+    def anchor_dependency_status(self):
+
+        return (
+            self.anchor_dependencies
+            .snapshot()
+        )
+
+
+
+    def anchor_contract_status(self):
+
+        return (
+            self.anchor_contracts
+            .snapshot()
+        )
+
+
+
+    def anchor_discovery_status(self):
+
+        return (
+            self.anchor_discovery
+            .snapshot()
+        )
+
+
+
+    def anchor_healing_status(self):
+
+        return (
+            self.anchor_healing
+            .snapshot()
+        )
+
+
+
+    def anchor_intelligence_status(self):
+
+        return (
+            self.anchor_intelligence
+            .snapshot()
+        )
+
+
+
+    def anchor_optimization_status(self):
+
+        return (
+            self.anchor_optimization
+            .snapshot()
+        )
+
+
+
+    def anchor_learning_status(self):
+
+        return (
+            self.anchor_learning
+            .snapshot()
+        )
+
+
+
+    def anchor_predictive_status(self):
+
+        return (
+            self.anchor_predictive
+            .snapshot()
+        )
+
+
+
+    def anchor_constitution_status(self):
+
+        return (
+            self.anchor_constitution
+            .snapshot()
+        )
+
+
+
+    def anchor_simulation_status(self):
+
+        return (
+            self.anchor_simulation
+            .snapshot()
+        )
+
+
+
+    def anchor_research_status(self):
+
+        return (
+            self.anchor_research
+            .snapshot()
+        )
+
+
+
+    def anchor_proposal_status(self):
+
+        return (
+            self.anchor_proposals
+            .snapshot()
+        )
+
+
+
+    def anchor_negotiation_status(self):
+
+        return (
+            self.anchor_negotiation
+            .snapshot()
+        )
+
+
+
+    def anchor_execution_status(self):
+
+        return (
+            self.anchor_execution
+            .snapshot()
+        )
+
+
+
+    def anchor_verification_status(self):
+
+        return (
+            self.anchor_verification
+            .snapshot()
+        )
+
+
+
+    def anchor_evolution_graph_status(self):
+
+        return (
+            self.anchor_evolution_graph
+            .snapshot()
+        )
+
+
+
+    def anchor_analytics_status(self):
+
+        return (
+            self.anchor_analytics
+            .snapshot()
+        )
+
+
+
+    def anchor_strategy_status(self):
+
+        return (
+            self.anchor_strategy
+            .snapshot()
+        )
+
+
+
+    def anchor_portfolio_status(self):
+
+        return (
+            self.anchor_portfolio
+            .snapshot()
+        )
+
+
+
+    def anchor_resource_status(self):
+
+        return (
+            self.anchor_resources
+            .snapshot()
+        )
+
+
+
+    def anchor_performance_status(self):
+
+        return (
+            self.anchor_performance
+            .snapshot()
+        )
+
+
+
+    def anchor_improvement_status(self):
+
+        return (
+            self.anchor_improvement_loop
+            .snapshot()
+        )
+
+
+
+    def anchor_architect_status(self):
+
+        return (
+            self.anchor_architect
+            .snapshot()
+        )
+
+
+
+    def anchor_architecture_simulator_status(self):
+
+        return (
+            self.anchor_architecture_simulator
+            .snapshot()
+        )
+
+
+
+    def anchor_architecture_selection_status(self):
+
+        return (
+            self.anchor_architecture_selection
+            .snapshot()
+        )
+
+
+
+    def anchor_deployment_status(self):
+
+        return (
+            self.anchor_deployment_governor
+            .snapshot()
+        )
+
+
+
+    def anchor_migration_status(self):
+
+        return (
+            self.anchor_runtime_migration
+            .snapshot()
+        )
+
+
+
+    def anchor_continuity_status(self):
+
+        return (
+            self.anchor_continuity
+            .snapshot()
+        )
+
+
+
+    def anchor_institutional_memory_status(self):
+
+        return (
+            self.anchor_institutional_memory
+            .snapshot()
+        )
+
+
+
+    def anchor_pattern_status(self):
+
+        return (
+            self.anchor_pattern_intelligence
+            .snapshot()
+        )
+
+
+
+    def anchor_forecasting_status(self):
+
+        return (
+            self.anchor_pattern_forecasting
+            .snapshot()
+        )
+
+
+
+    def anchor_steward_status(self):
+
+        return (
+            self.anchor_architecture_steward
+            .snapshot()
+        )
+
+
+
+    def anchor_constitution_reasoning_status(self):
+
+        return (
+            self.anchor_constitution_reasoning
+            .snapshot()
+        )
+
+
+
+    def anchor_council_status(self):
+
+        return (
+            self.anchor_architecture_council
+            .snapshot()
+        )
+
+
+
+    def anchor_consensus_status(self):
+
+        return (
+            self.anchor_consensus_memory
+            .snapshot()
+        )
+
+
+
+    def anchor_judgment_status(self):
+
+        return (
+            self.anchor_judgment_optimizer
+            .snapshot()
+        )
+
+
+
+    def anchor_meta_reasoning_status(self):
+
+        return (
+            self.anchor_meta_reasoning
+            .snapshot()
+        )
+
+
+
+    def anchor_cognitive_status(self):
+
+        return (
+            self.anchor_cognitive_architecture
+            .snapshot()
+        )
+
+
+
+    def anchor_cognitive_optimization_status(self):
+
+        return (
+            self.anchor_cognitive_optimizer
+            .snapshot()
+        )
+
+
+
+    def anchor_cognitive_self_improvement_status(self):
+
+        return (
+            self.anchor_cognitive_self_improvement
+            .snapshot()
+        )
+
+
+
+    def anchor_cognitive_architect_status(self):
+
+        return (
+            self.anchor_cognitive_architect
+            .snapshot()
+        )
+
+
+
+    def anchor_cognitive_simulation_status(self):
+
+        return (
+            self.anchor_cognitive_simulator
+            .snapshot()
+        )
+
+
+
+    def anchor_cognitive_selection_status(self):
+
+        return (
+            self.anchor_cognitive_selector
+            .snapshot()
+        )
+# =====================================================
+# Aletheus Runtime Compatibility Exports
+# =====================================================
+
+class RuntimeContext:
+
+    def __init__(self):
+        self.data = {}
+
+    def add_result(self, key, value):
+        self.data[key] = value
+
+
 runtime_core = AletheusRuntime()
+
+# =====================================================
+# Runtime Compatibility Layer
+# =====================================================
+
+class RuntimeContext:
+
+    def __init__(self):
+        self.results = {}
+
+    def add_result(self, key, value):
+        self.results[key] = value
+
+
+runtime_core = AletheusRuntime()
+

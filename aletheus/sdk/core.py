@@ -36,4 +36,19 @@ class AletheusSDK:
         }
 
 
+#
+# Canonical SDK singleton
+#
 aos = AletheusSDK()
+
+#
+# Backwards compatibility alias.
+#
+# Older Genesis modules import:
+#
+#     from aletheus.sdk.core import aletheus_sdk
+#
+# Keep the alias until the architecture reconciliation
+# is complete.
+#
+aletheus_sdk = aos

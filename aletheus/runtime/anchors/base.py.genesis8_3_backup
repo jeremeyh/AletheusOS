@@ -1,0 +1,48 @@
+"""
+Runtime Anchor Circuit Base
+
+Genesis 8
+
+Stable attachment contract between
+runtime kernel and bounded capabilities.
+"""
+
+
+from abc import ABC, abstractmethod
+
+
+
+class RuntimeAnchorCircuit(ABC):
+
+    def __init__(self, runtime):
+
+        self.runtime = runtime
+        self.connected = False
+
+
+
+    @property
+    def name(self):
+
+        return self.__class__.__name__
+
+
+
+    @abstractmethod
+    def attach(self):
+
+        pass
+
+
+
+    def status(self):
+
+        return {
+
+            "name":
+                self.name,
+
+            "connected":
+                self.connected
+
+        }
