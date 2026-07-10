@@ -2,31 +2,20 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { AnimatePresence, motion } from "motion/react";
 import {
   useEffect,
+  useMemo,
   useState,
 } from "react";
 
+import {
+  useCommandDefinitions,
+} from "../api/commandQueries";
+import {
+  useCommandTransaction,
+} from "../api/useCommandTransaction";
+import type {
+  CommandDefinition,
+} from "../api/commandTypes";
 import { useNimble } from "../providers/NimbleProvider";
-
-const commands = [
-  {
-    id: "missions",
-    icon: "◎",
-    title: "Open active missions",
-    description: "Navigate to the mission workspace.",
-  },
-  {
-    id: "agents",
-    icon: "◇",
-    title: "Inspect active agents",
-    description: "Show current tasks, confidence, and provenance.",
-  },
-  {
-    id: "health",
-    icon: "◉",
-    title: "Explain current platform health",
-    description: "Reveal checks, evidence, and uncertainty.",
-  },
-] as const;
 
 export function CommandSurface() {
   const {
@@ -35,7 +24,18 @@ export function CommandSurface() {
     notify,
   } = useNimble();
 
+  const {
+    data: commands,
+    error,
+    isPending,
+  } = useCommandDefinitions();
+
+  const transaction =
+    useCommandTransaction();
+
   const [query, setQuery] = useState("");
+  const [selectedArguments, setSelectedArguments] =
+    useState<Record<string, unknown>>({});
 
   useEffect(() => {
     function handleShortcut(event: KeyboardEvent) {
@@ -48,23 +48,120 @@ export function CommandSurface() {
       }
     }
 
-    window.addEventListener("keydown", handleShortcut);
+    window.addEventListener(
+      "keydown",
+      handleShortcut,
+    );
 
     return () => {
-      window.removeEventListener("keydown", handleShortcut);
+      window.removeEventListener(
+        "keydown",
+        handleShortcut,
+      );
     };
   }, [commandOpen, setCommandOpen]);
 
-  const filteredCommands = commands.filter((command) => {
-    const searchable = [
-      command.title,
-      command.description,
-    ]
-      .join(" ")
+  useEffect(() => {
+    if (!commandOpen) {
+      window.setTimeout(() => {
+        transaction.reset();
+        setQuery("");
+        setSelectedArguments({});
+      }, 180);
+    }
+  }, [
+    commandOpen,
+    transaction.reset,
+  ]);
+
+  const filteredCommands = useMemo(() => {
+    if (!commands) {
+      return [];
+    }
+
+    const normalized = query
+      .trim()
       .toLowerCase();
 
-    return searchable.includes(query.toLowerCase());
-  });
+    if (!normalized) {
+      return commands;
+    }
+
+    return commands.filter((command) => {
+      const searchable = [
+        command.name,
+        command.description,
+        command.id,
+        ...command.effects,
+      ]
+        .join(" ")
+        .toLowerCase();
+
+      return searchable.includes(normalized);
+    });
+  }, [
+    commands,
+    query,
+  ]);
+
+  async function selectCommand(
+    command: CommandDefinition,
+  ) {
+    const argumentsValue =
+      createDefaultArguments(command);
+
+    setSelectedArguments(argumentsValue);
+
+    try {
+      await transaction.begin(
+        command,
+        argumentsValue,
+      );
+    } catch {
+      notify(
+        "Preview failed",
+        "The command gateway could not create a preview.",
+      );
+    }
+  }
+
+  async function executePreview() {
+    try {
+      const execution =
+        await transaction.approveAndExecute();
+
+      notify(
+        execution.state === "executed"
+          ? "Command executed"
+          : "Command failed",
+        execution.state === "executed"
+          ? "The governed execution completed and was recorded."
+          : execution.failure
+            ?? "The command did not complete.",
+      );
+    } catch {
+      notify(
+        "Execution failed",
+        "The governed command transaction did not complete.",
+      );
+    }
+  }
+
+  async function reverseExecution() {
+    try {
+      await transaction.reverse();
+
+      notify(
+        "Command reversed",
+        "The registered reversal handler restored the prior state.",
+      );
+    } catch {
+      notify(
+        "Reversal failed",
+        "The command could not be reversed.",
+      );
+    }
+  }
 
   return (
     <Dialog.Root
@@ -86,7 +183,7 @@ export function CommandSurface() {
 
               <Dialog.Content asChild>
                 <motion.section
-                  className="nimble-command"
+                  className="nimble-command nimble-command--governed"
                   aria-describedby="nimble-command-description"
                   initial={{
                     opacity: 0,
@@ -113,7 +210,7 @@ export function CommandSurface() {
                     <span aria-hidden="true">✦</span>
 
                     <Dialog.Title>
-                      Ask or command AletheusOS
+                      Governed command gateway
                     </Dialog.Title>
 
                     <Dialog.Close asChild>
@@ -131,56 +228,118 @@ export function CommandSurface() {
                     id="nimble-command-description"
                     className="visually-hidden"
                   >
-                    Search platform commands and preview their effects.
+                    Discover, preview, authorize, execute,
+                    and reverse bounded AletheusOS commands.
                   </Dialog.Description>
 
-                  <input
-                    className="nimble-command__input"
-                    autoFocus
-                    value={query}
-                    onChange={(event) => {
-                      setQuery(event.target.value);
-                    }}
-                    placeholder="Describe an outcome or enter a command…"
-                  />
+                  {transaction.stage === "idle" && (
+                    <CommandDiscovery
+                      query={query}
+                      setQuery={setQuery}
+                      commands={filteredCommands}
+                      isPending={isPending}
+                      error={error}
+                      onSelect={selectCommand}
+                    />
+                  )}
 
-                  <div className="nimble-command__context">
-                    <span>Context: Executive Command</span>
-                    <span>Mode: Explain before execute</span>
-                  </div>
+                  {transaction.stage === "previewing" && (
+                    <CommandProgress
+                      title="Creating preview"
+                      detail="The gateway is resolving risk, effects, authorization, and reversibility."
+                    />
+                  )}
 
-                  <div className="nimble-command__results">
-                    {filteredCommands.map((command) => (
-                      <button
-                        key={command.id}
-                        type="button"
-                        onClick={() => {
+                  {transaction.preview && (
+                    <>
+                      {transaction.stage === "preview" && (
+                        <CommandPreviewPanel
+                          preview={transaction.preview}
+                          argumentsValue={
+                            selectedArguments
+                          }
+                          onExecute={
+                            executePreview
+                          }
+                          onCancel={
+                            transaction.reset
+                          }
+                        />
+                      )}
+
+                      {(
+                        transaction.stage
+                          === "authorizing"
+                        || transaction.stage
+                          === "executing"
+                      ) && (
+                        <CommandProgress
+                          title={
+                            transaction.stage
+                              === "authorizing"
+                              ? "Authorizing command"
+                              : "Executing bounded handler"
+                          }
+                          detail={
+                            transaction.stage
+                              === "authorizing"
+                              ? "The authorization is being bound to this exact preview."
+                              : "The command is executing through its registered handler."
+                          }
+                        />
+                      )}
+                    </>
+                  )}
+
+                  {transaction.execution
+                    && transaction.stage === "complete"
+                    && (
+                      <CommandResultPanel
+                        execution={
+                          transaction.execution
+                        }
+                        onReverse={
+                          reverseExecution
+                        }
+                        onDone={() => {
+                          transaction.reset();
                           setCommandOpen(false);
-                          notify(
-                            "Command preview",
-                            `${command.title} is ready. No destructive action occurred.`,
-                          );
                         }}
-                      >
-                        <span className="nimble-command__result-icon">
-                          {command.icon}
-                        </span>
-
-                        <span>
-                          <strong>{command.title}</strong>
-                          <small>{command.description}</small>
-                        </span>
-
-                        <kbd>↵</kbd>
-                      </button>
-                    ))}
-
-                    {filteredCommands.length === 0 && (
-                      <p className="nimble-command__empty">
-                        No matching command is registered.
-                      </p>
+                      />
                     )}
-                  </div>
+
+                  {transaction.stage === "reversing" && (
+                    <CommandProgress
+                      title="Reversing command"
+                      detail="The registered reversal handler is restoring the prior state."
+                    />
+                  )}
+
+                  {transaction.execution
+                    && transaction.stage === "reversed"
+                    && (
+                      <CommandResultPanel
+                        execution={
+                          transaction.execution
+                        }
+                        onDone={() => {
+                          transaction.reset();
+                          setCommandOpen(false);
+                        }}
+                      />
+                    )}
+
+                  {transaction.stage === "failed" && (
+                    <CommandFailurePanel
+                      failure={
+                        transaction.failure
+                        ?? "The command transaction failed."
+                      }
+                      onReset={
+                        transaction.reset
+                      }
+                    />
+                  )}
                 </motion.section>
               </Dialog.Content>
             </>
@@ -189,4 +348,444 @@ export function CommandSurface() {
       </Dialog.Portal>
     </Dialog.Root>
   );
+}
+
+function CommandDiscovery({
+  query,
+  setQuery,
+  commands,
+  isPending,
+  error,
+  onSelect,
+}: {
+  readonly query: string;
+  readonly setQuery: (value: string) => void;
+  readonly commands:
+    readonly CommandDefinition[];
+  readonly isPending: boolean;
+  readonly error: Error | null;
+  readonly onSelect: (
+    command: CommandDefinition,
+  ) => void;
+}) {
+  return (
+    <>
+      <input
+        className="nimble-command__input"
+        autoFocus
+        value={query}
+        onChange={(event) => {
+          setQuery(event.target.value);
+        }}
+        placeholder="Search registered commands…"
+      />
+
+      <div className="nimble-command__context">
+        <span>
+          Mode: Preview before execute
+        </span>
+        <span>
+          Source: Governed command registry
+        </span>
+      </div>
+
+      <div className="nimble-command__results">
+        {isPending && (
+          <p className="nimble-command__empty">
+            Loading registered commands…
+          </p>
+        )}
+
+        {error && (
+          <p className="nimble-command__failure">
+            The command registry could not be reached:
+            {" "}
+            {error.message}
+          </p>
+        )}
+
+        {!isPending
+          && !error
+          && commands.map((command) => (
+            <button
+              key={command.id}
+              type="button"
+              onClick={() => {
+                onSelect(command);
+              }}
+            >
+              <span className="nimble-command__result-icon">
+                {command.risk === "read_only"
+                  ? "◉"
+                  : "◇"}
+              </span>
+
+              <span>
+                <strong>{command.name}</strong>
+                <small>
+                  {command.description}
+                </small>
+              </span>
+
+              <span
+                className={
+                  `nimble-risk nimble-risk--${command.risk}`
+                }
+              >
+                {formatRisk(command.risk)}
+              </span>
+            </button>
+          ))}
+
+        {!isPending
+          && !error
+          && commands.length === 0
+          && (
+            <p className="nimble-command__empty">
+              No registered command matches this search.
+            </p>
+          )}
+      </div>
+    </>
+  );
+}
+
+function CommandPreviewPanel({
+  preview,
+  argumentsValue,
+  onExecute,
+  onCancel,
+}: {
+  readonly preview: {
+    readonly name: string;
+    readonly description: string;
+    readonly risk: string;
+    readonly effects: readonly string[];
+    readonly reversible: boolean;
+    readonly authorization_required: boolean;
+    readonly expires_at: string;
+  };
+  readonly argumentsValue:
+    Readonly<Record<string, unknown>>;
+  readonly onExecute: () => void;
+  readonly onCancel: () => void;
+}) {
+  return (
+    <div className="nimble-command-transaction">
+      <header>
+        <p className="nimble-panel__eyebrow">
+          Principle X · Preview
+        </p>
+        <h2>{preview.name}</h2>
+        <p>{preview.description}</p>
+      </header>
+
+      <section className="nimble-command-disclosure">
+        <DisclosureRow
+          label="Risk"
+          value={formatRisk(preview.risk)}
+        />
+        <DisclosureRow
+          label="Authorization"
+          value={
+            preview.authorization_required
+              ? "Required"
+              : "Not required"
+          }
+        />
+        <DisclosureRow
+          label="Reversible"
+          value={
+            preview.reversible
+              ? "Yes"
+              : "No"
+          }
+        />
+        <DisclosureRow
+          label="Preview expires"
+          value={
+            new Date(
+              preview.expires_at,
+            ).toLocaleTimeString()
+          }
+        />
+      </section>
+
+      <section>
+        <h3>Expected effects</h3>
+        <ul className="nimble-effect-list">
+          {preview.effects.map((effect) => (
+            <li key={effect}>{effect}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h3>Arguments</h3>
+        <pre className="nimble-command-json">
+          {JSON.stringify(
+            argumentsValue,
+            null,
+            2,
+          )}
+        </pre>
+      </section>
+
+      <footer className="nimble-command-actions">
+        <button
+          className="nimble-button nimble-button--secondary"
+          type="button"
+          onClick={onCancel}
+        >
+          Cancel
+        </button>
+
+        <button
+          className="nimble-button nimble-button--primary"
+          type="button"
+          onClick={onExecute}
+        >
+          {preview.authorization_required
+            ? "Authorize and execute"
+            : "Execute command"}
+        </button>
+      </footer>
+    </div>
+  );
+}
+
+function CommandProgress({
+  title,
+  detail,
+}: {
+  readonly title: string;
+  readonly detail: string;
+}) {
+  return (
+    <div className="nimble-command-progress">
+      <motion.span
+        animate={{ rotate: 360 }}
+        transition={{
+          duration: 1.4,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: "linear",
+        }}
+        aria-hidden="true"
+      >
+        ✦
+      </motion.span>
+
+      <strong>{title}</strong>
+      <p>{detail}</p>
+    </div>
+  );
+}
+
+function CommandResultPanel({
+  execution,
+  onReverse,
+  onDone,
+}: {
+  readonly execution: {
+    readonly execution_id: string;
+    readonly state: string;
+    readonly result:
+      Readonly<Record<string, unknown>>;
+    readonly reversible: boolean;
+    readonly reversal_token: string | null;
+    readonly executed_at: string;
+  };
+  readonly onReverse?: () => void;
+  readonly onDone: () => void;
+}) {
+  const canReverse = Boolean(
+    onReverse
+    && execution.reversible
+    && execution.reversal_token
+    && execution.state === "executed",
+  );
+
+  return (
+    <div className="nimble-command-transaction">
+      <header>
+        <p className="nimble-panel__eyebrow">
+          Principle X · Confirmed
+        </p>
+
+        <h2>
+          {execution.state === "reversed"
+            ? "Command reversed"
+            : "Command executed"}
+        </h2>
+
+        <p>
+          The transaction was recorded by the command
+          gateway and returned a bounded result.
+        </p>
+      </header>
+
+      <section className="nimble-command-disclosure">
+        <DisclosureRow
+          label="State"
+          value={execution.state}
+        />
+        <DisclosureRow
+          label="Execution"
+          value={execution.execution_id}
+        />
+        <DisclosureRow
+          label="Executed"
+          value={
+            new Date(
+              execution.executed_at,
+            ).toLocaleString()
+          }
+        />
+        <DisclosureRow
+          label="Reversible"
+          value={
+            canReverse
+              ? "Available"
+              : "Unavailable"
+          }
+        />
+      </section>
+
+      <section>
+        <h3>Result</h3>
+        <pre className="nimble-command-json">
+          {JSON.stringify(
+            execution.result,
+            null,
+            2,
+          )}
+        </pre>
+      </section>
+
+      <footer className="nimble-command-actions">
+        {canReverse && (
+          <button
+            className="nimble-button nimble-button--secondary"
+            type="button"
+            onClick={onReverse}
+          >
+            Reverse command
+          </button>
+        )}
+
+        <button
+          className="nimble-button nimble-button--primary"
+          type="button"
+          onClick={onDone}
+        >
+          Done
+        </button>
+      </footer>
+    </div>
+  );
+}
+
+function CommandFailurePanel({
+  failure,
+  onReset,
+}: {
+  readonly failure: string;
+  readonly onReset: () => void;
+}) {
+  return (
+    <div className="nimble-command-transaction">
+      <header>
+        <p className="nimble-panel__eyebrow">
+          Principle X · Failure disclosed
+        </p>
+        <h2>Command transaction failed</h2>
+      </header>
+
+      <section className="nimble-command-failure">
+        <h3>What happened</h3>
+        <p>{failure}</p>
+      </section>
+
+      <section>
+        <h3>Impact</h3>
+        <p>
+          The command did not produce a confirmed successful
+          execution. No success state is being inferred.
+        </p>
+      </section>
+
+      <footer className="nimble-command-actions">
+        <button
+          className="nimble-button nimble-button--primary"
+          type="button"
+          onClick={onReset}
+        >
+          Return to commands
+        </button>
+      </footer>
+    </div>
+  );
+}
+
+function DisclosureRow({
+  label,
+  value,
+}: {
+  readonly label: string;
+  readonly value: string;
+}) {
+  return (
+    <div>
+      <dt>{label}</dt>
+      <dd>{value}</dd>
+    </div>
+  );
+}
+
+function createDefaultArguments(
+  command: CommandDefinition,
+): Record<string, unknown> {
+  if (
+    command.id
+    === "experience.inspector.set"
+  ) {
+    return {
+      open: false,
+    };
+  }
+
+  if (
+    command.id
+    === "runtime.describe"
+  ) {
+    return {
+      scope: "platform",
+    };
+  }
+
+  if (
+    command.id
+    === "providers.refresh"
+  ) {
+    return {
+      scope: "all",
+    };
+  }
+
+  return Object.fromEntries(
+    command.requiredArguments.map(
+      (argument) => [
+        argument,
+        null,
+      ],
+    ),
+  );
+}
+
+function formatRisk(risk: string): string {
+  return risk
+    .replaceAll("_", " ")
+    .replace(/\b\w/g, (character) =>
+      character.toUpperCase()
+    );
 }

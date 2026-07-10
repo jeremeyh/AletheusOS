@@ -84,6 +84,11 @@ export const navigationGroups: readonly NavigationGroup[] = [
         icon: "◉",
         status: "healthy",
       },
+      {
+        id: "command-history",
+        label: "Command History",
+        icon: "⌘",
+      },
     ],
   },
 ];

@@ -5,6 +5,7 @@ import {
 
 import { PlatformShell } from "../components/PlatformShell";
 import { RouteError } from "../components/feedback/RouteError";
+import { CommandHistoryRoute } from "../routes/CommandHistoryRoute";
 import { OverviewRoute } from "../routes/OverviewRoute";
 import { PlaceholderRoute } from "../routes/PlaceholderRoute";
 
@@ -53,6 +54,10 @@ export const nimbleRouter = createBrowserRouter([
       {
         path: "runtime",
         element: <PlaceholderRoute />,
+      },
+      {
+        path: "command-history",
+        element: <CommandHistoryRoute />,
       },
       {
         path: "*",
