@@ -2,7 +2,9 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
+  useState,
 } from "react";
 import type {
   PropsWithChildren,
@@ -21,25 +23,42 @@ import {
   identityQueryKeys,
 } from "../api/identityQueries";
 import {
-  sessionTokenProvider,
-} from "../api/tokenProvider";
+  oidcBrowserSession,
+} from "../api/oidcSession";
+import type {
+  OidcSessionSnapshot,
+} from "../api/oidcSession";
 
 interface AuthenticationContextValue {
   readonly mode:
     | "local"
     | "oidc"
     | "unknown";
-  readonly requiresToken: boolean;
+
+  readonly session:
+    OidcSessionSnapshot;
+
+  readonly requiresAuthentication: boolean;
+  readonly authenticated: boolean;
   readonly isPending: boolean;
   readonly error: Error | null;
-  setAccessToken(token: string): Promise<void>;
-  clearAccessToken(): Promise<void>;
+
+  signIn(): Promise<void>;
+  signOut(): Promise<void>;
+  clearSession(): Promise<void>;
 }
 
 const AuthenticationContext =
   createContext<
     AuthenticationContextValue | undefined
   >(undefined);
+
+const initialSession:
+  OidcSessionSnapshot = {
+    state: "anonymous",
+    user: null,
+    error: null,
+  };
 
 export function AuthenticationProvider({
   children,
@@ -52,50 +71,89 @@ export function AuthenticationProvider({
     isPending,
   } = useAuthenticationMetadata();
 
-  const setAccessToken = useCallback(
-    async (token: string) => {
-      sessionTokenProvider
-        .setAccessToken(token.trim());
+  const [session, setSession] =
+    useState<OidcSessionSnapshot>(
+      initialSession,
+    );
 
+  useEffect(() => {
+    return oidcBrowserSession.subscribe(
+      setSession,
+    );
+  }, []);
+
+  useEffect(() => {
+    if (data?.mode === "oidc") {
+      void oidcBrowserSession.initialize();
+    }
+  }, [data?.mode]);
+
+  const refreshIdentity =
+    useCallback(async () => {
       await queryClient.invalidateQueries({
         queryKey:
           identityQueryKeys.current,
       });
-    },
-    [queryClient],
-  );
+    }, [queryClient]);
 
-  const clearAccessToken = useCallback(
-    async () => {
-      sessionTokenProvider
-        .clearAccessToken();
+  const signIn = useCallback(async () => {
+    await oidcBrowserSession.signIn();
+  }, []);
 
-      await queryClient.invalidateQueries({
-        queryKey:
-          identityQueryKeys.current,
-      });
-    },
-    [queryClient],
-  );
+  const signOut = useCallback(async () => {
+    await oidcBrowserSession.signOut();
+  }, []);
 
-  const value = useMemo(
-    () => ({
-      mode: data?.mode ?? "unknown",
-      requiresToken:
-        data?.mode === "oidc",
-      isPending,
-      error,
-      setAccessToken,
-      clearAccessToken,
-    }),
-    [
-      clearAccessToken,
-      data?.mode,
-      error,
-      isPending,
-      setAccessToken,
-    ],
-  );
+  const clearSession =
+    useCallback(async () => {
+      await oidcBrowserSession.removeUser();
+      await refreshIdentity();
+    }, [refreshIdentity]);
+
+  useEffect(() => {
+    if (
+      session.state === "authenticated"
+      || session.state === "anonymous"
+      || session.state === "expired"
+    ) {
+      void refreshIdentity();
+    }
+  }, [
+    refreshIdentity,
+    session.state,
+  ]);
+
+  const mode:
+    AuthenticationContextValue["mode"] =
+      data?.mode ?? "unknown";
+
+  const value =
+    useMemo<AuthenticationContextValue>(
+      () => ({
+        mode,
+        session,
+        requiresAuthentication:
+          mode === "oidc",
+        authenticated:
+          mode === "local"
+          || session.state
+            === "authenticated",
+        isPending,
+        error,
+        signIn,
+        signOut,
+        clearSession,
+      }),
+      [
+        clearSession,
+        error,
+        isPending,
+        mode,
+        session,
+        signIn,
+        signOut,
+      ],
+    );
 
   return (
     <AuthenticationContext.Provider
@@ -121,6 +179,7 @@ export function useAuthentication():
   return context;
 }
 
-export function resetAuthenticationTransport(): void {
+export function resetAuthenticationTransport():
+  void {
   clearAuthenticationMetadataCache();
 }

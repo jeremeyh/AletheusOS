@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dataclasses import asdict
 
-from fastapi import HTTPException
+from fastapi import Depends, HTTPException
 
 from .command_api_models import (
     CommandAuthorizationRequestModel,
@@ -27,6 +27,13 @@ from .commands.sqlite_store import (
 )
 
 from .providers import create_default_provider_registry
+from .security import (
+    Principal,
+    PrincipalResolver,
+    create_default_authorization_policy,
+    create_principal_authenticator,
+    load_authentication_config,
+)
 from .service import ExperienceGatewayService
 
 
@@ -44,11 +51,28 @@ def create_app(
         command_database_path()
     )
 
+    authentication_config = (
+        load_authentication_config()
+    )
+
+    principal_authenticator = (
+        create_principal_authenticator(
+            authentication_config
+        )
+    )
+
+    principal_resolver = PrincipalResolver(
+        principal_authenticator
+    )
+
     command_gateway = (
         command_service
         or CommandGatewayService(
             create_default_command_registry(),
             store=command_store,
+            authorization_policy=(
+                create_default_authorization_policy()
+            ),
         )
     )
 
@@ -72,6 +96,7 @@ def create_app(
         allow_headers=[
             "Accept",
             "Content-Type",
+            "Authorization",
         ],
     )
 
@@ -109,6 +134,42 @@ def create_app(
             "mode": "provider_registry",
         }
 
+    @app.get("/api/auth/config")
+    def authentication_metadata() -> dict:
+        return {
+            "mode": authentication_config.mode,
+            "issuer": authentication_config.issuer,
+            "audience": authentication_config.audience,
+            "algorithms": list(
+                authentication_config.algorithms
+            ),
+            "localIdentityAllowed": (
+                authentication_config
+                .allow_local_identity
+            ),
+        }
+
+    @app.get("/api/identity/me")
+    def current_identity(
+        principal: Principal = Depends(
+            principal_resolver.dependency
+        ),
+    ) -> dict:
+        return {
+            "subjectId": principal.subject_id,
+            "displayName": principal.display_name,
+            "roles": list(principal.roles),
+            "entitlements": list(
+                principal.entitlements
+            ),
+            "authenticationMethod": (
+                principal.authentication_method
+            ),
+            "authenticated": (
+                principal.authenticated
+            ),
+        }
+
     @app.get("/api/commands")
     def list_commands() -> list[dict]:
         return command_gateway.list_commands()
@@ -116,17 +177,21 @@ def create_app(
     @app.post("/api/commands/preview")
     def preview_command(
         payload: CommandPreviewRequestModel,
+        principal: Principal = Depends(
+            principal_resolver.dependency
+        ),
     ) -> dict:
         try:
             preview = command_gateway.preview(
                 CommandRequest(
                     command_id=payload.command_id,
                     arguments=payload.arguments,
-                    requested_by=payload.requested_by,
+                    requested_by=principal.subject_id,
                     idempotency_key=(
                         payload.idempotency_key
                     ),
-                )
+                ),
+                principal=principal,
             )
         except KeyError as error:
             raise HTTPException(
@@ -138,19 +203,27 @@ def create_app(
                 status_code=422,
                 detail=str(error),
             ) from error
+        except PermissionError as error:
+            raise HTTPException(
+                status_code=403,
+                detail=str(error),
+            ) from error
 
         return asdict(preview)
 
     @app.post("/api/commands/authorize")
     def authorize_command(
         payload: CommandAuthorizationRequestModel,
+        principal: Principal = Depends(
+            principal_resolver.dependency
+        ),
     ) -> dict:
         try:
             authorization = (
                 command_gateway.authorize(
                     preview_id=payload.preview_id,
                     authorized_by=(
-                        payload.authorized_by
+                        principal.subject_id
                     ),
                 )
             )

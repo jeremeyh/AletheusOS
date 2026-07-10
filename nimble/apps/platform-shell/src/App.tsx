@@ -14,6 +14,7 @@ export default function App() {
         <NimbleProvider>
         <RouterProvider router={nimbleRouter} />
       </NimbleProvider>
+      </AuthenticationProvider>
     </RuntimeQueryProvider>
   );
 }

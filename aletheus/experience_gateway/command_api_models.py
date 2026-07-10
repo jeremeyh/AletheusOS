@@ -12,10 +12,6 @@ class CommandPreviewRequestModel(BaseModel):
     arguments: dict[str, Any] = Field(
         default_factory=dict
     )
-    requested_by: str = Field(
-        default="local-user",
-        min_length=1,
-    )
     idempotency_key: str | None = None
 
 
@@ -23,9 +19,6 @@ class CommandAuthorizationRequestModel(
     BaseModel
 ):
     preview_id: str = Field(
-        min_length=1
-    )
-    authorized_by: str = Field(
         min_length=1
     )
 

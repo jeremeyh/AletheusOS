@@ -19,3 +19,10 @@ reports/
 var/experience_gateway/
 *.sqlite3-wal
 *.sqlite3-shm
+
+# Nimble local authentication configuration
+nimble/apps/platform-shell/.env.local
+
+# Node dependencies
+node_modules/
+**/node_modules/

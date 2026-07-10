@@ -12,6 +12,10 @@ const apiBaseUrl =
 let cachedAuthenticationMetadata:
   AuthenticationMetadata | null = null;
 
+interface ApiFailurePayload {
+  readonly detail?: string;
+}
+
 export class ApiResponseError extends Error {
   readonly status: number;
   readonly detail: string;
@@ -50,9 +54,8 @@ export async function getAuthenticationMetadata(
     throw await createResponseError(response);
   }
 
-  const metadata =
-    await response.json()
-      as AuthenticationMetadata;
+  const metadata: AuthenticationMetadata =
+    await response.json();
 
   cachedAuthenticationMetadata = metadata;
 
@@ -65,12 +68,11 @@ export async function apiRequest<T>(
 ): Promise<T> {
   const metadata =
     await getAuthenticationMetadata(
-      init?.signal,
+      init?.signal ?? undefined,
     );
 
-  const headers = new Headers(
-    init?.headers,
-  );
+  const headers =
+    new Headers(init?.headers);
 
   headers.set(
     "Accept",
@@ -123,7 +125,8 @@ export async function apiRequest<T>(
   return await response.json() as T;
 }
 
-export function clearAuthenticationMetadataCache(): void {
+export function clearAuthenticationMetadataCache():
+  void {
   cachedAuthenticationMetadata = null;
 }
 
@@ -133,11 +136,8 @@ async function createResponseError(
   let detail = response.statusText;
 
   try {
-    const payload =
-      await response.json()
-        as {
-          readonly detail?: string;
-        };
+    const payload: ApiFailurePayload =
+      await response.json();
 
     detail = payload.detail || detail;
   } catch {

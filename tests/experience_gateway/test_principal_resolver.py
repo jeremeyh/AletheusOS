@@ -3,53 +3,80 @@ from __future__ import annotations
 import pytest
 from fastapi import HTTPException
 
+from aletheus.experience_gateway.security.contracts import (
+    Principal,
+)
+from aletheus.experience_gateway.security.oidc_authenticator import (
+    AuthenticationFailure,
+)
 from aletheus.experience_gateway.security.resolver import (
     PrincipalResolver,
 )
 
 
-def test_resolver_uses_trusted_headers() -> None:
-    resolver = PrincipalResolver()
+class SuccessfulAuthenticator:
+    def authenticate(
+        self,
+        credential: str | None,
+    ) -> Principal:
+        assert credential == "token-value"
 
-    principal = resolver.resolve(
-        subject="user-1",
-        display_name="User One",
-        roles_header="operator,viewer",
-        entitlements_header=(
-            "runtime.read,providers.refresh"
-        ),
-    )
-
-    assert principal.subject_id == "user-1"
-    assert "operator" in principal.roles
-    assert "providers.refresh" in (
-        principal.entitlements
-    )
-
-
-def test_resolver_rejects_invalid_role() -> None:
-    resolver = PrincipalResolver()
-
-    with pytest.raises(HTTPException):
-        resolver.resolve(
-            subject="user-1",
+        return Principal(
+            subject_id="user-1",
             display_name="User One",
-            roles_header="superuser",
-            entitlements_header=None,
+            roles=("operator",),
+            entitlements=("runtime.read",),
+            authentication_method="test",
         )
 
 
-def test_resolver_can_require_authentication() -> None:
+class FailingAuthenticator:
+    def authenticate(
+        self,
+        credential: str | None,
+    ) -> Principal:
+        del credential
+
+        raise AuthenticationFailure(
+            "Token is invalid."
+        )
+
+
+def test_resolver_accepts_bearer_token() -> None:
     resolver = PrincipalResolver(
-        allow_local_identity=False
+        SuccessfulAuthenticator()
+    )
+
+    principal = resolver.dependency(
+        authorization=(
+            "Bearer token-value"
+        )
+    )
+
+    assert principal.subject_id == "user-1"
+
+
+def test_resolver_rejects_invalid_scheme() -> None:
+    resolver = PrincipalResolver(
+        SuccessfulAuthenticator()
     )
 
     with pytest.raises(HTTPException) as error:
-        resolver.resolve(
-            subject=None,
-            display_name=None,
-            roles_header=None,
-            entitlements_header=None,
+        resolver.dependency(
+            authorization="Basic token-value"
+        )
+
+    assert error.value.status_code == 401
+
+
+def test_resolver_maps_auth_failure_to_401() -> None:
+    resolver = PrincipalResolver(
+        FailingAuthenticator()
+    )
+
+    with pytest.raises(HTTPException) as error:
+        resolver.dependency(
+            authorization="Bearer bad-token"
         )
 
     assert error.value.status_code == 401

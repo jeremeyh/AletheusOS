@@ -12,13 +12,12 @@ import {
   clearAuthenticationMetadataCache,
 } from "../apiTransport";
 import {
-  sessionTokenProvider,
-} from "../tokenProvider";
+  oidcBrowserSession,
+} from "../oidcSession";
 
 describe("authenticated API transport", () => {
   beforeEach(() => {
     clearAuthenticationMetadataCache();
-    sessionStorage.clear();
     vi.restoreAllMocks();
   });
 
@@ -29,36 +28,18 @@ describe("authenticated API transport", () => {
   it("uses no bearer token in local mode", async () => {
     const fetchMock = vi.fn()
       .mockResolvedValueOnce(
-        new Response(
-          JSON.stringify({
-            mode: "local",
-            issuer: null,
-            audience: null,
-            algorithms: ["RS256"],
-            localIdentityAllowed: true,
-          }),
-          {
-            status: 200,
-            headers: {
-              "Content-Type":
-                "application/json",
-            },
-          },
-        ),
+        jsonResponse({
+          mode: "local",
+          issuer: null,
+          audience: null,
+          algorithms: ["RS256"],
+          localIdentityAllowed: true,
+        }),
       )
       .mockResolvedValueOnce(
-        new Response(
-          JSON.stringify({
-            ok: true,
-          }),
-          {
-            status: 200,
-            headers: {
-              "Content-Type":
-                "application/json",
-            },
-          },
-        ),
+        jsonResponse({
+          ok: true,
+        }),
       );
 
     vi.stubGlobal(
@@ -70,55 +51,42 @@ describe("authenticated API transport", () => {
       "/api/example",
     );
 
-    const secondRequest =
-      fetchMock.mock.calls[1]?.[1]
-        as RequestInit;
+    const call =
+      fetchMock.mock.calls[1];
+
+    const request =
+      call?.[1] as RequestInit | undefined;
 
     const headers =
-      new Headers(secondRequest.headers);
+      new Headers(request?.headers);
 
     expect(
       headers.has("Authorization"),
     ).toBe(false);
   });
 
-  it("attaches bearer token in OIDC mode", async () => {
-    sessionTokenProvider.setAccessToken(
+  it("attaches OIDC bearer token", async () => {
+    vi.spyOn(
+      oidcBrowserSession,
+      "getAccessToken",
+    ).mockResolvedValue(
       "test-access-token",
     );
 
     const fetchMock = vi.fn()
       .mockResolvedValueOnce(
-        new Response(
-          JSON.stringify({
-            mode: "oidc",
-            issuer: "https://issuer.example",
-            audience: "api://aletheus",
-            algorithms: ["RS256"],
-            localIdentityAllowed: false,
-          }),
-          {
-            status: 200,
-            headers: {
-              "Content-Type":
-                "application/json",
-            },
-          },
-        ),
+        jsonResponse({
+          mode: "oidc",
+          issuer: "https://issuer.example",
+          audience: "api://aletheus",
+          algorithms: ["RS256"],
+          localIdentityAllowed: false,
+        }),
       )
       .mockResolvedValueOnce(
-        new Response(
-          JSON.stringify({
-            ok: true,
-          }),
-          {
-            status: 200,
-            headers: {
-              "Content-Type":
-                "application/json",
-            },
-          },
-        ),
+        jsonResponse({
+          ok: true,
+        }),
       );
 
     vi.stubGlobal(
@@ -130,12 +98,14 @@ describe("authenticated API transport", () => {
       "/api/example",
     );
 
-    const secondRequest =
-      fetchMock.mock.calls[1]?.[1]
-        as RequestInit;
+    const call =
+      fetchMock.mock.calls[1];
+
+    const request =
+      call?.[1] as RequestInit | undefined;
 
     const headers =
-      new Headers(secondRequest.headers);
+      new Headers(request?.headers);
 
     expect(
       headers.get("Authorization"),
@@ -144,25 +114,21 @@ describe("authenticated API transport", () => {
     );
   });
 
-  it("rejects OIDC calls when token is absent", async () => {
+  it("rejects OIDC requests without a token", async () => {
+    vi.spyOn(
+      oidcBrowserSession,
+      "getAccessToken",
+    ).mockResolvedValue(null);
+
     const fetchMock = vi.fn()
       .mockResolvedValueOnce(
-        new Response(
-          JSON.stringify({
-            mode: "oidc",
-            issuer: "https://issuer.example",
-            audience: "api://aletheus",
-            algorithms: ["RS256"],
-            localIdentityAllowed: false,
-          }),
-          {
-            status: 200,
-            headers: {
-              "Content-Type":
-                "application/json",
-            },
-          },
-        ),
+        jsonResponse({
+          mode: "oidc",
+          issuer: "https://issuer.example",
+          audience: "api://aletheus",
+          algorithms: ["RS256"],
+          localIdentityAllowed: false,
+        }),
       );
 
     vi.stubGlobal(
@@ -179,3 +145,18 @@ describe("authenticated API transport", () => {
     });
   });
 });
+
+function jsonResponse(
+  value: unknown,
+): Response {
+  return new Response(
+    JSON.stringify(value),
+    {
+      status: 200,
+      headers: {
+        "Content-Type":
+          "application/json",
+      },
+    },
+  );
+}
