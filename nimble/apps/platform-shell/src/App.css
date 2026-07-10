@@ -1446,3 +1446,68 @@ kbd {
   color: var(--nimble-semantic-text-tertiary);
   text-align: right;
 }
+
+.nimble-auth-dialog {
+  position: fixed;
+  z-index: 1200;
+  top: 50%;
+  left: 50%;
+  width: min(42rem, calc(100vw - 2rem));
+  padding: 1.1rem;
+  transform: translate(-50%, -50%);
+  border:
+    1px solid
+    var(--nimble-semantic-border-default);
+  border-radius: var(--nimble-radius-xl);
+  background:
+    var(--nimble-semantic-surface-raised);
+  box-shadow:
+    var(--nimble-depth-shadow-xl);
+}
+
+.nimble-auth-dialog > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nimble-auth-dialog label {
+  display: grid;
+  margin-top: 1rem;
+  gap: 0.45rem;
+  font-weight: 650;
+}
+
+.nimble-auth-dialog textarea {
+  width: 100%;
+  resize: vertical;
+  padding: 0.8rem;
+  border:
+    1px solid
+    var(--nimble-semantic-border-default);
+  border-radius:
+    var(--nimble-radius-md);
+  background:
+    var(--nimble-semantic-surface-sunken);
+  color:
+    var(--nimble-semantic-text-primary);
+  font-family:
+    var(--nimble-typography-font-family-mono);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.nimble-auth-dialog footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 0.65rem;
+}
+
+.nimble-auth-warning {
+  color:
+    var(--nimble-semantic-status-warning);
+  font-size:
+    var(--nimble-typography-font-size-sm);
+}

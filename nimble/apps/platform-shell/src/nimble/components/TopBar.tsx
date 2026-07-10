@@ -1,3 +1,4 @@
+import { AuthenticationPanel } from "./AuthenticationPanel";
 import { PrincipalPanel } from "./PrincipalPanel";
 import { useNimble } from "../providers/NimbleProvider";
 
@@ -68,6 +69,7 @@ export function TopBar() {
           </span>
         </button>
 
+        <AuthenticationPanel />
         <PrincipalPanel />
       </div>
     </header>

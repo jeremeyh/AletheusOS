@@ -1,3 +1,4 @@
+import { AuthenticationProvider } from "./nimble/providers/AuthenticationProvider";
 import "./App.css";
 
 import { RouterProvider } from "react-router";
@@ -9,7 +10,8 @@ import { nimbleRouter } from "./nimble/router/router";
 export default function App() {
   return (
     <RuntimeQueryProvider>
-      <NimbleProvider>
+      <AuthenticationProvider>
+        <NimbleProvider>
         <RouterProvider router={nimbleRouter} />
       </NimbleProvider>
     </RuntimeQueryProvider>

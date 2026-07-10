@@ -111,7 +111,6 @@ export function useCommandTransaction() {
           nextAuthorization =
             await authorizationMutation.mutateAsync({
               previewId: preview.preview_id,
-              authorizedBy: "current-principal",
             });
 
           setAuthorization(nextAuthorization);

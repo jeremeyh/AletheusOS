@@ -61,13 +61,10 @@ export function useAuthorizeCommand() {
   return useMutation({
     mutationFn: ({
       previewId,
-      authorizedBy,
     }: {
       readonly previewId: string;
-      readonly authorizedBy: string;
     }) => authorizeCommand(
       previewId,
-      authorizedBy,
     ),
   });
 }
