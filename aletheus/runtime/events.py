@@ -1,4 +1,6 @@
 from __future__ import annotations
+
+from aletheus.time_utils import utc_now, utc_now_iso
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any, Callable, Dict, List
@@ -10,7 +12,7 @@ class RuntimeEvent:
     payload: Dict[str, Any]
     source: str = "system"
     event_id: str = field(default_factory=lambda: str(uuid.uuid4()))
-    created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+    created_at: str = field(default_factory=lambda: utc_now_iso())
     def to_dict(self) -> Dict[str, Any]: return {"event_id": self.event_id, "event_type": self.event_type, "source": self.source, "payload": self.payload, "created_at": self.created_at}
 
 class EventBus:

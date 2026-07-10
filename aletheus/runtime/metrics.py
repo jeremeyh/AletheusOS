@@ -1,4 +1,6 @@
 from __future__ import annotations
+
+from aletheus.time_utils import utc_now, utc_now_iso
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any, Dict, List
@@ -7,7 +9,7 @@ from typing import Any, Dict, List
 class RuntimeMetric:
     name: str
     value: Any
-    timestamp: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+    timestamp: str = field(default_factory=lambda: utc_now_iso())
     def to_dict(self) -> Dict[str, Any]: return {"name": self.name, "value": self.value, "timestamp": self.timestamp}
 
 class RuntimeMetrics:

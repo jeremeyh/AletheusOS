@@ -1,3 +1,4 @@
+from aletheus.time_utils import utc_now, utc_now_iso
 from datetime import datetime
 
 
@@ -11,7 +12,7 @@ class HeartbeatService:
 
             "status": "alive",
 
-            "timestamp": datetime.utcnow().isoformat()
+            "timestamp": utc_now_iso()
 
         }
 

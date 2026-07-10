@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from aletheus.time_utils import utc_now, utc_now_iso
+
 from datetime import datetime
 
 
@@ -19,7 +21,7 @@ class GovernanceHistory:
     ):
 
         event = {
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": utc_now_iso(),
             "event": event_type,
             "payload": payload,
         }

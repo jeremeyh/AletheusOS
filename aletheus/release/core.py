@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from aletheus.time_utils import utc_now, utc_now_iso
+
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any, Dict, List
@@ -12,7 +14,7 @@ class ReleaseManifest:
     organization: str = "6th Dimension Multimedia"
     product: str = "Aletheus™"
     product_type: str = "Universal Intelligence Operating System"
-    released_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+    released_at: str = field(default_factory=lambda: utc_now_iso())
 
     stable_subsystems: List[str] = field(
         default_factory=lambda: [

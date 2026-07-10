@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from aletheus.time_utils import utc_now, utc_now_iso
+
 import json
 import sys
 from datetime import datetime
@@ -42,7 +44,7 @@ class CouncilEngine:
         result = {
             "council": {
                 "version": self.VERSION,
-                "timestamp": datetime.utcnow().isoformat(),
+                "timestamp": utc_now_iso(),
                 "root": str(self.root),
                 "source": source,
                 "proposal": proposal,

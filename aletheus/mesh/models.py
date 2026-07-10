@@ -1,10 +1,11 @@
+from aletheus.time_utils import utc_now, utc_now_iso
 from dataclasses import dataclass, field
 from datetime import datetime
 import uuid
 
 
 def now():
-    return datetime.utcnow().isoformat()
+    return utc_now_iso()
 
 
 @dataclass

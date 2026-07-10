@@ -6,6 +6,8 @@ Genesis 54.0
 
 from __future__ import annotations
 
+from aletheus.time_utils import utc_now, utc_now_iso
+
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
@@ -51,7 +53,7 @@ class PlatformFinding:
     evidence: List[str] = field(default_factory=list)
 
     created_at: str = field(
-        default_factory=lambda: datetime.utcnow().isoformat()
+        default_factory=lambda: utc_now_iso()
     )
 
     def to_dict(self):

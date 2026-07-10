@@ -53,7 +53,7 @@ def test_join():
 
     assert node["name"] == "Houston Runtime"
 
-    return node["node_id"]
+    assert node["node_id"]
 
 
 def test_discover():

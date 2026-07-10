@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from aletheus.time_utils import utc_now, utc_now_iso
+
 from datetime import datetime
 
 
@@ -34,7 +36,7 @@ class Genesis6CertificationReport:
             "release": "Genesis 6",
             "report_version": self.VERSION,
 
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": utc_now_iso(),
 
             "certified": certification.get(
                 "ready",

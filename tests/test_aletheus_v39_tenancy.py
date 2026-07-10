@@ -45,7 +45,7 @@ def test_create_organization():
 
     assert org["name"] == "Test Organization"
 
-    return org["organization_id"]
+    assert org["organization_id"]
 
 
 def test_create_tenant():
@@ -70,7 +70,7 @@ def test_create_tenant():
 
     assert tenant["name"] == "Development"
 
-    return tenant["tenant_id"]
+    assert tenant["tenant_id"]
 
 
 def test_workspace():

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from aletheus.time_utils import utc_now, utc_now_iso
+
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any, Dict, List, Optional
@@ -14,7 +16,7 @@ class MemoryRecord:
     memory_type: str = "working"
     tags: List[str] = field(default_factory=list)
     record_id: str = field(default_factory=lambda: str(uuid.uuid4()))
-    created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+    created_at: str = field(default_factory=lambda: utc_now_iso())
 
     def to_dict(self) -> Dict[str, Any]:
         return {

@@ -1,3 +1,4 @@
+from aletheus.time_utils import utc_now, utc_now_iso
 from dataclasses import dataclass, field
 from datetime import datetime
 
@@ -10,7 +11,7 @@ class BootReport:
     Captures the phases executed during runtime startup.
     """
 
-    started_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+    started_at: str = field(default_factory=lambda: utc_now_iso())
     phases: list[str] = field(default_factory=list)
     completed: bool = False
 

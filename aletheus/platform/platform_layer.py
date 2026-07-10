@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from aletheus.time_utils import utc_now, utc_now_iso
+
 import json
 import os
 import platform
@@ -78,7 +80,7 @@ class PlatformLayer:
         result = {
             "platform": {
                 "version": self.VERSION,
-                "timestamp": datetime.utcnow().isoformat(),
+                "timestamp": utc_now_iso(),
                 "root": str(self.root),
                 "status": status,
                 "score": score,

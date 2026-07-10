@@ -7,6 +7,8 @@ Genesis 54.0
 
 from __future__ import annotations
 
+from aletheus.time_utils import utc_now, utc_now_iso
+
 from datetime import datetime
 import uuid
 
@@ -127,7 +129,7 @@ class ArchitecturalAssessment:
 
             report_id=f"REPORT-{uuid.uuid4().hex[:8].upper()}",
 
-            generated_at=datetime.utcnow().isoformat(),
+            generated_at=utc_now_iso(),
 
             score=score,
 

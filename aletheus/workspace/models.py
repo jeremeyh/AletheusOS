@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from aletheus.time_utils import utc_now, utc_now_iso
+
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any, Dict, List
@@ -7,7 +9,7 @@ import uuid
 
 
 def now() -> str:
-    return datetime.utcnow().isoformat()
+    return utc_now_iso()
 
 
 @dataclass

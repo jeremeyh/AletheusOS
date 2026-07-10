@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from aletheus.time_utils import utc_now, utc_now_iso
+
 from typing import Any, Dict, List
 
 from aletheus.cognition.models import Goal, Plan, ReasoningSession, Decision
@@ -35,7 +37,7 @@ class AletheusCognitionCore:
         for goal in self.goals:
             if goal.goal_id == goal_id:
                 goal.status = "completed"
-                goal.completed_at = __import__("datetime").datetime.utcnow().isoformat()
+                goal.completed_at = __import__("datetime").utc_now_iso()
                 return goal.to_dict()
         return {"error": f"Goal not found: {goal_id}"}
 

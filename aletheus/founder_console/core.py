@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from aletheus.time_utils import utc_now, utc_now_iso
+
 from dataclasses import dataclass, asdict
 from datetime import datetime
 from typing import Any
@@ -24,7 +26,7 @@ class FounderConsoleBackend:
     VERSION = "0.1.0"
 
     def __init__(self):
-        self.generated_at = datetime.utcnow().isoformat()
+        self.generated_at = utc_now_iso()
 
     def collect(self) -> dict[str, Any]:
         components = []

@@ -1,4 +1,6 @@
 from __future__ import annotations
+
+from aletheus.time_utils import utc_now, utc_now_iso
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any, Dict, List
@@ -10,7 +12,7 @@ class RuntimeJob:
     application: str = 'system'
     job_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     status: str = 'queued'
-    created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+    created_at: str = field(default_factory=lambda: utc_now_iso())
     completed_at: str | None = None
     result: Dict[str, Any] | None = None
     def to_dict(self) -> Dict[str, Any]: return {'job_id': self.job_id, 'command': self.command, 'payload': self.payload, 'application': self.application, 'status': self.status, 'created_at': self.created_at, 'completed_at': self.completed_at, 'result': self.result}
@@ -24,5 +26,5 @@ class JobQueue:
         if not queued: return None
         job = queued[0]; job.status = 'running'
         context = self.runtime.commands.dispatch(job.command, job.payload, application=job.application)
-        job.result = context.to_dict(); job.status = 'failed' if context.errors else 'completed'; job.completed_at = datetime.utcnow().isoformat(); return job
+        job.result = context.to_dict(); job.status = 'failed' if context.errors else 'completed'; job.completed_at = utc_now_iso(); return job
     def list(self) -> List[Dict[str, Any]]: return [job.to_dict() for job in self.jobs]

@@ -4,6 +4,8 @@ Aletheus Intelligence Civilization Core
 Post-Genesis 205-215
 """
 
+from aletheus.time_utils import utc_now, utc_now_iso
+
 from datetime import datetime
 
 
@@ -46,7 +48,7 @@ class IntelligenceCivilizationEngine:
             "AletheusOS",
 
             "created":
-            str(datetime.utcnow()),
+            str(utc_now()),
 
             "components":
             [

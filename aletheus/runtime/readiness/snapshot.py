@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from aletheus.time_utils import utc_now, utc_now_iso
+
 from datetime import datetime
 
 
@@ -14,7 +16,7 @@ class RuntimeReadinessSnapshot:
             "engine": "Runtime Readiness Snapshot",
             "version": self.VERSION,
 
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": utc_now_iso(),
 
             "runtime": {
                 "initialized": True,

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from aletheus.time_utils import utc_now, utc_now_iso
+
 import json
 from datetime import datetime
 from pathlib import Path
@@ -38,7 +40,7 @@ class LighthouseBootloader:
         result = {
             "lighthouse": {
                 "version": self.VERSION,
-                "timestamp": datetime.utcnow().isoformat(),
+                "timestamp": utc_now_iso(),
                 "root": str(self.root),
                 "status": "healthy" if not failed else "degraded",
                 "checks": checks,
