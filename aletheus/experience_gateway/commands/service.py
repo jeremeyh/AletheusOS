@@ -18,6 +18,7 @@ from .contracts import (
     CommandRequest,
 )
 from .store import CommandAuditStore
+from .store_contract import CommandStore
 
 
 class CommandGatewayService:
@@ -27,7 +28,7 @@ class CommandGatewayService:
     def __init__(
         self,
         registry: CommandRegistry,
-        store: CommandAuditStore | None = None,
+        store: CommandStore | None = None,
     ) -> None:
         self._registry = registry
         self._store = (

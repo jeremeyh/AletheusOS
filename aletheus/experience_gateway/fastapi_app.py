@@ -16,8 +16,14 @@ from .commands.contracts import CommandRequest
 from .commands.default_commands import (
     create_default_command_registry,
 )
+from .commands.config import (
+    command_database_path,
+)
 from .commands.service import (
     CommandGatewayService,
+)
+from .commands.sqlite_store import (
+    SQLiteCommandAuditStore,
 )
 
 from .providers import create_default_provider_registry
@@ -26,6 +32,7 @@ from .service import ExperienceGatewayService
 
 def create_app(
     service: ExperienceGatewayService | None = None,
+    command_service: CommandGatewayService | None = None,
 ) -> FastAPI:
     gateway = service or ExperienceGatewayService(
         provider_registry=(
@@ -33,8 +40,16 @@ def create_app(
         )
     )
 
-    command_gateway = CommandGatewayService(
-        create_default_command_registry()
+    command_store = SQLiteCommandAuditStore(
+        command_database_path()
+    )
+
+    command_gateway = (
+        command_service
+        or CommandGatewayService(
+            create_default_command_registry(),
+            store=command_store,
+        )
     )
 
     app = FastAPI(
@@ -223,6 +238,17 @@ def create_app(
                 command_gateway.history()
             )
         ]
+
+    @app.get("/api/commands/persistence")
+    def command_persistence() -> dict:
+        return {
+            "mode": "sqlite",
+            "databasePath": str(
+                command_store.database_path
+            ),
+            "counts": command_store.counts(),
+            "durable": True,
+        }
 
     @app.get("/api/experience/meta")
     def experience_metadata() -> dict:

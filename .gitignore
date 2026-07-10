@@ -14,3 +14,8 @@ uploads/*
 
 # Generated runtime health reports
 reports/
+
+# AletheusOS Experience Gateway runtime state
+var/experience_gateway/
+*.sqlite3-wal
+*.sqlite3-shm
