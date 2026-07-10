@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-10T23:19:56.400707+00:00",
+  "generated_at": "2026-07-10T23:27:49.124299+00:00",
   "npm": {
     "direct_dependencies": {},
     "direct_dev_dependencies": {},
     "lockfile_version": 3,
-    "package_json_sha256": "9b344afd4a29a5165d0b91e1f3d4fbeee843d4b6d37a14944f06e50f70dd633e",
+    "package_json_sha256": "2225eef9b8e7d937c73549678202ced2a30a13f4c828138ae0b2b440fc595528",
     "package_lock_sha256": "5963e1d9ced942c2f22873a7a3969a99342406fb748baf51de22ab348205553f",
     "resolved_package_count": 354,
     "resolved_packages": [
@@ -2845,7 +2845,7 @@
   },
   "python": {
     "direct_dependencies": [],
-    "installed_package_count": 61,
+    "installed_package_count": 81,
     "installed_packages": [
       {
         "license": "Proprietary",
@@ -2888,6 +2888,16 @@
         "version": "1.9.0"
       },
       {
+        "license": "BSD-2-Clause",
+        "name": "boolean.py",
+        "version": "5.0"
+      },
+      {
+        "license": "unknown",
+        "name": "CacheControl",
+        "version": "0.14.4"
+      },
+      {
         "license": "unknown",
         "name": "cachetools",
         "version": "7.1.4"
@@ -2918,9 +2928,24 @@
         "version": "49.0.0"
       },
       {
+        "license": "Apache-2.0",
+        "name": "cyclonedx-python-lib",
+        "version": "11.11.0"
+      },
+      {
+        "license": "PSFL",
+        "name": "defusedxml",
+        "version": "0.7.1"
+      },
+      {
         "license": "unknown",
         "name": "fastapi",
         "version": "0.139.0"
+      },
+      {
+        "license": "unknown",
+        "name": "filelock",
+        "version": "3.29.7"
       },
       {
         "license": "BSD License",
@@ -2983,9 +3008,29 @@
         "version": "2025.9.1"
       },
       {
+        "license": "Apache-2.0",
+        "name": "license-expression",
+        "version": "30.4.4"
+      },
+      {
+        "license": "unknown",
+        "name": "markdown-it-py",
+        "version": "4.2.0"
+      },
+      {
         "license": "unknown",
         "name": "MarkupSafe",
         "version": "3.0.3"
+      },
+      {
+        "license": "unknown",
+        "name": "mdurl",
+        "version": "0.1.2"
+      },
+      {
+        "license": "unknown",
+        "name": "msgpack",
+        "version": "1.2.1"
       },
       {
         "license": "unknown",
@@ -2996,6 +3041,11 @@
         "license": "unknown",
         "name": "numpy",
         "version": "2.5.0"
+      },
+      {
+        "license": "MIT",
+        "name": "packageurl-python",
+        "version": "0.17.6"
       },
       {
         "license": "unknown",
@@ -3018,6 +3068,26 @@
         "version": "26.1.2"
       },
       {
+        "license": "unknown",
+        "name": "pip-api",
+        "version": "0.0.34"
+      },
+      {
+        "license": "MIT",
+        "name": "pip-requirements-parser",
+        "version": "32.0.1"
+      },
+      {
+        "license": "unknown",
+        "name": "pip_audit",
+        "version": "2.10.1"
+      },
+      {
+        "license": "unknown",
+        "name": "platformdirs",
+        "version": "4.10.0"
+      },
+      {
         "license": "MIT",
         "name": "pluggy",
         "version": "1.6.0"
@@ -3026,6 +3096,11 @@
         "license": "3-Clause BSD License",
         "name": "protobuf",
         "version": "7.35.1"
+      },
+      {
+        "license": "Apache-2.0",
+        "name": "py-serializable",
+        "version": "2.1.0"
       },
       {
         "license": "unknown",
@@ -3064,6 +3139,11 @@
       },
       {
         "license": "unknown",
+        "name": "pyparsing",
+        "version": "3.3.2"
+      },
+      {
+        "license": "unknown",
         "name": "pytest",
         "version": "9.1.1"
       },
@@ -3093,6 +3173,11 @@
         "version": "2.34.2"
       },
       {
+        "license": "MIT",
+        "name": "rich",
+        "version": "15.0.0"
+      },
+      {
         "license": "unknown",
         "name": "rpds-py",
         "version": "2026.5.1"
@@ -3106,6 +3191,11 @@
         "license": "BSD-3-Clause",
         "name": "smmap",
         "version": "5.0.3"
+      },
+      {
+        "license": "Apache 2.0",
+        "name": "sortedcontainers",
+        "version": "2.4.0"
       },
       {
         "license": "unknown",
@@ -3126,6 +3216,16 @@
         "license": "MIT",
         "name": "toml",
         "version": "0.10.2"
+      },
+      {
+        "license": "unknown",
+        "name": "tomli",
+        "version": "2.4.1"
+      },
+      {
+        "license": "unknown",
+        "name": "tomli_w",
+        "version": "1.2.0"
       },
       {
         "license": "unknown",
@@ -3166,7 +3266,7 @@
   "schema_version": "1.0",
   "source": {
     "branch": "feature/cardhawk-streamlit-v0.1",
-    "commit": "2150a8d2267a40748d8de9a7a5432492ee1374bb",
-    "short_commit": "2150a8d"
+    "commit": "f51a43ef0072cf229659595177c6fb6fcc39f382",
+    "short_commit": "f51a43e"
   }
 }

@@ -85,6 +85,12 @@ jobs:
         run: |
           python validate_nimble_dependency_manifest.py
 
+      - name: Scan dependency risk
+        run: |
+          python -m pip install pip-audit
+          python scan_nimble_dependency_risk.py
+          python validate_nimble_dependency_risk.py
+
       - name: Run Experience Gateway tests
         run: |
           python -m pytest -q tests/experience_gateway
@@ -133,5 +139,8 @@ jobs:
             reports/nimble/performance-regression-latest.md
             nimble/governance/supply-chain/dependency-manifest.json
             reports/nimble/dependency-manifest-latest.md
+            nimble/governance/supply-chain/dependency-policy.json
+            reports/nimble/dependency-risk-latest.json
+            reports/nimble/dependency-risk-latest.md
           if-no-files-found: warn
           retention-days: 7
