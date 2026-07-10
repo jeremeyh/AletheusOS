@@ -1,18 +1,27 @@
 {
-  "created_at": "2026-07-10T22:58:23.564719+00:00",
+  "created_at": "2026-07-10T23:03:08.531938+00:00",
   "metrics": {
-    "gate_duration_seconds": 7.1226,
+    "gate_duration_seconds": 7.3578,
     "largest_secondary_chunk_bytes": 67533,
     "primary_bundle_bytes": 447168,
     "secondary_chunk_count": 6,
     "total_javascript_bytes": 584884
   },
-  "schema_version": "1.0",
+  "promotion": {
+    "approved_by": "Platform Architecture Council",
+    "archived_baseline": "nimble/governance/performance-baselines/performance-baseline-2026-07-10T22-58-23.564719_00-00-d61267d.json",
+    "failed_regression_override": false,
+    "previous_baseline_sha256": "a31f00880b8d4c4bb796775acccff93d4a3a5df21f0aa71c772ea0967650aac3",
+    "rationale": "Approved architecture change requiring a new performance baseline.",
+    "regression_status": "PASS",
+    "ticket": "NIMBLE-BASELINE-001"
+  },
+  "schema_version": "1.1",
   "source": {
     "branch": "feature/cardhawk-streamlit-v0.1",
-    "commit": "d61267d26ab336f1fff82d75e09a1e77aa95631f",
-    "short_commit": "d61267d",
-    "telemetry_generated_at": "2026-07-10T22:55:14.905078+00:00"
+    "commit": "eb53711f55031b7d09b3f2f0e34f83f406a6117f",
+    "short_commit": "eb53711",
+    "telemetry_generated_at": "2026-07-10T23:00:16.004274+00:00"
   },
   "thresholds": {
     "gate_duration_absolute_limit_seconds": 120.0,
