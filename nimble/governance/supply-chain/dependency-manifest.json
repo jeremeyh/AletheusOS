@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-10T23:27:49.124299+00:00",
+  "generated_at": "2026-07-10T23:34:15.789635+00:00",
   "npm": {
     "direct_dependencies": {},
     "direct_dev_dependencies": {},
     "lockfile_version": 3,
-    "package_json_sha256": "2225eef9b8e7d937c73549678202ced2a30a13f4c828138ae0b2b440fc595528",
+    "package_json_sha256": "1e924f9714138a9aece86f6b1e21566210981718a4f9ea93477e686a010a6168",
     "package_lock_sha256": "5963e1d9ced942c2f22873a7a3969a99342406fb748baf51de22ab348205553f",
     "resolved_package_count": 354,
     "resolved_packages": [
@@ -3266,7 +3266,7 @@
   "schema_version": "1.0",
   "source": {
     "branch": "feature/cardhawk-streamlit-v0.1",
-    "commit": "f51a43ef0072cf229659595177c6fb6fcc39f382",
-    "short_commit": "f51a43e"
+    "commit": "efe7de67eb21f5cd7df098c32f3f5a06a13dde08",
+    "short_commit": "efe7de6"
   }
 }

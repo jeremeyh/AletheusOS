@@ -27,6 +27,14 @@ POLICY = (
     / "dependency-policy.json"
 )
 
+EXCEPTIONS = (
+    ROOT
+    / "nimble"
+    / "governance"
+    / "supply-chain"
+    / "dependency-exceptions.json"
+)
+
 LATEST_JSON = (
     ROOT
     / "reports"
@@ -170,6 +178,41 @@ def classify_licenses(
         ],
         "all": results,
     }
+
+
+def load_active_exceptions() -> list[dict[str, Any]]:
+    if not EXCEPTIONS.exists():
+        return []
+
+    registry = load_json(EXCEPTIONS)
+
+    return [
+        item
+        for item in registry.get(
+            "exceptions",
+            [],
+        )
+        if item.get("status") == "active"
+    ]
+
+
+def exception_matches(
+    exception: dict[str, Any],
+    *,
+    ecosystem: str,
+    package: str,
+    version: str,
+    exception_type: str,
+    subject: str,
+) -> bool:
+    return (
+        exception.get("ecosystem") == ecosystem
+        and exception.get("package") == package
+        and exception.get("version") == version
+        and exception.get("exception_type")
+        == exception_type
+        and exception.get("subject") == subject
+    )
 
 
 def collect_npm_audit() -> dict[str, Any]:
@@ -443,8 +486,30 @@ def main() -> int:
     python_audit = collect_python_audit()
 
     failures: list[str] = []
+    active_exceptions = load_active_exceptions()
+    applied_exceptions: list[dict[str, Any]] = []
 
     for item in licenses["denied"]:
+        matching = next(
+            (
+                exception
+                for exception in active_exceptions
+                if exception_matches(
+                    exception,
+                    ecosystem=item["ecosystem"],
+                    package=item["name"],
+                    version=item["version"],
+                    exception_type="license_review",
+                    subject=item["license"],
+                )
+            ),
+            None,
+        )
+
+        if matching is not None:
+            applied_exceptions.append(matching)
+            continue
+
         failures.append(
             "Denied license: "
             f"{item['ecosystem']} "
@@ -482,6 +547,10 @@ def main() -> int:
         "licenses": licenses,
         "npm_audit": npm_audit,
         "python_audit": python_audit,
+        "exceptions": {
+            "active_count": len(active_exceptions),
+            "applied": applied_exceptions,
+        },
         "failures": failures,
     }
 

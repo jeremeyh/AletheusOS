@@ -23,7 +23,8 @@
     "dependency-manifest": "../.venv/bin/python ../generate_nimble_dependency_manifest.py",
     "validate-dependencies": "../.venv/bin/python ../validate_nimble_dependency_manifest.py",
     "dependency-risk": "../.venv/bin/python ../scan_nimble_dependency_risk.py",
-    "validate-dependency-risk": "../.venv/bin/python ../validate_nimble_dependency_risk.py"
+    "validate-dependency-risk": "../.venv/bin/python ../validate_nimble_dependency_risk.py",
+    "validate-dependency-exceptions": "../.venv/bin/python ../validate_nimble_dependency_exceptions.py"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"

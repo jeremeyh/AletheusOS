@@ -85,6 +85,10 @@ jobs:
         run: |
           python validate_nimble_dependency_manifest.py
 
+      - name: Validate dependency exceptions
+        run: |
+          python validate_nimble_dependency_exceptions.py
+
       - name: Scan dependency risk
         run: |
           python -m pip install pip-audit
@@ -142,5 +146,8 @@ jobs:
             nimble/governance/supply-chain/dependency-policy.json
             reports/nimble/dependency-risk-latest.json
             reports/nimble/dependency-risk-latest.md
+            nimble/governance/supply-chain/dependency-exceptions.json
+            reports/nimble/dependency-exceptions-latest.json
+            reports/nimble/dependency-exceptions-latest.md
           if-no-files-found: warn
           retention-days: 7

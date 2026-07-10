@@ -19,6 +19,7 @@ REQUIRED_MARKERS = (
     'node-version: "24"',
     "npm ci",
     "python validate_nimble_dependency_manifest.py",
+    "python validate_nimble_dependency_exceptions.py",
     "python scan_nimble_dependency_risk.py",
     "python validate_nimble_dependency_risk.py",
     "tests/experience_gateway",
