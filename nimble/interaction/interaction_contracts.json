@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "name": "Nimble Interaction Contracts",
+    "version": "0.1.0"
+  },
+  "contracts": {
+    "activate": {
+      "inputs": [
+        "pointer",
+        "keyboard",
+        "touch",
+        "command"
+      ],
+      "must_acknowledge": true,
+      "must_expose_failure": true
+    },
+    "drag": {
+      "inputs": [
+        "pointer",
+        "touch"
+      ],
+      "keyboard_equivalent_required": true,
+      "must_show_origin": true,
+      "must_show_destination": true,
+      "must_support_cancel": true
+    },
+    "resize": {
+      "inputs": [
+        "pointer",
+        "keyboard",
+        "touch"
+      ],
+      "must_show_bounds": true,
+      "must_preserve_content": true,
+      "must_support_reset": true
+    },
+    "dock": {
+      "inputs": [
+        "pointer",
+        "keyboard",
+        "command"
+      ],
+      "must_preview_destination": true,
+      "must_preserve_state": true,
+      "must_support_undo": true
+    },
+    "execute": {
+      "inputs": [
+        "pointer",
+        "keyboard",
+        "command",
+        "natural_language"
+      ],
+      "must_show_progress": true,
+      "must_show_result": true,
+      "must_show_failure": true,
+      "must_show_impact_before_destructive_action": true
+    },
+    "navigate": {
+      "inputs": [
+        "pointer",
+        "keyboard",
+        "touch",
+        "command"
+      ],
+      "must_preserve_context": true,
+      "must_restore_focus": true
+    },
+    "inspect": {
+      "inputs": [
+        "pointer",
+        "keyboard",
+        "touch",
+        "command"
+      ],
+      "must_preserve_parent_context": true,
+      "must_support_close": true
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "name": "Nimble Workspace Contracts",
+    "version": "0.1.0"
+  },
+  "workspace": {
+    "required_capabilities": [
+      "panel_composition",
+      "responsive_reflow",
+      "layout_persistence",
+      "focus_restoration",
+      "keyboard_navigation",
+      "reduced_motion",
+      "application_inheritance"
+    ],
+    "optional_capabilities": [
+      "drag_reorder",
+      "dock",
+      "undock",
+      "resize",
+      "saved_views",
+      "shared_views",
+      "presentation_mode",
+      "fullscreen_panel"
+    ]
+  },
+  "panel": {
+    "required_properties": [
+      "id",
+      "title",
+      "role",
+      "state",
+      "minimum_size",
+      "preferred_size"
+    ],
+    "required_behaviors": [
+      "focus",
+      "collapse",
+      "expand",
+      "restore"
+    ],
+    "optional_behaviors": [
+      "move",
+      "resize",
+      "dock",
+      "undock",
+      "duplicate",
+      "share"
+    ]
+  },
+  "layout_modes": [
+    "focused",
+    "balanced",
+    "dense",
+    "exploratory",
+    "presentation"
+  ],
+  "persistence": {
+    "must_preserve": [
+      "panel_order",
+      "panel_size",
+      "panel_state",
+      "active_context",
+      "selected_application"
+    ],
+    "must_not_preserve_without_consent": [
+      "sensitive_content",
+      "temporary_credentials",
+      "private_ephemeral_data"
+    ]
+  }
+}

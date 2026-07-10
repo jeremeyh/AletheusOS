@@ -1,0 +1,224 @@
+{
+  "meta": {
+    "name": "Nimble Core Component Contracts",
+    "version": "0.1.0"
+  },
+  "components": [
+    {
+      "name": "button",
+      "category": "actions",
+      "role": "Execute a discrete user action.",
+      "states": [
+        "idle",
+        "hover",
+        "focus",
+        "active",
+        "disabled",
+        "loading",
+        "success",
+        "error"
+      ],
+      "interactions": [
+        "click",
+        "keyboard_activate"
+      ],
+      "accessibility": {
+        "keyboard": true,
+        "focus": true,
+        "semantic_role": "button",
+        "reduced_motion": true
+      },
+      "motion": {
+        "category": "micro",
+        "interruptible": true,
+        "reduced_motion_fallback": "instant_state_change"
+      },
+      "principle_x": {
+        "state_visible": true,
+        "failure_visible": true,
+        "reversibility_visible": false
+      }
+    },
+    {
+      "name": "panel",
+      "category": "workspace",
+      "role": "Contain a bounded operational or informational context.",
+      "states": [
+        "idle",
+        "focus",
+        "selected",
+        "loading",
+        "error"
+      ],
+      "interactions": [
+        "focus",
+        "resize",
+        "dock",
+        "undock",
+        "collapse",
+        "expand"
+      ],
+      "accessibility": {
+        "keyboard": true,
+        "focus": true,
+        "semantic_role": "region",
+        "reduced_motion": true
+      },
+      "motion": {
+        "category": "structural",
+        "interruptible": true,
+        "reduced_motion_fallback": "instant_layout_change"
+      },
+      "principle_x": {
+        "state_visible": true,
+        "failure_visible": true,
+        "reversibility_visible": true
+      }
+    },
+    {
+      "name": "command_palette",
+      "category": "overlays",
+      "role": "Expose universal actions, navigation, and natural-language commands.",
+      "states": [
+        "idle",
+        "focus",
+        "loading",
+        "success",
+        "warning",
+        "error"
+      ],
+      "interactions": [
+        "open",
+        "close",
+        "search",
+        "navigate",
+        "preview",
+        "execute",
+        "undo"
+      ],
+      "accessibility": {
+        "keyboard": true,
+        "focus": true,
+        "semantic_role": "dialog",
+        "reduced_motion": true
+      },
+      "motion": {
+        "category": "structural",
+        "interruptible": true,
+        "reduced_motion_fallback": "instant_visibility_change"
+      },
+      "principle_x": {
+        "state_visible": true,
+        "failure_visible": true,
+        "reversibility_visible": true,
+        "confidence_visible": true,
+        "provenance_visible": true
+      }
+    },
+    {
+      "name": "recommendation",
+      "category": "intelligence",
+      "role": "Present a proposed action with evidence, confidence, and consequence.",
+      "states": [
+        "idle",
+        "selected",
+        "loading",
+        "success",
+        "warning",
+        "error"
+      ],
+      "interactions": [
+        "inspect",
+        "compare",
+        "accept",
+        "reject",
+        "modify"
+      ],
+      "accessibility": {
+        "keyboard": true,
+        "focus": true,
+        "semantic_role": "article",
+        "reduced_motion": true
+      },
+      "motion": {
+        "category": "narrative",
+        "interruptible": true,
+        "reduced_motion_fallback": "static_disclosure"
+      },
+      "principle_x": {
+        "state_visible": true,
+        "failure_visible": true,
+        "reversibility_visible": true,
+        "confidence_visible": true,
+        "provenance_visible": true
+      }
+    },
+    {
+      "name": "status_indicator",
+      "category": "feedback",
+      "role": "Communicate current system, object, or process state.",
+      "states": [
+        "idle",
+        "loading",
+        "success",
+        "warning",
+        "error"
+      ],
+      "interactions": [
+        "inspect"
+      ],
+      "accessibility": {
+        "keyboard": true,
+        "focus": true,
+        "semantic_role": "status",
+        "reduced_motion": true
+      },
+      "motion": {
+        "category": "system",
+        "interruptible": true,
+        "reduced_motion_fallback": "static_state_symbol"
+      },
+      "principle_x": {
+        "state_visible": true,
+        "failure_visible": true,
+        "reversibility_visible": false
+      }
+    },
+    {
+      "name": "decision_trace",
+      "category": "data_display",
+      "role": "Reveal the sequence, evidence, confidence, and consequences of a decision.",
+      "states": [
+        "idle",
+        "selected",
+        "loading",
+        "warning",
+        "error"
+      ],
+      "interactions": [
+        "expand",
+        "collapse",
+        "inspect",
+        "navigate_provenance"
+      ],
+      "accessibility": {
+        "keyboard": true,
+        "focus": true,
+        "semantic_role": "list",
+        "reduced_motion": true
+      },
+      "motion": {
+        "category": "narrative",
+        "interruptible": true,
+        "reduced_motion_fallback": "static_sequence"
+      },
+      "principle_x": {
+        "state_visible": true,
+        "failure_visible": true,
+        "reversibility_visible": true,
+        "confidence_visible": true,
+        "provenance_visible": true
+      }
+    }
+  ]
+}

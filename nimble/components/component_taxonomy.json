@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "name": "Nimble Component Taxonomy",
+    "version": "0.1.0",
+    "status": "foundation"
+  },
+  "categories": {
+    "primitives": [
+      "surface",
+      "text",
+      "icon",
+      "divider",
+      "spacer",
+      "focus_ring"
+    ],
+    "actions": [
+      "button",
+      "icon_button",
+      "split_button",
+      "toggle",
+      "segmented_control",
+      "command_trigger"
+    ],
+    "inputs": [
+      "text_field",
+      "text_area",
+      "select",
+      "combobox",
+      "search_field",
+      "checkbox",
+      "radio",
+      "slider",
+      "date_input",
+      "file_input"
+    ],
+    "navigation": [
+      "global_navigation",
+      "application_switcher",
+      "breadcrumb",
+      "tabs",
+      "rail",
+      "tree_navigation",
+      "pagination"
+    ],
+    "feedback": [
+      "status_indicator",
+      "progress",
+      "skeleton",
+      "toast",
+      "banner",
+      "inline_message",
+      "confidence_indicator",
+      "uncertainty_indicator"
+    ],
+    "overlays": [
+      "popover",
+      "tooltip",
+      "menu",
+      "dialog",
+      "drawer",
+      "command_palette",
+      "inspector"
+    ],
+    "data_display": [
+      "card",
+      "metric",
+      "table",
+      "list",
+      "timeline",
+      "activity_feed",
+      "provenance_view",
+      "decision_trace",
+      "graph",
+      "chart"
+    ],
+    "workspace": [
+      "panel",
+      "dock",
+      "split_view",
+      "canvas",
+      "workspace_tabs",
+      "workspace_switcher",
+      "layout_control"
+    ],
+    "intelligence": [
+      "reasoning_panel",
+      "recommendation",
+      "evidence_panel",
+      "confidence_surface",
+      "agent_activity",
+      "command_result",
+      "system_explanation"
+    ]
+  },
+  "required_states": [
+    "idle",
+    "hover",
+    "focus",
+    "active",
+    "selected",
+    "disabled",
+    "loading",
+    "success",
+    "warning",
+    "error"
+  ],
+  "required_capabilities": [
+    "keyboard_access",
+    "focus_visibility",
+    "reduced_motion",
+    "semantic_label",
+    "theme_support",
+    "density_support",
+    "loading_state",
+    "error_state"
+  ]
+}

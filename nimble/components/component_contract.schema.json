@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nimble Component Contract",
+  "type": "object",
+  "required": [
+    "name",
+    "category",
+    "role",
+    "states",
+    "interactions",
+    "accessibility",
+    "motion",
+    "principle_x"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "role": {
+      "type": "string",
+      "minLength": 1
+    },
+    "states": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "interactions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "accessibility": {
+      "type": "object",
+      "required": [
+        "keyboard",
+        "focus",
+        "semantic_role",
+        "reduced_motion"
+      ],
+      "properties": {
+        "keyboard": {
+          "type": "boolean"
+        },
+        "focus": {
+          "type": "boolean"
+        },
+        "semantic_role": {
+          "type": "string"
+        },
+        "reduced_motion": {
+          "type": "boolean"
+        }
+      }
+    },
+    "motion": {
+      "type": "object",
+      "required": [
+        "category",
+        "interruptible",
+        "reduced_motion_fallback"
+      ],
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "interruptible": {
+          "type": "boolean"
+        },
+        "reduced_motion_fallback": {
+          "type": "string"
+        }
+      }
+    },
+    "principle_x": {
+      "type": "object",
+      "required": [
+        "state_visible",
+        "failure_visible",
+        "reversibility_visible"
+      ],
+      "properties": {
+        "state_visible": {
+          "type": "boolean"
+        },
+        "failure_visible": {
+          "type": "boolean"
+        },
+        "reversibility_visible": {
+          "type": "boolean"
+        },
+        "confidence_visible": {
+          "type": "boolean"
+        },
+        "provenance_visible": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}
