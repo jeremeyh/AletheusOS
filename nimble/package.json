@@ -18,7 +18,8 @@
     "production-evidence": "../.venv/bin/python ../collect_nimble_production_telemetry.py",
     "performance-baseline": "../.venv/bin/python ../create_nimble_performance_baseline.py",
     "performance-regression": "../.venv/bin/python ../validate_nimble_performance_regression.py",
-    "baseline-governance": "../.venv/bin/python ../validate_nimble_baseline_governance.py"
+    "baseline-governance": "../.venv/bin/python ../validate_nimble_baseline_governance.py",
+    "validate-attestation": "../.venv/bin/python ../validate_nimble_release_attestation.py"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
