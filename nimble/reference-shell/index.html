@@ -1,692 +1,291 @@
 <!doctype html>
-<html lang="en" data-nimble-theme="dark">
-<head>
-  <meta charset="utf-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
-  <meta
-    name="description"
-    content="Nimble — the adaptive experience framework of AletheusOS."
-  >
-  <title>Nimble™ — AletheusOS</title>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      name="description"
+      content="Nimble inherited experience framework reference shell"
+    />
+    <title>Nimble Reference Shell</title>
 
-  <link
-    rel="stylesheet"
-    href="../design-tokens/generated/nimble.tokens.css"
-  >
-  <link
-    rel="stylesheet"
-    href="./assets/nimble-shell.css"
-  >
-</head>
+    <link
+      rel="stylesheet"
+      href="./assets/nimble-shell.css"
+    />
 
-<body>
-  <a class="skip-link" href="#nimble-main">
-    Skip to main workspace
-  </a>
+    <script>
+      const reducedMotion =
+        window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        );
+    </script>
+  </head>
 
-  <div class="nimble-environment" aria-hidden="true">
-    <div class="nimble-orb nimble-orb--gold"></div>
-    <div class="nimble-orb nimble-orb--violet"></div>
-    <div class="nimble-orb nimble-orb--cyan"></div>
-    <div class="nimble-grid"></div>
-  </div>
-
-  <div
-    class="nimble-shell"
-    data-navigation="expanded"
-    data-inspector="open"
-  >
-    <aside
-      class="nimble-navigation"
-      aria-label="Global navigation"
-    >
-      <header class="nimble-brand">
-        <button
-          class="nimble-brand__mark"
-          type="button"
-          aria-label="Open application switcher"
-          data-action="application-switcher"
-        >
-          <span aria-hidden="true">A</span>
-        </button>
-
-        <div class="nimble-brand__identity">
-          <strong>AletheusOS</strong>
-          <span>Nimble™ Experience</span>
-        </div>
-
-        <button
-          class="nimble-icon-button nimble-navigation__collapse"
-          type="button"
-          aria-label="Collapse navigation"
-          aria-expanded="true"
-          data-action="toggle-navigation"
-        >
-          <span aria-hidden="true">‹</span>
-        </button>
-      </header>
-
-      <nav class="nimble-navigation__body">
-        <p class="nimble-navigation__label">Platform</p>
-
-        <a
-          class="nimble-nav-item is-active"
-          href="#overview"
-          aria-current="page"
-        >
-          <span class="nimble-nav-item__icon" aria-hidden="true">◈</span>
-          <span class="nimble-nav-item__label">Overview</span>
-          <span class="nimble-nav-item__signal" aria-hidden="true"></span>
-        </a>
-
-        <a class="nimble-nav-item" href="#intelligence">
-          <span class="nimble-nav-item__icon" aria-hidden="true">✦</span>
-          <span class="nimble-nav-item__label">Intelligence</span>
-        </a>
-
-        <a class="nimble-nav-item" href="#missions">
-          <span class="nimble-nav-item__icon" aria-hidden="true">◎</span>
-          <span class="nimble-nav-item__label">Missions</span>
-          <span class="nimble-nav-item__count">4</span>
-        </a>
-
-        <a class="nimble-nav-item" href="#workflows">
-          <span class="nimble-nav-item__icon" aria-hidden="true">⌁</span>
-          <span class="nimble-nav-item__label">Workflows</span>
-        </a>
-
-        <a class="nimble-nav-item" href="#agents">
-          <span class="nimble-nav-item__icon" aria-hidden="true">◇</span>
-          <span class="nimble-nav-item__label">Agents</span>
-          <span class="nimble-nav-item__pulse" aria-label="Three active"></span>
-        </a>
-
-        <p class="nimble-navigation__label">Knowledge</p>
-
-        <a class="nimble-nav-item" href="#memory">
-          <span class="nimble-nav-item__icon" aria-hidden="true">◌</span>
-          <span class="nimble-nav-item__label">Memory</span>
-        </a>
-
-        <a class="nimble-nav-item" href="#knowledge">
-          <span class="nimble-nav-item__icon" aria-hidden="true">⌬</span>
-          <span class="nimble-nav-item__label">Knowledge Graph</span>
-        </a>
-
-        <p class="nimble-navigation__label">Governance</p>
-
-        <a class="nimble-nav-item" href="#council">
-          <span class="nimble-nav-item__icon" aria-hidden="true">△</span>
-          <span class="nimble-nav-item__label">Council</span>
-        </a>
-
-        <a class="nimble-nav-item" href="#runtime">
-          <span class="nimble-nav-item__icon" aria-hidden="true">◉</span>
-          <span class="nimble-nav-item__label">Runtime Health</span>
-          <span
-            class="nimble-status-dot nimble-status-dot--success"
-            aria-label="Healthy"
-          ></span>
-        </a>
-      </nav>
-
-      <footer class="nimble-navigation__footer">
-        <button
-          class="nimble-user"
-          type="button"
-          data-action="user-menu"
-        >
-          <span class="nimble-user__avatar" aria-hidden="true">JH</span>
-          <span class="nimble-user__identity">
-            <strong>Jeremey</strong>
-            <small>Platform Architect</small>
-          </span>
-          <span aria-hidden="true">•••</span>
-        </button>
-      </footer>
-    </aside>
-
-    <section class="nimble-stage">
+  <body>
+    <div class="nimble-shell">
       <header class="nimble-topbar">
-        <div class="nimble-context">
-          <span class="nimble-context__eyebrow">
-            Active workspace
-          </span>
-          <button
-            class="nimble-context__selector"
-            type="button"
-            data-action="workspace-menu"
-          >
-            Executive Command
-            <span aria-hidden="true">⌄</span>
-          </button>
-        </div>
-
         <button
-          class="nimble-command-trigger"
+          class="nimble-brand"
           type="button"
-          aria-haspopup="dialog"
-          data-action="open-command"
+          data-action="reset-shell"
+          aria-label="Reset Nimble shell"
         >
-          <span aria-hidden="true">⌘</span>
-          <span>Ask or command AletheusOS</span>
-          <kbd>⌘ K</kbd>
+          <span aria-hidden="true">N</span>
+          <span>Nimble</span>
         </button>
 
         <div class="nimble-topbar__actions">
           <button
-            class="nimble-icon-button"
             type="button"
-            aria-label="Toggle visual theme"
+            data-action="toggle-navigation"
+            aria-label="Toggle global navigation"
+          >
+            Navigation
+          </button>
+
+          <button
+            type="button"
             data-action="toggle-theme"
+            aria-label="Toggle color theme"
           >
-            <span aria-hidden="true">◐</span>
+            Theme
           </button>
 
           <button
-            class="nimble-icon-button"
             type="button"
-            aria-label="Open notifications"
-            data-action="notifications"
+            data-action="toggle-inspector"
+            aria-label="Toggle context inspector"
           >
-            <span aria-hidden="true">♢</span>
-            <span class="nimble-notification-badge">3</span>
+            Inspector
           </button>
 
           <button
-            class="nimble-system-health"
             type="button"
-            data-action="system-health"
+            data-action="open-command"
+            aria-label="Open command surface"
           >
-            <span
-              class="nimble-status-dot nimble-status-dot--success"
-              aria-hidden="true"
-            ></span>
-            <span>
-              <strong>Operational</strong>
-              <small>246 checks passing</small>
-            </span>
+            Command
           </button>
         </div>
       </header>
 
-      <main id="nimble-main" class="nimble-main" tabindex="-1">
-        <section class="nimble-hero" aria-labelledby="hero-title">
-          <div>
+      <div class="nimble-shell__body">
+        <nav
+          class="nimble-navigation"
+          aria-label="Global navigation"
+          data-navigation
+        >
+          <a href="#overview">Overview</a>
+          <a href="#runtime">Runtime</a>
+          <a href="#governance">Governance</a>
+          <a href="#transparency">Transparency</a>
+        </nav>
+
+        <main
+          id="nimble-main"
+          class="nimble-main"
+          tabindex="-1"
+        >
+          <section class="nimble-hero">
             <p class="nimble-eyebrow">
-              AletheusOS · Executive Intelligence
+              Inherited experience framework
             </p>
 
-            <h1 id="hero-title">
-              Good afternoon,
-              <span>Jeremey.</span>
+            <h1>
+              Complex beneath. Clear above. Alive throughout.
             </h1>
 
-            <p class="nimble-hero__summary">
-              The platform is stable, all validation systems are clear,
-              and four active missions are progressing within expected
-              confidence ranges.
+            <p>
+              Nimble provides a consistent shell, interaction
+              model, motion language, command layer, and
+              Principle X disclosure system across AletheusOS.
             </p>
-          </div>
+          </section>
 
-          <div class="nimble-hero__actions">
-            <button
-              class="nimble-button nimble-button--primary"
-              type="button"
-              data-action="open-command"
-            >
-              <span aria-hidden="true">✦</span>
-              Begin a command
-            </button>
+          <section
+            id="overview"
+            class="nimble-grid"
+            aria-label="Platform overview"
+          >
+            <article class="nimble-card">
+              <span class="nimble-card__label">
+                Runtime state
+              </span>
+              <strong>Operational</strong>
+              <p>
+                Core orchestration boundaries are available.
+              </p>
+            </article>
 
-            <button
-              class="nimble-button nimble-button--secondary"
-              type="button"
-              data-action="customize-workspace"
-            >
-              Customize workspace
-            </button>
-          </div>
-        </section>
+            <article class="nimble-card">
+              <span class="nimble-card__label">
+                Confidence
+              </span>
+              <strong>High</strong>
+              <p>
+                Reference-shell validation is deterministic.
+              </p>
+            </article>
 
-        <section
-          class="nimble-metrics"
-          aria-label="Platform metrics"
+            <article class="nimble-card">
+              <span class="nimble-card__label">
+                Reversibility
+              </span>
+              <strong>Available</strong>
+              <p>
+                All local shell preferences can be reset.
+              </p>
+            </article>
+          </section>
+
+          <section
+            id="transparency"
+            class="nimble-disclosure"
+          >
+            <h2>Principle X disclosure</h2>
+
+            <dl>
+              <div>
+                <dt>State</dt>
+                <dd data-state-value>Ready</dd>
+              </div>
+
+              <div>
+                <dt>Reasoning</dt>
+                <dd>
+                  The shell exposes active controls and
+                  user-visible consequences.
+                </dd>
+              </div>
+
+              <div>
+                <dt>Provenance</dt>
+                <dd>
+                  Nimble reference-shell static implementation.
+                </dd>
+              </div>
+
+              <div>
+                <dt>Impact</dt>
+                <dd>
+                  Preferences affect only this browser.
+                </dd>
+              </div>
+            </dl>
+          </section>
+        </main>
+
+        <aside
+          class="nimble-inspector"
+          aria-label="Context inspector"
+          data-inspector
         >
-          <article class="nimble-metric">
-            <header>
-              <span>Runtime integrity</span>
-              <span
-                class="nimble-status-dot nimble-status-dot--success"
-                aria-hidden="true"
-              ></span>
-            </header>
-            <strong>100%</strong>
-            <p>246 tests passing · zero warnings</p>
-            <div
-              class="nimble-progress"
-              role="progressbar"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              aria-valuenow="100"
-            >
-              <span style="--progress: 100%"></span>
-            </div>
-          </article>
+          <p class="nimble-eyebrow">
+            Context inspector
+          </p>
 
-          <article class="nimble-metric">
-            <header>
-              <span>Active intelligence</span>
-              <span class="nimble-metric__delta">+12%</span>
-            </header>
-            <strong>18</strong>
-            <p>3 agents operating · 15 available</p>
-            <div class="nimble-sparkline" aria-hidden="true">
-              <i style="--height: 32%"></i>
-              <i style="--height: 48%"></i>
-              <i style="--height: 44%"></i>
-              <i style="--height: 70%"></i>
-              <i style="--height: 62%"></i>
-              <i style="--height: 88%"></i>
-              <i style="--height: 78%"></i>
-            </div>
-          </article>
+          <h2>Current experience</h2>
 
-          <article class="nimble-metric">
-            <header>
-              <span>Decision confidence</span>
-              <span class="nimble-confidence">High</span>
-            </header>
-            <strong>92%</strong>
-            <p>Evidence aligned across 7 sources</p>
-            <button
-              class="nimble-text-action"
-              type="button"
-              data-action="inspect-confidence"
-            >
-              Inspect confidence
-            </button>
-          </article>
-        </section>
-
-        <section class="nimble-workspace-grid">
-          <article
-            class="nimble-panel nimble-panel--intelligence"
-            data-panel-id="executive-brief"
-          >
-            <header class="nimble-panel__header">
-              <div>
-                <p class="nimble-panel__eyebrow">Intelligence</p>
-                <h2>Executive brief</h2>
-              </div>
-
-              <div class="nimble-panel__tools">
-                <button
-                  class="nimble-icon-button"
-                  type="button"
-                  aria-label="Refresh executive brief"
-                  data-action="refresh-brief"
-                >
-                  ↻
-                </button>
-                <button
-                  class="nimble-icon-button"
-                  type="button"
-                  aria-label="Expand executive brief"
-                  data-action="expand-panel"
-                >
-                  ↗
-                </button>
-              </div>
-            </header>
-
-            <div class="nimble-intelligence-state">
-              <div class="nimble-intelligence-state__core" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-
-              <div>
-                <strong>System synthesis complete</strong>
-                <p>
-                  Runtime, governance, mission, and knowledge states
-                  have been reconciled.
-                </p>
-              </div>
+          <dl>
+            <div>
+              <dt>Surface</dt>
+              <dd>Reference shell</dd>
             </div>
 
-            <div class="nimble-brief">
-              <article>
-                <span class="nimble-brief__number">01</span>
-                <div>
-                  <h3>Nimble foundation is structurally valid</h3>
-                  <p>
-                    Architecture, token, component, interaction,
-                    accessibility, workspace, and personalization
-                    contracts are aligned.
-                  </p>
-                </div>
-                <span class="nimble-confidence">99%</span>
-              </article>
-
-              <article>
-                <span class="nimble-brief__number">02</span>
-                <div>
-                  <h3>Production rendering stack remains open</h3>
-                  <p>
-                    Framework independence is preserved while the
-                    interaction model is validated through this shell.
-                  </p>
-                </div>
-                <span class="nimble-confidence">96%</span>
-              </article>
-
-              <article>
-                <span class="nimble-brief__number">03</span>
-                <div>
-                  <h3>Card Hawk can inherit without architectural fork</h3>
-                  <p>
-                    Domain identity and specialized workflows can extend
-                    Nimble without duplicating the experience layer.
-                  </p>
-                </div>
-                <span class="nimble-confidence">94%</span>
-              </article>
+            <div>
+              <dt>Mode</dt>
+              <dd data-theme-value>Dark</dd>
             </div>
 
-            <footer class="nimble-panel__footer">
-              <button
-                class="nimble-text-action"
-                type="button"
-                data-action="decision-trace"
-              >
-                View full reasoning and provenance
-                <span aria-hidden="true">→</span>
-              </button>
-            </footer>
-          </article>
-
-          <article
-            class="nimble-panel"
-            data-panel-id="active-missions"
-          >
-            <header class="nimble-panel__header">
-              <div>
-                <p class="nimble-panel__eyebrow">Operations</p>
-                <h2>Active missions</h2>
-              </div>
-
-              <button
-                class="nimble-icon-button"
-                type="button"
-                aria-label="Open all missions"
-              >
-                ↗
-              </button>
-            </header>
-
-            <div class="nimble-mission-list">
-              <button class="nimble-mission" type="button">
-                <span class="nimble-mission__icon">N</span>
-                <span class="nimble-mission__body">
-                  <strong>Nimble Experience Foundation</strong>
-                  <small>Shell realization · In progress</small>
-                  <span class="nimble-progress">
-                    <span style="--progress: 68%"></span>
-                  </span>
-                </span>
-                <span class="nimble-mission__value">68%</span>
-              </button>
-
-              <button class="nimble-mission" type="button">
-                <span class="nimble-mission__icon">C</span>
-                <span class="nimble-mission__body">
-                  <strong>Card Hawk Platform Integration</strong>
-                  <small>Foundation inheritance · Ready</small>
-                  <span class="nimble-progress">
-                    <span style="--progress: 42%"></span>
-                  </span>
-                </span>
-                <span class="nimble-mission__value">42%</span>
-              </button>
-
-              <button class="nimble-mission" type="button">
-                <span class="nimble-mission__icon">G</span>
-                <span class="nimble-mission__body">
-                  <strong>Genesis 8 Stabilization</strong>
-                  <small>Validated · Complete</small>
-                  <span class="nimble-progress">
-                    <span style="--progress: 100%"></span>
-                  </span>
-                </span>
-                <span class="nimble-mission__value">100%</span>
-              </button>
+            <div>
+              <dt>Navigation</dt>
+              <dd data-navigation-value>Expanded</dd>
             </div>
-          </article>
+          </dl>
+        </aside>
+      </div>
 
-          <article
-            class="nimble-panel nimble-panel--wide"
-            data-panel-id="system-activity"
-          >
-            <header class="nimble-panel__header">
-              <div>
-                <p class="nimble-panel__eyebrow">Live state</p>
-                <h2>System activity</h2>
-              </div>
+      <div
+        class="nimble-live-region"
+        aria-live="polite"
+        aria-atomic="true"
+        data-live-region
+      ></div>
+    </div>
 
-              <div class="nimble-segmented-control">
-                <button class="is-active" type="button">Live</button>
-                <button type="button">24 hours</button>
-                <button type="button">7 days</button>
-              </div>
-            </header>
-
-            <div class="nimble-activity-visual">
-              <div class="nimble-activity-visual__graph" aria-hidden="true">
-                <span class="node node--runtime">Runtime</span>
-                <span class="node node--memory">Memory</span>
-                <span class="node node--council">Council</span>
-                <span class="node node--agents">Agents</span>
-                <span class="node node--nimble">Nimble</span>
-
-                <i class="connection connection--one"></i>
-                <i class="connection connection--two"></i>
-                <i class="connection connection--three"></i>
-                <i class="connection connection--four"></i>
-              </div>
-
-              <ol class="nimble-activity-feed">
-                <li>
-                  <span class="nimble-activity-feed__signal"></span>
-                  <div>
-                    <strong>Foundation validation completed</strong>
-                    <p>All ten Nimble engine contracts aligned.</p>
-                  </div>
-                  <time datetime="2026-07-10T13:00:00-05:00">Now</time>
-                </li>
-
-                <li>
-                  <span class="nimble-activity-feed__signal"></span>
-                  <div>
-                    <strong>Runtime regression passed</strong>
-                    <p>246 tests completed without warnings.</p>
-                  </div>
-                  <time datetime="2026-07-10T12:58:00-05:00">2m</time>
-                </li>
-
-                <li>
-                  <span class="nimble-activity-feed__signal"></span>
-                  <div>
-                    <strong>Personalization boundary registered</strong>
-                    <p>Adaptive behavior remains visible and resettable.</p>
-                  </div>
-                  <time datetime="2026-07-10T12:54:00-05:00">6m</time>
-                </li>
-              </ol>
-            </div>
-          </article>
-        </section>
-      </main>
-    </section>
-
-    <aside
-      class="nimble-inspector"
-      aria-label="Context inspector"
+    <dialog
+      class="nimble-command-dialog"
+      data-command-dialog
+      aria-labelledby="nimble-command-title"
     >
-      <header class="nimble-inspector__header">
-        <div>
-          <p class="nimble-panel__eyebrow">Principle X</p>
-          <h2>System truth</h2>
-        </div>
-
-        <button
-          class="nimble-icon-button"
-          type="button"
-          aria-label="Close inspector"
-          data-action="toggle-inspector"
-        >
-          ×
-        </button>
-      </header>
-
-      <section class="nimble-truth-card">
+      <form method="dialog">
         <header>
-          <span>Current state</span>
-          <span class="nimble-confidence">Verified</span>
+          <div>
+            <p class="nimble-eyebrow">
+              Governed command gateway
+            </p>
+            <h2 id="nimble-command-title">
+              Select a command
+            </h2>
+          </div>
+
+          <button
+            type="submit"
+            value="cancel"
+            aria-label="Close command surface"
+          >
+            Close
+          </button>
         </header>
 
-        <dl>
-          <div>
-            <dt>Runtime</dt>
-            <dd>Stable</dd>
-          </div>
-          <div>
-            <dt>Tests</dt>
-            <dd>246 / 246</dd>
-          </div>
-          <div>
-            <dt>Warnings</dt>
-            <dd>0</dd>
-          </div>
-          <div>
-            <dt>Known uncertainty</dt>
-            <dd>Production UI stack</dd>
-          </div>
-        </dl>
-      </section>
-
-      <section class="nimble-inspector__section">
-        <h3>Why this state exists</h3>
-        <p>
-          Nimble’s contracts are established independently of its final
-          renderer. This preserves elasticity while the interaction
-          architecture is proven.
-        </p>
-      </section>
-
-      <section class="nimble-inspector__section">
-        <h3>Next consequence</h3>
-        <p>
-          Selecting a production rendering stack will convert this
-          reference shell into reusable, tested components without
-          changing the governing contracts.
-        </p>
-      </section>
-
-      <section class="nimble-inspector__section">
-        <h3>Reversibility</h3>
-        <p>
-          The shell is non-destructive. Layout, theme, navigation,
-          and inspector state can be reset at any time.
-        </p>
-
-        <button
-          class="nimble-button nimble-button--secondary nimble-button--full"
-          type="button"
-          data-action="reset-shell"
+        <div
+          class="nimble-command-list"
+          role="listbox"
+          aria-label="Available commands"
         >
-          Reset shell state
-        </button>
-      </section>
-    </aside>
-  </div>
+          <button
+            type="button"
+            role="option"
+            data-command="runtime.describe"
+          >
+            Describe runtime
+          </button>
 
-  <dialog
-    class="nimble-command"
-    aria-labelledby="command-title"
-    data-command-dialog
-  >
-    <div class="nimble-command__surface">
-      <header class="nimble-command__header">
-        <span aria-hidden="true">✦</span>
-        <label id="command-title" for="nimble-command-input">
-          Ask or command AletheusOS
-        </label>
-        <kbd>Esc</kbd>
-      </header>
+          <button
+            type="button"
+            role="option"
+            data-command="providers.refresh"
+          >
+            Refresh providers
+          </button>
 
-      <input
-        id="nimble-command-input"
-        class="nimble-command__input"
-        type="text"
-        autocomplete="off"
-        placeholder="Describe an outcome, open a surface, or execute a command…"
-      >
+          <button
+            type="button"
+            role="option"
+            data-command="experience.inspector.set"
+          >
+            Toggle inspector
+          </button>
+        </div>
 
-      <div class="nimble-command__context">
-        <span>Context: Executive Command</span>
-        <span>Mode: Explain before execute</span>
-      </div>
+        <footer>
+          <button
+            type="button"
+            data-action="execute-command"
+          >
+            Execute selected command
+          </button>
+        </footer>
+      </form>
+    </dialog>
 
-      <div class="nimble-command__results">
-        <button type="button" data-command-result>
-          <span class="nimble-command__result-icon">◎</span>
-          <span>
-            <strong>Open active missions</strong>
-            <small>Navigate to the mission workspace</small>
-          </span>
-          <kbd>↵</kbd>
-        </button>
-
-        <button type="button" data-command-result>
-          <span class="nimble-command__result-icon">◇</span>
-          <span>
-            <strong>Inspect active agents</strong>
-            <small>Show current tasks, confidence, and provenance</small>
-          </span>
-          <kbd>↵</kbd>
-        </button>
-
-        <button type="button" data-command-result>
-          <span class="nimble-command__result-icon">◉</span>
-          <span>
-            <strong>Explain current platform health</strong>
-            <small>Reveal checks, evidence, uncertainty, and history</small>
-          </span>
-          <kbd>↵</kbd>
-        </button>
-      </div>
-
-      <footer class="nimble-command__footer">
-        <span><kbd>↑</kbd><kbd>↓</kbd> Navigate</span>
-        <span><kbd>↵</kbd> Select</span>
-        <span><kbd>⌘ K</kbd> Toggle</span>
-      </footer>
-    </div>
-  </dialog>
-
-  <div
-    class="nimble-toast-region"
-    role="region"
-    aria-label="Notifications"
-    aria-live="polite"
-    data-toast-region
-  ></div>
-
-  <script type="module" src="./assets/nimble-shell.js"></script>
-</body>
+    <script
+      type="module"
+      src="./assets/nimble-shell.js"
+    ></script>
+  </body>
 </html>

@@ -1,363 +1,297 @@
-const root = document.documentElement;
-const shell = document.querySelector(".nimble-shell");
-const commandDialog = document.querySelector("[data-command-dialog]");
-const commandInput = document.querySelector("#nimble-command-input");
-const commandResults = [
-  ...document.querySelectorAll("[data-command-result]"),
-];
-const toastRegion = document.querySelector("[data-toast-region]");
+const storageKey = "nimble-reference-shell";
 
-const STORAGE_KEY = "nimble-reference-shell-v0.1";
-
-const defaultState = Object.freeze({
+const defaultState = {
   theme: "dark",
-  navigation: "expanded",
-  inspector: "open",
-});
+  navigationCollapsed: false,
+  inspectorCollapsed: false,
+  selectedCommand: "runtime.describe",
+};
 
 let state = loadState();
-let selectedCommandIndex = 0;
+
+const root = document.documentElement;
+const body = document.body;
+const commandDialog = document.querySelector(
+  "[data-command-dialog]",
+);
+const liveRegion = document.querySelector(
+  "[data-live-region]",
+);
+const themeValue = document.querySelector(
+  "[data-theme-value]",
+);
+const navigationValue = document.querySelector(
+  "[data-navigation-value]",
+);
+const stateValue = document.querySelector(
+  "[data-state-value]",
+);
 
 function loadState() {
   try {
-    const stored = JSON.parse(
-      localStorage.getItem(STORAGE_KEY) || "{}",
-    );
+    const stored =
+      localStorage.getItem(storageKey);
+
+    if (!stored) {
+      return { ...defaultState };
+    }
 
     return {
       ...defaultState,
-      ...stored,
+      ...JSON.parse(stored),
     };
-  } catch {
+  } catch (error) {
+    console.error(
+      "Nimble shell state could not be restored.",
+      error,
+    );
+
     return { ...defaultState };
   }
 }
 
-function persistState() {
+function saveState() {
   localStorage.setItem(
-    STORAGE_KEY,
+    storageKey,
     JSON.stringify(state),
   );
 }
 
-function renderState() {
-  root.dataset.nimbleTheme = state.theme;
-  shell.dataset.navigation = state.navigation;
-  shell.dataset.inspector = state.inspector;
+function announce(message) {
+  if (!liveRegion) {
+    return;
+  }
 
-  const collapseButton = document.querySelector(
-    '[data-action="toggle-navigation"]',
-  );
-
-  collapseButton?.setAttribute(
-    "aria-expanded",
-    String(state.navigation === "expanded"),
-  );
-
-  collapseButton?.setAttribute(
-    "aria-label",
-    state.navigation === "expanded"
-      ? "Collapse navigation"
-      : "Expand navigation",
-  );
-}
-
-function updateState(patch) {
-  state = {
-    ...state,
-    ...patch,
-  };
-
-  persistState();
-  renderState();
-}
-
-function showToast(title, message) {
-  const toast = document.createElement("div");
-  toast.className = "nimble-toast";
-
-  const strong = document.createElement("strong");
-  strong.textContent = title;
-
-  const span = document.createElement("span");
-  span.textContent = message;
-
-  toast.append(strong, span);
-  toastRegion.append(toast);
+  liveRegion.textContent = message;
+  liveRegion.dataset.visible = "true";
 
   window.setTimeout(() => {
-    toast.animate(
-      [
-        {
-          opacity: 1,
-          transform: "translateX(0)",
-        },
-        {
-          opacity: 0,
-          transform: "translateX(1rem)",
-        },
-      ],
-      {
-        duration: 180,
-        easing: "ease-out",
-        fill: "forwards",
-      },
-    ).finished.then(() => toast.remove());
-  }, 3600);
+    liveRegion.dataset.visible = "false";
+  }, 2200);
+}
+
+function renderState() {
+  root.dataset.theme = state.theme;
+
+  body.dataset.navigationCollapsed =
+    String(state.navigationCollapsed);
+
+  body.dataset.inspectorCollapsed =
+    String(state.inspectorCollapsed);
+
+  if (themeValue) {
+    themeValue.textContent =
+      state.theme === "dark"
+        ? "Dark"
+        : "Light";
+  }
+
+  if (navigationValue) {
+    navigationValue.textContent =
+      state.navigationCollapsed
+        ? "Collapsed"
+        : "Expanded";
+  }
+
+  if (stateValue) {
+    stateValue.textContent =
+      "Ready";
+  }
+
+  document
+    .querySelectorAll("[data-command]")
+    .forEach((button) => {
+      button.setAttribute(
+        "aria-selected",
+        String(
+          button.dataset.command
+            === state.selectedCommand,
+        ),
+      );
+    });
+
+  saveState();
+}
+
+function toggleTheme() {
+  state = {
+    ...state,
+    theme:
+      state.theme === "dark"
+        ? "light"
+        : "dark",
+  };
+
+  renderState();
+  announce(`Theme changed to ${state.theme}.`);
+}
+
+function toggleNavigation() {
+  state = {
+    ...state,
+    navigationCollapsed:
+      !state.navigationCollapsed,
+  };
+
+  renderState();
+
+  announce(
+    state.navigationCollapsed
+      ? "Global navigation collapsed."
+      : "Global navigation expanded.",
+  );
+}
+
+function toggleInspector() {
+  state = {
+    ...state,
+    inspectorCollapsed:
+      !state.inspectorCollapsed,
+  };
+
+  renderState();
+
+  announce(
+    state.inspectorCollapsed
+      ? "Context inspector collapsed."
+      : "Context inspector expanded.",
+  );
+}
+
+function resetShell() {
+  state = {
+    ...defaultState,
+  };
+
+  localStorage.removeItem(storageKey);
+  renderState();
+  announce("Nimble reference shell reset.");
 }
 
 function openCommand() {
-  if (!commandDialog.open) {
-    commandDialog.showModal();
+  if (!(commandDialog instanceof HTMLDialogElement)) {
+    return;
   }
 
-  commandInput.focus();
-  selectedCommandIndex = 0;
-  renderCommandSelection();
+  commandDialog.showModal();
+
+  const selected =
+    commandDialog.querySelector(
+      '[aria-selected="true"]',
+    );
+
+  selected?.focus();
 }
 
-function closeCommand() {
-  if (commandDialog.open) {
+function executeSelectedCommand() {
+  const command =
+    state.selectedCommand;
+
+  if (command === "experience.inspector.set") {
+    toggleInspector();
+  } else if (command === "providers.refresh") {
+    announce(
+      "Provider refresh simulated successfully.",
+    );
+  } else {
+    announce(
+      "Runtime description command completed.",
+    );
+  }
+
+  if (commandDialog instanceof HTMLDialogElement) {
     commandDialog.close();
   }
 }
 
-function renderCommandSelection() {
-  commandResults.forEach((result, index) => {
-    result.classList.toggle(
-      "is-selected",
-      index === selectedCommandIndex,
-    );
-  });
-}
+document.addEventListener(
+  "click",
+  (event) => {
+    const target = event.target;
 
-function executeSelectedCommand() {
-  const selected = commandResults[selectedCommandIndex];
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
 
-  if (!selected) {
-    return;
-  }
+    const actionElement =
+      target.closest("[data-action]");
 
-  const label = selected.querySelector("strong")?.textContent
-    || "Command";
+    if (actionElement instanceof HTMLElement) {
+      const action =
+        actionElement.dataset.action;
 
-  closeCommand();
+      if (action === "toggle-theme") {
+        toggleTheme();
+      }
 
-  showToast(
-    "Command preview",
-    `${label} is ready for execution. No destructive action occurred.`,
-  );
-}
+      if (action === "toggle-navigation") {
+        toggleNavigation();
+      }
 
-function toggleTheme() {
-  updateState({
-    theme: state.theme === "dark"
-      ? "light"
-      : "dark",
-  });
+      if (action === "toggle-inspector") {
+        toggleInspector();
+      }
 
-  showToast(
-    "Theme updated",
-    `Nimble is now using the ${state.theme} theme.`,
-  );
-}
+      if (action === "reset-shell") {
+        resetShell();
+      }
 
-function toggleNavigation() {
-  updateState({
-    navigation: state.navigation === "expanded"
-      ? "collapsed"
-      : "expanded",
-  });
-}
+      if (action === "open-command") {
+        openCommand();
+      }
 
-function toggleInspector() {
-  updateState({
-    inspector: state.inspector === "open"
-      ? "closed"
-      : "open",
-  });
-}
+      if (action === "execute-command") {
+        executeSelectedCommand();
+      }
+    }
 
-function resetShell() {
-  state = { ...defaultState };
-  persistState();
-  renderState();
+    const commandElement =
+      target.closest("[data-command]");
 
-  showToast(
-    "Shell restored",
-    "Theme, navigation, and inspector state were reset.",
-  );
-}
+    if (commandElement instanceof HTMLElement) {
+      state = {
+        ...state,
+        selectedCommand:
+          commandElement.dataset.command
+          ?? defaultState.selectedCommand,
+      };
 
-function handleAction(action) {
-  const handlers = {
-    "open-command": openCommand,
-    "toggle-theme": toggleTheme,
-    "toggle-navigation": toggleNavigation,
-    "toggle-inspector": toggleInspector,
-    "reset-shell": resetShell,
+      renderState();
+    }
+  },
+);
 
-    "refresh-brief": () => {
-      showToast(
-        "Synthesis refreshed",
-        "The executive brief is current and fully reconciled.",
-      );
-    },
+document.addEventListener(
+  "keydown",
+  (event) => {
+    const commandShortcut =
+      (event.metaKey || event.ctrlKey)
+      && event.key.toLowerCase() === "k";
 
-    "inspect-confidence": () => {
-      updateState({ inspector: "open" });
-      showToast(
-        "Confidence disclosed",
-        "Seven aligned evidence sources support the current 92% confidence.",
-      );
-    },
-
-    "decision-trace": () => {
-      updateState({ inspector: "open" });
-      showToast(
-        "Decision trace opened",
-        "Reasoning, provenance, uncertainty, and reversibility are visible.",
-      );
-    },
-
-    "customize-workspace": () => {
-      showToast(
-        "Workspace controls",
-        "Panel composition and saved layouts will activate in the workspace engine.",
-      );
-    },
-
-    "system-health": () => {
-      updateState({ inspector: "open" });
-      showToast(
-        "System health",
-        "Runtime stable: 246 checks passing with zero warnings.",
-      );
-    },
-
-    notifications: () => {
-      showToast(
-        "Three notifications",
-        "All notifications are informational; none require immediate action.",
-      );
-    },
-
-    "application-switcher": () => {
-      showToast(
-        "Application switcher",
-        "AletheusOS and inherited applications will appear here.",
-      );
-    },
-
-    "workspace-menu": () => {
-      showToast(
-        "Executive Command",
-        "This workspace is active and its layout state is preserved locally.",
-      );
-    },
-
-    "user-menu": () => {
-      showToast(
-        "Personalization",
-        "Preferences remain visible, editable, and resettable.",
-      );
-    },
-
-    "expand-panel": () => {
-      showToast(
-        "Panel expansion",
-        "Structural expansion is defined but has not changed the workspace.",
-      );
-    },
-  };
-
-  handlers[action]?.();
-}
-
-document.addEventListener("click", (event) => {
-  const actionTarget = event.target.closest("[data-action]");
-
-  if (actionTarget) {
-    handleAction(actionTarget.dataset.action);
-  }
-
-  const segmentedButton = event.target.closest(
-    ".nimble-segmented-control button",
-  );
-
-  if (segmentedButton) {
-    segmentedButton
-      .parentElement
-      .querySelectorAll("button")
-      .forEach((button) => {
-        button.classList.toggle(
-          "is-active",
-          button === segmentedButton,
-        );
-      });
-  }
-});
-
-document.addEventListener("keydown", (event) => {
-  const commandShortcut = (
-    event.metaKey || event.ctrlKey
-  ) && event.key.toLowerCase() === "k";
-
-  if (commandShortcut) {
-    event.preventDefault();
-
-    if (commandDialog.open) {
-      closeCommand();
-    } else {
+    if (commandShortcut) {
+      event.preventDefault();
       openCommand();
     }
 
-    return;
-  }
-
-  if (!commandDialog.open) {
-    return;
-  }
-
-  if (event.key === "ArrowDown") {
-    event.preventDefault();
-    selectedCommandIndex = (
-      selectedCommandIndex + 1
-    ) % commandResults.length;
-    renderCommandSelection();
-  }
-
-  if (event.key === "ArrowUp") {
-    event.preventDefault();
-    selectedCommandIndex = (
-      selectedCommandIndex - 1
-      + commandResults.length
-    ) % commandResults.length;
-    renderCommandSelection();
-  }
-
-  if (event.key === "Enter") {
-    event.preventDefault();
-    executeSelectedCommand();
-  }
-});
-
-commandResults.forEach((result, index) => {
-  result.addEventListener("mouseenter", () => {
-    selectedCommandIndex = index;
-    renderCommandSelection();
-  });
-
-  result.addEventListener("click", () => {
-    selectedCommandIndex = index;
-    executeSelectedCommand();
-  });
-});
-
-commandDialog.addEventListener("click", (event) => {
-  if (event.target === commandDialog) {
-    closeCommand();
-  }
-});
+    if (
+      event.key === "Enter"
+      && commandDialog?.open
+      && document.activeElement?.matches(
+        "[data-command]",
+      )
+    ) {
+      executeSelectedCommand();
+    }
+  },
+);
 
 renderState();
+
+export {
+  executeSelectedCommand,
+  openCommand,
+  resetShell,
+  toggleInspector,
+  toggleNavigation,
+  toggleTheme,
+};

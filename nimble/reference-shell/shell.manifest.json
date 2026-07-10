@@ -1,0 +1,45 @@
+{
+  "name": "Nimble Reference Shell",
+  "version": "0.1.0",
+  "description": "Static reference implementation of the Nimble inherited experience framework.",
+  "implemented_engines": [
+    "shell",
+    "motion",
+    "interaction",
+    "workspace",
+    "accessibility",
+    "command",
+    "transparency",
+    "personalization"
+  ],
+  "implemented_surfaces": [
+    "global navigation",
+    "workspace",
+    "command dialog",
+    "context inspector",
+    "status disclosure",
+    "theme control",
+    "navigation control",
+    "inspector control",
+    "reset control"
+  ],
+  "principle_x": {
+    "state_visible": true,
+    "reasoning_visible": true,
+    "confidence_visible": true,
+    "provenance_visible": true,
+    "uncertainty_visible": true,
+    "impact_visible": true,
+    "failures_visible": true,
+    "reversibility_visible": true
+  },
+  "accessibility": {
+    "semantic_landmarks": true,
+    "keyboard_navigation": true,
+    "focus_visibility": true,
+    "screen_reader_labels": true,
+    "live_regions": true,
+    "reduced_motion": true,
+    "dialog_semantics": true
+  }
+}
