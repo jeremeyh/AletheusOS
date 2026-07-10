@@ -19,7 +19,9 @@
     "performance-baseline": "../.venv/bin/python ../create_nimble_performance_baseline.py",
     "performance-regression": "../.venv/bin/python ../validate_nimble_performance_regression.py",
     "baseline-governance": "../.venv/bin/python ../validate_nimble_baseline_governance.py",
-    "validate-attestation": "../.venv/bin/python ../validate_nimble_release_attestation.py"
+    "validate-attestation": "../.venv/bin/python ../validate_nimble_release_attestation.py",
+    "dependency-manifest": "../.venv/bin/python ../generate_nimble_dependency_manifest.py",
+    "validate-dependencies": "../.venv/bin/python ../validate_nimble_dependency_manifest.py"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"

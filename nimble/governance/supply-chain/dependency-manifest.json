@@ -1,0 +1,3172 @@
+{
+  "generated_at": "2026-07-10T23:19:56.400707+00:00",
+  "npm": {
+    "direct_dependencies": {},
+    "direct_dev_dependencies": {},
+    "lockfile_version": 3,
+    "package_json_sha256": "9b344afd4a29a5165d0b91e1f3d4fbeee843d4b6d37a14944f06e50f70dd633e",
+    "package_lock_sha256": "5963e1d9ced942c2f22873a7a3969a99342406fb748baf51de22ab348205553f",
+    "resolved_package_count": 354,
+    "resolved_packages": [
+      {
+        "development": true,
+        "integrity": "sha512-6OzddxPio9UiWTCemp4N8cYLV2ZN1ncRnV1cVGtve7dhPOtRkleRyx32GQCYSwDYgaHU3USMm84tNsvKzRCa1Q==",
+        "license": "MIT",
+        "name": "@adobe/css-tools",
+        "optional": false,
+        "version": "4.5.0"
+      },
+      {
+        "development": false,
+        "integrity": null,
+        "license": "unknown",
+        "name": "@aletheus/nimble-core",
+        "optional": false,
+        "version": "unknown"
+      },
+      {
+        "development": false,
+        "integrity": null,
+        "license": "unknown",
+        "name": "@aletheus/nimble-motion",
+        "optional": false,
+        "version": "unknown"
+      },
+      {
+        "development": false,
+        "integrity": null,
+        "license": "unknown",
+        "name": "@aletheus/nimble-react",
+        "optional": false,
+        "version": "unknown"
+      },
+      {
+        "development": false,
+        "integrity": null,
+        "license": "unknown",
+        "name": "@aletheus/nimble-shell",
+        "optional": false,
+        "version": "unknown"
+      },
+      {
+        "development": false,
+        "integrity": null,
+        "license": "unknown",
+        "name": "@aletheus/nimble-testing",
+        "optional": false,
+        "version": "unknown"
+      },
+      {
+        "development": false,
+        "integrity": null,
+        "license": "unknown",
+        "name": "@aletheus/nimble-transparency",
+        "optional": false,
+        "version": "unknown"
+      },
+      {
+        "development": false,
+        "integrity": null,
+        "license": "unknown",
+        "name": "@aletheus/nimble-workspace-engine",
+        "optional": false,
+        "version": "unknown"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-KVw6qIiCTUQhByfTd78h2yD1/00waTmm9uy/R7Ck/ctUyAPj+AEDLkQIdJW0T8+qGgj3j5bpNKK7Q3G+LedJWg==",
+        "license": "MIT",
+        "name": "@asamuzakjp/css-color",
+        "optional": false,
+        "version": "5.1.11"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-67RZDnYRc8H/8MLDgQCDE//zoqVFwajkepHZgmXrbwybzXOEwOWGPYGmALYl9J2DOLfFPPs6kKCqmbzV895hTQ==",
+        "license": "MIT",
+        "name": "@asamuzakjp/dom-selector",
+        "optional": false,
+        "version": "7.1.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-wajfB8KqzMCN2KGNFdLkReeHncd0AslUSrvHVvvYWuU8ghncRJoA50kT3zP9MVL0+9g4/67H+cdvBskj9THPzg==",
+        "license": "MIT",
+        "name": "@asamuzakjp/generational-cache",
+        "optional": false,
+        "version": "1.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-n8GuYSrI9bF7FFZ/SjhwevlHc8xaVlb/7HmHelnc/PZXBD2ZR49NnN9sMMuDdEGPeeRQ5d0hqlSlEpgCX3Wl0Q==",
+        "license": "MIT",
+        "name": "@asamuzakjp/nwsapi",
+        "optional": false,
+        "version": "2.3.9"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==",
+        "license": "MIT",
+        "name": "@babel/code-frame",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-locTkQyKvwIEgBzVrn8693ebc97F2U8ZHjbXwDXJ5Fn2TCpNwTlKcaKLkdHop5c/icOFE7qt7Q9JC5hnKNa6Gg==",
+        "license": "MIT",
+        "name": "@babel/compat-data",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-RgHBCvtjbOK2gXSNBNIkNoEc9qoVEtau3hj8gEqKQuL3HZAibKarWFEI3Lfm6EYKkLalOh8eSrj9b+ch9H/VBA==",
+        "license": "MIT",
+        "name": "@babel/core",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-DkXD5OJQaAQIdZ1bt3UZdEnHAn9Imd3IVBdX03UFe+ony9Ojw5pzr9YVKGDY1jt+Gcn/FnGkNf8r+Vj5NOJWtQ==",
+        "license": "MIT",
+        "name": "@babel/generator",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-wem6WaBj4NaVYVdNhLPPVacES6ZJ+KBBfSkTMD3YZxbP3rm3Di85tJU5ljaUNhaOynt+Aj0xruhYuzQBt8n71g==",
+        "license": "MIT",
+        "name": "@babel/helper-compilation-targets",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-3nQVUAtvkKH9zahfWgw96Jc/uFOmjACE1kQz82E2lqWmHBgjzbNlsC22nuQTfahmWeQtTq5nQ/4Nnd2A1wj4zA==",
+        "license": "MIT",
+        "name": "@babel/helper-globals",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-ejHwrQQYcm9xnTivShn2IDOlIzInN34AXskvq9QicvCtEzq1Vzclu/tKF8Jq1Cg8JG2GL6/EmjgsCT7lXepE3g==",
+        "license": "MIT",
+        "name": "@babel/helper-module-imports",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-UPUVSyXbOh627KiCIGQSgwWzGeBKLkaJ9PJEdrngIwMSzxLR4jS4+f1f1jb7VzBbg8nFLaYotvVPFCTqdrmTAg==",
+        "license": "MIT",
+        "name": "@babel/helper-module-transforms",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Pb5ijPrZ89GDH8223L4UP8i6QApWxs04RbPQJTeWDV0/keR2E36MeKnyr6LYmUUvqRRI+Iv87SuF1W6ErINzYw==",
+        "license": "MIT",
+        "name": "@babel/helper-string-parser",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg==",
+        "license": "MIT",
+        "name": "@babel/helper-validator-identifier",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-N9ZErrD+yW5geCDtBqnOoxmR8+tNKiGuxKlDpuJxfsqpa2dFcexaziGAE/qoHLiDDreVNMupxGmSoNlyvsA3gw==",
+        "license": "MIT",
+        "name": "@babel/helper-validator-option",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-1k2lAGRMfHTcwuNYcCNUmaUffmQv8KWMfh2iJUUeRlwlwH4FdNG7mfPI10NPfLHJFThE4Tyr4mv7kTNZOiPuBg==",
+        "license": "MIT",
+        "name": "@babel/helpers",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-hnORnjP/1P/zFEndoeX+n+t1RwWRJiJpM/jO7FW32Kn9r5+sJB2JWOdYo4L6k78j15eCwY3Gm/7364B1EMwtNg==",
+        "license": "MIT",
+        "name": "@babel/parser",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Nq8OhGWiZIZGV6hLHoyAKLLcJihP/xFeBMGJoUrxTX2psI8dCifzLhZISFb+VWS3wFMRDmCGw5R+dOySCqPLhw==",
+        "license": "MIT",
+        "name": "@babel/runtime",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-puq+Gf35oI24FeN11LkoUQFqv9uwNeWpxXZi/Ji3rRIoKAzKnxRaZ+Gkj0vKS9ZCiTESfng1N9LyOyXvo+m+Gg==",
+        "license": "MIT",
+        "name": "@babel/template",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-EhlfNQtZ+NK22w5BM61ciuiq1m58ed33Wr1Xan//ZRTy6hgjnwyCffRYwzsGXdASJSUJ1guZILsErh1eQcl+zw==",
+        "license": "MIT",
+        "name": "@babel/traverse",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==",
+        "license": "MIT",
+        "name": "@babel/types",
+        "optional": false,
+        "version": "7.29.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-ctxtJ/eA+t+6q2++vj5j7FYX3nRu311q1wfYH3xjlLOsczhlhxAg2FWNUXhpGvAw3BWo1xBcvOV6/YLc2r5FJw==",
+        "license": "MIT",
+        "name": "@bramus/specificity",
+        "optional": false,
+        "version": "2.4.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-064IFJdjTfUqnjpCVpMOdbr8FLQBhinbZj6yRv2An2E41O/pLEXqfFRWqGq/SxlE5PEUYTlvWsG2r8MswAVvkg==",
+        "license": "MIT-0",
+        "name": "@csstools/color-helpers",
+        "optional": false,
+        "version": "6.1.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-DtdHlgXh5ZkA43cwBcAm+huzgJiwx3ZTWVjBs94kwz2xKqSimDA3lBgCjphYgwgVUMWatSM0pDd8TILB1yrVVg==",
+        "license": "MIT",
+        "name": "@csstools/css-calc",
+        "optional": false,
+        "version": "3.2.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-paQcIaOO53Rk5+YrBaBjm/SgrV4INImjo2BT1DtQRYr+XeTRbeAYlS+jxXp9drqvKmtFnWRJKIalDLhZZDu42A==",
+        "license": "MIT",
+        "name": "@csstools/css-color-parser",
+        "optional": false,
+        "version": "4.1.9"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-+B87qS7fIG3L5h3qwJ/IFbjoVoOe/bpOdh9hAjXbvx0o8ImEmUsGXN0inFOnk2ChCFgqkkGFQ+TpM5rbhkKe4w==",
+        "license": "MIT",
+        "name": "@csstools/css-parser-algorithms",
+        "optional": false,
+        "version": "4.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-TcJCWFbXLPpJYq6z7bfOyjWYJDiDg2/I4gyUC9pqPNqHFRIey0EB0q0L5cSnQDfWJg8Jd6VadakxdIez/3zkqQ==",
+        "license": "MIT-0",
+        "name": "@csstools/css-syntax-patches-for-csstree",
+        "optional": false,
+        "version": "1.1.6"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-QxULHAm7cNu72w97JUNCBFODFaXpbDg+dP8b/oWFAZ2MTRppA3U00Y2L1HqaS4J6yBqxwa/Y3nMBaxVKbB/NsA==",
+        "license": "MIT",
+        "name": "@csstools/css-tokenizer",
+        "optional": false,
+        "version": "4.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-RSvbQmHzdKzNsLYa/wHrbc3KN4sYLKAdPZxqiM2HATqv/SBk2/ENSHpvXGaLOMcsAyz0poEGqkmmKYG3OWiJEQ==",
+        "license": "MIT",
+        "name": "@emnapi/core",
+        "optional": true,
+        "version": "1.11.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-vgj7R3y3Wgx24IQaGPA/R6YFXLHVMOZ0uVEyIQPaWs+rd1AzfEMXlAC22FYwO1XkKR6NPsq7mUandH8oIRdZFw==",
+        "license": "MIT",
+        "name": "@emnapi/runtime",
+        "optional": true,
+        "version": "1.11.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-c95qOXkHdydNKhscBTebqEC1CVAZpyqOfVfBzQ1qgzyl3gfeldUjIggDbIZgDKsHLgnsM+igH7TJ/eAasaVuMA==",
+        "license": "MIT",
+        "name": "@emnapi/wasi-threads",
+        "optional": true,
+        "version": "1.2.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-phrYmNiYppR7znFEdqgfWHXR6NCkZEK7hwWDHZUjit/2/U0r6XvkDl0SYnoM51Hq7FhCGdLDT6zxCCOY1hexsQ==",
+        "license": "MIT",
+        "name": "@eslint-community/eslint-utils",
+        "optional": false,
+        "version": "4.9.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-wpc+LXeiyiisxPlEkUzU6svyS1frIO3Mgxj1fdy7Pm8Ygzguax2N3Fa/D/ag1WqbOprdI+uY6wMUl8/a2G+iag==",
+        "license": "Apache-2.0",
+        "name": "@eslint-community/eslint-utils/node_modules/eslint-visitor-keys",
+        "optional": false,
+        "version": "3.4.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-EriSTlt5OC9/7SXkRSCAhfSxxoSUgBm33OH+IkwbdpgoqsSsUg7y3uh+IICI/Qg4BBWr3U2i39RpmycbxMq4ew==",
+        "license": "MIT",
+        "name": "@eslint-community/regexpp",
+        "optional": false,
+        "version": "4.12.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Y3kKLvC1dvTOT+oGlqNQ1XLqK6D1HU2YXPc52NmAlJZbMMWDzGYXMiPRJ8TYD39muD/OTjlZmNJ4ib7dvSrMBA==",
+        "license": "Apache-2.0",
+        "name": "@eslint/config-array",
+        "optional": false,
+        "version": "0.23.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-ii6Bw9jJ2zi2cWA2Z+9/QZ/+3DX6kwaV5Q986D/CdP3Lap3w/pgQZ373FV7byY/i7L4IRH/G43I5dz1ClsCbpA==",
+        "license": "Apache-2.0",
+        "name": "@eslint/config-helpers",
+        "optional": false,
+        "version": "0.6.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-MwcE1P+AZ4C6DWlpin/OmOA54mmIZ/+xZuJiQd4SyB29oAJjN30UW9wkKNptW2ctp4cEsvhlLY/CsQ1uoHDloQ==",
+        "license": "Apache-2.0",
+        "name": "@eslint/core",
+        "optional": false,
+        "version": "1.2.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-zeR9k5pd4gxjZ0abRoIaxdc7I3nDktoXZk2qOv9gCNWx3mVwEn32VRhyLaRsDiJjTs0xq/T8mfPtyuXu7GWBcA==",
+        "license": "MIT",
+        "name": "@eslint/js",
+        "optional": false,
+        "version": "10.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-vqTaUEgxzm+YDSdElad6PiRoX4t8VGDjCtt05zn4nU810UIx/uNEV7/lZJ6KwFThKZOzOxzXy48da+No7HZaMw==",
+        "license": "Apache-2.0",
+        "name": "@eslint/object-schema",
+        "optional": false,
+        "version": "3.0.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-+CNAzxglkrpNf/kKywqQfk74QjtceuOE7Qm+AF8miRvPF/wmmK5+OJOgVh3AVTT3RP2mH3+FOaxlE5v72owk0A==",
+        "license": "Apache-2.0",
+        "name": "@eslint/plugin-kit",
+        "optional": false,
+        "version": "0.7.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-S6mL0yNB/Abt9Ei4tq8gDhcczc4S3+vQ4ra7vxnAf+YHC02srtqxKKZghx2Dq6p0e66THKwR6r8N6P95wEty7Q==",
+        "license": "MIT",
+        "name": "@exodus/bytes",
+        "optional": false,
+        "version": "1.15.1"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-1Ih4WTWyw0+lKyFMcBHGbb5U5FtuHJuujoyyr5zTaWS5EYMeT6Jb2AuDeftsCsEuchO+mM2ij5+q9crhydzLhQ==",
+        "license": "MIT",
+        "name": "@floating-ui/core",
+        "optional": false,
+        "version": "1.7.5"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-9gZSAI5XM36880PPMm//9dfiEngYoC6Am2izES1FF406YFsjvyBMmeJ2g4SAju3xWwtuynNRFL2s9hgxpLI5SQ==",
+        "license": "MIT",
+        "name": "@floating-ui/dom",
+        "optional": false,
+        "version": "1.7.6"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-cC52bHwM/n/CxS87FH0yWdngEZrjdtLW/qVruo68qg+prK7ZQ4YGdut2GyDVpoGeAYe/h899rVeOVm6Oi40k2A==",
+        "license": "MIT",
+        "name": "@floating-ui/react-dom",
+        "optional": false,
+        "version": "2.1.8"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==",
+        "license": "MIT",
+        "name": "@floating-ui/utils",
+        "optional": false,
+        "version": "0.2.11"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA==",
+        "license": "Apache-2.0",
+        "name": "@humanfs/core",
+        "optional": false,
+        "version": "0.19.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-gE1eQNZ3R++kTzFUpdGlpmy8kDZD/MLyHqDwqjkVQI0JMdI1D51sy1H958PNXYkM2rAac7e5/CnIKZrHtPh3BQ==",
+        "license": "Apache-2.0",
+        "name": "@humanfs/node",
+        "optional": false,
+        "version": "0.16.8"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-ZZ1w0aoQkwuUuC7Yf+7sdeaNfqQiiLcSRbfI08oAxqLtpXQr9AIVX7Ay7HLDuiLYAaFPu8oBYNq/QIi9URHJ3Q==",
+        "license": "Apache-2.0",
+        "name": "@humanfs/types",
+        "optional": false,
+        "version": "0.15.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==",
+        "license": "Apache-2.0",
+        "name": "@humanwhocodes/module-importer",
+        "optional": false,
+        "version": "1.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==",
+        "license": "Apache-2.0",
+        "name": "@humanwhocodes/retry",
+        "optional": false,
+        "version": "0.4.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==",
+        "license": "MIT",
+        "name": "@jridgewell/gen-mapping",
+        "optional": false,
+        "version": "0.3.13"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-LI9u/+laYG4Ds1TDKSJW2YPrIlcVYOwi2fUC6xB43lueCjgxV4lffOCZCtYFiH6TNOX+tQKXx97T4IKHbhyHEQ==",
+        "license": "MIT",
+        "name": "@jridgewell/remapping",
+        "optional": false,
+        "version": "2.3.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==",
+        "license": "MIT",
+        "name": "@jridgewell/resolve-uri",
+        "optional": false,
+        "version": "3.1.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==",
+        "license": "MIT",
+        "name": "@jridgewell/sourcemap-codec",
+        "optional": false,
+        "version": "1.5.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==",
+        "license": "MIT",
+        "name": "@jridgewell/trace-mapping",
+        "optional": false,
+        "version": "0.3.31"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-ZLv/JdUfkvOy9eCnnBaGfiO+XimbjebAeO+MRQqD/B+FR1tnRN0tpKSJHRbE8sFfS6aqsXZ67TQjfwfsxULVbg==",
+        "license": "MIT",
+        "name": "@napi-rs/wasm-runtime",
+        "optional": true,
+        "version": "1.1.6"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-r9gHphtCs+1M7J0pw6Sn/hh/Wpa/iQrOOkrNAlVLF/gHq+/CJmHIWKKUUhdWjcD6CIa8idarspCsASiXCXvFUw==",
+        "license": "MIT",
+        "name": "@oxc-project/types",
+        "optional": false,
+        "version": "0.139.0"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-d86WIWFYNtGA0H/d8exstrTRTp7eWJYlYJbtNofxr/3ljupZYn6EFDG/Qgu/0Kc8v7yMUxySagqJsL1+PdYjWg==",
+        "license": "MIT",
+        "name": "@radix-ui/primitive",
+        "optional": false,
+        "version": "1.1.5"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-Kdil9BB1rIFC/khmf4hC35bn8701AJcizTU7G7cUbEbk5XqqbjDuHW60uUfKqO5WojjZcbAW51Q7P0hRmMLw8A==",
+        "license": "MIT",
+        "name": "@radix-ui/react-arrow",
+        "optional": false,
+        "version": "1.1.11"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-nb67INpE0IahJKN7EYPp9m9YGwYeKlnzxT3MwXVkgCskaSJia97kG4T0ywpjNUSSnoJk/uvk12V8vbrEHEj+/Q==",
+        "license": "MIT",
+        "name": "@radix-ui/react-collection",
+        "optional": false,
+        "version": "1.1.12"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-rYOP8OMnuuPMQF1uhPVlGNcCDlkokKqGFE3JcxFViIkAXP7EvFWUliJAstrapypaBLJNHbZL6jGhbVDGTwmVhA==",
+        "license": "MIT",
+        "name": "@radix-ui/react-compose-refs",
+        "optional": false,
+        "version": "1.1.3"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-fOE+JtN9rygNZkCnHRBEP0TAvLldlhyOxMsbwFvTP4nAs+nBmfnna+o/Zski2wkmY1YMrFC0aSzsHoLY47iLrg==",
+        "license": "MIT",
+        "name": "@radix-ui/react-context",
+        "optional": false,
+        "version": "1.2.0"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-+HhbN2+YtkRgVirjZ2afMeutQRuGOrdkWR5+EFC58SJojGmtyNQwYzgi6tHBpOxvFHefMtPeHdgtjz0BOGxFQg==",
+        "license": "MIT",
+        "name": "@radix-ui/react-dialog",
+        "optional": false,
+        "version": "1.1.19"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-C3vFhbyi4SW3PmbAi6Awpu4OzJtd0MxGurvSsYtr7p7nM8RNB3VAF3CUmnp2j50knpkrRcB7+ycVXzgLgF6yNA==",
+        "license": "MIT",
+        "name": "@radix-ui/react-direction",
+        "optional": false,
+        "version": "1.1.2"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-b0XaRlzn2QKuo10XyNgi2DAJDf5XC9d1nD3FJcuvCjbR7+4Ad28zmZsLsqx+hvDEzMnRuZaZxZm9gYObV6RmRA==",
+        "license": "MIT",
+        "name": "@radix-ui/react-dismissable-layer",
+        "optional": false,
+        "version": "1.1.15"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-slfm+rRaZRuQBvHq60lXvSVUPhid0IPtjSZzIuUlWZMUs01iYZNlGS3mJgRD3ChLQVBAYlKiL/tFyWGX+dz8Xw==",
+        "license": "MIT",
+        "name": "@radix-ui/react-dropdown-menu",
+        "optional": false,
+        "version": "2.1.20"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-cot/aB/mOm0IYVYTTmQcEEK1M48lZWi8FlYe5nDPQQ8NYZUlXEFgncJ9p2Kzer3RKSrY7cTTpEMLZKNo9QoP5Q==",
+        "license": "MIT",
+        "name": "@radix-ui/react-focus-guards",
+        "optional": false,
+        "version": "1.1.4"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-jjk/lqTeNL0azUx5ZYzVrl4NgaDIrdzTNE4mABV9yBFI7FQqN7pIgzV1bTleUezP2QiTGA1BFTqY8MegDgWX9A==",
+        "license": "MIT",
+        "name": "@radix-ui/react-focus-scope",
+        "optional": false,
+        "version": "1.1.12"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-orBC88futVpqCmhX1p4cvquNHsELQ+w+vBJnuj3ftETI5bJb0bZn3Tqu3SWN2IOcPycTnMGnhwoermvISt72sA==",
+        "license": "MIT",
+        "name": "@radix-ui/react-id",
+        "optional": false,
+        "version": "1.1.2"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-VsUrXxFe9d2ScbZF0fR/oPR1+qjyeLs5p0jzG8h90puMoA9bq4SirYlXbE+USRg9Q2qTeJSFNqjw2nts8jJe4w==",
+        "license": "MIT",
+        "name": "@radix-ui/react-menu",
+        "optional": false,
+        "version": "2.1.20"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-jkrTdQVxnIB8fpn0NyyxW9CTB5aCXZZelVz5z+Xmii6g5WxMqS3fInNslZ63puP39+Puu4jYohUK31y3dT87gQ==",
+        "license": "MIT",
+        "name": "@radix-ui/react-popover",
+        "optional": false,
+        "version": "1.1.19"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-mS7dGpyjv6b+gsDjLF7e0ia1W4Im1B1hSCy2yuXlHuvnZxHKagfDaobt/KAKt27EpZMit2pss8eJBVyVjEWM+g==",
+        "license": "MIT",
+        "name": "@radix-ui/react-popper",
+        "optional": false,
+        "version": "1.3.3"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-z3oXfmaHLJTF1wktbjgD6cn9jiEbq3WSondB10LIuIt2m2Ym4iJlrW04/euMwENDdWDdE7z+OuY7Qyp1YpRSwA==",
+        "license": "MIT",
+        "name": "@radix-ui/react-portal",
+        "optional": false,
+        "version": "1.1.13"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-zBZ4QM5XG3JRanDmqXYf3MD6th4AFXFmgU6KNMFzUaV6F3uw9I5/zjMUvFriSEn5ewo1nxuibvyxJdmLlDcslA==",
+        "license": "MIT",
+        "name": "@radix-ui/react-presence",
+        "optional": false,
+        "version": "1.1.7"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-bC3NiwsprbxKjuon9l7X6BUTw7FPVzEYaL92MPEY5SCd/9hUTPXVFtVwRix7778wtRsVao+zE062gL79FZleeQ==",
+        "license": "MIT",
+        "name": "@radix-ui/react-primitive",
+        "optional": false,
+        "version": "2.1.7"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-40svmmugfM3mUN7VUDGVE1tQGOhyi8enlGD0CNJEcMM36C1f71PKM21DFgNHUfem0XnA+d8H8oN3Z9ZpJjSslg==",
+        "license": "MIT",
+        "name": "@radix-ui/react-roving-focus",
+        "optional": false,
+        "version": "1.1.15"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-MojKku4U/miO8Av4Dkb+ctMAQx7JmY96LmtDQlAarCRtd7rN52QCSzBF+XAvr5S6coSVj9HEPBgHAHKEJVk/WA==",
+        "license": "MIT",
+        "name": "@radix-ui/react-slot",
+        "optional": false,
+        "version": "1.3.0"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-nRyXnrAVCwjeXcHbvEbLS6ndbTeKHG1RqCP4A8Gw5L4cemDzPXdD8rAmr6wet0v57R69wGvuIIsFjHSVkZiMzQ==",
+        "license": "MIT",
+        "name": "@radix-ui/react-tabs",
+        "optional": false,
+        "version": "1.1.17"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-U3HoftgWnmla78vzQbLvKKb7bUYJxoiiqYFzp1wu/TBMyDqMZSuCl3aRICsD6EfVEwcJD2mumGDGUXLFVqQHKA==",
+        "license": "MIT",
+        "name": "@radix-ui/react-tooltip",
+        "optional": false,
+        "version": "1.2.12"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-xCso9j1/u8sEgP1RNHjFrXJLApL8LiqOkI1R4ywuN00rxWdYg4oQXuwKLS3i0j5NWLromUD27/4nlxj2UFVvIw==",
+        "license": "MIT",
+        "name": "@radix-ui/react-use-callback-ref",
+        "optional": false,
+        "version": "1.1.2"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-PLzC90MS+ReootmjC597dvopoelpZ8Q61HJkDXZSExitIq7PL55vHNnesAHwguHK0aPfBnpdNzQtv1uliaqQrA==",
+        "license": "MIT",
+        "name": "@radix-ui/react-use-controllable-state",
+        "optional": false,
+        "version": "1.2.3"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-6c8ZqvPTWILEKnyVkP53EGRCcpnJiKTC21sS/6R1GF5xKyHJJWQEPfkqlcgUkdRQivd6tb23abUwe4ngWmY0JA==",
+        "license": "MIT",
+        "name": "@radix-ui/react-use-effect-event",
+        "optional": false,
+        "version": "0.0.3"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-qwOiz4Tjo8CNnrOLAYUMXeZwDzXgXpvK4TKQPmWLECM9XoWvA6+0Z2/7Ag3A4ivjS4ovbLJPbskkxioFyBhr8A==",
+        "license": "MIT",
+        "name": "@radix-ui/react-use-is-hydrated",
+        "optional": false,
+        "version": "0.1.1"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-jrBWOxZITuGcnjRCM2t2U5ZPkCLxD+Ym6DjfssS5haTj2iiak/DOb64JeN6OdLfLgptb6/e2kKR+ZuTrGoZTPA==",
+        "license": "MIT",
+        "name": "@radix-ui/react-use-layout-effect",
+        "optional": false,
+        "version": "1.1.2"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-d8a+bBY/FxikNPlgJJoaBHZX+zKVbWHYJGTLnLvveQgFSTntkGdEKv3JDtHrMS0DNYpllz2nRsTLGLKYttbpmw==",
+        "license": "MIT",
+        "name": "@radix-ui/react-use-rect",
+        "optional": false,
+        "version": "1.1.2"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-giWQp+4mxjBPt4KZ0MmyuykFNWfbDxKt4x+fPkRYmgRFJSbCZFzUglvMb/Kjn38tm10YP4ufiQZDx3zna4LU6w==",
+        "license": "MIT",
+        "name": "@radix-ui/react-use-size",
+        "optional": false,
+        "version": "1.1.2"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-1wNZBggTDK3GRuuQ6nP4k2yi7a6l7I5qbMPbZcRsrGsGVead/f/d5FhEzUvqFs0bcrDLx7n1zKQ3JvLR6whaaw==",
+        "license": "MIT",
+        "name": "@radix-ui/react-visually-hidden",
+        "optional": false,
+        "version": "1.2.7"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-xnXE7wG13PI+cxieVssYXlQJuYVRhH9NBoxt3KNwzghDIA69GMm7d4wXRouHIYjE+KvS6U/MsMO73NdS2MH9ZA==",
+        "license": "MIT",
+        "name": "@radix-ui/rect",
+        "optional": false,
+        "version": "1.1.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-lZg8fqIv2v7FF237bwMgzGZEJvGL79/s5knJ/i6FmsGF4XXlzccZ4jb+TrFIxtSSxFtIpdsgrPZeMk1I9AFcyQ==",
+        "license": "MIT",
+        "name": "@rolldown/binding-android-arm64",
+        "optional": true,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-51Bnx9pNiMRKSUNtBfySkNJ9vMU9Hh3I1ozDd6gyPPYzaXCfnptUcEZxXGYFn+ul2dtcMUiqGR1Yai2K10uoTw==",
+        "license": "MIT",
+        "name": "@rolldown/binding-darwin-arm64",
+        "optional": true,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Tm+gbfC0aHu1tBA/JvKQh32S0K6YgCHkiAF4/W6xX0K0RmNuc94VeK419dJoE65R5aRxmo+noZQSWrAMF6yb6g==",
+        "license": "MIT",
+        "name": "@rolldown/binding-darwin-x64",
+        "optional": true,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-JMzDKCCXq93YccG5gz3hvOs1oXRKAf0XYpfOS88e+wZrC8Iugj6j68867vrYZkvpDDpKn/KoKORThmchMpF6TA==",
+        "license": "MIT",
+        "name": "@rolldown/binding-freebsd-x64",
+        "optional": true,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-uML21j2K5TfPGutKxub+M+nLjZIrWjXQ5Grx4lCe/nimTj9B4L63zHpjXLl4y0L3mcm2htEQIb06oCG/szerNw==",
+        "license": "MIT",
+        "name": "@rolldown/binding-linux-arm-gnueabihf",
+        "optional": true,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-navSiuTMogvnQoZoM/v+l3ZWo50/NTwSHSzheABx/RCnmUPaKwq9qSo4Br2OYRs21+Fz8uFqITZM3H4opOB0/Q==",
+        "license": "MIT",
+        "name": "@rolldown/binding-linux-arm64-gnu",
+        "optional": true,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-lAryqH7IteztmCXQXk0etKj4wBQ7Gx5S6LjKhsgp9zb8I5bsuvU/2llH1hDQcjsFeqIsovMVN339/8pUDDBXxA==",
+        "license": "MIT",
+        "name": "@rolldown/binding-linux-arm64-musl",
+        "optional": true,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-fsK/sNBnxzBlL4O1JNrZakVQxPspqpED5dLtNsZS9oOKmtSpdNIzxH2kkol5HYTWJN47sE20ztMJPxfZ89qGOg==",
+        "license": "MIT",
+        "name": "@rolldown/binding-linux-ppc64-gnu",
+        "optional": true,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-gLYb4BIadlfTOYT5gO503n8zQjXflgzpD0FcyKh0Mzx3rqCZKnHoJWV9xe1KXUJ5lx2JfcSHr/mhzS0PC/McAA==",
+        "license": "MIT",
+        "name": "@rolldown/binding-linux-s390x-gnu",
+        "optional": true,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-FjcpEKUyJygHgs1o50VYNvkt5+7Le/VEdYt0AkRpkL33MnyQfwr8l5mXwMmfmTbyMPr5vJLC+8/Gd9gXnwU1QQ==",
+        "license": "MIT",
+        "name": "@rolldown/binding-linux-x64-gnu",
+        "optional": true,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Me+PfPI2TMeOQk0gYWfLQZtTktrmzbr8cDboqX83XKc7UrgAi55gF+2dUkWdxd19n55Essp2yeca+O9N5rBxHg==",
+        "license": "MIT",
+        "name": "@rolldown/binding-linux-x64-musl",
+        "optional": true,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-yc5WrLzXks6zCQfn9Oxr8pORKyl/pF+QjHmW/Qx3qu0oyrrNC+y2JLTU1E2rcWYAmzlnqngWXHQjy51VzW70Vw==",
+        "license": "MIT",
+        "name": "@rolldown/binding-openharmony-arm64",
+        "optional": true,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-VbQGPX2b4r48TAMIM2cjgluIM1HYutm4pcTEJsle7iEP7sB1dFqtPLBVbdLAZCxy1txCcPxf4QFf4v8uvltPqA==",
+        "license": "MIT",
+        "name": "@rolldown/binding-wasm32-wasi",
+        "optional": true,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-gHv82k63z4qpV5+Q1y/12KrK0ltWBukVDI8nZcbT7Tt/ZlOIVwppazneq0F93oDxTo3IgAMEDIoQh3E2n6mVsw==",
+        "license": "MIT",
+        "name": "@rolldown/binding-win32-arm64-msvc",
+        "optional": true,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-tTZuDBPw85tEN5PQi1pnEBzDy0Z49HtScLAbD5t6hyeU92A95pRWaSMw1GZZi/RwgSgUIl0xrSlXIT/9QzvYSA==",
+        "license": "MIT",
+        "name": "@rolldown/binding-win32-x64-msvc",
+        "optional": true,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==",
+        "license": "MIT",
+        "name": "@rolldown/pluginutils",
+        "optional": false,
+        "version": "1.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==",
+        "license": "MIT",
+        "name": "@standard-schema/spec",
+        "optional": false,
+        "version": "1.1.0"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-hH5MLoJhF7KaIGd7q3xTXGXvslI+GYlM1Z/35aSHHWaCJWB7XvTSHYuV3eM7tw+aE0mT/xMro4M4Q9rCGHT0lw==",
+        "license": "MIT",
+        "name": "@tanstack/query-core",
+        "optional": false,
+        "version": "5.101.2"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-seDkr6kzGzX1okaaTtZPtgA688CDPlXUz1C6xSg0ESqn04Vuc8tlrYms1s3de+znBqhPVxFRfpAfUf+6XvfPWg==",
+        "license": "MIT",
+        "name": "@tanstack/react-query",
+        "optional": false,
+        "version": "5.101.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-o4PXJQidqJl82ckFaXUeoAW+XysPLauYI43Abki5hABd853iMhitooc6znOnczgbTYmEP6U6/y1ZyKAIsvMKGg==",
+        "license": "MIT",
+        "name": "@testing-library/dom",
+        "optional": false,
+        "version": "10.4.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-zIcONa+hVtVSSep9UT3jZ5rizo2BsxgyDYU7WFD5eICBE7no3881HGeb/QkGfsJs6JTkY1aQhT7rIPC7e+0nnA==",
+        "license": "MIT",
+        "name": "@testing-library/jest-dom",
+        "optional": false,
+        "version": "6.9.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-7ZgogeTnjuHbo+ct10G9Ffp0mif17idi0IyWNVA/wcwcm7NPOD/WEHVP3n7n3MhXqxoIYm8d6MuZohYWIZ4T3w==",
+        "license": "MIT",
+        "name": "@testing-library/jest-dom/node_modules/dom-accessibility-api",
+        "optional": false,
+        "version": "0.6.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-XU5/SytQM+ykqMnAnvB2umaJNIOsLF3PVv//1Ew4CTcpz0/BRyy/af40qqrt7SjKpDdT1saBMc42CUok5gaw+g==",
+        "license": "MIT",
+        "name": "@testing-library/react",
+        "optional": false,
+        "version": "16.3.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-vq7fv0rnt+QTXgPxr5Hjc210p6YKq2kmdziLgnsZGgLJ9e6VAShx1pACLuRjd/AS/sr7phAR58OIIpf0LlmQNw==",
+        "license": "MIT",
+        "name": "@testing-library/user-event",
+        "optional": false,
+        "version": "14.6.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-F3fo1MYrRJYL3zER0OUOmkutjr1Vp23m7OsSgp7nq4SP6OqX6C/56XFIPAl5bt3zaBRjmW7SGz3u/6LwFpYcOg==",
+        "license": "MIT",
+        "name": "@tybys/wasm-util",
+        "optional": true,
+        "version": "0.10.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-rfT93uj5s0PRL7EzccGMs3brplhcrghnDoV26NqKhCAS1hVo+WdNsPvE/yb6ilfr5hi2MEk6d5EWJTKdxg8jVw==",
+        "license": "MIT",
+        "name": "@types/aria-query",
+        "optional": false,
+        "version": "5.0.4"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Mw558oeA9fFbv65/y4mHtXDs9bPnFMZAL/jxdPFUpOHHIXX91mcgEHbS5Lahr+pwZFR8A7GQleRWeI6cGFC2UA==",
+        "license": "MIT",
+        "name": "@types/chai",
+        "optional": false,
+        "version": "5.2.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-c9h9dVVMigMPc4bwTvC5dxqtqJZwQPePsWjPlpSOnojbor6pGqdk541lfA7AqFQr5pB1BRdq0juY9db81BwyFw==",
+        "license": "MIT",
+        "name": "@types/deep-eql",
+        "optional": false,
+        "version": "4.0.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-xJBAbDifo5hpffDBuHl0Y8ywswbiAp/Wi7Y/GtAgSlZyIABppyurxVueOPE8LUQOxdlgi6Zqce7uoEpqNTeiUw==",
+        "license": "MIT",
+        "name": "@types/esrecurse",
+        "optional": false,
+        "version": "4.3.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-GhdPgy1el4/ImP05X05Uw4cw2/M93BCUmnEvWZNStlCzEKME4Fkk+YpoA5OiHNQmoS7Cafb8Xa3Pya8m1Qrzeg==",
+        "license": "MIT",
+        "name": "@types/estree",
+        "optional": false,
+        "version": "1.0.9"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==",
+        "license": "MIT",
+        "name": "@types/json-schema",
+        "optional": false,
+        "version": "7.0.15"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Dh8vAsV36ig5wa9OX4pXvMc9D3Veibfw2wix0CUwYODLD8nkj9UsLjASr49nPg+2eKzxhBV+v7L8pXvT4e639Q==",
+        "license": "MIT",
+        "name": "@types/node",
+        "optional": false,
+        "version": "24.13.3"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-MXfmqaVPEVgkBT/aY0aGCkRWWtByiYQXo3xdQ8r5RzuFrPiRn8Gar2tQdXSUQ2GKV3bkXckek89V8wQBY2Q/Aw==",
+        "license": "MIT",
+        "name": "@types/react",
+        "optional": false,
+        "version": "19.2.17"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==",
+        "license": "MIT",
+        "name": "@types/react-dom",
+        "optional": false,
+        "version": "19.2.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-rvwSgqT+DHpWdzfSzPatRLm02a0GlESt++9iy3hLCDY4BgkaLcl8LBi9Yh7XGFBpwcBE/K3024QuXWTpbz4FfQ==",
+        "license": "MIT",
+        "name": "@typescript-eslint/eslint-plugin",
+        "optional": false,
+        "version": "8.63.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-BAg6QkE8W+TuQLrrw0Ugr7HegXduRuuj8/ti2kSOc+jz1dmx8/WNcjr6XGnq5YpDWxFwwaavqD0+jIUOKelTsw==",
+        "license": "MIT",
+        "name": "@typescript-eslint/eslint-plugin/node_modules/ignore",
+        "optional": false,
+        "version": "7.0.6"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-gwh4gvvlaVDKKxyfxMG+Gnu1u9X0OQBwyGLkbwB65dIzBKnxeRiJlNFqlI3zwVhNXJIs6qV7mlFCn/BIajlVig==",
+        "license": "MIT",
+        "name": "@typescript-eslint/parser",
+        "optional": false,
+        "version": "8.63.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-e5dh0/UI0ok53AlZ5wRkXCB32z/f2jUZqPR/ygAw5WYaSw8j9EoJWlS7wQjr/dmOaqWjnPIn2m+HhVPCMWGZVQ==",
+        "license": "MIT",
+        "name": "@typescript-eslint/project-service",
+        "optional": false,
+        "version": "8.63.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-uUyfMWCnDSN8bCpcrY8nGP2BLkQ9Xn0GsipcONcpIDWhwhO4ZSyHvyS14U3X75mzxWxL3I2UZIrenTzdzcJO8A==",
+        "license": "MIT",
+        "name": "@typescript-eslint/scope-manager",
+        "optional": false,
+        "version": "8.63.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-sUAbkulqBAsncKnbRP3+7CtQFRKicexnj7ZwNC6ddCR7EmrXvjvdCYMJbUIqMd6lwoEriZjwLo08aS5tSjVMHg==",
+        "license": "MIT",
+        "name": "@typescript-eslint/tsconfig-utils",
+        "optional": false,
+        "version": "8.63.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Nzzh/OGxVCOjObjaj1CQF2RUasyYy2Jfuh+zZ3PjLzG2fYRriAiZLib9UKtO+CpQAS3YHiAS+ckZDclwqI1TPA==",
+        "license": "MIT",
+        "name": "@typescript-eslint/type-utils",
+        "optional": false,
+        "version": "8.63.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-xyLtl9DUBBFrcJS4x2pIqGLH68/tC2uOa4Z7pUteW09D3bXnnXUom4dyPikzWgB7llmIc1zoeI3aoUdC4rPK/Q==",
+        "license": "MIT",
+        "name": "@typescript-eslint/types",
+        "optional": false,
+        "version": "8.63.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-ygBkU+B7ex5UI/gKhaqexWev79uISfIv7XQCRNYO/jmD8rGLPyWLAb3KMRT6nd8Gt9bmUBi9+iX6tBdYfOY81Q==",
+        "license": "MIT",
+        "name": "@typescript-eslint/typescript-estree",
+        "optional": false,
+        "version": "8.63.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==",
+        "license": "ISC",
+        "name": "@typescript-eslint/typescript-estree/node_modules/semver",
+        "optional": false,
+        "version": "7.8.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-fUKaeAvrTuQg/Tgt3nliAUSZHJM6DlCcfyEmxCvlX8kieWSStBX+5O5Fnidtc3i2JrH+9c/GL4RY2iasd/GPTA==",
+        "license": "MIT",
+        "name": "@typescript-eslint/utils",
+        "optional": false,
+        "version": "8.63.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-UexrHGnGTpbuQHct2ExOc2ZcFbGUS9FOesCxxqdBGcpI1BxYu/LZ6U8Aq6/72XtF/qRBk9nhuGHFJIXXMhPMdw==",
+        "license": "MIT",
+        "name": "@typescript-eslint/visitor-keys",
+        "optional": false,
+        "version": "8.63.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-vmFvco5/QuC2f9Oj+wTk0+9XeDFkHxSamwZKYc7MxYwKICfvUvlMhqKI0VuICPltGqh1neqBKDvO4kes1ya8vg==",
+        "license": "MIT",
+        "name": "@vitejs/plugin-react",
+        "optional": false,
+        "version": "6.0.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-YsCn+qAk1GWjQOWFEsEcL2gNQ0zmVmQu3T03qP6UyjhtmdtwtbuI+DASn/7iQB3HGTXkdBwGddzxPlmiql5vlA==",
+        "license": "MIT",
+        "name": "@vitest/expect",
+        "optional": false,
+        "version": "4.1.10"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-v0xaezt+DKEmKfaxg133ldzADrwLGd7Ze1MfQQTYfvs8OqZIwbxyxaYURivwV7sWy5fqn3rH5uOrSp07bp44Ow==",
+        "license": "MIT",
+        "name": "@vitest/mocker",
+        "optional": false,
+        "version": "4.1.10"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-W1HsjSH4MXQ9YfmmhLAoIYf1HRfekQCGngeIgcei6MP5QQGWUe0gkopdZQaVCFO+JDJMrAJGwa5pRpNpvy4P8Q==",
+        "license": "MIT",
+        "name": "@vitest/pretty-format",
+        "optional": false,
+        "version": "4.1.10"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-IKI6kpIH+LmpROplyLwBBaCfMgOZOMsygVa6BARD6ahA04VRuJSa6OaVG7kRvSEMD870Vd91rSSw0eegtWyLGg==",
+        "license": "MIT",
+        "name": "@vitest/runner",
+        "optional": false,
+        "version": "4.1.10"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-xRkfOT1qpTAi/Ti4Y1LtfRc3kEuqxGw59eN2jN9pRWMtS/XDevekhcFSqvQqjUNGksfjMJu3Y+oJ+4Ypn2OaJw==",
+        "license": "MIT",
+        "name": "@vitest/snapshot",
+        "optional": false,
+        "version": "4.1.10"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-PLf/Ugvoq5wO/b4rwYCR1h2PSIdXz7wnkQFMiUpLdtM7l6pqVFcQIBEHyT1+l+cj7mNwAfZHzqXqDyjvOuwbDw==",
+        "license": "MIT",
+        "name": "@vitest/spy",
+        "optional": false,
+        "version": "4.1.10"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-fy9am/HWxbaGt/Sawrp90vt6Y6jQwf1RX77cz3uwoJwJVMli/e1IEwRPnMNJ7vKfPTwo0diXifkpPvwH9v7nGA==",
+        "license": "MIT",
+        "name": "@vitest/utils",
+        "optional": false,
+        "version": "4.1.10"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-xRQbDb9BnwDafYNn6Vwl839DYVjqXYb1XVGtWAZ1kcDc6iwAL4hg3B1dZlRiuENFeO2H53gFG3in621AdERVAg==",
+        "license": "MIT",
+        "name": "acorn",
+        "optional": false,
+        "version": "8.17.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==",
+        "license": "MIT",
+        "name": "acorn-jsx",
+        "optional": false,
+        "version": "5.3.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-fgFx7Hfoq60ytK2c7DhnF8jIvzYgOMxfugjLOSMHjLIPgenqa7S7oaagATUq99mV6IYvN2tRmC0wnTYX6iPbMw==",
+        "license": "MIT",
+        "name": "ajv",
+        "optional": false,
+        "version": "6.15.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==",
+        "license": "MIT",
+        "name": "ansi-regex",
+        "optional": false,
+        "version": "5.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==",
+        "license": "MIT",
+        "name": "ansi-styles",
+        "optional": false,
+        "version": "5.2.0"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-ik3ZgC9dY/lYVVM++OISsaYDeg1tb0VtP5uL3ouh1koGOaUMDPpbFIei4JkFimWUFPn90sbMNMXQAIVOlnYKJA==",
+        "license": "MIT",
+        "name": "aria-hidden",
+        "optional": false,
+        "version": "1.2.6"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-b0P0sZPKtyu8HkeRAfCq0IfURZK+SuwMjY1UXGBU27wpAiTwQAIlq56IbIO+ytk/JjS1fMR14ee5WBBfKi5J6A==",
+        "license": "Apache-2.0",
+        "name": "aria-query",
+        "optional": false,
+        "version": "5.3.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Izi8RQcffqCeNVgFigKli1ssklIbpHnCYc6AknXGYoB6grJqyeby7jv12JUQgmTAnIDnbck1uxksT4dzN3PWBA==",
+        "license": "MIT",
+        "name": "assertion-error",
+        "optional": false,
+        "version": "2.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-s7iGf5GaVMxEG0ENN9x+xTr7GFZCb1ZP/1uATUpCEK2X78nDB3RwbtFCo9pGAf9ru+VwoQ464DkaLEeRM08wJA==",
+        "license": "MPL-2.0",
+        "name": "axe-core",
+        "optional": false,
+        "version": "4.12.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==",
+        "license": "MIT",
+        "name": "balanced-match",
+        "optional": false,
+        "version": "4.0.4"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-c/jurFrDLyui7o1J86yLkRu4LMsTYcBohveus7/I2Hzdn9KIP2bdJPTue/lR1KH46enoPbD77GKeSYNdyPoD3Q==",
+        "license": "Apache-2.0",
+        "name": "baseline-browser-mapping",
+        "optional": false,
+        "version": "2.10.42"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-RKshQI1R3YQ+n9YJz2QQ147P66ELpa1FQEg20Dk8oW9t2KgLbpDLLp9aGZ7y8WHSshDknG0bknqGw5/tyCs5tw==",
+        "license": "MIT",
+        "name": "bidi-js",
+        "optional": false,
+        "version": "1.0.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-7oFy703dxfY3/NLxC1fh2SUCQ0H9rmAY+5EpDVfXjUTTs+HEwR2nYaqLv+GWcTsumwxPfiz6CzCNkwXwBUwqCA==",
+        "license": "MIT",
+        "name": "brace-expansion",
+        "optional": false,
+        "version": "5.0.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Cu2E6QejHWzuDMTkuwgpABFgDfZrXLQq5V13YOACZx4mFAG4IwGTbTfHPMr4WtxlHoXSM8FIuRwYYCz5XiabaQ==",
+        "license": "MIT",
+        "name": "browserslist",
+        "optional": false,
+        "version": "4.28.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-tjwM5exMg6BGRI+kNmTntNsvdZS1X8BFYS6tnJ2hdH0kVxM6/eVZ2xy+FqStSWvYmtfFMDLIxurorHwDKfDz5Q==",
+        "license": "MIT",
+        "name": "bundle-name",
+        "optional": false,
+        "version": "4.1.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-g/uHREV2ZpK9qMalCsWaxmA6ol+DX8GYhuf3T40RKoP+oL7vhRJh8LNt73PCjpnR6l14FzfPrB5Yux4PKm2meg==",
+        "license": "CC-BY-4.0",
+        "name": "caniuse-lite",
+        "optional": false,
+        "version": "1.0.30001803"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-NUPRluOfOiTKBKvWPtSD4PhFvWCqOi0BGStNWs57X9js7XGTprSmFoz5F0tWhR4WPjNeR9jXqdC7/UpSJTnlRg==",
+        "license": "MIT",
+        "name": "chai",
+        "optional": false,
+        "version": "6.2.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-k7ndgKhwoQveBL+/1tqGJYNz097I7WOvwbmmU2AR5+magtbjPWQTS1C5vzGkBC8Ym8UWRzfKUzUUqFLypY4Q+w==",
+        "license": "ISC",
+        "name": "cliui",
+        "optional": false,
+        "version": "9.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==",
+        "license": "MIT",
+        "name": "convert-source-map",
+        "optional": false,
+        "version": "2.0.0"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-UaXxwISYJPTr9hwQxMFYZ7kNhSXboMXP+Z3TRX6f1/NyaGPfuNUZOWP1pUEb75B2HjfklIYLVRfWiFZJyC6Npg==",
+        "license": "MIT",
+        "name": "cookie-es",
+        "optional": false,
+        "version": "3.1.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==",
+        "license": "MIT",
+        "name": "cross-spawn",
+        "optional": false,
+        "version": "7.0.6"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-X7sjQzceUhu1u7Y/ylrRZFU2FS6LRiFVp6rKLPg23y3x3c3DOKAwuXGDp+PAGjh6CSnCjYeAul8pcT8bAl+lSA==",
+        "license": "MIT",
+        "name": "css-tree",
+        "optional": false,
+        "version": "3.2.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-YUifsXXuknHlUsmlgyY0PKzgPOr7/FjCePfHNt0jxm83wHZi44VDMQ7/fGNkjY3/jV1MC+1CmZbaHzugyeRtpg==",
+        "license": "MIT",
+        "name": "css.escape",
+        "optional": false,
+        "version": "1.5.1"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==",
+        "license": "MIT",
+        "name": "csstype",
+        "optional": false,
+        "version": "3.2.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-23XHcCF+coGYevirZceTVD7NdJOqVn+49IHyxgszm+JIiHLoB2TkmPtsYkNWT1pvRSGkc35L6NHs0yHkN2SumA==",
+        "license": "MIT",
+        "name": "data-urls",
+        "optional": false,
+        "version": "7.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==",
+        "license": "MIT",
+        "name": "debug",
+        "optional": false,
+        "version": "4.4.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-YpgQiITW3JXGntzdUmyUR1V812Hn8T1YVXhCu+wO3OpS4eU9l4YdD3qjyiKdV6mvV29zapkMeD390UVEf2lkUg==",
+        "license": "MIT",
+        "name": "decimal.js",
+        "optional": false,
+        "version": "10.6.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==",
+        "license": "MIT",
+        "name": "deep-is",
+        "optional": false,
+        "version": "0.1.4"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-H9LMLr5zwIbSxrmvikGuI/5KGhZ8E2zH3stkMgM5LpOWDutGM2JZaj460Udnf1a+946zc7YBgrqEWwbk7zHvGw==",
+        "license": "MIT",
+        "name": "default-browser",
+        "optional": false,
+        "version": "5.5.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-x1VCxdX4t+8wVfd1so/9w+vQ4vx7lKd2Qp5tDRutErwmR85OgmfX7RlLRMWafRMY7hbEiXIbudNrjOAPa/hL8Q==",
+        "license": "MIT",
+        "name": "default-browser-id",
+        "optional": false,
+        "version": "5.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-N+MeXYoqr3pOgn8xfyRPREN7gHakLYjhsHhWGT3fWAiL4IkAt0iDw14QiiEm2bE30c5XX5q0FtAA3CK5f9/BUg==",
+        "license": "MIT",
+        "name": "define-lazy-prop",
+        "optional": false,
+        "version": "3.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==",
+        "license": "MIT",
+        "name": "dequal",
+        "optional": false,
+        "version": "2.0.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==",
+        "license": "Apache-2.0",
+        "name": "detect-libc",
+        "optional": false,
+        "version": "2.1.2"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-ypdmJU/TbBby2Dxibuv7ZLW3Bs1QEmM7nHjEANfohJLvE0XVujisn1qPJcZxg+qDucsr+bP6fLD1rPS3AhJ7EQ==",
+        "license": "MIT",
+        "name": "detect-node-es",
+        "optional": false,
+        "version": "1.1.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-X7BJ2yElsnOJ30pZF4uIIDfBEVgF4XEBxL9Bxhy6dnrm5hkzqmsWHGTiHqRiITNhMyFLyAiWndIJP7Z1NTteDg==",
+        "license": "MIT",
+        "name": "dom-accessibility-api",
+        "optional": false,
+        "version": "0.5.16"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-cEto7aeOqBfU1D+c5py5pE+ooscKE75JifxLBdFUZsqAxRS6y7kebtxAZvICszSl05gPjYHDTjY+lXpyGvpJbg==",
+        "license": "ISC",
+        "name": "electron-to-chromium",
+        "optional": false,
+        "version": "1.5.389"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==",
+        "license": "MIT",
+        "name": "emoji-regex",
+        "optional": false,
+        "version": "10.6.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-zwfzJecQ/Uej6tusMqwAqU/6KL2XaB2VZ2Jg54Je6ahNBGNH6Ek6g3jjNCF0fG9EWQKGZNddNjU5F1ZQn/sBnA==",
+        "license": "BSD-2-Clause",
+        "name": "entities",
+        "optional": false,
+        "version": "8.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-KLdwQm2NvGLDkQDCGvmiQrhkd0JbMzXthwQAUgWjQuQdBLFa3eiBP5arXZyA+f8x+x7OXgud6bq2rxjGtHV2tw==",
+        "license": "MIT",
+        "name": "es-module-lexer",
+        "optional": false,
+        "version": "2.3.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==",
+        "license": "MIT",
+        "name": "escalade",
+        "optional": false,
+        "version": "3.2.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==",
+        "license": "MIT",
+        "name": "escape-string-regexp",
+        "optional": false,
+        "version": "4.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-6lVbcqSodALYo+4ELD0heG6lFiFxnLMuLkiMi2qV8LMp54N8tE8FT1GMH+ev4Ti00nFjNze2+Su6DsV5OQW3Dg==",
+        "license": "MIT",
+        "name": "eslint",
+        "optional": false,
+        "version": "10.6.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-f2I7Gw6JbvCexzIInuSbZpfdQ44D7iqdWX01FKLvrPgqxoE7oMj8clOfto8U6vYiz4yd5oKu39rRSVOe1zRu0g==",
+        "license": "MIT",
+        "name": "eslint-plugin-react-hooks",
+        "optional": false,
+        "version": "7.1.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-5EMmLCV98Pi4o/f/3DP/v/tNqLHMIc9I8LKClNDWhZ9JTho89/kQcitCXQBMG7sAfVRK0Ie3T2EDOzp1YXYiVA==",
+        "license": "MIT",
+        "name": "eslint-plugin-react-refresh",
+        "optional": false,
+        "version": "0.5.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-xS90H51cKw0jltxmvmHy2Iai1LIqrfbw57b79w/J7MfvDfkIkFZ+kj6zC3BjtUwh150HsSSdxXZcsuv72miDFQ==",
+        "license": "BSD-2-Clause",
+        "name": "eslint-scope",
+        "optional": false,
+        "version": "9.1.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-tD40eHxA35h0PEIZNeIjkHoDR4YjjJp34biM0mDvplBe//mB+IHCqHDGV7pxF+7MklTvighcCPPZC7ynWyjdTA==",
+        "license": "Apache-2.0",
+        "name": "eslint-visitor-keys",
+        "optional": false,
+        "version": "5.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-7p3DrVEIopW1B1avAGLuCSh1jubc01H2JHc8B4qqGblmg5gI9yumBgACjWo4JlIc04ufug4xJ3SQI8HkS/Rgzw==",
+        "license": "BSD-2-Clause",
+        "name": "espree",
+        "optional": false,
+        "version": "11.2.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Ap6G0WQwcU/LHsvLwON1fAQX9Zp0A2Y6Y/cJBl9r/JbW90Zyg4/zbG6zzKa2OTALELarYHmKu0GhpM5EO+7T0g==",
+        "license": "BSD-3-Clause",
+        "name": "esquery",
+        "optional": false,
+        "version": "1.7.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-KmfKL3b6G+RXvP8N1vr3Tq1kL/oCFgn2NYXEtqP8/L3pKapUA4G8cFVaoF3SU323CD4XypR/ffioHmkti6/Tag==",
+        "license": "BSD-2-Clause",
+        "name": "esrecurse",
+        "optional": false,
+        "version": "4.3.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-MMdARuVEQziNTeJD8DgMqmhwR11BRQ/cBP+pLtYdSTnf3MIO8fFeiINEbX36ZdNlfU/7A9f3gUw49B3oQsvwBA==",
+        "license": "BSD-2-Clause",
+        "name": "estraverse",
+        "optional": false,
+        "version": "5.3.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-7RUKfXgSMMkzt6ZuXmqapOurLGPPfgj6l9uRZ7lRGolvk0y2yocc35LdcxKC5PQZdn2DMqioAQ2NoWcrTKmm6g==",
+        "license": "MIT",
+        "name": "estree-walker",
+        "optional": false,
+        "version": "3.0.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==",
+        "license": "BSD-2-Clause",
+        "name": "esutils",
+        "optional": false,
+        "version": "2.0.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-KfYbmpRm0VbLjEvVa9yGwCi9GI34xvi7A/HXYWQO65CSD2u3MczUJSuwXKFIxlGsgBQizV9q5J9NHj4VG0n+pA==",
+        "license": "Apache-2.0",
+        "name": "expect-type",
+        "optional": false,
+        "version": "1.4.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==",
+        "license": "MIT",
+        "name": "fast-deep-equal",
+        "optional": false,
+        "version": "3.1.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==",
+        "license": "MIT",
+        "name": "fast-json-stable-stringify",
+        "optional": false,
+        "version": "2.1.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==",
+        "license": "MIT",
+        "name": "fast-levenshtein",
+        "optional": false,
+        "version": "2.0.6"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==",
+        "license": "MIT",
+        "name": "fdir",
+        "optional": false,
+        "version": "6.5.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-XXTUwCvisa5oacNGRP9SfNtYBNAMi+RPwBFmblZEF7N7swHYQS6/Zfk7SRwx4D5j3CH211YNRco1DEMNVfZCnQ==",
+        "license": "MIT",
+        "name": "file-entry-cache",
+        "optional": false,
+        "version": "8.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==",
+        "license": "MIT",
+        "name": "find-up",
+        "optional": false,
+        "version": "5.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-f7ccFPK3SXFHpx15UIGyRJ/FJQctuKZ0zVuN3frBo4HnK3cay9VEW0R6yPYFHC0AgqhukPzKjq22t5DmAyqGyw==",
+        "license": "MIT",
+        "name": "flat-cache",
+        "optional": false,
+        "version": "4.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-PjDse7RzhcPkIJwy5t7KPWQSZ9cAbzQXcafsetQoD7sOJRQlGikNbx7yZp2OotDnJyrDcbyRq3Ttb18iYOqkxA==",
+        "license": "ISC",
+        "name": "flatted",
+        "optional": false,
+        "version": "3.4.2"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-5XY9luDiu0oHfHBjpDthFMh0ES+122w6p/papSJBweMkO8Sn+PW2QaEgRblQBpWFnuvZS5qvarpt/hO2pjGmnw==",
+        "license": "MIT",
+        "name": "framer-motion",
+        "optional": false,
+        "version": "12.42.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==",
+        "license": "MIT",
+        "name": "fsevents",
+        "optional": true,
+        "version": "2.3.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==",
+        "license": "MIT",
+        "name": "gensync",
+        "optional": false,
+        "version": "1.0.0-beta.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==",
+        "license": "ISC",
+        "name": "get-caller-file",
+        "optional": false,
+        "version": "2.0.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-QRbvDIbx6YklUe6RxeTeleMR0yv3cYH6PsPZHcnVn7xv7zO1BHN8r0XETu8n6Ye3Q+ahtSarc3WgtNWmehIBfA==",
+        "license": "MIT",
+        "name": "get-east-asian-width",
+        "optional": false,
+        "version": "1.6.0"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-FJhYRoDaiatfEkUK8HKlicmu/3SGFD51q3itKDGoSTysQJBnfOcxU5GxnhE1E6soB76MbT0MBtnKJuXyAx+96Q==",
+        "license": "MIT",
+        "name": "get-nonce",
+        "optional": false,
+        "version": "1.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-XxwI8EOhVQgWp6iDL+3b0r86f4d6AX6zSU55HfB4ydCEuXLXc5FcYeOu+nnGftS4TEju/11rt4KJPTMgbfmv4A==",
+        "license": "ISC",
+        "name": "glob-parent",
+        "optional": false,
+        "version": "6.0.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Czmyns5dUsq4seFBR/Kdydhmo8y9kC79hiSkPn0YcGtNnYWnrgt0vjrSjx9tspoDGWm2CMarffRuLjM4xUz8xg==",
+        "license": "MIT",
+        "name": "globals",
+        "optional": false,
+        "version": "17.7.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-0wUoCcLp+5Ev5pDW2OriHC2MJCbwLwuRx+gAqMTOkGKJJiBCLjtrvy4PWUGn6MIVefecRpzoOZ/UV6iGdOr+Cw==",
+        "license": "MIT",
+        "name": "hermes-estree",
+        "optional": false,
+        "version": "0.25.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-6pEjquH3rqaI6cYAXYPcz9MS4rY6R4ngRgrgfDshRptUZIc3lw0MCIJIGDj9++mfySOuPTHB4nrSW99BCvOPIA==",
+        "license": "MIT",
+        "name": "hermes-parser",
+        "optional": false,
+        "version": "0.25.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-CV9TW3Y3f8/wT0BRFc1/KAVQ3TUHiXmaAb6VW9vtiMFf7SLoMd1PdAc4W3KFOFETBJUb90KatHqlsZMWV+R9Gg==",
+        "license": "MIT",
+        "name": "html-encoding-sniffer",
+        "optional": false,
+        "version": "6.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==",
+        "license": "MIT",
+        "name": "ignore",
+        "optional": false,
+        "version": "5.3.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==",
+        "license": "MIT",
+        "name": "imurmurhash",
+        "optional": false,
+        "version": "0.1.4"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==",
+        "license": "MIT",
+        "name": "indent-string",
+        "optional": false,
+        "version": "4.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-eljcgEDlEns/7AXFosB5K/2nCM4P7FQPkGc/DWLy5rmFEWvZayGrik1d9/QIY5nJ4f9YsVvBkA6kJpHn9rISdQ==",
+        "license": "MIT",
+        "name": "is-docker",
+        "optional": false,
+        "version": "3.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ==",
+        "license": "MIT",
+        "name": "is-extglob",
+        "optional": false,
+        "version": "2.1.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg==",
+        "license": "MIT",
+        "name": "is-glob",
+        "optional": false,
+        "version": "4.0.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-jYa6Q9rH90kR1vKB6NM7qqd1mge3Fx4Dhw5TVlK1MUBqhEOuCagrEHMevNuCcbECmXZ0ThXkRm+Ymr51HwEPAw==",
+        "license": "MIT",
+        "name": "is-in-ssh",
+        "optional": false,
+        "version": "1.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-KIYLCCJghfHZxqjYBE7rEy0OBuTd5xCHS7tHVgvCLkx7StIoaxwNW3hCALgEUjFfeRk+MG/Qxmp/vtETEF3tRA==",
+        "license": "MIT",
+        "name": "is-inside-container",
+        "optional": false,
+        "version": "1.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-bCYeRA2rVibKZd+s2625gGnGF/t7DSqDs4dP7CrLA1m7jKWz6pps0LpYLJN8Q64HtmPKJ1hrN3nzPNKFEKOUiQ==",
+        "license": "MIT",
+        "name": "is-potential-custom-element-name",
+        "optional": false,
+        "version": "1.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-e6rvdUCiQCAuumZslxRJWR/Doq4VpPR82kqclvcS0efgt430SlGIk05vdCN58+VrzgtIcfNODjozVielycD4Sw==",
+        "license": "MIT",
+        "name": "is-wsl",
+        "optional": false,
+        "version": "3.1.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==",
+        "license": "ISC",
+        "name": "isexe",
+        "optional": false,
+        "version": "2.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==",
+        "license": "MIT",
+        "name": "js-tokens",
+        "optional": false,
+        "version": "4.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-ECi4Fi2f7BdJtUKTflYRTiaMxIB0O6zfR1fX0GXpUrf6flp8QIYn1UT20YQqdSOfk2dfkCwS8LAFoJDEppNK5Q==",
+        "license": "MIT",
+        "name": "jsdom",
+        "optional": false,
+        "version": "29.1.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-4pfM1Ff0x50o0tQwb5ucw/RzNyD0/YJME6IVcStalZuMWxdt3sR3huStTtxz4PUmvZfRguvDejasvQ2kifR11g==",
+        "license": "BlueOak-1.0.0",
+        "name": "jsdom/node_modules/lru-cache",
+        "optional": false,
+        "version": "11.5.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-/sM3dO2FOzXjKQhJuo0Q173wf2KOo8t4I8vHy6lF9poUp7bKT0/NHE8fPX23PwfhnykfqnC2xRxOnVw5XuGIaA==",
+        "license": "MIT",
+        "name": "jsesc",
+        "optional": false,
+        "version": "3.1.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==",
+        "license": "MIT",
+        "name": "json-buffer",
+        "optional": false,
+        "version": "3.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-xbbCH5dCYU5T8LcEhhuh7HJ88HXuW3qsI3Y0zOZFKfZEHcpWiHU/Jxzk629Brsab/mMiHQti9wMP+845RPe3Vg==",
+        "license": "MIT",
+        "name": "json-schema-traverse",
+        "optional": false,
+        "version": "0.4.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==",
+        "license": "MIT",
+        "name": "json-stable-stringify-without-jsonify",
+        "optional": false,
+        "version": "1.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==",
+        "license": "MIT",
+        "name": "json5",
+        "optional": false,
+        "version": "2.2.3"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-+KJGIyHgkGuIq3IEBNftfhW/LfWhXUIY6OmyVWjliu5KH1y0fw7VQ8YndE2O4qZdMSd9SqbnC8GOcZEy0Om7sA==",
+        "license": "MIT",
+        "name": "jwt-decode",
+        "optional": false,
+        "version": "4.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==",
+        "license": "MIT",
+        "name": "keyv",
+        "optional": false,
+        "version": "4.5.4"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==",
+        "license": "MIT",
+        "name": "levn",
+        "optional": false,
+        "version": "0.4.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-NXYBzinNrblfraPGyrbPoD19C1h9lfI/1mzgWYvXUTe414Gz/X1FD2XBZSZM7rRTrMA8JL3OtAaGifrIKhQ5yQ==",
+        "license": "MPL-2.0",
+        "name": "lightningcss",
+        "optional": false,
+        "version": "1.32.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-YK7/ClTt4kAK0vo6w3X+Pnm0D2cf2vPHbhOXdoNti1Ga0al1P4TBZhwjATvjNwLEBCnKvjJc2jQgHXH0NEwlAg==",
+        "license": "MPL-2.0",
+        "name": "lightningcss-android-arm64",
+        "optional": true,
+        "version": "1.32.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-RzeG9Ju5bag2Bv1/lwlVJvBE3q6TtXskdZLLCyfg5pt+HLz9BqlICO7LZM7VHNTTn/5PRhHFBSjk5lc4cmscPQ==",
+        "license": "MPL-2.0",
+        "name": "lightningcss-darwin-arm64",
+        "optional": true,
+        "version": "1.32.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-U+QsBp2m/s2wqpUYT/6wnlagdZbtZdndSmut/NJqlCcMLTWp5muCrID+K5UJ6jqD2BFshejCYXniPDbNh73V8w==",
+        "license": "MPL-2.0",
+        "name": "lightningcss-darwin-x64",
+        "optional": true,
+        "version": "1.32.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-JCTigedEksZk3tHTTthnMdVfGf61Fky8Ji2E4YjUTEQX14xiy/lTzXnu1vwiZe3bYe0q+SpsSH/CTeDXK6WHig==",
+        "license": "MPL-2.0",
+        "name": "lightningcss-freebsd-x64",
+        "optional": true,
+        "version": "1.32.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-x6rnnpRa2GL0zQOkt6rts3YDPzduLpWvwAF6EMhXFVZXD4tPrBkEFqzGowzCsIWsPjqSK+tyNEODUBXeeVHSkw==",
+        "license": "MPL-2.0",
+        "name": "lightningcss-linux-arm-gnueabihf",
+        "optional": true,
+        "version": "1.32.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-0nnMyoyOLRJXfbMOilaSRcLH3Jw5z9HDNGfT/gwCPgaDjnx0i8w7vBzFLFR1f6CMLKF8gVbebmkUN3fa/kQJpQ==",
+        "license": "MPL-2.0",
+        "name": "lightningcss-linux-arm64-gnu",
+        "optional": true,
+        "version": "1.32.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-UpQkoenr4UJEzgVIYpI80lDFvRmPVg6oqboNHfoH4CQIfNA+HOrZ7Mo7KZP02dC6LjghPQJeBsvXhJod/wnIBg==",
+        "license": "MPL-2.0",
+        "name": "lightningcss-linux-arm64-musl",
+        "optional": true,
+        "version": "1.32.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-V7Qr52IhZmdKPVr+Vtw8o+WLsQJYCTd8loIfpDaMRWGUZfBOYEJeyJIkqGIDMZPwPx24pUMfwSxxI8phr/MbOA==",
+        "license": "MPL-2.0",
+        "name": "lightningcss-linux-x64-gnu",
+        "optional": true,
+        "version": "1.32.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-bYcLp+Vb0awsiXg/80uCRezCYHNg1/l3mt0gzHnWV9XP1W5sKa5/TCdGWaR/zBM2PeF/HbsQv/j2URNOiVuxWg==",
+        "license": "MPL-2.0",
+        "name": "lightningcss-linux-x64-musl",
+        "optional": true,
+        "version": "1.32.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-8SbC8BR40pS6baCM8sbtYDSwEVQd4JlFTOlaD3gWGHfThTcABnNDBda6eTZeqbofalIJhFx0qKzgHJmcPTnGdw==",
+        "license": "MPL-2.0",
+        "name": "lightningcss-win32-arm64-msvc",
+        "optional": true,
+        "version": "1.32.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Amq9B/SoZYdDi1kFrojnoqPLxYhQ4Wo5XiL8EVJrVsB8ARoC1PWW6VGtT0WKCemjy8aC+louJnjS7U18x3b06Q==",
+        "license": "MPL-2.0",
+        "name": "lightningcss-win32-x64-msvc",
+        "optional": true,
+        "version": "1.32.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==",
+        "license": "MIT",
+        "name": "locate-path",
+        "optional": false,
+        "version": "6.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==",
+        "license": "ISC",
+        "name": "lru-cache",
+        "optional": false,
+        "version": "5.1.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==",
+        "license": "MIT",
+        "name": "lz-string",
+        "optional": false,
+        "version": "1.5.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==",
+        "license": "MIT",
+        "name": "magic-string",
+        "optional": false,
+        "version": "0.30.21"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-9Yubnt3e8A0OKwxYSXyhLymGW4sCufcLG6VdiDdUGVkPhpqLxlvP5vl1983gQjJl3tqbrM731mjaZaP68AgosQ==",
+        "license": "CC0-1.0",
+        "name": "mdn-data",
+        "optional": false,
+        "version": "2.27.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==",
+        "license": "MIT",
+        "name": "min-indent",
+        "optional": false,
+        "version": "1.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-MULkVLfKGYDFYejP07QOurDLLQpcjk7Fw+7jXS2R2czRQzR56yHRveU5NDJEOviH+hETZKSkIk5c+T23GjFUMg==",
+        "license": "BlueOak-1.0.0",
+        "name": "minimatch",
+        "optional": false,
+        "version": "10.2.5"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-Atvv11yUKIid41cVrRBDVX5m8tF8kNpExRSlbpt6APClhDjtwQssgFHhQzejxw7/7YYbjHSPKBVbHo05BuJT5Q==",
+        "license": "MIT",
+        "name": "motion",
+        "optional": false,
+        "version": "12.42.2"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-5gIMWLp/PycBtJRJWRgjxke5n8dlvkSn2DrYW+tr3XcqAZY1xZh6BJyooJXCM8wdfM7wfMjkBJNLge1CKPUIRA==",
+        "license": "MIT",
+        "name": "motion-dom",
+        "optional": false,
+        "version": "12.42.2"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-8nadJAJjTtqRkmRF36FoJTrywK9nnFmnPwnSMyxaOCU7GDjN9RTMJIxx9De8ErM+vpPhMccr/6fo5WciyQLnMQ==",
+        "license": "MIT",
+        "name": "motion-utils",
+        "optional": false,
+        "version": "12.39.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==",
+        "license": "MIT",
+        "name": "ms",
+        "optional": false,
+        "version": "2.1.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-y7Wygv/7mEOvxTuEQDB8StXdMRBWf1kR/tlhAzBRUFkB2jfcLOAxO/SHmOO2zgz1pVgK29/kyupn059/bCHdjA==",
+        "license": "MIT",
+        "name": "nanoid",
+        "optional": false,
+        "version": "3.3.15"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==",
+        "license": "MIT",
+        "name": "natural-compare",
+        "optional": false,
+        "version": "1.4.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-wRNIrw4DmVLKQlbgOMdkMx27Wrpzes2hh5Jtbi2bjPd+4wJstWIqP5A+lscnqbm0xxmT5Bpg8Lec5ItEBwx6BQ==",
+        "license": "MIT",
+        "name": "node-releases",
+        "optional": false,
+        "version": "2.0.51"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-9miFgM2OFba7hB+pRgvtV84pYTBaoTHohvmIgiRt6dRIzbwEOIaNaP+dIlGs2fNFoB0SeISs0Jz5WFVRid6Xyg==",
+        "license": "MIT",
+        "name": "obug",
+        "optional": false,
+        "version": "2.1.3"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-l2q8l9CTCTOlbX+AnK4p3M+4CEpKpyQhle6blQkdFhm0IsBqsxm15bYaSa11G7pWdsYr6epdsRZxJpCyCRbT8A==",
+        "license": "Apache-2.0",
+        "name": "oidc-client-ts",
+        "optional": false,
+        "version": "3.5.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-smsWv2LzFjP03xmvFoJ331ss6h+jixfA4UUV/Bsiyuu4YJPfN+FIQGOIiv4w9/+MoHkfkJ22UIaQWRVFRfH6Vw==",
+        "license": "MIT",
+        "name": "open",
+        "optional": false,
+        "version": "11.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-6IpQ7mKUxRcZNLIObR0hz7lxsapSSIYNZJwXPGeF0mTVqGKFIXj1DQcMoT22S3ROcLyY/rz0PWaWZ9ayWmad9g==",
+        "license": "MIT",
+        "name": "optionator",
+        "optional": false,
+        "version": "0.9.4"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==",
+        "license": "MIT",
+        "name": "p-limit",
+        "optional": false,
+        "version": "3.1.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-LaNjtRWUBY++zB5nE/NwcaoMylSPk+S+ZHNB1TzdbMJMny6dynpAGt7X/tl/QYq3TIeE6nxHppbo2LGymrG5Pw==",
+        "license": "MIT",
+        "name": "p-locate",
+        "optional": false,
+        "version": "5.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-z1e/HMG90obSGeidlli3hj7cbocou0/wa5HacvI3ASx34PecNjNQeaHNo5WIZpWofN9kgkqV1q5YvXe3F0FoPw==",
+        "license": "MIT",
+        "name": "parse5",
+        "optional": false,
+        "version": "8.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==",
+        "license": "MIT",
+        "name": "path-exists",
+        "optional": false,
+        "version": "4.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==",
+        "license": "MIT",
+        "name": "path-key",
+        "optional": false,
+        "version": "3.1.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w==",
+        "license": "MIT",
+        "name": "pathe",
+        "optional": false,
+        "version": "2.0.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==",
+        "license": "ISC",
+        "name": "picocolors",
+        "optional": false,
+        "version": "1.1.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==",
+        "license": "MIT",
+        "name": "picomatch",
+        "optional": false,
+        "version": "4.0.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-vuwillviilfKZsg0VGj5R/YwwcHx4SLsIOI/7K6mQkWx+l5cUHTjj5g0AasTBcyXsbfTgrwsUNmVUb5xVwyPwg==",
+        "license": "MIT",
+        "name": "postcss",
+        "optional": false,
+        "version": "8.5.16"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-dM0jVuXJPsDN6DvRpea484tCUaMiXWjuCn++HGTqUWzGDjv5tZkEZldAJ/UMlqRYGFrD/etByo4/xOuC/snX2A==",
+        "license": "MIT",
+        "name": "powershell-utils",
+        "optional": false,
+        "version": "0.1.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==",
+        "license": "MIT",
+        "name": "prelude-ls",
+        "optional": false,
+        "version": "1.2.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Qb1gy5OrP5+zDf2Bvnzdl3jsTf1qXVMazbvCoKhtKqVs4/YK4ozX4gKQJJVyNe+cajNPn0KoC0MC3FUmaHWEmQ==",
+        "license": "MIT",
+        "name": "pretty-format",
+        "optional": false,
+        "version": "27.5.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==",
+        "license": "MIT",
+        "name": "punycode",
+        "optional": false,
+        "version": "2.3.1"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-HNe9WslTbXmFK8o8cmwgAeJFSBvt1bPdHCVKtaaV+WlAN36mpT4hcRpwbf3fY56ar2oIXzsBpOAiIRHAdY0OlQ==",
+        "license": "MIT",
+        "name": "react",
+        "optional": false,
+        "version": "19.2.7"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-t0BRVXvbiE/o20Hfw669rLbMCDWtYZLvmJigy2f0MxsXF+71pxhR3xOkspmsO8h3ZlNzyibAmtCa3l4lYKk6gQ==",
+        "license": "MIT",
+        "name": "react-dom",
+        "optional": false,
+        "version": "19.2.7"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==",
+        "license": "MIT",
+        "name": "react-is",
+        "optional": false,
+        "version": "17.0.2"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-Iqb9NjCCTt6Hf+vOdNIZGdTiH1QSqr27H/Ek9sv/a97gfueI/5h1s3yRi1nngzMUaOOToin5dI1dXKdXiF+u0Q==",
+        "license": "MIT",
+        "name": "react-remove-scroll",
+        "optional": false,
+        "version": "2.7.2"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-9r+yi9+mgU33AKcj6IbT9oRCO78WriSj6t/cF8DWBZJ9aOGPOTEDvdUDz1FwKim7QXWwmHqtdHnRJfhAxEG46Q==",
+        "license": "MIT",
+        "name": "react-remove-scroll-bar",
+        "optional": false,
+        "version": "2.3.8"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-uP1LgGNHyilL1u+ZkecQk74DJOKOb6q4NLNYLRJcD/fjoogftNb5/Rj/07o/QBFsY/5MbAKPm1peTCQuVPv9cQ==",
+        "license": "MIT",
+        "name": "react-router",
+        "optional": false,
+        "version": "8.2.0"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-b6jSvxvVnyptAiLjbkWLE/lOnR4lfTtDAl+eUC7RZy+QQWc6wRzIV2CE6xBuMmDxc2qIihtDCZD5NPOFl7fRBQ==",
+        "license": "MIT",
+        "name": "react-style-singleton",
+        "optional": false,
+        "version": "2.2.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-6tDA8g98We0zd0GvVeMT9arEOnTw9qM03L9cJXaCjrip1OO764RDBLBfrB4cwzNGDj5OA5ioymC9GkizgWJDUg==",
+        "license": "MIT",
+        "name": "redent",
+        "optional": false,
+        "version": "3.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==",
+        "license": "MIT",
+        "name": "require-from-string",
+        "optional": false,
+        "version": "2.0.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-t9z29cJjXf/vxQ8dyhCSpt6H6aSwHTk8cT5I3iy6SMXuFpk5mB6PL6XfC8PCwrPTx93udwKUm9HRteAlTGBLiA==",
+        "license": "MIT",
+        "name": "rolldown",
+        "optional": false,
+        "version": "1.1.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-UJUT4+1Ho4OcWmPYU3sYXgUqI8B8Ayfe06MX7y0qCJ1K8aGoKtR/NDd/2nZqM7ADkrzny+I99Ul7GgyoiVNAgg==",
+        "license": "MIT",
+        "name": "rollup-plugin-visualizer",
+        "optional": false,
+        "version": "7.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-DPe5pVFaAsinSaV6QjQ6gdiedWDcRCbUuiQfQa2wmWV7+xC9bGulGI8+TdRmoFkAPaBXk8CrAbnlY2ISniJ47Q==",
+        "license": "MIT",
+        "name": "run-applescript",
+        "optional": false,
+        "version": "7.1.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==",
+        "license": "ISC",
+        "name": "saxes",
+        "optional": false,
+        "version": "6.0.0"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q==",
+        "license": "MIT",
+        "name": "scheduler",
+        "optional": false,
+        "version": "0.27.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==",
+        "license": "ISC",
+        "name": "semver",
+        "optional": false,
+        "version": "6.3.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==",
+        "license": "MIT",
+        "name": "shebang-command",
+        "optional": false,
+        "version": "2.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==",
+        "license": "MIT",
+        "name": "shebang-regex",
+        "optional": false,
+        "version": "3.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-ybx0WO1/8bSBLEWXZvEd7gMW3Sn3JFlW3TvX1nREbDLRNQNaeNN8WK0meBwPdAaOI7TtRRRJn/Es1zhrrCHu7g==",
+        "license": "ISC",
+        "name": "siginfo",
+        "optional": false,
+        "version": "2.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-i5uvt8C3ikiWeNZSVZNWcfZPItFQOsYTUAOkcUPGd8DqDy1uOUikjt5dG+uRlwyvR108Fb9DOd4GvXfT0N2/uQ==",
+        "license": "BSD-3-Clause",
+        "name": "source-map",
+        "optional": false,
+        "version": "0.7.6"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==",
+        "license": "BSD-3-Clause",
+        "name": "source-map-js",
+        "optional": false,
+        "version": "1.2.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw==",
+        "license": "MIT",
+        "name": "stackback",
+        "optional": false,
+        "version": "0.0.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-oCUKSupKTHX53EyjDtuZQ64pjLJ6yYCtpmEw0goYxtjG9KpbRe8KAsl2tBUGU9DyMcJ0RwJ8GqJAFzMXcXW1Rw==",
+        "license": "MIT",
+        "name": "std-env",
+        "optional": false,
+        "version": "4.2.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-tsaTIkKW9b4N+AEj+SVA+WhJzV7/zMhcSu78mLKWSk7cXMOSHsBKFWUs0fWwq8QyK3MgJBQRX6Gbi4kYbdvGkQ==",
+        "license": "MIT",
+        "name": "string-width",
+        "optional": false,
+        "version": "7.2.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-yDPMNjp4WyfYBkHnjIRLfca1i6KMyGCtsVgoKe/z1+6vukgaENdgGBZt+ZmKPc4gavvEZ5OgHfHdrazhgNyG7w==",
+        "license": "MIT",
+        "name": "strip-ansi",
+        "optional": false,
+        "version": "7.2.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Bq3SmSpyFHaWjPk8If9yc6svM8c56dB5BAtW4Qbw5jHTwwXXcTLoRMkpDJp6VL0XzlWaCHTXrkFURMYmD0sLqg==",
+        "license": "MIT",
+        "name": "strip-ansi/node_modules/ansi-regex",
+        "optional": false,
+        "version": "6.2.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-laJTa3Jb+VQpaC6DseHhF7dXVqHTfJPCRDaEbid/drOhgitgYku/letMUqOXFoWV0zIIUbjpdH2t+tYj4bQMRQ==",
+        "license": "MIT",
+        "name": "strip-indent",
+        "optional": false,
+        "version": "3.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==",
+        "license": "MIT",
+        "name": "symbol-tree",
+        "optional": false,
+        "version": "3.2.4"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-0+DUvqWMValLmha6lr4kD8iAMK1HzV0/aKnCtWb9v9641TnP/MFb7Pc2bxoxQjTXAErryXVgUOfv2YqNllqGeg==",
+        "license": "MIT",
+        "name": "tinybench",
+        "optional": false,
+        "version": "2.9.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-SHf/r48b7vOrjve9PxJo3MN5v5yuyjHvdUcrQffT3WXMUfnGmHDVbC4k3sHJaJTgZCwpUplIaAo5ANtMyp3YHg==",
+        "license": "MIT",
+        "name": "tinyexec",
+        "optional": false,
+        "version": "1.2.4"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==",
+        "license": "MIT",
+        "name": "tinyglobby",
+        "optional": false,
+        "version": "0.2.17"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Bf+ILmBgretUrdJxzXM0SgXLZ3XfiaUuOj/IKQHuTXip+05Xn+uyEYdVg0kYDipTBcLrCVyUzAPz7QmArb0mmw==",
+        "license": "MIT",
+        "name": "tinyrainbow",
+        "optional": false,
+        "version": "3.1.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-htwgN/8KRB3z3vnC0BOETVh2m499g5GmyTK9Wq5JBLX3FNz6tSBveAd+fQhzy9hkjif8vy2jwDMR1sGhLtZl2A==",
+        "license": "MIT",
+        "name": "tldts",
+        "optional": false,
+        "version": "7.4.8"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-c1P7u0EhACHj7lPy4MJm8iTFEU8+nB0LCtddH0fhP7noaVoXAqafMtOOeX+ulpuPBqnrRgRhw494RICT3mbhnw==",
+        "license": "MIT",
+        "name": "tldts-core",
+        "optional": false,
+        "version": "7.4.8"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-exgYmnmL/sJpR3upZfXG5PoatXQii55xAiXGXzY+sROLZ/Y+SLcp9PgJNI9Vz37HpQ74WvDcLT8eqm+kV3FzrA==",
+        "license": "BSD-3-Clause",
+        "name": "tough-cookie",
+        "optional": false,
+        "version": "6.0.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-bLVMLPtstlZ4iMQHpFHTR7GAGj2jxi8Dg0s2h2MafAE4uSWF98FC/3MomU51iQAMf8/qDUbKWf5GxuvvVcXEhw==",
+        "license": "MIT",
+        "name": "tr46",
+        "optional": false,
+        "version": "6.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-OJ/ibxhPlqrMM0UiNHJ/0CKQkoKF243/AEmplt3qpRgkW8VG7IfOS41h7V8TjITqdByHzrjcS/2si+y4lIh8NA==",
+        "license": "MIT",
+        "name": "ts-api-utils",
+        "optional": false,
+        "version": "2.5.0"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==",
+        "license": "0BSD",
+        "name": "tslib",
+        "optional": false,
+        "version": "2.8.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==",
+        "license": "MIT",
+        "name": "type-check",
+        "optional": false,
+        "version": "0.4.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==",
+        "license": "Apache-2.0",
+        "name": "typescript",
+        "optional": false,
+        "version": "6.0.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-xgwXyzG4sK9ALkBxbyGkTMMOS+imnW65iPhxCQMK83KhxyoDNW7l+IDqEf9vMdoUidHpOoS967RCq4eMiTexwQ==",
+        "license": "MIT",
+        "name": "typescript-eslint",
+        "optional": false,
+        "version": "8.63.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-cRZYrTDwWznlnRiPjggAGxZXanty6M8RV1ff8Wm4LWXBp7/IG8v5DnOm74DtUBp9OONpK75YlPnIjQqX0dBDtA==",
+        "license": "MIT",
+        "name": "undici",
+        "optional": false,
+        "version": "7.28.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==",
+        "license": "MIT",
+        "name": "undici-types",
+        "optional": false,
+        "version": "7.18.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w==",
+        "license": "MIT",
+        "name": "update-browserslist-db",
+        "optional": false,
+        "version": "1.2.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==",
+        "license": "BSD-2-Clause",
+        "name": "uri-js",
+        "optional": false,
+        "version": "4.4.1"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-jQL3lRnocaFtu3V00JToYz/4QkNWswxijDaCVNZRiRTO3HQDLsdu1ZtmIUvV4yPp+rvWm5j0y0TG/S61cuijTg==",
+        "license": "MIT",
+        "name": "use-callback-ref",
+        "optional": false,
+        "version": "1.3.3"
+      },
+      {
+        "development": false,
+        "integrity": "sha512-Fedw0aZvkhynoPYlA5WXrMCAMm+nSWdZt6lzJQ7Ok8S6Q+VsHmHpRWndVRJ8Be0ZbkfPc5LRYH+5XrzXcEeLRQ==",
+        "license": "MIT",
+        "name": "use-sidecar",
+        "optional": false,
+        "version": "1.1.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-bTT9PsdWO+MQMNG9ZXIP/qM9wGh37DFxTV/sPq9cFpHr3w4jkgef032PkAL9jAqhk3Nz8NQw3O8n6/xFkqO4QQ==",
+        "license": "MIT",
+        "name": "vite",
+        "optional": false,
+        "version": "8.1.4"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-R9jUTe5S4Qb0HCd4TNqpC7oGcrMssMRGXLW80ubjWsW9VH5GF8y1Y0SFLY9AbqSk6nt0PnOx4H4WNJYZ13GUPw==",
+        "license": "MIT",
+        "name": "vitest",
+        "optional": false,
+        "version": "4.1.10"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-o8qghlI8NZHU1lLPrpi2+Uq7abh4GGPpYANlalzWxyWteJOCsr/P+oPBA49TOLu5FTZO4d3F9MnWJfiMo4BkmA==",
+        "license": "MIT",
+        "name": "w3c-xmlserializer",
+        "optional": false,
+        "version": "5.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-BMhLD/Sw+GbJC21C/UgyaZX41nPt8bUTg+jWyDeg7e7YN4xOM05YPSIXceACnXVtqyEw/LMClUQMtMZ+PGGpqQ==",
+        "license": "BSD-2-Clause",
+        "name": "webidl-conversions",
+        "optional": false,
+        "version": "8.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-sXcNcHOC51uPGF0P/D4NVtrkjSU2fNsm9iog4ZvZJsL3rjoDAzXZhkm2MWt1y+PUdggKAYVoMAIYcs78wJ51Cw==",
+        "license": "MIT",
+        "name": "whatwg-mimetype",
+        "optional": false,
+        "version": "5.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-1to4zXBxmXHV3IiSSEInrreIlu02vUOvrhxJJH5vcxYTBDAx51cqZiKdyTxlecdKNSjj8EcxGBxNf6Vg+945gw==",
+        "license": "MIT",
+        "name": "whatwg-url",
+        "optional": false,
+        "version": "16.0.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==",
+        "license": "ISC",
+        "name": "which",
+        "optional": false,
+        "version": "2.0.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-hUrmaWBdVDcxvYqnyh09zunKzROWjbZTiNy8dBEjkS7ehEDQibXJ7XvlmtbwuTclUiIyN+CyXQD4Vmko8fNm8w==",
+        "license": "MIT",
+        "name": "why-is-node-running",
+        "optional": false,
+        "version": "2.3.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==",
+        "license": "MIT",
+        "name": "word-wrap",
+        "optional": false,
+        "version": "1.2.5"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-42AtmgqjV+X1VpdOfyTGOYRi0/zsoLqtXQckTmqTeybT+BDIbM/Guxo7x3pE2vtpr1ok6xRqM9OpBe+Jyoqyww==",
+        "license": "MIT",
+        "name": "wrap-ansi",
+        "optional": false,
+        "version": "9.0.2"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-4Dj6M28JB+oAH8kFkTLUo+a2jwOFkuqb3yucU0CANcRRUbxS0cP0nZYCGjcc3BNXwRIsUVmDGgzawme7zvJHvg==",
+        "license": "MIT",
+        "name": "wrap-ansi/node_modules/ansi-styles",
+        "optional": false,
+        "version": "6.2.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-g/eziiSUNBSsdDJtCLB8bdYEUMj4jR7AGeUo96p/3dTafgjHhpF4RiCFPiRILwjQoDXx5MqkBr4fwWtR3Ky4Wg==",
+        "license": "MIT",
+        "name": "wsl-utils",
+        "optional": false,
+        "version": "0.3.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-EvGK8EJ3DhaHfbRlETOWAS5pO9MZITeauHKJyb8wyajUfQUenkIg2MvLDTZ4T/TgIcm3HU0TFBgWWboAZ30UHg==",
+        "license": "Apache-2.0",
+        "name": "xml-name-validator",
+        "optional": false,
+        "version": "5.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==",
+        "license": "MIT",
+        "name": "xmlchars",
+        "optional": false,
+        "version": "2.2.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==",
+        "license": "ISC",
+        "name": "y18n",
+        "optional": false,
+        "version": "5.0.8"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==",
+        "license": "ISC",
+        "name": "yallist",
+        "optional": false,
+        "version": "3.1.1"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-4UEqdc2RYGHZc7Doyqkrqiln3p9X2DZVxaGbwhn2pi7MrRagKaOcIKe8L3OxYcbhXLgLFUS3zAYuQjKBQgmuNg==",
+        "license": "MIT",
+        "name": "yargs",
+        "optional": false,
+        "version": "18.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-rwu/ClNdSMpkSrUb+d6BRsSkLUq1fmfsY6TOpYzTwvwkg1/NRG85KBy3kq++A8LKQwX6lsu+aWad+2khvuXrqw==",
+        "license": "ISC",
+        "name": "yargs-parser",
+        "optional": false,
+        "version": "22.0.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==",
+        "license": "MIT",
+        "name": "yocto-queue",
+        "optional": false,
+        "version": "0.1.0"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==",
+        "license": "MIT",
+        "name": "zod",
+        "optional": false,
+        "version": "4.4.3"
+      },
+      {
+        "development": true,
+        "integrity": "sha512-Q6/nZLe6jxuU80qb/4uJ4t5v2VEZ44lzQjPDhYJNztRQ4wyWc6VF3D3Kb/fAuPetZQnhS3hnajCf9CsWesghLQ==",
+        "license": "MIT",
+        "name": "zod-validation-error",
+        "optional": false,
+        "version": "4.0.2"
+      }
+    ],
+    "workspace": "@aletheus/nimble-workspace"
+  },
+  "python": {
+    "direct_dependencies": [],
+    "installed_package_count": 61,
+    "installed_packages": [
+      {
+        "license": "Proprietary",
+        "name": "aletheus",
+        "version": "4.6.2"
+      },
+      {
+        "license": "Proprietary",
+        "name": "aletheus",
+        "version": "4.6.2"
+      },
+      {
+        "license": "Copyright (c) 2015-2025, Vega-Altair Developers\nAll rights reserved.\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions are met:\n\n* Redistributions of source code must retain the above copyright notice, this\n  list of conditions and the following disclaimer.\n\n* Redistributions in binary form must reproduce the above copyright notice,\n  this list of conditions and the following disclaimer in the documentation\n  and/or other materials provided with the distribution.\n\n* Neither the name of vega-altair nor the names of its\n  contributors may be used to endorse or promote products derived from\n  this software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\nFOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\nDAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\nSERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\nCAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\nOR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\nOF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n",
+        "name": "altair",
+        "version": "6.2.2"
+      },
+      {
+        "license": "unknown",
+        "name": "annotated-doc",
+        "version": "0.0.4"
+      },
+      {
+        "license": "unknown",
+        "name": "annotated-types",
+        "version": "0.7.0"
+      },
+      {
+        "license": "unknown",
+        "name": "anyio",
+        "version": "4.14.1"
+      },
+      {
+        "license": "unknown",
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "license": "unknown",
+        "name": "blinker",
+        "version": "1.9.0"
+      },
+      {
+        "license": "unknown",
+        "name": "cachetools",
+        "version": "7.1.4"
+      },
+      {
+        "license": "MPL-2.0",
+        "name": "certifi",
+        "version": "2026.6.17"
+      },
+      {
+        "license": "unknown",
+        "name": "cffi",
+        "version": "2.1.0"
+      },
+      {
+        "license": "MIT",
+        "name": "charset-normalizer",
+        "version": "3.4.7"
+      },
+      {
+        "license": "unknown",
+        "name": "click",
+        "version": "8.4.2"
+      },
+      {
+        "license": "unknown",
+        "name": "cryptography",
+        "version": "49.0.0"
+      },
+      {
+        "license": "unknown",
+        "name": "fastapi",
+        "version": "0.139.0"
+      },
+      {
+        "license": "BSD License",
+        "name": "gitdb",
+        "version": "4.0.12"
+      },
+      {
+        "license": "BSD-3-Clause",
+        "name": "GitPython",
+        "version": "3.1.50"
+      },
+      {
+        "license": "MIT",
+        "name": "h11",
+        "version": "0.16.0"
+      },
+      {
+        "license": "unknown",
+        "name": "httpcore",
+        "version": "1.0.9"
+      },
+      {
+        "license": "unknown",
+        "name": "httptools",
+        "version": "0.8.0"
+      },
+      {
+        "license": "BSD-3-Clause",
+        "name": "httpx",
+        "version": "0.28.1"
+      },
+      {
+        "license": "unknown",
+        "name": "idna",
+        "version": "3.18"
+      },
+      {
+        "license": "unknown",
+        "name": "iniconfig",
+        "version": "2.3.0"
+      },
+      {
+        "license": "unknown",
+        "name": "itsdangerous",
+        "version": "2.2.0"
+      },
+      {
+        "license": "unknown",
+        "name": "Jinja2",
+        "version": "3.1.6"
+      },
+      {
+        "license": "unknown",
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      {
+        "license": "unknown",
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1"
+      },
+      {
+        "license": "unknown",
+        "name": "MarkupSafe",
+        "version": "3.0.3"
+      },
+      {
+        "license": "unknown",
+        "name": "narwhals",
+        "version": "2.22.1"
+      },
+      {
+        "license": "unknown",
+        "name": "numpy",
+        "version": "2.5.0"
+      },
+      {
+        "license": "unknown",
+        "name": "packaging",
+        "version": "26.2"
+      },
+      {
+        "license": "BSD 3-Clause License\n\n Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team\n All rights reserved.\n\n Copyright (c) 2011-2026, Open source contributors.\n\n Redistribution and use in source and binary forms, with or without\n modification, are permitted provided that the following conditions are met:\n\n * Redistributions of source code must retain the above copyright notice, this\n   list of conditions and the following disclaimer.\n\n * Redistributions in binary form must reproduce the above copyright notice,\n   this list of conditions and the following disclaimer in the documentation\n   and/or other materials provided with the distribution.\n\n * Neither the name of the copyright holder nor the names of its\n   contributors may be used to endorse or promote products derived from\n   this software without specific prior written permission.\n\n THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\n FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n Copyright (c) 2010-2019 Keith Goodman\n Copyright (c) 2019 Bottleneck Developers\n All rights reserved.\n\n Redistribution and use in source and binary forms, with or without\n modification, are permitted provided that the following conditions are met:\n\n     * Redistributions of source code must retain the above copyright notice,\n       this list of conditions and the following disclaimer.\n\n     * Redistributions in binary form must reproduce the above copyright\n       notice, this list of conditions and the following disclaimer in the\n       documentation and/or other materials provided with the distribution.\n\n THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE\n ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE\n LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR\n CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF\n SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS\n INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN\n CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)\n ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\n POSSIBILITY OF SUCH DAMAGE.Copyright 2017- Paul Ganssle <paul@ganssle.io>\n Copyright 2017- dateutil contributors (see AUTHORS file)\n\n    Licensed under the Apache License, Version 2.0 (the \"License\");\n    you may not use this file except in compliance with the License.\n    You may obtain a copy of the License at\n\n        http://www.apache.org/licenses/LICENSE-2.0\n\n    Unless required by applicable law or agreed to in writing, software\n    distributed under the License is distributed on an \"AS IS\" BASIS,\n    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n    See the License for the specific language governing permissions and\n    limitations under the License.\n\n The above license applies to all contributions after 2017-12-01, as well as\n all contributions that have been re-licensed (see AUTHORS file for the list of\n contributors who have re-licensed their code).\n --------------------------------------------------------------------------------\n dateutil - Extensions to the standard Python datetime module.\n\n Copyright (c) 2003-2011 - Gustavo Niemeyer <gustavo@niemeyer.net>\n Copyright (c) 2012-2014 - Tomi Pievil\u00e4inen <tomi.pievilainen@iki.fi>\n Copyright (c) 2014-2016 - Yaron de Leeuw <me@jarondl.net>\n Copyright (c) 2015-     - Paul Ganssle <paul@ganssle.io>\n Copyright (c) 2015-     - dateutil contributors (see AUTHORS file)\n\n All rights reserved.\n\n Redistribution and use in source and binary forms, with or without\n modification, are permitted provided that the following conditions are met:\n\n     * Redistributions of source code must retain the above copyright notice,\n       this list of conditions and the following disclaimer.\n     * Redistributions in binary form must reproduce the above copyright notice,\n       this list of conditions and the following disclaimer in the documentation\n       and/or other materials provided with the distribution.\n     * Neither the name of the copyright holder nor the names of its\n       contributors may be used to endorse or promote products derived from\n       this software without specific prior written permission.\n\n THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR\n A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR\n CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,\n EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,\n PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR\n PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF\n LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING\n NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\n SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\n The above BSD License Applies to all code, even that also covered by Apache 2.0.# MIT License\n\n Copyright (c) 2019 Hadley Wickham; RStudio; and Evan Miller\n\n Permission is hereby granted, free of charge, to any person obtaining a copy\n of this software and associated documentation files (the \"Software\"), to deal\n in the Software without restriction, including without limitation the rights\n to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n copies of the Software, and to permit persons to whom the Software is\n furnished to do so, subject to the following conditions:\n\n The above copyright notice and this permission notice shall be included in all\n copies or substantial portions of the Software.\n\n THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n SOFTWARE.\n Based on http://opensource.org/licenses/MIT\n\n This is a template. Complete and ship as file LICENSE the following 2\n lines (only)\n\n YEAR:\n COPYRIGHT HOLDER:\n\n and specify as\n\n License: MIT + file LICENSE\n\n Copyright (c) <YEAR>, <COPYRIGHT HOLDER>\n\n Permission is hereby granted, free of charge, to any person obtaining\n a copy of this software and associated documentation files (the\n \"Software\"), to deal in the Software without restriction, including\n without limitation the rights to use, copy, modify, merge, publish,\n distribute, sublicense, and/or sell copies of the Software, and to\n permit persons to whom the Software is furnished to do so, subject to\n the following conditions:\n\n The above copyright notice and this permission notice shall be\n included in all copies or substantial portions of the Software.\n\n THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\n EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\n MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\n NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\n LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\n OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\n WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n The MIT License\n\n Copyright (c) 2008-     Attractive Chaos <attractor@live.co.uk>\n\n Permission is hereby granted, free of charge, to any person obtaining\n a copy of this software and associated documentation files (the\n \"Software\"), to deal in the Software without restriction, including\n without limitation the rights to use, copy, modify, merge, publish,\n distribute, sublicense, and/or sell copies of the Software, and to\n permit persons to whom the Software is furnished to do so, subject to\n the following conditions:\n\n The above copyright notice and this permission notice shall be\n included in all copies or substantial portions of the Software.\n\n THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\n EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\n MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\n NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS\n BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN\n ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\n CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n SOFTWARE.musl as a whole is licensed under the following standard MIT license:\n\n ----------------------------------------------------------------------\n Copyright \u00a9 2005-2020 Rich Felker, et al.\n\n Permission is hereby granted, free of charge, to any person obtaining\n a copy of this software and associated documentation files (the\n \"Software\"), to deal in the Software without restriction, including\n without limitation the rights to use, copy, modify, merge, publish,\n distribute, sublicense, and/or sell copies of the Software, and to\n permit persons to whom the Software is furnished to do so, subject to\n the following conditions:\n\n The above copyright notice and this permission notice shall be\n included in all copies or substantial portions of the Software.\n\n THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\n EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\n MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\n IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\n CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\n TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\n SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n ----------------------------------------------------------------------\n\n Authors/contributors include:\n\n A. Wilcox\n Ada Worcester\n Alex Dowad\n Alex Suykov\n Alexander Monakov\n Andre McCurdy\n Andrew Kelley\n Anthony G. Basile\n Aric Belsito\n Arvid Picciani\n Bartosz Brachaczek\n Benjamin Peterson\n Bobby Bingham\n Boris Brezillon\n Brent Cook\n Chris Spiegel\n Cl\u00e9ment Vasseur\n Daniel Micay\n Daniel Sabogal\n Daurnimator\n David Carlier\n David Edelsohn\n Denys Vlasenko\n Dmitry Ivanov\n Dmitry V. Levin\n Drew DeVault\n Emil Renner Berthing\n Fangrui Song\n Felix Fietkau\n Felix Janda\n Gianluca Anzolin\n Hauke Mehrtens\n He X\n Hiltjo Posthuma\n Isaac Dunham\n Jaydeep Patil\n Jens Gustedt\n Jeremy Huntwork\n Jo-Philipp Wich\n Joakim Sindholt\n John Spencer\n Julien Ramseier\n Justin Cormack\n Kaarle Ritvanen\n Khem Raj\n Kylie McClain\n Leah Neukirchen\n Luca Barbato\n Luka Perkov\n M Farkas-Dyck (Strake)\n Mahesh Bodapati\n Markus Wichmann\n Masanori Ogino\n Michael Clark\n Michael Forney\n Mikhail Kremnyov\n Natanael Copa\n Nicholas J. Kain\n orc\n Pascal Cuoq\n Patrick Oppenlander\n Petr Hosek\n Petr Skocik\n Pierre Carrier\n Reini Urban\n Rich Felker\n Richard Pennington\n Ryan Fairfax\n Samuel Holland\n Segev Finer\n Shiz\n sin\n Solar Designer\n Stefan Kristiansson\n Stefan O'Rear\n Szabolcs Nagy\n Timo Ter\u00e4s\n Trutz Behn\n Valentin Ochs\n Will Dietz\n William Haddon\n William Pitcock\n\n Portions of this software are derived from third-party works licensed\n under terms compatible with the above MIT license:\n\n The TRE regular expression implementation (src/regex/reg* and\n src/regex/tre*) is Copyright \u00a9 2001-2008 Ville Laurikari and licensed\n under a 2-clause BSD license (license text in the source files). The\n included version has been heavily modified by Rich Felker in 2012, in\n the interests of size, simplicity, and namespace cleanliness.\n\n Much of the math library code (src/math/* and src/complex/*) is\n Copyright \u00a9 1993,2004 Sun Microsystems or\n Copyright \u00a9 2003-2011 David Schultz or\n Copyright \u00a9 2003-2009 Steven G. Kargl or\n Copyright \u00a9 2003-2009 Bruce D. Evans or\n Copyright \u00a9 2008 Stephen L. Moshier or\n Copyright \u00a9 2017-2018 Arm Limited\n and labelled as such in comments in the individual source files. All\n have been licensed under extremely permissive terms.\n\n The ARM memcpy code (src/string/arm/memcpy.S) is Copyright \u00a9 2008\n The Android Open Source Project and is licensed under a two-clause BSD\n license. It was taken from Bionic libc, used on Android.\n\n The AArch64 memcpy and memset code (src/string/aarch64/*) are\n Copyright \u00a9 1999-2019, Arm Limited.\n\n The implementation of DES for crypt (src/crypt/crypt_des.c) is\n Copyright \u00a9 1994 David Burren. It is licensed under a BSD license.\n\n The implementation of blowfish crypt (src/crypt/crypt_blowfish.c) was\n originally written by Solar Designer and placed into the public\n domain. The code also comes with a fallback permissive license for use\n in jurisdictions that may not recognize the public domain.\n\n The smoothsort implementation (src/stdlib/qsort.c) is Copyright \u00a9 2011\n Valentin Ochs and is licensed under an MIT-style license.\n\n The x86_64 port was written by Nicholas J. Kain and is licensed under\n the standard MIT terms.\n\n The mips and microblaze ports were originally written by Richard\n Pennington for use in the ellcc project. The original code was adapted\n by Rich Felker for build system and code conventions during upstream\n integration. It is licensed under the standard MIT terms.\n\n The mips64 port was contributed by Imagination Technologies and is\n licensed under the standard MIT terms.\n\n The powerpc port was also originally written by Richard Pennington,\n and later supplemented and integrated by John Spencer. It is licensed\n under the standard MIT terms.\n\n All other files which have no copyright comments are original works\n produced specifically for use as part of this library, written either\n by Rich Felker, the main author of the library, or by one or more\n contibutors listed above. Details on authorship of individual files\n can be found in the git version control history of the project. The\n omission of copyright and license comments in each file is in the\n interest of source tree size.\n\n In addition, permission is hereby granted for all public header files\n (include/* and arch/*/bits/*) and crt files intended to be linked into\n applications (crt/*, ldso/dlstart.c, and arch/*/crt_arch.h) to omit\n the copyright notice and permission notice otherwise required by the\n license, and to use these files without any requirement of\n attribution. These files include substantial contributions from:\n\n Bobby Bingham\n John Spencer\n Nicholas J. Kain\n Rich Felker\n Richard Pennington\n Stefan Kristiansson\n Szabolcs Nagy\n\n all of whom have explicitly granted such permission.\n\n This file previously contained text expressing a belief that most of\n the files covered by the above exception were sufficiently trivial not\n to be subject to copyright, resulting in confusion over whether it\n negated the permissions granted in the license. In the spirit of\n permissive licensing, and of not having licensing issues being an\n obstacle to adoption, that text has been removed.Copyright (c) 2005-2023, NumPy Developers.\n All rights reserved.\n\n Redistribution and use in source and binary forms, with or without\n modification, are permitted provided that the following conditions are\n met:\n\n     * Redistributions of source code must retain the above copyright\n        notice, this list of conditions and the following disclaimer.\n\n     * Redistributions in binary form must reproduce the above\n        copyright notice, this list of conditions and the following\n        disclaimer in the documentation and/or other materials provided\n        with the distribution.\n\n     * Neither the name of the NumPy Developers nor the names of any\n        contributors may be used to endorse or promote products derived\n        from this software without specific prior written permission.\n\n THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR\n A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT\n OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,\n SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT\n LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,\n DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY\n THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n                                  Apache License\n                            Version 2.0, January 2004\n                         http://www.apache.org/licenses/\n\n    TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n    1. Definitions.\n\n       \"License\" shall mean the terms and conditions for use, reproduction,\n       and distribution as defined by Sections 1 through 9 of this document.\n\n       \"Licensor\" shall mean the copyright owner or entity authorized by\n       the copyright owner that is granting the License.\n\n       \"Legal Entity\" shall mean the union of the acting entity and all\n       other entities that control, are controlled by, or are under common\n       control with that entity. For the purposes of this definition,\n       \"control\" means (i) the power, direct or indirect, to cause the\n       direction or management of such entity, whether by contract or\n       otherwise, or (ii) ownership of fifty percent (50%) or more of the\n       outstanding shares, or (iii) beneficial ownership of such entity.\n\n       \"You\" (or \"Your\") shall mean an individual or Legal Entity\n       exercising permissions granted by this License.\n\n       \"Source\" form shall mean the preferred form for making modifications,\n       including but not limited to software source code, documentation\n       source, and configuration files.\n\n       \"Object\" form shall mean any form resulting from mechanical\n       transformation or translation of a Source form, including but\n       not limited to compiled object code, generated documentation,\n       and conversions to other media types.\n\n       \"Work\" shall mean the work of authorship, whether in Source or\n       Object form, made available under the License, as indicated by a\n       copyright notice that is included in or attached to the work\n       (an example is provided in the Appendix below).\n\n       \"Derivative Works\" shall mean any work, whether in Source or Object\n       form, that is based on (or derived from) the Work and for which the\n       editorial revisions, annotations, elaborations, or other modifications\n       represent, as a whole, an original work of authorship. For the purposes\n       of this License, Derivative Works shall not include works that remain\n       separable from, or merely link (or bind by name) to the interfaces of,\n       the Work and Derivative Works thereof.\n\n       \"Contribution\" shall mean any work of authorship, including\n       the original version of the Work and any modifications or additions\n       to that Work or Derivative Works thereof, that is intentionally\n       submitted to Licensor for inclusion in the Work by the copyright owner\n       or by an individual or Legal Entity authorized to submit on behalf of\n       the copyright owner. For the purposes of this definition, \"submitted\"\n       means any form of electronic, verbal, or written communication sent\n       to the Licensor or its representatives, including but not limited to\n       communication on electronic mailing lists, source code control systems,\n       and issue tracking systems that are managed by, or on behalf of, the\n       Licensor for the purpose of discussing and improving the Work, but\n       excluding communication that is conspicuously marked or otherwise\n       designated in writing by the copyright owner as \"Not a Contribution.\"\n\n       \"Contributor\" shall mean Licensor and any individual or Legal Entity\n       on behalf of whom a Contribution has been received by Licensor and\n       subsequently incorporated within the Work.\n\n    2. Grant of Copyright License. Subject to the terms and conditions of\n       this License, each Contributor hereby grants to You a perpetual,\n       worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n       copyright license to reproduce, prepare Derivative Works of,\n       publicly display, publicly perform, sublicense, and distribute the\n       Work and such Derivative Works in Source or Object form.\n\n    3. Grant of Patent License. Subject to the terms and conditions of\n       this License, each Contributor hereby grants to You a perpetual,\n       worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n       (except as stated in this section) patent license to make, have made,\n       use, offer to sell, sell, import, and otherwise transfer the Work,\n       where such license applies only to those patent claims licensable\n       by such Contributor that are necessarily infringed by their\n       Contribution(s) alone or by combination of their Contribution(s)\n       with the Work to which such Contribution(s) was submitted. If You\n       institute patent litigation against any entity (including a\n       cross-claim or counterclaim in a lawsuit) alleging that the Work\n       or a Contribution incorporated within the Work constitutes direct\n       or contributory patent infringement, then any patent licenses\n       granted to You under this License for that Work shall terminate\n       as of the date such litigation is filed.\n\n    4. Redistribution. You may reproduce and distribute copies of the\n       Work or Derivative Works thereof in any medium, with or without\n       modifications, and in Source or Object form, provided that You\n       meet the following conditions:\n\n       (a) You must give any other recipients of the Work or\n           Derivative Works a copy of this License; and\n\n       (b) You must cause any modified files to carry prominent notices\n           stating that You changed the files; and\n\n       (c) You must retain, in the Source form of any Derivative Works\n           that You distribute, all copyright, patent, trademark, and\n           attribution notices from the Source form of the Work,\n           excluding those notices that do not pertain to any part of\n           the Derivative Works; and\n\n       (d) If the Work includes a \"NOTICE\" text file as part of its\n           distribution, then any Derivative Works that You distribute must\n           include a readable copy of the attribution notices contained\n           within such NOTICE file, excluding those notices that do not\n           pertain to any part of the Derivative Works, in at least one\n           of the following places: within a NOTICE text file distributed\n           as part of the Derivative Works; within the Source form or\n           documentation, if provided along with the Derivative Works; or,\n           within a display generated by the Derivative Works, if and\n           wherever such third-party notices normally appear. The contents\n           of the NOTICE file are for informational purposes only and\n           do not modify the License. You may add Your own attribution\n           notices within Derivative Works that You distribute, alongside\n           or as an addendum to the NOTICE text from the Work, provided\n           that such additional attribution notices cannot be construed\n           as modifying the License.\n\n       You may add Your own copyright statement to Your modifications and\n       may provide additional or different license terms and conditions\n       for use, reproduction, or distribution of Your modifications, or\n       for any such Derivative Works as a whole, provided Your use,\n       reproduction, and distribution of the Work otherwise complies with\n       the conditions stated in this License.\n\n    5. Submission of Contributions. Unless You explicitly state otherwise,\n       any Contribution intentionally submitted for inclusion in the Work\n       by You to the Licensor shall be under the terms and conditions of\n       this License, without any additional terms or conditions.\n       Notwithstanding the above, nothing herein shall supersede or modify\n       the terms of any separate license agreement you may have executed\n       with Licensor regarding such Contributions.\n\n    6. Trademarks. This License does not grant permission to use the trade\n       names, trademarks, service marks, or product names of the Licensor,\n       except as required for reasonable and customary use in describing the\n       origin of the Work and reproducing the content of the NOTICE file.\n\n    7. Disclaimer of Warranty. Unless required by applicable law or\n       agreed to in writing, Licensor provides the Work (and each\n       Contributor provides its Contributions) on an \"AS IS\" BASIS,\n       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n       implied, including, without limitation, any warranties or conditions\n       of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n       PARTICULAR PURPOSE. You are solely responsible for determining the\n       appropriateness of using or redistributing the Work and assume any\n       risks associated with Your exercise of permissions under this License.\n\n    8. Limitation of Liability. In no event and under no legal theory,\n       whether in tort (including negligence), contract, or otherwise,\n       unless required by applicable law (such as deliberate and grossly\n       negligent acts) or agreed to in writing, shall any Contributor be\n       liable to You for damages, including any direct, indirect, special,\n       incidental, or consequential damages of any character arising as a\n       result of this License or out of the use or inability to use the\n       Work (including but not limited to damages for loss of goodwill,\n       work stoppage, computer failure or malfunction, or any and all\n       other commercial damages or losses), even if such Contributor\n       has been advised of the possibility of such damages.\n\n    9. Accepting Warranty or Additional Liability. While redistributing\n       the Work or Derivative Works thereof, You may choose to offer,\n       and charge a fee for, acceptance of support, warranty, indemnity,\n       or other liability obligations and/or rights consistent with this\n       License. However, in accepting such obligations, You may act only\n       on Your own behalf and on Your sole responsibility, not on behalf\n       of any other Contributor, and only if You agree to indemnify,\n       defend, and hold each Contributor harmless for any liability\n       incurred by, or claims asserted against, such Contributor by reason\n       of your accepting any such warranty or additional liability.\n\n    END OF TERMS AND CONDITIONS\n\n\n Copyright (c) Donald Stufft and individual contributors.\n All rights reserved.\n\n Redistribution and use in source and binary forms, with or without\n modification, are permitted provided that the following conditions are met:\n\n     1. Redistributions of source code must retain the above copyright notice,\n        this list of conditions and the following disclaimer.\n\n     2. Redistributions in binary form must reproduce the above copyright\n        notice, this list of conditions and the following disclaimer in the\n        documentation and/or other materials provided with the distribution.\n\n THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND\n ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\n WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\n FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.A. HISTORY OF THE SOFTWARE\n ==========================\n\n Python was created in the early 1990s by Guido van Rossum at Stichting\n Mathematisch Centrum (CWI, see https://www.cwi.nl) in the Netherlands\n as a successor of a language called ABC.  Guido remains Python's\n principal author, although it includes many contributions from others.\n\n In 1995, Guido continued his work on Python at the Corporation for\n National Research Initiatives (CNRI, see https://www.cnri.reston.va.us)\n in Reston, Virginia where he released several versions of the\n software.\n\n In May 2000, Guido and the Python core development team moved to\n BeOpen.com to form the BeOpen PythonLabs team.  In October of the same\n year, the PythonLabs team moved to Digital Creations, which became\n Zope Corporation.  In 2001, the Python Software Foundation (PSF, see\n https://www.python.org/psf/) was formed, a non-profit organization\n created specifically to own Python-related Intellectual Property.\n Zope Corporation was a sponsoring member of the PSF.\n\n All Python releases are Open Source (see https://opensource.org for\n the Open Source Definition).  Historically, most, but not all, Python\n releases have also been GPL-compatible; the table below summarizes\n the various releases.\n\n     Release         Derived     Year        Owner       GPL-\n                     from                                compatible? (1)\n\n     0.9.0 thru 1.2              1991-1995   CWI         yes\n     1.3 thru 1.5.2  1.2         1995-1999   CNRI        yes\n     1.6             1.5.2       2000        CNRI        no\n     2.0             1.6         2000        BeOpen.com  no\n     1.6.1           1.6         2001        CNRI        yes (2)\n     2.1             2.0+1.6.1   2001        PSF         no\n     2.0.1           2.0+1.6.1   2001        PSF         yes\n     2.1.1           2.1+2.0.1   2001        PSF         yes\n     2.1.2           2.1.1       2002        PSF         yes\n     2.1.3           2.1.2       2002        PSF         yes\n     2.2 and above   2.1.1       2001-now    PSF         yes\n\n Footnotes:\n\n (1) GPL-compatible doesn't mean that we're distributing Python under\n     the GPL.  All Python licenses, unlike the GPL, let you distribute\n     a modified version without making your changes open source.  The\n     GPL-compatible licenses make it possible to combine Python with\n     other software that is released under the GPL; the others don't.\n\n (2) According to Richard Stallman, 1.6.1 is not GPL-compatible,\n     because its license has a choice of law clause.  According to\n     CNRI, however, Stallman's lawyer has told CNRI's lawyer that 1.6.1\n     is \"not incompatible\" with the GPL.\n\n Thanks to the many outside volunteers who have worked under Guido's\n direction to make these releases possible.\n\n\n B. TERMS AND CONDITIONS FOR ACCESSING OR OTHERWISE USING PYTHON\n ===============================================================\n\n Python software and documentation are licensed under the\n Python Software Foundation License Version 2.\n\n Starting with Python 3.8.6, examples, recipes, and other code in\n the documentation are dual licensed under the PSF License Version 2\n and the Zero-Clause BSD license.\n\n Some software incorporated into Python is under different licenses.\n The licenses are listed with code falling under that license.\n\n\n PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2\n --------------------------------------------\n\n 1. This LICENSE AGREEMENT is between the Python Software Foundation\n (\"PSF\"), and the Individual or Organization (\"Licensee\") accessing and\n otherwise using this software (\"Python\") in source or binary form and\n its associated documentation.\n\n 2. Subject to the terms and conditions of this License Agreement, PSF hereby\n grants Licensee a nonexclusive, royalty-free, world-wide license to reproduce,\n analyze, test, perform and/or display publicly, prepare derivative works,\n distribute, and otherwise use Python alone or in any derivative version,\n provided, however, that PSF's License Agreement and PSF's notice of copyright,\n i.e., \"Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,\n 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 Python Software Foundation;\n All Rights Reserved\" are retained in Python alone or in any derivative version\n prepared by Licensee.\n\n 3. In the event Licensee prepares a derivative work that is based on\n or incorporates Python or any part thereof, and wants to make\n the derivative work available to others as provided herein, then\n Licensee hereby agrees to include in any such work a brief summary of\n the changes made to Python.\n\n 4. PSF is making Python available to Licensee on an \"AS IS\"\n basis.  PSF MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR\n IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, PSF MAKES NO AND\n DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS\n FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF PYTHON WILL NOT\n INFRINGE ANY THIRD PARTY RIGHTS.\n\n 5. PSF SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF PYTHON\n FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS AS\n A RESULT OF MODIFYING, DISTRIBUTING, OR OTHERWISE USING PYTHON,\n OR ANY DERIVATIVE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY THEREOF.\n\n 6. This License Agreement will automatically terminate upon a material\n breach of its terms and conditions.\n\n 7. Nothing in this License Agreement shall be deemed to create any\n relationship of agency, partnership, or joint venture between PSF and\n Licensee.  This License Agreement does not grant permission to use PSF\n trademarks or trade name in a trademark sense to endorse or promote\n products or services of Licensee, or any third party.\n\n 8. By copying, installing or otherwise using Python, Licensee\n agrees to be bound by the terms and conditions of this License\n Agreement.\n\n\n BEOPEN.COM LICENSE AGREEMENT FOR PYTHON 2.0\n -------------------------------------------\n\n BEOPEN PYTHON OPEN SOURCE LICENSE AGREEMENT VERSION 1\n\n 1. This LICENSE AGREEMENT is between BeOpen.com (\"BeOpen\"), having an\n office at 160 Saratoga Avenue, Santa Clara, CA 95051, and the\n Individual or Organization (\"Licensee\") accessing and otherwise using\n this software in source or binary form and its associated\n documentation (\"the Software\").\n\n 2. Subject to the terms and conditions of this BeOpen Python License\n Agreement, BeOpen hereby grants Licensee a non-exclusive,\n royalty-free, world-wide license to reproduce, analyze, test, perform\n and/or display publicly, prepare derivative works, distribute, and\n otherwise use the Software alone or in any derivative version,\n provided, however, that the BeOpen Python License is retained in the\n Software, alone or in any derivative version prepared by Licensee.\n\n 3. BeOpen is making the Software available to Licensee on an \"AS IS\"\n basis.  BEOPEN MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR\n IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, BEOPEN MAKES NO AND\n DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS\n FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE SOFTWARE WILL NOT\n INFRINGE ANY THIRD PARTY RIGHTS.\n\n 4. BEOPEN SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF THE\n SOFTWARE FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS\n AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THE SOFTWARE, OR ANY\n DERIVATIVE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY THEREOF.\n\n 5. This License Agreement will automatically terminate upon a material\n breach of its terms and conditions.\n\n 6. This License Agreement shall be governed by and interpreted in all\n respects by the law of the State of California, excluding conflict of\n law provisions.  Nothing in this License Agreement shall be deemed to\n create any relationship of agency, partnership, or joint venture\n between BeOpen and Licensee.  This License Agreement does not grant\n permission to use BeOpen trademarks or trade names in a trademark\n sense to endorse or promote products or services of Licensee, or any\n third party.  As an exception, the \"BeOpen Python\" logos available at\n http://www.pythonlabs.com/logos.html may be used according to the\n permissions granted on that web page.\n\n 7. By copying, installing or otherwise using the software, Licensee\n agrees to be bound by the terms and conditions of this License\n Agreement.\n\n\n CNRI LICENSE AGREEMENT FOR PYTHON 1.6.1\n ---------------------------------------\n\n 1. This LICENSE AGREEMENT is between the Corporation for National\n Research Initiatives, having an office at 1895 Preston White Drive,\n Reston, VA 20191 (\"CNRI\"), and the Individual or Organization\n (\"Licensee\") accessing and otherwise using Python 1.6.1 software in\n source or binary form and its associated documentation.\n\n 2. Subject to the terms and conditions of this License Agreement, CNRI\n hereby grants Licensee a nonexclusive, royalty-free, world-wide\n license to reproduce, analyze, test, perform and/or display publicly,\n prepare derivative works, distribute, and otherwise use Python 1.6.1\n alone or in any derivative version, provided, however, that CNRI's\n License Agreement and CNRI's notice of copyright, i.e., \"Copyright (c)\n 1995-2001 Corporation for National Research Initiatives; All Rights\n Reserved\" are retained in Python 1.6.1 alone or in any derivative\n version prepared by Licensee.  Alternately, in lieu of CNRI's License\n Agreement, Licensee may substitute the following text (omitting the\n quotes): \"Python 1.6.1 is made available subject to the terms and\n conditions in CNRI's License Agreement.  This Agreement together with\n Python 1.6.1 may be located on the internet using the following\n unique, persistent identifier (known as a handle): 1895.22/1013.  This\n Agreement may also be obtained from a proxy server on the internet\n using the following URL: http://hdl.handle.net/1895.22/1013\".\n\n 3. In the event Licensee prepares a derivative work that is based on\n or incorporates Python 1.6.1 or any part thereof, and wants to make\n the derivative work available to others as provided herein, then\n Licensee hereby agrees to include in any such work a brief summary of\n the changes made to Python 1.6.1.\n\n 4. CNRI is making Python 1.6.1 available to Licensee on an \"AS IS\"\n basis.  CNRI MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR\n IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, CNRI MAKES NO AND\n DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS\n FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF PYTHON 1.6.1 WILL NOT\n INFRINGE ANY THIRD PARTY RIGHTS.\n\n 5. CNRI SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF PYTHON\n 1.6.1 FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOSS AS\n A RESULT OF MODIFYING, DISTRIBUTING, OR OTHERWISE USING PYTHON 1.6.1,\n OR ANY DERIVATIVE THEREOF, EVEN IF ADVISED OF THE POSSIBILITY THEREOF.\n\n 6. This License Agreement will automatically terminate upon a material\n breach of its terms and conditions.\n\n 7. This License Agreement shall be governed by the federal\n intellectual property law of the United States, including without\n limitation the federal copyright law, and, to the extent such\n U.S. federal law does not apply, by the law of the Commonwealth of\n Virginia, excluding Virginia's conflict of law provisions.\n Notwithstanding the foregoing, with regard to derivative works based\n on Python 1.6.1 that incorporate non-separable material that was\n previously distributed under the GNU General Public License (GPL), the\n law of the Commonwealth of Virginia shall govern this License\n Agreement only as to issues arising under or with respect to\n Paragraphs 4, 5, and 7 of this License Agreement.  Nothing in this\n License Agreement shall be deemed to create any relationship of\n agency, partnership, or joint venture between CNRI and Licensee.  This\n License Agreement does not grant permission to use CNRI trademarks or\n trade name in a trademark sense to endorse or promote products or\n services of Licensee, or any third party.\n\n 8. By clicking on the \"ACCEPT\" button where indicated, or by copying,\n installing or otherwise using Python 1.6.1, Licensee agrees to be\n bound by the terms and conditions of this License Agreement.\n\n         ACCEPT\n\n\n CWI LICENSE AGREEMENT FOR PYTHON 0.9.0 THROUGH 1.2\n --------------------------------------------------\n\n Copyright (c) 1991 - 1995, Stichting Mathematisch Centrum Amsterdam,\n The Netherlands.  All rights reserved.\n\n Permission to use, copy, modify, and distribute this software and its\n documentation for any purpose and without fee is hereby granted,\n provided that the above copyright notice appear in all copies and that\n both that copyright notice and this permission notice appear in\n supporting documentation, and that the name of Stichting Mathematisch\n Centrum or CWI not be used in advertising or publicity pertaining to\n distribution of the software without specific, written prior\n permission.\n\n STICHTING MATHEMATISCH CENTRUM DISCLAIMS ALL WARRANTIES WITH REGARD TO\n THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND\n FITNESS, IN NO EVENT SHALL STICHTING MATHEMATISCH CENTRUM BE LIABLE\n FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES\n WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN\n ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT\n OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.\n\n ZERO-CLAUSE BSD LICENSE FOR CODE IN THE PYTHON DOCUMENTATION\n ----------------------------------------------------------------------\n\n Permission to use, copy, modify, and/or distribute this software for any\n purpose with or without fee is hereby granted.\n\n THE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH\n REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY\n AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,\n INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM\n LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR\n OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR\n PERFORMANCE OF THIS SOFTWARE.\n Copyright (c) 2014, Al Sweigart\n All rights reserved.\n\n Redistribution and use in source and binary forms, with or without\n modification, are permitted provided that the following conditions are met:\n\n * Redistributions of source code must retain the above copyright notice, this\n   list of conditions and the following disclaimer.\n\n * Redistributions in binary form must reproduce the above copyright notice,\n   this list of conditions and the following disclaimer in the documentation\n   and/or other materials provided with the distribution.\n\n * Neither the name of the {organization} nor the names of its\n   contributors may be used to endorse or promote products derived from\n   this software without specific prior written permission.\n\n THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\n AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\n IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\n FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\n DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\n SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\n OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.Copyright (c) 2017 Anthony Sottile\n\n Permission is hereby granted, free of charge, to any person obtaining a copy\n of this software and associated documentation files (the \"Software\"), to deal\n in the Software without restriction, including without limitation the rights\n to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n copies of the Software, and to permit persons to whom the Software is\n furnished to do so, subject to the following conditions:\n\n The above copyright notice and this permission notice shall be included in\n all copies or substantial portions of the Software.\n\n THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\n THE SOFTWARE.Copyright (c) 2015-2019 Jared Hobbs\n\n Permission is hereby granted, free of charge, to any person obtaining a copy of\n this software and associated documentation files (the \"Software\"), to deal in\n the Software without restriction, including without limitation the rights to\n use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies\n of the Software, and to permit persons to whom the Software is furnished to do\n so, subject to the following conditions:\n\n The above copyright notice and this permission notice shall be included in all\n copies or substantial portions of the Software.\n\n THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n SOFTWARE.Developed by ESN, an Electronic Arts Inc. studio.\n Copyright (c) 2014, Electronic Arts Inc.\n All rights reserved.\n\n Redistribution and use in source and binary forms, with or without\n modification, are permitted provided that the following conditions are met:\n * Redistributions of source code must retain the above copyright\n notice, this list of conditions and the following disclaimer.\n * Redistributions in binary form must reproduce the above copyright\n notice, this list of conditions and the following disclaimer in the\n documentation and/or other materials provided with the distribution.\n * Neither the name of ESN, Electronic Arts Inc. nor the\n names of its contributors may be used to endorse or promote products\n derived from this software without specific prior written permission.\n\n THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND\n ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\n WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n DISCLAIMED. IN NO EVENT SHALL ELECTRONIC ARTS INC. BE LIABLE\n FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND\n ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\n SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\n ----\n\n Portions of code from MODP_ASCII - Ascii transformations (upper/lower, etc)\n https://github.com/client9/stringencoders\n\n   Copyright 2005, 2006, 2007\n   Nick Galbreath -- nickg [at] modp [dot] com\n   All rights reserved.\n\n   Redistribution and use in source and binary forms, with or without\n   modification, are permitted provided that the following conditions are\n   met:\n\n     Redistributions of source code must retain the above copyright\n     notice, this list of conditions and the following disclaimer.\n\n     Redistributions in binary form must reproduce the above copyright\n     notice, this list of conditions and the following disclaimer in the\n     documentation and/or other materials provided with the distribution.\n\n     Neither the name of the modp.com nor the names of its\n     contributors may be used to endorse or promote products derived from\n     this software without specific prior written permission.\n\n   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n   \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR\n   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT\n   OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,\n   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT\n   LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,\n   DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY\n   THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n   (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\n   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\n   This is the standard \"new\" BSD license:\n   http://www.opensource.org/licenses/bsd-license.php\n\n https://github.com/client9/stringencoders/blob/cfd5c1507325ae497ea9bacdacba12c0ffd79d30/COPYING\n\n ----\n\n Numeric decoder derived from from TCL library\n https://opensource.apple.com/source/tcl/tcl-14/tcl/license.terms\n  * Copyright (c) 1988-1993 The Regents of the University of California.\n  * Copyright (c) 1994 Sun Microsystems, Inc.\n\n   This software is copyrighted by the Regents of the University of\n   California, Sun Microsystems, Inc., Scriptics Corporation, ActiveState\n   Corporation and other parties.  The following terms apply to all files\n   associated with the software unless explicitly disclaimed in\n   individual files.\n\n   The authors hereby grant permission to use, copy, modify, distribute,\n   and license this software and its documentation for any purpose, provided\n   that existing copyright notices are retained in all copies and that this\n   notice is included verbatim in any distributions. No written agreement,\n   license, or royalty fee is required for any of the authorized uses.\n   Modifications to this software may be copyrighted by their authors\n   and need not follow the licensing terms described here, provided that\n   the new terms are clearly indicated on the first page of each file where\n   they apply.\n\n   IN NO EVENT SHALL THE AUTHORS OR DISTRIBUTORS BE LIABLE TO ANY PARTY\n   FOR DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES\n   ARISING OUT OF THE USE OF THIS SOFTWARE, ITS DOCUMENTATION, OR ANY\n   DERIVATIVES THEREOF, EVEN IF THE AUTHORS HAVE BEEN ADVISED OF THE\n   POSSIBILITY OF SUCH DAMAGE.\n\n   THE AUTHORS AND DISTRIBUTORS SPECIFICALLY DISCLAIM ANY WARRANTIES,\n   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY,\n   FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  THIS SOFTWARE\n   IS PROVIDED ON AN \"AS IS\" BASIS, AND THE AUTHORS AND DISTRIBUTORS HAVE\n   NO OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR\n   MODIFICATIONS.\n\n   GOVERNMENT USE: If you are acquiring this software on behalf of the\n   U.S. government, the Government shall have only \"Restricted Rights\"\n   in the software and related documentation as defined in the Federal\n   Acquisition Regulations (FARs) in Clause 52.227.19 (c) (2).  If you\n   are acquiring the software on behalf of the Department of Defense, the\n   software shall be classified as \"Commercial Computer Software\" and the\n   Government shall have only \"Restricted Rights\" as defined in Clause\n   252.227-7013 (c) (1) of DFARs.  Notwithstanding the foregoing, the\n   authors grant the U.S. Government and others acting in its behalf\n   permission to use and distribute the software in accordance with the\n   terms specified in this license.",
+        "name": "pandas",
+        "version": "3.0.3"
+      },
+      {
+        "license": "unknown",
+        "name": "pillow",
+        "version": "12.2.0"
+      },
+      {
+        "license": "unknown",
+        "name": "pip",
+        "version": "26.1.2"
+      },
+      {
+        "license": "MIT",
+        "name": "pluggy",
+        "version": "1.6.0"
+      },
+      {
+        "license": "3-Clause BSD License",
+        "name": "protobuf",
+        "version": "7.35.1"
+      },
+      {
+        "license": "unknown",
+        "name": "pyarrow",
+        "version": "24.0.0"
+      },
+      {
+        "license": "unknown",
+        "name": "pycparser",
+        "version": "3.0"
+      },
+      {
+        "license": "unknown",
+        "name": "pydantic",
+        "version": "2.13.4"
+      },
+      {
+        "license": "unknown",
+        "name": "pydantic_core",
+        "version": "2.46.4"
+      },
+      {
+        "license": "Apache License 2.0",
+        "name": "pydeck",
+        "version": "0.9.2"
+      },
+      {
+        "license": "unknown",
+        "name": "Pygments",
+        "version": "2.20.0"
+      },
+      {
+        "license": "unknown",
+        "name": "PyJWT",
+        "version": "2.13.0"
+      },
+      {
+        "license": "unknown",
+        "name": "pytest",
+        "version": "9.1.1"
+      },
+      {
+        "license": "unknown",
+        "name": "pytest-asyncio",
+        "version": "1.4.0"
+      },
+      {
+        "license": "Dual License",
+        "name": "python-dateutil",
+        "version": "2.9.0.post0"
+      },
+      {
+        "license": "unknown",
+        "name": "python-multipart",
+        "version": "0.0.32"
+      },
+      {
+        "license": "unknown",
+        "name": "referencing",
+        "version": "0.37.0"
+      },
+      {
+        "license": "Apache-2.0",
+        "name": "requests",
+        "version": "2.34.2"
+      },
+      {
+        "license": "unknown",
+        "name": "rpds-py",
+        "version": "2026.5.1"
+      },
+      {
+        "license": "MIT",
+        "name": "six",
+        "version": "1.17.0"
+      },
+      {
+        "license": "BSD-3-Clause",
+        "name": "smmap",
+        "version": "5.0.3"
+      },
+      {
+        "license": "unknown",
+        "name": "starlette",
+        "version": "1.3.1"
+      },
+      {
+        "license": "unknown",
+        "name": "streamlit",
+        "version": "1.58.0"
+      },
+      {
+        "license": "Apache 2.0",
+        "name": "tenacity",
+        "version": "9.1.4"
+      },
+      {
+        "license": "MIT",
+        "name": "toml",
+        "version": "0.10.2"
+      },
+      {
+        "license": "unknown",
+        "name": "typing-inspection",
+        "version": "0.4.2"
+      },
+      {
+        "license": "unknown",
+        "name": "typing_extensions",
+        "version": "4.15.0"
+      },
+      {
+        "license": "unknown",
+        "name": "urllib3",
+        "version": "2.7.0"
+      },
+      {
+        "license": "unknown",
+        "name": "uvicorn",
+        "version": "0.49.0"
+      },
+      {
+        "license": "unknown",
+        "name": "websockets",
+        "version": "16.0"
+      }
+    ],
+    "pyproject_present": true,
+    "pyproject_sha256": "ece3760c8b4220fa4882e016c3c415e8185fe6d784ebd52942a825ed5ec6ac5f"
+  },
+  "runtime": {
+    "node": "v24.18.0",
+    "npm": "11.16.0",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6",
+    "python_executable": "/Users/master_lord_6ixth/Development/AletheusOS/.venv/bin/python"
+  },
+  "schema_version": "1.0",
+  "source": {
+    "branch": "feature/cardhawk-streamlit-v0.1",
+    "commit": "2150a8d2267a40748d8de9a7a5432492ee1374bb",
+    "short_commit": "2150a8d"
+  }
+}

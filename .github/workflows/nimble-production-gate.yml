@@ -81,6 +81,10 @@ jobs:
         working-directory: nimble
         run: npm ci
 
+      - name: Validate dependency provenance
+        run: |
+          python validate_nimble_dependency_manifest.py
+
       - name: Run Experience Gateway tests
         run: |
           python -m pytest -q tests/experience_gateway
@@ -127,5 +131,7 @@ jobs:
             reports/nimble/production-gate-history.jsonl
             reports/nimble/performance-regression-latest.json
             reports/nimble/performance-regression-latest.md
+            nimble/governance/supply-chain/dependency-manifest.json
+            reports/nimble/dependency-manifest-latest.md
           if-no-files-found: warn
           retention-days: 7
