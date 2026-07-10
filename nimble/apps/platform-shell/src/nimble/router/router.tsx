@@ -1,68 +1,95 @@
 import {
+  lazy,
+  Suspense,
+} from "react";
+import type {
+  ReactNode,
+} from "react";
+import {
   createBrowserRouter,
-  Navigate,
 } from "react-router";
+import {
+  preloadCommandHistory,
+  preloadOidcCallback,
+} from "../prefetch";
 
-import { PlatformShell } from "../components/PlatformShell";
-import { RouteError } from "../components/feedback/RouteError";
-import { CommandHistoryRoute } from "../routes/CommandHistoryRoute";
 import { OverviewRoute } from "../routes/OverviewRoute";
 import { PlaceholderRoute } from "../routes/PlaceholderRoute";
+import { RoutePending } from "../components/feedback/RoutePending";
+
+const OidcCallbackRoute = lazy(
+  async () => {
+    const module =
+      await preloadOidcCallback();
+
+    return {
+      default: (
+        module as typeof import(
+          "../routes/OidcCallbackRoute"
+        )
+      ).OidcCallbackRoute,
+    };
+  },
+);
+
+const CommandHistoryRoute = lazy(
+  async () => {
+    const module =
+      await preloadCommandHistory();
+
+    return {
+      default: (
+        module as typeof import(
+          "../routes/CommandHistoryRoute"
+        )
+      ).CommandHistoryRoute,
+    };
+  },
+);
+
+function LazyRoute({
+  children,
+}: {
+  readonly children: ReactNode;
+}) {
+  return (
+    <Suspense
+      fallback={
+        <RoutePending label="Loading workspace" />
+      }
+    >
+      {children}
+    </Suspense>
+  );
+}
 
 export const nimbleRouter = createBrowserRouter([
   {
     path: "/",
-    element: <PlatformShell />,
-    errorElement: <RouteError />,
-    children: [
-      {
-        index: true,
-        element: <OverviewRoute />,
-      },
-      {
-        path: "overview",
-        element: <Navigate to="/" replace />,
-      },
-      {
-        path: "intelligence",
-        element: <PlaceholderRoute />,
-      },
-      {
-        path: "missions",
-        element: <PlaceholderRoute />,
-      },
-      {
-        path: "workflows",
-        element: <PlaceholderRoute />,
-      },
-      {
-        path: "agents",
-        element: <PlaceholderRoute />,
-      },
-      {
-        path: "memory",
-        element: <PlaceholderRoute />,
-      },
-      {
-        path: "knowledge-graph",
-        element: <PlaceholderRoute />,
-      },
-      {
-        path: "council",
-        element: <PlaceholderRoute />,
-      },
-      {
-        path: "runtime",
-        element: <PlaceholderRoute />,
-      },
-      {
-        path: "command-history",
-        element: <CommandHistoryRoute />,
-      },
-      {
-        path: "*",
-        element: <Navigate to="/" replace />,
-      },
-    ],
+    element: <OverviewRoute />,
+  },
+  {
+    path: "/runtime",
+    element: <PlaceholderRoute />,
+  },
+  {
+    path: "/auth/callback",
+    element: (
+      <LazyRoute>
+        <OidcCallbackRoute />
+      </LazyRoute>
+    ),
+  },
+  {
+    path: "/command-history",
+    element: (
+      <LazyRoute>
+        <CommandHistoryRoute />
+      </LazyRoute>
+    ),
+  },
+  {
+    path: "*",
+    element: <PlaceholderRoute />,
   },
 ]);

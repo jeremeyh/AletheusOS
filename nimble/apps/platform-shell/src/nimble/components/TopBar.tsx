@@ -1,7 +1,26 @@
 import { AuthenticationPanel } from "./AuthenticationPanel";
-import { PrincipalPanel } from "./PrincipalPanel";
+import {
+  lazy,
+  Suspense,
+} from "react";
+
+const PrincipalPanel = lazy(
+  async () => {
+    const module = await import(
+      "./PrincipalPanel"
+    );
+
+    return {
+      default: module.PrincipalPanel,
+    };
+  },
+);
 import { useNimble } from "../providers/NimbleProvider";
 
+import {
+  preloadCommandSurface,
+  preloadPrincipalPanel,
+} from "../prefetch";
 export function TopBar() {
   const {
     setCommandOpen,
@@ -20,6 +39,12 @@ export function TopBar() {
       <button
         className="nimble-command-trigger"
         type="button"
+        onMouseEnter={() => {
+          void preloadCommandSurface();
+        }}
+        onFocus={() => {
+          void preloadCommandSurface();
+        }}
         onClick={() => {
           setCommandOpen(true);
         }}
@@ -70,7 +95,18 @@ export function TopBar() {
         </button>
 
         <AuthenticationPanel />
-        <PrincipalPanel />
+        <span
+          onMouseEnter={() => {
+            void preloadPrincipalPanel();
+          }}
+          onFocus={() => {
+            void preloadPrincipalPanel();
+          }}
+        >
+          <Suspense fallback={null}>
+            <PrincipalPanel />
+          </Suspense>
+        </span>
       </div>
     </header>
   );
