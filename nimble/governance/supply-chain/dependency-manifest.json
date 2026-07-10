@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-07-10T23:34:15.789635+00:00",
+  "generated_at": "2026-07-10T23:45:03.312645+00:00",
   "npm": {
     "direct_dependencies": {},
     "direct_dev_dependencies": {},
     "lockfile_version": 3,
-    "package_json_sha256": "1e924f9714138a9aece86f6b1e21566210981718a4f9ea93477e686a010a6168",
+    "package_json_sha256": "572bf46ac586e4032a019efb38ee79e55a4c14507ca0f61689291da1a805aa69",
     "package_lock_sha256": "5963e1d9ced942c2f22873a7a3969a99342406fb748baf51de22ab348205553f",
     "resolved_package_count": 354,
     "resolved_packages": [
@@ -2845,7 +2845,7 @@
   },
   "python": {
     "direct_dependencies": [],
-    "installed_package_count": 81,
+    "installed_package_count": 83,
     "installed_packages": [
       {
         "license": "Proprietary",
@@ -3084,6 +3084,11 @@
       },
       {
         "license": "unknown",
+        "name": "pip_system_certs",
+        "version": "5.3"
+      },
+      {
+        "license": "unknown",
         "name": "platformdirs",
         "version": "4.10.0"
       },
@@ -3229,6 +3234,11 @@
       },
       {
         "license": "unknown",
+        "name": "truststore",
+        "version": "0.10.4"
+      },
+      {
+        "license": "unknown",
         "name": "typing-inspection",
         "version": "0.4.2"
       },
@@ -3266,7 +3276,7 @@
   "schema_version": "1.0",
   "source": {
     "branch": "feature/cardhawk-streamlit-v0.1",
-    "commit": "efe7de67eb21f5cd7df098c32f3f5a06a13dde08",
-    "short_commit": "efe7de6"
+    "commit": "61a3c1a9500d4819ba384a7724567787ea8e34a7",
+    "short_commit": "61a3c1a"
   }
 }

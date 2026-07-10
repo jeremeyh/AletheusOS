@@ -278,45 +278,120 @@ def collect_npm_audit() -> dict[str, Any]:
 
 
 def collect_python_audit() -> dict[str, Any]:
-    return_code, payload, output = run_json_command(
-        [
-            sys.executable,
-            "-m",
-            "pip_audit",
-            "--format",
-            "json",
-        ]
-    )
+    import tempfile
 
-    if payload is None:
-        return {
-            "available": False,
-            "return_code": return_code,
-            "error": output.strip(),
-            "dependencies": [],
-            "vulnerability_count": 0,
-        }
-
-    dependencies = (
-        payload
-        if isinstance(payload, list)
-        else payload.get(
-            "dependencies",
-            [],
+    with tempfile.TemporaryDirectory(
+        prefix="nimble-pip-audit-"
+    ) as temporary_directory:
+        output_path = (
+            Path(temporary_directory)
+            / "pip-audit.json"
         )
-    )
 
-    vulnerability_count = sum(
-        len(item.get("vulns", []))
-        for item in dependencies
-    )
+        try:
+            completed = subprocess.run(
+                [
+                    sys.executable,
+                    "-m",
+                    "pip_audit",
+                    "--format",
+                    "json",
+                    "--output",
+                    str(output_path),
+                ],
+                cwd=ROOT,
+                check=False,
+                text=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                env=dict(os.environ),
+            )
+        except FileNotFoundError as error:
+            return {
+                "available": False,
+                "return_code": 127,
+                "error": str(error),
+                "dependencies": [],
+                "vulnerability_count": 0,
+            }
 
-    return {
-        "available": True,
-        "return_code": return_code,
-        "dependencies": dependencies,
-        "vulnerability_count": vulnerability_count,
-    }
+        console_output = completed.stdout.strip()
+
+        if not output_path.exists():
+            return {
+                "available": False,
+                "return_code": completed.returncode,
+                "error": (
+                    console_output
+                    or "pip-audit did not create its JSON output file."
+                ),
+                "dependencies": [],
+                "vulnerability_count": 0,
+            }
+
+        try:
+            payload = json.loads(
+                output_path.read_text(
+                    encoding="utf-8"
+                )
+            )
+        except json.JSONDecodeError as error:
+            return {
+                "available": False,
+                "return_code": completed.returncode,
+                "error": (
+                    "pip-audit produced invalid JSON: "
+                    f"{error}. Console output: "
+                    f"{console_output}"
+                ),
+                "dependencies": [],
+                "vulnerability_count": 0,
+            }
+
+        if isinstance(payload, list):
+            dependencies = payload
+        elif isinstance(payload, dict):
+            dependencies = payload.get(
+                "dependencies",
+                [],
+            )
+        else:
+            return {
+                "available": False,
+                "return_code": completed.returncode,
+                "error": (
+                    "pip-audit returned an unsupported "
+                    "JSON payload type."
+                ),
+                "dependencies": [],
+                "vulnerability_count": 0,
+            }
+
+        if not isinstance(dependencies, list):
+            return {
+                "available": False,
+                "return_code": completed.returncode,
+                "error": (
+                    "pip-audit dependencies field "
+                    "is not an array."
+                ),
+                "dependencies": [],
+                "vulnerability_count": 0,
+            }
+
+        vulnerability_count = sum(
+            len(item.get("vulns", []))
+            for item in dependencies
+            if isinstance(item, dict)
+        )
+
+        return {
+            "available": True,
+            "return_code": completed.returncode,
+            "console_output": console_output,
+            "dependencies": dependencies,
+            "vulnerability_count": vulnerability_count,
+        }
 
 
 def evaluate_npm_vulnerabilities(
