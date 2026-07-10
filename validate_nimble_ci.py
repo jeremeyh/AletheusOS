@@ -19,7 +19,8 @@ REQUIRED_MARKERS = (
     'node-version: "24"',
     "npm ci",
     "tests/experience_gateway",
-    "./validate_nimble_production.sh",
+    "python collect_nimble_production_telemetry.py",
+    "python validate_nimble_telemetry.py",
     "actions/upload-artifact@v4",
     "cancel-in-progress: true",
 )

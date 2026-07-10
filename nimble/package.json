@@ -14,7 +14,8 @@
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "validate": "npm run typecheck && npm run test -- --run && npm run build",
-    "production-gate": "../validate_nimble_production.sh"
+    "production-gate": "../validate_nimble_production.sh",
+    "production-evidence": "../.venv/bin/python ../collect_nimble_production_telemetry.py"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"

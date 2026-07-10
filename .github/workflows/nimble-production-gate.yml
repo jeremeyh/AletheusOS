@@ -88,13 +88,23 @@ jobs:
       - name: Run Nimble production gate
         run: |
           chmod +x validate_nimble_production.sh
-          ./validate_nimble_production.sh
+          python collect_nimble_production_telemetry.py
+
+      - name: Validate Nimble production evidence
+        if: always()
+        run: |
+          python validate_nimble_telemetry.py
 
       - name: Upload production assets
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: nimble-production-assets
-          path: nimble/apps/platform-shell/dist
+          path: |
+            nimble/apps/platform-shell/dist
+            reports/nimble/production-gate-latest.json
+            reports/nimble/production-gate-latest.md
+            reports/nimble/production-gate-latest.log
+            reports/nimble/production-gate-history.jsonl
           if-no-files-found: warn
           retention-days: 7

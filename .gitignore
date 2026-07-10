@@ -26,3 +26,7 @@ nimble/apps/platform-shell/.env.local
 # Node dependencies
 node_modules/
 **/node_modules/
+
+# Nimble production telemetry runtime output
+reports/nimble/production-gate-history.jsonl
+reports/nimble/production-gate-latest.log
