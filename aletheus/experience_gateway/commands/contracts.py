@@ -55,6 +55,7 @@ class CommandDefinition:
     required_arguments: tuple[str, ...] = ()
     effects: tuple[str, ...] = ()
     authorization_required: bool = True
+    required_entitlements: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
         if not self.id.strip():
@@ -86,6 +87,7 @@ class CommandPreview:
     risk: CommandRisk
     arguments: dict[str, Any]
     effects: tuple[str, ...]
+    required_entitlements: tuple[str, ...]
     reversible: bool
     authorization_required: bool
     requested_by: str

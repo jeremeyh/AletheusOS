@@ -1,3 +1,4 @@
+import { PrincipalPanel } from "./PrincipalPanel";
 import { useNimble } from "../providers/NimbleProvider";
 
 export function TopBar() {
@@ -63,9 +64,11 @@ export function TopBar() {
 
           <span>
             <strong>Operational</strong>
-            <small>246 checks passing</small>
+            <small>Bounded providers active</small>
           </span>
         </button>
+
+        <PrincipalPanel />
       </div>
     </header>
   );

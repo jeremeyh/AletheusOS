@@ -93,7 +93,7 @@ export function previewCommand(
 
 export function authorizeCommand(
   previewId: string,
-  authorizedBy: string,
+  _authorizedBy?: string,
 ): Promise<CommandAuthorization> {
   return requestJson<CommandAuthorization>(
     "/api/commands/authorize",
@@ -101,7 +101,6 @@ export function authorizeCommand(
       method: "POST",
       body: JSON.stringify({
         preview_id: previewId,
-        authorized_by: authorizedBy,
       }),
     },
   );

@@ -21,12 +21,12 @@ export interface CommandDefinition {
   readonly authorizationRequired: boolean;
   readonly requiredArguments: readonly string[];
   readonly effects: readonly string[];
+  readonly requiredEntitlements: readonly string[];
 }
 
 export interface CommandPreviewRequest {
   readonly command_id: string;
   readonly arguments: Readonly<Record<string, unknown>>;
-  readonly requested_by: string;
   readonly idempotency_key?: string;
 }
 
@@ -38,6 +38,7 @@ export interface CommandPreview {
   readonly risk: CommandRisk;
   readonly arguments: Readonly<Record<string, unknown>>;
   readonly effects: readonly string[];
+  readonly required_entitlements: readonly string[];
   readonly reversible: boolean;
   readonly authorization_required: boolean;
   readonly requested_by: string;

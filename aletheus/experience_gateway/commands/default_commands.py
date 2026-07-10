@@ -112,6 +112,9 @@ def create_default_command_registry(
                 "Does not mutate runtime state",
             ),
             authorization_required=False,
+            required_entitlements=(
+                "runtime.read",
+            ),
         )
     )
 
@@ -135,6 +138,9 @@ def create_default_command_registry(
                 "Does not modify runtime services",
             ),
             authorization_required=True,
+            required_entitlements=(
+                "experience.preferences.write",
+            ),
         )
     )
 
@@ -155,6 +161,9 @@ def create_default_command_registry(
                 "Does not modify runtime state",
             ),
             authorization_required=False,
+            required_entitlements=(
+                "providers.refresh",
+            ),
         )
     )
 

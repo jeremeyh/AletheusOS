@@ -5,6 +5,8 @@ from datetime import timedelta
 from typing import Any
 from uuid import uuid4
 
+from aletheus.experience_gateway.security.contracts import AuthorizationPolicy, Principal
+
 from aletheus.time_utils import (
     utc_now,
     utc_now_iso,
@@ -29,10 +31,14 @@ class CommandGatewayService:
         self,
         registry: CommandRegistry,
         store: CommandStore | None = None,
+        authorization_policy: AuthorizationPolicy | None = None,
     ) -> None:
         self._registry = registry
         self._store = (
             store or CommandAuditStore()
+        )
+        self._authorization_policy = (
+            authorization_policy
         )
 
     def list_commands(
@@ -60,6 +66,9 @@ class CommandGatewayService:
                 "effects": list(
                     definition.effects
                 ),
+                "requiredEntitlements": list(
+                    definition.required_entitlements
+                ),
             }
             for definition in (
                 self._registry
@@ -70,10 +79,32 @@ class CommandGatewayService:
     def preview(
         self,
         request: CommandRequest,
+        *,
+        principal: Principal | None = None,
     ) -> CommandPreview:
         definition = self._registry.get(
             request.command_id
         )
+
+        if (
+            self._authorization_policy is not None
+            and principal is not None
+        ):
+            decision = (
+                self._authorization_policy.evaluate(
+                    principal=principal,
+                    command_id=definition.id,
+                    command_risk=definition.risk,
+                    required_entitlements=(
+                        definition.required_entitlements
+                    ),
+                )
+            )
+
+            if not decision.allowed:
+                raise PermissionError(
+                    decision.reason
+                )
 
         self._validate_arguments(
             definition.required_arguments,
@@ -90,6 +121,9 @@ class CommandGatewayService:
             risk=definition.risk,
             arguments=dict(request.arguments),
             effects=definition.effects,
+            required_entitlements=(
+                definition.required_entitlements
+            ),
             reversible=definition.reversible,
             authorization_required=(
                 definition

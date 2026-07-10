@@ -10,6 +10,12 @@ import {
   useCommandDefinitions,
 } from "../api/commandQueries";
 import {
+  evaluateCommandEligibility,
+} from "../api/commandEligibility";
+import {
+  useCurrentPrincipal,
+} from "../api/identityQueries";
+import {
   useCommandTransaction,
 } from "../api/useCommandTransaction";
 import type {
@@ -29,6 +35,12 @@ export function CommandSurface() {
     error,
     isPending,
   } = useCommandDefinitions();
+
+  const {
+    data: principal,
+    error: principalError,
+    isPending: principalPending,
+  } = useCurrentPrincipal();
 
   const transaction =
     useCommandTransaction();
@@ -239,6 +251,9 @@ export function CommandSurface() {
                       commands={filteredCommands}
                       isPending={isPending}
                       error={error}
+                      principal={principal}
+                      principalError={principalError}
+                      principalPending={principalPending}
                       onSelect={selectCommand}
                     />
                   )}
@@ -356,6 +371,9 @@ function CommandDiscovery({
   commands,
   isPending,
   error,
+  principal,
+  principalError,
+  principalPending,
   onSelect,
 }: {
   readonly query: string;
@@ -364,6 +382,10 @@ function CommandDiscovery({
     readonly CommandDefinition[];
   readonly isPending: boolean;
   readonly error: Error | null;
+  readonly principal:
+    import("../api/identityTypes").CurrentPrincipal | undefined;
+  readonly principalError: Error | null;
+  readonly principalPending: boolean;
   readonly onSelect: (
     command: CommandDefinition,
   ) => void;
@@ -404,14 +426,44 @@ function CommandDiscovery({
           </p>
         )}
 
+        {principalPending && (
+          <p className="nimble-command__empty">
+            Resolving command identity…
+          </p>
+        )}
+
+        {principalError && (
+          <p className="nimble-command__failure">
+            Identity could not be resolved:
+            {" "}
+            {principalError.message}
+          </p>
+        )}
+
         {!isPending
           && !error
-          && commands.map((command) => (
+          && principal
+          && commands.map((command) => {
+            const eligibility =
+              evaluateCommandEligibility(
+                command,
+                principal,
+              );
+
+            return (
             <button
               key={command.id}
               type="button"
+              className={
+                eligibility.eligible
+                  ? undefined
+                  : "is-command-denied"
+              }
+              aria-disabled={!eligibility.eligible}
               onClick={() => {
-                onSelect(command);
+                if (eligibility.eligible) {
+                  onSelect(command);
+                }
               }}
             >
               <span className="nimble-command__result-icon">
@@ -427,15 +479,24 @@ function CommandDiscovery({
                 </small>
               </span>
 
-              <span
-                className={
-                  `nimble-risk nimble-risk--${command.risk}`
-                }
-              >
-                {formatRisk(command.risk)}
+              <span className="nimble-command-access">
+                <span
+                  className={
+                    `nimble-risk nimble-risk--${command.risk}`
+                  }
+                >
+                  {formatRisk(command.risk)}
+                </span>
+
+                <small>
+                  {eligibility.eligible
+                    ? "Allowed"
+                    : eligibility.reason}
+                </small>
               </span>
             </button>
-          ))}
+            );
+          })}
 
         {!isPending
           && !error
@@ -461,6 +522,7 @@ function CommandPreviewPanel({
     readonly description: string;
     readonly risk: string;
     readonly effects: readonly string[];
+    readonly required_entitlements?: readonly string[];
     readonly reversible: boolean;
     readonly authorization_required: boolean;
     readonly expires_at: string;
@@ -509,6 +571,24 @@ function CommandPreviewPanel({
             ).toLocaleTimeString()
           }
         />
+      </section>
+
+      <section>
+        <h3>Required entitlements</h3>
+
+        <div className="nimble-principal-tags">
+          {(preview.required_entitlements ?? []).length
+            ? (preview.required_entitlements ?? []).map(
+                (entitlement) => (
+                  <span key={entitlement}>
+                    {entitlement}
+                  </span>
+                ),
+              )
+            : (
+                <span>None</span>
+              )}
+        </div>
       </section>
 
       <section>

@@ -92,7 +92,6 @@ def test_command_preview_and_execution_flow() -> None:
         json={
             "command_id": "runtime.describe",
             "arguments": {},
-            "requested_by": "test-user",
         },
     )
 
@@ -129,7 +128,6 @@ def test_mutating_command_requires_authorization() -> None:
             "arguments": {
                 "open": False,
             },
-            "requested_by": "test-user",
         },
     )
 

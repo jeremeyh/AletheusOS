@@ -21,6 +21,9 @@ describe("command contracts", () => {
       effects: [
         "Reads bounded runtime state",
       ],
+      requiredEntitlements: [
+        "runtime.read",
+      ],
     };
 
     expect(command.risk).toBe("read_only");

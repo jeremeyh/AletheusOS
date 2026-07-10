@@ -71,7 +71,6 @@ export function useCommandTransaction() {
           await previewMutation.mutateAsync({
             command_id: command.id,
             arguments: argumentsValue,
-            requested_by: "jeremey",
             idempotency_key: crypto.randomUUID(),
           });
 
@@ -112,7 +111,7 @@ export function useCommandTransaction() {
           nextAuthorization =
             await authorizationMutation.mutateAsync({
               previewId: preview.preview_id,
-              authorizedBy: "jeremey",
+              authorizedBy: "current-principal",
             });
 
           setAuthorization(nextAuthorization);
