@@ -1,12 +1,17 @@
 import "./App.css";
 
-import { PlatformShell } from "./nimble/components/PlatformShell";
+import { RouterProvider } from "react-router";
+
 import { NimbleProvider } from "./nimble/providers/NimbleProvider";
+import { RuntimeQueryProvider } from "./nimble/providers/RuntimeQueryProvider";
+import { nimbleRouter } from "./nimble/router/router";
 
 export default function App() {
   return (
-    <NimbleProvider>
-      <PlatformShell />
-    </NimbleProvider>
+    <RuntimeQueryProvider>
+      <NimbleProvider>
+        <RouterProvider router={nimbleRouter} />
+      </NimbleProvider>
+    </RuntimeQueryProvider>
   );
 }

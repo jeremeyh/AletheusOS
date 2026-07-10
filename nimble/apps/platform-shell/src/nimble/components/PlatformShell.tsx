@@ -1,4 +1,5 @@
-import { AdaptiveWorkspace } from "./AdaptiveWorkspace";
+import { Outlet } from "react-router";
+
 import { CommandSurface } from "./CommandSurface";
 import { GlobalNavigation } from "./GlobalNavigation";
 import { MotionEnvironment } from "./MotionEnvironment";
@@ -20,7 +21,7 @@ export function PlatformShell() {
 
         <section className="nimble-stage">
           <TopBar />
-          <AdaptiveWorkspace />
+          <Outlet />
         </section>
 
         <TruthInspector />

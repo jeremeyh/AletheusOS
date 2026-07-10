@@ -1,9 +1,15 @@
 import { motion } from "motion/react";
+import {
+  NavLink,
+  useNavigate,
+} from "react-router";
 
 import { navigationGroups } from "../data/shellData";
 import { useNimble } from "../providers/NimbleProvider";
 
 export function GlobalNavigation() {
+  const navigate = useNavigate();
+
   const {
     navigationExpanded,
     toggleNavigation,
@@ -28,12 +34,9 @@ export function GlobalNavigation() {
         <button
           className="nimble-brand__mark"
           type="button"
-          aria-label="Open application switcher"
+          aria-label="Open AletheusOS overview"
           onClick={() => {
-            notify(
-              "Application switcher",
-              "AletheusOS applications will inherit this Nimble surface.",
-            );
+            void navigate("/");
           }}
         >
           A
@@ -42,8 +45,14 @@ export function GlobalNavigation() {
         {navigationExpanded && (
           <motion.div
             className="nimble-brand__identity"
-            initial={{ opacity: 0, x: -8 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{
+              opacity: 0,
+              x: -8,
+            }}
+            animate={{
+              opacity: 1,
+              x: 0,
+            }}
           >
             <strong>AletheusOS</strong>
             <span>Nimble™ Experience</span>
@@ -75,16 +84,23 @@ export function GlobalNavigation() {
             )}
 
             {group.items.map((item) => (
-              <button
+              <NavLink
                 key={item.id}
-                type="button"
-                className={`nimble-nav-item ${
-                  item.id === "overview" ? "is-active" : ""
-                }`}
+                to={
+                  item.id === "overview"
+                    ? "/"
+                    : `/${item.id}`
+                }
+                end={item.id === "overview"}
+                className={({ isActive }) =>
+                  `nimble-nav-item ${
+                    isActive ? "is-active" : ""
+                  }`
+                }
                 onClick={() => {
                   notify(
                     item.label,
-                    `${item.label} is registered but not yet routed.`,
+                    `Opened the ${item.label} route.`,
                   );
                 }}
               >
@@ -120,7 +136,7 @@ export function GlobalNavigation() {
                     aria-label="Active"
                   />
                 )}
-              </button>
+              </NavLink>
             ))}
           </section>
         ))}
@@ -137,7 +153,9 @@ export function GlobalNavigation() {
             );
           }}
         >
-          <span className="nimble-user__avatar">JH</span>
+          <span className="nimble-user__avatar">
+            JH
+          </span>
 
           {navigationExpanded && (
             <span className="nimble-user__identity">

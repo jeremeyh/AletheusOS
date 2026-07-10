@@ -835,3 +835,153 @@ kbd {
     transition-duration: 0.001ms !important;
   }
 }
+
+.nimble-source-disclosure {
+  display: flex;
+  width: max-content;
+  margin-top: 0.85rem;
+  padding: 0.45rem 0.7rem;
+  gap: 0.55rem;
+  border: 1px solid var(--nimble-semantic-status-warning);
+  border-radius: var(--nimble-radius-md);
+  background:
+    color-mix(
+      in srgb,
+      var(--nimble-semantic-status-warning) 10%,
+      transparent
+    );
+  color: var(--nimble-semantic-text-secondary);
+  font-size: var(--nimble-typography-font-size-xs);
+}
+
+.nimble-source-disclosure strong {
+  color: var(--nimble-semantic-status-warning);
+}
+
+.nimble-hero__actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.65rem;
+}
+
+.nimble-runtime-checks,
+.nimble-provenance-list {
+  display: grid;
+}
+
+.nimble-runtime-checks article,
+.nimble-provenance-list article {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  padding: 0.85rem 0;
+  gap: 0.75rem;
+  border-bottom:
+    1px solid
+    var(--nimble-semantic-border-subtle);
+}
+
+.nimble-runtime-checks p {
+  margin: 0.25rem 0 0;
+  color: var(--nimble-semantic-text-secondary);
+}
+
+.nimble-runtime-checks time,
+.nimble-provenance-list time,
+.nimble-provenance-list span {
+  color: var(--nimble-semantic-text-tertiary);
+  font-size: var(--nimble-typography-font-size-xs);
+}
+
+.nimble-truth-summary {
+  color: var(--nimble-semantic-text-secondary);
+  line-height: var(--nimble-typography-line-height-relaxed);
+}
+
+.nimble-route-state,
+.nimble-route-error,
+.nimble-placeholder-route {
+  display: grid;
+  align-content: center;
+  width: min(56rem, calc(100% - 4rem));
+  min-height: calc(100vh - 5rem);
+  margin: auto;
+}
+
+.nimble-route-state {
+  justify-items: center;
+  text-align: center;
+}
+
+.nimble-route-state p,
+.nimble-route-error p,
+.nimble-placeholder-route p {
+  color: var(--nimble-semantic-text-secondary);
+  line-height: var(--nimble-typography-line-height-relaxed);
+}
+
+.nimble-route-state__core {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1rem;
+}
+
+.nimble-route-state__core span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin: -0.375rem;
+  border-radius: 50%;
+  background: var(--nimble-semantic-brand-secondary);
+  box-shadow: 0 0 1rem var(--nimble-semantic-brand-glow);
+}
+
+.nimble-route-state__core span:nth-child(1) {
+  transform: translateY(-1.4rem);
+}
+
+.nimble-route-state__core span:nth-child(2) {
+  transform: translate(1.2rem, 0.8rem);
+}
+
+.nimble-route-state__core span:nth-child(3) {
+  transform: translate(-1.2rem, 0.8rem);
+}
+
+.nimble-route-error section,
+.nimble-placeholder-route section {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--nimble-semantic-border-subtle);
+  border-radius: var(--nimble-radius-lg);
+  background: var(--nimble-semantic-surface-glass);
+}
+
+.nimble-route-error__status {
+  width: max-content;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--nimble-radius-pill);
+  background:
+    color-mix(
+      in srgb,
+      var(--nimble-semantic-status-danger) 12%,
+      transparent
+    );
+  color: var(--nimble-semantic-status-danger);
+}
+
+.nimble-empty-state {
+  display: grid;
+  justify-items: center;
+  padding: 2rem;
+  color: var(--nimble-semantic-text-secondary);
+  text-align: center;
+}
+
+.nimble-empty-state > span {
+  font-size: 2rem;
+  color: var(--nimble-semantic-brand-secondary);
+}
