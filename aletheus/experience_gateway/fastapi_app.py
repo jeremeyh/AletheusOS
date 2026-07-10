@@ -2,6 +2,23 @@ from __future__ import annotations
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from dataclasses import asdict
+
+from fastapi import HTTPException
+
+from .command_api_models import (
+    CommandAuthorizationRequestModel,
+    CommandExecutionRequestModel,
+    CommandPreviewRequestModel,
+    CommandReversalRequestModel,
+)
+from .commands.contracts import CommandRequest
+from .commands.default_commands import (
+    create_default_command_registry,
+)
+from .commands.service import (
+    CommandGatewayService,
+)
 
 from .providers import create_default_provider_registry
 from .service import ExperienceGatewayService
@@ -14,6 +31,10 @@ def create_app(
         provider_registry=(
             create_default_provider_registry()
         )
+    )
+
+    command_gateway = CommandGatewayService(
+        create_default_command_registry()
     )
 
     app = FastAPI(
@@ -32,7 +53,7 @@ def create_app(
             "http://127.0.0.1:5173",
         ],
         allow_credentials=False,
-        allow_methods=["GET", "OPTIONS"],
+        allow_methods=["GET", "POST", "OPTIONS"],
         allow_headers=[
             "Accept",
             "Content-Type",
@@ -72,6 +93,136 @@ def create_app(
             **registry.describe(),
             "mode": "provider_registry",
         }
+
+    @app.get("/api/commands")
+    def list_commands() -> list[dict]:
+        return command_gateway.list_commands()
+
+    @app.post("/api/commands/preview")
+    def preview_command(
+        payload: CommandPreviewRequestModel,
+    ) -> dict:
+        try:
+            preview = command_gateway.preview(
+                CommandRequest(
+                    command_id=payload.command_id,
+                    arguments=payload.arguments,
+                    requested_by=payload.requested_by,
+                    idempotency_key=(
+                        payload.idempotency_key
+                    ),
+                )
+            )
+        except KeyError as error:
+            raise HTTPException(
+                status_code=404,
+                detail=str(error),
+            ) from error
+        except ValueError as error:
+            raise HTTPException(
+                status_code=422,
+                detail=str(error),
+            ) from error
+
+        return asdict(preview)
+
+    @app.post("/api/commands/authorize")
+    def authorize_command(
+        payload: CommandAuthorizationRequestModel,
+    ) -> dict:
+        try:
+            authorization = (
+                command_gateway.authorize(
+                    preview_id=payload.preview_id,
+                    authorized_by=(
+                        payload.authorized_by
+                    ),
+                )
+            )
+        except KeyError as error:
+            raise HTTPException(
+                status_code=404,
+                detail=str(error),
+            ) from error
+        except TimeoutError as error:
+            raise HTTPException(
+                status_code=410,
+                detail=str(error),
+            ) from error
+
+        return asdict(authorization)
+
+    @app.post("/api/commands/execute")
+    def execute_command(
+        payload: CommandExecutionRequestModel,
+    ) -> dict:
+        try:
+            execution = command_gateway.execute(
+                preview_id=payload.preview_id,
+                authorization_id=(
+                    payload.authorization_id
+                ),
+                idempotency_key=(
+                    payload.idempotency_key
+                ),
+            )
+        except KeyError as error:
+            raise HTTPException(
+                status_code=404,
+                detail=str(error),
+            ) from error
+        except PermissionError as error:
+            raise HTTPException(
+                status_code=403,
+                detail=str(error),
+            ) from error
+        except TimeoutError as error:
+            raise HTTPException(
+                status_code=410,
+                detail=str(error),
+            ) from error
+
+        return asdict(execution)
+
+    @app.post("/api/commands/reverse")
+    def reverse_command(
+        payload: CommandReversalRequestModel,
+    ) -> dict:
+        try:
+            execution = command_gateway.reverse(
+                execution_id=(
+                    payload.execution_id
+                ),
+                reversal_token=(
+                    payload.reversal_token
+                ),
+            )
+        except KeyError as error:
+            raise HTTPException(
+                status_code=404,
+                detail=str(error),
+            ) from error
+        except PermissionError as error:
+            raise HTTPException(
+                status_code=403,
+                detail=str(error),
+            ) from error
+        except ValueError as error:
+            raise HTTPException(
+                status_code=409,
+                detail=str(error),
+            ) from error
+
+        return asdict(execution)
+
+    @app.get("/api/commands/history")
+    def command_history() -> list[dict]:
+        return [
+            asdict(execution)
+            for execution in (
+                command_gateway.history()
+            )
+        ]
 
     @app.get("/api/experience/meta")
     def experience_metadata() -> dict:
