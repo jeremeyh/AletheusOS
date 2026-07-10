@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "name": "Nimble Semantic Themes",
+    "version": "0.1.0"
+  },
+  "themes": {
+    "light": {
+      "surface": {
+        "canvas": "{color.neutral.50}",
+        "base": "{color.neutral.0}",
+        "raised": "{color.neutral.0}",
+        "sunken": "{color.neutral.100}",
+        "glass": "rgba(255, 255, 255, 0.72)",
+        "overlay": "rgba(11, 13, 17, 0.56)"
+      },
+      "text": {
+        "primary": "{color.neutral.950}",
+        "secondary": "{color.neutral.600}",
+        "tertiary": "{color.neutral.500}",
+        "inverse": "{color.neutral.0}",
+        "accent": "{color.gold.700}"
+      },
+      "border": {
+        "subtle": "{color.neutral.200}",
+        "default": "{color.neutral.300}",
+        "strong": "{color.neutral.500}",
+        "focus": "{color.violet.500}"
+      },
+      "brand": {
+        "primary": "{color.gold.500}",
+        "primaryHover": "{color.gold.600}",
+        "secondary": "{color.violet.500}",
+        "energy": "{color.cyan.500}",
+        "glow": "rgba(134, 71, 234, 0.32)"
+      },
+      "status": {
+        "success": "{color.green.600}",
+        "warning": "{color.amber.500}",
+        "danger": "{color.red.500}",
+        "information": "{color.cyan.600}",
+        "unknown": "{color.neutral.500}"
+      },
+      "state": {
+        "hover": "rgba(21, 25, 31, 0.05)",
+        "pressed": "rgba(21, 25, 31, 0.10)",
+        "selected": "rgba(134, 71, 234, 0.12)",
+        "focusRing": "rgba(134, 71, 234, 0.42)",
+        "disabled": "0.42"
+      }
+    },
+    "dark": {
+      "surface": {
+        "canvas": "{color.neutral.950}",
+        "base": "{color.neutral.900}",
+        "raised": "{color.neutral.800}",
+        "sunken": "{color.neutral.1000}",
+        "glass": "rgba(21, 25, 31, 0.72)",
+        "overlay": "rgba(0, 0, 0, 0.68)"
+      },
+      "text": {
+        "primary": "{color.neutral.50}",
+        "secondary": "{color.neutral.300}",
+        "tertiary": "{color.neutral.400}",
+        "inverse": "{color.neutral.950}",
+        "accent": "{color.gold.300}"
+      },
+      "border": {
+        "subtle": "{color.neutral.800}",
+        "default": "{color.neutral.700}",
+        "strong": "{color.neutral.500}",
+        "focus": "{color.violet.300}"
+      },
+      "brand": {
+        "primary": "{color.gold.400}",
+        "primaryHover": "{color.gold.300}",
+        "secondary": "{color.violet.400}",
+        "energy": "{color.cyan.400}",
+        "glow": "rgba(161, 107, 250, 0.38)"
+      },
+      "status": {
+        "success": "{color.green.400}",
+        "warning": "{color.amber.300}",
+        "danger": "{color.red.400}",
+        "information": "{color.cyan.400}",
+        "unknown": "{color.neutral.400}"
+      },
+      "state": {
+        "hover": "rgba(255, 255, 255, 0.06)",
+        "pressed": "rgba(255, 255, 255, 0.11)",
+        "selected": "rgba(161, 107, 250, 0.16)",
+        "focusRing": "rgba(161, 107, 250, 0.50)",
+        "disabled": "0.42"
+      }
+    }
+  }
+}
