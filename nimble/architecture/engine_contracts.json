@@ -1,0 +1,104 @@
+{
+  "shell": {
+    "owns": [
+      "global_navigation",
+      "application_switching",
+      "command_entry",
+      "system_status",
+      "notification_surface",
+      "identity_and_context"
+    ],
+    "must_not_own": [
+      "domain_business_logic",
+      "application_specific_state"
+    ]
+  },
+  "context": {
+    "owns": [
+      "context_resolution",
+      "adaptive_density",
+      "relevant_actions",
+      "surface_prioritization",
+      "contextual_disclosure"
+    ]
+  },
+  "motion": {
+    "owns": [
+      "timing",
+      "easing",
+      "springs",
+      "transitions",
+      "shared_layout",
+      "state_motion",
+      "ambient_motion",
+      "reduced_motion",
+      "motion_performance"
+    ]
+  },
+  "interaction": {
+    "owns": [
+      "keyboard",
+      "pointer",
+      "gesture",
+      "focus",
+      "drag",
+      "resize",
+      "dock",
+      "selection",
+      "reversal"
+    ]
+  },
+  "workspace": {
+    "owns": [
+      "panel_composition",
+      "layout_persistence",
+      "workspace_restoration",
+      "application_workspace_inheritance",
+      "responsive_reflow"
+    ]
+  },
+  "visualization": {
+    "owns": [
+      "charts",
+      "graphs",
+      "topology",
+      "timelines",
+      "confidence",
+      "provenance",
+      "system_state"
+    ]
+  },
+  "accessibility": {
+    "owns": [
+      "semantic_structure",
+      "keyboard_access",
+      "focus_management",
+      "screen_reader_support",
+      "contrast",
+      "reduced_motion",
+      "input_alternatives"
+    ]
+  },
+  "command": {
+    "owns": [
+      "palette",
+      "natural_language_entry",
+      "shortcuts",
+      "action_preview",
+      "execution_state",
+      "history",
+      "undo"
+    ]
+  },
+  "transparency": {
+    "owns": [
+      "reasoning",
+      "confidence",
+      "uncertainty",
+      "provenance",
+      "impact_preview",
+      "failure_cause",
+      "decision_trace"
+    ]
+  }
+}

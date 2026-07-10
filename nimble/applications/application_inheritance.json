@@ -1,0 +1,28 @@
+{
+  "required_inheritance": {
+    "tokens": true,
+    "motion": true,
+    "interaction": true,
+    "accessibility": true,
+    "workspace": true,
+    "command": true,
+    "transparency": true
+  },
+  "application_extension_points": [
+    "brand_accent",
+    "domain_icons",
+    "domain_language",
+    "domain_navigation",
+    "domain_workflows",
+    "domain_visualizations",
+    "domain_commands"
+  ],
+  "prohibited_extensions": [
+    "parallel_design_system",
+    "parallel_motion_system",
+    "inaccessible_component_fork",
+    "hidden_reasoning",
+    "hidden_system_state",
+    "irreversible_action_without_disclosure"
+  ]
+}

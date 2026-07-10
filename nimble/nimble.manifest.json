@@ -1,0 +1,60 @@
+{
+  "name": "Nimble",
+  "display_name": "Nimble™",
+  "role": "Canonical AletheusOS Experience Framework",
+  "version": "0.1.0",
+  "status": "foundation",
+  "doctrine": "Complex beneath. Clear above. Alive throughout.",
+  "governing_principle": "Principle X — Unconcealed Truth",
+  "properties": [
+    "plastic",
+    "elastic",
+    "nimble",
+    "amorphous",
+    "truthful",
+    "compositional",
+    "contextual",
+    "magnetic",
+    "capable"
+  ],
+  "inheritance_policy": {
+    "default": true,
+    "applications_must_inherit": [
+      "design_tokens",
+      "motion_contracts",
+      "interaction_primitives",
+      "accessibility_requirements",
+      "workspace_architecture",
+      "principle_x_disclosure",
+      "command_surfaces",
+      "system_feedback"
+    ],
+    "applications_may_customize": [
+      "domain_identity",
+      "terminology",
+      "workflow_expression",
+      "visual_accents",
+      "domain_visualizations"
+    ],
+    "applications_must_not": [
+      "fork_foundational_experience_architecture",
+      "duplicate_core_tokens",
+      "bypass_accessibility",
+      "hide_system_state",
+      "obscure_reasoning_or_confidence",
+      "introduce_dark_patterns"
+    ]
+  },
+  "engines": [
+    "shell",
+    "context",
+    "motion",
+    "interaction",
+    "workspace",
+    "visualization",
+    "personalization",
+    "accessibility",
+    "command",
+    "transparency"
+  ]
+}

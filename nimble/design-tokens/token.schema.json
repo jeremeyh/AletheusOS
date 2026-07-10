@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nimble Design Tokens",
+  "type": "object",
+  "required": [
+    "color",
+    "typography",
+    "spacing",
+    "radius",
+    "depth",
+    "motion",
+    "opacity",
+    "layout"
+  ],
+  "properties": {
+    "color": {
+      "type": "object"
+    },
+    "typography": {
+      "type": "object"
+    },
+    "spacing": {
+      "type": "object"
+    },
+    "radius": {
+      "type": "object"
+    },
+    "depth": {
+      "type": "object"
+    },
+    "motion": {
+      "type": "object"
+    },
+    "opacity": {
+      "type": "object"
+    },
+    "layout": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}
