@@ -985,3 +985,17 @@ kbd {
   font-size: 2rem;
   color: var(--nimble-semantic-brand-secondary);
 }
+
+.nimble-source-disclosure--live {
+  border-color: var(--nimble-semantic-status-success);
+  background:
+    color-mix(
+      in srgb,
+      var(--nimble-semantic-status-success) 10%,
+      transparent
+    );
+}
+
+.nimble-source-disclosure--live strong {
+  color: var(--nimble-semantic-status-success);
+}

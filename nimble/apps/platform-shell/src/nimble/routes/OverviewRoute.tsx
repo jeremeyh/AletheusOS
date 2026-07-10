@@ -38,8 +38,16 @@ export function OverviewRoute() {
     );
   }
 
+  const truthState = data.health.truth.state;
+
   const fixtureMode =
-    data.health.truth.state === "development_fixture";
+    truthState === "development_fixture";
+
+  const baselineMode =
+    truthState === "verified_local_baseline";
+
+  const liveProviderMode =
+    truthState === "live_runtime_provider";
 
   return (
     <main id="nimble-main" className="nimble-main">
@@ -67,11 +75,27 @@ export function OverviewRoute() {
             {data.health.summary}
           </p>
 
-          {fixtureMode && (
+          {(fixtureMode || baselineMode) && (
             <div className="nimble-source-disclosure">
-              <strong>Development fixture</strong>
+              <strong>
+                {fixtureMode
+                  ? "Development fixture"
+                  : "Verified baseline"}
+              </strong>
+
               <span>
-                Live runtime data is not currently connected.
+                {fixtureMode
+                  ? "Live runtime data is not currently connected."
+                  : "The gateway is live, but this evidence is not a continuous runtime probe."}
+              </span>
+            </div>
+          )}
+
+          {liveProviderMode && (
+            <div className="nimble-source-disclosure nimble-source-disclosure--live">
+              <strong>Live provider registry</strong>
+              <span>
+                Current state was aggregated from bounded runtime providers.
               </span>
             </div>
           )}
@@ -131,8 +155,10 @@ export function OverviewRoute() {
           value={data.health.state}
           detail={
             fixtureMode
-              ? "Verified fixture, not live state"
-              : "Live AletheusOS runtime"
+              ? "Fixture fallback"
+              : baselineMode
+                ? "Live gateway, verified baseline"
+                : "Live bounded providers"
           }
         />
       </section>
