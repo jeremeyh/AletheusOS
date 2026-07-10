@@ -1,8 +1,6 @@
-import {
-  Log,
+import type {
   User,
   UserManager,
-  WebStorageStateStore,
 } from "oidc-client-ts";
 
 import {
@@ -28,31 +26,215 @@ type SessionListener = (
 ) => void;
 
 class OidcBrowserSession {
-  private readonly manager:
-    UserManager | null;
-
   private readonly listeners =
     new Set<SessionListener>();
 
-  private snapshot: OidcSessionSnapshot;
+  private managerPromise:
+    Promise<UserManager | null> | null = null;
 
-  constructor() {
-    const config =
-      loadBrowserOidcConfiguration();
+  private eventsRegistered = false;
 
-    if (!config) {
-      this.manager = null;
+  private snapshot: OidcSessionSnapshot = {
+    state: "anonymous",
+    user: null,
+    error: null,
+  };
 
-      this.snapshot = {
+  subscribe(
+    listener: SessionListener,
+  ): () => void {
+    this.listeners.add(listener);
+    listener(this.snapshot);
+
+    return () => {
+      this.listeners.delete(listener);
+    };
+  }
+
+  getSnapshot(): OidcSessionSnapshot {
+    return this.snapshot;
+  }
+
+  async initialize(): Promise<void> {
+    const manager = await this.getManager();
+
+    if (!manager) {
+      this.update({
         state: "unconfigured",
         user: null,
         error: null,
-      };
+      });
 
       return;
     }
 
-    this.manager = new UserManager({
+    try {
+      const user = await manager.getUser();
+
+      this.update({
+        state:
+          user && !user.expired
+            ? "authenticated"
+            : user?.expired
+              ? "expired"
+              : "anonymous",
+        user,
+        error: null,
+      });
+    } catch (error) {
+      this.fail(error);
+    }
+  }
+
+  async handleCallback(): Promise<User> {
+    const manager = await this.requireManager();
+
+    this.update({
+      state: "authenticating",
+      user: null,
+      error: null,
+    });
+
+    try {
+      const user =
+        await manager.signinRedirectCallback();
+
+      this.update({
+        state: user.expired
+          ? "expired"
+          : "authenticated",
+        user,
+        error: null,
+      });
+
+      return user;
+    } catch (error) {
+      this.fail(error);
+      throw error;
+    }
+  }
+
+  async signIn(): Promise<void> {
+    const manager = await this.requireManager();
+
+    this.update({
+      state: "authenticating",
+      user: null,
+      error: null,
+    });
+
+    await manager.signinRedirect();
+  }
+
+  async signOut(): Promise<void> {
+    const manager = await this.getManager();
+
+    if (!manager) {
+      return;
+    }
+
+    await manager.signoutRedirect();
+  }
+
+  async getAccessToken():
+    Promise<string | null> {
+    const manager = await this.getManager();
+
+    if (!manager) {
+      return null;
+    }
+
+    let user = await manager.getUser();
+
+    if (!user) {
+      return null;
+    }
+
+    if (user.expired) {
+      try {
+        user = await manager.signinSilent();
+      } catch (error) {
+        this.update({
+          state: "expired",
+          user,
+          error:
+            error instanceof Error
+              ? error.message
+              : "The OIDC session could not be renewed.",
+        });
+
+        return null;
+      }
+    }
+
+    if (!user) {
+      return null;
+    }
+
+    this.update({
+      state: "authenticated",
+      user,
+      error: null,
+    });
+
+    return user.access_token || null;
+  }
+
+  async removeUser(): Promise<void> {
+    const manager = await this.getManager();
+
+    if (!manager) {
+      return;
+    }
+
+    await manager.removeUser();
+
+    this.update({
+      state: "anonymous",
+      user: null,
+      error: null,
+    });
+  }
+
+  private getManager():
+    Promise<UserManager | null> {
+    if (!this.managerPromise) {
+      this.managerPromise =
+        this.createManager();
+    }
+
+    return this.managerPromise;
+  }
+
+  private async requireManager():
+    Promise<UserManager> {
+    const manager = await this.getManager();
+
+    if (!manager) {
+      throw new Error(
+        "Browser OIDC is not configured.",
+      );
+    }
+
+    return manager;
+  }
+
+  private async createManager():
+    Promise<UserManager | null> {
+    const config =
+      loadBrowserOidcConfiguration();
+
+    if (!config) {
+      return null;
+    }
+
+    const {
+      Log,
+      UserManager,
+      WebStorageStateStore,
+    } = await import("oidc-client-ts");
+
+    const manager = new UserManager({
       authority: config.authority,
       client_id: config.clientId,
       redirect_uri: config.redirectUri,
@@ -75,13 +257,26 @@ class OidcBrowserSession {
       revokeTokensOnSignout: true,
     });
 
-    this.snapshot = {
-      state: "anonymous",
-      user: null,
-      error: null,
-    };
+    if (import.meta.env.DEV) {
+      Log.setLogger(console);
+      Log.setLevel(Log.WARN);
+    }
 
-    this.manager.events.addUserLoaded(
+    this.registerEvents(manager);
+
+    return manager;
+  }
+
+  private registerEvents(
+    manager: UserManager,
+  ): void {
+    if (this.eventsRegistered) {
+      return;
+    }
+
+    this.eventsRegistered = true;
+
+    manager.events.addUserLoaded(
       (user) => {
         this.update({
           state: user.expired
@@ -93,7 +288,7 @@ class OidcBrowserSession {
       },
     );
 
-    this.manager.events.addUserUnloaded(
+    manager.events.addUserUnloaded(
       () => {
         this.update({
           state: "anonymous",
@@ -103,7 +298,7 @@ class OidcBrowserSession {
       },
     );
 
-    this.manager.events.addAccessTokenExpired(
+    manager.events.addAccessTokenExpired(
       () => {
         this.update({
           state: "expired",
@@ -114,7 +309,7 @@ class OidcBrowserSession {
       },
     );
 
-    this.manager.events.addSilentRenewError(
+    manager.events.addSilentRenewError(
       (error) => {
         this.update({
           state: "error",
@@ -124,155 +319,6 @@ class OidcBrowserSession {
         });
       },
     );
-
-    if (import.meta.env.DEV) {
-      Log.setLogger(console);
-      Log.setLevel(Log.WARN);
-    }
-  }
-
-  subscribe(
-    listener: SessionListener,
-  ): () => void {
-    this.listeners.add(listener);
-    listener(this.snapshot);
-
-    return () => {
-      this.listeners.delete(listener);
-    };
-  }
-
-  getSnapshot(): OidcSessionSnapshot {
-    return this.snapshot;
-  }
-
-  async initialize(): Promise<void> {
-    if (!this.manager) {
-      return;
-    }
-
-    try {
-      const user =
-        await this.manager.getUser();
-
-      this.update({
-        state:
-          user && !user.expired
-            ? "authenticated"
-            : user?.expired
-              ? "expired"
-              : "anonymous",
-        user,
-        error: null,
-      });
-    } catch (error) {
-      this.fail(error);
-    }
-  }
-
-  async handleCallback(): Promise<User> {
-    if (!this.manager) {
-      throw new Error(
-        "Browser OIDC is not configured.",
-      );
-    }
-
-    this.update({
-      state: "authenticating",
-      user: null,
-      error: null,
-    });
-
-    try {
-      const user =
-        await this.manager
-          .signinRedirectCallback();
-
-      this.update({
-        state: "authenticated",
-        user,
-        error: null,
-      });
-
-      return user;
-    } catch (error) {
-      this.fail(error);
-      throw error;
-    }
-  }
-
-  async signIn(): Promise<void> {
-    if (!this.manager) {
-      throw new Error(
-        "Browser OIDC is not configured.",
-      );
-    }
-
-    this.update({
-      state: "authenticating",
-      user: null,
-      error: null,
-    });
-
-    await this.manager.signinRedirect();
-  }
-
-  async signOut(): Promise<void> {
-    if (!this.manager) {
-      return;
-    }
-
-    await this.manager.signoutRedirect();
-  }
-
-  async getAccessToken():
-    Promise<string | null> {
-    if (!this.manager) {
-      return null;
-    }
-
-    let user =
-      await this.manager.getUser();
-
-    if (!user) {
-      return null;
-    }
-
-    if (user.expired) {
-      try {
-        user =
-          await this.manager.signinSilent();
-      } catch {
-        this.update({
-          state: "expired",
-          user,
-          error:
-            "The session expired and could not be renewed.",
-        });
-
-        return null;
-      }
-    }
-
-    if (!user) {
-      return null;
-    }
-
-    return user.access_token || null;
-  }
-
-  async removeUser(): Promise<void> {
-    if (!this.manager) {
-      return;
-    }
-
-    await this.manager.removeUser();
-
-    this.update({
-      state: "anonymous",
-      user: null,
-      error: null,
-    });
   }
 
   private update(
