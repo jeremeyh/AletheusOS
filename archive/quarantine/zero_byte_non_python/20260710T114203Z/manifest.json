@@ -1,0 +1,135 @@
+{
+  "created_at": "2026-07-10T11:42:03.556507+00:00",
+  "moved": [
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/adr/ADR-0004-capability-runtime.md",
+      "source": "docs/adr/ADR-0004-capability-runtime.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/adr/ADR-0006-cognitive-transit-fabric.md",
+      "source": "docs/adr/ADR-0006-cognitive-transit-fabric.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/adr/ADR-0002-unified-cognitive-index.md",
+      "source": "docs/adr/ADR-0002-unified-cognitive-index.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/adr/ADR-0001-foundation-pillars.md",
+      "source": "docs/adr/ADR-0001-foundation-pillars.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/adr/ADR-0003-intent-runtime-primitive.md",
+      "source": "docs/adr/ADR-0003-intent-runtime-primitive.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/adr/ADR-0003-platform-kernel.md",
+      "source": "docs/adr/ADR-0003-platform-kernel.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/adr/ADR-0001-runtime-core.md",
+      "source": "docs/adr/ADR-0001-runtime-core.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/adr/ADR-0005-application-runtime.md",
+      "source": "docs/adr/ADR-0005-application-runtime.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/adr/ADR-0007-breadth-synthetic-harmony.md",
+      "source": "docs/adr/ADR-0007-breadth-synthetic-harmony.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/adr/ADR-0008-evolutionary-intelligence.md",
+      "source": "docs/adr/ADR-0008-evolutionary-intelligence.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/adr/ADR-0006-runtime-adapter.md",
+      "source": "docs/adr/ADR-0006-runtime-adapter.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/adr/ADR-0002-executive-kernel.md",
+      "source": "docs/adr/ADR-0002-executive-kernel.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/specifications/SPA_SPECIFICATION.md",
+      "source": "docs/specifications/SPA_SPECIFICATION.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/specifications/CARD_HAWK_SPECIFICATION.md",
+      "source": "docs/specifications/CARD_HAWK_SPECIFICATION.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/specifications/THORX_SPECIFICATION.md",
+      "source": "docs/specifications/THORX_SPECIFICATION.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/specifications/ALETHEUM_SPECIFICATION.md",
+      "source": "docs/specifications/ALETHEUM_SPECIFICATION.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/roadmap/GENESIS_ROADMAP.md",
+      "source": "docs/roadmap/GENESIS_ROADMAP.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/constitution/PRINCIPLES.md",
+      "source": "docs/constitution/PRINCIPLES.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/constitution/GOVERNANCE.md",
+      "source": "docs/constitution/GOVERNANCE.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/constitution/TERMINOLOGY.md",
+      "source": "docs/constitution/TERMINOLOGY.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/constitution/EVOLUTION.md",
+      "source": "docs/constitution/EVOLUTION.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/engineering/SECURITY_STANDARD.md",
+      "source": "docs/engineering/SECURITY_STANDARD.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/engineering/TESTING_STANDARD.md",
+      "source": "docs/engineering/TESTING_STANDARD.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/engineering/CODING_STANDARD.md",
+      "source": "docs/engineering/CODING_STANDARD.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/engineering/PACKAGE_STANDARD.md",
+      "source": "docs/engineering/PACKAGE_STANDARD.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/engineering/VERSIONING_STANDARD.md",
+      "source": "docs/engineering/VERSIONING_STANDARD.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/docs/engineering/DEPENDENCY_STANDARD.md",
+      "source": "docs/engineering/DEPENDENCY_STANDARD.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/aletheus/neural_map/README.md",
+      "source": "aletheus/neural_map/README.md"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/cardhawk/manifest.yaml",
+      "source": "cardhawk/manifest.yaml"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/scripts/build_core.sh",
+      "source": "scripts/build_core.sh"
+    },
+    {
+      "quarantine": "archive/quarantine/zero_byte_non_python/20260710T114203Z/engineering/repository_dna/misplaced_engineering_files.txt",
+      "source": "engineering/repository_dna/misplaced_engineering_files.txt"
+    }
+  ],
+  "moved_count": 31,
+  "removed_empty_directories": [
+    "docs/engineering",
+    "docs/roadmap"
+  ],
+  "source_report": "reports/repository_hygiene/zero_byte_other_files.csv"
+}

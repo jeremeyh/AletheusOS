@@ -1,0 +1,147 @@
+{
+  "created_at": "2026-07-10T11:47:52.919159+00:00",
+  "moved": [
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/app.py.backup",
+      "source": "app.py.backup"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/tools/maintenance/detect_drift.py.backup_20260701_061449",
+      "source": "tools/maintenance/detect_drift.py.backup_20260701_061449"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/platform_lifecycle/state.py.backup_20260702_001525",
+      "source": "aletheus/platform_lifecycle/state.py.backup_20260702_001525"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/platform_lifecycle/state.py.backup_20260702_000715",
+      "source": "aletheus/platform_lifecycle/state.py.backup_20260702_000715"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/self_assembly/core.py.backup_20260701_210106",
+      "source": "aletheus/self_assembly/core.py.backup_20260701_210106"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/self_assembly/core.py.backup_20260701_211907",
+      "source": "aletheus/self_assembly/core.py.backup_20260701_211907"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/application_runtime/core.py.backup_20260701_211208",
+      "source": "aletheus/application_runtime/core.py.backup_20260701_211208"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/contracts/__init__.py.backup_20260701_170844",
+      "source": "aletheus/contracts/__init__.py.backup_20260701_170844"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/contracts/__init__.py.backup_20260701_171657",
+      "source": "aletheus/contracts/__init__.py.backup_20260701_171657"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/contracts/platform_registry.py.backup_20260701_173417",
+      "source": "aletheus/contracts/platform_registry.py.backup_20260701_173417"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/contracts/platform_component.py.backup_20260701_173330",
+      "source": "aletheus/contracts/platform_component.py.backup_20260701_173330"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/platform_events/core.py.backup_20260701_235908",
+      "source": "aletheus/platform_events/core.py.backup_20260701_235908"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/agents_v2/agent_core.py.backup_20260701_180131",
+      "source": "aletheus/agents_v2/agent_core.py.backup_20260701_180131"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/agents_v2/agent_core.py.backup_20260701_181319",
+      "source": "aletheus/agents_v2/agent_core.py.backup_20260701_181319"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/runtime/anchors/intelligence.py.backup_20260708_072819",
+      "source": "aletheus/runtime/anchors/intelligence.py.backup_20260708_072819"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/runtime/anchors/constitution.py.backup_20260708_073009",
+      "source": "aletheus/runtime/anchors/constitution.py.backup_20260708_073009"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/runtime/anchors/contracts.py.backup_20260708_072916",
+      "source": "aletheus/runtime/anchors/contracts.py.backup_20260708_072916"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/service_manager/core.py.backup_20260701_202309",
+      "source": "aletheus/service_manager/core.py.backup_20260701_202309"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/planning_v2/planning_core.py.backup_20260701_183939",
+      "source": "aletheus/planning_v2/planning_core.py.backup_20260701_183939"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/planning_v2/planning_core.py.backup_before_patch_20260701_184310",
+      "source": "aletheus/planning_v2/planning_core.py.backup_before_patch_20260701_184310"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/distributed_v3/distributed_core.py.backup_20260701_184555",
+      "source": "aletheus/distributed_v3/distributed_core.py.backup_20260701_184555"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/distributed_v3/distributed_core.py.backup_20260701_184803",
+      "source": "aletheus/distributed_v3/distributed_core.py.backup_20260701_184803"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/neural/__init__.py.backup_20260701_160227",
+      "source": "aletheus/neural/__init__.py.backup_20260701_160227"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/neural/__init__.py.backup_20260701_075357",
+      "source": "aletheus/neural/__init__.py.backup_20260701_075357"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/neural/envelope/core.py.backup_20260701_074117",
+      "source": "aletheus/neural/envelope/core.py.backup_20260701_074117"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/neural/envelope/core.py.backup_20260701_160132",
+      "source": "aletheus/neural/envelope/core.py.backup_20260701_160132"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/neural/envelope/core.py.backup_20260701_165717",
+      "source": "aletheus/neural/envelope/core.py.backup_20260701_165717"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/neural/envelope/core.py.backup_20260701_075316",
+      "source": "aletheus/neural/envelope/core.py.backup_20260701_075316"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/neural/envelope/bootstrap.py.backup_20260701_164048",
+      "source": "aletheus/neural/envelope/bootstrap.py.backup_20260701_164048"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/neural/envelope/core.py.backup_20260701_075028",
+      "source": "aletheus/neural/envelope/core.py.backup_20260701_075028"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/neural/synapses/registry.py.backup_20260701_162641",
+      "source": "aletheus/neural/synapses/registry.py.backup_20260701_162641"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/neural/synapses/models.py.backup_20260701_162641",
+      "source": "aletheus/neural/synapses/models.py.backup_20260701_162641"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/orchestrator/__init__.py.backup_20260701_064558",
+      "source": "aletheus/orchestrator/__init__.py.backup_20260701_064558"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/orchestrator/__init__.py.backup_20260701_172825",
+      "source": "aletheus/orchestrator/__init__.py.backup_20260701_172825"
+    },
+    {
+      "archive": "archive/historical_backups/20260710T114752Z/aletheus/kernel/__init__.py.backup_20260701_185337",
+      "source": "aletheus/kernel/__init__.py.backup_20260701_185337"
+    }
+  ],
+  "moved_count": 35,
+  "unresolved": []
+}

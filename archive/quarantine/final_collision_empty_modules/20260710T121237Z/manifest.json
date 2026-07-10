@@ -1,0 +1,18 @@
+{
+  "created_at": "2026-07-10T12:12:37.865980+00:00",
+  "moved": [
+    {
+      "quarantine": "archive/quarantine/final_collision_empty_modules/20260710T121237Z/capability_engine/health.py",
+      "source": "capability_engine/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/final_collision_empty_modules/20260710T121237Z/dependency_resolver.py",
+      "source": "dependency_resolver.py"
+    },
+    {
+      "quarantine": "archive/quarantine/final_collision_empty_modules/20260710T121237Z/portfolio/allocation.py",
+      "source": "portfolio/allocation.py"
+    }
+  ],
+  "moved_count": 3
+}

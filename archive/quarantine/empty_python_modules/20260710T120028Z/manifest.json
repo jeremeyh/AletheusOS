@@ -1,0 +1,912 @@
+{
+  "created_at": "2026-07-10T12:00:29.057951+00:00",
+  "moved": [
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/working_memory/models.py",
+      "source": "aletheus/working_memory/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/working_memory/registry.py",
+      "source": "aletheus/working_memory/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/working_memory/health.py",
+      "source": "aletheus/working_memory/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/working_memory/core.py",
+      "source": "aletheus/working_memory/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/working_memory/statistics.py",
+      "source": "aletheus/working_memory/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/working_memory/workspace.py",
+      "source": "aletheus/working_memory/workspace.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/self_assembly/bootstrap.py",
+      "source": "aletheus/self_assembly/bootstrap.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/self_assembly/planner.py",
+      "source": "aletheus/self_assembly/planner.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/self_assembly/discovery.py",
+      "source": "aletheus/self_assembly/discovery.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/self_assembly/registry.py",
+      "source": "aletheus/self_assembly/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/self_assembly/health.py",
+      "source": "aletheus/self_assembly/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/self_assembly/statistics.py",
+      "source": "aletheus/self_assembly/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/self_assembly/verifier.py",
+      "source": "aletheus/self_assembly/verifier.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/neural_map/registry.py",
+      "source": "aletheus/neural_map/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/neural_map/core.py",
+      "source": "aletheus/neural_map/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/neural_map/contracts.py",
+      "source": "aletheus/neural_map/contracts.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_ledger/precedent.py",
+      "source": "aletheus/constitutional_ledger/precedent.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_ledger/indexing.py",
+      "source": "aletheus/constitutional_ledger/indexing.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/autonomic/models.py",
+      "source": "aletheus/autonomic/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/autonomic/health.py",
+      "source": "aletheus/autonomic/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/autonomic/regulator.py",
+      "source": "aletheus/autonomic/regulator.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/autonomic/actions.py",
+      "source": "aletheus/autonomic/actions.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/autonomic/core.py",
+      "source": "aletheus/autonomic/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/autonomic/statistics.py",
+      "source": "aletheus/autonomic/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/autonomic/policies.py",
+      "source": "aletheus/autonomic/policies.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_governor/models.py",
+      "source": "aletheus/platform_governor/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_governor/approvals.py",
+      "source": "aletheus/platform_governor/approvals.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_governor/registry.py",
+      "source": "aletheus/platform_governor/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_governor/health.py",
+      "source": "aletheus/platform_governor/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_governor/core.py",
+      "source": "aletheus/platform_governor/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_governor/constitution.py",
+      "source": "aletheus/platform_governor/constitution.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_governor/statistics.py",
+      "source": "aletheus/platform_governor/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_governor/policies.py",
+      "source": "aletheus/platform_governor/policies.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_governor/evaluator.py",
+      "source": "aletheus/platform_governor/evaluator.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/cognitive_mesh/attention.py",
+      "source": "aletheus/cognitive_mesh/attention.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/cognitive_mesh/models.py",
+      "source": "aletheus/cognitive_mesh/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/cognitive_mesh/registry.py",
+      "source": "aletheus/cognitive_mesh/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/cognitive_mesh/health.py",
+      "source": "aletheus/cognitive_mesh/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/cognitive_mesh/core.py",
+      "source": "aletheus/cognitive_mesh/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/cognitive_mesh/context.py",
+      "source": "aletheus/cognitive_mesh/context.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/cognitive_mesh/statistics.py",
+      "source": "aletheus/cognitive_mesh/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/cognitive_mesh/awareness.py",
+      "source": "aletheus/cognitive_mesh/awareness.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/application_runtime/models.py",
+      "source": "aletheus/application_runtime/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/application_runtime/manifest.py",
+      "source": "aletheus/application_runtime/manifest.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/application_runtime/health.py",
+      "source": "aletheus/application_runtime/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/application_runtime/sandbox.py",
+      "source": "aletheus/application_runtime/sandbox.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/application_runtime/lifecycle.py",
+      "source": "aletheus/application_runtime/lifecycle.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/application_runtime/permissions.py",
+      "source": "aletheus/application_runtime/permissions.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/application_runtime/statistics.py",
+      "source": "aletheus/application_runtime/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/runtime_supervisor/registry.py",
+      "source": "aletheus/runtime_supervisor/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/council_deliberation/models.py",
+      "source": "aletheus/council_deliberation/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/council_deliberation/health.py",
+      "source": "aletheus/council_deliberation/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/council_deliberation/core.py",
+      "source": "aletheus/council_deliberation/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/council_deliberation/consensus.py",
+      "source": "aletheus/council_deliberation/consensus.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/council_deliberation/orchestrator.py",
+      "source": "aletheus/council_deliberation/orchestrator.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/council_deliberation/statistics.py",
+      "source": "aletheus/council_deliberation/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/council_deliberation/evidence.py",
+      "source": "aletheus/council_deliberation/evidence.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/integration/models.py",
+      "source": "aletheus/integration/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/integration/registry.py",
+      "source": "aletheus/integration/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/integration/health.py",
+      "source": "aletheus/integration/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/integration/core.py",
+      "source": "aletheus/integration/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/integration/lifecycle.py",
+      "source": "aletheus/integration/lifecycle.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/integration/contracts.py",
+      "source": "aletheus/integration/contracts.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/integration/statistics.py",
+      "source": "aletheus/integration/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/integration/adapters.py",
+      "source": "aletheus/integration/adapters.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/contracts/interfaces.py",
+      "source": "aletheus/contracts/interfaces.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/contracts/models.py",
+      "source": "aletheus/contracts/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/contracts/registry.py",
+      "source": "aletheus/contracts/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/contracts/health.py",
+      "source": "aletheus/contracts/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/contracts/lifecycle.py",
+      "source": "aletheus/contracts/lifecycle.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/contracts/statistics.py",
+      "source": "aletheus/contracts/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/contracts/adapters.py",
+      "source": "aletheus/contracts/adapters.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_api/services.py",
+      "source": "aletheus/platform_api/services.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_api/models.py",
+      "source": "aletheus/platform_api/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_api/registry.py",
+      "source": "aletheus/platform_api/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_api/health.py",
+      "source": "aletheus/platform_api/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_api/core.py",
+      "source": "aletheus/platform_api/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_api/runtime.py",
+      "source": "aletheus/platform_api/runtime.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_api/authorization.py",
+      "source": "aletheus/platform_api/authorization.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_api/contracts.py",
+      "source": "aletheus/platform_api/contracts.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_api/statistics.py",
+      "source": "aletheus/platform_api/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/service_fabric/models.py",
+      "source": "aletheus/service_fabric/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/service_fabric/discovery.py",
+      "source": "aletheus/service_fabric/discovery.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/service_fabric/registry.py",
+      "source": "aletheus/service_fabric/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/service_fabric/health.py",
+      "source": "aletheus/service_fabric/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/service_fabric/dependency_graph.py",
+      "source": "aletheus/service_fabric/dependency_graph.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/service_fabric/core.py",
+      "source": "aletheus/service_fabric/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/service_fabric/lifecycle.py",
+      "source": "aletheus/service_fabric/lifecycle.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/service_fabric/routing.py",
+      "source": "aletheus/service_fabric/routing.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/service_fabric/topology.py",
+      "source": "aletheus/service_fabric/topology.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/service_fabric/contracts.py",
+      "source": "aletheus/service_fabric/contracts.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/service_fabric/statistics.py",
+      "source": "aletheus/service_fabric/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/consciousness/observation.py",
+      "source": "aletheus/consciousness/observation.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/consciousness/models.py",
+      "source": "aletheus/consciousness/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/consciousness/memory.py",
+      "source": "aletheus/consciousness/memory.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/consciousness/registry.py",
+      "source": "aletheus/consciousness/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/consciousness/health.py",
+      "source": "aletheus/consciousness/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/consciousness/core.py",
+      "source": "aletheus/consciousness/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/consciousness/statistics.py",
+      "source": "aletheus/consciousness/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/consciousness/awareness.py",
+      "source": "aletheus/consciousness/awareness.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/consciousness/focus.py",
+      "source": "aletheus/consciousness/focus.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_events/subscribers.py",
+      "source": "aletheus/platform_events/subscribers.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/foundation/context.py",
+      "source": "aletheus/foundation/context.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/foundation/pipeline.py",
+      "source": "aletheus/foundation/pipeline.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/service_manager/health.py",
+      "source": "aletheus/service_manager/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/service_manager/lifecycle.py",
+      "source": "aletheus/service_manager/lifecycle.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/service_manager/statistics.py",
+      "source": "aletheus/service_manager/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/service_manager/policies.py",
+      "source": "aletheus/service_manager/policies.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/capability_engine/enforcement.py",
+      "source": "aletheus/capability_engine/enforcement.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/capability_engine/cache.py",
+      "source": "aletheus/capability_engine/cache.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/intent_runtime/health.py",
+      "source": "aletheus/intent_runtime/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/thorx_runtime/grading.py",
+      "source": "aletheus/thorx_runtime/grading.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/thorx_runtime/models.py",
+      "source": "aletheus/thorx_runtime/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/thorx_runtime/certification.py",
+      "source": "aletheus/thorx_runtime/certification.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/thorx_runtime/health.py",
+      "source": "aletheus/thorx_runtime/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/thorx_runtime/relix.py",
+      "source": "aletheus/thorx_runtime/relix.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/thorx_runtime/core.py",
+      "source": "aletheus/thorx_runtime/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/thorx_runtime/recommendation.py",
+      "source": "aletheus/thorx_runtime/recommendation.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/thorx_runtime/statistics.py",
+      "source": "aletheus/thorx_runtime/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/sdk/manifest.py",
+      "source": "aletheus/sdk/manifest.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/sdk/evaluation.py",
+      "source": "aletheus/sdk/evaluation.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/sdk/lifecycle.py",
+      "source": "aletheus/sdk/lifecycle.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/sdk/storage.py",
+      "source": "aletheus/sdk/storage.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/sdk/contracts.py",
+      "source": "aletheus/sdk/contracts.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/sdk/permissions.py",
+      "source": "aletheus/sdk/permissions.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/execution_engine/health.py",
+      "source": "aletheus/execution_engine/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/execution_engine/statistics.py",
+      "source": "aletheus/execution_engine/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/boot_runtime/health.py",
+      "source": "aletheus/boot_runtime/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/boot_runtime/statistics.py",
+      "source": "aletheus/boot_runtime/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/boot_runtime/report.py",
+      "source": "aletheus/boot_runtime/report.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_audit/models.py",
+      "source": "aletheus/constitutional_audit/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_audit/health.py",
+      "source": "aletheus/constitutional_audit/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_audit/recorder.py",
+      "source": "aletheus/constitutional_audit/recorder.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_audit/core.py",
+      "source": "aletheus/constitutional_audit/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_audit/reports.py",
+      "source": "aletheus/constitutional_audit/reports.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_audit/search.py",
+      "source": "aletheus/constitutional_audit/search.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_audit/statistics.py",
+      "source": "aletheus/constitutional_audit/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_registry/discovery.py",
+      "source": "aletheus/platform_registry/discovery.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_registry/health.py",
+      "source": "aletheus/platform_registry/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_registry/statistics.py",
+      "source": "aletheus/platform_registry/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_runtime/models.py",
+      "source": "aletheus/constitutional_runtime/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_runtime/health.py",
+      "source": "aletheus/constitutional_runtime/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_runtime/recorder.py",
+      "source": "aletheus/constitutional_runtime/recorder.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_runtime/core.py",
+      "source": "aletheus/constitutional_runtime/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_runtime/decision.py",
+      "source": "aletheus/constitutional_runtime/decision.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_runtime/deliberation.py",
+      "source": "aletheus/constitutional_runtime/deliberation.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_runtime/principle_x.py",
+      "source": "aletheus/constitutional_runtime/principle_x.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_runtime/statistics.py",
+      "source": "aletheus/constitutional_runtime/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_enforcement/models.py",
+      "source": "aletheus/constitutional_enforcement/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_enforcement/registry.py",
+      "source": "aletheus/constitutional_enforcement/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_enforcement/health.py",
+      "source": "aletheus/constitutional_enforcement/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_enforcement/actions.py",
+      "source": "aletheus/constitutional_enforcement/actions.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_enforcement/core.py",
+      "source": "aletheus/constitutional_enforcement/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_enforcement/statistics.py",
+      "source": "aletheus/constitutional_enforcement/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_enforcement/violations.py",
+      "source": "aletheus/constitutional_enforcement/violations.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/nervous_system/observer.py",
+      "source": "aletheus/nervous_system/observer.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/nervous_system/dispatcher.py",
+      "source": "aletheus/nervous_system/dispatcher.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/nervous_system/signals.py",
+      "source": "aletheus/nervous_system/signals.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/nervous_system/models.py",
+      "source": "aletheus/nervous_system/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/nervous_system/registry.py",
+      "source": "aletheus/nervous_system/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/nervous_system/health.py",
+      "source": "aletheus/nervous_system/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_analyzer/health_analysis.py",
+      "source": "aletheus/platform_analyzer/health_analysis.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_analyzer/analysis.py",
+      "source": "aletheus/platform_analyzer/analysis.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_analyzer/dependency_analysis.py",
+      "source": "aletheus/platform_analyzer/dependency_analysis.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_analyzer/models.py",
+      "source": "aletheus/platform_analyzer/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_analyzer/health.py",
+      "source": "aletheus/platform_analyzer/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_analyzer/architecture_analysis.py",
+      "source": "aletheus/platform_analyzer/architecture_analysis.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_analyzer/recommendations.py",
+      "source": "aletheus/platform_analyzer/recommendations.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_analyzer/core.py",
+      "source": "aletheus/platform_analyzer/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_analyzer/reports.py",
+      "source": "aletheus/platform_analyzer/reports.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_analyzer/statistics.py",
+      "source": "aletheus/platform_analyzer/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_analyzer/evidence.py",
+      "source": "aletheus/platform_analyzer/evidence.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_timeline/health.py",
+      "source": "aletheus/platform_timeline/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/platform_timeline/statistics.py",
+      "source": "aletheus/platform_timeline/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/opinion_framework/models.py",
+      "source": "aletheus/opinion_framework/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/opinion_framework/confidence.py",
+      "source": "aletheus/opinion_framework/confidence.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/opinion_framework/registry.py",
+      "source": "aletheus/opinion_framework/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/opinion_framework/health.py",
+      "source": "aletheus/opinion_framework/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/opinion_framework/core.py",
+      "source": "aletheus/opinion_framework/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/opinion_framework/statistics.py",
+      "source": "aletheus/opinion_framework/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/opinion_framework/opinion.py",
+      "source": "aletheus/opinion_framework/opinion.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/orchestrator/policy_engine.py",
+      "source": "aletheus/orchestrator/policy_engine.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/orchestrator/event_router.py",
+      "source": "aletheus/orchestrator/event_router.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/orchestrator/supervisor.py",
+      "source": "aletheus/orchestrator/supervisor.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/orchestrator/runtime_state.py",
+      "source": "aletheus/orchestrator/runtime_state.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/orchestrator/dependency_resolver.py",
+      "source": "aletheus/orchestrator/dependency_resolver.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/orchestrator/mission.py",
+      "source": "aletheus/orchestrator/mission.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/orchestrator/statistics_v2.py",
+      "source": "aletheus/orchestrator/statistics_v2.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/orchestrator/scheduler.py",
+      "source": "aletheus/orchestrator/scheduler.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/orchestrator/execution_plan.py",
+      "source": "aletheus/orchestrator/execution_plan.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/kernel/services.py",
+      "source": "aletheus/kernel/services.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/kernel/manifest.py",
+      "source": "aletheus/kernel/manifest.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/kernel/boot.py",
+      "source": "aletheus/kernel/boot.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/kernel/health.py",
+      "source": "aletheus/kernel/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/kernel/lifecycle.py",
+      "source": "aletheus/kernel/lifecycle.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/kernel/contracts.py",
+      "source": "aletheus/kernel/contracts.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/kernel/statistics.py",
+      "source": "aletheus/kernel/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/kernel/scheduler.py",
+      "source": "aletheus/kernel/scheduler.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/kernel/state.py",
+      "source": "aletheus/kernel/state.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/localization/formatter.py",
+      "source": "aletheus/localization/formatter.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/localization/registry.py",
+      "source": "aletheus/localization/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/localization/health.py",
+      "source": "aletheus/localization/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/localization/core.py",
+      "source": "aletheus/localization/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/localization/translator.py",
+      "source": "aletheus/localization/translator.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/boot_registry/validator.py",
+      "source": "aletheus/boot_registry/validator.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/boot_registry/models.py",
+      "source": "aletheus/boot_registry/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/boot_registry/registry.py",
+      "source": "aletheus/boot_registry/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/boot_registry/health.py",
+      "source": "aletheus/boot_registry/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/boot_registry/loader.py",
+      "source": "aletheus/boot_registry/loader.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/boot_registry/statistics.py",
+      "source": "aletheus/boot_registry/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_reasoning/models.py",
+      "source": "aletheus/constitutional_reasoning/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_reasoning/registry.py",
+      "source": "aletheus/constitutional_reasoning/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_reasoning/health.py",
+      "source": "aletheus/constitutional_reasoning/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_reasoning/traversal.py",
+      "source": "aletheus/constitutional_reasoning/traversal.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_reasoning/core.py",
+      "source": "aletheus/constitutional_reasoning/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_reasoning/explanation.py",
+      "source": "aletheus/constitutional_reasoning/explanation.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_reasoning/reasoning.py",
+      "source": "aletheus/constitutional_reasoning/reasoning.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_reasoning/statistics.py",
+      "source": "aletheus/constitutional_reasoning/statistics.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/constitutional_reasoning/evidence.py",
+      "source": "aletheus/constitutional_reasoning/evidence.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/foundation_certification/validator.py",
+      "source": "aletheus/foundation_certification/validator.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/foundation_certification/models.py",
+      "source": "aletheus/foundation_certification/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/foundation_certification/registry.py",
+      "source": "aletheus/foundation_certification/registry.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/foundation_certification/health.py",
+      "source": "aletheus/foundation_certification/health.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/foundation_certification/core.py",
+      "source": "aletheus/foundation_certification/core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/foundation_certification/reports.py",
+      "source": "aletheus/foundation_certification/reports.py"
+    },
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/20260710T120028Z/aletheus/foundation_certification/statistics.py",
+      "source": "aletheus/foundation_certification/statistics.py"
+    }
+  ],
+  "moved_count": 226,
+  "removed_empty_directories": [],
+  "source_report": "reports/repository_hygiene/empty_python_files.csv"
+}

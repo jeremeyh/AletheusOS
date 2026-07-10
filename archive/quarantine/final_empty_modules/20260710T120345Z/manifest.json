@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-07-10T12:03:45.012824+00:00",
+  "moved_count": 1,
+  "moved": [
+    {
+      "source": "capability_engine/profiles.py",
+      "quarantine": "archive/quarantine/final_empty_modules/20260710T120345Z/capability_engine/profiles.py"
+    }
+  ]
+}

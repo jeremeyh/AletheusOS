@@ -1,0 +1,118 @@
+{
+  "created_at": "2026-07-10T12:07:31.764413+00:00",
+  "moved": [
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/aletheus/memory_mesh/memory_index.py",
+      "source": "aletheus/memory_mesh/memory_index.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/aletheus/memory_mesh/replication.py",
+      "source": "aletheus/memory_mesh/replication.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/aletheus/memory_mesh/semantic_cache.py",
+      "source": "aletheus/memory_mesh/semantic_cache.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/aletheus/memory_mesh/snapshot_manager.py",
+      "source": "aletheus/memory_mesh/snapshot_manager.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/aletheus/memory_mesh/versioning.py",
+      "source": "aletheus/memory_mesh/versioning.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/aletheus/optimization/models.py",
+      "source": "aletheus/optimization/models.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/aletheus/optimization/optimization_core.py",
+      "source": "aletheus/optimization/optimization_core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/aletheus/runtime/boot/commands.py",
+      "source": "aletheus/runtime/boot/commands.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/aletheus/runtime/boot/services.py",
+      "source": "aletheus/runtime/boot/services.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/aletheus/runtime/boot/version.py",
+      "source": "aletheus/runtime/boot/version.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/aletheus/runtime/builder/build_core.py",
+      "source": "aletheus/runtime/builder/build_core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/aletheus/runtime/compat/adapters.py",
+      "source": "aletheus/runtime/compat/adapters.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/aletheus/runtime/compat/aliases.py",
+      "source": "aletheus/runtime/compat/aliases.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/aletheus/runtime/manifest/manifest_core.py",
+      "source": "aletheus/runtime/manifest/manifest_core.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/aletheus/sdk/runtime.py",
+      "source": "aletheus/sdk/runtime.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/asset_core/repository/sqlite_repository.py",
+      "source": "asset_core/repository/sqlite_repository.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/cardhawk/bootstrap.py",
+      "source": "cardhawk/bootstrap.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/intelligence/command.py",
+      "source": "intelligence/command.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/intelligence/founder.py",
+      "source": "intelligence/founder.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/intelligence/scout.py",
+      "source": "intelligence/scout.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/marketplace/connectors/base.py",
+      "source": "marketplace/connectors/base.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/marketplace/connectors/sportcardspro.py",
+      "source": "marketplace/connectors/sportcardspro.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/marketplace/runtime/service.py",
+      "source": "marketplace/runtime/service.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/models/asset_dna.py",
+      "source": "models/asset_dna.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/models/asset_genome.py",
+      "source": "models/asset_genome.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/models/portfolio.py",
+      "source": "models/portfolio.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/portfolio/performance.py",
+      "source": "portfolio/performance.py"
+    },
+    {
+      "quarantine": "archive/quarantine/archive_review_empty_modules/20260710T120731Z/portfolio/portfolio_engine.py",
+      "source": "portfolio/portfolio_engine.py"
+    }
+  ],
+  "moved_count": 28
+}

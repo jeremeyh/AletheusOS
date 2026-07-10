@@ -1,0 +1,12 @@
+{
+  "created_at": "2026-07-10T11:36:47.433082+00:00",
+  "moved": [
+    {
+      "quarantine": "archive/quarantine/empty_python_modules/dependency_models.py",
+      "source": "dependency_models.py"
+    }
+  ],
+  "moved_count": 1,
+  "removed_empty_directories": [],
+  "source_report": "reports/repository_hygiene/empty_python_files.csv"
+}
