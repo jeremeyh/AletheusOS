@@ -22,6 +22,7 @@ REQUIRED_MARKERS = (
     "python collect_nimble_production_telemetry.py",
     "python validate_nimble_telemetry.py",
     "python validate_nimble_performance_regression.py",
+    "python validate_nimble_baseline_governance.py",
     "actions/upload-artifact@v4",
     "cancel-in-progress: true",
 )
