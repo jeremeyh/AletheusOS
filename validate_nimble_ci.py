@@ -21,6 +21,7 @@ REQUIRED_MARKERS = (
     "tests/experience_gateway",
     "python collect_nimble_production_telemetry.py",
     "python validate_nimble_telemetry.py",
+    "python validate_nimble_performance_regression.py",
     "actions/upload-artifact@v4",
     "cancel-in-progress: true",
 )

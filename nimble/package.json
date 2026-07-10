@@ -15,7 +15,9 @@
     "test": "npm run test --workspaces --if-present",
     "validate": "npm run typecheck && npm run test -- --run && npm run build",
     "production-gate": "../validate_nimble_production.sh",
-    "production-evidence": "../.venv/bin/python ../collect_nimble_production_telemetry.py"
+    "production-evidence": "../.venv/bin/python ../collect_nimble_production_telemetry.py",
+    "performance-baseline": "../.venv/bin/python ../create_nimble_performance_baseline.py",
+    "performance-regression": "../.venv/bin/python ../validate_nimble_performance_regression.py"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"

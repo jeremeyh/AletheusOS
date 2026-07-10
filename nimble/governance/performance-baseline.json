@@ -1,0 +1,27 @@
+{
+  "created_at": "2026-07-10T22:58:23.564719+00:00",
+  "metrics": {
+    "gate_duration_seconds": 7.1226,
+    "largest_secondary_chunk_bytes": 67533,
+    "primary_bundle_bytes": 447168,
+    "secondary_chunk_count": 6,
+    "total_javascript_bytes": 584884
+  },
+  "schema_version": "1.0",
+  "source": {
+    "branch": "feature/cardhawk-streamlit-v0.1",
+    "commit": "d61267d26ab336f1fff82d75e09a1e77aa95631f",
+    "short_commit": "d61267d",
+    "telemetry_generated_at": "2026-07-10T22:55:14.905078+00:00"
+  },
+  "thresholds": {
+    "gate_duration_absolute_limit_seconds": 120.0,
+    "gate_duration_growth_percent": 35.0,
+    "largest_secondary_growth_percent": 15.0,
+    "primary_bundle_absolute_limit_bytes": 500000,
+    "primary_bundle_growth_percent": 5.0,
+    "secondary_chunk_count_decrease_allowed": 1,
+    "secondary_chunk_count_increase_allowed": 4,
+    "total_javascript_growth_percent": 10.0
+  }
+}

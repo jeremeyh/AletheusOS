@@ -95,6 +95,11 @@ jobs:
         run: |
           python validate_nimble_telemetry.py
 
+      - name: Enforce Nimble performance governance
+        if: always()
+        run: |
+          python validate_nimble_performance_regression.py
+
       - name: Upload production assets
         if: always()
         uses: actions/upload-artifact@v4
@@ -106,5 +111,7 @@ jobs:
             reports/nimble/production-gate-latest.md
             reports/nimble/production-gate-latest.log
             reports/nimble/production-gate-history.jsonl
+            reports/nimble/performance-regression-latest.json
+            reports/nimble/performance-regression-latest.md
           if-no-files-found: warn
           retention-days: 7
