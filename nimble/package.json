@@ -1,0 +1,21 @@
+{
+  "name": "@aletheus/nimble-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Production workspace for the Nimble experience framework.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @aletheus/nimble-shell",
+    "build": "npm run build --workspace @aletheus/nimble-shell",
+    "preview": "npm run preview --workspace @aletheus/nimble-shell",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "validate": "npm run typecheck && npm run test && npm run build"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "useDefineForClassFields": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": false,
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@aletheus/nimble-core": [
+        "./packages/core/src/index.ts"
+      ],
+      "@aletheus/nimble-react": [
+        "./packages/react/src/index.ts"
+      ],
+      "@aletheus/nimble-motion": [
+        "./packages/motion/src/index.ts"
+      ],
+      "@aletheus/nimble-workspace-engine": [
+        "./packages/workspace/src/index.ts"
+      ],
+      "@aletheus/nimble-transparency": [
+        "./packages/transparency/src/index.ts"
+      ],
+      "@aletheus/nimble-testing": [
+        "./packages/testing/src/index.ts"
+      ]
+    }
+  }
+}
