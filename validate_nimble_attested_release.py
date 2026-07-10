@@ -4,35 +4,37 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent
+
 WORKFLOW = (
     ROOT
     / ".github"
     / "workflows"
-    / "nimble-production-gate.yml"
+    / "nimble-attested-release.yml"
 )
 
 REQUIRED_MARKERS = (
-    "name: Nimble Production Gate",
+    "name: Nimble Attested Release",
+    'tags:',
+    '"nimble-*"',
     "actions/checkout@v4",
+    "fetch-depth: 0",
     "actions/setup-python@v5",
     "actions/setup-node@v4",
     'node-version: "24"',
     "npm ci",
-    "tests/experience_gateway",
-    "python collect_nimble_production_telemetry.py",
-    "python validate_nimble_telemetry.py",
-    "python validate_nimble_performance_regression.py",
-    "python validate_nimble_baseline_governance.py",
+    "npm run build",
     "python validate_nimble_release_attestation.py",
+    "Attestation commit matches tagged commit",
     "actions/upload-artifact@v4",
-    "cancel-in-progress: true",
+    "reports/nimble/release-attestation-latest.json",
+    "nimble/governance/attestations",
 )
 
 
 def main() -> int:
     if not WORKFLOW.exists():
         print(
-            "FAIL: Nimble production workflow is missing."
+            "FAIL: Attested release workflow is missing."
         )
         return 1
 
@@ -49,22 +51,21 @@ def main() -> int:
     if missing:
         for marker in missing:
             print(
-                "FAIL: Missing CI marker:",
+                "FAIL: Missing release marker:",
                 marker,
             )
         return 1
 
     print("=" * 72)
-    print("NIMBLE™ CI VALIDATION")
+    print("NIMBLE™ ATTESTED RELEASE VALIDATION")
     print("=" * 72)
-    print("Workflow: present")
-    print("Python runtime: configured")
-    print("Node 24 runtime: configured")
-    print("Deterministic npm install: configured")
-    print("Gateway tests: configured")
-    print("Production gate: configured")
-    print("Build artifacts: retained")
-    print("Concurrency control: active")
+    print("Tag trigger: configured")
+    print("Tagged commit verification: configured")
+    print("Deterministic rebuild: configured")
+    print("Evidence validation: configured")
+    print("Attestation validation: configured")
+    print("Commit binding: configured")
+    print("Release artifact retention: configured")
     print("Status: PASS")
 
     return 0

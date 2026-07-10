@@ -1,0 +1,167 @@
+{
+  "artifacts": {
+    "platform_shell_dist": {
+      "aggregate_sha256": "57df0d6be5e393d6d61323d0b61ab1f3415b2224fac4eb515a0b0d73c944efa7",
+      "file_count": 11,
+      "files": [
+        {
+          "bytes": 3144,
+          "path": "nimble/apps/platform-shell/dist/assets/CommandHistoryRoute-DyL4T3mF.js",
+          "sha256": "615c53021752426e6cdbfd860161cf0e2bf4681f73c87426c3a90c719e025e88"
+        },
+        {
+          "bytes": 49389,
+          "path": "nimble/apps/platform-shell/dist/assets/CommandSurface-DoMPExIX.js",
+          "sha256": "819cfa4b13de4d333a3276892adb0d136371f60a7b491b713bde3d45eddeac07"
+        },
+        {
+          "bytes": 1228,
+          "path": "nimble/apps/platform-shell/dist/assets/OidcCallbackRoute-Be4BGyS7.js",
+          "sha256": "0af50ae7beeaa8c7bf599cea2e38d2791745e785b59a3417f3c5aceaceec644c"
+        },
+        {
+          "bytes": 3455,
+          "path": "nimble/apps/platform-shell/dist/assets/commandQueries-Bjv7rfLL.js",
+          "sha256": "d40229f606eb17742b9078e35082d22dea939c17cedac61d1bac8fac4b5d0de2"
+        },
+        {
+          "bytes": 38025,
+          "path": "nimble/apps/platform-shell/dist/assets/index-BYV9smdh.css",
+          "sha256": "70abc9c6f75b6404e6080259fb2e5a4d81e6c28e276905bc45abcbc558fbd575"
+        },
+        {
+          "bytes": 447168,
+          "path": "nimble/apps/platform-shell/dist/assets/index-CW82vOQv.js",
+          "sha256": "9824c31ba27c5032c384d9eb856a7d72dfdca83c48a434e09d883470fd624515"
+        },
+        {
+          "bytes": 67533,
+          "path": "nimble/apps/platform-shell/dist/assets/oidc-client-ts-C_veRLI2.js",
+          "sha256": "8278c72d1eee07f4490e8c44c1cdbcfc44814c619bba20a77819cfb6ff5bd226"
+        },
+        {
+          "bytes": 12967,
+          "path": "nimble/apps/platform-shell/dist/assets/oidcSession-BQVirP6V.js",
+          "sha256": "eba0159421ce77e5b2b6f028c160d7c4ebff98ccd9eca14b26e6721a094a2e70"
+        },
+        {
+          "bytes": 9522,
+          "path": "nimble/apps/platform-shell/dist/favicon.svg",
+          "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+        },
+        {
+          "bytes": 5031,
+          "path": "nimble/apps/platform-shell/dist/icons.svg",
+          "sha256": "b45fa506195cfcdef406ba9f0c77b36ddc1a7c224040926ec70abc2fdea7b93a"
+        },
+        {
+          "bytes": 546,
+          "path": "nimble/apps/platform-shell/dist/index.html",
+          "sha256": "237842cec22a8ddb63c631c48e6aaa537f6bd0f2348aed4cbcc0ab6e781e272e"
+        }
+      ],
+      "path": "nimble/apps/platform-shell/dist"
+    }
+  },
+  "attestation_sha256": "01b55fca07c7a065563781c8a08a52bfb5c78a4c74112611b2fb2cd36820faee",
+  "evidence": {
+    "performance_baseline": {
+      "path": "nimble/governance/performance-baseline.json",
+      "sha256": "b15bbeb69f619a878d5aeb5ccc663fbc4b81b4ac3152b29676706a44874497c5",
+      "source_commit": "eb53711"
+    },
+    "performance_regression": {
+      "path": "reports/nimble/performance-regression-latest.json",
+      "sha256": "332364db2ab02cd20d5e1d4e13f99e7dbfc38d0874b99f111cb5d0d69ecb4973",
+      "status": "PASS"
+    },
+    "production_gate": {
+      "path": "reports/nimble/production-gate-latest.json",
+      "sha256": "9ed510aebae5b1a766569223170102f88fea9a45fd2b335bba0a3744bc9c4ba5",
+      "status": "PASS"
+    }
+  },
+  "release": {
+    "approved_by": "Platform Architecture Council",
+    "generated_at": "2026-07-10T23:11:04.894158+00:00",
+    "identifier": "nimble-platform-foundation-v0.1",
+    "notes": "Nimble production foundation, governance, resilience, performance controls, observability, and attested-release verification."
+  },
+  "runtime": {
+    "node": "v24.18.0",
+    "npm": "11.16.0",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6",
+    "python_executable": "/Users/master_lord_6ixth/Development/AletheusOS/.venv/bin/python"
+  },
+  "schema_version": "1.0",
+  "source": {
+    "branch": "feature/cardhawk-streamlit-v0.1",
+    "commit": "5fd2503f79b49802d5041f984ba227d6950408ea",
+    "short_commit": "5fd2503",
+    "tags_at_head": [],
+    "working_tree_clean": true
+  },
+  "validators": [
+    {
+      "exit_code": 0,
+      "output": "========================================================================\nNIMBLE\u2122 FOUNDATION VALIDATION\n========================================================================\nManifest: valid\nEngine contracts: valid\nApplication inheritance: valid\nToken schema: valid\nRequired engines: 10\nStatus: PASS\n",
+      "status": "PASS",
+      "validator": "validate_nimble_foundation.py"
+    },
+    {
+      "exit_code": 0,
+      "output": "========================================================================\nNIMBLE\u2122 TOKEN VALIDATION\n========================================================================\nPrimitive groups: 7\nSemantic themes: 2\nMotion groups: 6\nGenerated outputs: 3\nStatus: PASS\n",
+      "status": "PASS",
+      "validator": "validate_nimble_tokens.py"
+    },
+    {
+      "exit_code": 0,
+      "output": "========================================================================\nNIMBLE\u2122 COMPONENT FOUNDATION VALIDATION\n========================================================================\nComponent categories: 9\nComponent contracts: 6\nInteraction contracts: 7\nWorkspace capabilities: 7\nAccessibility standard: present\nPrinciple X enforcement: active\nStatus: PASS\n",
+      "status": "PASS",
+      "validator": "validate_nimble_components.py"
+    },
+    {
+      "exit_code": 0,
+      "output": "========================================================================\nNIMBLE\u2122 REFERENCE SHELL VALIDATION\n========================================================================\nRendered shell: present\nImplemented engines: 8\nImplemented surfaces: 9\nAdvanced motion: present\nCommand interaction: present\nState persistence: present\nReduced motion: present\nPrinciple X disclosure: active\nStatus: PASS\n",
+      "status": "PASS",
+      "validator": "validate_nimble_reference_shell.py"
+    },
+    {
+      "exit_code": 0,
+      "output": "PASS: Nimble bundle boundary is valid.\nPrimary: nimble/apps/platform-shell/dist/assets/index-CW82vOQv.js (447168 bytes)\nOIDC lazy chunk: nimble/apps/platform-shell/dist/assets/oidc-client-ts-C_veRLI2.js (67533 bytes)\nOIDC lazy chunk: nimble/apps/platform-shell/dist/assets/oidcSession-BQVirP6V.js (12967 bytes)\n",
+      "status": "PASS",
+      "validator": "validate_nimble_bundle_boundary.py"
+    },
+    {
+      "exit_code": 0,
+      "output": "PASS: Nimble route splitting is valid.\nPrimary: nimble/apps/platform-shell/dist/assets/index-CW82vOQv.js (447168 bytes)\nSecondary chunks: 6\n- nimble/apps/platform-shell/dist/assets/CommandHistoryRoute-DyL4T3mF.js (3144 bytes)\n- nimble/apps/platform-shell/dist/assets/CommandSurface-DoMPExIX.js (49389 bytes)\n- nimble/apps/platform-shell/dist/assets/OidcCallbackRoute-Be4BGyS7.js (1228 bytes)\n- nimble/apps/platform-shell/dist/assets/commandQueries-Bjv7rfLL.js (3455 bytes)\n- nimble/apps/platform-shell/dist/assets/oidc-client-ts-C_veRLI2.js (67533 bytes)\n- nimble/apps/platform-shell/dist/assets/oidcSession-BQVirP6V.js (12967 bytes)\n",
+      "status": "PASS",
+      "validator": "validate_nimble_route_splitting.py"
+    },
+    {
+      "exit_code": 0,
+      "output": "========================================================================\nNIMBLE\u2122 TELEMETRY VALIDATION\n========================================================================\nLatest JSON evidence: present\nMarkdown evidence: present\nRaw gate log: present\nHistorical JSONL: present\nGate status: PASS\nGate duration: 7.36s\nPrimary bundle: 447,168 bytes\nSecondary chunks: 6\nStatus: PASS\n",
+      "status": "PASS",
+      "validator": "validate_nimble_telemetry.py"
+    },
+    {
+      "exit_code": 0,
+      "output": "========================================================================\nNIMBLE\u2122 PERFORMANCE REGRESSION GOVERNANCE\n========================================================================\nPrimary bundle bytes: 447168.00 (+0.00%) PASS\nTotal JavaScript bytes: 584884.00 (+0.00%) PASS\nLargest secondary chunk bytes: 67533.00 (+0.00%) PASS\nProduction gate duration seconds: 7.36 (+0.00%) PASS\nSecondary chunks: 6 (+0) PASS\nStatus: PASS\n",
+      "status": "PASS",
+      "validator": "validate_nimble_performance_regression.py"
+    },
+    {
+      "exit_code": 0,
+      "output": "========================================================================\nNIMBLE\u2122 BASELINE GOVERNANCE VALIDATION\n========================================================================\nCurrent baseline: present\nMetrics: 5\nThresholds: 8\nArchived baselines: 1\nGoverned promotion: active\nStatus: PASS\n",
+      "status": "PASS",
+      "validator": "validate_nimble_baseline_governance.py"
+    },
+    {
+      "exit_code": 0,
+      "output": "========================================================================\nNIMBLE\u2122 CI VALIDATION\n========================================================================\nWorkflow: present\nPython runtime: configured\nNode 24 runtime: configured\nDeterministic npm install: configured\nGateway tests: configured\nProduction gate: configured\nBuild artifacts: retained\nConcurrency control: active\nStatus: PASS\n",
+      "status": "PASS",
+      "validator": "validate_nimble_ci.py"
+    }
+  ]
+}

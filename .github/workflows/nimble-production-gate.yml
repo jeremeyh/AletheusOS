@@ -105,6 +105,15 @@ jobs:
         run: |
           python validate_nimble_baseline_governance.py
 
+      - name: Validate release attestation when present
+        if: always()
+        run: |
+          if [[ -f reports/nimble/release-attestation-latest.json ]]; then
+            python validate_nimble_release_attestation.py
+          else
+            echo "No release attestation present for this commit."
+          fi
+
       - name: Upload production assets
         if: always()
         uses: actions/upload-artifact@v4
