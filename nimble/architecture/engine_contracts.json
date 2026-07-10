@@ -1,73 +1,4 @@
 {
-  "shell": {
-    "owns": [
-      "global_navigation",
-      "application_switching",
-      "command_entry",
-      "system_status",
-      "notification_surface",
-      "identity_and_context"
-    ],
-    "must_not_own": [
-      "domain_business_logic",
-      "application_specific_state"
-    ]
-  },
-  "context": {
-    "owns": [
-      "context_resolution",
-      "adaptive_density",
-      "relevant_actions",
-      "surface_prioritization",
-      "contextual_disclosure"
-    ]
-  },
-  "motion": {
-    "owns": [
-      "timing",
-      "easing",
-      "springs",
-      "transitions",
-      "shared_layout",
-      "state_motion",
-      "ambient_motion",
-      "reduced_motion",
-      "motion_performance"
-    ]
-  },
-  "interaction": {
-    "owns": [
-      "keyboard",
-      "pointer",
-      "gesture",
-      "focus",
-      "drag",
-      "resize",
-      "dock",
-      "selection",
-      "reversal"
-    ]
-  },
-  "workspace": {
-    "owns": [
-      "panel_composition",
-      "layout_persistence",
-      "workspace_restoration",
-      "application_workspace_inheritance",
-      "responsive_reflow"
-    ]
-  },
-  "visualization": {
-    "owns": [
-      "charts",
-      "graphs",
-      "topology",
-      "timelines",
-      "confidence",
-      "provenance",
-      "system_state"
-    ]
-  },
   "accessibility": {
     "owns": [
       "semantic_structure",
@@ -90,6 +21,80 @@
       "undo"
     ]
   },
+  "context": {
+    "owns": [
+      "context_resolution",
+      "adaptive_density",
+      "relevant_actions",
+      "surface_prioritization",
+      "contextual_disclosure"
+    ]
+  },
+  "interaction": {
+    "owns": [
+      "keyboard",
+      "pointer",
+      "gesture",
+      "focus",
+      "drag",
+      "resize",
+      "dock",
+      "selection",
+      "reversal"
+    ]
+  },
+  "motion": {
+    "owns": [
+      "timing",
+      "easing",
+      "springs",
+      "transitions",
+      "shared_layout",
+      "state_motion",
+      "ambient_motion",
+      "reduced_motion",
+      "motion_performance"
+    ]
+  },
+  "personalization": {
+    "must_not_own": [
+      "domain_business_logic",
+      "authorization_policy",
+      "sensitive_profile_inference",
+      "hidden_behavioral_manipulation"
+    ],
+    "owns": [
+      "user_preferences",
+      "layout_memory",
+      "saved_views",
+      "density_preferences",
+      "theme_preferences",
+      "role_aware_presentation",
+      "adaptive_defaults",
+      "cross_application_continuity"
+    ],
+    "principle_x": [
+      "personalization_must_be_visible",
+      "personalization_must_be_editable",
+      "personalization_must_be_resettable",
+      "adaptive_behavior_must_be_explainable",
+      "stored_preferences_must_be_disclosed"
+    ]
+  },
+  "shell": {
+    "must_not_own": [
+      "domain_business_logic",
+      "application_specific_state"
+    ],
+    "owns": [
+      "global_navigation",
+      "application_switching",
+      "command_entry",
+      "system_status",
+      "notification_surface",
+      "identity_and_context"
+    ]
+  },
   "transparency": {
     "owns": [
       "reasoning",
@@ -99,6 +104,26 @@
       "impact_preview",
       "failure_cause",
       "decision_trace"
+    ]
+  },
+  "visualization": {
+    "owns": [
+      "charts",
+      "graphs",
+      "topology",
+      "timelines",
+      "confidence",
+      "provenance",
+      "system_state"
+    ]
+  },
+  "workspace": {
+    "owns": [
+      "panel_composition",
+      "layout_persistence",
+      "workspace_restoration",
+      "application_workspace_inheritance",
+      "responsive_reflow"
     ]
   }
 }
