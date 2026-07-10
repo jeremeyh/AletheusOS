@@ -24,7 +24,7 @@ REQUIRED_MARKERS = (
     "npm ci",
     "npm run build",
     "python validate_nimble_release_attestation.py",
-    "Attestation commit matches tagged commit",
+    "Attestation commit matches tagged release parent",
     "actions/upload-artifact@v4",
     "reports/nimble/release-attestation-latest.json",
     "nimble/governance/attestations",

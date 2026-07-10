@@ -107,19 +107,21 @@ jobs:
 
           attested = attestation["source"]["commit"]
 
-          current = subprocess.check_output(
-              ["git", "rev-parse", "HEAD"],
+          release_candidate = subprocess.check_output(
+              ["git", "rev-parse", "HEAD^"],
               text=True,
           ).strip()
 
-          if attested != current:
+          if attested != release_candidate:
               raise SystemExit(
-                  "Attestation commit does not match "
-                  f"tagged commit: {attested} != {current}"
+                  "Attestation does not bind to the "
+                  "release-candidate parent commit: "
+                  f"{attested} != {release_candidate}"
               )
 
           print(
-              "PASS: Attestation commit matches tagged commit."
+              "PASS: Attestation commit matches tagged "
+              "release parent."
           )
           PY
 
