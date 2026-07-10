@@ -1,0 +1,100 @@
+name: Nimble Production Gate
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - "feature/**"
+    paths:
+      - "aletheus/experience_gateway/**"
+      - "nimble/**"
+      - "tests/experience_gateway/**"
+      - "tests/nimble/**"
+      - "validate_nimble_*.py"
+      - "validate_nimble_production.sh"
+      - ".github/workflows/nimble-production-gate.yml"
+
+  pull_request:
+    paths:
+      - "aletheus/experience_gateway/**"
+      - "nimble/**"
+      - "tests/experience_gateway/**"
+      - "tests/nimble/**"
+      - "validate_nimble_*.py"
+      - "validate_nimble_production.sh"
+      - ".github/workflows/nimble-production-gate.yml"
+
+  workflow_dispatch:
+
+concurrency:
+  group: >-
+    nimble-production-gate-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  production-gate:
+    name: Validate Nimble
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      CI: "1"
+      NODE_OPTIONS: "--use-system-ca"
+      ALETHEUS_AUTH_MODE: "local"
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: nimble/package-lock.json
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+          if [[ -f requirements.txt ]]; then
+            python -m pip install -r requirements.txt
+          elif [[ -f pyproject.toml ]]; then
+            python -m pip install -e ".[dev]"
+          else
+            echo "No Python dependency manifest found."
+            exit 1
+          fi
+
+      - name: Install Nimble dependencies
+        working-directory: nimble
+        run: npm ci
+
+      - name: Run Experience Gateway tests
+        run: |
+          python -m pytest -q tests/experience_gateway
+
+      - name: Run Nimble production gate
+        run: |
+          chmod +x validate_nimble_production.sh
+          ./validate_nimble_production.sh
+
+      - name: Upload production assets
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nimble-production-assets
+          path: nimble/apps/platform-shell/dist
+          if-no-files-found: warn
+          retention-days: 7
