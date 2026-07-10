@@ -14,6 +14,7 @@ import {
 } from "../prefetch";
 
 import { OverviewRoute } from "../routes/OverviewRoute";
+import { RouteError } from "../routes/RouteError";
 import { PlaceholderRoute } from "../routes/PlaceholderRoute";
 import { RoutePending } from "../components/feedback/RoutePending";
 
@@ -67,6 +68,7 @@ export const nimbleRouter = createBrowserRouter([
   {
     path: "/",
     element: <OverviewRoute />,
+    errorElement: <RouteError />,
   },
   {
     path: "/runtime",

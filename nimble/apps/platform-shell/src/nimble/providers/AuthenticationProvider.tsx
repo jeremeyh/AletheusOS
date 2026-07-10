@@ -110,6 +110,30 @@ export function AuthenticationProvider({
       await refreshIdentity();
     }, [refreshIdentity]);
 
+  const mode:
+    AuthenticationContextValue["mode"] =
+      data?.mode ?? "unknown";
+
+  useEffect(() => {
+    function handleAuthenticationRequired() {
+      if (mode === "oidc") {
+        void oidcBrowserSession.removeUser();
+      }
+    }
+
+    window.addEventListener(
+      "aletheus:authentication-required",
+      handleAuthenticationRequired,
+    );
+
+    return () => {
+      window.removeEventListener(
+        "aletheus:authentication-required",
+        handleAuthenticationRequired,
+      );
+    };
+  }, [mode]);
+
   useEffect(() => {
     if (
       session.state === "authenticated"
@@ -122,10 +146,6 @@ export function AuthenticationProvider({
     refreshIdentity,
     session.state,
   ]);
-
-  const mode:
-    AuthenticationContextValue["mode"] =
-      data?.mode ?? "unknown";
 
   const value =
     useMemo<AuthenticationContextValue>(

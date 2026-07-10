@@ -117,9 +117,26 @@ export async function apiRequest<T>(
   );
 
   if (!response.ok) {
-    throw await createResponseError(
-      response,
-    );
+    const error =
+      await createResponseError(
+        response,
+      );
+
+    if (error.status === 401) {
+      window.dispatchEvent(
+        new CustomEvent(
+          "aletheus:authentication-required",
+          {
+            detail: {
+              path,
+              reason: error.detail,
+            },
+          },
+        ),
+      );
+    }
+
+    throw error;
   }
 
   return await response.json() as T;

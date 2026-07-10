@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 
-import { CommandSurface } from "./CommandSurface";
+import { LazyCommandSurface } from "./LazyCommandSurface";
 import { GlobalNavigation } from "./GlobalNavigation";
 import { MotionEnvironment } from "./MotionEnvironment";
 import { ToastRegion } from "./ToastRegion";
@@ -27,7 +27,7 @@ export function PlatformShell() {
         <TruthInspector />
       </div>
 
-      <CommandSurface />
+      <LazyCommandSurface />
       <ToastRegion />
     </>
   );

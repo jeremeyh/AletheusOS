@@ -13,7 +13,8 @@
     "preview": "npm run preview --workspace @aletheus/nimble-shell",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
-    "validate": "npm run typecheck && npm run test && npm run build"
+    "validate": "npm run typecheck && npm run test -- --run && npm run build",
+    "production-gate": "../validate_nimble_production.sh"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"

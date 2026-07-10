@@ -1511,3 +1511,60 @@ kbd {
   font-size:
     var(--nimble-typography-font-size-sm);
 }
+
+.nimble-boundary-failure {
+  display: grid;
+  max-width: 46rem;
+  margin: 8vh auto;
+  padding: 1.5rem;
+  gap: 1rem;
+  border:
+    1px solid
+    var(--nimble-semantic-status-danger);
+  border-radius:
+    var(--nimble-radius-xl);
+  background:
+    color-mix(
+      in srgb,
+      var(--nimble-semantic-status-danger) 7%,
+      var(--nimble-semantic-surface-raised)
+    );
+  box-shadow:
+    var(--nimble-depth-shadow-lg);
+}
+
+.nimble-boundary-failure h1,
+.nimble-boundary-failure h2,
+.nimble-boundary-failure p {
+  margin: 0;
+}
+
+.nimble-boundary-failure pre {
+  max-height: 12rem;
+  margin: 0;
+  padding: 0.8rem;
+  overflow: auto;
+  border-radius:
+    var(--nimble-radius-md);
+  background:
+    var(--nimble-semantic-surface-sunken);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.nimble-command-loading {
+  position: fixed;
+  z-index: 1200;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.65rem 0.85rem;
+  border:
+    1px solid
+    var(--nimble-semantic-border-default);
+  border-radius:
+    var(--nimble-radius-md);
+  background:
+    var(--nimble-semantic-surface-raised);
+  box-shadow:
+    var(--nimble-depth-shadow-md);
+}

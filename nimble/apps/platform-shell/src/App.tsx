@@ -1,3 +1,4 @@
+import { LazyCommandSurface } from "./nimble/components/LazyCommandSurface";
 import { AuthenticationProvider } from "./nimble/providers/AuthenticationProvider";
 import "./App.css";
 
@@ -13,6 +14,7 @@ export default function App() {
       <AuthenticationProvider>
         <NimbleProvider>
         <RouterProvider router={nimbleRouter} />
+              <LazyCommandSurface />
       </NimbleProvider>
       </AuthenticationProvider>
     </RuntimeQueryProvider>

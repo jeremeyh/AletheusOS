@@ -9,6 +9,9 @@ import {
 import {
   useNimble,
 } from "../providers/NimbleProvider";
+import {
+  NimbleErrorBoundary,
+} from "./NimbleErrorBoundary";
 
 const CommandSurface = lazy(
   async () => {
@@ -16,11 +19,7 @@ const CommandSurface = lazy(
       await preloadCommandSurface();
 
     return {
-      default: (
-        module as typeof import(
-          "./CommandSurface"
-        )
-      ).CommandSurface,
+      default: module.CommandSurface,
     };
   },
 );
@@ -35,8 +34,21 @@ export function LazyCommandSurface() {
   }
 
   return (
-    <Suspense fallback={null}>
-      <CommandSurface />
-    </Suspense>
+    <NimbleErrorBoundary
+      scope="governed command surface"
+    >
+      <Suspense
+      fallback={
+        <div
+          className="nimble-command-loading"
+          role="status"
+        >
+          Loading governed commands…
+        </div>
+      }
+    >
+        <CommandSurface />
+      </Suspense>
+    </NimbleErrorBoundary>
   );
 }
