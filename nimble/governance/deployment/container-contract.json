@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "image": {
+    "repository": "aletheus/nimble-experience-gateway",
+    "local_tag": "local",
+    "dockerfile": "Dockerfile.nimble",
+    "build_context": "."
+  },
+  "runtime": {
+    "user": "aletheus",
+    "port": 8000,
+    "read_only_root_filesystem": true,
+    "drop_all_capabilities": true,
+    "no_new_privileges": true
+  },
+  "startup": {
+    "module": "aletheus.experience_gateway.fastapi_app:app",
+    "host": "0.0.0.0",
+    "port": 8000
+  },
+  "health": {
+    "liveness_path": "/healthz",
+    "readiness_path": "/readyz",
+    "expected_liveness_state": "alive",
+    "expected_readiness_state": "ready"
+  },
+  "required_artifacts": [
+    "nimble/apps/platform-shell/dist",
+    "nimble/governance/deployment/deployment-contract.json",
+    "nimble/governance/deployment/build-metadata.json"
+  ]
+}
