@@ -16,7 +16,7 @@ html,
 body,
 #root {
   width: 100%;
-  min-width: 72rem;
+  
   min-height: 100%;
   margin: 0;
 }
@@ -345,7 +345,10 @@ a:focus-visible {
   height: calc(100vh - 5rem);
   padding: 2rem;
   overflow-y: auto;
-}
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;}
 
 .nimble-hero,
 .nimble-metrics,
@@ -1567,4 +1570,22 @@ kbd {
     var(--nimble-semantic-surface-raised);
   box-shadow:
     var(--nimble-depth-shadow-md);
+}
+
+/* Nimble responsive application boundary */
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
 }

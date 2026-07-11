@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import os
+from datetime import datetime, timezone
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dataclasses import asdict
@@ -35,6 +37,48 @@ from .security import (
     load_authentication_config,
 )
 from .service import ExperienceGatewayService
+
+
+def evaluate_readiness(
+    environment: dict[str, str] | None = None,
+) -> dict[str, object]:
+    """Evaluate deployment configuration without constructing the app."""
+    values = environment if environment is not None else os.environ
+
+    auth_mode = values.get(
+        "ALETHEUS_AUTH_MODE",
+        "local",
+    ).strip().lower()
+
+    checks: dict[str, bool] = {
+        "auth_mode_supported": auth_mode
+        in {"local", "oidc"},
+    }
+
+    if auth_mode == "oidc":
+        required_oidc = (
+            "ALETHEUS_OIDC_ISSUER",
+            "ALETHEUS_OIDC_AUDIENCE",
+            "ALETHEUS_OIDC_JWKS_URL",
+        )
+
+        checks["oidc_configuration_present"] = all(
+            bool(values.get(name))
+            for name in required_oidc
+        )
+
+    ready = all(checks.values())
+
+    return {
+        "status": "ready" if ready else "not_ready",
+        "service": "nimble-experience-gateway",
+        "auth_mode": auth_mode,
+        "checks": checks,
+        "timestamp": datetime.now(
+            timezone.utc
+        ).isoformat(),
+    }
+
 
 
 def create_app(
@@ -85,257 +129,34 @@ def create_app(
         version="0.1.0",
     )
 
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=[
-            "http://localhost:5173",
-            "http://127.0.0.1:5173",
-        ],
-        allow_credentials=False,
-        allow_methods=["GET", "POST", "OPTIONS"],
-        allow_headers=[
-            "Accept",
-            "Content-Type",
-            "Authorization",
-        ],
+    @app.get(
+        "/healthz",
+        tags=["platform"],
+        summary="Process liveness probe",
     )
-
-    @app.get("/api/runtime/health")
-    def runtime_health() -> dict:
-        response = gateway.health()
-
-        # Nimble's current query contract expects the data
-        # object directly rather than the outer metadata envelope.
-        return response.to_dict()["data"]
-
-    @app.get("/api/missions")
-    def runtime_missions() -> list:
-        response = gateway.missions()
-        return response.to_dict()["data"]
-
-    @app.get("/api/runtime/overview")
-    def runtime_overview() -> dict:
-        response = gateway.overview()
-        return response.to_dict()["data"]
-
-    @app.get("/api/experience/providers")
-    def experience_providers() -> dict:
-        registry = gateway.provider_registry
-
-        if registry is None:
-            return {
-                "healthProbes": [],
-                "missionSources": [],
-                "mode": "legacy_provider",
-            }
-
+    async def healthz() -> dict[str, object]:
+        """Report whether the Experience Gateway process is alive."""
         return {
-            **registry.describe(),
-            "mode": "provider_registry",
+            "status": "alive",
+            "service": "nimble-experience-gateway",
+            "timestamp": datetime.now(
+                timezone.utc
+            ).isoformat(),
         }
 
-    @app.get("/api/auth/config")
-    def authentication_metadata() -> dict:
-        return {
-            "mode": authentication_config.mode,
-            "issuer": authentication_config.issuer,
-            "audience": authentication_config.audience,
-            "algorithms": list(
-                authentication_config.algorithms
-            ),
-            "localIdentityAllowed": (
-                authentication_config
-                .allow_local_identity
-            ),
-        }
+    @app.get(
+        "/readyz",
+        tags=["platform"],
+        summary="Deployment readiness probe",
+    )
+    async def readyz() -> dict[str, object]:
+        """Report whether required runtime configuration is valid."""
+        return evaluate_readiness()
 
-    @app.get("/api/identity/me")
-    def current_identity(
-        principal: Principal = Depends(
-            principal_resolver.dependency
-        ),
-    ) -> dict:
-        return {
-            "subjectId": principal.subject_id,
-            "displayName": principal.display_name,
-            "roles": list(principal.roles),
-            "entitlements": list(
-                principal.entitlements
-            ),
-            "authenticationMethod": (
-                principal.authentication_method
-            ),
-            "authenticated": (
-                principal.authenticated
-            ),
-        }
 
-    @app.get("/api/commands")
-    def list_commands() -> list[dict]:
-        return command_gateway.list_commands()
 
-    @app.post("/api/commands/preview")
-    def preview_command(
-        payload: CommandPreviewRequestModel,
-        principal: Principal = Depends(
-            principal_resolver.dependency
-        ),
-    ) -> dict:
-        try:
-            preview = command_gateway.preview(
-                CommandRequest(
-                    command_id=payload.command_id,
-                    arguments=payload.arguments,
-                    requested_by=principal.subject_id,
-                    idempotency_key=(
-                        payload.idempotency_key
-                    ),
-                ),
-                principal=principal,
-            )
-        except KeyError as error:
-            raise HTTPException(
-                status_code=404,
-                detail=str(error),
-            ) from error
-        except ValueError as error:
-            raise HTTPException(
-                status_code=422,
-                detail=str(error),
-            ) from error
-        except PermissionError as error:
-            raise HTTPException(
-                status_code=403,
-                detail=str(error),
-            ) from error
 
-        return asdict(preview)
-
-    @app.post("/api/commands/authorize")
-    def authorize_command(
-        payload: CommandAuthorizationRequestModel,
-        principal: Principal = Depends(
-            principal_resolver.dependency
-        ),
-    ) -> dict:
-        try:
-            authorization = (
-                command_gateway.authorize(
-                    preview_id=payload.preview_id,
-                    authorized_by=(
-                        principal.subject_id
-                    ),
-                )
-            )
-        except KeyError as error:
-            raise HTTPException(
-                status_code=404,
-                detail=str(error),
-            ) from error
-        except TimeoutError as error:
-            raise HTTPException(
-                status_code=410,
-                detail=str(error),
-            ) from error
-
-        return asdict(authorization)
-
-    @app.post("/api/commands/execute")
-    def execute_command(
-        payload: CommandExecutionRequestModel,
-    ) -> dict:
-        try:
-            execution = command_gateway.execute(
-                preview_id=payload.preview_id,
-                authorization_id=(
-                    payload.authorization_id
-                ),
-                idempotency_key=(
-                    payload.idempotency_key
-                ),
-            )
-        except KeyError as error:
-            raise HTTPException(
-                status_code=404,
-                detail=str(error),
-            ) from error
-        except PermissionError as error:
-            raise HTTPException(
-                status_code=403,
-                detail=str(error),
-            ) from error
-        except TimeoutError as error:
-            raise HTTPException(
-                status_code=410,
-                detail=str(error),
-            ) from error
-
-        return asdict(execution)
-
-    @app.post("/api/commands/reverse")
-    def reverse_command(
-        payload: CommandReversalRequestModel,
-    ) -> dict:
-        try:
-            execution = command_gateway.reverse(
-                execution_id=(
-                    payload.execution_id
-                ),
-                reversal_token=(
-                    payload.reversal_token
-                ),
-            )
-        except KeyError as error:
-            raise HTTPException(
-                status_code=404,
-                detail=str(error),
-            ) from error
-        except PermissionError as error:
-            raise HTTPException(
-                status_code=403,
-                detail=str(error),
-            ) from error
-        except ValueError as error:
-            raise HTTPException(
-                status_code=409,
-                detail=str(error),
-            ) from error
-
-        return asdict(execution)
-
-    @app.get("/api/commands/history")
-    def command_history() -> list[dict]:
-        return [
-            asdict(execution)
-            for execution in (
-                command_gateway.history()
-            )
-        ]
-
-    @app.get("/api/commands/persistence")
-    def command_persistence() -> dict:
-        return {
-            "mode": "sqlite",
-            "databasePath": str(
-                command_store.database_path
-            ),
-            "counts": command_store.counts(),
-            "durable": True,
-        }
-
-    @app.get("/api/experience/meta")
-    def experience_metadata() -> dict:
-        response = gateway.overview()
-
-        return {
-            "name": "AletheusOS Experience Gateway",
-            "version": response.schema_version,
-            "principleX": True,
-            "requestId": response.request_id,
-            "generatedAt": response.generated_at,
-        }
 
     return app
-
 
 app = create_app()

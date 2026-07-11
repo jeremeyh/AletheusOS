@@ -25,9 +25,16 @@
     "dependency-risk": "../.venv/bin/python ../scan_nimble_dependency_risk.py",
     "validate-dependency-risk": "../.venv/bin/python ../validate_nimble_dependency_risk.py",
     "validate-dependency-exceptions": "../.venv/bin/python ../validate_nimble_dependency_exceptions.py",
-    "reconcile-dependency-exceptions": "../.venv/bin/python ../reconcile_nimble_dependency_exceptions.py"
+    "reconcile-dependency-exceptions": "../.venv/bin/python ../reconcile_nimble_dependency_exceptions.py",
+    "ux:health": "npm run build && playwright test tests/ux/platform-health.spec.ts",
+    "ux:health:update": "npm run build && playwright test tests/ux/platform-health.spec.ts --update-snapshots",
+    "ux:report": "playwright show-report reports/ux/playwright"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.12.1",
+    "@playwright/test": "1.61.1"
   }
 }
