@@ -7,6 +7,7 @@ import hashlib
 import json
 import os
 import re
+import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -215,6 +216,30 @@ def main() -> int:
     ):
         failures.append(
             "Credential fingerprint set is incomplete."
+        )
+
+    rotation_validation = subprocess.run(
+        [
+            "python",
+            str(
+                ROOT
+                / "validate_nimble_credential_rotation.py"
+            ),
+            "--provider",
+            arguments.provider,
+            "--environment",
+            arguments.environment,
+        ],
+        cwd=ROOT,
+        env=os.environ.copy(),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    if rotation_validation.returncode != 0:
+        failures.append(
+            "Credential rotation validation failed."
         )
 
     status = "PASS" if not failures else "FAIL"
