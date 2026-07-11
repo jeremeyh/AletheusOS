@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "nimble-release-integrity-v0.1",
+  "hash_algorithm": "sha256",
+  "manifest": {
+    "path": "reports/nimble/nimble-release-manifest.json",
+    "checksum_path": "reports/nimble/nimble-release-manifest.sha256",
+    "canonical_json": true
+  },
+  "required_subjects": [
+    "nimble/governance/deployment/build-metadata.json",
+    "nimble/governance/deployment/deployment-contract.json",
+    "nimble/governance/deployment/image-provenance-contract.json"
+  ],
+  "conditional_subjects": [
+    "reports/nimble/image-digest-latest.json",
+    "reports/nimble/image-identity-latest.json",
+    "reports/nimble/nimble-image-sbom.spdx.json",
+    "reports/nimble/container-smoke-latest.json"
+  ],
+  "release_identity": {
+    "git_revision_required": true,
+    "git_ref_required": true,
+    "release_tag_required_for_tagged_release": true,
+    "dirty_worktree_forbidden_in_ci": true
+  },
+  "attestation": {
+    "provider": "github-artifact-attestations",
+    "action": "actions/attest@v4",
+    "subject": "reports/nimble/nimble-release-manifest.json",
+    "enabled_by_variable": "NIMBLE_ENABLE_ATTESTATIONS",
+    "required_value": "true",
+    "sigstore_backed": true
+  },
+  "verification": {
+    "manifest_checksum_required": true,
+    "subject_checksums_required": true,
+    "duplicate_subjects_forbidden": true,
+    "absolute_paths_forbidden": true
+  }
+}

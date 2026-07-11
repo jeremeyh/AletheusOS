@@ -155,6 +155,16 @@ jobs:
             aletheus/nimble-experience-gateway:ci \
             -o spdx-json=reports/nimble/nimble-image-sbom.spdx.json
           test -s reports/nimble/nimble-image-sbom.spdx.json
+          python generate_nimble_release_manifest.py \
+            --release-ref "${GITHUB_REF_NAME:-ci}" \
+            --release-version "${GITHUB_REF_NAME:-${GITHUB_SHA::12}}"
+          python validate_nimble_release_integrity.py
+
+      - name: Attest Nimble release manifest
+        if: ${{ vars.NIMBLE_ENABLE_ATTESTATIONS == 'true' }}
+        uses: actions/attest@v4
+        with:
+          subject-path: reports/nimble/nimble-release-manifest.json
 
       - name: Upload production assets
         if: always()
@@ -162,6 +172,10 @@ jobs:
         with:
           name: nimble-production-assets
           path: |
+            reports/nimble/nimble-release-manifest.json
+            reports/nimble/nimble-release-manifest.sha256
+            reports/nimble/release-integrity-latest.json
+            nimble/governance/release/release-integrity-contract.json
             reports/nimble/image-provenance-contract-latest.json
             reports/nimble/image-identity-latest.json
             reports/nimble/image-digest-latest.json
