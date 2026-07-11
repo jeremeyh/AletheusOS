@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "registry_id": "nimble-deployment-provider-registry-v0.1",
+  "default_provider": "dry-run",
+  "providers": {
+    "dry-run": {
+      "provider_version": "1.0.0",
+      "executable": "scripts/nimble_providers/dry_run_provider.sh",
+      "enabled": true,
+      "supports": [
+        "deploy",
+        "rollback"
+      ],
+      "environments": [
+        "staging",
+        "production"
+      ],
+      "requires_secrets": false,
+      "production_execution": false
+    }
+  },
+  "policy": {
+    "registered_providers_only": true,
+    "absolute_executables_forbidden": true,
+    "parent_path_traversal_forbidden": true,
+    "provider_must_be_enabled": true,
+    "action_support_required": true,
+    "environment_support_required": true,
+    "production_requires_execution_provider": true,
+    "arbitrary_shell_commands_forbidden": true
+  }
+}

@@ -209,7 +209,7 @@ jobs:
         shell: bash
         env:
           NIMBLE_DEPLOY_MODE: ${{ vars.NIMBLE_DEPLOY_MODE || 'dry-run' }}
-          NIMBLE_DEPLOY_COMMAND: ${{ secrets.NIMBLE_PRODUCTION_DEPLOY_COMMAND }}
+          NIMBLE_DEPLOY_PROVIDER: ${{ vars.NIMBLE_DEPLOY_PROVIDER || 'dry-run' }}
           NIMBLE_ENVIRONMENT: production
           NIMBLE_RELEASE: ${{ inputs.release }}
           NIMBLE_REVISION: ${{ inputs.revision }}
@@ -317,7 +317,7 @@ jobs:
         shell: bash
         env:
           NIMBLE_DEPLOY_MODE: ${{ vars.NIMBLE_DEPLOY_MODE || 'dry-run' }}
-          NIMBLE_ROLLBACK_COMMAND: ${{ secrets.NIMBLE_PRODUCTION_ROLLBACK_COMMAND }}
+          NIMBLE_DEPLOY_PROVIDER: ${{ vars.NIMBLE_DEPLOY_PROVIDER || 'dry-run' }}
           NIMBLE_ENVIRONMENT: production
           ROLLBACK_RELEASE: ${{ inputs.rollback_release }}
           ROLLBACK_REVISION: ${{ inputs.rollback_revision }}

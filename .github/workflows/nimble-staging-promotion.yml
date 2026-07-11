@@ -119,7 +119,7 @@ jobs:
         shell: bash
         env:
           NIMBLE_DEPLOY_MODE: ${{ vars.NIMBLE_DEPLOY_MODE || 'dry-run' }}
-          NIMBLE_DEPLOY_COMMAND: ${{ secrets.NIMBLE_STAGING_DEPLOY_COMMAND }}
+          NIMBLE_DEPLOY_PROVIDER: ${{ vars.NIMBLE_DEPLOY_PROVIDER || 'dry-run' }}
           NIMBLE_ENVIRONMENT: staging
           NIMBLE_RELEASE: ${{ inputs.release }}
           NIMBLE_REVISION: ${{ inputs.revision }}
