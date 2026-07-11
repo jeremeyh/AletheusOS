@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "nimble-signed-audit-anchor-v0.1",
+  "anchor": {
+    "path": "reports/nimble/signed-audit-anchor.json",
+    "checksum_path": "reports/nimble/signed-audit-anchor.sha256",
+    "hash_algorithm": "sha256",
+    "canonical_json": true
+  },
+  "subject": {
+    "latest_checkpoint_pointer": "nimble/governance/audit/checkpoints/latest.json",
+    "checkpoint_digest_required": true,
+    "checkpoint_hash_binding_required": true,
+    "ledger_head_binding_required": true,
+    "ledger_entry_count_binding_required": true,
+    "git_revision_binding_required": true,
+    "release_identity_binding_required": true
+  },
+  "signing": {
+    "provider": "github-artifact-attestations",
+    "action": "actions/attest@v4",
+    "expected_workflow": ".github/workflows/nimble-audit-anchor.yml",
+    "enabled_by_variable": "NIMBLE_ENABLE_ATTESTATIONS",
+    "required_value": "true",
+    "keyless": true,
+    "sigstore_backed": true
+  },
+  "verification": {
+    "local_structure_required": true,
+    "local_digest_required": true,
+    "ci_signature_required_when_enabled": true,
+    "repository_identity_required": true,
+    "workflow_identity_required": true,
+    "missing_subject_forbidden": true,
+    "absolute_paths_forbidden": true
+  },
+  "evidence": {
+    "anchor": "reports/nimble/signed-audit-anchor.json",
+    "checksum": "reports/nimble/signed-audit-anchor.sha256",
+    "validation": "reports/nimble/signed-audit-anchor-validation-latest.json"
+  }
+}

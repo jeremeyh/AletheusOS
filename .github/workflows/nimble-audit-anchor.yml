@@ -1,0 +1,201 @@
+name: Nimble Signed Audit Anchor
+
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: Release identity bound to the checkpoint
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  id-token: write
+  attestations: write
+  artifact-metadata: write
+
+concurrency:
+  group: nimble-signed-audit-anchor
+  cancel-in-progress: false
+
+jobs:
+  sign-and-verify:
+    name: Sign and verify audit anchor
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Require attestation governance
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          test "${{ vars.NIMBLE_ENABLE_ATTESTATIONS }}" = "true" || {
+            echo \
+              "FAIL: repository variable " \
+              "NIMBLE_ENABLE_ATTESTATIONS must equal true."
+            exit 1
+          }
+
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Validate checkpoint chain
+        run: |
+          python validate_nimble_audit_ledger.py
+          python validate_nimble_audit_checkpoints.py
+
+      - name: Verify release identity
+        shell: bash
+        env:
+          EXPECTED_RELEASE: ${{ inputs.release }}
+        run: |
+          set -euo pipefail
+
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          pointer = json.loads(
+              Path(
+                  "nimble/governance/audit/"
+                  "checkpoints/latest.json"
+              ).read_text(encoding="utf-8")
+          )
+
+          checkpoint = json.loads(
+              Path(
+                  pointer["checkpoint_path"]
+              ).read_text(encoding="utf-8")
+          )
+
+          expected = os.environ["EXPECTED_RELEASE"]
+          actual = checkpoint.get("release_identity")
+
+          if actual != expected:
+              raise RuntimeError(
+                  "Checkpoint release identity mismatch: "
+                  f"expected {expected!r}, found {actual!r}."
+              )
+          PY
+
+      - name: Create signed-anchor subject
+        run: |
+          python create_nimble_signed_audit_anchor.py
+          python validate_nimble_signed_audit_anchor.py
+
+      - name: Attest signed-anchor subject
+        id: attest
+        uses: actions/attest@v4
+        with:
+          subject-path: reports/nimble/signed-audit-anchor.json
+
+      - name: Retain attestation bundle
+        shell: bash
+        env:
+          BUNDLE_PATH: ${{ steps.attest.outputs.bundle-path }}
+        run: |
+          set -euo pipefail
+
+          test -f "${BUNDLE_PATH}"
+
+          cp \
+            "${BUNDLE_PATH}" \
+            reports/nimble/signed-audit-anchor-attestation.json
+
+      - name: Verify repository and signer identity
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SIGNER_WORKFLOW: >-
+            ${{ github.repository }}/.github/workflows/nimble-audit-anchor.yml
+        run: |
+          set -euo pipefail
+
+          gh attestation verify \
+            reports/nimble/signed-audit-anchor.json \
+            --repo "${GITHUB_REPOSITORY}" \
+            --signer-workflow "${SIGNER_WORKFLOW}" \
+            --format json \
+            > reports/nimble/signed-audit-anchor-verification.json
+
+          test -s \
+            reports/nimble/signed-audit-anchor-verification.json
+
+      - name: Record signing evidence
+        shell: bash
+        env:
+          ATTESTATION_ID: ${{ steps.attest.outputs.attestation-id }}
+          ATTESTATION_URL: ${{ steps.attest.outputs.attestation-url }}
+        run: |
+          set -euo pipefail
+
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          payload = {
+              "schema_version": "1.0",
+              "generated_at": datetime.now(
+                  timezone.utc
+              ).isoformat(),
+              "repository": os.environ[
+                  "GITHUB_REPOSITORY"
+              ],
+              "workflow": (
+                  ".github/workflows/"
+                  "nimble-audit-anchor.yml"
+              ),
+              "run_id": os.environ["GITHUB_RUN_ID"],
+              "run_attempt": os.environ[
+                  "GITHUB_RUN_ATTEMPT"
+              ],
+              "revision": os.environ["GITHUB_SHA"],
+              "attestation_id": os.environ.get(
+                  "ATTESTATION_ID"
+              ),
+              "attestation_url": os.environ.get(
+                  "ATTESTATION_URL"
+              ),
+              "status": "VERIFIED"
+          }
+
+          Path(
+              "reports/nimble/"
+              "signed-audit-anchor-signing-evidence.json"
+          ).write_text(
+              json.dumps(
+                  payload,
+                  indent=2,
+                  sort_keys=True,
+              )
+              + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Upload signed-anchor evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: nimble-signed-audit-anchor-${{ github.run_id }}
+          if-no-files-found: error
+          retention-days: 365
+          path: |
+            reports/nimble/signed-audit-anchor.json
+            reports/nimble/signed-audit-anchor.sha256
+            reports/nimble/signed-audit-anchor-validation-latest.json
+            reports/nimble/signed-audit-anchor-attestation.json
+            reports/nimble/signed-audit-anchor-verification.json
+            reports/nimble/signed-audit-anchor-signing-evidence.json
+            nimble/governance/audit/checkpoints/latest.json
+            nimble/governance/audit/checkpoints/checkpoint-*.json
+            nimble/governance/audit/signed-audit-anchor-contract.json
