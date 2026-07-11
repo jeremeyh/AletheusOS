@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "nimble-release-promotion-v0.1",
+  "application": "AletheusOS Nimble",
+  "promotion_sequence": [
+    "build",
+    "staging",
+    "production"
+  ],
+  "environments": {
+    "build": {
+      "requires": [
+        "release_manifest",
+        "release_manifest_checksum",
+        "release_integrity_report"
+      ]
+    },
+    "staging": {
+      "requires": [
+        "build_promotion",
+        "deployment_readiness",
+        "container_smoke",
+        "image_identity",
+        "image_digest",
+        "sbom"
+      ]
+    },
+    "production": {
+      "requires": [
+        "staging_promotion",
+        "release_tag",
+        "rollback_target",
+        "health_probe_evidence",
+        "release_integrity"
+      ]
+    }
+  },
+  "rollback": {
+    "required_for_production": true,
+    "target_must_differ_from_candidate": true,
+    "target_revision_required": true,
+    "target_release_required": true,
+    "maximum_rollback_depth": 1
+  },
+  "evidence": {
+    "promotion_record": "reports/nimble/nimble-promotion-record.json",
+    "promotion_validation": "reports/nimble/promotion-validation-latest.json"
+  },
+  "policy": {
+    "absolute_paths_forbidden": true,
+    "dirty_worktree_forbidden_in_ci": true,
+    "production_requires_tag": true,
+    "production_requires_clean_integrity_report": true,
+    "production_requires_healthy_readiness": true
+  }
+}

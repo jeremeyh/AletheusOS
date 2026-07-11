@@ -159,6 +159,11 @@ jobs:
             --release-ref "${GITHUB_REF_NAME:-ci}" \
             --release-version "${GITHUB_REF_NAME:-${GITHUB_SHA::12}}"
           python validate_nimble_release_integrity.py
+          python generate_nimble_promotion_record.py \
+            --environment build \
+            --release "${GITHUB_REF_NAME:-${GITHUB_SHA::12}}"
+          python validate_nimble_release_promotion.py \
+            --environment build
 
       - name: Attest Nimble release manifest
         if: ${{ vars.NIMBLE_ENABLE_ATTESTATIONS == 'true' }}
@@ -172,6 +177,9 @@ jobs:
         with:
           name: nimble-production-assets
           path: |
+            reports/nimble/nimble-promotion-record.json
+            reports/nimble/promotion-validation-latest.json
+            nimble/governance/release/promotion-contract.json
             reports/nimble/nimble-release-manifest.json
             reports/nimble/nimble-release-manifest.sha256
             reports/nimble/release-integrity-latest.json
