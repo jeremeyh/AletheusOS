@@ -157,6 +157,35 @@ def main() -> int:
         arguments.environment,
     )
 
+    preflight = subprocess.run(
+        [
+            "python",
+            str(
+                ROOT
+                / "validate_nimble_provider_preflight.py"
+            ),
+            "--provider",
+            provider_name,
+            "--action",
+            arguments.action,
+            "--environment",
+            arguments.environment,
+            "--mode",
+            os.environ.get(
+                "NIMBLE_DEPLOY_MODE",
+                "dry-run",
+            ),
+        ],
+        cwd=ROOT,
+        env=os.environ.copy(),
+        check=False,
+    )
+
+    if preflight.returncode != 0:
+        raise ProviderPolicyError(
+            "Provider preflight validation failed."
+        )
+
     child_environment = {
         **os.environ,
         "NIMBLE_PROVIDER_NAME": provider_name,

@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "nimble-provider-capability-governance-v0.1",
+  "capabilities": {
+    "deploy": {
+      "description": "Deploy an immutable Nimble release candidate",
+      "risk": "high"
+    },
+    "rollback": {
+      "description": "Restore a previously verified Nimble release",
+      "risk": "high"
+    },
+    "read_health": {
+      "description": "Read environment health and readiness state",
+      "risk": "low"
+    },
+    "read_release_metadata": {
+      "description": "Read immutable release identity and provenance",
+      "risk": "low"
+    }
+  },
+  "environment_policy": {
+    "staging": {
+      "allowed_capabilities": [
+        "deploy",
+        "read_health",
+        "read_release_metadata"
+      ],
+      "production_credentials_forbidden": true
+    },
+    "production": {
+      "allowed_capabilities": [
+        "deploy",
+        "rollback",
+        "read_health",
+        "read_release_metadata"
+      ],
+      "manual_approval_required": true
+    }
+  },
+  "secret_policy": {
+    "plain_text_secret_values_forbidden_in_registry": true,
+    "environment_scope_required": true,
+    "least_privilege_required": true,
+    "undeclared_secrets_forbidden": true,
+    "empty_required_secrets_forbidden_in_execute_mode": true,
+    "dry_run_may_omit_secrets": true
+  },
+  "execution_policy": {
+    "capability_declaration_required": true,
+    "preflight_required": true,
+    "provider_version_required": true,
+    "provider_must_be_enabled": true,
+    "fail_closed": true
+  },
+  "evidence": {
+    "preflight_report": "reports/nimble/provider-preflight-latest.json",
+    "capability_validation": "reports/nimble/provider-capability-validation-latest.json"
+  }
+}

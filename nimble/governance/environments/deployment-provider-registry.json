@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "registry_id": "nimble-deployment-provider-registry-v0.1",
   "default_provider": "dry-run",
   "providers": {
@@ -11,10 +11,20 @@
         "deploy",
         "rollback"
       ],
+      "capabilities": [
+        "deploy",
+        "rollback",
+        "read_health",
+        "read_release_metadata"
+      ],
       "environments": [
         "staging",
         "production"
       ],
+      "required_secrets": {
+        "staging": [],
+        "production": []
+      },
       "requires_secrets": false,
       "production_execution": false
     }
@@ -25,7 +35,9 @@
     "parent_path_traversal_forbidden": true,
     "provider_must_be_enabled": true,
     "action_support_required": true,
+    "capability_support_required": true,
     "environment_support_required": true,
+    "environment_scoped_secrets_required": true,
     "production_requires_execution_provider": true,
     "arbitrary_shell_commands_forbidden": true
   }
