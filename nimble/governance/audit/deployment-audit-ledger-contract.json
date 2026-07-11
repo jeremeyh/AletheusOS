@@ -1,25 +1,40 @@
 {
-  "schema_version": "1.0",
   "contract_id": "nimble-deployment-audit-ledger-v0.1",
-  "ledger": {
-    "path": "nimble/governance/audit/deployment-audit-ledger.jsonl",
-    "format": "jsonl",
-    "append_only": true,
-    "hash_algorithm": "sha256",
-    "genesis_previous_hash": "GENESIS"
-  },
   "event_types": [
-    "release_manifest_created",
-    "promotion_validated",
-    "deployment_started",
-    "deployment_completed",
-    "health_verified",
-    "rollback_started",
-    "rollback_completed",
+    "audit_recovery_completed",
     "credential_preflight",
     "credential_rotation_validated",
-    "provider_preflight"
+    "deployment_completed",
+    "deployment_started",
+    "health_verified",
+    "promotion_validated",
+    "provider_preflight",
+    "release_manifest_created",
+    "rollback_completed",
+    "rollback_started"
   ],
+  "evidence": {
+    "summary_report": "reports/nimble/deployment-audit-ledger-summary-latest.json",
+    "validation_report": "reports/nimble/deployment-audit-ledger-validation-latest.json"
+  },
+  "ledger": {
+    "append_only": true,
+    "format": "jsonl",
+    "genesis_previous_hash": "GENESIS",
+    "hash_algorithm": "sha256",
+    "path": "nimble/governance/audit/deployment-audit-ledger.jsonl"
+  },
+  "policy": {
+    "absolute_paths_forbidden": true,
+    "event_hash_required": true,
+    "event_ids_must_be_unique": true,
+    "previous_hash_required": true,
+    "raw_secret_names_forbidden": true,
+    "raw_secret_values_forbidden": true,
+    "sequence_must_be_contiguous": true,
+    "tamper_detection_required": true,
+    "timestamps_must_be_utc": true
+  },
   "required_fields": [
     "sequence",
     "event_id",
@@ -32,19 +47,5 @@
     "previous_hash",
     "event_hash"
   ],
-  "policy": {
-    "sequence_must_be_contiguous": true,
-    "event_ids_must_be_unique": true,
-    "timestamps_must_be_utc": true,
-    "event_hash_required": true,
-    "previous_hash_required": true,
-    "tamper_detection_required": true,
-    "raw_secret_values_forbidden": true,
-    "raw_secret_names_forbidden": true,
-    "absolute_paths_forbidden": true
-  },
-  "evidence": {
-    "validation_report": "reports/nimble/deployment-audit-ledger-validation-latest.json",
-    "summary_report": "reports/nimble/deployment-audit-ledger-summary-latest.json"
-  }
+  "schema_version": "1.0"
 }

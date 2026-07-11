@@ -1,0 +1,79 @@
+{
+  "allowed_actions": [
+    "none",
+    "restore_missing_suffix",
+    "manual_forensic_review"
+  ],
+  "allowed_classifications": [
+    "healthy",
+    "truncated_after_checkpoint",
+    "diverged_before_checkpoint",
+    "checkpoint_ahead_of_ledger",
+    "untrusted_source"
+  ],
+  "apply": {
+    "atomic_replacement_required": true,
+    "confirmation_token": "APPLY-AUDIT-RECOVERY",
+    "plan_hash_validation_required": true,
+    "post_recovery_validation_required": true,
+    "pre_recovery_snapshot_required": true,
+    "recoverable_action_required": "restore_missing_suffix",
+    "recoverable_classification_required": "checkpoint_ahead_of_ledger",
+    "recovery_audit_event_required": true,
+    "source_revalidation_required": true
+  },
+  "contract_id": "nimble-audit-recovery-continuity-v0.1",
+  "mode": "plan_only",
+  "outputs": {
+    "pre_recovery_snapshot_directory": "reports/nimble/recovery/snapshots",
+    "reconstructed_ledger": "reports/nimble/recovery/reconstructed-deployment-audit-ledger.jsonl",
+    "recovery_plan": "reports/nimble/recovery/audit-recovery-plan-latest.json"
+  },
+  "policy": {
+    "absolute_paths_forbidden": true,
+    "ambiguous_source_rejection_required": true,
+    "automatic_ledger_mutation_forbidden": true,
+    "checkpoint_hash_binding_required": true,
+    "checkpoint_validation_required": true,
+    "git_revision_binding_required": true,
+    "ledger_entry_count_binding_required": true,
+    "ledger_head_binding_required": true,
+    "ledger_prefix_validation_required": true,
+    "pre_recovery_snapshot_required_before_apply": true,
+    "recovery_plan_required": true,
+    "recovery_provenance_required": true,
+    "release_identity_binding_required": true,
+    "signed_anchor_validation_required": true
+  },
+  "schema_version": "1.0",
+  "sources": {
+    "latest_checkpoint_pointer": "nimble/governance/audit/checkpoints/latest.json",
+    "ledger": "nimble/governance/audit/deployment-audit-ledger.jsonl",
+    "signed_anchor": "reports/nimble/signed-audit-anchor.json",
+    "signed_anchor_checksum": "reports/nimble/signed-audit-anchor.sha256"
+  },
+  "trusted_recovery_source": {
+    "format": "json",
+    "hash_algorithm": "sha256",
+    "required_fields": [
+      "schema_version",
+      "source_id",
+      "created_at",
+      "checkpoint_hash",
+      "checkpoint_entry_count",
+      "checkpoint_head_hash",
+      "ledger_entries",
+      "ledger_file_sha256",
+      "source_hash"
+    ],
+    "requirements": {
+      "canonical_ledger_mutation_forbidden": true,
+      "checkpoint_prefix_required": true,
+      "complete_hash_chain_required": true,
+      "ledger_file_digest_required": true,
+      "single_source_required": true,
+      "source_hash_required": true
+    },
+    "schema_version": "1.0"
+  }
+}
