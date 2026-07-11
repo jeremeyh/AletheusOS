@@ -6,6 +6,7 @@ import argparse
 import json
 import os
 import re
+import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -278,6 +279,43 @@ def main() -> int:
                         leaked_production_secrets
                     )
                 )
+
+    credential_isolation = subprocess.run(
+        [
+            "python",
+            str(
+                ROOT
+                / "validate_nimble_credential_isolation.py"
+            ),
+            "--provider",
+            arguments.provider,
+            "--environment",
+            arguments.environment,
+            "--mode",
+            arguments.mode,
+        ],
+        cwd=ROOT,
+        env=os.environ.copy(),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    checks.append(
+        {
+            "check": "credential-isolation",
+            "status": (
+                "PASS"
+                if credential_isolation.returncode == 0
+                else "FAIL"
+            ),
+        }
+    )
+
+    if credential_isolation.returncode != 0:
+        failures.append(
+            "Credential isolation validation failed."
+        )
 
     status = (
         "PASS"
