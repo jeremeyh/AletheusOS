@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "nimble-image-provenance-v0.1",
+  "image": {
+    "repository": "aletheus/nimble-experience-gateway",
+    "dockerfile": "Dockerfile.nimble",
+    "platform": "linux/amd64",
+    "runtime_user": "aletheus",
+    "required_oci_labels": [
+      "org.opencontainers.image.title",
+      "org.opencontainers.image.description",
+      "org.opencontainers.image.vendor",
+      "org.opencontainers.image.version",
+      "org.opencontainers.image.revision",
+      "org.opencontainers.image.created",
+      "org.opencontainers.image.source",
+      "org.opencontainers.image.ref.name",
+      "org.opencontainers.image.licenses"
+    ]
+  },
+  "provenance": {
+    "revision_source": "git_commit",
+    "created_source": "build_timestamp_utc",
+    "version_source": "release_tag_or_commit",
+    "digest_algorithm": "sha256",
+    "digest_required_in_ci": true
+  },
+  "sbom": {
+    "required_in_ci": true,
+    "format": "spdx-json",
+    "generator": "syft",
+    "output": "reports/nimble/nimble-image-sbom.spdx.json"
+  },
+  "evidence": {
+    "image_identity_report": "reports/nimble/image-identity-latest.json",
+    "image_digest_report": "reports/nimble/image-digest-latest.json",
+    "sbom_report": "reports/nimble/nimble-image-sbom.spdx.json"
+  },
+  "local_execution": {
+    "docker_optional": true,
+    "contract_validation_required": true
+  },
+  "ci_execution": {
+    "docker_required": true,
+    "image_inspection_required": true,
+    "digest_capture_required": true,
+    "sbom_required": true
+  }
+}

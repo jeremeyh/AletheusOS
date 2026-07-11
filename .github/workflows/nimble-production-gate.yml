@@ -134,10 +134,27 @@ jobs:
           docker build \
             --file Dockerfile.nimble \
             --tag aletheus/nimble-experience-gateway:ci \
+            --build-arg ALETHEUS_BUILD_VERSION="${GITHUB_REF_NAME:-ci}" \
+            --build-arg ALETHEUS_BUILD_REVISION="${GITHUB_SHA}" \
+            --build-arg ALETHEUS_BUILD_CREATED="$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --build-arg ALETHEUS_BUILD_SOURCE="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}" \
+            --build-arg ALETHEUS_BUILD_REF_NAME="${GITHUB_REF_NAME:-ci}" \
             .
           python smoke_test_nimble_container.py \
             --image aletheus/nimble-experience-gateway:ci \
             --require-runtime
+          python validate_nimble_image_provenance.py
+          python inspect_nimble_image_identity.py \
+            --image aletheus/nimble-experience-gateway:ci \
+            --require-runtime
+          curl -sSfL \
+            https://raw.githubusercontent.com/anchore/syft/main/install.sh \
+            | sh -s -- -b "$HOME/.local/bin"
+          mkdir -p reports/nimble
+          "$HOME/.local/bin/syft" \
+            aletheus/nimble-experience-gateway:ci \
+            -o spdx-json=reports/nimble/nimble-image-sbom.spdx.json
+          test -s reports/nimble/nimble-image-sbom.spdx.json
 
       - name: Upload production assets
         if: always()
@@ -145,6 +162,11 @@ jobs:
         with:
           name: nimble-production-assets
           path: |
+            reports/nimble/image-provenance-contract-latest.json
+            reports/nimble/image-identity-latest.json
+            reports/nimble/image-digest-latest.json
+            reports/nimble/nimble-image-sbom.spdx.json
+            nimble/governance/deployment/image-provenance-contract.json
             nimble/apps/platform-shell/dist
             reports/nimble/production-gate-latest.json
             reports/nimble/production-gate-latest.md

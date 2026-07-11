@@ -17,6 +17,22 @@ RUN npm run typecheck \
 
 FROM python:3.14-slim AS runtime
 
+ARG ALETHEUS_BUILD_VERSION="development"
+ARG ALETHEUS_BUILD_REVISION="unknown"
+ARG ALETHEUS_BUILD_CREATED="unknown"
+ARG ALETHEUS_BUILD_SOURCE="local"
+ARG ALETHEUS_BUILD_REF_NAME="development"
+
+LABEL org.opencontainers.image.title="AletheusOS Nimble Experience Gateway" \
+      org.opencontainers.image.description="Governed Nimble experience shell and AletheusOS Experience Gateway" \
+      org.opencontainers.image.vendor="6th Dimension Multimedia" \
+      org.opencontainers.image.version="${ALETHEUS_BUILD_VERSION}" \
+      org.opencontainers.image.revision="${ALETHEUS_BUILD_REVISION}" \
+      org.opencontainers.image.created="${ALETHEUS_BUILD_CREATED}" \
+      org.opencontainers.image.source="${ALETHEUS_BUILD_SOURCE}" \
+      org.opencontainers.image.ref.name="${ALETHEUS_BUILD_REF_NAME}" \
+      org.opencontainers.image.licenses="Proprietary"
+
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
