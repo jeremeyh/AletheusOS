@@ -1,0 +1,285 @@
+name: Nimble Staging Promotion
+
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: Release tag or immutable release identifier
+        required: true
+        type: string
+      revision:
+        description: Exact Git revision to deploy
+        required: true
+        type: string
+      image:
+        description: Immutable image reference or digest
+        required: true
+        type: string
+      health_url:
+        description: Staging readiness endpoint
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+  attestations: read
+  id-token: write
+
+concurrency:
+  group: nimble-staging
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Validate staging candidate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out requested revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.revision }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install validation dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Verify immutable revision
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          actual_revision="$(git rev-parse HEAD)"
+
+          test "${actual_revision}" = "${{ inputs.revision }}" || {
+            echo "Requested revision: ${{ inputs.revision }}"
+            echo "Checked-out revision: ${actual_revision}"
+            exit 1
+          }
+
+      - name: Validate release integrity
+        run: |
+          python validate_nimble_release_integrity.py
+
+      - name: Generate staging promotion record
+        run: |
+          python generate_nimble_promotion_record.py \
+            --environment staging \
+            --release "${{ inputs.release }}"
+
+      - name: Validate staging promotion
+        run: |
+          python validate_nimble_release_promotion.py \
+            --environment staging
+
+      - name: Validate environment contract
+        run: |
+          python -m pytest -q \
+            tests/nimble/test_environment_promotion.py
+
+      - name: Upload validation evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: nimble-staging-validation-${{ github.run_id }}
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            reports/nimble/nimble-release-manifest.json
+            reports/nimble/nimble-release-manifest.sha256
+            reports/nimble/release-integrity-latest.json
+            reports/nimble/nimble-promotion-record.json
+            reports/nimble/promotion-validation-latest.json
+            nimble/governance/environments/environment-promotion-contract.json
+
+  deploy:
+    name: Deploy to staging
+    needs: validate
+    runs-on: ubuntu-latest
+    environment:
+      name: nimble-staging
+    outputs:
+      deployed_revision: ${{ steps.record.outputs.deployed_revision }}
+
+    steps:
+      - name: Check out requested revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.revision }}
+          fetch-depth: 0
+
+      - name: Deploy immutable candidate
+        shell: bash
+        env:
+          NIMBLE_DEPLOY_MODE: ${{ vars.NIMBLE_DEPLOY_MODE || 'dry-run' }}
+          NIMBLE_DEPLOY_COMMAND: ${{ secrets.NIMBLE_STAGING_DEPLOY_COMMAND }}
+          NIMBLE_ENVIRONMENT: staging
+          NIMBLE_RELEASE: ${{ inputs.release }}
+          NIMBLE_REVISION: ${{ inputs.revision }}
+          NIMBLE_IMAGE: ${{ inputs.image }}
+        run: |
+          ./scripts/nimble_deploy_adapter.sh
+
+      - name: Record staging deployment
+        id: record
+        shell: bash
+        env:
+          NIMBLE_RELEASE: ${{ inputs.release }}
+          NIMBLE_REVISION: ${{ inputs.revision }}
+          NIMBLE_IMAGE: ${{ inputs.image }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p reports/nimble
+
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          output = Path(
+              "reports/nimble/"
+              "environment-deployment-record.json"
+          )
+
+          image = os.environ["NIMBLE_IMAGE"]
+
+          payload = {
+              "schema_version": "1.0",
+              "record_id": (
+                  "nimble-environment-deployment-v0.1"
+              ),
+              "generated_at": datetime.now(
+                  timezone.utc
+              ).isoformat(),
+              "environment": "staging",
+              "release": os.environ["NIMBLE_RELEASE"],
+              "revision": os.environ["NIMBLE_REVISION"],
+              "image": image,
+              "image_reference_sha256": hashlib.sha256(
+                  image.encode("utf-8")
+              ).hexdigest(),
+              "workflow": {
+                  "repository": os.environ.get(
+                      "GITHUB_REPOSITORY"
+                  ),
+                  "run_id": os.environ.get(
+                      "GITHUB_RUN_ID"
+                  ),
+                  "run_attempt": os.environ.get(
+                      "GITHUB_RUN_ATTEMPT"
+                  ),
+              },
+              "status": "DEPLOYED"
+          }
+
+          output.write_text(
+              json.dumps(
+                  payload,
+                  indent=2,
+                  sort_keys=True,
+              )
+              + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+          echo \
+            "deployed_revision=${NIMBLE_REVISION}" \
+            >> "${GITHUB_OUTPUT}"
+
+      - name: Verify staging health
+        shell: bash
+        env:
+          HEALTH_URL: ${{ inputs.health_url }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p reports/nimble
+
+          status_code="$(
+            curl \
+              --silent \
+              --show-error \
+              --location \
+              --output /tmp/nimble-staging-health.json \
+              --write-out '%{http_code}' \
+              --retry 10 \
+              --retry-delay 6 \
+              --retry-all-errors \
+              "${HEALTH_URL}"
+          )"
+
+          test "${status_code}" = "200" || {
+            echo "Unexpected health status: ${status_code}"
+            cat /tmp/nimble-staging-health.json || true
+            exit 1
+          }
+
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          body_path = Path(
+              "/tmp/nimble-staging-health.json"
+          )
+
+          try:
+              response = json.loads(
+                  body_path.read_text(
+                      encoding="utf-8"
+                  )
+              )
+          except json.JSONDecodeError:
+              response = {
+                  "raw": body_path.read_text(
+                      encoding="utf-8"
+                  )
+              }
+
+          report = {
+              "schema_version": "1.0",
+              "generated_at": datetime.now(
+                  timezone.utc
+              ).isoformat(),
+              "environment": "staging",
+              "url": os.environ["HEALTH_URL"],
+              "http_status": 200,
+              "status": "PASS",
+              "response": response,
+          }
+
+          Path(
+              "reports/nimble/"
+              "environment-health-latest.json"
+          ).write_text(
+              json.dumps(
+                  report,
+                  indent=2,
+                  sort_keys=True,
+              )
+              + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Upload staging deployment evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: nimble-staging-deployment-${{ github.run_id }}
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            reports/nimble/environment-deployment-record.json
+            reports/nimble/environment-health-latest.json

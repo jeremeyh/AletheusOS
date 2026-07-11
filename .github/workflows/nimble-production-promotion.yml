@@ -1,0 +1,430 @@
+name: Nimble Production Promotion
+
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: Tagged release to promote
+        required: true
+        type: string
+      revision:
+        description: Exact candidate Git revision
+        required: true
+        type: string
+      image:
+        description: Immutable image reference or digest
+        required: true
+        type: string
+      staging_run_id:
+        description: Successful staging workflow run ID
+        required: true
+        type: string
+      rollback_release:
+        description: Previously verified rollback release
+        required: true
+        type: string
+      rollback_revision:
+        description: Exact rollback Git revision
+        required: true
+        type: string
+      rollback_image:
+        description: Immutable rollback image reference
+        required: true
+        type: string
+      health_url:
+        description: Production readiness endpoint
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+  attestations: read
+  id-token: write
+
+concurrency:
+  group: nimble-production
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Validate production candidate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out requested revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.revision }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install validation dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Verify candidate identity
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          actual_revision="$(git rev-parse HEAD)"
+
+          test "${actual_revision}" = "${{ inputs.revision }}"
+
+          test "${{ inputs.rollback_revision }}" \
+            != "${{ inputs.revision }}" || {
+              echo \
+                "Rollback revision cannot equal " \
+                "the candidate revision."
+              exit 1
+            }
+
+          git tag --points-at HEAD \
+            | grep -Fx "${{ inputs.release }}" \
+            >/dev/null || {
+              echo \
+                "Candidate revision is not tagged " \
+                "with ${{ inputs.release }}."
+              exit 1
+            }
+
+      - name: Validate release integrity
+        run: |
+          python validate_nimble_release_integrity.py
+
+      - name: Generate production promotion record
+        run: |
+          python generate_nimble_promotion_record.py \
+            --environment production \
+            --release "${{ inputs.release }}" \
+            --rollback-release \
+              "${{ inputs.rollback_release }}" \
+            --rollback-revision \
+              "${{ inputs.rollback_revision }}"
+
+      - name: Validate production promotion
+        run: |
+          python validate_nimble_release_promotion.py \
+            --environment production
+
+      - name: Validate environment contract
+        run: |
+          python -m pytest -q \
+            tests/nimble/test_environment_promotion.py
+
+      - name: Verify staging promotion evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: nimble-staging-deployment-${{ inputs.staging_run_id }}
+          path: staging-evidence
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.staging_run_id }}
+
+      - name: Validate staging revision
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          candidates = list(
+              Path("staging-evidence").rglob(
+                  "environment-deployment-record.json"
+              )
+          )
+
+          if len(candidates) != 1:
+              raise RuntimeError(
+                  "Expected exactly one staging "
+                  "deployment record."
+              )
+
+          record = json.loads(
+              candidates[0].read_text(
+                  encoding="utf-8"
+              )
+          )
+
+          expected_revision = os.environ[
+              "EXPECTED_REVISION"
+          ]
+
+          if record.get("environment") != "staging":
+              raise RuntimeError(
+                  "Deployment record is not for staging."
+              )
+
+          if (
+              record.get("revision")
+              != expected_revision
+          ):
+              raise RuntimeError(
+                  "Staging revision does not match "
+                  "the production candidate."
+              )
+
+          if record.get("status") != "DEPLOYED":
+              raise RuntimeError(
+                  "Staging record is not deployed."
+              )
+          PY
+        env:
+          EXPECTED_REVISION: ${{ inputs.revision }}
+
+      - name: Upload production validation evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: nimble-production-validation-${{ github.run_id }}
+          if-no-files-found: error
+          retention-days: 90
+          path: |
+            reports/nimble/nimble-promotion-record.json
+            reports/nimble/promotion-validation-latest.json
+            staging-evidence/
+
+  deploy:
+    name: Deploy to production
+    needs: validate
+    runs-on: ubuntu-latest
+    environment:
+      name: nimble-production
+
+    steps:
+      - name: Check out requested revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.revision }}
+          fetch-depth: 0
+
+      - name: Deploy immutable production candidate
+        shell: bash
+        env:
+          NIMBLE_DEPLOY_MODE: ${{ vars.NIMBLE_DEPLOY_MODE || 'dry-run' }}
+          NIMBLE_DEPLOY_COMMAND: ${{ secrets.NIMBLE_PRODUCTION_DEPLOY_COMMAND }}
+          NIMBLE_ENVIRONMENT: production
+          NIMBLE_RELEASE: ${{ inputs.release }}
+          NIMBLE_REVISION: ${{ inputs.revision }}
+          NIMBLE_IMAGE: ${{ inputs.image }}
+        run: |
+          ./scripts/nimble_deploy_adapter.sh
+
+      - name: Record production deployment
+        shell: bash
+        env:
+          NIMBLE_RELEASE: ${{ inputs.release }}
+          NIMBLE_REVISION: ${{ inputs.revision }}
+          NIMBLE_IMAGE: ${{ inputs.image }}
+          ROLLBACK_RELEASE: ${{ inputs.rollback_release }}
+          ROLLBACK_REVISION: ${{ inputs.rollback_revision }}
+          ROLLBACK_IMAGE: ${{ inputs.rollback_image }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p reports/nimble
+
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          payload = {
+              "schema_version": "1.0",
+              "record_id": (
+                  "nimble-environment-deployment-v0.1"
+              ),
+              "generated_at": datetime.now(
+                  timezone.utc
+              ).isoformat(),
+              "environment": "production",
+              "release": os.environ["NIMBLE_RELEASE"],
+              "revision": os.environ["NIMBLE_REVISION"],
+              "image": os.environ["NIMBLE_IMAGE"],
+              "rollback": {
+                  "release": os.environ[
+                      "ROLLBACK_RELEASE"
+                  ],
+                  "revision": os.environ[
+                      "ROLLBACK_REVISION"
+                  ],
+                  "image": os.environ[
+                      "ROLLBACK_IMAGE"
+                  ],
+              },
+              "status": "DEPLOYED",
+              "workflow": {
+                  "repository": os.environ.get(
+                      "GITHUB_REPOSITORY"
+                  ),
+                  "run_id": os.environ.get(
+                      "GITHUB_RUN_ID"
+                  ),
+                  "run_attempt": os.environ.get(
+                      "GITHUB_RUN_ATTEMPT"
+                  ),
+              },
+          }
+
+          Path(
+              "reports/nimble/"
+              "environment-deployment-record.json"
+          ).write_text(
+              json.dumps(
+                  payload,
+                  indent=2,
+                  sort_keys=True,
+              )
+              + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Verify production health
+        id: production_health
+        continue-on-error: true
+        shell: bash
+        env:
+          HEALTH_URL: ${{ inputs.health_url }}
+        run: |
+          set -euo pipefail
+
+          status_code="$(
+            curl \
+              --silent \
+              --show-error \
+              --location \
+              --output /tmp/nimble-production-health.json \
+              --write-out '%{http_code}' \
+              --retry 10 \
+              --retry-delay 6 \
+              --retry-all-errors \
+              "${HEALTH_URL}"
+          )"
+
+          test "${status_code}" = "200"
+
+      - name: Execute rollback adapter
+        if: steps.production_health.outcome == 'failure'
+        shell: bash
+        env:
+          NIMBLE_DEPLOY_MODE: ${{ vars.NIMBLE_DEPLOY_MODE || 'dry-run' }}
+          NIMBLE_ROLLBACK_COMMAND: ${{ secrets.NIMBLE_PRODUCTION_ROLLBACK_COMMAND }}
+          NIMBLE_ENVIRONMENT: production
+          ROLLBACK_RELEASE: ${{ inputs.rollback_release }}
+          ROLLBACK_REVISION: ${{ inputs.rollback_revision }}
+          ROLLBACK_IMAGE: ${{ inputs.rollback_image }}
+        run: |
+          ./scripts/nimble_rollback_adapter.sh
+
+          mkdir -p reports/nimble
+
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          payload = {
+              "schema_version": "1.0",
+              "record_id": (
+                  "nimble-environment-rollback-v0.1"
+              ),
+              "generated_at": datetime.now(
+                  timezone.utc
+              ).isoformat(),
+              "environment": "production",
+              "release": os.environ[
+                  "ROLLBACK_RELEASE"
+              ],
+              "revision": os.environ[
+                  "ROLLBACK_REVISION"
+              ],
+              "image": os.environ[
+                  "ROLLBACK_IMAGE"
+              ],
+              "status": "ROLLBACK_EXECUTED"
+          }
+
+          Path(
+              "reports/nimble/"
+              "environment-rollback-record.json"
+          ).write_text(
+              json.dumps(
+                  payload,
+                  indent=2,
+                  sort_keys=True,
+              )
+              + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Fail after rollback
+        if: steps.production_health.outcome == 'failure'
+        run: |
+          echo \
+            "Production deployment failed health verification; " \
+            "rollback adapter executed."
+          exit 1
+
+      - name: Record successful production health
+        if: steps.production_health.outcome == 'success'
+        shell: bash
+        env:
+          HEALTH_URL: ${{ inputs.health_url }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p reports/nimble
+
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          payload = {
+              "schema_version": "1.0",
+              "generated_at": datetime.now(
+                  timezone.utc
+              ).isoformat(),
+              "environment": "production",
+              "url": os.environ["HEALTH_URL"],
+              "http_status": 200,
+              "status": "PASS"
+          }
+
+          Path(
+              "reports/nimble/"
+              "environment-health-latest.json"
+          ).write_text(
+              json.dumps(
+                  payload,
+                  indent=2,
+                  sort_keys=True,
+              )
+              + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Upload production evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nimble-production-deployment-${{ github.run_id }}
+          if-no-files-found: warn
+          retention-days: 90
+          path: |
+            reports/nimble/environment-deployment-record.json
+            reports/nimble/environment-health-latest.json
+            reports/nimble/environment-rollback-record.json

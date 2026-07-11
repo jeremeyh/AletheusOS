@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "nimble-deployment-adapter-v0.1",
+  "policy": {
+    "fail_closed": true,
+    "placeholder_execution_forbidden": true,
+    "shell_injection_resistance_required": true,
+    "dry_run_explicitly_enabled": true
+  },
+  "configuration": {
+    "adapter_script": "scripts/nimble_deploy_adapter.sh",
+    "required_environment_variables": [
+      "NIMBLE_DEPLOY_MODE",
+      "NIMBLE_ENVIRONMENT",
+      "NIMBLE_RELEASE",
+      "NIMBLE_REVISION",
+      "NIMBLE_IMAGE"
+    ],
+    "allowed_modes": [
+      "dry-run",
+      "execute"
+    ]
+  },
+  "production": {
+    "execute_mode_required": true,
+    "rollback_adapter_required": true,
+    "health_verification_required": true
+  }
+}

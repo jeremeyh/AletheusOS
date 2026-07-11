@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "nimble-environment-promotion-automation-v0.1",
+  "application": "AletheusOS Nimble",
+  "environments": {
+    "staging": {
+      "github_environment": "nimble-staging",
+      "requires_manual_approval": false,
+      "deployment_concurrency": "nimble-staging",
+      "health_probe_required": true,
+      "rollback_required": false
+    },
+    "production": {
+      "github_environment": "nimble-production",
+      "requires_manual_approval": true,
+      "deployment_concurrency": "nimble-production",
+      "health_probe_required": true,
+      "rollback_required": true
+    }
+  },
+  "promotion_policy": {
+    "staging_before_production": true,
+    "same_revision_required": true,
+    "release_integrity_required": true,
+    "promotion_record_required": true,
+    "production_tag_required": true,
+    "production_approval_required": true
+  },
+  "rollback_policy": {
+    "rollback_target_required": true,
+    "rollback_target_must_differ": true,
+    "post_rollback_health_check_required": true
+  },
+  "evidence": {
+    "deployment_record": "reports/nimble/environment-deployment-record.json",
+    "health_report": "reports/nimble/environment-health-latest.json",
+    "rollback_record": "reports/nimble/environment-rollback-record.json"
+  }
+}
