@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "service": {
+    "name": "nimble-experience-gateway",
+    "backend_module": "aletheus.experience_gateway.fastapi_app:app",
+    "frontend_distribution": "nimble/apps/platform-shell/dist"
+  },
+  "runtime": {
+    "python": ">=3.13,<3.15",
+    "node": "24",
+    "auth_modes": [
+      "local",
+      "oidc"
+    ]
+  },
+  "required_environment": [
+    {
+      "name": "ALETHEUS_AUTH_MODE",
+      "required": true,
+      "secret": false,
+      "allowed_values": [
+        "local",
+        "oidc"
+      ]
+    }
+  ],
+  "conditional_environment": [
+    {
+      "when": {
+        "ALETHEUS_AUTH_MODE": "oidc"
+      },
+      "required": [
+        {
+          "name": "ALETHEUS_OIDC_ISSUER",
+          "secret": false
+        },
+        {
+          "name": "ALETHEUS_OIDC_AUDIENCE",
+          "secret": false
+        },
+        {
+          "name": "ALETHEUS_OIDC_JWKS_URL",
+          "secret": false
+        },
+        {
+          "name": "VITE_OIDC_AUTHORITY",
+          "secret": false
+        },
+        {
+          "name": "VITE_OIDC_CLIENT_ID",
+          "secret": false
+        },
+        {
+          "name": "VITE_OIDC_REDIRECT_URI",
+          "secret": false
+        }
+      ]
+    }
+  ],
+  "probes": {
+    "liveness": {
+      "path": "/healthz",
+      "expected_status": 200
+    },
+    "readiness": {
+      "path": "/readyz",
+      "expected_status": 200
+    }
+  },
+  "artifacts": [
+    "nimble/apps/platform-shell/dist",
+    "reports/nimble/production-gate-latest.json",
+    "reports/nimble/dependency-risk-latest.json",
+    "reports/nimble/dependency-exception-reconciliation-latest.json"
+  ]
+}

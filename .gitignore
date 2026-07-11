@@ -30,3 +30,7 @@ node_modules/
 # Nimble production telemetry runtime output
 reports/nimble/production-gate-history.jsonl
 reports/nimble/production-gate-latest.log
+
+# Nimble Playwright runtime artifacts
+nimble/test-results/
+nimble/reports/ux/playwright/

@@ -1,0 +1,81 @@
+{
+  "deployment_contract": {
+    "path": "nimble/governance/deployment/deployment-contract.json",
+    "sha256": "11ea752d5e91b8c1ec03910d305c5bf3cb85959de532ee783f360644d6c3f039"
+  },
+  "frontend": {
+    "artifacts": [
+      {
+        "bytes": 3144,
+        "path": "nimble/apps/platform-shell/dist/assets/CommandHistoryRoute-DyL4T3mF.js",
+        "sha256": "615c53021752426e6cdbfd860161cf0e2bf4681f73c87426c3a90c719e025e88"
+      },
+      {
+        "bytes": 49389,
+        "path": "nimble/apps/platform-shell/dist/assets/CommandSurface-DoMPExIX.js",
+        "sha256": "819cfa4b13de4d333a3276892adb0d136371f60a7b491b713bde3d45eddeac07"
+      },
+      {
+        "bytes": 1228,
+        "path": "nimble/apps/platform-shell/dist/assets/OidcCallbackRoute-Be4BGyS7.js",
+        "sha256": "0af50ae7beeaa8c7bf599cea2e38d2791745e785b59a3417f3c5aceaceec644c"
+      },
+      {
+        "bytes": 3455,
+        "path": "nimble/apps/platform-shell/dist/assets/commandQueries-Bjv7rfLL.js",
+        "sha256": "d40229f606eb17742b9078e35082d22dea939c17cedac61d1bac8fac4b5d0de2"
+      },
+      {
+        "bytes": 38025,
+        "path": "nimble/apps/platform-shell/dist/assets/index-BYV9smdh.css",
+        "sha256": "70abc9c6f75b6404e6080259fb2e5a4d81e6c28e276905bc45abcbc558fbd575"
+      },
+      {
+        "bytes": 447168,
+        "path": "nimble/apps/platform-shell/dist/assets/index-CW82vOQv.js",
+        "sha256": "9824c31ba27c5032c384d9eb856a7d72dfdca83c48a434e09d883470fd624515"
+      },
+      {
+        "bytes": 67533,
+        "path": "nimble/apps/platform-shell/dist/assets/oidc-client-ts-C_veRLI2.js",
+        "sha256": "8278c72d1eee07f4490e8c44c1cdbcfc44814c619bba20a77819cfb6ff5bd226"
+      },
+      {
+        "bytes": 12967,
+        "path": "nimble/apps/platform-shell/dist/assets/oidcSession-BQVirP6V.js",
+        "sha256": "eba0159421ce77e5b2b6f028c160d7c4ebff98ccd9eca14b26e6721a094a2e70"
+      },
+      {
+        "bytes": 9522,
+        "path": "nimble/apps/platform-shell/dist/favicon.svg",
+        "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+      },
+      {
+        "bytes": 5031,
+        "path": "nimble/apps/platform-shell/dist/icons.svg",
+        "sha256": "b45fa506195cfcdef406ba9f0c77b36ddc1a7c224040926ec70abc2fdea7b93a"
+      },
+      {
+        "bytes": 546,
+        "path": "nimble/apps/platform-shell/dist/index.html",
+        "sha256": "237842cec22a8ddb63c631c48e6aaa537f6bd0f2348aed4cbcc0ab6e781e272e"
+      }
+    ],
+    "distribution": "nimble/apps/platform-shell/dist",
+    "file_count": 11,
+    "total_bytes": 638008
+  },
+  "generated_at": "2026-07-10T23:59:39.348460+00:00",
+  "runtime": {
+    "node": "v24.18.0",
+    "npm": "11.16.0",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6"
+  },
+  "schema_version": "1.0",
+  "source": {
+    "branch": "feature/cardhawk-streamlit-v0.1",
+    "commit": "e9e0c245bf66a37acc8c6b25d329a9b5d120dac6",
+    "short_commit": "e9e0c24"
+  }
+}
