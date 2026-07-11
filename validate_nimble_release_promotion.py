@@ -317,6 +317,37 @@ def main() -> int:
     print(f"Revision: {current_revision}")
     print(f"Status: {status}")
     print(f"Failures: {len(failures)}")
+    if status == "PASS":
+        subprocess.run(
+            [
+                "python",
+                str(ROOT / "append_nimble_audit_event.py"),
+                "--event-type",
+                "promotion_validated",
+                "--environment",
+                str(environment),
+                "--release",
+                str(
+                    candidate.get(
+                        "release",
+                        "unknown",
+                    )
+                ),
+                "--revision",
+                current_revision,
+                "--metadata-json",
+                json.dumps(
+                    {
+                        "rollback_required": (
+                            environment == "production"
+                        ),
+                    }
+                ),
+            ],
+            cwd=ROOT,
+            check=True,
+        )
+
     print(
         "Report:",
         REPORT_PATH.relative_to(ROOT),

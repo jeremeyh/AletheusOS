@@ -361,6 +361,38 @@ def main() -> int:
     print(f"Mode: {arguments.mode}")
     print(f"Status: {status}")
     print(f"Failures: {len(failures)}")
+    if status == "PASS":
+        subprocess.run(
+            [
+                "python",
+                str(ROOT / "append_nimble_audit_event.py"),
+                "--event-type",
+                "provider_preflight",
+                "--environment",
+                arguments.environment,
+                "--release",
+                os.environ.get(
+                    "NIMBLE_RELEASE",
+                    "preflight",
+                ),
+                "--revision",
+                os.environ.get(
+                    "NIMBLE_REVISION",
+                    "unknown",
+                ),
+                "--metadata-json",
+                json.dumps(
+                    {
+                        "provider": arguments.provider,
+                        "action": arguments.action,
+                        "mode": arguments.mode,
+                    }
+                ),
+            ],
+            cwd=ROOT,
+            check=True,
+        )
+
     print(
         "Report:",
         REPORT_PATH.relative_to(ROOT),

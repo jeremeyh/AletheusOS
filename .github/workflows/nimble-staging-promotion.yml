@@ -115,6 +115,17 @@ jobs:
           ref: ${{ inputs.revision }}
           fetch-depth: 0
 
+      - name: Record staging deployment start
+        env:
+          NIMBLE_AUDIT_EVENT_TYPE: deployment_started
+          NIMBLE_ENVIRONMENT: staging
+          NIMBLE_RELEASE: ${{ inputs.release }}
+          NIMBLE_REVISION: ${{ inputs.revision }}
+          NIMBLE_AUDIT_METADATA_JSON: >-
+            {"provider":"${{ vars.NIMBLE_DEPLOY_PROVIDER || 'dry-run' }}"}
+        run: |
+          ./scripts/nimble_append_audit_event.sh
+
       - name: Deploy immutable candidate
         shell: bash
         env:
@@ -197,6 +208,17 @@ jobs:
             "deployed_revision=${NIMBLE_REVISION}" \
             >> "${GITHUB_OUTPUT}"
 
+      - name: Record staging deployment completion
+        env:
+          NIMBLE_AUDIT_EVENT_TYPE: deployment_completed
+          NIMBLE_ENVIRONMENT: staging
+          NIMBLE_RELEASE: ${{ inputs.release }}
+          NIMBLE_REVISION: ${{ inputs.revision }}
+          NIMBLE_AUDIT_METADATA_JSON: >-
+            {"status":"deployed"}
+        run: |
+          ./scripts/nimble_append_audit_event.sh
+
       - name: Verify staging health
         shell: bash
         env:
@@ -274,6 +296,18 @@ jobs:
           )
           PY
 
+      - name: Record staging health verification
+        env:
+          NIMBLE_AUDIT_EVENT_TYPE: health_verified
+          NIMBLE_ENVIRONMENT: staging
+          NIMBLE_RELEASE: ${{ inputs.release }}
+          NIMBLE_REVISION: ${{ inputs.revision }}
+          NIMBLE_AUDIT_METADATA_JSON: >-
+            {"status":"pass"}
+        run: |
+          ./scripts/nimble_append_audit_event.sh
+          python validate_nimble_audit_ledger.py
+
       - name: Upload staging deployment evidence
         uses: actions/upload-artifact@v4
         with:
@@ -281,5 +315,8 @@ jobs:
           if-no-files-found: error
           retention-days: 30
           path: |
+            nimble/governance/audit/deployment-audit-ledger.jsonl
+            reports/nimble/deployment-audit-ledger-validation-latest.json
+            reports/nimble/deployment-audit-ledger-summary-latest.json
             reports/nimble/environment-deployment-record.json
             reports/nimble/environment-health-latest.json

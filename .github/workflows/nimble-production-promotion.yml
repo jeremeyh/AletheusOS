@@ -205,6 +205,17 @@ jobs:
           ref: ${{ inputs.revision }}
           fetch-depth: 0
 
+      - name: Record production deployment start
+        env:
+          NIMBLE_AUDIT_EVENT_TYPE: deployment_started
+          NIMBLE_ENVIRONMENT: production
+          NIMBLE_RELEASE: ${{ inputs.release }}
+          NIMBLE_REVISION: ${{ inputs.revision }}
+          NIMBLE_AUDIT_METADATA_JSON: >-
+            {"provider":"${{ vars.NIMBLE_DEPLOY_PROVIDER || 'dry-run' }}"}
+        run: |
+          ./scripts/nimble_append_audit_event.sh
+
       - name: Deploy immutable production candidate
         shell: bash
         env:
@@ -288,6 +299,17 @@ jobs:
           )
           PY
 
+      - name: Record production deployment completion
+        env:
+          NIMBLE_AUDIT_EVENT_TYPE: deployment_completed
+          NIMBLE_ENVIRONMENT: production
+          NIMBLE_RELEASE: ${{ inputs.release }}
+          NIMBLE_REVISION: ${{ inputs.revision }}
+          NIMBLE_AUDIT_METADATA_JSON: >-
+            {"status":"deployed"}
+        run: |
+          ./scripts/nimble_append_audit_event.sh
+
       - name: Verify production health
         id: production_health
         continue-on-error: true
@@ -311,6 +333,18 @@ jobs:
           )"
 
           test "${status_code}" = "200"
+
+      - name: Record rollback start
+        if: steps.production_health.outcome == 'failure'
+        env:
+          NIMBLE_AUDIT_EVENT_TYPE: rollback_started
+          NIMBLE_ENVIRONMENT: production
+          NIMBLE_RELEASE: ${{ inputs.rollback_release }}
+          NIMBLE_REVISION: ${{ inputs.rollback_revision }}
+          NIMBLE_AUDIT_METADATA_JSON: >-
+            {"reason":"health_verification_failed"}
+        run: |
+          ./scripts/nimble_append_audit_event.sh
 
       - name: Execute rollback adapter
         if: steps.production_health.outcome == 'failure'
@@ -368,6 +402,19 @@ jobs:
           )
           PY
 
+      - name: Record rollback completion
+        if: steps.production_health.outcome == 'failure'
+        env:
+          NIMBLE_AUDIT_EVENT_TYPE: rollback_completed
+          NIMBLE_ENVIRONMENT: production
+          NIMBLE_RELEASE: ${{ inputs.rollback_release }}
+          NIMBLE_REVISION: ${{ inputs.rollback_revision }}
+          NIMBLE_AUDIT_METADATA_JSON: >-
+            {"status":"rollback_executed"}
+        run: |
+          ./scripts/nimble_append_audit_event.sh
+          python validate_nimble_audit_ledger.py
+
       - name: Fail after rollback
         if: steps.production_health.outcome == 'failure'
         run: |
@@ -417,6 +464,19 @@ jobs:
           )
           PY
 
+      - name: Record successful production health
+        if: steps.production_health.outcome == 'success'
+        env:
+          NIMBLE_AUDIT_EVENT_TYPE: health_verified
+          NIMBLE_ENVIRONMENT: production
+          NIMBLE_RELEASE: ${{ inputs.release }}
+          NIMBLE_REVISION: ${{ inputs.revision }}
+          NIMBLE_AUDIT_METADATA_JSON: >-
+            {"status":"pass"}
+        run: |
+          ./scripts/nimble_append_audit_event.sh
+          python validate_nimble_audit_ledger.py
+
       - name: Upload production evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -425,6 +485,9 @@ jobs:
           if-no-files-found: warn
           retention-days: 90
           path: |
+            nimble/governance/audit/deployment-audit-ledger.jsonl
+            reports/nimble/deployment-audit-ledger-validation-latest.json
+            reports/nimble/deployment-audit-ledger-summary-latest.json
             reports/nimble/environment-deployment-record.json
             reports/nimble/environment-health-latest.json
             reports/nimble/environment-rollback-record.json

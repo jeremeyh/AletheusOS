@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import subprocess
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
@@ -313,6 +315,39 @@ def main() -> int:
     print(f"Warnings: {len(warnings)}")
     print(f"Failures: {len(failures)}")
     print(f"Status: {status}")
+    if status == "PASS":
+        subprocess.run(
+            [
+                "python",
+                str(ROOT / "append_nimble_audit_event.py"),
+                "--event-type",
+                "credential_rotation_validated",
+                "--environment",
+                arguments.environment,
+                "--release",
+                os.environ.get(
+                    "NIMBLE_RELEASE",
+                    "credential-governance",
+                ),
+                "--revision",
+                os.environ.get(
+                    "NIMBLE_REVISION",
+                    "unknown",
+                ),
+                "--metadata-json",
+                json.dumps(
+                    {
+                        "provider": arguments.provider,
+                        "credential_count": len(
+                            scoped_credentials
+                        ),
+                    }
+                ),
+            ],
+            cwd=ROOT,
+            check=True,
+        )
+
     print(
         "Report:",
         REPORT_PATH.relative_to(ROOT),
