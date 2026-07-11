@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "nimble-audit-checkpoint-external-anchor-v0.1",
+  "checkpoint": {
+    "directory": "nimble/governance/audit/checkpoints",
+    "latest_pointer": "nimble/governance/audit/checkpoints/latest.json",
+    "format": "json",
+    "hash_algorithm": "sha256",
+    "genesis_previous_checkpoint_hash": "GENESIS"
+  },
+  "required_bindings": [
+    "ledger_entry_count",
+    "ledger_head_hash",
+    "git_revision",
+    "release_identity",
+    "previous_checkpoint_hash",
+    "checkpoint_hash"
+  ],
+  "policy": {
+    "checkpoint_chain_required": true,
+    "ledger_head_binding_required": true,
+    "git_revision_binding_required": true,
+    "release_binding_required": true,
+    "checkpoint_hash_required": true,
+    "latest_pointer_required": true,
+    "ledger_truncation_detection_required": true,
+    "ledger_rollback_detection_required": true,
+    "checkpoint_rewrite_forbidden": true,
+    "absolute_paths_forbidden": true
+  },
+  "external_anchor": {
+    "provider": "git",
+    "anchor_reference": "commit_and_tag",
+    "signed_external_anchor_optional": true
+  },
+  "evidence": {
+    "checkpoint_validation": "reports/nimble/audit-checkpoint-validation-latest.json",
+    "checkpoint_summary": "reports/nimble/audit-checkpoint-summary-latest.json"
+  }
+}
