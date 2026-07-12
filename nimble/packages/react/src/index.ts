@@ -10,3 +10,5 @@ export interface NimbleSurfaceProps {
   readonly busy?: boolean;
   readonly disabled?: boolean;
 }
+
+export * from "./primitives";
