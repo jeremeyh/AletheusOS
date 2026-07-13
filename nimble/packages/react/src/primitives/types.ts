@@ -36,15 +36,6 @@ export type InstrumentKind =
   | "telemetry";
 
 
-export type InstrumentStatus =
-  | "initializing"
-  | "healthy"
-  | "attention"
-  | "review"
-  | "critical"
-  | "unavailable";
-
-
 export interface PrimitiveProps
   extends HTMLAttributes<HTMLElement> {
   readonly children?: ReactNode;

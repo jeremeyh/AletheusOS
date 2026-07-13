@@ -12,3 +12,5 @@ export interface NimbleSurfaceProps {
 }
 
 export * from "./primitives";
+
+export * from "./instrumentation";

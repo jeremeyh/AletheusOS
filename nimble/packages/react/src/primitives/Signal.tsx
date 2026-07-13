@@ -8,7 +8,7 @@ import {
 
 import type {
   InstrumentStatus,
-} from "./types";
+} from "../instrumentation/contracts";
 
 
 export interface SignalProps

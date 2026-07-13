@@ -1,4 +1,8 @@
 import type {
+  InstrumentStatus,
+} from "../instrumentation/contracts";
+
+import type {
   ReactNode,
 } from "react";
 
@@ -30,9 +34,7 @@ import {
 import type {
   ExperienceDensity,
   InstrumentKind,
-  InstrumentStatus,
 } from "./types";
-
 
 export interface InstrumentProps {
   readonly id: string;
@@ -66,7 +68,6 @@ export interface InstrumentProps {
     string;
 }
 
-
 const STATUS_TOKENS = {
   initializing:
     "text.muted",
@@ -86,7 +87,6 @@ const STATUS_TOKENS = {
   unavailable:
     "text.muted",
 } as const;
-
 
 export function Instrument({
   id,
