@@ -1,21 +1,17 @@
-"""Unified finding model for SPAN™ analyzers.
-
-A finding is a normalized architectural conclusion produced by one analyzer
-from one or more evidence records. Findings are immutable enough for safe
-reporting, serialization, correlation, and future governance evaluation.
-"""
+"""Canonical SPAN™ finding contracts and collections."""
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from collections import Counter
+from collections.abc import Iterable, Iterator
+from dataclasses import asdict, dataclass, field
 from enum import Enum
 from hashlib import sha256
-from typing import Any, Iterable, Mapping
-import json
+from typing import Any
 
 
 class Severity(str, Enum):
-    """Normalized SPAN finding severity."""
+    """Canonical severity levels for SPAN findings."""
 
     INFO = "info"
     LOW = "low"
@@ -23,126 +19,209 @@ class Severity(str, Enum):
     HIGH = "high"
     CRITICAL = "critical"
 
-    @property
-    def weight(self) -> int:
-        return {
-            Severity.INFO: 0,
-            Severity.LOW: 1,
-            Severity.MEDIUM: 3,
-            Severity.HIGH: 7,
-            Severity.CRITICAL: 12,
-        }[self]
+    @classmethod
+    def coerce(cls, value: "Severity | str") -> "Severity":
+        if isinstance(value, cls):
+            return value
+
+        normalized = str(value).strip().lower()
+
+        try:
+            return cls(normalized)
+        except ValueError as exc:
+            allowed = ", ".join(item.value for item in cls)
+            raise ValueError(
+                f"unsupported severity {value!r}; expected one of: {allowed}"
+            ) from exc
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(slots=True)
 class Finding:
-    """A normalized architectural observation or governance concern."""
+    """
+    Canonical SPAN finding.
 
-    analyzer: str
-    category: str
-    title: str
-    summary: str
+    Compatibility:
+    - Existing analyzers may provide ``summary`` and omit ``id``.
+    - Newer callers may provide ``description`` and an explicit ``id``.
+    - Summary and description are synchronized when only one is provided.
+    """
+
+    id: str = ""
+    title: str = ""
+    category: str = ""
     severity: Severity = Severity.INFO
+
+    summary: str = ""
+    description: str = ""
+    analyzer: str | None = None
+
     confidence: float = 1.0
-    recommendation: str | None = None
-    evidence_ids: tuple[str, ...] = ()
-    owner: str | None = None
-    tags: tuple[str, ...] = ()
-    metadata: Mapping[str, Any] = field(default_factory=dict)
-    finding_id: str = ""
+    evidence: list[Any] = field(default_factory=list)
+    recommendation: str = ""
+    tags: list[str] = field(default_factory=list)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     def __post_init__(self) -> None:
-        if not 0.0 <= self.confidence <= 1.0:
-            raise ValueError("confidence must be between 0.0 and 1.0")
-        if not self.analyzer.strip():
-            raise ValueError("analyzer cannot be empty")
-        if not self.category.strip():
-            raise ValueError("category cannot be empty")
-        if not self.title.strip():
-            raise ValueError("title cannot be empty")
-        if not self.summary.strip():
-            raise ValueError("summary cannot be empty")
+        self.title = str(self.title).strip()
+        self.category = str(self.category).strip()
+        self.summary = str(self.summary).strip()
+        self.description = str(self.description).strip()
 
-        object.__setattr__(self, "evidence_ids", tuple(dict.fromkeys(self.evidence_ids)))
-        object.__setattr__(self, "tags", tuple(dict.fromkeys(self.tags)))
+        if self.analyzer is not None:
+            normalized_analyzer = str(self.analyzer).strip()
+            self.analyzer = normalized_analyzer or None
 
-        if not self.finding_id:
-            payload = {
-                "analyzer": self.analyzer,
-                "category": self.category,
-                "title": self.title,
-                "summary": self.summary,
-                "evidence_ids": self.evidence_ids,
-            }
-            digest = sha256(
-                json.dumps(payload, sort_keys=True, default=str).encode("utf-8")
-            ).hexdigest()[:20]
-            object.__setattr__(self, "finding_id", f"finding:{digest}")
+        self.severity = Severity.coerce(self.severity)
 
-    @property
-    def risk_score(self) -> float:
-        """Return a confidence-adjusted severity score."""
+        if self.summary and not self.description:
+            self.description = self.summary
+        elif self.description and not self.summary:
+            self.summary = self.description
 
-        return round(self.severity.weight * self.confidence, 4)
+        if not self.title:
+            raise ValueError("finding title must not be empty")
+
+        if not self.category:
+            raise ValueError("finding category must not be empty")
+
+        if not self.summary and not self.description:
+            raise ValueError(
+                "finding must provide either summary or description"
+            )
+
+        confidence = float(self.confidence)
+
+        if not 0.0 <= confidence <= 1.0:
+            raise ValueError(
+                "finding confidence must be between 0.0 and 1.0"
+            )
+
+        self.confidence = confidence
+        self.evidence = list(self.evidence)
+        self.tags = list(
+            dict.fromkeys(
+                str(tag).strip()
+                for tag in self.tags
+                if str(tag).strip()
+            )
+        )
+        self.metadata = dict(self.metadata)
+
+        self.id = str(self.id).strip()
+
+        if not self.id:
+            self.id = self._generate_id()
+
+    def _generate_id(self) -> str:
+        """Generate a deterministic identifier for legacy analyzer findings."""
+
+        identity = "\x1f".join(
+            (
+                self.analyzer or "unknown",
+                self.category,
+                self.title,
+                self.summary or self.description,
+            )
+        )
+
+        digest = sha256(identity.encode("utf-8")).hexdigest()[:16]
+
+        return f"span:{self.category}:{digest}"
 
     def to_dict(self) -> dict[str, Any]:
-        return {
-            "finding_id": self.finding_id,
-            "analyzer": self.analyzer,
-            "category": self.category,
-            "title": self.title,
-            "summary": self.summary,
-            "severity": self.severity.value,
-            "confidence": self.confidence,
-            "risk_score": self.risk_score,
-            "recommendation": self.recommendation,
-            "evidence_ids": list(self.evidence_ids),
-            "owner": self.owner,
-            "tags": list(self.tags),
-            "metadata": dict(self.metadata),
-        }
-
-    @classmethod
-    def from_dict(cls, payload: Mapping[str, Any]) -> "Finding":
-        return cls(
-            finding_id=str(payload.get("finding_id", "")),
-            analyzer=str(payload["analyzer"]),
-            category=str(payload["category"]),
-            title=str(payload["title"]),
-            summary=str(payload["summary"]),
-            severity=Severity(str(payload.get("severity", Severity.INFO.value))),
-            confidence=float(payload.get("confidence", 1.0)),
-            recommendation=payload.get("recommendation"),
-            evidence_ids=tuple(str(value) for value in payload.get("evidence_ids", ())),
-            owner=payload.get("owner"),
-            tags=tuple(str(value) for value in payload.get("tags", ())),
-            metadata=dict(payload.get("metadata", {})),
-        )
+        payload = asdict(self)
+        payload["severity"] = self.severity.value
+        return payload
 
 
 @dataclass(slots=True)
 class FindingSet:
-    """Mutable collection used during analyzer and pipeline execution."""
+    """Ordered collection of unique SPAN findings."""
 
     findings: list[Finding] = field(default_factory=list)
+    _ids: set[str] = field(default_factory=set, init=False, repr=False)
+
+    def __post_init__(self) -> None:
+        initial = list(self.findings)
+        self.findings = []
+        self.extend(initial)
+
+    def __iter__(self) -> Iterator[Finding]:
+        return iter(self.findings)
+
+    def __len__(self) -> int:
+        return len(self.findings)
+
+    def __bool__(self) -> bool:
+        return bool(self.findings)
 
     def add(self, finding: Finding) -> None:
-        if all(item.finding_id != finding.finding_id for item in self.findings):
-            self.findings.append(finding)
+        if not isinstance(finding, Finding):
+            raise TypeError(
+                "FindingSet accepts Finding instances, "
+                f"got {type(finding).__name__}"
+            )
+
+        if finding.id in self._ids:
+            raise ValueError(f"duplicate finding id: {finding.id}")
+
+        self.findings.append(finding)
+        self._ids.add(finding.id)
 
     def extend(self, findings: Iterable[Finding]) -> None:
         for finding in findings:
             self.add(finding)
 
-    def by_severity(self, severity: Severity) -> tuple[Finding, ...]:
-        return tuple(item for item in self.findings if item.severity is severity)
+    def get(self, finding_id: str) -> Finding:
+        for finding in self.findings:
+            if finding.id == finding_id:
+                return finding
+
+        raise KeyError(finding_id)
+
+    def by_severity(
+        self,
+        severity: Severity | str,
+    ) -> tuple[Finding, ...]:
+        expected = Severity.coerce(severity)
+
+        return tuple(
+            finding
+            for finding in self.findings
+            if finding.severity is expected
+        )
 
     def by_category(self, category: str) -> tuple[Finding, ...]:
-        return tuple(item for item in self.findings if item.category == category)
+        return tuple(
+            finding
+            for finding in self.findings
+            if finding.category == category
+        )
 
-    @property
-    def total_risk(self) -> float:
-        return round(sum(item.risk_score for item in self.findings), 4)
+    def summary(self) -> dict[str, Any]:
+        severity_counts = Counter(
+            finding.severity.value
+            for finding in self.findings
+        )
+        category_counts = Counter(
+            finding.category
+            for finding in self.findings
+        )
 
-    def to_list(self) -> list[dict[str, Any]]:
-        return [finding.to_dict() for finding in self.findings]
+        return {
+            "total": len(self.findings),
+            "by_severity": {
+                severity.value: severity_counts.get(severity.value, 0)
+                for severity in Severity
+            },
+            "by_category": dict(sorted(category_counts.items())),
+        }
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "summary": self.summary(),
+            "findings": [
+                finding.to_dict()
+                for finding in self.findings
+            ],
+        }

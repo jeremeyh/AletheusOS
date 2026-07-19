@@ -38,3 +38,17 @@ from .analyzer import Analyzer, AnalyzerContext, AnalyzerResult
 from .evidence_store import EvidenceRecord, EvidenceStore
 from .finding import Finding, FindingSet, Severity
 from .pipeline import PipelineResult, SPANPipeline, default_providers
+
+from .bootstrap import (
+    BootstrapDiagnostic,
+    BootstrapReport,
+    BootstrapState,
+    SPANBootstrap,
+    bootstrap_span,
+)
+
+# BEGIN GENESIS 14 PUBLIC API
+from .api import SPAN
+from .profiles import RuleProfile, load_profile
+from .reporter import SPANReport
+# END GENESIS 14 PUBLIC API
