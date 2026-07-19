@@ -1,0 +1,712 @@
+[
+  {
+    "application_id": "cardhawk.foundation",
+    "app_runtime_id": "58aede45-6c25-4a9d-9027-3bade49d019f",
+    "name": "Card Hawk Foundation\u2122",
+    "version": "2.0.0-beta",
+    "status": "running",
+    "health": "healthy",
+    "lifecycle": "running",
+    "manifest": {
+      "app_id": "cardhawk.foundation",
+      "name": "Card Hawk Foundation\u2122",
+      "version": "2.0.0-beta",
+      "author": "6th Dimension Multimedia",
+      "description": "Flagship native AletheusOS reference application.",
+      "autostart": true,
+      "permissions": [
+        "memory",
+        "knowledge",
+        "semantic",
+        "planning",
+        "prediction",
+        "learning",
+        "optimization",
+        "agents",
+        "kernel"
+      ],
+      "dependencies": [
+        "Aletheus Runtime Core",
+        "Aletheus v2 Autonomous Kernel",
+        "Aletheus Memory Core",
+        "Aletheus Knowledge Graph Engine",
+        "Aletheus Predictive Intelligence Layer",
+        "Aletheus Adaptive Learning Engine"
+      ],
+      "commands": [
+        "cardhawk.status",
+        "cardhawk.start",
+        "cardhawk.stop",
+        "cardhawk.foundation.bootstrap"
+      ],
+      "services": [
+        "Asset Vault",
+        "Portfolio Engine",
+        "Marketplace Intelligence",
+        "Hawk A\u2022Eye\u2122",
+        "THOR\u1d61",
+        "DEF",
+        "FALCON\u2122",
+        "NEST\u2122"
+      ]
+    },
+    "dependencies": [
+      "Aletheus Runtime Core",
+      "Aletheus v2 Autonomous Kernel",
+      "Aletheus Memory Core",
+      "Aletheus Knowledge Graph Engine",
+      "Aletheus Predictive Intelligence Layer",
+      "Aletheus Adaptive Learning Engine"
+    ],
+    "commands": [
+      "cardhawk.status",
+      "cardhawk.start",
+      "cardhawk.stop",
+      "cardhawk.foundation.bootstrap"
+    ],
+    "services": [
+      "Asset Vault",
+      "Portfolio Engine",
+      "Marketplace Intelligence",
+      "Hawk A\u2022Eye\u2122",
+      "THOR\u1d61",
+      "DEF",
+      "FALCON\u2122",
+      "NEST\u2122"
+    ],
+    "permissions": [
+      "memory",
+      "knowledge",
+      "semantic",
+      "planning",
+      "prediction",
+      "learning",
+      "optimization",
+      "agents",
+      "kernel"
+    ],
+    "events": [
+      {
+        "app_id": "cardhawk.foundation",
+        "event_type": "application.installed",
+        "message": "Card Hawk Foundation\u2122 installed.",
+        "payload": {
+          "manifest": {
+            "app_id": "cardhawk.foundation",
+            "name": "Card Hawk Foundation\u2122",
+            "version": "2.0.0-beta",
+            "author": "6th Dimension Multimedia",
+            "description": "Flagship native AletheusOS reference application.",
+            "autostart": true,
+            "permissions": [
+              "memory",
+              "knowledge",
+              "semantic",
+              "planning",
+              "prediction",
+              "learning",
+              "optimization",
+              "agents",
+              "kernel"
+            ],
+            "dependencies": [
+              "Aletheus Runtime Core",
+              "Aletheus v2 Autonomous Kernel",
+              "Aletheus Memory Core",
+              "Aletheus Knowledge Graph Engine",
+              "Aletheus Predictive Intelligence Layer",
+              "Aletheus Adaptive Learning Engine"
+            ],
+            "commands": [
+              "cardhawk.status",
+              "cardhawk.start",
+              "cardhawk.stop",
+              "cardhawk.foundation.bootstrap"
+            ],
+            "services": [
+              "Asset Vault",
+              "Portfolio Engine",
+              "Marketplace Intelligence",
+              "Hawk A\u2022Eye\u2122",
+              "THOR\u1d61",
+              "DEF",
+              "FALCON\u2122",
+              "NEST\u2122"
+            ]
+          }
+        },
+        "event_id": "a074df81-8b98-4bd4-aab3-4bd1b12f9688",
+        "created_at": "2026-07-13T02:11:23.441733+00:00"
+      },
+      {
+        "app_id": "cardhawk.foundation",
+        "event_type": "application.started",
+        "message": "Card Hawk Foundation\u2122 started.",
+        "payload": {},
+        "event_id": "cdc443da-20bd-47fa-8c9a-72b123b53abb",
+        "created_at": "2026-07-13T02:11:23.441742+00:00"
+      },
+      {
+        "app_id": "cardhawk.foundation",
+        "event_type": "application.started",
+        "message": "Card Hawk Foundation\u2122 started.",
+        "payload": {},
+        "event_id": "8ed8cbe3-8423-4aa1-80ee-9d972028538a",
+        "created_at": "2026-07-13T02:13:15.122294+00:00"
+      },
+      {
+        "app_id": "cardhawk.foundation",
+        "event_type": "application.heartbeat",
+        "message": "Card Hawk Foundation\u2122 heartbeat recorded.",
+        "payload": {},
+        "event_id": "164683c5-439a-4ad7-84de-07cb8f19f08f",
+        "created_at": "2026-07-13T02:13:15.122314+00:00"
+      },
+      {
+        "app_id": "cardhawk.foundation",
+        "event_type": "application.stopped",
+        "message": "Card Hawk Foundation\u2122 stopped.",
+        "payload": {},
+        "event_id": "3ab4cab4-305a-4c80-ad34-8077965487ce",
+        "created_at": "2026-07-13T02:13:15.146981+00:00"
+      },
+      {
+        "app_id": "cardhawk.foundation",
+        "event_type": "application.started",
+        "message": "Card Hawk Foundation\u2122 started.",
+        "payload": {},
+        "event_id": "81510d23-f8c1-4761-b285-c12094f1ca1e",
+        "created_at": "2026-07-13T02:13:15.147060+00:00"
+      }
+    ],
+    "event_count": 6,
+    "installed_at": "2026-07-13T02:11:23.441725+00:00",
+    "started_at": "2026-07-13T02:13:15.147056+00:00",
+    "stopped_at": "2026-07-13T02:13:15.146976+00:00",
+    "last_heartbeat": "2026-07-13T02:13:15.147057+00:00"
+  },
+  {
+    "application_id": "cardhawk.asset_vault",
+    "app_runtime_id": "61418ffa-5097-4ea9-941c-1017fd5be28e",
+    "name": "Asset Vault",
+    "version": "2.0.0-beta",
+    "status": "running",
+    "health": "healthy",
+    "lifecycle": "running",
+    "manifest": {
+      "app_id": "cardhawk.asset_vault",
+      "name": "Asset Vault",
+      "version": "2.0.0-beta",
+      "author": "6th Dimension Multimedia",
+      "description": "Native collectible asset registry.",
+      "autostart": true,
+      "permissions": [
+        "memory",
+        "knowledge",
+        "storage",
+        "kernel"
+      ],
+      "dependencies": [
+        "Card Hawk Foundation\u2122"
+      ],
+      "commands": [
+        "asset.create",
+        "asset.read",
+        "asset.update",
+        "asset.delete",
+        "asset.search"
+      ],
+      "services": [
+        "Asset CRUD",
+        "Asset Search",
+        "Asset Uploads"
+      ]
+    },
+    "dependencies": [
+      "Card Hawk Foundation\u2122"
+    ],
+    "commands": [
+      "asset.create",
+      "asset.read",
+      "asset.update",
+      "asset.delete",
+      "asset.search"
+    ],
+    "services": [
+      "Asset CRUD",
+      "Asset Search",
+      "Asset Uploads"
+    ],
+    "permissions": [
+      "memory",
+      "knowledge",
+      "storage",
+      "kernel"
+    ],
+    "events": [
+      {
+        "app_id": "cardhawk.asset_vault",
+        "event_type": "application.installed",
+        "message": "Asset Vault installed.",
+        "payload": {
+          "manifest": {
+            "app_id": "cardhawk.asset_vault",
+            "name": "Asset Vault",
+            "version": "2.0.0-beta",
+            "author": "6th Dimension Multimedia",
+            "description": "Native collectible asset registry.",
+            "autostart": true,
+            "permissions": [
+              "memory",
+              "knowledge",
+              "storage",
+              "kernel"
+            ],
+            "dependencies": [
+              "Card Hawk Foundation\u2122"
+            ],
+            "commands": [
+              "asset.create",
+              "asset.read",
+              "asset.update",
+              "asset.delete",
+              "asset.search"
+            ],
+            "services": [
+              "Asset CRUD",
+              "Asset Search",
+              "Asset Uploads"
+            ]
+          }
+        },
+        "event_id": "890bb7ce-8040-4ec2-9ac7-166159359f5d",
+        "created_at": "2026-07-13T02:13:15.145901+00:00"
+      },
+      {
+        "app_id": "cardhawk.asset_vault",
+        "event_type": "application.started",
+        "message": "Asset Vault started.",
+        "payload": {},
+        "event_id": "1671b502-5abf-4372-a537-8ec4dce85847",
+        "created_at": "2026-07-13T02:13:15.145907+00:00"
+      }
+    ],
+    "event_count": 2,
+    "installed_at": "2026-07-13T02:13:15.145896+00:00",
+    "started_at": "2026-07-13T02:13:15.145903+00:00",
+    "stopped_at": null,
+    "last_heartbeat": "2026-07-13T02:13:15.145904+00:00"
+  },
+  {
+    "application_id": "cardhawk.portfolio",
+    "app_runtime_id": "13c97c93-5f00-4c17-9b29-6a907bb9dfac",
+    "name": "Portfolio Engine",
+    "version": "2.0.0-beta",
+    "status": "running",
+    "health": "healthy",
+    "lifecycle": "running",
+    "manifest": {
+      "app_id": "cardhawk.portfolio",
+      "name": "Portfolio Engine",
+      "version": "2.0.0-beta",
+      "author": "6th Dimension Multimedia",
+      "description": "Native portfolio valuation and allocation engine.",
+      "autostart": true,
+      "permissions": [
+        "memory",
+        "knowledge",
+        "prediction",
+        "learning"
+      ],
+      "dependencies": [
+        "Asset Vault"
+      ],
+      "commands": [
+        "portfolio.refresh",
+        "portfolio.value",
+        "portfolio.allocation"
+      ],
+      "services": [
+        "Valuation",
+        "Allocation",
+        "Gain/Loss"
+      ]
+    },
+    "dependencies": [
+      "Asset Vault"
+    ],
+    "commands": [
+      "portfolio.refresh",
+      "portfolio.value",
+      "portfolio.allocation"
+    ],
+    "services": [
+      "Valuation",
+      "Allocation",
+      "Gain/Loss"
+    ],
+    "permissions": [
+      "memory",
+      "knowledge",
+      "prediction",
+      "learning"
+    ],
+    "events": [
+      {
+        "app_id": "cardhawk.portfolio",
+        "event_type": "application.installed",
+        "message": "Portfolio Engine installed.",
+        "payload": {
+          "manifest": {
+            "app_id": "cardhawk.portfolio",
+            "name": "Portfolio Engine",
+            "version": "2.0.0-beta",
+            "author": "6th Dimension Multimedia",
+            "description": "Native portfolio valuation and allocation engine.",
+            "autostart": true,
+            "permissions": [
+              "memory",
+              "knowledge",
+              "prediction",
+              "learning"
+            ],
+            "dependencies": [
+              "Asset Vault"
+            ],
+            "commands": [
+              "portfolio.refresh",
+              "portfolio.value",
+              "portfolio.allocation"
+            ],
+            "services": [
+              "Valuation",
+              "Allocation",
+              "Gain/Loss"
+            ]
+          }
+        },
+        "event_id": "654c2e9a-44f3-460a-8732-6c97f7e49c9b",
+        "created_at": "2026-07-13T02:13:15.145916+00:00"
+      },
+      {
+        "app_id": "cardhawk.portfolio",
+        "event_type": "application.started",
+        "message": "Portfolio Engine started.",
+        "payload": {},
+        "event_id": "7bf47db1-6367-4bfe-abf5-3f2ee819dbd3",
+        "created_at": "2026-07-13T02:13:15.145921+00:00"
+      }
+    ],
+    "event_count": 2,
+    "installed_at": "2026-07-13T02:13:15.145913+00:00",
+    "started_at": "2026-07-13T02:13:15.145917+00:00",
+    "stopped_at": null,
+    "last_heartbeat": "2026-07-13T02:13:15.145918+00:00"
+  },
+  {
+    "application_id": "cardhawk.marketplace",
+    "app_runtime_id": "de3027e5-d423-4431-9006-bd8408155148",
+    "name": "Marketplace Intelligence",
+    "version": "2.0.0-beta",
+    "status": "running",
+    "health": "healthy",
+    "lifecycle": "running",
+    "manifest": {
+      "app_id": "cardhawk.marketplace",
+      "name": "Marketplace Intelligence",
+      "version": "2.0.0-beta",
+      "author": "6th Dimension Multimedia",
+      "description": "Native marketplace signal and comps intelligence.",
+      "autostart": true,
+      "permissions": [
+        "memory",
+        "knowledge",
+        "prediction",
+        "learning",
+        "agents"
+      ],
+      "dependencies": [
+        "Asset Vault",
+        "Portfolio Engine"
+      ],
+      "commands": [
+        "market.search",
+        "market.comps",
+        "market.alerts"
+      ],
+      "services": [
+        "Comps",
+        "Alerts",
+        "Opportunity Detection"
+      ]
+    },
+    "dependencies": [
+      "Asset Vault",
+      "Portfolio Engine"
+    ],
+    "commands": [
+      "market.search",
+      "market.comps",
+      "market.alerts"
+    ],
+    "services": [
+      "Comps",
+      "Alerts",
+      "Opportunity Detection"
+    ],
+    "permissions": [
+      "memory",
+      "knowledge",
+      "prediction",
+      "learning",
+      "agents"
+    ],
+    "events": [
+      {
+        "app_id": "cardhawk.marketplace",
+        "event_type": "application.installed",
+        "message": "Marketplace Intelligence installed.",
+        "payload": {
+          "manifest": {
+            "app_id": "cardhawk.marketplace",
+            "name": "Marketplace Intelligence",
+            "version": "2.0.0-beta",
+            "author": "6th Dimension Multimedia",
+            "description": "Native marketplace signal and comps intelligence.",
+            "autostart": true,
+            "permissions": [
+              "memory",
+              "knowledge",
+              "prediction",
+              "learning",
+              "agents"
+            ],
+            "dependencies": [
+              "Asset Vault",
+              "Portfolio Engine"
+            ],
+            "commands": [
+              "market.search",
+              "market.comps",
+              "market.alerts"
+            ],
+            "services": [
+              "Comps",
+              "Alerts",
+              "Opportunity Detection"
+            ]
+          }
+        },
+        "event_id": "00ddeb0f-b625-469b-955a-caa6ef20cd21",
+        "created_at": "2026-07-13T02:13:15.145929+00:00"
+      },
+      {
+        "app_id": "cardhawk.marketplace",
+        "event_type": "application.started",
+        "message": "Marketplace Intelligence started.",
+        "payload": {},
+        "event_id": "75ece7cb-6aff-48a1-8213-d8d2fde77826",
+        "created_at": "2026-07-13T02:13:15.145933+00:00"
+      }
+    ],
+    "event_count": 2,
+    "installed_at": "2026-07-13T02:13:15.145925+00:00",
+    "started_at": "2026-07-13T02:13:15.145930+00:00",
+    "stopped_at": null,
+    "last_heartbeat": "2026-07-13T02:13:15.145930+00:00"
+  },
+  {
+    "application_id": "cardhawk.thorx",
+    "app_runtime_id": "8ee4bcfe-257c-483e-8399-16d07f894e65",
+    "name": "THOR\u1d61",
+    "version": "2.0.0-beta",
+    "status": "running",
+    "health": "healthy",
+    "lifecycle": "running",
+    "manifest": {
+      "app_id": "cardhawk.thorx",
+      "name": "THOR\u1d61",
+      "version": "2.0.0-beta",
+      "author": "6th Dimension Multimedia",
+      "description": "Trading Heuristic Opportunity Rating engine.",
+      "autostart": true,
+      "permissions": [
+        "prediction",
+        "learning",
+        "optimization"
+      ],
+      "dependencies": [
+        "Marketplace Intelligence"
+      ],
+      "commands": [
+        "thorx.score",
+        "thorx.evaluate"
+      ],
+      "services": [
+        "Opportunity Rating",
+        "Heuristic Scoring"
+      ]
+    },
+    "dependencies": [
+      "Marketplace Intelligence"
+    ],
+    "commands": [
+      "thorx.score",
+      "thorx.evaluate"
+    ],
+    "services": [
+      "Opportunity Rating",
+      "Heuristic Scoring"
+    ],
+    "permissions": [
+      "prediction",
+      "learning",
+      "optimization"
+    ],
+    "events": [
+      {
+        "app_id": "cardhawk.thorx",
+        "event_type": "application.installed",
+        "message": "THOR\u1d61 installed.",
+        "payload": {
+          "manifest": {
+            "app_id": "cardhawk.thorx",
+            "name": "THOR\u1d61",
+            "version": "2.0.0-beta",
+            "author": "6th Dimension Multimedia",
+            "description": "Trading Heuristic Opportunity Rating engine.",
+            "autostart": true,
+            "permissions": [
+              "prediction",
+              "learning",
+              "optimization"
+            ],
+            "dependencies": [
+              "Marketplace Intelligence"
+            ],
+            "commands": [
+              "thorx.score",
+              "thorx.evaluate"
+            ],
+            "services": [
+              "Opportunity Rating",
+              "Heuristic Scoring"
+            ]
+          }
+        },
+        "event_id": "1be97798-ba26-48c6-b466-7911e396e6b3",
+        "created_at": "2026-07-13T02:13:15.145941+00:00"
+      },
+      {
+        "app_id": "cardhawk.thorx",
+        "event_type": "application.started",
+        "message": "THOR\u1d61 started.",
+        "payload": {},
+        "event_id": "ee244e85-6d76-47b8-bcbb-aaa416847fc9",
+        "created_at": "2026-07-13T02:13:15.145945+00:00"
+      }
+    ],
+    "event_count": 2,
+    "installed_at": "2026-07-13T02:13:15.145938+00:00",
+    "started_at": "2026-07-13T02:13:15.145942+00:00",
+    "stopped_at": null,
+    "last_heartbeat": "2026-07-13T02:13:15.145943+00:00"
+  },
+  {
+    "application_id": "cardhawk.hawk_aeye",
+    "app_runtime_id": "540d5c55-c0af-40c2-9bbf-9a30991c3621",
+    "name": "Hawk A\u2022Eye\u2122",
+    "version": "2.0.0-beta",
+    "status": "running",
+    "health": "healthy",
+    "lifecycle": "running",
+    "manifest": {
+      "app_id": "cardhawk.hawk_aeye",
+      "name": "Hawk A\u2022Eye\u2122",
+      "version": "2.0.0-beta",
+      "author": "6th Dimension Multimedia",
+      "description": "Native visual intelligence engine.",
+      "autostart": true,
+      "permissions": [
+        "memory",
+        "knowledge",
+        "storage"
+      ],
+      "dependencies": [
+        "Asset Vault"
+      ],
+      "commands": [
+        "aeye.scan",
+        "aeye.identify"
+      ],
+      "services": [
+        "Image Recognition",
+        "Visual Matching"
+      ]
+    },
+    "dependencies": [
+      "Asset Vault"
+    ],
+    "commands": [
+      "aeye.scan",
+      "aeye.identify"
+    ],
+    "services": [
+      "Image Recognition",
+      "Visual Matching"
+    ],
+    "permissions": [
+      "memory",
+      "knowledge",
+      "storage"
+    ],
+    "events": [
+      {
+        "app_id": "cardhawk.hawk_aeye",
+        "event_type": "application.installed",
+        "message": "Hawk A\u2022Eye\u2122 installed.",
+        "payload": {
+          "manifest": {
+            "app_id": "cardhawk.hawk_aeye",
+            "name": "Hawk A\u2022Eye\u2122",
+            "version": "2.0.0-beta",
+            "author": "6th Dimension Multimedia",
+            "description": "Native visual intelligence engine.",
+            "autostart": true,
+            "permissions": [
+              "memory",
+              "knowledge",
+              "storage"
+            ],
+            "dependencies": [
+              "Asset Vault"
+            ],
+            "commands": [
+              "aeye.scan",
+              "aeye.identify"
+            ],
+            "services": [
+              "Image Recognition",
+              "Visual Matching"
+            ]
+          }
+        },
+        "event_id": "8cc10a76-c1a6-4458-8f5b-6be24c137e0f",
+        "created_at": "2026-07-13T02:13:15.145953+00:00"
+      },
+      {
+        "app_id": "cardhawk.hawk_aeye",
+        "event_type": "application.started",
+        "message": "Hawk A\u2022Eye\u2122 started.",
+        "payload": {},
+        "event_id": "767def2c-cf2c-4d5d-a073-941879b80ca9",
+        "created_at": "2026-07-13T02:13:15.145957+00:00"
+      }
+    ],
+    "event_count": 2,
+    "installed_at": "2026-07-13T02:13:15.145950+00:00",
+    "started_at": "2026-07-13T02:13:15.145953+00:00",
+    "stopped_at": null,
+    "last_heartbeat": "2026-07-13T02:13:15.145954+00:00"
+  }
+]

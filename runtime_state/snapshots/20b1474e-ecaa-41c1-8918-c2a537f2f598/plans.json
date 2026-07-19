@@ -1,0 +1,352 @@
+{
+  "plans": [
+    {
+      "plan_id": "8e9788fa-56ba-49e9-b799-978db1de2877",
+      "goal": "Validate autonomous planning engine.",
+      "objectives": [
+        "Research",
+        "Analyze",
+        "Decide",
+        "Execute"
+      ],
+      "milestones": [
+        {
+          "title": "Research Complete",
+          "status": "pending"
+        },
+        {
+          "title": "Decision Complete",
+          "status": "pending"
+        },
+        {
+          "title": "Execution Complete",
+          "status": "pending"
+        }
+      ],
+      "tasks": [
+        {
+          "title": "Research",
+          "status": "pending",
+          "priority": 5
+        },
+        {
+          "title": "Marketplace Scan",
+          "status": "pending",
+          "priority": 5
+        },
+        {
+          "title": "Portfolio Review",
+          "status": "pending",
+          "priority": 5
+        },
+        {
+          "title": "Decision Engine",
+          "status": "pending",
+          "priority": 5
+        },
+        {
+          "title": "Founder Approval",
+          "status": "pending",
+          "priority": 5
+        }
+      ],
+      "dependencies": [],
+      "priority": 5,
+      "status": "planned",
+      "progress": 0.0,
+      "created_at": "2026-07-13T06:48:58.102449+00:00",
+      "updated_at": "2026-07-13T06:48:58.102451+00:00",
+      "completed_at": null
+    },
+    {
+      "plan_id": "eb945f6a-141d-45a8-b60b-d41b2cf018c9",
+      "goal": "Prepare Card Hawk Foundation for native Aletheus operation.",
+      "objectives": [
+        "Research",
+        "Analyze",
+        "Decide",
+        "Execute"
+      ],
+      "milestones": [
+        {
+          "title": "Research Complete",
+          "status": "pending"
+        },
+        {
+          "title": "Decision Complete",
+          "status": "pending"
+        },
+        {
+          "title": "Execution Complete",
+          "status": "pending"
+        }
+      ],
+      "tasks": [
+        {
+          "title": "Research",
+          "status": "completed",
+          "priority": 5
+        },
+        {
+          "title": "Marketplace Scan",
+          "status": "pending",
+          "priority": 5
+        },
+        {
+          "title": "Portfolio Review",
+          "status": "pending",
+          "priority": 5
+        },
+        {
+          "title": "Decision Engine",
+          "status": "pending",
+          "priority": 5
+        },
+        {
+          "title": "Founder Approval",
+          "status": "pending",
+          "priority": 5
+        }
+      ],
+      "dependencies": [],
+      "priority": 5,
+      "status": "planned",
+      "progress": 20.0,
+      "created_at": "2026-07-13T06:48:58.102792+00:00",
+      "updated_at": "2026-07-13T06:48:58.102813+00:00",
+      "completed_at": null
+    },
+    {
+      "plan_id": "b4797692-b29f-4ae7-9e9a-7c14e3f2b1a8",
+      "goal": "Validate full autonomous plan execution.",
+      "objectives": [
+        "Research",
+        "Analyze",
+        "Decide",
+        "Execute"
+      ],
+      "milestones": [
+        {
+          "title": "Research Complete",
+          "status": "pending"
+        },
+        {
+          "title": "Decision Complete",
+          "status": "pending"
+        },
+        {
+          "title": "Execution Complete",
+          "status": "pending"
+        }
+      ],
+      "tasks": [
+        {
+          "title": "Research",
+          "status": "completed",
+          "priority": 5
+        },
+        {
+          "title": "Marketplace Scan",
+          "status": "completed",
+          "priority": 5
+        },
+        {
+          "title": "Portfolio Review",
+          "status": "completed",
+          "priority": 5
+        },
+        {
+          "title": "Decision Engine",
+          "status": "completed",
+          "priority": 5
+        },
+        {
+          "title": "Founder Approval",
+          "status": "completed",
+          "priority": 5
+        }
+      ],
+      "dependencies": [],
+      "priority": 5,
+      "status": "completed",
+      "progress": 100.0,
+      "created_at": "2026-07-13T06:48:58.103190+00:00",
+      "updated_at": "2026-07-13T06:48:58.103223+00:00",
+      "completed_at": "2026-07-13T06:48:58.103221+00:00"
+    },
+    {
+      "plan_id": "a69978e6-9368-47fd-acca-5b7659983c65",
+      "goal": "What should I work on next?",
+      "objectives": [
+        "Research",
+        "Analyze",
+        "Decide",
+        "Execute"
+      ],
+      "milestones": [
+        {
+          "title": "Research Complete",
+          "status": "pending"
+        },
+        {
+          "title": "Decision Complete",
+          "status": "pending"
+        },
+        {
+          "title": "Execution Complete",
+          "status": "pending"
+        }
+      ],
+      "tasks": [
+        {
+          "title": "Research",
+          "status": "pending",
+          "priority": 5
+        },
+        {
+          "title": "Marketplace Scan",
+          "status": "pending",
+          "priority": 5
+        },
+        {
+          "title": "Portfolio Review",
+          "status": "pending",
+          "priority": 5
+        },
+        {
+          "title": "Decision Engine",
+          "status": "pending",
+          "priority": 5
+        },
+        {
+          "title": "Founder Approval",
+          "status": "pending",
+          "priority": 5
+        }
+      ],
+      "dependencies": [],
+      "priority": 5,
+      "status": "planned",
+      "progress": 0.0,
+      "created_at": "2026-07-13T06:48:58.104726+00:00",
+      "updated_at": "2026-07-13T06:48:58.104727+00:00",
+      "completed_at": null
+    },
+    {
+      "plan_id": "2b7a6309-2386-4a2d-9b7a-389f9fd8690d",
+      "goal": "Coordinate Card Hawk native applications through the v2 kernel.",
+      "objectives": [
+        "Research",
+        "Analyze",
+        "Decide",
+        "Execute"
+      ],
+      "milestones": [
+        {
+          "title": "Research Complete",
+          "status": "pending"
+        },
+        {
+          "title": "Decision Complete",
+          "status": "pending"
+        },
+        {
+          "title": "Execution Complete",
+          "status": "pending"
+        }
+      ],
+      "tasks": [
+        {
+          "title": "Research",
+          "status": "pending",
+          "priority": 5
+        },
+        {
+          "title": "Marketplace Scan",
+          "status": "pending",
+          "priority": 5
+        },
+        {
+          "title": "Portfolio Review",
+          "status": "pending",
+          "priority": 5
+        },
+        {
+          "title": "Decision Engine",
+          "status": "pending",
+          "priority": 5
+        },
+        {
+          "title": "Founder Approval",
+          "status": "pending",
+          "priority": 5
+        }
+      ],
+      "dependencies": [],
+      "priority": 5,
+      "status": "planned",
+      "progress": 0.0,
+      "created_at": "2026-07-13T06:48:58.117692+00:00",
+      "updated_at": "2026-07-13T06:48:58.117693+00:00",
+      "completed_at": null
+    },
+    {
+      "plan_id": "b619a16a-a799-4a52-8dfc-fd72fb0e3064",
+      "goal": "Acquire undervalued Card Hawk asset",
+      "objectives": [
+        "Research",
+        "Analyze",
+        "Decide",
+        "Execute"
+      ],
+      "milestones": [
+        {
+          "title": "Research Complete",
+          "status": "pending"
+        },
+        {
+          "title": "Decision Complete",
+          "status": "pending"
+        },
+        {
+          "title": "Execution Complete",
+          "status": "pending"
+        }
+      ],
+      "tasks": [
+        {
+          "title": "Research",
+          "status": "completed",
+          "priority": 5
+        },
+        {
+          "title": "Marketplace Scan",
+          "status": "completed",
+          "priority": 5
+        },
+        {
+          "title": "Portfolio Review",
+          "status": "completed",
+          "priority": 5
+        },
+        {
+          "title": "Decision Engine",
+          "status": "completed",
+          "priority": 5
+        },
+        {
+          "title": "Founder Approval",
+          "status": "completed",
+          "priority": 5
+        }
+      ],
+      "dependencies": [],
+      "priority": 5,
+      "status": "completed",
+      "progress": 100.0,
+      "created_at": "2026-07-13T06:48:58.138347+00:00",
+      "updated_at": "2026-07-13T06:48:58.138401+00:00",
+      "completed_at": "2026-07-13T06:48:58.138400+00:00"
+    }
+  ]
+}

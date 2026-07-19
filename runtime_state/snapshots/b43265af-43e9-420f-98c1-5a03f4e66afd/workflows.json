@@ -1,0 +1,47 @@
+{
+  "workflows": [
+    {
+      "workflow_id": "9a04b410-6432-49b0-b2b3-2e7593591abc",
+      "title": "Card Hawk Acquisition Workflow",
+      "description": "Research \u2192 Marketplace \u2192 Portfolio \u2192 Decision",
+      "status": "created",
+      "checkpoint": 0,
+      "created_at": "2026-07-13T07:58:03.332109+00:00",
+      "started_at": null,
+      "completed_at": null,
+      "steps": [
+        {
+          "title": "Research Player",
+          "agent": "Research Agent",
+          "status": "pending"
+        },
+        {
+          "title": "Marketplace Comps",
+          "agent": "Marketplace Agent",
+          "status": "pending"
+        },
+        {
+          "title": "Portfolio Analysis",
+          "agent": "Portfolio Agent",
+          "status": "pending"
+        },
+        {
+          "title": "Decision Engine",
+          "agent": "Founder Agent",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "workflow_id": "8365c43b-8270-4001-a383-53c91db4590b",
+      "title": "Card Hawk Purchase Pipeline",
+      "description": "Research \u2192 Marketplace \u2192 Decision",
+      "status": "cancelled",
+      "checkpoint": 0,
+      "created_at": "2026-07-13T07:58:03.332517+00:00",
+      "started_at": "2026-07-13T07:58:03.332535+00:00",
+      "completed_at": null,
+      "steps": []
+    }
+  ]
+}

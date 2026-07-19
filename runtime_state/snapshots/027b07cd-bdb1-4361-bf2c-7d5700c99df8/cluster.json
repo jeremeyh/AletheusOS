@@ -1,0 +1,57 @@
+{
+  "cluster_id": "4ea6912e-520a-430e-9eb5-ae0969684e1b",
+  "name": "AletheusOS Primary Cluster",
+  "leader_node_id": "79f4aaa9-b864-42ff-9f99-4a1839b17b9e",
+  "health": "healthy",
+  "created_at": "2026-07-13T03:28:17.951486+00:00",
+  "node_count": 1,
+  "nodes": [
+    {
+      "node_id": "79f4aaa9-b864-42ff-9f99-4a1839b17b9e",
+      "node_name": "Founder Runtime",
+      "version": "3.0.0",
+      "status": "online",
+      "health": "healthy",
+      "capabilities": [
+        "kernel",
+        "memory",
+        "knowledge",
+        "reasoning",
+        "decision",
+        "agents",
+        "workflow",
+        "planning"
+      ],
+      "services": [
+        "Runtime Core",
+        "Memory Mesh",
+        "Knowledge Graph",
+        "Reasoning Engine",
+        "Decision Engine",
+        "Agent Runtime",
+        "Workflow Engine",
+        "Planning Engine"
+      ],
+      "agents": [
+        "Founder Agent",
+        "Research Agent",
+        "Marketplace Agent",
+        "Portfolio Agent"
+      ],
+      "workflows": [],
+      "plans": [],
+      "created_at": "2026-07-13T03:28:17.951496+00:00",
+      "last_seen": "2026-07-13T03:28:17.969128+00:00",
+      "heartbeat_count": 2
+    }
+  ],
+  "jobs": [
+    {
+      "status": "completed",
+      "title": "Distributed Card Hawk Task",
+      "objective": "Run distributed marketplace readiness check.",
+      "capability": "marketplace",
+      "cluster_id": "4ea6912e-520a-430e-9eb5-ae0969684e1b"
+    }
+  ]
+}

@@ -20,3 +20,36 @@ include-package-data = true
 
 [tool.setuptools.packages.find]
 include = ["aletheus*"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+
+python_files = [
+    "test_*.py",
+]
+
+python_classes = [
+    "Test*",
+]
+
+python_functions = [
+    "test_*",
+]
+
+norecursedirs = [
+    ".git",
+    ".github",
+    ".venv",
+    "__pycache__",
+    ".pytest_cache",
+    ".mypy_cache",
+    "archive",
+    "build",
+    "dist",
+    "Genesis-012B-SPAN-Runtime-Integration",
+    "aletheusos_kernel_sprint1",
+]
+
+addopts = [
+    "-ra",
+]
