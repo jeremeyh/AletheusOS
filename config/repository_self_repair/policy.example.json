@@ -1,0 +1,8 @@
+{
+  "mode": "safe-by-default",
+  "canonical_target_rule": "Git-backed repository is authoritative",
+  "conflict_rule": "Preserve target and stage source candidate for manual review",
+  "orphan_rule": "Quarantine unless permanent deletion is explicitly requested",
+  "source_removal_rule": "Require successful checksummed archive before removal",
+  "monitor_interval_seconds": 3600
+}
