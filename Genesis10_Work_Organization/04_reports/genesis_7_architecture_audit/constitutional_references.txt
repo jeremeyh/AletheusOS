@@ -1,0 +1,393 @@
+aletheus/spectrum_platform_analyzer/assessment.py:2:Spectrum Platform Analyzer
+aletheus/spectrum_platform_analyzer/assessment.py:49:                finding_id=f"SPA-{uuid.uuid4().hex[:8].upper()}",
+aletheus/spectrum_platform_analyzer/assessment.py:87:                finding_id=f"SPA-{uuid.uuid4().hex[:8].upper()}",
+aletheus/spectrum_platform_analyzer/models.py:2:Spectrum Platform Analyzer Models
+aletheus/spectrum_platform_analyzer/registry.py:2:Spectrum Platform Analyzer Registry
+aletheus/spectrum_platform_analyzer/drift_detector.py:2:Spectrum Platform Analyzer
+aletheus/spectrum_platform_analyzer/analyzer.py:2:Spectrum Platform Analyzer
+aletheus/spectrum_platform_analyzer/analyzer.py:93:            "name": "Spectrum Platform Analyzer",
+aletheus/spectrum_platform_analyzer/hotspots.py:2:Spectrum Platform Analyzer
+aletheus/spectrum_platform_analyzer/hotspots.py:22:    # SPA will eventually make these configurable.
+aletheus/spectrum_platform_analyzer/dependency.py:2:Spectrum Platform Analyzer Dependency Analysis
+aletheus/spectrum_platform_analyzer/duplicate_capability.py:2:Spectrum Platform Analyzer
+aletheus/spectrum_platform_analyzer/report_writer.py:2:Spectrum Platform Analyzer
+aletheus/spectrum_platform_analyzer/boundary_analysis.py:2:Spectrum Platform Analyzer
+aletheus/spectrum_platform_analyzer/circular_dependencies.py:2:Spectrum Platform Analyzer
+aletheus/knowledge_graph/graph_core.py:249:        thorx = self.create_entity("THORᵡ", "service", {"category": "opportunity_rating"})
+aletheus/council/__init__.py:2:Council™
+aletheus/council/__init__.py:6:from .engine import CouncilEngine
+aletheus/council/__init__.py:8:__all__ = ["CouncilEngine"]
+aletheus/council/engine.py:9:class CouncilEngine:
+aletheus/council/engine.py:11:    Council™
+aletheus/council/engine.py:15:    Council does not replace Atlas, Sentinel, Guardian, Watch Tower,
+aletheus/council/engine.py:113:                "message": payload.get("message", "Missing Guardian report."),
+aletheus/council/engine.py:125:            "message": decision.get("message", "Guardian report loaded."),
+aletheus/council/engine.py:150:            warnings.append(f"Guardian recent risk is {guardian.get('risk')}.")
+aletheus/council/engine.py:165:                "message": "Council rejects this proposal because one or more blockers were detected.",
+aletheus/council/engine.py:176:                "message": "Council approves with warnings. Review before applying major changes.",
+aletheus/council/engine.py:186:            "message": "Council approves this proposal.",
+aletheus/council/engine.py:201:            "# Council™ Governance Report",
+aletheus/council/engine.py:211:            f"- Principle X: **{decision['principle_x']}**",
+aletheus/enterprise/enterprise_core.py:60:                "THORᵡ",
+aletheus/platform_verification/checks/capability_check.py:13:    "Atlas": "aletheus.atlas",
+aletheus/platform_verification/checks/capability_check.py:15:    "Watch Tower": "aletheus.watch_tower",
+aletheus/foundation_service_bus/registry.py:13:            "Principle X",
+aletheus/foundation_service_bus/registry.py:38:            FoundationExecutionStage(9, "thorx", "THORᵡ Evaluation", "foundation.evaluation"),
+aletheus/foundation_service_bus/registry.py:39:            FoundationExecutionStage(10, "council", "Council Review", "foundation.council"),
+aletheus/foundation_service_bus/registry.py:93:                name="THORᵡ™",
+aletheus/foundation_service_bus/registry.py:109:                name="Council™",
+aletheus/cognitive_kernel/health.py:21:    observability, Sentinel™, and enterprise diagnostics.
+aletheus/cognitive_kernel/core.py:80:                "Principle X",
+aletheus/cognition/cognition_core.py:56:                "Run THORᵡ opportunity scoring.",
+aletheus/capability_graph/bootstrap.py:59:        "THORᵡ",
+aletheus/contracts/platform_contract.py:14:    The purpose is to give Guardian™, the Executive Kernel™,
+aletheus/intent_engine/core.py:41:                "Principle X",
+aletheus/runtime/council/council.py:6:class PlatformCouncil:
+aletheus/runtime/council/council.py:90:            "council": "Aletheus Platform Council",
+aletheus/runtime/intelligence/spa_bridge.py:4:class RuntimeSPABridge:
+aletheus/runtime/intelligence/spa_bridge.py:6:    Runtime attachment bridge for Spectrum Platform Analyzer.
+aletheus/runtime/intelligence/spa_bridge.py:10:    Keeps SPA integration outside runtime/core.py.
+aletheus/runtime/intelligence/spa_bridge.py:73:            "analyzer": "Spectrum Platform Analyzer",
+aletheus/runtime/core.py:20:from aletheus.runtime.intelligence.spa_bridge import RuntimeSPABridge
+aletheus/runtime/core.py:124:    AnchorGovernanceCouncil,
+aletheus/runtime/core.py:293:            AnchorGovernanceCouncil(
+aletheus/runtime/core.py:321:        self.spa = RuntimeSPABridge(self)
+aletheus/runtime/spa/anchor_analysis.py:2:SPA Anchor Governance Analyzer
+aletheus/runtime/audit/registry_snapshot.py:8:    Provides SPA visibility into
+aletheus/runtime/governance/principle_x.py:2:AletheusOS Principle X Validator
+aletheus/runtime/anchors/architecture_council.py:2:Anchor Evolution Autonomous Architecture Council
+aletheus/runtime/anchors/architecture_council.py:15:class ArchitectureCouncil:
+aletheus/runtime/anchors/__init__.py:71:from .governance import AnchorGovernanceCouncil
+aletheus/runtime/anchors/__init__.py:179:from .architecture_council import ArchitectureCouncil
+aletheus/runtime/anchors/governance.py:2:Anchor Autonomous Governance Council
+aletheus/runtime/anchors/governance.py:14:class AnchorGovernanceCouncil:
+aletheus/runtime/certification/certifier.py:78:        # SPA
+aletheus/collection_guardian/models.py:2:Collection Guardian Models
+aletheus/collection_guardian/models.py:12:class GuardianAlert:
+aletheus/collection_guardian/__init__.py:1:from .engine import CollectionGuardianEngine
+aletheus/collection_guardian/__init__.py:6:"CollectionGuardianEngine"
+aletheus/collection_guardian/engine.py:2:Autonomous Collection Guardian
+aletheus/collection_guardian/engine.py:16:class CollectionGuardianEngine:
+aletheus/foundation/capability/health.py:24:    Sentinel™, Studio™, diagnostics,
+aletheus/foundation/capability/statistics.py:28:    Sentinel™, Studio™, dashboards,
+aletheus/foundation/core.py:88:                aliases=["THORᵡ™"],
+aletheus/ontology/validator.py:37:        if entity.entity_type == OntologyEntityType.AUTHORITY:
+aletheus/ontology/bootstrap.py:13:CANONICAL_AUTHORITIES = [
+aletheus/ontology/bootstrap.py:16:        "Atlas",
+aletheus/ontology/bootstrap.py:17:        "Atlas knows architecture.",
+aletheus/ontology/bootstrap.py:23:        "Watch Tower",
+aletheus/ontology/bootstrap.py:24:        "Watch Tower knows repository integrity.",
+aletheus/ontology/bootstrap.py:25:        "Guardian",
+aletheus/ontology/bootstrap.py:30:        "Guardian",
+aletheus/ontology/bootstrap.py:31:        "Guardian knows coordinated defense.",
+aletheus/ontology/bootstrap.py:44:        "Sentinel",
+aletheus/ontology/bootstrap.py:45:        "Sentinel knows operational health.",
+aletheus/ontology/bootstrap.py:51:        "Council",
+aletheus/ontology/bootstrap.py:52:        "Council knows governance.",
+aletheus/ontology/bootstrap.py:82:        "Visual topology authority powered by Atlas.",
+aletheus/ontology/bootstrap.py:120:        "AUTH-SPA",
+aletheus/ontology/bootstrap.py:121:        "Spectrum Platform Analyzer",
+aletheus/ontology/bootstrap.py:122:        "SPA knows architectural fitness.",
+aletheus/ontology/bootstrap.py:142:        "Breadth",
+aletheus/ontology/bootstrap.py:143:        "Breadth knows relationship awareness.",
+aletheus/ontology/bootstrap.py:155:    for entity_id, name, sentence, family, description in CANONICAL_AUTHORITIES:
+aletheus/ontology/bootstrap.py:160:                entity_type=OntologyEntityType.AUTHORITY,
+aletheus/ontology/models.py:16:    AUTHORITY = "authority"
+aletheus/mission/mission_core.py:80:                {"title": "Run opportunity scoring", "description": "Apply THORᵡ and DEF scoring."},
+aletheus/spa/intelligence_analyzer.py:2:SPA Intelligence Analyzer
+aletheus/spa/evolution_core/evolution_memory.py:2:SPA Evolution Memory
+aletheus/spa/evolution_core/intelligence_engine.py:2:SPA Evolution Intelligence Core
+aletheus/spa/evolution_core/__init__.py:2:SPA Autonomous Evolution Intelligence Core
+aletheus/spa/evolution_core/milestone_generator.py:2:SPA Genesis Milestone Generator
+aletheus/spa/evolution_core/priority_engine.py:2:SPA Evolution Priority Engine
+aletheus/spa/evolution_core/engine.py:2:SPA Autonomous Evolution Intelligence Core
+aletheus/spa/evolution_core/opportunity_engine.py:2:SPA Evolution Opportunity Engine
+aletheus/spa/council/council.py:2:SPA Autonomous Architecture Council
+aletheus/spa/council/council.py:16:class ArchitectureCouncil:
+aletheus/spa/council/__init__.py:2:SPA Architecture Council
+aletheus/spa/council/__init__.py:8:from .council import ArchitectureCouncil
+aletheus/spa/council/__init__.py:13:"ArchitectureCouncil"
+aletheus/spa/council/risk_engine.py:2:SPA Architecture Risk Engine
+aletheus/spa/council/decision_engine.py:2:SPA Council Decision Engine
+aletheus/spa/council/proposal_engine.py:2:SPA Architecture Proposal Engine
+aletheus/spa/council/review_engine.py:2:SPA Architecture Review Engine
+aletheus/spa/council/constitution_validator.py:2:SPA Constitution Validator
+aletheus/spa/architecture_analyzer.py:2:SPA Architecture Analyzer
+aletheus/spa/optimization/impact_analyzer.py:2:SPA Impact Analyzer
+aletheus/spa/optimization/redundancy_detector.py:2:SPA Redundancy Detector
+aletheus/spa/optimization/__init__.py:2:SPA Autonomous Optimization
+aletheus/spa/optimization/efficiency_analyzer.py:2:SPA Efficiency Analyzer
+aletheus/spa/optimization/optimization_loop.py:2:SPA Optimization Loop
+aletheus/spa/optimization/refactoring_engine.py:2:SPA Refactoring Intelligence
+aletheus/spa/optimization/engine.py:2:SPA Autonomous Optimization Engine
+aletheus/spa/optimization/optimization_simulator.py:2:SPA Optimization Simulator
+aletheus/spa/recommendation_engine.py:2:SPA Recommendation Engine
+aletheus/spa/dependency_analyzer.py:2:SPA Dependency Analyzer
+aletheus/spa/runtime/boot_validator.py:2:SPA Boot Validator
+aletheus/spa/runtime/health_registry.py:2:SPA Runtime Health Registry
+aletheus/spa/runtime/drift_detector.py:2:SPA Architectural Drift Detector
+aletheus/spa/runtime/__init__.py:2:SPA Runtime Integration
+aletheus/spa/runtime/__init__.py:8:from .integration import SPARuntimeIntegration
+aletheus/spa/runtime/__init__.py:13:"SPARuntimeIntegration"
+aletheus/spa/runtime/integration.py:2:SPA Runtime Integration
+aletheus/spa/runtime/integration.py:8:class SPARuntimeIntegration:
+aletheus/spa/runtime/runtime_monitor.py:2:SPA Runtime Monitor
+aletheus/spa/evolution_planner/dependency_mapper.py:2:SPA Evolution Dependency Mapper
+aletheus/spa/evolution_planner/roadmap_engine.py:2:SPA Evolution Roadmap Engine
+aletheus/spa/evolution_planner/__init__.py:2:SPA Autonomous Evolution Planner
+aletheus/spa/evolution_planner/readiness_score.py:2:SPA Evolution Readiness Index
+aletheus/spa/evolution_planner/future_state_model.py:2:SPA Future State Modeling
+aletheus/spa/evolution_planner/strategy_engine.py:2:SPA Strategic Evolution Engine
+aletheus/spa/evolution_planner/engine.py:2:SPA Autonomous Evolution Planner
+aletheus/spa/evolution_planner/branch_simulator.py:2:SPA Evolution Branch Simulator
+aletheus/spa/health_score.py:2:SPA Health Score Engine
+aletheus/spa/__init__.py:2:Spectrum Platform Analyzer
+aletheus/spa/contract_validator.py:2:SPA Contract Validator
+aletheus/spa/genesis_tracker.py:2:SPA Genesis Evolution Tracker
+aletheus/spa/foresight/risk_forecaster.py:2:SPA Future Risk Forecaster
+aletheus/spa/foresight/roadmap_engine.py:2:SPA Evolution Roadmap Engine
+aletheus/spa/foresight/__init__.py:2:SPA Predictive Architecture Intelligence
+aletheus/spa/foresight/engine.py:2:SPA Predictive Architecture Intelligence Engine
+aletheus/spa/foresight/pressure_analyzer.py:2:SPA Architecture Pressure Analyzer
+aletheus/spa/foresight/growth_model.py:2:SPA Growth Modeling Engine
+aletheus/spa/foresight/future_simulator.py:2:SPA Future Architecture Simulator
+aletheus/spa/engine.py:2:AletheusOS Spectrum Platform Analyzer
+aletheus/spa/adaptive_runtime/adaptation_planner.py:2:SPA Adaptation Planner
+aletheus/spa/adaptive_runtime/capability_prioritizer.py:2:SPA Capability Prioritizer
+aletheus/spa/adaptive_runtime/__init__.py:2:SPA Adaptive Runtime Intelligence
+aletheus/spa/adaptive_runtime/resource_optimizer.py:2:SPA Resource Optimizer
+aletheus/spa/adaptive_runtime/engine.py:2:SPA Adaptive Runtime Intelligence Engine
+aletheus/spa/adaptive_runtime/workload_analyzer.py:2:SPA Workload Analyzer
+aletheus/spa/adaptive_runtime/control_loop.py:2:SPA Adaptive Control Loop
+aletheus/spa/evolution/evolution_score.py:2:SPA Evolution Scoring
+aletheus/spa/evolution/recommendation_engine.py:2:SPA Evolution Recommendations
+aletheus/spa/evolution/debt_predictor.py:2:SPA Technical Debt Predictor
+aletheus/spa/evolution/__init__.py:2:SPA Evolution Intelligence
+aletheus/spa/evolution/pattern_detector.py:2:SPA Pattern Detection
+aletheus/spa/evolution/engine.py:2:SPA Evolution Intelligence Engine
+aletheus/spa/evolution/trend_analyzer.py:2:SPA Trend Analyzer
+aletheus/spa/evolution/history.py:2:SPA Evolution History Memory
+aletheus/spa/runtime_analyzer.py:2:SPA Runtime Analyzer
+aletheus/consensus_engine/aggregation.py:3:from .models import CouncilOpinion
+aletheus/consensus_engine/aggregation.py:13:        opinions: list[CouncilOpinion],
+aletheus/consensus_engine/models.py:9:class CouncilOpinion:
+aletheus/consensus_engine/__init__.py:2:from .models import ConsensusResult, CouncilOpinion
+aletheus/consensus_engine/__init__.py:7:    "CouncilOpinion",
+aletheus/consensus_engine/core.py:5:from .models import ConsensusResult, CouncilOpinion
+aletheus/consensus_engine/core.py:15:        opinions: list[CouncilOpinion],
+aletheus/consensus_engine/dissent.py:3:from .models import CouncilOpinion
+aletheus/consensus_engine/dissent.py:12:        opinions: list[CouncilOpinion],
+aletheus/council_registry/models.py:8:class CouncilMember:
+aletheus/council_registry/registry.py:3:from .models import CouncilMember
+aletheus/council_registry/registry.py:6:class CouncilRegistry:
+aletheus/council_registry/registry.py:11:        self._members: dict[str, CouncilMember] = {}
+aletheus/council_registry/registry.py:13:    def register(self, member: CouncilMember):
+aletheus/council_registry/registry.py:28:            "name": "Council Registry",
+aletheus/council_registry/__init__.py:1:from .core import CouncilEngineRegistry, council_engine_registry
+aletheus/council_registry/__init__.py:2:from .models import CouncilMember
+aletheus/council_registry/__init__.py:3:from .registry import CouncilRegistry
+aletheus/council_registry/__init__.py:6:    "CouncilEngineRegistry",
+aletheus/council_registry/__init__.py:7:    "CouncilMember",
+aletheus/council_registry/__init__.py:8:    "CouncilRegistry",
+aletheus/council_registry/core.py:3:from .models import CouncilMember
+aletheus/council_registry/core.py:4:from .registry import CouncilRegistry
+aletheus/council_registry/core.py:7:class CouncilEngineRegistry:
+aletheus/council_registry/core.py:12:        self.registry = CouncilRegistry()
+aletheus/council_registry/core.py:20:            CouncilMember(
+aletheus/council_registry/core.py:23:                role="Council Chairman",
+aletheus/council_registry/core.py:25:                authority="Council coordination, deliberation flow, and consensus orchestration.",
+aletheus/council_registry/core.py:32:            CouncilMember(
+aletheus/council_registry/core.py:34:                name="THORᵡ™",
+aletheus/council_registry/core.py:37:                authority="Evaluation, grading, recommendation, enforcement, and Relix profile execution under Principle X.",
+aletheus/council_registry/core.py:41:                    "principle": "Principle X",
+aletheus/council_registry/core.py:45:            CouncilMember(
+aletheus/council_registry/core.py:47:                name="Sentinel™",
+aletheus/council_registry/core.py:56:            CouncilMember(
+aletheus/council_registry/core.py:58:                name="Watch Tower™",
+aletheus/council_registry/core.py:67:            CouncilMember(
+aletheus/council_registry/core.py:69:                name="Atlas™",
+aletheus/council_registry/core.py:78:            CouncilMember(
+aletheus/council_registry/core.py:103:            "name": "Council Engine Registry",
+aletheus/council_registry/core.py:113:            "name": "Council Engine Registry",
+aletheus/council_registry/core.py:121:council_engine_registry = CouncilEngineRegistry()
+aletheus/repository_dna/inventory_provider.py:18:    Atlas consumes this inventory to answer: how does it connect?
+aletheus/repository_dna/events.py:5:REPOSITORY_AUTHORITY_REGISTERED = "repository.authority.registered"
+aletheus/repository_dna/events.py:14:    REPOSITORY_AUTHORITY_REGISTERED,
+aletheus/repository_dna/tests/test_repository_dna_atlas_integration.py:3:from aletheus.atlas.repository_dna_service import RepositoryAwareAtlasService
+aletheus/repository_dna/tests/test_repository_dna_atlas_integration.py:12:    service = RepositoryAwareAtlasService()
+aletheus/semantic/semantic_core.py:122:            ("THORᵡ", "engine", "Trading Heuristic Opportunity Rating."),
+aletheus/semantic/semantic_core.py:137:            self.assert_fact("THORᵡ", "supports", "Marketplace Intelligence", 0.9, "bootstrap").to_dict(),
+aletheus/applications/application_core.py:113:                "THORᵡ",
+aletheus/applications/application_core.py:158:                name="THORᵡ",
+aletheus/card_hawk/thor_x/models.py:2:THORᵡ Decision Models
+aletheus/card_hawk/thor_x/models.py:12:class THORDecision:
+aletheus/card_hawk/thor_x/scoring.py:2:THORᵡ Scoring Framework
+aletheus/card_hawk/thor_x/scoring.py:8:class THORScoringEngine:
+aletheus/card_hawk/thor_x/__init__.py:1:from .engine import THORxEngine
+aletheus/card_hawk/thor_x/__init__.py:2:from .models import THORDecision
+aletheus/card_hawk/thor_x/__init__.py:7:    "THORxEngine",
+aletheus/card_hawk/thor_x/__init__.py:9:    "THORDecision"
+aletheus/card_hawk/thor_x/engine.py:2:THORᵡ Intelligence Engine
+aletheus/card_hawk/thor_x/engine.py:8:from .scoring import THORScoringEngine
+aletheus/card_hawk/thor_x/engine.py:9:from .reasoning import THORReasoningEngine
+aletheus/card_hawk/thor_x/engine.py:13:class THORxEngine:
+aletheus/card_hawk/thor_x/engine.py:19:            THORScoringEngine()
+aletheus/card_hawk/thor_x/engine.py:23:            THORReasoningEngine()
+aletheus/card_hawk/thor_x/reasoning.py:2:THORᵡ Reasoning Layer
+aletheus/card_hawk/thor_x/reasoning.py:8:class THORReasoningEngine:
+aletheus/card_hawk/automation/agents.py:42:class PortfolioSentinel:
+aletheus/card_hawk/automation/engine.py:11:    PortfolioSentinel
+aletheus/card_hawk/automation/engine.py:28:            PortfolioSentinel()
+aletheus/metasystem/governance/__init__.py:1:from .engine import MetasystemGovernanceCouncilEngine
+aletheus/metasystem/governance/engine.py:8:class MetasystemGovernanceCouncilEngine:
+aletheus/concept_collision_engine/bootstrap.py:12:            name="Atlas™",
+aletheus/concept_collision_engine/bootstrap.py:13:            authority="Atlas™",
+aletheus/concept_collision_engine/bootstrap.py:21:            name="Watch Tower™",
+aletheus/concept_collision_engine/bootstrap.py:22:            authority="Watch Tower™",
+aletheus/concept_collision_engine/service.py:16:    - Watch Tower
+aletheus/concept_collision_engine/service.py:17:    - Atlas
+aletheus/concept_collision_engine/service.py:19:    - Council review
+aletheus/concept_collision_engine/service.py:22:    authority = "Watch Tower™"
+aletheus/concept_collision_engine/models.py:21:    AUTHORITY = "authority"
+aletheus/concept_collision_engine/models.py:33:    REASSIGN_AUTHORITY = "reassign_authority"
+aletheus/concept_collision_engine/tests/test_collision_engine.py:9:    service.register_concept(ConceptSignature(name="Atlas™", owns="Architecture"))
+aletheus/concept_collision_engine/tests/test_collision_engine.py:11:    report = service.evaluate(ConceptSignature(name="Atlas™", owns="Architecture"))
+aletheus/concept_collision_engine/tests/test_collision_engine.py:19:    service.register_concept(ConceptSignature(name="Atlas™", owns="Architecture"))
+aletheus/concept_collision_engine/engine.py:62:                    collision_type=CollisionType.AUTHORITY,
+aletheus/concept_collision_engine/engine.py:65:                    recommended_outcome=CollisionOutcome.REASSIGN_AUTHORITY,
+aletheus/double_hedron/consolidation.py:111:        • Council decisions
+aletheus/runtime_registry_v2/health.py:38:    SPA, Breadth, the Founder Console, and future services
+aletheus/atlas/bootstrap.py:3:from .service import AtlasService
+aletheus/atlas/bootstrap.py:6:def bootstrap_atlas_service() -> AtlasService:
+aletheus/atlas/bootstrap.py:7:    return AtlasService()
+aletheus/atlas/service.py:5:from .analyzer import AtlasAnalyzer
+aletheus/atlas/service.py:9:from .models import ArchitectureGraph, AtlasReport
+aletheus/atlas/service.py:10:from .registry import AtlasRegistry
+aletheus/atlas/service.py:13:class AtlasService:
+aletheus/atlas/service.py:15:    Sovereign Authority: Atlas™
+aletheus/atlas/service.py:17:    Atlas knows architecture.
+aletheus/atlas/service.py:20:    authority = "Atlas™"
+aletheus/atlas/service.py:27:        analyzer: AtlasAnalyzer | None = None,
+aletheus/atlas/service.py:28:        registry: AtlasRegistry | None = None,
+aletheus/atlas/service.py:31:        self.analyzer = analyzer or AtlasAnalyzer()
+aletheus/atlas/service.py:32:        self.registry = registry or AtlasRegistry()
+aletheus/atlas/service.py:34:    def discover(self, aletheus_root: Path) -> AtlasReport:
+aletheus/atlas/relationship_engine.py:3:from .models import ArchitectureGraph, AtlasEdge, AtlasEdgeType
+aletheus/atlas/relationship_engine.py:18:                from .models import AtlasNode, AtlasNodeType
+aletheus/atlas/relationship_engine.py:20:                    AtlasNode(id=family_id, name=node.family, type=AtlasNodeType.FAMILY)
+aletheus/atlas/relationship_engine.py:25:                AtlasEdge(
+aletheus/atlas/relationship_engine.py:28:                    type=AtlasEdgeType.BELONGS_TO,
+aletheus/atlas/repository_dna_adapter.py:3:from .models import ArchitectureGraph, AtlasNode, AtlasNodeType
+aletheus/atlas/repository_dna_adapter.py:6:class RepositoryDNAAtlasAdapter:
+aletheus/atlas/repository_dna_adapter.py:7:    """Converts Repository DNA inventory into Atlas graph nodes."""
+aletheus/atlas/repository_dna_adapter.py:26:                AtlasNode(
+aletheus/atlas/repository_dna_adapter.py:41:    def _infer_type(self, name: str) -> AtlasNodeType:
+aletheus/atlas/repository_dna_adapter.py:45:            return AtlasNodeType.RUNTIME
+aletheus/atlas/repository_dna_adapter.py:47:            return AtlasNodeType.REGISTRY
+aletheus/atlas/repository_dna_adapter.py:49:            return AtlasNodeType.FABRIC
+aletheus/atlas/repository_dna_adapter.py:51:            return AtlasNodeType.MEMORY
+aletheus/atlas/repository_dna_adapter.py:53:            return AtlasNodeType.SECURITY
+aletheus/atlas/repository_dna_adapter.py:55:            return AtlasNodeType.GOVERNANCE
+aletheus/atlas/repository_dna_adapter.py:57:            return AtlasNodeType.ENGINE
+aletheus/atlas/repository_dna_adapter.py:59:        return AtlasNodeType.SUBSYSTEM
+aletheus/atlas/models.py:9:class AtlasNodeType(str, Enum):
+aletheus/atlas/models.py:10:    AUTHORITY = "authority"
+aletheus/atlas/models.py:26:class AtlasEdgeType(str, Enum):
+aletheus/atlas/models.py:41:class AtlasNode:
+aletheus/atlas/models.py:44:    type: AtlasNodeType = AtlasNodeType.UNKNOWN
+aletheus/atlas/models.py:52:class AtlasEdge:
+aletheus/atlas/models.py:55:    type: AtlasEdgeType
+aletheus/atlas/models.py:62:    nodes: Dict[str, AtlasNode] = field(default_factory=dict)
+aletheus/atlas/models.py:63:    edges: List[AtlasEdge] = field(default_factory=list)
+aletheus/atlas/models.py:66:    def add_node(self, node: AtlasNode) -> None:
+aletheus/atlas/models.py:69:    def add_edge(self, edge: AtlasEdge) -> None:
+aletheus/atlas/models.py:89:class AtlasReport:
+aletheus/atlas/registry.py:8:class AtlasRegistry:
+aletheus/atlas/health.py:7:class AtlasHealth:
+aletheus/atlas/health.py:14:def build_health(graph) -> AtlasHealth:
+aletheus/atlas/health.py:15:    return AtlasHealth(
+aletheus/atlas/analyzer.py:3:from .models import ArchitectureGraph, AtlasReport, TopologySnapshot
+aletheus/atlas/analyzer.py:6:class AtlasAnalyzer:
+aletheus/atlas/analyzer.py:9:    def analyze(self, graph: ArchitectureGraph) -> AtlasReport:
+aletheus/atlas/analyzer.py:22:        report = AtlasReport(snapshot=snapshot)
+aletheus/atlas/tests/test_atlas_service.py:3:from aletheus.atlas import AtlasService
+aletheus/atlas/tests/test_atlas_service.py:13:    service = AtlasService()
+aletheus/atlas/__init__.py:2:AletheusOS Atlas™ Authority Core
+aletheus/atlas/__init__.py:4:Atlas knows architecture.
+aletheus/atlas/__init__.py:8:    AtlasNode,
+aletheus/atlas/__init__.py:9:    AtlasEdge,
+aletheus/atlas/__init__.py:12:    AtlasReport,
+aletheus/atlas/__init__.py:14:from .service import AtlasService
+aletheus/atlas/__init__.py:18:    "AtlasNode",
+aletheus/atlas/__init__.py:19:    "AtlasEdge",
+aletheus/atlas/__init__.py:22:    "AtlasReport",
+aletheus/atlas/__init__.py:23:    "AtlasService",
+aletheus/atlas/repository_dna_service.py:5:from .analyzer import AtlasAnalyzer
+aletheus/atlas/repository_dna_service.py:6:from .registry import AtlasRegistry
+aletheus/atlas/repository_dna_service.py:8:from .repository_dna_adapter import RepositoryDNAAtlasAdapter
+aletheus/atlas/repository_dna_service.py:16:class RepositoryAwareAtlasService:
+aletheus/atlas/repository_dna_service.py:17:    """Atlas service that consumes Repository DNA instead of walking the filesystem directly."""
+aletheus/atlas/repository_dna_service.py:19:    authority = "Atlas™"
+aletheus/atlas/repository_dna_service.py:26:        adapter: RepositoryDNAAtlasAdapter | None = None,
+aletheus/atlas/repository_dna_service.py:28:        analyzer: AtlasAnalyzer | None = None,
+aletheus/atlas/repository_dna_service.py:29:        registry: AtlasRegistry | None = None,
+aletheus/atlas/repository_dna_service.py:38:        self.adapter = adapter or RepositoryDNAAtlasAdapter()
+aletheus/atlas/repository_dna_service.py:40:        self.analyzer = analyzer or AtlasAnalyzer()
+aletheus/atlas/repository_dna_service.py:41:        self.registry = registry or AtlasRegistry()
+aletheus/atlas/api.py:5:from .service import AtlasService
+aletheus/atlas/api.py:8:class AtlasAPI:
+aletheus/atlas/api.py:11:    def __init__(self, service: AtlasService) -> None:
+aletheus/atlas/topology.py:5:from .models import ArchitectureGraph, AtlasNode, AtlasNodeType, TopologySnapshot
+aletheus/atlas/topology.py:18:            node = AtlasNode(
+aletheus/atlas/topology.py:37:    def _infer_type(self, name: str) -> AtlasNodeType:
+aletheus/atlas/topology.py:40:            return AtlasNodeType.RUNTIME
+aletheus/atlas/topology.py:42:            return AtlasNodeType.REGISTRY
+aletheus/atlas/topology.py:44:            return AtlasNodeType.FABRIC
+aletheus/atlas/topology.py:46:            return AtlasNodeType.CIRCUIT
+aletheus/atlas/topology.py:48:            return AtlasNodeType.MEMORY
+aletheus/atlas/topology.py:50:            return AtlasNodeType.SECURITY
+aletheus/atlas/topology.py:52:            return AtlasNodeType.GOVERNANCE
+aletheus/atlas/topology.py:54:            return AtlasNodeType.ENGINE
+aletheus/atlas/topology.py:55:        return AtlasNodeType.SUBSYSTEM
+aletheus/atlas/dependency_engine.py:7:from .models import ArchitectureGraph, AtlasEdge, AtlasEdgeType
+aletheus/atlas/dependency_engine.py:38:                        AtlasEdge(
+aletheus/atlas/dependency_engine.py:41:                            type=AtlasEdgeType.DEPENDS_ON,
+aletheus/atlas/architecture_graph.py:12:    """Builds the Atlas architecture graph."""
+aletheus/agent_council/council.py:2:Agent Council Runtime
+aletheus/agent_council/council.py:8:from .registry import CouncilRegistry
+aletheus/agent_council/council.py:11:from .governance import CouncilGovernance
+aletheus/agent_council/council.py:15:class AgentCouncil:
+aletheus/agent_council/council.py:20:        self.registry = CouncilRegistry()
+aletheus/agent_council/council.py:26:        self.governance = CouncilGovernance()
+aletheus/agent_council/models.py:2:Agent Council Models
+aletheus/agent_council/models.py:28:class CouncilDecision:
+aletheus/agent_council/registry.py:2:Council Agent Registry
+aletheus/agent_council/registry.py:8:class CouncilRegistry:
+aletheus/agent_council/__init__.py:1:from .council import AgentCouncil
+aletheus/agent_council/__init__.py:2:from .models import AgentOpinion, CouncilDecision
+aletheus/agent_council/__init__.py:7:"AgentCouncil",
+aletheus/agent_council/__init__.py:11:"CouncilDecision"
+aletheus/agent_council/deliberation.py:2:Council Deliberation Engine
+aletheus/agent_council/governance.py:2:Council Governance
+aletheus/agent_council/governance.py:8:class CouncilGovernance:
+aletheus/watch_tower/service.py:3:    authority="Watch Tower™"
+aletheus/watch_tower/__init__.py:1:"""Watch Tower™ Authority Core"""
+aletheus/neural/envelope/bootstrap.py:51:            ("council", "Council", "executive"),
+aletheus/neural/envelope/bootstrap.py:63:            ("guardian", "Guardian", "immune"),
+aletheus/neural/envelope/bootstrap.py:65:            ("watch_tower", "Watch Tower", "immune"),
+aletheus/neural/envelope/bootstrap.py:66:            ("sentinel", "Sentinel", "immune"),
+aletheus/civilization_federation/governance/__init__.py:1:from .engine import FederationGovernanceCouncilEngine
+aletheus/civilization_federation/governance/engine.py:8:class FederationGovernanceCouncilEngine:
+aletheus/overlay_manager/core.py:137:                display_name="THORᵡ™",
+aletheus/overlay_manager/validation.py:9:        "Principle X",
+aletheus/genesis/planner.py:22:            "Watch Tower verification completed",
+aletheus/genesis/models.py:13:    AUTHORITY = "authority"
+aletheus/genesis/constructor.py:80:Genesis Packages are constitutional construction artifacts. They should be ontology-aware, collision-checked, ADR-backed, Watch Tower-verifiable, and Repository DNA-recorded.
+aletheus/constitutional_policy/models.py:12:    authority: str = "Principle X"
+aletheus/constitutional_policy/core.py:30:                name="Council Consensus Required",
+aletheus/constitutional_policy/core.py:32:                description="Requires a Council consensus result before constitutional approval.",
+aletheus/constitutional_policy/core.py:36:                name="Principle X Authority Required",
+aletheus/constitutional_policy/core.py:38:                description="Requires Principle X authority for constitutional decisions.",
+aletheus/constitutional_policy/evaluator.py:56:                    "Principle X authority is present."
+aletheus/constitutional_policy/evaluator.py:58:                    else "Principle X authority is missing."
+aletheus/intelligence_singularity/engine.py:67:                    "SPA",

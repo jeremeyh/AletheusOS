@@ -1,0 +1,54 @@
+{
+  "started_at": "2026-07-19T07:04:34.520835+00:00",
+  "completed_at": "2026-07-19T07:04:34.528349+00:00",
+  "dry_run": false,
+  "applied": [
+    {
+      "action": "quarantine",
+      "path": ".aletheus_restore_points/repository_self_repair/20260719T065403Z/.sh"
+    },
+    {
+      "action": "quarantine",
+      "path": ".aletheus_restore_points/repository_self_repair/20260719T065403Z/=END"
+    },
+    {
+      "action": "stage_conflict",
+      "path": ".gitignore",
+      "candidate": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_restore_points/repository_conflicts/20260719T070434Z/.gitignore"
+    },
+    {
+      "action": "stage_conflict",
+      "path": "README.md",
+      "candidate": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_restore_points/repository_conflicts/20260719T070434Z/README.md"
+    },
+    {
+      "action": "stage_conflict",
+      "path": "aletheus/__init__.py",
+      "candidate": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_restore_points/repository_conflicts/20260719T070434Z/aletheus/__init__.py"
+    },
+    {
+      "action": "stage_conflict",
+      "path": "aletheus/runtime/core.py",
+      "candidate": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_restore_points/repository_conflicts/20260719T070434Z/aletheus/runtime/core.py"
+    },
+    {
+      "action": "stage_conflict",
+      "path": "pyproject.toml",
+      "candidate": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_restore_points/repository_conflicts/20260719T070434Z/pyproject.toml"
+    },
+    {
+      "action": "stage_conflict",
+      "path": "reports/runtime-health.json",
+      "candidate": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_restore_points/repository_conflicts/20260719T070434Z/reports/runtime-health.json"
+    },
+    {
+      "action": "stage_conflict",
+      "path": "reports/runtime-health.md",
+      "candidate": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_restore_points/repository_conflicts/20260719T070434Z/reports/runtime-health.md"
+    }
+  ],
+  "failed": [],
+  "archive_path": null,
+  "source_removed": false,
+  "success": true
+}

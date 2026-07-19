@@ -1,0 +1,12 @@
+{
+  "checks": [
+    {
+      "check": "capability-list:dry-run",
+      "status": "PASS"
+    }
+  ],
+  "failures": [],
+  "generated_at": "2026-07-11T09:42:06.521004+00:00",
+  "schema_version": "1.0",
+  "status": "PASS"
+}

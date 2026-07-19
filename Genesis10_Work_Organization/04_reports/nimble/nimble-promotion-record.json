@@ -1,0 +1,83 @@
+{
+  "application": "AletheusOS Nimble",
+  "candidate": {
+    "release": "nimble-release-promotion-v0.1",
+    "revision": "f06c6dc7b78f982c06dc648d5b9acdcbec872efc",
+    "tags": [
+      "nimble-release-promotion-v0.1"
+    ]
+  },
+  "environment": "build",
+  "generated_at": "2026-07-11T08:41:40.293575+00:00",
+  "integrity": {
+    "evidence": [
+      {
+        "name": "release_manifest",
+        "path": "reports/nimble/nimble-release-manifest.json",
+        "present": true,
+        "sha256": "1746ce4d5e36a15e43b70329e2637f7b45a60e939b28f439470be9c1189261d7"
+      },
+      {
+        "name": "release_manifest_checksum",
+        "path": "reports/nimble/nimble-release-manifest.sha256",
+        "present": true,
+        "sha256": "a0c84195179ed574729c90e6760ddd8011adf1e40ac7d4badb196ab4b85cf050"
+      },
+      {
+        "name": "release_integrity_report",
+        "path": "reports/nimble/release-integrity-latest.json",
+        "present": true,
+        "sha256": "32c03cb43e5b5dbcf20bd374960a898e4b5dc4a9c55888b1d497278727b5cbfc"
+      },
+      {
+        "name": "deployment_readiness",
+        "path": "nimble/governance/deployment/deployment-contract.json",
+        "present": true,
+        "sha256": "11ea752d5e91b8c1ec03910d305c5bf3cb85959de532ee783f360644d6c3f039"
+      },
+      {
+        "name": "image_provenance_contract",
+        "path": "nimble/governance/deployment/image-provenance-contract.json",
+        "present": true,
+        "sha256": "78f94f6e214d0ee14ce035163fc6152318df20a39c551908c6b9ba1b85c5f6d8"
+      },
+      {
+        "name": "image_identity",
+        "path": "reports/nimble/image-identity-latest.json",
+        "present": true,
+        "sha256": "ca202344a0b1c6250c8e4fafb41aea6fa66859d60d2186413b2df6a2587bb145"
+      },
+      {
+        "name": "image_digest",
+        "path": "reports/nimble/image-digest-latest.json",
+        "present": true,
+        "sha256": "ca202344a0b1c6250c8e4fafb41aea6fa66859d60d2186413b2df6a2587bb145"
+      },
+      {
+        "name": "sbom",
+        "path": "reports/nimble/nimble-image-sbom.spdx.json",
+        "present": false,
+        "sha256": null
+      },
+      {
+        "name": "container_smoke",
+        "path": "reports/nimble/container-smoke-latest.json",
+        "present": true,
+        "sha256": "0ef92893a969d3f6829b04705f208ee592d84e82bf07e3b0d3263109e4394fd1"
+      }
+    ],
+    "worktree_clean": true
+  },
+  "record_id": "nimble-promotion-record-v0.1",
+  "rollback": {
+    "release": null,
+    "required": false,
+    "revision": null
+  },
+  "schema_version": "1.0",
+  "workflow": {
+    "repository": "local",
+    "run_attempt": null,
+    "run_id": null
+  }
+}

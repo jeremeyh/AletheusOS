@@ -1,0 +1,26 @@
+{
+  "commands": [
+    {
+      "command": "npm run typecheck --workspace @aletheus/nimble-react",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "> @aletheus/nimble-react@0.1.0 typecheck\n> tsc -p tsconfig.json --noEmit --pretty false"
+    },
+    {
+      "command": "npm run typecheck --workspace @aletheus/nimble-shell",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "> @aletheus/nimble-shell@0.1.0 typecheck\n> tsc -b --pretty false"
+    },
+    {
+      "command": "npm run build:instrumentation --workspace @aletheus/nimble-shell",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "> @aletheus/nimble-shell@0.1.0 build:instrumentation\n> vite build --config vite.instrumentation.config.ts\n\nvite v8.1.4 building client environment for production...\n\u001b[2K\ntransforming...\u2713 54 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist-instrumentation/instrumentation.html                   0.55 kB \u2502 gzip:  0.31 kB\ndist-instrumentation/assets/instrumentation-BiHpgBZU.css    2.13 kB \u2502 gzip:  0.95 kB\ndist-instrumentation/assets/instrumentation-azLChUto.js   212.30 kB \u2502 gzip: 66.52 kB\n\n\u2713 built in 63ms"
+    }
+  ],
+  "failures": [],
+  "generated_at": "2026-07-13T07:57:56.345434+00:00",
+  "schema_version": "1.0",
+  "status": "PASS"
+}

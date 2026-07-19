@@ -1,0 +1,27 @@
+{
+  "anchor_hash": "d5526b475fd0d0e77e13ce821c016d842a3df32ae445c6feb1ff158a76c4a25a",
+  "anchor_id": "nimble-signed-audit-anchor-v0.1",
+  "created_at": "2026-07-13T07:58:02.121474+00:00",
+  "integrity": {
+    "algorithm": "sha256",
+    "latest_pointer_hash": "da3827583cb7d48ff78f9b6cb3d8f916381db02f09c9f9d1d7e9115f554deed6"
+  },
+  "schema_version": "1.0",
+  "signing_identity": {
+    "expected_repository": "local",
+    "expected_workflow": ".github/workflows/nimble-audit-anchor.yml",
+    "provider": "github-artifact-attestations",
+    "workflow_run_attempt": null,
+    "workflow_run_id": null
+  },
+  "subject": {
+    "checkpoint_file_sha256": "373e888d617b358077752679027c4c82daaf7ea01d24d127bb39a57418145e48",
+    "checkpoint_hash": "da3827583cb7d48ff78f9b6cb3d8f916381db02f09c9f9d1d7e9115f554deed6",
+    "checkpoint_path": "nimble/governance/audit/checkpoints/checkpoint-000001-da3827583cb7d48f.json",
+    "checkpoint_sequence": 1,
+    "git_revision": "8e94026dabdcb45ede0df4b63a17dbe0c22b528e",
+    "ledger_entry_count": 0,
+    "ledger_head_hash": "GENESIS",
+    "release_identity": "nimble-deployment-audit-ledger-v0.1"
+  }
+}

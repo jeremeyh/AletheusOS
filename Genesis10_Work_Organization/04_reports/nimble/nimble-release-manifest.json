@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-07-11T05:44:11.810309+00:00",
+  "integrity": {
+    "algorithm": "sha256",
+    "subject_count": 6,
+    "worktree_clean": false
+  },
+  "manifest_id": "nimble-release-manifest-v0.1",
+  "release": {
+    "name": "AletheusOS Nimble",
+    "ref": "nimble-image-provenance-v0.1",
+    "repository": "local",
+    "revision": "dd3bff3d41687b220340d0891cda4d637ca11d63",
+    "tags": [
+      "nimble-image-provenance-v0.1"
+    ],
+    "version": "nimble-image-provenance-v0.1",
+    "workflow_run_attempt": null,
+    "workflow_run_id": null
+  },
+  "schema_version": "1.0",
+  "subjects": [
+    {
+      "path": "nimble/governance/deployment/build-metadata.json",
+      "sha256": "7ab2ddb367583f9b0766cd41a2aa6f43b2e7b335c4ae9e0d8419eb81f6345b9e",
+      "size_bytes": 2949
+    },
+    {
+      "path": "nimble/governance/deployment/deployment-contract.json",
+      "sha256": "11ea752d5e91b8c1ec03910d305c5bf3cb85959de532ee783f360644d6c3f039",
+      "size_bytes": 1622
+    },
+    {
+      "path": "nimble/governance/deployment/image-provenance-contract.json",
+      "sha256": "78f94f6e214d0ee14ce035163fc6152318df20a39c551908c6b9ba1b85c5f6d8",
+      "size_bytes": 1529
+    },
+    {
+      "path": "reports/nimble/container-smoke-latest.json",
+      "sha256": "0ef92893a969d3f6829b04705f208ee592d84e82bf07e3b0d3263109e4394fd1",
+      "size_bytes": 244
+    },
+    {
+      "path": "reports/nimble/image-digest-latest.json",
+      "sha256": "ca202344a0b1c6250c8e4fafb41aea6fa66859d60d2186413b2df6a2587bb145",
+      "size_bytes": 225
+    },
+    {
+      "path": "reports/nimble/image-identity-latest.json",
+      "sha256": "ca202344a0b1c6250c8e4fafb41aea6fa66859d60d2186413b2df6a2587bb145",
+      "size_bytes": 225
+    }
+  ]
+}

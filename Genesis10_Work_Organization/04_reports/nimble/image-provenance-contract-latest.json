@@ -1,0 +1,81 @@
+{
+  "checks": [
+    {
+      "check": "oci-label:org.opencontainers.image.title",
+      "status": "PASS"
+    },
+    {
+      "check": "oci-label:org.opencontainers.image.description",
+      "status": "PASS"
+    },
+    {
+      "check": "oci-label:org.opencontainers.image.vendor",
+      "status": "PASS"
+    },
+    {
+      "check": "oci-label:org.opencontainers.image.version",
+      "status": "PASS"
+    },
+    {
+      "check": "oci-label:org.opencontainers.image.revision",
+      "status": "PASS"
+    },
+    {
+      "check": "oci-label:org.opencontainers.image.created",
+      "status": "PASS"
+    },
+    {
+      "check": "oci-label:org.opencontainers.image.source",
+      "status": "PASS"
+    },
+    {
+      "check": "oci-label:org.opencontainers.image.ref.name",
+      "status": "PASS"
+    },
+    {
+      "check": "oci-label:org.opencontainers.image.licenses",
+      "status": "PASS"
+    },
+    {
+      "check": "build-argument:ALETHEUS_BUILD_VERSION",
+      "status": "PASS"
+    },
+    {
+      "check": "build-argument:ALETHEUS_BUILD_REVISION",
+      "status": "PASS"
+    },
+    {
+      "check": "build-argument:ALETHEUS_BUILD_CREATED",
+      "status": "PASS"
+    },
+    {
+      "check": "build-argument:ALETHEUS_BUILD_SOURCE",
+      "status": "PASS"
+    },
+    {
+      "check": "build-argument:ALETHEUS_BUILD_REF_NAME",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence-path:image_identity_report",
+      "status": "PASS",
+      "value": "reports/nimble/image-identity-latest.json"
+    },
+    {
+      "check": "evidence-path:image_digest_report",
+      "status": "PASS",
+      "value": "reports/nimble/image-digest-latest.json"
+    },
+    {
+      "check": "evidence-path:sbom_report",
+      "status": "PASS",
+      "value": "reports/nimble/nimble-image-sbom.spdx.json"
+    }
+  ],
+  "contract": "nimble/governance/deployment/image-provenance-contract.json",
+  "dockerfile": "Dockerfile.nimble",
+  "failures": [],
+  "generated_at": "2026-07-11T05:33:46.013541+00:00",
+  "schema_version": "1.0",
+  "status": "PASS"
+}

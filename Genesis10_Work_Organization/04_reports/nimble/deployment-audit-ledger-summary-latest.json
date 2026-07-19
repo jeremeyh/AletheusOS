@@ -1,0 +1,15 @@
+{
+  "entry_count": 266,
+  "environment_counts": {
+    "production": 82,
+    "staging": 184
+  },
+  "event_type_counts": {
+    "credential_rotation_validated": 184,
+    "provider_preflight": 82
+  },
+  "generated_at": "2026-07-13T07:57:40.987859+00:00",
+  "head_hash": "ebac8b51c63031d94a21a2bb64ac8e5a6af28a0c95a9a6db6b307343c6955c47",
+  "schema_version": "1.0",
+  "status": "PASS"
+}

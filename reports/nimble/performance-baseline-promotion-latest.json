@@ -1,0 +1,26 @@
+{
+  "approved_by": "Platform Architecture Council",
+  "failed_regression_override": false,
+  "new_baseline": {
+    "metrics": {
+      "gate_duration_seconds": 7.3578,
+      "largest_secondary_chunk_bytes": 67533,
+      "primary_bundle_bytes": 447168,
+      "secondary_chunk_count": 6,
+      "total_javascript_bytes": 584884
+    },
+    "path": "nimble/governance/performance-baseline.json",
+    "sha256": "b15bbeb69f619a878d5aeb5ccc663fbc4b81b4ac3152b29676706a44874497c5",
+    "source_commit": "eb53711f55031b7d09b3f2f0e34f83f406a6117f"
+  },
+  "previous_baseline": {
+    "path": "nimble/governance/performance-baselines/performance-baseline-2026-07-10T22-58-23.564719_00-00-d61267d.json",
+    "sha256": "a31f00880b8d4c4bb796775acccff93d4a3a5df21f0aa71c772ea0967650aac3"
+  },
+  "promoted_at": "2026-07-10T23:03:08.531938+00:00",
+  "rationale": "Approved architecture change requiring a new performance baseline.",
+  "regression_status": "PASS",
+  "schema_version": "1.0",
+  "status": "PROMOTED",
+  "ticket": "NIMBLE-BASELINE-001"
+}

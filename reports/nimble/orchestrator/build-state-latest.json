@@ -1,0 +1,146 @@
+{
+  "build_plan": [
+    {
+      "action": "build capability",
+      "capability_id": "founder-console",
+      "display_name": "Founder Console\u2122",
+      "order": 6,
+      "reason": "Capability not yet implemented",
+      "state": "missing"
+    }
+  ],
+  "capabilities": [
+    {
+      "blocked_by": [],
+      "capability_id": "experience-constitution",
+      "constitutional": true,
+      "dependencies": [],
+      "display_name": "Experience Constitution\u2122",
+      "existing_paths": [
+        "aletheus/constitution/ARCHITECTURAL_CONSTITUTION.md",
+        "aletheus/constitution/EXPERIENCE_EVOLUTION.md",
+        "aletheus/constitution/FOUNDERS_VISION.md"
+      ],
+      "missing_paths": [],
+      "readiness_percent": 100,
+      "state": "implemented"
+    },
+    {
+      "blocked_by": [],
+      "capability_id": "experience-core",
+      "constitutional": true,
+      "dependencies": [
+        "experience-constitution"
+      ],
+      "display_name": "Experience Core\u2122",
+      "existing_paths": [
+        "nimble/packages/core/src/experience/contracts.ts",
+        "nimble/packages/core/src/experience/index.ts",
+        "nimble/packages/core/src/experience/tokens/index.ts",
+        "nimble/packages/core/src/experience/theme/index.ts",
+        "validate_nimble_experience_core.py",
+        "tests/nimble/test_experience_core.py"
+      ],
+      "missing_paths": [],
+      "readiness_percent": 100,
+      "state": "implemented"
+    },
+    {
+      "blocked_by": [],
+      "capability_id": "react-primitives",
+      "constitutional": false,
+      "dependencies": [
+        "experience-core"
+      ],
+      "display_name": "Primitive Experience Library\u2122",
+      "existing_paths": [
+        "nimble/packages/react/src/primitives/Surface.tsx",
+        "nimble/packages/react/src/primitives/Stack.tsx",
+        "nimble/packages/react/src/primitives/Grid.tsx",
+        "nimble/packages/react/src/primitives/Text.tsx",
+        "nimble/packages/react/src/primitives/Instrument.tsx",
+        "nimble/packages/react/src/primitives/reserved.tsx",
+        "validate_nimble_primitive_experience.py",
+        "tests/nimble/test_primitive_experience.py"
+      ],
+      "missing_paths": [],
+      "readiness_percent": 100,
+      "state": "implemented"
+    },
+    {
+      "blocked_by": [],
+      "capability_id": "workspace-engine",
+      "constitutional": false,
+      "dependencies": [
+        "experience-core"
+      ],
+      "display_name": "Workspace Engine\u2122",
+      "existing_paths": [
+        "nimble/packages/workspace/src/engine/contracts.ts",
+        "nimble/packages/workspace/src/engine/founder.ts",
+        "nimble/packages/workspace/src/engine/layout.ts",
+        "nimble/packages/workspace/src/engine/registry.ts",
+        "nimble/packages/workspace/src/engine/persistence.ts",
+        "validate_nimble_workspace_engine.py",
+        "tests/nimble/test_workspace_engine.py"
+      ],
+      "missing_paths": [],
+      "readiness_percent": 100,
+      "state": "implemented"
+    },
+    {
+      "blocked_by": [],
+      "capability_id": "instrumentation-preview",
+      "constitutional": false,
+      "dependencies": [
+        "react-primitives"
+      ],
+      "display_name": "Intelligence Instrumentation\u2122 Preview",
+      "existing_paths": [
+        "nimble/apps/platform-shell/instrumentation.html",
+        "nimble/apps/platform-shell/src/instrumentation-preview.tsx",
+        "nimble/apps/platform-shell/src/nimble/showcase/IntelligenceInstrumentationShowcase.tsx",
+        "validate_nimble_instrumentation_preview.py",
+        "tests/nimble/test_instrumentation_preview.py"
+      ],
+      "missing_paths": [],
+      "readiness_percent": 100,
+      "state": "implemented"
+    },
+    {
+      "blocked_by": [],
+      "capability_id": "founder-console",
+      "constitutional": false,
+      "dependencies": [
+        "react-primitives",
+        "workspace-engine"
+      ],
+      "display_name": "Founder Console\u2122",
+      "existing_paths": [],
+      "missing_paths": [
+        "nimble/apps/platform-shell/founder-console.html",
+        "nimble/apps/platform-shell/src/founder-console.tsx",
+        "nimble/apps/platform-shell/src/nimble/founder-console/FounderConsoleShell.tsx",
+        "validate_nimble_founder_console_shell.py",
+        "tests/nimble/test_founder_console_shell.py"
+      ],
+      "readiness_percent": 0,
+      "state": "missing"
+    }
+  ],
+  "drift_findings": [
+    "Retired runtime name detected. File: nimble/orchestrator/drift.py",
+    "Council consensus should not replace individual engine instrumentation. File: nimble/orchestrator/drift.py",
+    "Council consensus should not replace individual engine instrumentation. File: aletheus/constitutional_policy/core.py"
+  ],
+  "generated_at": "2026-07-13T07:57:59.275242+00:00",
+  "overall_readiness_percent": 83,
+  "schema_version": "1.0",
+  "summary": {
+    "blocked": 0,
+    "drift_findings": 3,
+    "implemented": 5,
+    "missing": 1,
+    "partial": 0
+  }
+}

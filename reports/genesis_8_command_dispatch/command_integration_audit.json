@@ -1,0 +1,3103 @@
+{
+  "targets": {
+    "command_bus": {
+      "exists": true,
+      "path": "aletheus/runtime/commands/command_bus.py",
+      "line_count": 326,
+      "imports": [
+        "from __future__ import annotations",
+        "from typing import Any, Callable",
+        "from aletheus.runtime.commands_v2.registry import RuntimeCommandRegistry",
+        "from aletheus.runtime.context import RuntimeContext",
+        "from runtime_commands import RuntimeCommands"
+      ],
+      "classes": [
+        {
+          "name": "CommandBus",
+          "bases": [],
+          "methods": [
+            "def __init__(self, runtime: Any, registry: BinOp(left=Name(id='RuntimeCommandRegistry', ctx=Load()), op=BitOr(), right=Constant(value=None)) = None) -> Constant(value=None)",
+            "def _register_builtin_runtime_commands(self) -> Constant(value=None)",
+            "def register_context_handler(self, name: str, handler: Callable, *, replace: bool = False) -> Callable",
+            "def register(self, name: str, handler: Callable, category: str = 'general', description: str = '', metadata: BinOp(left=Subscript(value=Name(id='dict', ctx=Load()), slice=Tuple(elts=[Name(id='str', ctx=Load()), Name(id='Any', ctx=Load())], ctx=Load()), ctx=Load()), op=BitOr(), right=Constant(value=None)) = None, *, replace: bool = False)",
+            "def unregister(self, name: str) -> bool",
+            "def dispatch(self, command: str, payload: BinOp(left=Subscript(value=Name(id='dict', ctx=Load()), slice=Tuple(elts=[Name(id='str', ctx=Load()), Name(id='Any', ctx=Load())], ctx=Load()), ctx=Load()), op=BitOr(), right=Constant(value=None)) = None, application: str = 'system') -> RuntimeContext",
+            "def execute(self, command: str, payload: BinOp(left=Subscript(value=Name(id='dict', ctx=Load()), slice=Tuple(elts=[Name(id='str', ctx=Load()), Name(id='Any', ctx=Load())], ctx=Load()), ctx=Load()), op=BitOr(), right=Constant(value=None)) = None, application: str = 'system') -> RuntimeContext",
+            "def _extract_error(response: Any, *, fallback: str) -> str",
+            "def has(self, command: str) -> bool",
+            "def count(self) -> int",
+            "def list(self) -> list",
+            "def categories(self) -> list",
+            "def health(self) -> dict"
+          ],
+          "attributes": []
+        }
+      ],
+      "functions": []
+    },
+    "command_package": {
+      "exists": true,
+      "path": "aletheus/runtime/commands/__init__.py",
+      "line_count": 39,
+      "imports": [
+        "from command_bus import CommandBus",
+        "from contracts import CommandContext, CommandHandler, CommandMiddleware, CommandRequest, CommandResult",
+        "from errors import CommandDispatchError, CommandExecutionError, CommandNotFoundError, CommandResultTypeError, CommandValidationError, DuplicateCommandError, RegistryFrozenError",
+        "from models import CompiledCommand",
+        "from registry import CompiledCommandRegistry",
+        "from dispatcher import CommandDispatcher"
+      ],
+      "classes": [],
+      "functions": []
+    },
+    "registry": {
+      "exists": true,
+      "path": "aletheus/runtime/commands_v2/registry.py",
+      "line_count": 140,
+      "imports": [
+        "from __future__ import annotations",
+        "from typing import Any, Callable",
+        "from models import CommandRecord, CommandResult"
+      ],
+      "classes": [
+        {
+          "name": "RuntimeCommandRegistry",
+          "bases": [],
+          "methods": [
+            "def __init__(self) -> Constant(value=None)",
+            "def register(self, name: str, handler: Callable, category: str = 'general', description: str = '', metadata: BinOp(left=Subscript(value=Name(id='dict', ctx=Load()), slice=Tuple(elts=[Name(id='str', ctx=Load()), Name(id='Any', ctx=Load())], ctx=Load()), ctx=Load()), op=BitOr(), right=Constant(value=None)) = None, *, replace: bool = False) -> CommandRecord",
+            "def unregister(self, name: str) -> bool",
+            "def has(self, name: str) -> bool",
+            "def get(self, name: str)",
+            "def dispatch(self, name: str, payload = None)",
+            "def count(self)",
+            "def list(self)",
+            "def categories(self)",
+            "def health(self)"
+          ],
+          "attributes": []
+        }
+      ],
+      "functions": []
+    },
+    "command_manager": {
+      "exists": true,
+      "path": "aletheus/runtime/managers/command_manager.py",
+      "line_count": 53,
+      "imports": [
+        "from aletheus.runtime.command_bootstrap.bootstrapper import RuntimeCommandBootstrapper"
+      ],
+      "classes": [
+        {
+          "name": "CommandManager",
+          "bases": [],
+          "methods": [
+            "def __init__(self, runtime)",
+            "def bootstrap(self)",
+            "def count(self)",
+            "def list(self)",
+            "def status(self)"
+          ],
+          "attributes": []
+        }
+      ],
+      "functions": []
+    },
+    "runtime_core": {
+      "exists": true,
+      "path": "aletheus/runtime/core.py",
+      "line_count": 1384,
+      "imports": [
+        "from __future__ import annotations",
+        "from aletheus.runtime.governance.architecture_rules import ArchitectureGovernanceRules",
+        "from aletheus.runtime.governance.registry_rules import RegistryGovernanceRules",
+        "from aletheus.runtime.governance.history import GovernanceHistory",
+        "from aletheus.runtime.registry.runtime_registry import runtime_registry",
+        "from aletheus.runtime.registry.compatibility import RegistryCompatibility",
+        "from aletheus.runtime.certification.boot_certification import BootCertification",
+        "from aletheus.runtime.readiness.snapshot import RuntimeReadinessSnapshot",
+        "from aletheus.runtime.release.genesis6_report import Genesis6CertificationReport",
+        "from aletheus.runtime.release.genesis6_review import Genesis6FreezeReview",
+        "from aletheus.runtime.release.genesis6_validator import Genesis6Validator",
+        "from aletheus.runtime.architecture.validator import ArchitectureValidator",
+        "from aletheus.runtime.audit.command_surface import CommandSurfaceAuditor",
+        "from aletheus.runtime.intelligence.spa_bridge import RuntimeSPABridge",
+        "from typing import Any",
+        "from aletheus.memory import memory_core",
+        "from aletheus.cognition import cognition_core",
+        "from aletheus.knowledge import knowledge_core",
+        "from aletheus.mission import mission_core",
+        "from aletheus.workspace import workspace_core",
+        "from aletheus.applications import application_core",
+        "from aletheus.release import release_core",
+        "from aletheus.semantic import semantic_core",
+        "from aletheus.executive import executive_core",
+        "from aletheus.agents import agent_core",
+        "from aletheus.planning import planning_core",
+        "from aletheus.copilot import copilot_core",
+        "from aletheus.intelligence import intelligence_core",
+        "from aletheus.prediction import prediction_core",
+        "from aletheus.learning import learning_core",
+        "from aletheus.kernel_v2 import kernel_core",
+        "from aletheus.missions_v2 import mission_v2_core",
+        "from aletheus.workflows_v2 import workflow_v2_core",
+        "from aletheus.enterprise import enterprise_core",
+        "from aletheus.memory_mesh import memory_mesh_core",
+        "from aletheus.knowledge_graph import knowledge_graph_core",
+        "from aletheus.reasoning import reasoning_core",
+        "from aletheus.decision_v2 import decision_core",
+        "from aletheus.agents_v2 import agent_core",
+        "from aletheus.workflow_v3 import workflow_core",
+        "from aletheus.planning_v2 import planning_core",
+        "from aletheus.distributed_v3 import distributed_v3_core",
+        "from aletheus.plugins_v3 import plugin_core",
+        "from aletheus.persistence_v3 import persistence_core",
+        "from aletheus.event_bus_v3 import event_bus_core",
+        "from aletheus.federation_v3 import federation_core",
+        "from aletheus.telemetry_v3 import telemetry_core",
+        "from aletheus.high_availability_v3 import high_availability_core",
+        "from aletheus.security_v3 import security_core",
+        "from aletheus.tenancy_v3 import tenancy_core",
+        "from aletheus.runtime.kernel import intelligence_orchestrator, intelligence_scheduler, intelligence_dispatcher, intelligence_supervisor, KernelExecutor",
+        "from aletheus.plugins.runtime_plugin_manager import RuntimePluginManager",
+        "from aletheus.runtime.commands import CommandBus",
+        "from aletheus.runtime.context import RuntimeContext",
+        "from aletheus.runtime.compat import compatibility_registry",
+        "from aletheus.runtime.diagnostics import RuntimeDiagnostics",
+        "from aletheus.runtime.events import EventBus",
+        "from aletheus.runtime.job_queue import JobQueue",
+        "from aletheus.runtime.metrics import RuntimeMetrics",
+        "from aletheus.runtime.pipeline import Pipeline, PipelineExecutor",
+        "from aletheus.runtime.registries import EngineRegistry",
+        "from aletheus.runtime.scheduler import Scheduler",
+        "from aletheus.runtime.workflow import WorkflowExecutor, WorkflowGraph",
+        "from aletheus.runtime.hardening import RuntimeHardening",
+        "from aletheus.runtime.integrity import RuntimeDoctor",
+        "from aletheus.runtime.governance import GovernanceEngine, PrincipleXValidator",
+        "from aletheus.runtime.services import ServiceRegistry",
+        "from aletheus.runtime.integrity import RuntimeInvariantEngine, RuntimeBootValidator",
+        "from aletheus.runtime.command_bootstrap.bootstrapper import RuntimeCommandBootstrapper",
+        "from aletheus.runtime.managers import CertificationManager, SnapshotManager, InvariantManager, HealthManager, ValidationManager, RegistryManager, CommandManager, GovernanceManager",
+        "from aletheus.runtime.managers.runtime_facade import RuntimeFacade",
+        "from aletheus.runtime.adapters.graph_adapter import GraphCommandAdapter",
+        "from aletheus.runtime.adapters.mission_adapter import MissionCommandAdapter",
+        "from aletheus.runtime.adapters.event_adapter import EventCommandAdapter",
+        "from aletheus.runtime.adapters.runtime_adapter import RuntimeCommandAdapter",
+        "from aletheus.runtime.adapters.compatibility_adapter import CompatibilityCommandAdapter",
+        "from aletheus.runtime.anchors.registry import AnchorRegistry",
+        "from aletheus.runtime.anchors import AnchorRegistry, AnchorLifecycleController, AnchorDependencyGraph, AnchorGovernanceCouncil, IntelligenceAnchorCircuit, MemoryAnchorCircuit, KnowledgeAnchorCircuit, ApplicationAnchorCircuit"
+      ],
+      "classes": [
+        {
+          "name": "AletheusRuntime",
+          "bases": [],
+          "methods": [
+            "def __init__(self) -> Constant(value=None)",
+            "def boot(self) -> Constant(value=None)",
+            "def register_engine(self, name: str, handler: Any) -> Constant(value=None)",
+            "def register_service(self, name: str, service: Any) -> Constant(value=None)",
+            "def register_pipeline(self, pipeline: Pipeline) -> Constant(value=None)",
+            "def register_workflow(self, workflow: WorkflowGraph) -> Constant(value=None)",
+            "def bootstrap_registry(self)",
+            "def _cmd_goal_create(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_goal_complete(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_goal_list(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_reason_history(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_decision_record(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_decision_history(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_cognition_stats(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_event_bootstrap(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_event_publish(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_event_subscribe(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_event_unsubscribe(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_event_history(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_event_replay(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_event_statistics(self, context: RuntimeContext) -> RuntimeContext",
+            "def _bootstrap_compatibility(self)",
+            "def _register_compatibility_services(self)",
+            "def _apply_compatibility_aliases(self)",
+            "def _cmd_registry_inspect(self, context)",
+            "def _register_runtime_domains(self)",
+            "def _bootstrap_runtime_registry(self)",
+            "def _cmd_runtime_selftest(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_runtime_dashboard(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_runtime_snapshot(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_runtime_audit(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_runtime_docs(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_runtime_doctor(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_runtime_invariants(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_runtime_boot_validate(self, context: RuntimeContext) -> RuntimeContext",
+            "def _cmd_runtime_health_report(self, context: RuntimeContext) -> RuntimeContext",
+            "def _job_runtime_pulse(self) -> dict",
+            "def health(self)",
+            "def genesis6_validate(self)",
+            "def genesis6_freeze_review(self)",
+            "def boot_certification_validate(self)",
+            "def governance_record(self, event_type, payload)",
+            "def registry_snapshot(self)",
+            "def _cmd_spa_assess(self, context)",
+            "def _cmd_spa_drift(self, context)",
+            "def _cmd_architecture_governance_check(self, context)",
+            "def _cmd_architecture_validate(self, context)",
+            "def _cmd_runtime_audit(self, context)",
+            "def command_surface_audit(self)",
+            "def anchor_governance_status(self)",
+            "def anchor_lifecycle_status(self)",
+            "def anchor_dependency_status(self)",
+            "def anchor_contract_status(self)",
+            "def anchor_discovery_status(self)",
+            "def anchor_healing_status(self)",
+            "def anchor_intelligence_status(self)",
+            "def anchor_optimization_status(self)",
+            "def anchor_learning_status(self)",
+            "def anchor_predictive_status(self)",
+            "def anchor_constitution_status(self)",
+            "def anchor_simulation_status(self)",
+            "def anchor_research_status(self)",
+            "def anchor_proposal_status(self)",
+            "def anchor_negotiation_status(self)",
+            "def anchor_execution_status(self)",
+            "def anchor_verification_status(self)",
+            "def anchor_evolution_graph_status(self)",
+            "def anchor_analytics_status(self)",
+            "def anchor_strategy_status(self)",
+            "def anchor_portfolio_status(self)",
+            "def anchor_resource_status(self)",
+            "def anchor_performance_status(self)",
+            "def anchor_improvement_status(self)",
+            "def anchor_architect_status(self)",
+            "def anchor_architecture_simulator_status(self)",
+            "def anchor_architecture_selection_status(self)",
+            "def anchor_deployment_status(self)",
+            "def anchor_migration_status(self)",
+            "def anchor_continuity_status(self)",
+            "def anchor_institutional_memory_status(self)",
+            "def anchor_pattern_status(self)",
+            "def anchor_forecasting_status(self)",
+            "def anchor_steward_status(self)",
+            "def anchor_constitution_reasoning_status(self)",
+            "def anchor_council_status(self)",
+            "def anchor_consensus_status(self)",
+            "def anchor_judgment_status(self)",
+            "def anchor_meta_reasoning_status(self)",
+            "def anchor_cognitive_status(self)",
+            "def anchor_cognitive_optimization_status(self)",
+            "def anchor_cognitive_self_improvement_status(self)",
+            "def anchor_cognitive_architect_status(self)",
+            "def anchor_cognitive_simulation_status(self)",
+            "def anchor_cognitive_selection_status(self)"
+          ],
+          "attributes": []
+        },
+        {
+          "name": "RuntimeContext",
+          "bases": [],
+          "methods": [
+            "def __init__(self)",
+            "def add_result(self, key, value)"
+          ],
+          "attributes": []
+        },
+        {
+          "name": "RuntimeContext",
+          "bases": [],
+          "methods": [
+            "def __init__(self)",
+            "def add_result(self, key, value)"
+          ],
+          "attributes": []
+        }
+      ],
+      "functions": []
+    }
+  },
+  "references": [
+    {
+      "path": "aletheus/agents/economy/engine.py",
+      "references": [
+        {
+          "line": 58,
+          "text": "self.identity.register(agent),"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/aos_search/core.py",
+      "references": [
+        {
+          "line": 28,
+          "text": "results = self.router.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/aos_search/providers.py",
+      "references": [
+        {
+          "line": 67,
+          "text": "self.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/boot_runtime/core.py",
+      "references": [
+        {
+          "line": 17,
+          "text": "return self.executor.execute(plan)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/canonical_identity/core.py",
+      "references": [
+        {
+          "line": 66,
+          "text": "canonical_identity_registry.register(identity)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/capabilities/host.py",
+      "references": [
+        {
+          "line": 37,
+          "text": "capability.register(runtime)"
+        },
+        {
+          "line": 102,
+          "text": "return capability.execute(request)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/capability_engine/profiles.py",
+      "references": [
+        {
+          "line": 24,
+          "text": "self.register("
+        },
+        {
+          "line": 32,
+          "text": "self.register("
+        },
+        {
+          "line": 41,
+          "text": "self.register("
+        },
+        {
+          "line": 50,
+          "text": "self.register("
+        },
+        {
+          "line": 59,
+          "text": "self.register("
+        },
+        {
+          "line": 68,
+          "text": "self.register("
+        },
+        {
+          "line": 77,
+          "text": "self.register("
+        },
+        {
+          "line": 86,
+          "text": "self.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/collectible_automation/engine.py",
+      "references": [
+        {
+          "line": 36,
+          "text": "return self.runtime.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/concept_collision_engine/registry.py",
+      "references": [
+        {
+          "line": 26,
+          "text": "self.register(concept)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/concept_collision_engine/service.py",
+      "references": [
+        {
+          "line": 35,
+          "text": "self.registry.register(concept)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/constitutional_library/core.py",
+      "references": [
+        {
+          "line": 85,
+          "text": "constitutional_library_registry.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/constitutional_policy/core.py",
+      "references": [
+        {
+          "line": 43,
+          "text": "self.registry.register(policy)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/copilot/copilot_core.py",
+      "references": [
+        {
+          "line": 27,
+          "text": "summary = runtime.commands.dispatch(\"executive.summary\", {}).results.get(\"summary\", {})"
+        },
+        {
+          "line": 28,
+          "text": "recommendations = runtime.commands.dispatch(\"executive.recommendations\", {}).results.get(\"recommendations\", [])"
+        },
+        {
+          "line": 29,
+          "text": "risks = runtime.commands.dispatch(\"executive.risks\", {}).results.get(\"risks\", [])"
+        },
+        {
+          "line": 44,
+          "text": "result = runtime.commands.dispatch(\"executive.summary\", {})"
+        },
+        {
+          "line": 49,
+          "text": "result = runtime.commands.dispatch("
+        },
+        {
+          "line": 57,
+          "text": "result = runtime.commands.dispatch(\"executive.recommendations\", {})"
+        },
+        {
+          "line": 62,
+          "text": "result = runtime.commands.dispatch(\"executive.system_report\", {})"
+        },
+        {
+          "line": 67,
+          "text": "result = runtime.commands.dispatch(\"workspace.overview\", {})"
+        },
+        {
+          "line": 81,
+          "text": "health = runtime.commands.dispatch(\"runtime.health\", {}).results.get(\"health\", {})"
+        },
+        {
+          "line": 118,
+          "text": "events = runtime.commands.dispatch(\"runtime.events\", {}).results.get(\"events\", [])"
+        },
+        {
+          "line": 119,
+          "text": "memory = runtime.commands.dispatch(\"memory.recall\", {\"limit\": 20}).results.get(\"memory\", [])"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/council_registry/core.py",
+      "references": [
+        {
+          "line": 93,
+          "text": "self.registry.register(member)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/decision_v2/decision_core.py",
+      "references": [
+        {
+          "line": 147,
+          "text": "reasoning = runtime.commands.dispatch("
+        },
+        {
+          "line": 188,
+          "text": "decision.execute()"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/double_hedron/core.py",
+      "references": [
+        {
+          "line": 77,
+          "text": "double_hedron_registry.register(memory)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/engine_registry/core.py",
+      "references": [
+        {
+          "line": 29,
+          "text": "self.registry.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/execution_engine/core.py",
+      "references": [
+        {
+          "line": 94,
+          "text": "search = aos_search.execute(query)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/executive/executive_core.py",
+      "references": [
+        {
+          "line": 16,
+          "text": "health = runtime.commands.dispatch(\"runtime.health\").results.get(\"health\", {})"
+        },
+        {
+          "line": 17,
+          "text": "diagnostics = runtime.commands.dispatch(\"runtime.diagnostics\").results"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/executive_kernel/bootstrap.py",
+      "references": [
+        {
+          "line": 32,
+          "text": "self.composition_engine.register("
+        },
+        {
+          "line": 40,
+          "text": "self.composition_engine.register("
+        },
+        {
+          "line": 48,
+          "text": "self.composition_engine.register("
+        },
+        {
+          "line": 56,
+          "text": "self.composition_engine.register("
+        },
+        {
+          "line": 64,
+          "text": "self.composition_engine.register("
+        },
+        {
+          "line": 81,
+          "text": "self.composition_engine.register("
+        },
+        {
+          "line": 98,
+          "text": "self.composition_engine.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/executive_kernel/kernel.py",
+      "references": [
+        {
+          "line": 87,
+          "text": "self.kernel_registry.register(descriptor)"
+        },
+        {
+          "line": 102,
+          "text": "self.capability_registry.register(descriptor)"
+        },
+        {
+          "line": 120,
+          "text": "self.policy_registry.register(descriptor)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/foundation/core.py",
+      "references": [
+        {
+          "line": 93,
+          "text": "self.registry.register(engine)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/foundation_service_bus/registry.py",
+      "references": [
+        {
+          "line": 116,
+          "text": "self.register(capability)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/identity_engine/core.py",
+      "references": [
+        {
+          "line": 44,
+          "text": "self.registry.register(founder)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/evolution/IntelligenceEvolutionAccelerator.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/evolution/MetaReasoningEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/evolution/ReflectionEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/intelligence_core.py",
+      "references": [
+        {
+          "line": 15,
+          "text": "diagnostics = runtime.commands.dispatch(\"runtime.diagnostics\", {}).results"
+        },
+        {
+          "line": 16,
+          "text": "health = runtime.commands.dispatch(\"runtime.health\", {}).results.get(\"health\", {})"
+        },
+        {
+          "line": 139,
+          "text": "\"runtime_health\": runtime.commands.dispatch(\"runtime.health\", {}).results.get(\"health\", {}),"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/knowledge/KnowledgeDiscoveryEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/knowledge/KnowledgeEvolutionEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/knowledge/KnowledgeGraphEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/knowledge/KnowledgeLineageEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/learning/AdaptationEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/learning/ContinuousLearningEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/learning/SkillAcquisitionEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/memory/EpisodicMemoryEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/memory/LongTermMemoryEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/memory/MemoryConsolidationEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/memory/SemanticMemoryEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/memory/ShortTermMemoryEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/perception/ContextAwarenessEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/perception/PerceptionIntelligenceEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/perception/SignalDetectionEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/prediction/FutureModelingEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/prediction/PredictiveIntelligenceEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/prediction/ScenarioSimulationEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/reasoning/AdvancedReasoningEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/reasoning/HypothesisEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/reasoning/IntelligenceSynthesisEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/reasoning/LogicalInferenceEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/reasoning/ProblemDecompositionEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/strategy/DecisionIntelligenceEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/strategy/GoalFormationEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/strategy/OpportunityDetectionEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intelligence/strategy/StrategicPlanningEngine.py",
+      "references": [
+        {
+          "line": 31,
+          "text": "return self.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/intent_registry/bootstrap.py",
+      "references": [
+        {
+          "line": 8,
+          "text": "registry.register(IntentRecord("
+        },
+        {
+          "line": 17,
+          "text": "registry.register(IntentRecord("
+        },
+        {
+          "line": 27,
+          "text": "registry.register(IntentRecord("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/kernel_v2/kernel_core.py",
+      "references": [
+        {
+          "line": 16,
+          "text": "health = runtime.commands.dispatch(\"runtime.health\", {}).results.get(\"health\", {})"
+        },
+        {
+          "line": 73,
+          "text": "diagnostics = runtime.commands.dispatch(\"runtime.diagnostics\", {}).results"
+        },
+        {
+          "line": 74,
+          "text": "health = runtime.commands.dispatch(\"runtime.health\", {}).results.get(\"health\", {})"
+        },
+        {
+          "line": 77,
+          "text": "self.register("
+        },
+        {
+          "line": 84,
+          "text": "apps = runtime.commands.dispatch(\"application.list\", {}).results.get(\"applications\", [])"
+        },
+        {
+          "line": 86,
+          "text": "self.register("
+        },
+        {
+          "line": 93,
+          "text": "agents = runtime.commands.dispatch(\"agent.list\", {}).results.get(\"agents\", [])"
+        },
+        {
+          "line": 95,
+          "text": "self.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/learning/learning_core.py",
+      "references": [
+        {
+          "line": 115,
+          "text": "health = runtime.commands.dispatch(\"runtime.health\", {}).results.get(\"health\", {})"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/marketplace_intelligence/runtime/runtime.py",
+      "references": [
+        {
+          "line": 40,
+          "text": "self.registry.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/missions_v2/mission_core.py",
+      "references": [
+        {
+          "line": 130,
+          "text": "plan = runtime.commands.dispatch("
+        },
+        {
+          "line": 164,
+          "text": "assignment = runtime.commands.dispatch("
+        },
+        {
+          "line": 179,
+          "text": "agent_run = runtime.commands.dispatch("
+        },
+        {
+          "line": 225,
+          "text": "learning = runtime.commands.dispatch("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/module_registry/engine.py",
+      "references": [
+        {
+          "line": 62,
+          "text": "self.registry.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/neural/envelope/bootstrap.py",
+      "references": [
+        {
+          "line": 39,
+          "text": "self.brain.cortex.register("
+        },
+        {
+          "line": 73,
+          "text": "self.brain.neurons.register("
+        },
+        {
+          "line": 98,
+          "text": "self.brain.synapses.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/neural/envelope/core.py",
+      "references": [
+        {
+          "line": 104,
+          "text": "return self.neurons.register("
+        },
+        {
+          "line": 124,
+          "text": "return self.synapses.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/orchestrator/registry_service.py",
+      "references": [
+        {
+          "line": 14,
+          "text": "return self.registry.register(component)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/overlay_manager/core.py",
+      "references": [
+        {
+          "line": 35,
+          "text": "registered = self.registry.register(definition)"
+        },
+        {
+          "line": 146,
+          "text": "self.register(definition)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/planning/planning_core.py",
+      "references": [
+        {
+          "line": 85,
+          "text": "assignment = runtime.commands.dispatch("
+        },
+        {
+          "line": 99,
+          "text": "run = runtime.commands.dispatch("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/planning_v2/planning_core.py",
+      "references": [
+        {
+          "line": 180,
+          "text": "plan.execute()"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/platform_events/core.py",
+      "references": [
+        {
+          "line": 29,
+          "text": "dispatch_result = platform_subscriptions.dispatch(event_dict)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/platform_lifecycle/core.py",
+      "references": [
+        {
+          "line": 39,
+          "text": "report = boot_runtime.execute(plan)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/platform_subscriptions/core.py",
+      "references": [
+        {
+          "line": 22,
+          "text": "return self.registry.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/platform_verification/bootstrap.py",
+      "references": [
+        {
+          "line": 15,
+          "text": "registry.register(compile_check)"
+        },
+        {
+          "line": 16,
+          "text": "registry.register(unit_test_check)"
+        },
+        {
+          "line": 17,
+          "text": "registry.register(repository_dna_check)"
+        },
+        {
+          "line": 18,
+          "text": "registry.register(runtime_boot_check)"
+        },
+        {
+          "line": 19,
+          "text": "registry.register(capability_check)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/reason_engine/core.py",
+      "references": [
+        {
+          "line": 133,
+          "text": "reason_registry.register(reason)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/reasoning/reasoning_core.py",
+      "references": [
+        {
+          "line": 67,
+          "text": "graph_ctx = runtime.commands.dispatch(\"knowledge.search\", {\"query\": question})"
+        },
+        {
+          "line": 68,
+          "text": "memory_ctx = runtime.commands.dispatch(\"memory.mesh.search\", {\"query\": question})"
+        },
+        {
+          "line": 69,
+          "text": "infer_ctx = runtime.commands.dispatch(\"knowledge.infer\", {})"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/release/core.py",
+      "references": [
+        {
+          "line": 64,
+          "text": "health = runtime.commands.dispatch(\"runtime.health\").results.get(\"health\", {})"
+        },
+        {
+          "line": 65,
+          "text": "diagnostics = runtime.commands.dispatch(\"runtime.diagnostics\").results"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/adapter.py",
+      "references": [
+        {
+          "line": 246,
+          "text": "result = commands.execute("
+        },
+        {
+          "line": 260,
+          "text": "result = commands.dispatch("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/adapters/__init__.py",
+      "references": [
+        {
+          "line": 7,
+          "text": "CommandBus and runtime capabilities."
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/boot_phases/scheduler.py",
+      "references": [
+        {
+          "line": 10,
+          "text": "runtime.scheduler.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/boot_phases/service_groups/ai_platform.py",
+      "references": [
+        {
+          "line": 5,
+          "text": "runtime.services.register("
+        },
+        {
+          "line": 13,
+          "text": "runtime.services.register("
+        },
+        {
+          "line": 21,
+          "text": "runtime.services.register("
+        },
+        {
+          "line": 29,
+          "text": "runtime.services.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/boot_phases/service_groups/core.py",
+      "references": [
+        {
+          "line": 4,
+          "text": "runtime.services.register("
+        },
+        {
+          "line": 9,
+          "text": "runtime.services.register("
+        },
+        {
+          "line": 14,
+          "text": "runtime.services.register("
+        },
+        {
+          "line": 19,
+          "text": "runtime.services.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/boot_phases/service_groups/foundation.py",
+      "references": [
+        {
+          "line": 4,
+          "text": "runtime.services.register("
+        },
+        {
+          "line": 9,
+          "text": "runtime.services.register("
+        },
+        {
+          "line": 14,
+          "text": "runtime.services.register("
+        },
+        {
+          "line": 19,
+          "text": "runtime.services.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/boot_phases/service_groups/intelligence.py",
+      "references": [
+        {
+          "line": 4,
+          "text": "runtime.services.register("
+        },
+        {
+          "line": 9,
+          "text": "runtime.services.register("
+        },
+        {
+          "line": 14,
+          "text": "runtime.services.register("
+        },
+        {
+          "line": 19,
+          "text": "runtime.services.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/boot_phases/service_registration.py",
+      "references": [
+        {
+          "line": 27,
+          "text": "registered += registrar.register(runtime)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/capabilities/synchronizer.py",
+      "references": [
+        {
+          "line": 21,
+          "text": "registry.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/commands/__init__.py",
+      "references": [
+        {
+          "line": 1,
+          "text": "from .command_bus import CommandBus"
+        },
+        {
+          "line": 23,
+          "text": "\"CommandBus\","
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/commands/command_bus.py",
+      "references": [
+        {
+          "line": 6,
+          "text": "CommandBus preserves the stable runtime command interface while delegating:"
+        },
+        {
+          "line": 8,
+          "text": "- registration and low-level routing to RuntimeCommandRegistry"
+        },
+        {
+          "line": 10,
+          "text": "- lifecycle/bootstrap ownership to CommandManager"
+        },
+        {
+          "line": 18,
+          "text": "RuntimeCommandRegistry,"
+        },
+        {
+          "line": 25,
+          "text": "class CommandBus:"
+        },
+        {
+          "line": 29,
+          "text": "CommandBus is intentionally a thin fa\u00e7ade. It coordinates command"
+        },
+        {
+          "line": 36,
+          "text": "registry: RuntimeCommandRegistry | None = None,"
+        },
+        {
+          "line": 39,
+          "text": "self.registry = registry or RuntimeCommandRegistry()"
+        },
+        {
+          "line": 66,
+          "text": "self.register_context_handler("
+        },
+        {
+          "line": 72,
+          "text": "def register_context_handler("
+        },
+        {
+          "line": 121,
+          "text": "return self.registry.register("
+        },
+        {
+          "line": 156,
+          "text": "payload handlers are dispatched through RuntimeCommandRegistry and"
+        },
+        {
+          "line": 200,
+          "text": "result = self.registry.dispatch("
+        },
+        {
+          "line": 253,
+          "text": "return self.dispatch("
+        },
+        {
+          "line": 325,
+          "text": "\"CommandBus\","
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/commands/tests/test_dispatcher.py",
+      "references": [
+        {
+          "line": 67,
+          "text": "result = await dispatcher.dispatch(\"math.add\", AddRequest(2, 3))"
+        },
+        {
+          "line": 78,
+          "text": "result = await dispatcher.dispatch(\"math.sum\", AddRequest(4, 6))"
+        },
+        {
+          "line": 94,
+          "text": "await dispatcher.dispatch(\"math.add\", AddRequest(1, 1))"
+        },
+        {
+          "line": 111,
+          "text": "await dispatcher.dispatch(\"math.add\", object())"
+        },
+        {
+          "line": 130,
+          "text": "await dispatcher.dispatch(\"math.bad\", AddRequest(1, 2))"
+        },
+        {
+          "line": 138,
+          "text": "await dispatcher.dispatch(\"missing.command\", AddRequest(1, 2))"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/commands_v2/__init__.py",
+      "references": [
+        {
+          "line": 2,
+          "text": "from .registry import RuntimeCommandRegistry"
+        },
+        {
+          "line": 3,
+          "text": "from .reporter import RuntimeCommandRegistryReporter"
+        },
+        {
+          "line": 8,
+          "text": "\"RuntimeCommandRegistry\","
+        },
+        {
+          "line": 9,
+          "text": "\"RuntimeCommandRegistryReporter\","
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/commands_v2/registry.py",
+      "references": [
+        {
+          "line": 14,
+          "text": "class RuntimeCommandRegistry:"
+        },
+        {
+          "line": 139,
+          "text": "\"RuntimeCommandRegistry\","
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/commands_v2/reporter.py",
+      "references": [
+        {
+          "line": 1,
+          "text": "class RuntimeCommandRegistryReporter:"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/compatibility_layer/layer.py",
+      "references": [
+        {
+          "line": 67,
+          "text": "self.registry.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/convergence/engine.py",
+      "references": [
+        {
+          "line": 35,
+          "text": "self.registry.register("
+        },
+        {
+          "line": 44,
+          "text": "self.apps.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/core.py",
+      "references": [
+        {
+          "line": 67,
+          "text": "from aletheus.runtime.commands import CommandBus"
+        },
+        {
+          "line": 102,
+          "text": "CommandManager,"
+        },
+        {
+          "line": 147,
+          "text": "self.commands = CommandBus(self)"
+        },
+        {
+          "line": 181,
+          "text": "self.anchor_registry.register("
+        },
+        {
+          "line": 186,
+          "text": "self.anchor_registry.register("
+        },
+        {
+          "line": 191,
+          "text": "self.anchor_registry.register("
+        },
+        {
+          "line": 196,
+          "text": "self.anchor_registry.register("
+        },
+        {
+          "line": 217,
+          "text": "self.command_manager = CommandManager(self)"
+        },
+        {
+          "line": 339,
+          "text": "RuntimeServiceProvider().register(self)"
+        },
+        {
+          "line": 356,
+          "text": "self.engines.register(name, handler)"
+        },
+        {
+          "line": 361,
+          "text": "self.services.register("
+        },
+        {
+          "line": 371,
+          "text": "self.pipelines.register(pipeline)"
+        },
+        {
+          "line": 375,
+          "text": "self.workflows.register(workflow)"
+        },
+        {
+          "line": 932,
+          "text": "Delegated to CommandManager."
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/core_bridge/lifecycle.py",
+      "references": [
+        {
+          "line": 30,
+          "text": "boot_report = boot_pipeline.execute()"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/domains/decision.py",
+      "references": [
+        {
+          "line": 47,
+          "text": "result = self.runtime.decision.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/domains/kernel.py",
+      "references": [
+        {
+          "line": 15,
+          "text": "return self.runtime.intelligence_orchestrator.execute("
+        },
+        {
+          "line": 36,
+          "text": "dispatched = self.runtime.intelligence_dispatcher.dispatch("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/domains/mission.py",
+      "references": [
+        {
+          "line": 17,
+          "text": "return self.runtime.missions_v2.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/job_queue.py",
+      "references": [
+        {
+          "line": 26,
+          "text": "context = self.runtime.commands.dispatch(job.command, job.payload, application=job.application)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/kernel/dispatcher.py",
+      "references": [
+        {
+          "line": 10,
+          "text": "return runtime.commands.dispatch(command, payload or {})"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/kernel/executor.py",
+      "references": [
+        {
+          "line": 22,
+          "text": "return self.runtime.intelligence_orchestrator.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/kernel/orchestrator.py",
+      "references": [
+        {
+          "line": 80,
+          "text": "context = runtime.commands.dispatch("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/managers/__init__.py",
+      "references": [
+        {
+          "line": 8,
+          "text": "from .command_manager import CommandManager"
+        },
+        {
+          "line": 20,
+          "text": "\"CommandManager\","
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/managers/command_manager.py",
+      "references": [
+        {
+          "line": 14,
+          "text": "class CommandManager:"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/orchestration/orchestrator.py",
+      "references": [
+        {
+          "line": 40,
+          "text": "self.service_provider.register(runtime)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/providers/service_provider.py",
+      "references": [
+        {
+          "line": 10,
+          "text": "runtime.services.register(\"commands\", runtime.commands)"
+        },
+        {
+          "line": 11,
+          "text": "runtime.services.register(\"events\", runtime.events)"
+        },
+        {
+          "line": 12,
+          "text": "runtime.services.register(\"metrics\", runtime.metrics)"
+        },
+        {
+          "line": 13,
+          "text": "runtime.services.register(\"compatibility\", runtime.compat)"
+        },
+        {
+          "line": 14,
+          "text": "runtime.services.register(\"kernel\", runtime.kernel)"
+        },
+        {
+          "line": 15,
+          "text": "runtime.services.register(\"governance\", runtime.governance)"
+        },
+        {
+          "line": 16,
+          "text": "runtime.services.register(\"doctor\", runtime.runtime_doctor)"
+        },
+        {
+          "line": 17,
+          "text": "runtime.services.register("
+        },
+        {
+          "line": 21,
+          "text": "runtime.services.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/agent_commands.py",
+      "references": [
+        {
+          "line": 14,
+          "text": "commands.register("
+        },
+        {
+          "line": 19,
+          "text": "commands.register("
+        },
+        {
+          "line": 24,
+          "text": "commands.register("
+        },
+        {
+          "line": 29,
+          "text": "commands.register("
+        },
+        {
+          "line": 34,
+          "text": "commands.register("
+        },
+        {
+          "line": 39,
+          "text": "commands.register("
+        },
+        {
+          "line": 44,
+          "text": "commands.register("
+        },
+        {
+          "line": 49,
+          "text": "commands.register("
+        },
+        {
+          "line": 54,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/application_commands.py",
+      "references": [
+        {
+          "line": 12,
+          "text": "commands.register("
+        },
+        {
+          "line": 17,
+          "text": "commands.register("
+        },
+        {
+          "line": 22,
+          "text": "commands.register("
+        },
+        {
+          "line": 27,
+          "text": "commands.register("
+        },
+        {
+          "line": 32,
+          "text": "commands.register("
+        },
+        {
+          "line": 37,
+          "text": "commands.register("
+        },
+        {
+          "line": 42,
+          "text": "commands.register("
+        },
+        {
+          "line": 47,
+          "text": "commands.register("
+        },
+        {
+          "line": 52,
+          "text": "commands.register("
+        },
+        {
+          "line": 57,
+          "text": "commands.register("
+        },
+        {
+          "line": 62,
+          "text": "commands.register("
+        },
+        {
+          "line": 67,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/architecture_commands.py",
+      "references": [
+        {
+          "line": 10,
+          "text": "runtime.commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/cluster_commands.py",
+      "references": [
+        {
+          "line": 14,
+          "text": "commands.register(\"cluster.join\", domain.join)"
+        },
+        {
+          "line": 15,
+          "text": "commands.register(\"cluster.leave\", domain.leave)"
+        },
+        {
+          "line": 16,
+          "text": "commands.register(\"cluster.nodes\", domain.nodes)"
+        },
+        {
+          "line": 17,
+          "text": "commands.register(\"cluster.services\", domain.services)"
+        },
+        {
+          "line": 18,
+          "text": "commands.register(\"cluster.heartbeat\", domain.heartbeat)"
+        },
+        {
+          "line": 19,
+          "text": "commands.register(\"cluster.elect_leader\", domain.elect_leader)"
+        },
+        {
+          "line": 20,
+          "text": "commands.register(\"cluster.statistics\", domain.statistics)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/compatibility_commands.py",
+      "references": [
+        {
+          "line": 15,
+          "text": "commands.register("
+        },
+        {
+          "line": 21,
+          "text": "commands.register("
+        },
+        {
+          "line": 27,
+          "text": "commands.register("
+        },
+        {
+          "line": 33,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/copilot_commands.py",
+      "references": [
+        {
+          "line": 19,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 24,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 29,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 34,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 39,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 44,
+          "text": "runtime.commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/decision_commands.py",
+      "references": [
+        {
+          "line": 15,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 20,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 25,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 30,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 35,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 40,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 45,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 50,
+          "text": "runtime.commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/enterprise_commands.py",
+      "references": [
+        {
+          "line": 15,
+          "text": "commands.register("
+        },
+        {
+          "line": 20,
+          "text": "commands.register("
+        },
+        {
+          "line": 25,
+          "text": "commands.register("
+        },
+        {
+          "line": 30,
+          "text": "commands.register("
+        },
+        {
+          "line": 35,
+          "text": "commands.register("
+        },
+        {
+          "line": 40,
+          "text": "commands.register("
+        },
+        {
+          "line": 45,
+          "text": "commands.register("
+        },
+        {
+          "line": 50,
+          "text": "commands.register("
+        },
+        {
+          "line": 55,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/event_commands.py",
+      "references": [
+        {
+          "line": 15,
+          "text": "commands.register("
+        },
+        {
+          "line": 21,
+          "text": "commands.register("
+        },
+        {
+          "line": 27,
+          "text": "commands.register("
+        },
+        {
+          "line": 33,
+          "text": "commands.register("
+        },
+        {
+          "line": 39,
+          "text": "commands.register("
+        },
+        {
+          "line": 45,
+          "text": "commands.register("
+        },
+        {
+          "line": 51,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/executive_commands.py",
+      "references": [
+        {
+          "line": 12,
+          "text": "commands.register("
+        },
+        {
+          "line": 17,
+          "text": "commands.register("
+        },
+        {
+          "line": 22,
+          "text": "commands.register("
+        },
+        {
+          "line": 27,
+          "text": "commands.register("
+        },
+        {
+          "line": 32,
+          "text": "commands.register("
+        },
+        {
+          "line": 37,
+          "text": "commands.register("
+        },
+        {
+          "line": 42,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/federation_commands.py",
+      "references": [
+        {
+          "line": 13,
+          "text": "commands.register(\"federation.bootstrap\", domain.bootstrap)"
+        },
+        {
+          "line": 14,
+          "text": "commands.register(\"federation.join\", domain.join)"
+        },
+        {
+          "line": 15,
+          "text": "commands.register(\"federation.leave\", domain.leave)"
+        },
+        {
+          "line": 16,
+          "text": "commands.register(\"federation.discover\", domain.discover)"
+        },
+        {
+          "line": 17,
+          "text": "commands.register(\"federation.query\", domain.query)"
+        },
+        {
+          "line": 18,
+          "text": "commands.register(\"federation.broadcast\", domain.broadcast)"
+        },
+        {
+          "line": 19,
+          "text": "commands.register(\"federation.statistics\", domain.statistics)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/governance_architecture_commands.py",
+      "references": [
+        {
+          "line": 10,
+          "text": "runtime.commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/governance_commands.py",
+      "references": [
+        {
+          "line": 12,
+          "text": "commands.register("
+        },
+        {
+          "line": 17,
+          "text": "commands.register("
+        },
+        {
+          "line": 22,
+          "text": "commands.register("
+        },
+        {
+          "line": 27,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/graph_commands.py",
+      "references": [
+        {
+          "line": 14,
+          "text": "commands.register("
+        },
+        {
+          "line": 19,
+          "text": "commands.register("
+        },
+        {
+          "line": 24,
+          "text": "commands.register("
+        },
+        {
+          "line": 29,
+          "text": "commands.register("
+        },
+        {
+          "line": 34,
+          "text": "commands.register("
+        },
+        {
+          "line": 39,
+          "text": "commands.register("
+        },
+        {
+          "line": 44,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/ha_commands.py",
+      "references": [
+        {
+          "line": 13,
+          "text": "commands.register(\"ha.bootstrap\", domain.bootstrap)"
+        },
+        {
+          "line": 14,
+          "text": "commands.register(\"ha.join\", domain.join)"
+        },
+        {
+          "line": 15,
+          "text": "commands.register(\"ha.leave\", domain.leave)"
+        },
+        {
+          "line": 16,
+          "text": "commands.register(\"ha.promote\", domain.promote)"
+        },
+        {
+          "line": 17,
+          "text": "commands.register(\"ha.demote\", domain.demote)"
+        },
+        {
+          "line": 18,
+          "text": "commands.register(\"ha.failover\", domain.failover)"
+        },
+        {
+          "line": 19,
+          "text": "commands.register(\"ha.recover\", domain.recover)"
+        },
+        {
+          "line": 20,
+          "text": "commands.register(\"ha.replicate\", domain.replicate)"
+        },
+        {
+          "line": 21,
+          "text": "commands.register(\"ha.status\", domain.status)"
+        },
+        {
+          "line": 22,
+          "text": "commands.register(\"ha.statistics\", domain.statistics)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/kernel_commands.py",
+      "references": [
+        {
+          "line": 13,
+          "text": "commands.register(\"kernel.bootstrap\", domain.bootstrap)"
+        },
+        {
+          "line": 14,
+          "text": "commands.register(\"kernel.execute\", domain.execute)"
+        },
+        {
+          "line": 15,
+          "text": "commands.register(\"kernel.tasks\", domain.tasks)"
+        },
+        {
+          "line": 16,
+          "text": "commands.register(\"kernel.scheduler\", domain.scheduler)"
+        },
+        {
+          "line": 17,
+          "text": "commands.register(\"kernel.dispatcher\", domain.dispatcher)"
+        },
+        {
+          "line": 18,
+          "text": "commands.register(\"kernel.supervisor\", domain.supervisor)"
+        },
+        {
+          "line": 19,
+          "text": "commands.register(\"kernel.statistics\", domain.statistics)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/knowledge_graph_commands.py",
+      "references": [
+        {
+          "line": 15,
+          "text": "commands.register("
+        },
+        {
+          "line": 20,
+          "text": "commands.register("
+        },
+        {
+          "line": 25,
+          "text": "commands.register("
+        },
+        {
+          "line": 30,
+          "text": "commands.register("
+        },
+        {
+          "line": 35,
+          "text": "commands.register("
+        },
+        {
+          "line": 40,
+          "text": "commands.register("
+        },
+        {
+          "line": 45,
+          "text": "commands.register("
+        },
+        {
+          "line": 50,
+          "text": "commands.register("
+        },
+        {
+          "line": 55,
+          "text": "commands.register("
+        },
+        {
+          "line": 60,
+          "text": "commands.register("
+        },
+        {
+          "line": 65,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/learning_commands.py",
+      "references": [
+        {
+          "line": 15,
+          "text": "commands.register("
+        },
+        {
+          "line": 20,
+          "text": "commands.register("
+        },
+        {
+          "line": 25,
+          "text": "commands.register("
+        },
+        {
+          "line": 30,
+          "text": "commands.register("
+        },
+        {
+          "line": 35,
+          "text": "commands.register("
+        },
+        {
+          "line": 40,
+          "text": "commands.register("
+        },
+        {
+          "line": 45,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/memory_commands.py",
+      "references": [
+        {
+          "line": 19,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 24,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 29,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 34,
+          "text": "runtime.commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/memory_mesh_commands.py",
+      "references": [
+        {
+          "line": 15,
+          "text": "commands.register(\"memory.mesh.store\", domain.store)"
+        },
+        {
+          "line": 16,
+          "text": "commands.register(\"memory.mesh.retrieve\", domain.retrieve)"
+        },
+        {
+          "line": 17,
+          "text": "commands.register(\"memory.mesh.search\", domain.search)"
+        },
+        {
+          "line": 18,
+          "text": "commands.register(\"memory.mesh.snapshot\", domain.snapshot)"
+        },
+        {
+          "line": 19,
+          "text": "commands.register(\"memory.mesh.restore\", domain.restore)"
+        },
+        {
+          "line": 20,
+          "text": "commands.register(\"memory.mesh.replicate\", domain.replicate)"
+        },
+        {
+          "line": 21,
+          "text": "commands.register(\"memory.mesh.sync\", domain.sync)"
+        },
+        {
+          "line": 22,
+          "text": "commands.register(\"memory.mesh.history\", domain.history)"
+        },
+        {
+          "line": 23,
+          "text": "commands.register(\"memory.mesh.cache\", domain.cache)"
+        },
+        {
+          "line": 24,
+          "text": "commands.register(\"memory.mesh.stats\", domain.stats)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/mission_commands.py",
+      "references": [
+        {
+          "line": 15,
+          "text": "commands.register("
+        },
+        {
+          "line": 21,
+          "text": "commands.register("
+        },
+        {
+          "line": 27,
+          "text": "commands.register("
+        },
+        {
+          "line": 33,
+          "text": "commands.register("
+        },
+        {
+          "line": 39,
+          "text": "commands.register("
+        },
+        {
+          "line": 45,
+          "text": "commands.register("
+        },
+        {
+          "line": 51,
+          "text": "commands.register("
+        },
+        {
+          "line": 57,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/mission_v2_commands.py",
+      "references": [
+        {
+          "line": 13,
+          "text": "commands.register(\"mission.create\", domain.create)"
+        },
+        {
+          "line": 14,
+          "text": "commands.register(\"mission.list\", domain.list)"
+        },
+        {
+          "line": 15,
+          "text": "commands.register(\"mission.execute\", domain.execute)"
+        },
+        {
+          "line": 16,
+          "text": "commands.register(\"mission.complete\", domain.complete)"
+        },
+        {
+          "line": 17,
+          "text": "commands.register(\"mission.statistics\", domain.statistics)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/planning_commands.py",
+      "references": [
+        {
+          "line": 14,
+          "text": "commands.register("
+        },
+        {
+          "line": 19,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/plugin_commands.py",
+      "references": [
+        {
+          "line": 14,
+          "text": "commands.register("
+        },
+        {
+          "line": 19,
+          "text": "commands.register("
+        },
+        {
+          "line": 24,
+          "text": "commands.register("
+        },
+        {
+          "line": 29,
+          "text": "commands.register("
+        },
+        {
+          "line": 34,
+          "text": "commands.register("
+        },
+        {
+          "line": 39,
+          "text": "commands.register("
+        },
+        {
+          "line": 44,
+          "text": "commands.register("
+        },
+        {
+          "line": 49,
+          "text": "commands.register("
+        },
+        {
+          "line": 54,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/prediction_commands.py",
+      "references": [
+        {
+          "line": 15,
+          "text": "commands.register("
+        },
+        {
+          "line": 20,
+          "text": "commands.register("
+        },
+        {
+          "line": 25,
+          "text": "commands.register("
+        },
+        {
+          "line": 30,
+          "text": "commands.register("
+        },
+        {
+          "line": 35,
+          "text": "commands.register("
+        },
+        {
+          "line": 40,
+          "text": "commands.register("
+        },
+        {
+          "line": 45,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/reasoning_commands.py",
+      "references": [
+        {
+          "line": 19,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 24,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 29,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 34,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 39,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 44,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 49,
+          "text": "runtime.commands.register("
+        },
+        {
+          "line": 54,
+          "text": "runtime.commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/registry_commands.py",
+      "references": [
+        {
+          "line": 8,
+          "text": "commands.register("
+        },
+        {
+          "line": 16,
+          "text": "commands.register("
+        },
+        {
+          "line": 24,
+          "text": "commands.register("
+        },
+        {
+          "line": 32,
+          "text": "commands.register("
+        },
+        {
+          "line": 40,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/runtime_commands.py",
+      "references": [
+        {
+          "line": 15,
+          "text": "commands.register("
+        },
+        {
+          "line": 21,
+          "text": "commands.register("
+        },
+        {
+          "line": 27,
+          "text": "commands.register("
+        },
+        {
+          "line": 33,
+          "text": "commands.register("
+        },
+        {
+          "line": 39,
+          "text": "commands.register("
+        },
+        {
+          "line": 45,
+          "text": "commands.register("
+        },
+        {
+          "line": 51,
+          "text": "commands.register("
+        },
+        {
+          "line": 57,
+          "text": "commands.register("
+        },
+        {
+          "line": 63,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/security_commands.py",
+      "references": [
+        {
+          "line": 13,
+          "text": "commands.register(\"security.bootstrap\", domain.bootstrap)"
+        },
+        {
+          "line": 14,
+          "text": "commands.register(\"security.authenticate\", domain.authenticate)"
+        },
+        {
+          "line": 15,
+          "text": "commands.register(\"security.authorize\", domain.authorize)"
+        },
+        {
+          "line": 16,
+          "text": "commands.register(\"security.policy\", domain.policy)"
+        },
+        {
+          "line": 17,
+          "text": "commands.register(\"security.role_create\", domain.role_create)"
+        },
+        {
+          "line": 18,
+          "text": "commands.register(\"security.role_assign\", domain.role_assign)"
+        },
+        {
+          "line": 19,
+          "text": "commands.register(\"security.audit\", domain.audit)"
+        },
+        {
+          "line": 20,
+          "text": "commands.register(\"security.statistics\", domain.statistics)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/semantic_commands.py",
+      "references": [
+        {
+          "line": 12,
+          "text": "commands.register("
+        },
+        {
+          "line": 17,
+          "text": "commands.register("
+        },
+        {
+          "line": 22,
+          "text": "commands.register("
+        },
+        {
+          "line": 27,
+          "text": "commands.register("
+        },
+        {
+          "line": 32,
+          "text": "commands.register("
+        },
+        {
+          "line": 37,
+          "text": "commands.register("
+        },
+        {
+          "line": 42,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/state_commands.py",
+      "references": [
+        {
+          "line": 14,
+          "text": "commands.register("
+        },
+        {
+          "line": 19,
+          "text": "commands.register("
+        },
+        {
+          "line": 24,
+          "text": "commands.register("
+        },
+        {
+          "line": 29,
+          "text": "commands.register("
+        },
+        {
+          "line": 34,
+          "text": "commands.register("
+        },
+        {
+          "line": 39,
+          "text": "commands.register("
+        },
+        {
+          "line": 44,
+          "text": "commands.register("
+        },
+        {
+          "line": 49,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/telemetry_commands.py",
+      "references": [
+        {
+          "line": 13,
+          "text": "commands.register(\"telemetry.bootstrap\", domain.bootstrap)"
+        },
+        {
+          "line": 14,
+          "text": "commands.register(\"telemetry.record\", domain.record)"
+        },
+        {
+          "line": 15,
+          "text": "commands.register(\"telemetry.metric\", domain.metric)"
+        },
+        {
+          "line": 16,
+          "text": "commands.register(\"telemetry.log\", domain.log)"
+        },
+        {
+          "line": 17,
+          "text": "commands.register(\"telemetry.trace\", domain.trace)"
+        },
+        {
+          "line": 18,
+          "text": "commands.register(\"telemetry.health\", domain.health)"
+        },
+        {
+          "line": 19,
+          "text": "commands.register(\"telemetry.timeline\", domain.timeline)"
+        },
+        {
+          "line": 20,
+          "text": "commands.register(\"telemetry.statistics\", domain.statistics)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/tenancy_commands.py",
+      "references": [
+        {
+          "line": 13,
+          "text": "commands.register(\"tenant.bootstrap\", domain.bootstrap)"
+        },
+        {
+          "line": 14,
+          "text": "commands.register(\"tenant.create\", domain.create)"
+        },
+        {
+          "line": 15,
+          "text": "commands.register(\"tenant.delete\", domain.delete)"
+        },
+        {
+          "line": 16,
+          "text": "commands.register(\"tenant.list\", domain.list)"
+        },
+        {
+          "line": 17,
+          "text": "commands.register(\"tenant.select\", domain.select)"
+        },
+        {
+          "line": 19,
+          "text": "commands.register(\"workspace.create\", domain.workspace_create)"
+        },
+        {
+          "line": 20,
+          "text": "commands.register(\"workspace.delete\", domain.workspace_delete)"
+        },
+        {
+          "line": 21,
+          "text": "commands.register(\"workspace.list\", domain.workspace_list)"
+        },
+        {
+          "line": 23,
+          "text": "commands.register(\"organization.create\", domain.organization_create)"
+        },
+        {
+          "line": 24,
+          "text": "commands.register(\"organization.update\", domain.organization_update)"
+        },
+        {
+          "line": 26,
+          "text": "commands.register(\"tenant.statistics\", domain.statistics)"
+        },
+        {
+          "line": 27,
+          "text": "commands.register(\"tenant.health\", domain.health)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/uil_commands.py",
+      "references": [
+        {
+          "line": 12,
+          "text": "commands.register("
+        },
+        {
+          "line": 17,
+          "text": "commands.register("
+        },
+        {
+          "line": 22,
+          "text": "commands.register("
+        },
+        {
+          "line": 27,
+          "text": "commands.register("
+        },
+        {
+          "line": 32,
+          "text": "commands.register("
+        },
+        {
+          "line": 37,
+          "text": "commands.register("
+        },
+        {
+          "line": 42,
+          "text": "commands.register("
+        },
+        {
+          "line": 47,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/workflow_commands.py",
+      "references": [
+        {
+          "line": 14,
+          "text": "commands.register("
+        },
+        {
+          "line": 19,
+          "text": "commands.register("
+        },
+        {
+          "line": 24,
+          "text": "commands.register("
+        },
+        {
+          "line": 29,
+          "text": "commands.register("
+        },
+        {
+          "line": 34,
+          "text": "commands.register("
+        },
+        {
+          "line": 39,
+          "text": "commands.register("
+        },
+        {
+          "line": 44,
+          "text": "commands.register("
+        },
+        {
+          "line": 49,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/workflow_v2_commands.py",
+      "references": [
+        {
+          "line": 13,
+          "text": "commands.register(\"workflow.bootstrap\", domain.bootstrap)"
+        },
+        {
+          "line": 14,
+          "text": "commands.register(\"workflow.create\", domain.create)"
+        },
+        {
+          "line": 15,
+          "text": "commands.register(\"workflow.start\", domain.start)"
+        },
+        {
+          "line": 16,
+          "text": "commands.register(\"workflow.pause\", domain.pause)"
+        },
+        {
+          "line": 17,
+          "text": "commands.register(\"workflow.resume\", domain.resume)"
+        },
+        {
+          "line": 18,
+          "text": "commands.register(\"workflow.cancel\", domain.cancel)"
+        },
+        {
+          "line": 19,
+          "text": "commands.register(\"workflow.status\", domain.status)"
+        },
+        {
+          "line": 20,
+          "text": "commands.register(\"workflow.statistics\", domain.statistics)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/registrations/workspace_commands.py",
+      "references": [
+        {
+          "line": 12,
+          "text": "commands.register("
+        },
+        {
+          "line": 17,
+          "text": "commands.register("
+        },
+        {
+          "line": 22,
+          "text": "commands.register("
+        },
+        {
+          "line": 27,
+          "text": "commands.register("
+        },
+        {
+          "line": 32,
+          "text": "commands.register("
+        },
+        {
+          "line": 37,
+          "text": "commands.register("
+        },
+        {
+          "line": 42,
+          "text": "commands.register("
+        },
+        {
+          "line": 47,
+          "text": "commands.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/relay/network.py",
+      "references": [
+        {
+          "line": 65,
+          "text": "return self.dispatch(packet)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/services/registry_federation_registration.py",
+      "references": [
+        {
+          "line": 26,
+          "text": "runtime.services.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/universal/engine.py",
+      "references": [
+        {
+          "line": 46,
+          "text": "self.registry.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime/workflow.py",
+      "references": [
+        {
+          "line": 33,
+          "text": "result = self.runtime.commands.dispatch(node.command, node.payload, application=application)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime_engine_manager/core.py",
+      "references": [
+        {
+          "line": 24,
+          "text": "self.lifecycle.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/runtime_supervisor/core.py",
+      "references": [
+        {
+          "line": 34,
+          "text": "recovery = runtime_recovery.execute(decision)"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/sdk/core.py",
+      "references": [
+        {
+          "line": 24,
+          "text": "return execution_engine.execute("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/sdk/runtime_sdk.py",
+      "references": [
+        {
+          "line": 9,
+          "text": "def dispatch(self, command: str, payload: dict | None = None, application: str = 'system') -> dict: return runtime_core.commands.dispatch(command, payload or {}, application=application).to_dict()"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/self_assembly/core.py",
+      "references": [
+        {
+          "line": 144,
+          "text": "platform_registry.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/service_manager/core.py",
+      "references": [
+        {
+          "line": 34,
+          "text": "return self.registry.register("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/spa/adaptive_runtime/engine.py",
+      "references": [
+        {
+          "line": 72,
+          "text": "return self.control.execute()"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/spa/optimization/engine.py",
+      "references": [
+        {
+          "line": 83,
+          "text": "return self.loop.execute()"
+        }
+      ]
+    },
+    {
+      "path": "aletheus/workflows_v2/workflow_core.py",
+      "references": [
+        {
+          "line": 159,
+          "text": "context = runtime.commands.dispatch(node.command, node.payload, application=node.application)"
+        },
+        {
+          "line": 175,
+          "text": "assignment = runtime.commands.dispatch("
+        },
+        {
+          "line": 183,
+          "text": "agent_run = runtime.commands.dispatch(\"agent.run\", {\"agent_name\": node.assigned_agent})"
+        },
+        {
+          "line": 252,
+          "text": "runtime.commands.dispatch("
+        }
+      ]
+    },
+    {
+      "path": "aletheus/workspace/workspace_core.py",
+      "references": [
+        {
+          "line": 83,
+          "text": "health = runtime.commands.dispatch(\"runtime.health\").results.get(\"health\", {})"
+        },
+        {
+          "line": 84,
+          "text": "diagnostics = runtime.commands.dispatch(\"runtime.diagnostics\").results"
+        }
+      ]
+    }
+  ]
+}

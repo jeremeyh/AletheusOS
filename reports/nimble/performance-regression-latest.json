@@ -1,0 +1,74 @@
+{
+  "baseline_source": {
+    "branch": "feature/cardhawk-streamlit-v0.1",
+    "commit": "eb53711f55031b7d09b3f2f0e34f83f406a6117f",
+    "short_commit": "eb53711",
+    "telemetry_generated_at": "2026-07-10T23:00:16.004274+00:00"
+  },
+  "chunk_count": {
+    "baseline": 6,
+    "change": 0,
+    "current": 6,
+    "maximum": 10,
+    "minimum": 5,
+    "status": "PASS"
+  },
+  "current_source": {
+    "branch": "feature/cardhawk-streamlit-v0.1",
+    "commit": "eb53711f55031b7d09b3f2f0e34f83f406a6117f",
+    "dirty": true,
+    "short_commit": "eb53711",
+    "tags_at_head": [
+      "nimble-production-observability-v0.1"
+    ]
+  },
+  "failures": [],
+  "metrics": [
+    {
+      "absolute_limit": 500000,
+      "allowed_growth_percent": 5.0,
+      "baseline": 447168,
+      "change": 0,
+      "change_percent": 0.0,
+      "current": 447168,
+      "failures": [],
+      "name": "Primary bundle bytes",
+      "status": "PASS"
+    },
+    {
+      "absolute_limit": null,
+      "allowed_growth_percent": 10.0,
+      "baseline": 584884,
+      "change": 0,
+      "change_percent": 0.0,
+      "current": 584884,
+      "failures": [],
+      "name": "Total JavaScript bytes",
+      "status": "PASS"
+    },
+    {
+      "absolute_limit": null,
+      "allowed_growth_percent": 15.0,
+      "baseline": 67533,
+      "change": 0,
+      "change_percent": 0.0,
+      "current": 67533,
+      "failures": [],
+      "name": "Largest secondary chunk bytes",
+      "status": "PASS"
+    },
+    {
+      "absolute_limit": 120.0,
+      "allowed_growth_percent": 35.0,
+      "baseline": 7.3578,
+      "change": 0.0,
+      "change_percent": 0.0,
+      "current": 7.3578,
+      "failures": [],
+      "name": "Production gate duration seconds",
+      "status": "PASS"
+    }
+  ],
+  "schema_version": "1.0",
+  "status": "PASS"
+}

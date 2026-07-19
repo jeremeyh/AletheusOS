@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-07-19T09:16:31.287030+00:00",
+  "operations": [
+    {
+      "action": "move",
+      "source": "card_hawk_genesis_23_1_to_24_bulk_loader.sh",
+      "destination": "tools/migration/card_hawk_genesis_23_1_to_24_bulk_loader.sh",
+      "reason": "Explicit repository-policy classification"
+    },
+    {
+      "action": "move",
+      "source": "inventory_summary.sh",
+      "destination": "tools/reporting/inventory_summary.sh",
+      "reason": "Explicit repository-policy classification"
+    },
+    {
+      "action": "move",
+      "source": "import_streamlit.py",
+      "destination": "tools/bootstrap/import_streamlit.py",
+      "reason": "Explicit repository-policy classification"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "root": "/mnt/data/AletheusOS_work/AletheusOS",
+  "top_level_entries": 321,
+  "top_level_files": 186,
+  "top_level_directories": 135,
+  "source_files_excluding_history_archive": 9960,
+  "top_level_file_types": {
+    ".example": 1,
+    ".json": 1,
+    ".md": 11,
+    ".nimble": 1,
+    ".py": 134,
+    ".sh": 21,
+    ".toml": 1,
+    ".txt": 7,
+    ".yml": 1,
+    "[none]": 8
+  },
+  "root_executable_scripts": 155,
+  "generated_artifacts_found": [],
+  "status": "clean"
+}

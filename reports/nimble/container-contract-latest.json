@@ -1,0 +1,11 @@
+{
+  "compose": "compose.nimble.yml",
+  "dockerfile": "Dockerfile.nimble",
+  "failures": [
+    "Compose marker missing: /healthz"
+  ],
+  "port": 8000,
+  "runtime_user": "aletheus",
+  "schema_version": "1.0",
+  "status": "FAIL"
+}

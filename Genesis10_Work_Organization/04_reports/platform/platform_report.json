@@ -1,0 +1,102 @@
+{
+  "platform": {
+    "version": "1.0.1",
+    "timestamp": "2026-07-01T11:40:38.174888",
+    "root": "/Users/master_lord_6ixth/Development/AletheusOS",
+    "status": "healthy",
+    "score": 100,
+    "checks": {
+      "system": {
+        "system": "Darwin",
+        "release": "25.5.0",
+        "version": "Darwin Kernel Version 25.5.0: Mon Apr 27 20:41:06 PDT 2026; root:xnu-12377.121.6~2/RELEASE_ARM64_T6030",
+        "machine": "arm64",
+        "processor": "arm",
+        "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+        "hostname": "LNED6F7QGXXDP"
+      },
+      "python": {
+        "executable": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "version": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+        "version_info": {
+          "major": 3,
+          "minor": 14,
+          "micro": 6
+        },
+        "prefix": "/opt/homebrew/opt/python@3.14/Frameworks/Python.framework/Versions/3.14",
+        "base_prefix": "/opt/homebrew/opt/python@3.14/Frameworks/Python.framework/Versions/3.14",
+        "virtual_env": "/Users/master_lord_6ixth/CardHawkOS/venv",
+        "virtualenv_active": true,
+        "path_entries": [
+          "",
+          "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python314.zip",
+          "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14",
+          "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload",
+          "/opt/homebrew/lib/python3.14/site-packages"
+        ]
+      },
+      "filesystem": {
+        "root_exists": true,
+        "root_is_dir": true,
+        "cwd": "/Users/master_lord_6ixth/Development/AletheusOS",
+        "disk_total_gb": 926.35,
+        "disk_used_gb": 362.5,
+        "disk_free_gb": 563.85
+      },
+      "directories": [
+        {
+          "name": "aletheus",
+          "exists": true,
+          "is_dir": true
+        },
+        {
+          "name": "cardhawk",
+          "exists": true,
+          "is_dir": true
+        },
+        {
+          "name": "tools",
+          "exists": true,
+          "is_dir": true
+        },
+        {
+          "name": "reports",
+          "exists": true,
+          "is_dir": true
+        },
+        {
+          "name": "runtime_state",
+          "exists": true,
+          "is_dir": true
+        }
+      ],
+      "tools": {
+        "required": [
+          {
+            "tool": "python3",
+            "available": true
+          }
+        ],
+        "optional": [
+          {
+            "tool": "git",
+            "available": true
+          },
+          {
+            "tool": "pip",
+            "available": false
+          },
+          {
+            "tool": "streamlit",
+            "available": false
+          }
+        ]
+      },
+      "environment": {
+        "env_count": 30,
+        "sensitive_env_names_detected": []
+      }
+    },
+    "findings": []
+  }
+}

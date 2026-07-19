@@ -1,0 +1,1 @@
+# AletheusOS Runtime Health\n\nGenerated: 2026-07-10T12:18:04.482770+00:00\nRuntime Version: 4.2.1\nStatus: pass\n\n## Checks\n- PASS: runtime_online\n- PASS: commands_registered\n- PASS: no_duplicate_commands\n- PASS: compatibility_registered\n- PASS: required_aliases_present\n- PASS: kernel_available\n- PASS: hardening_available\n

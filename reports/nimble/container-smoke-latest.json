@@ -1,0 +1,9 @@
+{
+  "checks": [],
+  "failures": [],
+  "generated_at": "2026-07-11T03:31:51.429186+00:00",
+  "image": "aletheus/nimble-experience-gateway:local",
+  "schema_version": "1.0",
+  "skip_reason": "Docker runtime is unavailable.",
+  "status": "SKIP"
+}

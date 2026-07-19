@@ -1,0 +1,1271 @@
+{
+  "concerns": {
+    "evidence": {
+      "candidates": [
+        {
+          "matches": [
+            "function temporal_provenance"
+          ],
+          "module": "aletheus.constitutional_ledger.core",
+          "path": "aletheus/constitutional_ledger/core.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_ledger' (+14)",
+            "function 'temporal_provenance' matches 'provenance' (+3)"
+          ],
+          "score": 17
+        },
+        {
+          "matches": [
+            "function by_source"
+          ],
+          "module": "aletheus.constitutional_ledger.institutional_event_store",
+          "path": "aletheus/constitutional_ledger/institutional_event_store.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_ledger' (+14)",
+            "function 'by_source' matches 'source' (+3)"
+          ],
+          "score": 17
+        },
+        {
+          "matches": [
+            "function provenance"
+          ],
+          "module": "aletheus.constitutional_ledger.transtemporal",
+          "path": "aletheus/constitutional_ledger/transtemporal.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_ledger' (+14)",
+            "function 'provenance' matches 'provenance' (+3)"
+          ],
+          "score": 17
+        },
+        {
+          "matches": [
+            "function attach_evidence"
+          ],
+          "module": "aletheus.constitutional_cases.engine",
+          "path": "aletheus/constitutional_cases/engine.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_cases' (+12)",
+            "function 'attach_evidence' matches 'evidence' (+3)"
+          ],
+          "score": 15
+        },
+        {
+          "matches": [
+            "class VirtueFinding"
+          ],
+          "module": "aletheus.constitutional_cognition.models",
+          "path": "aletheus/constitutional_cognition/models.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_cognition' (+8)",
+            "class 'VirtueFinding' matches 'finding' (+6)"
+          ],
+          "score": 14
+        },
+        {
+          "matches": [],
+          "module": "aletheus.constitutional_ledger.certification",
+          "path": "aletheus/constitutional_ledger/certification.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_ledger' (+14)"
+          ],
+          "score": 14
+        },
+        {
+          "matches": [],
+          "module": "aletheus.constitutional_ledger.institutional_events",
+          "path": "aletheus/constitutional_ledger/institutional_events.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_ledger' (+14)"
+          ],
+          "score": 14
+        },
+        {
+          "matches": [],
+          "module": "aletheus.constitutional_ledger.models",
+          "path": "aletheus/constitutional_ledger/models.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_ledger' (+14)"
+          ],
+          "score": 14
+        }
+      ],
+      "crk_forbidden": "Persist evidence payloads or replace ledger, case, cognition, or knowledge authorities.",
+      "crk_role": "Require evidence and provenance references where constitutional contracts demand them.",
+      "existing_owner": "Multiple strong owner candidates require constitutional review.",
+      "resolution": "review_required",
+      "selected_candidates": [
+        "aletheus/constitutional_ledger/core.py",
+        "aletheus/constitutional_ledger/institutional_event_store.py",
+        "aletheus/constitutional_ledger/transtemporal.py",
+        "aletheus/constitutional_cases/engine.py"
+      ]
+    },
+    "governance": {
+      "candidates": [
+        {
+          "matches": [
+            "class ConstitutionalCouncilMember",
+            "class CouncilDecision",
+            "class CouncilDecisionOutcome",
+            "class CouncilMemberKind",
+            "class CouncilProposal",
+            "class CouncilProposalKind",
+            "class CouncilProposalState",
+            "class CouncilStatistics",
+            "class CouncilVote",
+            "class CouncilVoteChoice",
+            "class CouncilVotingStrategy"
+          ],
+          "module": "aletheus.platform_intelligence.constitutional_runtime_council.models",
+          "path": "aletheus/platform_intelligence/constitutional_runtime_council/models.py",
+          "reasons": [
+            "class 'ConstitutionalCouncilMember' matches 'council' (+6)",
+            "class 'CouncilDecision' matches 'council' (+6)",
+            "class 'CouncilDecisionOutcome' matches 'council' (+6)",
+            "class 'CouncilMemberKind' matches 'council' (+6)",
+            "class 'CouncilProposal' matches 'council' (+6)",
+            "class 'CouncilProposalKind' matches 'council' (+6)",
+            "class 'CouncilProposalState' matches 'council' (+6)",
+            "class 'CouncilStatistics' matches 'council' (+6)",
+            "class 'CouncilVote' matches 'council' (+6)",
+            "class 'CouncilVoteChoice' matches 'council' (+6)",
+            "class 'CouncilVotingStrategy' matches 'council' (+6)"
+          ],
+          "score": 66
+        },
+        {
+          "matches": [
+            "class ConstitutionalRuntimeCouncilError",
+            "class CouncilDecisionError",
+            "class CouncilMemberAlreadyExistsError",
+            "class CouncilMemberNotFoundError",
+            "class CouncilProposalAlreadyExistsError",
+            "class CouncilProposalNotFoundError",
+            "class CouncilVotingError"
+          ],
+          "module": "aletheus.platform_intelligence.constitutional_runtime_council.exceptions",
+          "path": "aletheus/platform_intelligence/constitutional_runtime_council/exceptions.py",
+          "reasons": [
+            "class 'ConstitutionalRuntimeCouncilError' matches 'council' (+6)",
+            "class 'CouncilDecisionError' matches 'council' (+6)",
+            "class 'CouncilMemberAlreadyExistsError' matches 'council' (+6)",
+            "class 'CouncilMemberNotFoundError' matches 'council' (+6)",
+            "class 'CouncilProposalAlreadyExistsError' matches 'council' (+6)",
+            "class 'CouncilProposalNotFoundError' matches 'council' (+6)",
+            "class 'CouncilVotingError' matches 'council' (+6)"
+          ],
+          "score": 42
+        },
+        {
+          "matches": [
+            "function escalate_to_council"
+          ],
+          "module": "aletheus.institutional_civilization.wiring",
+          "path": "aletheus/institutional_civilization/wiring.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+14)",
+            "path matches owner hint 'civilization' (+8)",
+            "function 'escalate_to_council' matches 'council' (+3)"
+          ],
+          "score": 25
+        },
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.bootstrap",
+          "path": "aletheus/institutional_civilization/bootstrap.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+14)",
+            "path matches owner hint 'civilization' (+8)"
+          ],
+          "score": 22
+        },
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.canonical_catalog",
+          "path": "aletheus/institutional_civilization/canonical_catalog.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+14)",
+            "path matches owner hint 'civilization' (+8)"
+          ],
+          "score": 22
+        },
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.catalog",
+          "path": "aletheus/institutional_civilization/catalog.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+14)",
+            "path matches owner hint 'civilization' (+8)"
+          ],
+          "score": 22
+        },
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.civilization_catalog",
+          "path": "aletheus/institutional_civilization/civilization_catalog.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+14)",
+            "path matches owner hint 'civilization' (+8)"
+          ],
+          "score": 22
+        },
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.civilization_models",
+          "path": "aletheus/institutional_civilization/civilization_models.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+14)",
+            "path matches owner hint 'civilization' (+8)"
+          ],
+          "score": 22
+        }
+      ],
+      "crk_forbidden": "Replace Council, Conclave, cases, missions, security, or existing governance services.",
+      "crk_role": "Require governance evidence when admission or mutation policy demands it.",
+      "existing_owner": "aletheus/platform_intelligence/constitutional_runtime_council/models.py",
+      "resolution": "existing_owner",
+      "selected_candidates": [
+        "aletheus/platform_intelligence/constitutional_runtime_council/models.py"
+      ]
+    },
+    "identity": {
+      "candidates": [
+        {
+          "matches": [
+            "class CanonicalIdentity",
+            "class IdentityRelationship",
+            "class IdentityStatus",
+            "class IdentityType",
+            "function new_identity_id"
+          ],
+          "module": "aletheus.canonical_identity.models",
+          "path": "aletheus/canonical_identity/models.py",
+          "reasons": [
+            "class 'CanonicalIdentity' matches 'identity' (+6)",
+            "class 'IdentityRelationship' matches 'identity' (+6)",
+            "class 'IdentityStatus' matches 'identity' (+6)",
+            "class 'IdentityType' matches 'identity' (+6)",
+            "function 'new_identity_id' matches 'entity_id' (+3)"
+          ],
+          "score": 27
+        },
+        {
+          "matches": [
+            "function new_institutional_event_id"
+          ],
+          "module": "aletheus.constitutional_ledger.institutional_events",
+          "path": "aletheus/constitutional_ledger/institutional_events.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_ledger' (+14)",
+            "function 'new_institutional_event_id' matches 'event_id' (+3)"
+          ],
+          "score": 17
+        },
+        {
+          "matches": [],
+          "module": "aletheus.application_runtime.contracts",
+          "path": "aletheus/application_runtime/contracts.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+10)",
+            "path matches owner hint 'runtime' (+6)"
+          ],
+          "score": 16
+        },
+        {
+          "matches": [],
+          "module": "aletheus.application_runtime.core",
+          "path": "aletheus/application_runtime/core.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+10)",
+            "path matches owner hint 'runtime' (+6)"
+          ],
+          "score": 16
+        },
+        {
+          "matches": [],
+          "module": "aletheus.application_runtime.loader",
+          "path": "aletheus/application_runtime/loader.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+10)",
+            "path matches owner hint 'runtime' (+6)"
+          ],
+          "score": 16
+        },
+        {
+          "matches": [],
+          "module": "aletheus.application_runtime.models",
+          "path": "aletheus/application_runtime/models.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+10)",
+            "path matches owner hint 'runtime' (+6)"
+          ],
+          "score": 16
+        },
+        {
+          "matches": [],
+          "module": "aletheus.application_runtime.proof_application",
+          "path": "aletheus/application_runtime/proof_application.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+10)",
+            "path matches owner hint 'runtime' (+6)"
+          ],
+          "score": 16
+        },
+        {
+          "matches": [],
+          "module": "aletheus.application_runtime.registry",
+          "path": "aletheus/application_runtime/registry.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+10)",
+            "path matches owner hint 'runtime' (+6)"
+          ],
+          "score": 16
+        }
+      ],
+      "crk_forbidden": "Generate domain-specific identifiers or own application entity models.",
+      "crk_role": "Require stable, nonblank constitutional identifiers during capability admission.",
+      "existing_owner": "aletheus/canonical_identity/models.py",
+      "resolution": "existing_owner",
+      "selected_candidates": [
+        "aletheus/canonical_identity/models.py"
+      ]
+    },
+    "lifecycle": {
+      "candidates": [
+        {
+          "matches": [
+            "function anchor_analytics_status",
+            "function anchor_architect_status",
+            "function anchor_architecture_selection_status",
+            "function anchor_architecture_simulator_status",
+            "function anchor_cognitive_architect_status",
+            "function anchor_cognitive_optimization_status",
+            "function anchor_cognitive_selection_status",
+            "function anchor_cognitive_self_improvement_status",
+            "function anchor_cognitive_simulation_status",
+            "function anchor_cognitive_status",
+            "function anchor_consensus_status",
+            "function anchor_constitution_reasoning_status",
+            "function anchor_constitution_status",
+            "function anchor_continuity_status",
+            "function anchor_contract_status",
+            "function anchor_council_status",
+            "function anchor_dependency_status",
+            "function anchor_deployment_status",
+            "function anchor_discovery_status",
+            "function anchor_evolution_graph_status",
+            "function anchor_execution_status",
+            "function anchor_forecasting_status",
+            "function anchor_governance_status",
+            "function anchor_healing_status",
+            "function anchor_improvement_status",
+            "function anchor_institutional_memory_status",
+            "function anchor_intelligence_status",
+            "function anchor_judgment_status",
+            "function anchor_learning_status",
+            "function anchor_lifecycle_status",
+            "function anchor_meta_reasoning_status",
+            "function anchor_migration_status",
+            "function anchor_negotiation_status",
+            "function anchor_optimization_status",
+            "function anchor_pattern_status",
+            "function anchor_performance_status",
+            "function anchor_portfolio_status",
+            "function anchor_predictive_status",
+            "function anchor_proposal_status",
+            "function anchor_research_status",
+            "function anchor_resource_status",
+            "function anchor_simulation_status",
+            "function anchor_steward_status",
+            "function anchor_strategy_status",
+            "function anchor_verification_status"
+          ],
+          "module": "aletheus.runtime.core",
+          "path": "aletheus/runtime/core.py",
+          "reasons": [
+            "path matches owner hint 'runtime' (+10)",
+            "function 'anchor_analytics_status' matches 'status' (+3)",
+            "function 'anchor_architect_status' matches 'status' (+3)",
+            "function 'anchor_architecture_selection_status' matches 'status' (+3)",
+            "function 'anchor_architecture_simulator_status' matches 'status' (+3)",
+            "function 'anchor_cognitive_architect_status' matches 'status' (+3)",
+            "function 'anchor_cognitive_optimization_status' matches 'status' (+3)",
+            "function 'anchor_cognitive_selection_status' matches 'status' (+3)",
+            "function 'anchor_cognitive_self_improvement_status' matches 'status' (+3)",
+            "function 'anchor_cognitive_simulation_status' matches 'status' (+3)",
+            "function 'anchor_cognitive_status' matches 'status' (+3)",
+            "function 'anchor_consensus_status' matches 'status' (+3)",
+            "function 'anchor_constitution_reasoning_status' matches 'status' (+3)",
+            "function 'anchor_constitution_status' matches 'status' (+3)",
+            "function 'anchor_continuity_status' matches 'status' (+3)",
+            "function 'anchor_contract_status' matches 'status' (+3)",
+            "function 'anchor_council_status' matches 'status' (+3)",
+            "function 'anchor_dependency_status' matches 'status' (+3)",
+            "function 'anchor_deployment_status' matches 'status' (+3)",
+            "function 'anchor_discovery_status' matches 'status' (+3)",
+            "function 'anchor_evolution_graph_status' matches 'status' (+3)",
+            "function 'anchor_execution_status' matches 'status' (+3)",
+            "function 'anchor_forecasting_status' matches 'status' (+3)",
+            "function 'anchor_governance_status' matches 'status' (+3)",
+            "function 'anchor_healing_status' matches 'status' (+3)",
+            "function 'anchor_improvement_status' matches 'status' (+3)",
+            "function 'anchor_institutional_memory_status' matches 'status' (+3)",
+            "function 'anchor_intelligence_status' matches 'status' (+3)",
+            "function 'anchor_judgment_status' matches 'status' (+3)",
+            "function 'anchor_learning_status' matches 'status' (+3)",
+            "function 'anchor_lifecycle_status' matches 'status' (+3)",
+            "function 'anchor_meta_reasoning_status' matches 'status' (+3)",
+            "function 'anchor_migration_status' matches 'status' (+3)",
+            "function 'anchor_negotiation_status' matches 'status' (+3)",
+            "function 'anchor_optimization_status' matches 'status' (+3)",
+            "function 'anchor_pattern_status' matches 'status' (+3)",
+            "function 'anchor_performance_status' matches 'status' (+3)",
+            "function 'anchor_portfolio_status' matches 'status' (+3)",
+            "function 'anchor_predictive_status' matches 'status' (+3)",
+            "function 'anchor_proposal_status' matches 'status' (+3)",
+            "function 'anchor_research_status' matches 'status' (+3)",
+            "function 'anchor_resource_status' matches 'status' (+3)",
+            "function 'anchor_simulation_status' matches 'status' (+3)",
+            "function 'anchor_steward_status' matches 'status' (+3)",
+            "function 'anchor_strategy_status' matches 'status' (+3)",
+            "function 'anchor_verification_status' matches 'status' (+3)"
+          ],
+          "score": 145
+        },
+        {
+          "matches": [
+            "function initialize",
+            "function start",
+            "function stop"
+          ],
+          "module": "aletheus.application_runtime.contracts",
+          "path": "aletheus/application_runtime/contracts.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+14)",
+            "path matches owner hint 'runtime' (+10)",
+            "function 'initialize' matches 'initialize' (+3)",
+            "function 'start' matches 'start' (+3)",
+            "function 'stop' matches 'stop' (+3)"
+          ],
+          "score": 33
+        },
+        {
+          "matches": [
+            "function restart",
+            "function start",
+            "function stop"
+          ],
+          "module": "aletheus.application_runtime.core",
+          "path": "aletheus/application_runtime/core.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+14)",
+            "path matches owner hint 'runtime' (+10)",
+            "function 'restart' matches 'start' (+3)",
+            "function 'start' matches 'start' (+3)",
+            "function 'stop' matches 'stop' (+3)"
+          ],
+          "score": 33
+        },
+        {
+          "matches": [
+            "function restart",
+            "function start",
+            "function stop"
+          ],
+          "module": "aletheus.application_runtime.loader",
+          "path": "aletheus/application_runtime/loader.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+14)",
+            "path matches owner hint 'runtime' (+10)",
+            "function 'restart' matches 'start' (+3)",
+            "function 'start' matches 'start' (+3)",
+            "function 'stop' matches 'stop' (+3)"
+          ],
+          "score": 33
+        },
+        {
+          "matches": [
+            "function initialize",
+            "function start",
+            "function stop"
+          ],
+          "module": "aletheus.application_runtime.proof_application",
+          "path": "aletheus/application_runtime/proof_application.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+14)",
+            "path matches owner hint 'runtime' (+10)",
+            "function 'initialize' matches 'initialize' (+3)",
+            "function 'start' matches 'start' (+3)",
+            "function 'stop' matches 'stop' (+3)"
+          ],
+          "score": 33
+        },
+        {
+          "matches": [
+            "function initialize",
+            "function start",
+            "function stop"
+          ],
+          "module": "aletheus.application_runtime.runtime",
+          "path": "aletheus/application_runtime/runtime.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+14)",
+            "path matches owner hint 'runtime' (+10)",
+            "function 'initialize' matches 'initialize' (+3)",
+            "function 'start' matches 'start' (+3)",
+            "function 'stop' matches 'stop' (+3)"
+          ],
+          "score": 33
+        },
+        {
+          "matches": [
+            "function restart",
+            "function start",
+            "function stop"
+          ],
+          "module": "aletheus.platform.application_runtime",
+          "path": "aletheus/platform/application_runtime.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+14)",
+            "path matches owner hint 'runtime' (+10)",
+            "function 'restart' matches 'start' (+3)",
+            "function 'start' matches 'start' (+3)",
+            "function 'stop' matches 'stop' (+3)"
+          ],
+          "score": 33
+        },
+        {
+          "matches": [
+            "class ApplicationStatus"
+          ],
+          "module": "aletheus.application_runtime.models",
+          "path": "aletheus/application_runtime/models.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+14)",
+            "path matches owner hint 'runtime' (+10)",
+            "class 'ApplicationStatus' matches 'status' (+6)"
+          ],
+          "score": 30
+        }
+      ],
+      "crk_forbidden": "Execute lifecycle operations already owned by runtime and application managers.",
+      "crk_role": "Validate allowed constitutional lifecycle transitions.",
+      "existing_owner": "aletheus/runtime/core.py",
+      "resolution": "existing_owner",
+      "selected_candidates": [
+        "aletheus/runtime/core.py"
+      ]
+    },
+    "ownership": {
+      "candidates": [
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.civilization_registry",
+          "path": "aletheus/institutional_civilization/civilization_registry.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+14)",
+            "path matches owner hint 'civilization' (+12)",
+            "path matches owner hint 'registry' (+8)"
+          ],
+          "score": 34
+        },
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.registry",
+          "path": "aletheus/institutional_civilization/registry.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+14)",
+            "path matches owner hint 'civilization' (+12)",
+            "path matches owner hint 'registry' (+8)"
+          ],
+          "score": 34
+        },
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.bootstrap",
+          "path": "aletheus/institutional_civilization/bootstrap.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+14)",
+            "path matches owner hint 'civilization' (+12)"
+          ],
+          "score": 26
+        },
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.canonical_catalog",
+          "path": "aletheus/institutional_civilization/canonical_catalog.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+14)",
+            "path matches owner hint 'civilization' (+12)"
+          ],
+          "score": 26
+        },
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.catalog",
+          "path": "aletheus/institutional_civilization/catalog.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+14)",
+            "path matches owner hint 'civilization' (+12)"
+          ],
+          "score": 26
+        },
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.civilization_catalog",
+          "path": "aletheus/institutional_civilization/civilization_catalog.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+14)",
+            "path matches owner hint 'civilization' (+12)"
+          ],
+          "score": 26
+        },
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.civilization_models",
+          "path": "aletheus/institutional_civilization/civilization_models.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+14)",
+            "path matches owner hint 'civilization' (+12)"
+          ],
+          "score": 26
+        },
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.civilization_projection",
+          "path": "aletheus/institutional_civilization/civilization_projection.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+14)",
+            "path matches owner hint 'civilization' (+12)"
+          ],
+          "score": 26
+        }
+      ],
+      "crk_forbidden": "Replace governance authorities or perform domain authorization.",
+      "crk_role": "Enforce unique constitutional ownership during capability admission.",
+      "existing_owner": "Multiple strong owner candidates require constitutional review.",
+      "resolution": "review_required",
+      "selected_candidates": [
+        "aletheus/institutional_civilization/civilization_registry.py",
+        "aletheus/institutional_civilization/registry.py"
+      ]
+    },
+    "policy": {
+      "candidates": [
+        {
+          "matches": [
+            "class ConstitutionalPolicyEngineError",
+            "class PolicyAlreadyRegisteredError",
+            "class PolicyEvaluationError",
+            "class PolicyNotFoundError",
+            "class PolicyRegistryFrozenError"
+          ],
+          "module": "aletheus.platform_intelligence.constitutional_policy_engine.exceptions",
+          "path": "aletheus/platform_intelligence/constitutional_policy_engine/exceptions.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_policy_engine' (+14)",
+            "class 'ConstitutionalPolicyEngineError' matches 'policy' (+6)",
+            "class 'PolicyAlreadyRegisteredError' matches 'policy' (+6)",
+            "class 'PolicyEvaluationError' matches 'policy' (+6)",
+            "class 'PolicyNotFoundError' matches 'policy' (+6)",
+            "class 'PolicyRegistryFrozenError' matches 'policy' (+6)"
+          ],
+          "score": 44
+        },
+        {
+          "matches": [
+            "class ConstitutionalPolicyEngineState",
+            "class PolicyEngineStatistics",
+            "class PolicyEvaluation"
+          ],
+          "module": "aletheus.platform_intelligence.constitutional_policy_engine.models",
+          "path": "aletheus/platform_intelligence/constitutional_policy_engine/models.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_policy_engine' (+14)",
+            "class 'ConstitutionalPolicyEngineState' matches 'policy' (+6)",
+            "class 'PolicyEngineStatistics' matches 'policy' (+6)",
+            "class 'PolicyEvaluation' matches 'policy' (+6)"
+          ],
+          "score": 32
+        },
+        {
+          "matches": [
+            "class ExecutivePolicyRegistry",
+            "class PolicyDecision",
+            "class PolicyDescriptor",
+            "class PolicyScope",
+            "class PolicyTrustLevel"
+          ],
+          "module": "aletheus.executive_kernel.policies",
+          "path": "aletheus/executive_kernel/policies.py",
+          "reasons": [
+            "class 'ExecutivePolicyRegistry' matches 'policy' (+6)",
+            "class 'PolicyDecision' matches 'policy' (+6)",
+            "class 'PolicyDescriptor' matches 'policy' (+6)",
+            "class 'PolicyScope' matches 'policy' (+6)",
+            "class 'PolicyTrustLevel' matches 'policy' (+6)"
+          ],
+          "score": 30
+        },
+        {
+          "matches": [
+            "class CriticalRuntimePolicy",
+            "class DegradedRuntimePolicy",
+            "class ExecutivePolicy",
+            "class HealthyRuntimePolicy",
+            "class WarningRuntimePolicy"
+          ],
+          "module": "aletheus.platform_intelligence.constitutional_runtime_executive.policies",
+          "path": "aletheus/platform_intelligence/constitutional_runtime_executive/policies.py",
+          "reasons": [
+            "class 'CriticalRuntimePolicy' matches 'policy' (+6)",
+            "class 'DegradedRuntimePolicy' matches 'policy' (+6)",
+            "class 'ExecutivePolicy' matches 'policy' (+6)",
+            "class 'HealthyRuntimePolicy' matches 'policy' (+6)",
+            "class 'WarningRuntimePolicy' matches 'policy' (+6)"
+          ],
+          "score": 30
+        },
+        {
+          "matches": [
+            "class DefaultAuthorizationPolicy",
+            "function create_default_authorization_policy"
+          ],
+          "module": "aletheus.experience_gateway.security.default_policy",
+          "path": "aletheus/experience_gateway/security/default_policy.py",
+          "reasons": [
+            "path matches owner hint 'security' (+12)",
+            "class 'DefaultAuthorizationPolicy' matches 'policy' (+6)",
+            "function 'create_default_authorization_policy' matches 'policy' (+3)"
+          ],
+          "score": 21
+        },
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.security_catalog",
+          "path": "aletheus/institutional_civilization/security_catalog.py",
+          "reasons": [
+            "path matches owner hint 'security' (+12)",
+            "path matches owner hint 'institutional_civilization' (+8)"
+          ],
+          "score": 20
+        },
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.security_lifecycle",
+          "path": "aletheus/institutional_civilization/security_lifecycle.py",
+          "reasons": [
+            "path matches owner hint 'security' (+12)",
+            "path matches owner hint 'institutional_civilization' (+8)"
+          ],
+          "score": 20
+        },
+        {
+          "matches": [],
+          "module": "aletheus.institutional_civilization.security_projection",
+          "path": "aletheus/institutional_civilization/security_projection.py",
+          "reasons": [
+            "path matches owner hint 'security' (+12)",
+            "path matches owner hint 'institutional_civilization' (+8)"
+          ],
+          "score": 20
+        }
+      ],
+      "crk_forbidden": "Own business rules, application policy, or security-domain policy.",
+      "crk_role": "Evaluate a minimal immutable set of kernel admission invariants.",
+      "existing_owner": "aletheus/platform_intelligence/constitutional_policy_engine/exceptions.py",
+      "resolution": "existing_owner",
+      "selected_candidates": [
+        "aletheus/platform_intelligence/constitutional_policy_engine/exceptions.py"
+      ]
+    },
+    "registration": {
+      "candidates": [
+        {
+          "matches": [
+            "function _bootstrap_runtime_registry",
+            "function _cmd_registry_inspect",
+            "function _register_compatibility_services",
+            "function _register_runtime_domains",
+            "function bootstrap_registry",
+            "function register_engine",
+            "function register_pipeline",
+            "function register_service",
+            "function register_workflow",
+            "function registry_snapshot"
+          ],
+          "module": "aletheus.runtime.core",
+          "path": "aletheus/runtime/core.py",
+          "reasons": [
+            "path matches owner hint 'runtime' (+10)",
+            "function '_bootstrap_runtime_registry' matches 'registry' (+3)",
+            "function '_cmd_registry_inspect' matches 'registry' (+3)",
+            "function '_register_compatibility_services' matches 'register' (+3)",
+            "function '_register_runtime_domains' matches 'register' (+3)",
+            "function 'bootstrap_registry' matches 'registry' (+3)",
+            "function 'register_engine' matches 'register' (+3)",
+            "function 'register_pipeline' matches 'register' (+3)",
+            "function 'register_service' matches 'register' (+3)",
+            "function 'register_workflow' matches 'register' (+3)",
+            "function 'registry_snapshot' matches 'registry' (+3)"
+          ],
+          "score": 40
+        },
+        {
+          "matches": [
+            "class ApplicationServiceResolver",
+            "function resolve",
+            "function resolve_many"
+          ],
+          "module": "aletheus.application_runtime.services",
+          "path": "aletheus/application_runtime/services.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+14)",
+            "path matches owner hint 'runtime' (+10)",
+            "class 'ApplicationServiceResolver' matches 'resolve' (+6)",
+            "function 'resolve' matches 'resolve' (+3)",
+            "function 'resolve_many' matches 'resolve' (+3)"
+          ],
+          "score": 36
+        },
+        {
+          "matches": [
+            "class ServiceRegistry",
+            "function register",
+            "function unregister"
+          ],
+          "module": "aletheus.runtime.services.service_registry",
+          "path": "aletheus/runtime/services/service_registry.py",
+          "reasons": [
+            "path matches owner hint 'service_registry' (+12)",
+            "path matches owner hint 'runtime' (+10)",
+            "class 'ServiceRegistry' matches 'registry' (+6)",
+            "function 'register' matches 'register' (+3)",
+            "function 'unregister' matches 'register' (+3)"
+          ],
+          "score": 34
+        },
+        {
+          "matches": [
+            "class ConstitutionalApplicationRegistry",
+            "function install"
+          ],
+          "module": "aletheus.application_runtime.registry",
+          "path": "aletheus/application_runtime/registry.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+14)",
+            "path matches owner hint 'runtime' (+10)",
+            "class 'ConstitutionalApplicationRegistry' matches 'registry' (+6)",
+            "function 'install' matches 'install' (+3)"
+          ],
+          "score": 33
+        },
+        {
+          "matches": [
+            "function install",
+            "function uninstall"
+          ],
+          "module": "aletheus.application_runtime.core",
+          "path": "aletheus/application_runtime/core.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+14)",
+            "path matches owner hint 'runtime' (+10)",
+            "function 'install' matches 'install' (+3)",
+            "function 'uninstall' matches 'install' (+3)"
+          ],
+          "score": 30
+        },
+        {
+          "matches": [
+            "function install",
+            "function uninstall"
+          ],
+          "module": "aletheus.application_runtime.loader",
+          "path": "aletheus/application_runtime/loader.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+14)",
+            "path matches owner hint 'runtime' (+10)",
+            "function 'install' matches 'install' (+3)",
+            "function 'uninstall' matches 'install' (+3)"
+          ],
+          "score": 30
+        },
+        {
+          "matches": [
+            "function install",
+            "function uninstall"
+          ],
+          "module": "aletheus.application_runtime.runtime",
+          "path": "aletheus/application_runtime/runtime.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+14)",
+            "path matches owner hint 'runtime' (+10)",
+            "function 'install' matches 'install' (+3)",
+            "function 'uninstall' matches 'install' (+3)"
+          ],
+          "score": 30
+        },
+        {
+          "matches": [
+            "function install",
+            "function register"
+          ],
+          "module": "aletheus.platform.application_runtime",
+          "path": "aletheus/platform/application_runtime.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+14)",
+            "path matches owner hint 'runtime' (+10)",
+            "function 'install' matches 'install' (+3)",
+            "function 'register' matches 'register' (+3)"
+          ],
+          "score": 30
+        }
+      ],
+      "crk_forbidden": "Create a second service, application, runtime, or civilization registry.",
+      "crk_role": "Apply constitutional admission checks before delegating registration to the existing owner.",
+      "existing_owner": "aletheus/runtime/core.py",
+      "resolution": "existing_owner",
+      "selected_candidates": [
+        "aletheus/runtime/core.py"
+      ]
+    },
+    "replay": {
+      "candidates": [
+        {
+          "matches": [
+            "class ConstitutionalEventRegistry",
+            "class DuplicateEventTypeError",
+            "class EventTypeDefinition",
+            "function build_canonical_event_registry",
+            "function canonical_event_definitions"
+          ],
+          "module": "aletheus.constitutional_events.registry",
+          "path": "aletheus/constitutional_events/registry.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_events' (+14)",
+            "class 'ConstitutionalEventRegistry' matches 'event' (+6)",
+            "class 'DuplicateEventTypeError' matches 'event' (+6)",
+            "class 'EventTypeDefinition' matches 'event' (+6)",
+            "function 'build_canonical_event_registry' matches 'event' (+3)",
+            "function 'canonical_event_definitions' matches 'event' (+3)"
+          ],
+          "score": 38
+        },
+        {
+          "matches": [
+            "class ConstitutionalLedger",
+            "function institutional_event",
+            "function institutional_history",
+            "function record_event",
+            "function replay",
+            "function replay_events"
+          ],
+          "module": "aletheus.constitutional_ledger.core",
+          "path": "aletheus/constitutional_ledger/core.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_ledger' (+12)",
+            "class 'ConstitutionalLedger' matches 'ledger' (+6)",
+            "function 'institutional_event' matches 'event' (+3)",
+            "function 'institutional_history' matches 'history' (+3)",
+            "function 'record_event' matches 'event' (+3)",
+            "function 'replay' matches 'replay' (+3)",
+            "function 'replay_events' matches 'replay' (+3)"
+          ],
+          "score": 33
+        },
+        {
+          "matches": [
+            "class ConstitutionalEventFabric",
+            "class EventDelivery",
+            "function events",
+            "function replay"
+          ],
+          "module": "aletheus.constitutional_events.fabric",
+          "path": "aletheus/constitutional_events/fabric.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_events' (+14)",
+            "class 'ConstitutionalEventFabric' matches 'event' (+6)",
+            "class 'EventDelivery' matches 'event' (+6)",
+            "function 'events' matches 'event' (+3)",
+            "function 'replay' matches 'replay' (+3)"
+          ],
+          "score": 32
+        },
+        {
+          "matches": [
+            "class ConstitutionalEvent",
+            "class ConstitutionalEventType",
+            "function new_event_id"
+          ],
+          "module": "aletheus.constitutional_events.models",
+          "path": "aletheus/constitutional_events/models.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_events' (+14)",
+            "class 'ConstitutionalEvent' matches 'event' (+6)",
+            "class 'ConstitutionalEventType' matches 'event' (+6)",
+            "function 'new_event_id' matches 'event' (+3)"
+          ],
+          "score": 29
+        },
+        {
+          "matches": [
+            "function _cmd_decision_history",
+            "function _cmd_event_bootstrap",
+            "function _cmd_event_history",
+            "function _cmd_event_publish",
+            "function _cmd_event_replay",
+            "function _cmd_event_statistics",
+            "function _cmd_event_subscribe",
+            "function _cmd_event_unsubscribe",
+            "function _cmd_reason_history"
+          ],
+          "module": "aletheus.runtime.core",
+          "path": "aletheus/runtime/core.py",
+          "reasons": [
+            "function '_cmd_decision_history' matches 'history' (+3)",
+            "function '_cmd_event_bootstrap' matches 'event' (+3)",
+            "function '_cmd_event_history' matches 'history' (+3)",
+            "function '_cmd_event_publish' matches 'event' (+3)",
+            "function '_cmd_event_replay' matches 'replay' (+3)",
+            "function '_cmd_event_statistics' matches 'event' (+3)",
+            "function '_cmd_event_subscribe' matches 'event' (+3)",
+            "function '_cmd_event_unsubscribe' matches 'event' (+3)",
+            "function '_cmd_reason_history' matches 'history' (+3)"
+          ],
+          "score": 27
+        },
+        {
+          "matches": [
+            "class ConstitutionalEventPublisher",
+            "class ConstitutionalEventSubscriber"
+          ],
+          "module": "aletheus.constitutional_events.contracts",
+          "path": "aletheus/constitutional_events/contracts.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_events' (+14)",
+            "class 'ConstitutionalEventPublisher' matches 'event' (+6)",
+            "class 'ConstitutionalEventSubscriber' matches 'event' (+6)"
+          ],
+          "score": 26
+        },
+        {
+          "matches": [
+            "class SecurityEventType",
+            "function canonical_security_event_definitions",
+            "function register_security_event_types"
+          ],
+          "module": "aletheus.constitutional_events.security",
+          "path": "aletheus/constitutional_events/security.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_events' (+14)",
+            "class 'SecurityEventType' matches 'event' (+6)",
+            "function 'canonical_security_event_definitions' matches 'event' (+3)",
+            "function 'register_security_event_types' matches 'event' (+3)"
+          ],
+          "score": 26
+        },
+        {
+          "matches": [
+            "class EventCollector",
+            "class LedgerEventSubscriber"
+          ],
+          "module": "aletheus.constitutional_events.subscribers",
+          "path": "aletheus/constitutional_events/subscribers.py",
+          "reasons": [
+            "path matches owner hint 'constitutional_events' (+14)",
+            "class 'EventCollector' matches 'event' (+6)",
+            "class 'LedgerEventSubscriber' matches 'event' (+6)"
+          ],
+          "score": 26
+        }
+      ],
+      "crk_forbidden": "Become a second event bus, ledger, history, timeline, or replay store.",
+      "crk_role": "Require replay declarations and publish admission events through existing authorities.",
+      "existing_owner": "aletheus/constitutional_events/registry.py",
+      "resolution": "existing_owner",
+      "selected_candidates": [
+        "aletheus/constitutional_events/registry.py"
+      ]
+    },
+    "validation": {
+      "candidates": [
+        {
+          "matches": [
+            "class CivilizationReadinessReport",
+            "class ReadinessCheck",
+            "class ReadinessState"
+          ],
+          "module": "aletheus.institutional_civilization.readiness",
+          "path": "aletheus/institutional_civilization/readiness.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+12)",
+            "path matches owner hint 'civilization' (+8)",
+            "class 'CivilizationReadinessReport' matches 'readiness' (+6)",
+            "class 'ReadinessCheck' matches 'readiness' (+6)",
+            "class 'ReadinessState' matches 'readiness' (+6)"
+          ],
+          "score": 38
+        },
+        {
+          "matches": [
+            "class CivilizationValidationError",
+            "class CivilizationValidationIssue",
+            "function validate_civilization"
+          ],
+          "module": "aletheus.institutional_civilization.civilization_validation",
+          "path": "aletheus/institutional_civilization/civilization_validation.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+12)",
+            "path matches owner hint 'civilization' (+8)",
+            "class 'CivilizationValidationError' matches 'validation' (+6)",
+            "class 'CivilizationValidationIssue' matches 'validation' (+6)",
+            "function 'validate_civilization' matches 'validate' (+3)"
+          ],
+          "score": 35
+        },
+        {
+          "matches": [
+            "class InstitutionValidationError",
+            "class InstitutionValidationIssue",
+            "function validate_institution"
+          ],
+          "module": "aletheus.institutional_civilization.validation",
+          "path": "aletheus/institutional_civilization/validation.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+12)",
+            "path matches owner hint 'civilization' (+8)",
+            "class 'InstitutionValidationError' matches 'validation' (+6)",
+            "class 'InstitutionValidationIssue' matches 'validation' (+6)",
+            "function 'validate_institution' matches 'validate' (+3)"
+          ],
+          "score": 35
+        },
+        {
+          "matches": [
+            "class ApplicationValidationError",
+            "class ApplicationValidationIssue",
+            "function validate_manifest"
+          ],
+          "module": "aletheus.application_runtime.validation",
+          "path": "aletheus/application_runtime/validation.py",
+          "reasons": [
+            "path matches owner hint 'application_runtime' (+14)",
+            "class 'ApplicationValidationError' matches 'validation' (+6)",
+            "class 'ApplicationValidationIssue' matches 'validation' (+6)",
+            "function 'validate_manifest' matches 'validate' (+3)"
+          ],
+          "score": 29
+        },
+        {
+          "matches": [
+            "class InstitutionHealthProvider",
+            "function health"
+          ],
+          "module": "aletheus.institutional_civilization.contracts",
+          "path": "aletheus/institutional_civilization/contracts.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+12)",
+            "path matches owner hint 'civilization' (+8)",
+            "class 'InstitutionHealthProvider' matches 'health' (+6)",
+            "function 'health' matches 'health' (+3)"
+          ],
+          "score": 29
+        },
+        {
+          "matches": [
+            "function health"
+          ],
+          "module": "aletheus.institutional_civilization.bootstrap",
+          "path": "aletheus/institutional_civilization/bootstrap.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+12)",
+            "path matches owner hint 'civilization' (+8)",
+            "function 'health' matches 'health' (+3)"
+          ],
+          "score": 23
+        },
+        {
+          "matches": [
+            "function health"
+          ],
+          "module": "aletheus.institutional_civilization.civilization_registry",
+          "path": "aletheus/institutional_civilization/civilization_registry.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+12)",
+            "path matches owner hint 'civilization' (+8)",
+            "function 'health' matches 'health' (+3)"
+          ],
+          "score": 23
+        },
+        {
+          "matches": [
+            "function health"
+          ],
+          "module": "aletheus.institutional_civilization.engine",
+          "path": "aletheus/institutional_civilization/engine.py",
+          "reasons": [
+            "path matches owner hint 'institutional_civilization' (+12)",
+            "path matches owner hint 'civilization' (+8)",
+            "function 'health' matches 'health' (+3)"
+          ],
+          "score": 23
+        }
+      ],
+      "crk_forbidden": "Absorb domain validation or application-level business validation.",
+      "crk_role": "Compose bounded invariant checks and produce typed admission results.",
+      "existing_owner": "aletheus/institutional_civilization/readiness.py",
+      "resolution": "existing_owner",
+      "selected_candidates": [
+        "aletheus/institutional_civilization/readiness.py"
+      ]
+    }
+  },
+  "crk_boundary": {
+    "does_not_own": [
+      "Domain business logic.",
+      "Application authorization.",
+      "Lifecycle execution already owned by runtime and application managers.",
+      "A second application, service, runtime, or civilization registry.",
+      "Evidence persistence.",
+      "Replay persistence.",
+      "Ledger persistence.",
+      "Event-bus implementation.",
+      "Mission execution.",
+      "Governance deliberation.",
+      "Security-domain policy."
+    ],
+    "owns": [
+      "Constitutional capability admission contracts.",
+      "Kernel-level invariant evaluation.",
+      "Typed admission and rejection results.",
+      "Composition of existing constitutional authorities.",
+      "Kernel admission-event requests through the existing event authority."
+    ]
+  },
+  "modules_inspected": 3906,
+  "repository": "/Users/master_lord_6ixth/Development/AletheusOS",
+  "title": "CRK Constitutional Ownership Map\u2122",
+  "warnings": [
+    {
+      "candidates": [
+        "aletheus/institutional_civilization/civilization_registry.py",
+        "aletheus/institutional_civilization/registry.py"
+      ],
+      "concern": "ownership",
+      "message": "Multiple strong owner candidates require constitutional review.",
+      "resolution": "review_required"
+    },
+    {
+      "candidates": [
+        "aletheus/constitutional_ledger/core.py",
+        "aletheus/constitutional_ledger/institutional_event_store.py",
+        "aletheus/constitutional_ledger/transtemporal.py",
+        "aletheus/constitutional_cases/engine.py"
+      ],
+      "concern": "evidence",
+      "message": "Multiple strong owner candidates require constitutional review.",
+      "resolution": "review_required"
+    }
+  ]
+}

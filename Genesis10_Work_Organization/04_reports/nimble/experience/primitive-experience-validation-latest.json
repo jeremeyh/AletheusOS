@@ -1,0 +1,8 @@
+{
+  "failures": [],
+  "generated_at": "2026-07-13T07:58:00.014356+00:00",
+  "schema_version": "1.0",
+  "status": "PASS",
+  "typecheck_stderr": "",
+  "typecheck_stdout": "> @aletheus/nimble-react@0.1.0 typecheck\n> tsc -p tsconfig.json --noEmit --pretty false"
+}

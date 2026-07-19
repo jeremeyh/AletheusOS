@@ -1,0 +1,157 @@
+{
+  "likely_ui_roots": [
+    "nimble/apps/platform-shell"
+  ],
+  "package_managers": {
+    "npm": false,
+    "pnpm": false,
+    "yarn": false
+  },
+  "packages": [
+    {
+      "frameworks": [
+        "react",
+        "vite"
+      ],
+      "name": "@aletheus/nimble-shell",
+      "path": "nimble/apps/platform-shell/package.json",
+      "private": true,
+      "scripts": {
+        "build": "tsc -b && vite build",
+        "dev": "vite",
+        "lint": "eslint .",
+        "preview": "vite preview",
+        "test": "vitest run --config vitest.config.ts",
+        "test:watch": "vitest --config vitest.config.ts",
+        "typecheck": "tsc -b --pretty false"
+      }
+    },
+    {
+      "frameworks": [],
+      "name": "@aletheus/nimble-workspace",
+      "path": "nimble/package.json",
+      "private": true,
+      "scripts": {
+        "baseline-governance": "../.venv/bin/python ../validate_nimble_baseline_governance.py",
+        "build": "npm run build --workspace @aletheus/nimble-shell",
+        "dependency-manifest": "../.venv/bin/python ../generate_nimble_dependency_manifest.py",
+        "dependency-risk": "../.venv/bin/python ../scan_nimble_dependency_risk.py",
+        "dev": "npm run dev --workspace @aletheus/nimble-shell",
+        "performance-baseline": "../.venv/bin/python ../create_nimble_performance_baseline.py",
+        "performance-regression": "../.venv/bin/python ../validate_nimble_performance_regression.py",
+        "preview": "npm run preview --workspace @aletheus/nimble-shell",
+        "production-evidence": "../.venv/bin/python ../collect_nimble_production_telemetry.py",
+        "production-gate": "../validate_nimble_production.sh",
+        "reconcile-dependency-exceptions": "../.venv/bin/python ../reconcile_nimble_dependency_exceptions.py",
+        "test": "npm run test --workspaces --if-present",
+        "typecheck": "npm run typecheck --workspaces --if-present",
+        "ux:health": "npm run build && playwright test tests/ux/platform-health.spec.ts",
+        "ux:health:update": "npm run build && playwright test tests/ux/platform-health.spec.ts --update-snapshots",
+        "ux:report": "playwright show-report reports/ux/playwright",
+        "validate": "npm run typecheck && npm run test -- --run && npm run build",
+        "validate-attestation": "../.venv/bin/python ../validate_nimble_release_attestation.py",
+        "validate-dependencies": "../.venv/bin/python ../validate_nimble_dependency_manifest.py",
+        "validate-dependency-exceptions": "../.venv/bin/python ../validate_nimble_dependency_exceptions.py",
+        "validate-dependency-risk": "../.venv/bin/python ../validate_nimble_dependency_risk.py"
+      }
+    },
+    {
+      "frameworks": [],
+      "name": "@aletheus/nimble-core",
+      "path": "nimble/packages/core/package.json",
+      "private": true,
+      "scripts": {
+        "typecheck": "tsc -p tsconfig.json --noEmit --pretty false"
+      }
+    },
+    {
+      "frameworks": [],
+      "name": "@aletheus/nimble-motion",
+      "path": "nimble/packages/motion/package.json",
+      "private": true,
+      "scripts": {
+        "typecheck": "tsc -p tsconfig.json --noEmit --pretty false"
+      }
+    },
+    {
+      "frameworks": [],
+      "name": "@aletheus/nimble-react",
+      "path": "nimble/packages/react/package.json",
+      "private": true,
+      "scripts": {
+        "typecheck": "tsc -p tsconfig.json --noEmit --pretty false"
+      }
+    },
+    {
+      "frameworks": [],
+      "name": "@aletheus/nimble-testing",
+      "path": "nimble/packages/testing/package.json",
+      "private": true,
+      "scripts": {
+        "typecheck": "tsc -p tsconfig.json --noEmit --pretty false"
+      }
+    },
+    {
+      "frameworks": [],
+      "name": "@aletheus/nimble-transparency",
+      "path": "nimble/packages/transparency/package.json",
+      "private": true,
+      "scripts": {
+        "typecheck": "tsc -p tsconfig.json --noEmit --pretty false"
+      }
+    },
+    {
+      "frameworks": [],
+      "name": "@aletheus/nimble-workspace-engine",
+      "path": "nimble/packages/workspace/package.json",
+      "private": true,
+      "scripts": {
+        "typecheck": "tsc -p tsconfig.json --noEmit --pretty false"
+      }
+    }
+  ],
+  "schema_version": "1.0",
+  "source_directories": [
+    "cardhawk/app",
+    "cardhawk/ui",
+    "components",
+    "nimble/apps/platform-shell/src",
+    "nimble/apps/platform-shell/src/nimble/components",
+    "nimble/components",
+    "nimble/packages/core/src",
+    "nimble/packages/motion/src",
+    "nimble/packages/react/src",
+    "nimble/packages/testing/src",
+    "nimble/packages/transparency/src",
+    "nimble/packages/workspace/src",
+    "styles",
+    "ui",
+    "venv/lib/python3.14/site-packages/numpy-2.5.0.dist-info/licenses/numpy/_core/src",
+    "venv/lib/python3.14/site-packages/numpy-2.5.0.dist-info/licenses/numpy/random/src",
+    "venv/lib/python3.14/site-packages/numpy/f2py/src",
+    "venv/lib/python3.14/site-packages/numpy/f2py/tests/src",
+    "venv/lib/python3.14/site-packages/pip-26.1.2.dist-info/licenses/src",
+    "venv/lib/python3.14/site-packages/pip/_vendor/pygments/styles",
+    "venv/lib/python3.14/site-packages/pyarrow/src",
+    "venv/lib/python3.14/site-packages/streamlit/components"
+  ],
+  "workspace_files": [
+    "nimble/apps/platform-shell/package.json",
+    "nimble/apps/platform-shell/tsconfig.json",
+    "nimble/apps/platform-shell/vite.config.ts",
+    "nimble/package-lock.json",
+    "nimble/package.json",
+    "nimble/packages/core/package.json",
+    "nimble/packages/core/tsconfig.json",
+    "nimble/packages/motion/package.json",
+    "nimble/packages/motion/tsconfig.json",
+    "nimble/packages/react/package.json",
+    "nimble/packages/react/tsconfig.json",
+    "nimble/packages/testing/package.json",
+    "nimble/packages/testing/tsconfig.json",
+    "nimble/packages/transparency/package.json",
+    "nimble/packages/transparency/tsconfig.json",
+    "nimble/packages/workspace/package.json",
+    "nimble/packages/workspace/tsconfig.json"
+  ]
+}

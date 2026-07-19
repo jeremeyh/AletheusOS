@@ -1,0 +1,519 @@
+{
+  "platform_census": {
+    "generated_at": "2026-07-01T12:04:59.299795",
+    "root": "/Users/master_lord_6ixth/Development/AletheusOS",
+    "aletheus_packages": 49,
+    "categories": {
+      "workflow": [
+        "agents",
+        "agents_v2",
+        "copilot",
+        "mission",
+        "missions_v2",
+        "planning",
+        "planning_v2",
+        "workflow_v3",
+        "workflows_v2"
+      ],
+      "application": [
+        "applications"
+      ],
+      "platform_service": [
+        "atlas"
+      ],
+      "unclassified": [
+        "boot",
+        "cognition",
+        "distributed_v3",
+        "enterprise",
+        "event_bus_v3",
+        "executive",
+        "founder_console",
+        "high_availability_v3",
+        "intelligence",
+        "optimization",
+        "release",
+        "sdk",
+        "workspace"
+      ],
+      "core_platform": [
+        "contracts",
+        "executive_kernel",
+        "kernel",
+        "kernel_v2",
+        "orchestrator",
+        "platform",
+        "runtime"
+      ],
+      "governance": [
+        "council"
+      ],
+      "engine": [
+        "decision_v2",
+        "prediction",
+        "reasoning"
+      ],
+      "infrastructure": [
+        "federation_v3",
+        "mesh",
+        "persistence_v3",
+        "plugins",
+        "plugins_v3",
+        "security_v3",
+        "telemetry_v3",
+        "tenancy_v3"
+      ],
+      "memory_knowledge": [
+        "knowledge",
+        "knowledge_graph",
+        "learning",
+        "memory",
+        "memory_mesh",
+        "semantic"
+      ]
+    },
+    "packages": [
+      {
+        "name": "agents",
+        "path": "aletheus/agents",
+        "category": "workflow",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "agents_v2",
+        "path": "aletheus/agents_v2",
+        "category": "workflow",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": true
+      },
+      {
+        "name": "applications",
+        "path": "aletheus/applications",
+        "category": "application",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": true
+      },
+      {
+        "name": "atlas",
+        "path": "aletheus/atlas",
+        "category": "platform_service",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": false
+      },
+      {
+        "name": "boot",
+        "path": "aletheus/boot",
+        "category": "unclassified",
+        "has_init": true,
+        "files": 4,
+        "python_files": 4,
+        "has_contract_language": false
+      },
+      {
+        "name": "cognition",
+        "path": "aletheus/cognition",
+        "category": "unclassified",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "contracts",
+        "path": "aletheus/contracts",
+        "category": "core_platform",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": true
+      },
+      {
+        "name": "copilot",
+        "path": "aletheus/copilot",
+        "category": "workflow",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "council",
+        "path": "aletheus/council",
+        "category": "governance",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": false
+      },
+      {
+        "name": "decision_v2",
+        "path": "aletheus/decision_v2",
+        "category": "engine",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": false
+      },
+      {
+        "name": "distributed_v3",
+        "path": "aletheus/distributed_v3",
+        "category": "unclassified",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": true
+      },
+      {
+        "name": "enterprise",
+        "path": "aletheus/enterprise",
+        "category": "unclassified",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "event_bus_v3",
+        "path": "aletheus/event_bus_v3",
+        "category": "unclassified",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": true
+      },
+      {
+        "name": "executive",
+        "path": "aletheus/executive",
+        "category": "unclassified",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "executive_kernel",
+        "path": "aletheus/executive_kernel",
+        "category": "core_platform",
+        "has_init": true,
+        "files": 6,
+        "python_files": 3,
+        "has_contract_language": true
+      },
+      {
+        "name": "federation_v3",
+        "path": "aletheus/federation_v3",
+        "category": "infrastructure",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": true
+      },
+      {
+        "name": "founder_console",
+        "path": "aletheus/founder_console",
+        "category": "unclassified",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": true
+      },
+      {
+        "name": "high_availability_v3",
+        "path": "aletheus/high_availability_v3",
+        "category": "unclassified",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": true
+      },
+      {
+        "name": "intelligence",
+        "path": "aletheus/intelligence",
+        "category": "unclassified",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "kernel",
+        "path": "aletheus/kernel",
+        "category": "core_platform",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": false
+      },
+      {
+        "name": "kernel_v2",
+        "path": "aletheus/kernel_v2",
+        "category": "core_platform",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "knowledge",
+        "path": "aletheus/knowledge",
+        "category": "memory_knowledge",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "knowledge_graph",
+        "path": "aletheus/knowledge_graph",
+        "category": "memory_knowledge",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": false
+      },
+      {
+        "name": "learning",
+        "path": "aletheus/learning",
+        "category": "memory_knowledge",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "memory",
+        "path": "aletheus/memory",
+        "category": "memory_knowledge",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": false
+      },
+      {
+        "name": "memory_mesh",
+        "path": "aletheus/memory_mesh",
+        "category": "memory_knowledge",
+        "has_init": true,
+        "files": 8,
+        "python_files": 8,
+        "has_contract_language": false
+      },
+      {
+        "name": "mesh",
+        "path": "aletheus/mesh",
+        "category": "infrastructure",
+        "has_init": true,
+        "files": 7,
+        "python_files": 7,
+        "has_contract_language": false
+      },
+      {
+        "name": "mission",
+        "path": "aletheus/mission",
+        "category": "workflow",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "missions_v2",
+        "path": "aletheus/missions_v2",
+        "category": "workflow",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "optimization",
+        "path": "aletheus/optimization",
+        "category": "unclassified",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "orchestrator",
+        "path": "aletheus/orchestrator",
+        "category": "core_platform",
+        "has_init": true,
+        "files": 4,
+        "python_files": 2,
+        "has_contract_language": true
+      },
+      {
+        "name": "persistence_v3",
+        "path": "aletheus/persistence_v3",
+        "category": "infrastructure",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": true
+      },
+      {
+        "name": "planning",
+        "path": "aletheus/planning",
+        "category": "workflow",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "planning_v2",
+        "path": "aletheus/planning_v2",
+        "category": "workflow",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": true
+      },
+      {
+        "name": "platform",
+        "path": "aletheus/platform",
+        "category": "core_platform",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": false
+      },
+      {
+        "name": "plugins",
+        "path": "aletheus/plugins",
+        "category": "infrastructure",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "plugins_v3",
+        "path": "aletheus/plugins_v3",
+        "category": "infrastructure",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": true
+      },
+      {
+        "name": "prediction",
+        "path": "aletheus/prediction",
+        "category": "engine",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "reasoning",
+        "path": "aletheus/reasoning",
+        "category": "engine",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": false
+      },
+      {
+        "name": "release",
+        "path": "aletheus/release",
+        "category": "unclassified",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": false
+      },
+      {
+        "name": "runtime",
+        "path": "aletheus/runtime",
+        "category": "core_platform",
+        "has_init": true,
+        "files": 88,
+        "python_files": 85,
+        "has_contract_language": true
+      },
+      {
+        "name": "sdk",
+        "path": "aletheus/sdk",
+        "category": "unclassified",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": false
+      },
+      {
+        "name": "security_v3",
+        "path": "aletheus/security_v3",
+        "category": "infrastructure",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": true
+      },
+      {
+        "name": "semantic",
+        "path": "aletheus/semantic",
+        "category": "memory_knowledge",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "telemetry_v3",
+        "path": "aletheus/telemetry_v3",
+        "category": "infrastructure",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": true
+      },
+      {
+        "name": "tenancy_v3",
+        "path": "aletheus/tenancy_v3",
+        "category": "infrastructure",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": true
+      },
+      {
+        "name": "workflow_v3",
+        "path": "aletheus/workflow_v3",
+        "category": "workflow",
+        "has_init": true,
+        "files": 2,
+        "python_files": 2,
+        "has_contract_language": true
+      },
+      {
+        "name": "workflows_v2",
+        "path": "aletheus/workflows_v2",
+        "category": "workflow",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      },
+      {
+        "name": "workspace",
+        "path": "aletheus/workspace",
+        "category": "unclassified",
+        "has_init": true,
+        "files": 3,
+        "python_files": 3,
+        "has_contract_language": false
+      }
+    ]
+  }
+}

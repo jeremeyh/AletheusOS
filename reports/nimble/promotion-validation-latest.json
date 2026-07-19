@@ -1,0 +1,26 @@
+{
+  "candidate_revision": "f06c6dc7b78f982c06dc648d5b9acdcbec872efc",
+  "checks": [
+    {
+      "check": "candidate-revision",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:release_integrity_report",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:release_manifest",
+      "status": "PASS"
+    },
+    {
+      "check": "evidence:release_manifest_checksum",
+      "status": "PASS"
+    }
+  ],
+  "environment": "build",
+  "failures": [],
+  "generated_at": "2026-07-11T08:42:18.718543+00:00",
+  "schema_version": "1.0",
+  "status": "PASS"
+}

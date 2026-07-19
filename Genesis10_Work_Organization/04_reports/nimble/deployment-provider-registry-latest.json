@@ -1,0 +1,29 @@
+{
+  "checks": [
+    {
+      "check": "provider-path:dry-run",
+      "status": "PASS"
+    },
+    {
+      "check": "forbidden-token:nimble-staging-promotion.yml:NIMBLE_DEPLOY_COMMAND",
+      "status": "PASS"
+    },
+    {
+      "check": "forbidden-token:nimble-staging-promotion.yml:NIMBLE_ROLLBACK_COMMAND",
+      "status": "PASS"
+    },
+    {
+      "check": "forbidden-token:nimble-production-promotion.yml:NIMBLE_DEPLOY_COMMAND",
+      "status": "PASS"
+    },
+    {
+      "check": "forbidden-token:nimble-production-promotion.yml:NIMBLE_ROLLBACK_COMMAND",
+      "status": "PASS"
+    }
+  ],
+  "failures": [],
+  "generated_at": "2026-07-11T09:42:06.726425+00:00",
+  "provider_count": 1,
+  "schema_version": "1.0",
+  "status": "PASS"
+}

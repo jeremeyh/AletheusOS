@@ -1,0 +1,18 @@
+{
+  "auth_mode": "local",
+  "backend_module": "aletheus.experience_gateway.fastapi_app:app",
+  "failures": [],
+  "frontend_distribution": "nimble/apps/platform-shell/dist",
+  "probes": {
+    "liveness": {
+      "expected_status": 200,
+      "path": "/healthz"
+    },
+    "readiness": {
+      "expected_status": 200,
+      "path": "/readyz"
+    }
+  },
+  "schema_version": "1.0",
+  "status": "PASS"
+}

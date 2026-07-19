@@ -1,0 +1,113 @@
+{
+  "checks": [
+    {
+      "check": "staging-workflow-exists",
+      "detail": "Missing workflow: .github/workflows/nimble-staging-promotion.yml",
+      "status": "PASS"
+    },
+    {
+      "check": "staging-environment-binding",
+      "detail": "staging workflow must bind to nimble-staging.",
+      "status": "PASS"
+    },
+    {
+      "check": "staging-concurrency",
+      "detail": "staging workflow must use concurrency group nimble-staging.",
+      "status": "PASS"
+    },
+    {
+      "check": "staging-health-check",
+      "detail": "staging workflow requires post-deploy health verification.",
+      "status": "PASS"
+    },
+    {
+      "check": "production-workflow-exists",
+      "detail": "Missing workflow: .github/workflows/nimble-production-promotion.yml",
+      "status": "PASS"
+    },
+    {
+      "check": "production-environment-binding",
+      "detail": "production workflow must bind to nimble-production.",
+      "status": "PASS"
+    },
+    {
+      "check": "production-concurrency",
+      "detail": "production workflow must use concurrency group nimble-production.",
+      "status": "PASS"
+    },
+    {
+      "check": "production-health-check",
+      "detail": "production workflow requires post-deploy health verification.",
+      "status": "PASS"
+    },
+    {
+      "check": "deployment-adapter-script",
+      "detail": "Environment automation missing: deployment-adapter-script.",
+      "status": "PASS"
+    },
+    {
+      "check": "rollback-adapter-script",
+      "detail": "Environment automation missing: rollback-adapter-script.",
+      "status": "PASS"
+    },
+    {
+      "check": "adapter-contract",
+      "detail": "Environment automation missing: adapter-contract.",
+      "status": "PASS"
+    },
+    {
+      "check": "staging-adapter-call",
+      "detail": "Environment automation missing: staging-adapter-call.",
+      "status": "PASS"
+    },
+    {
+      "check": "production-adapter-call",
+      "detail": "Environment automation missing: production-adapter-call.",
+      "status": "PASS"
+    },
+    {
+      "check": "production-rollback-call",
+      "detail": "Environment automation missing: production-rollback-call.",
+      "status": "PASS"
+    },
+    {
+      "check": "rollback-release-input",
+      "detail": "Production workflow missing: rollback-release-input.",
+      "status": "PASS"
+    },
+    {
+      "check": "rollback-revision-input",
+      "detail": "Production workflow missing: rollback-revision-input.",
+      "status": "PASS"
+    },
+    {
+      "check": "rollback-image-input",
+      "detail": "Production workflow missing: rollback-image-input.",
+      "status": "PASS"
+    },
+    {
+      "check": "staging-evidence-input",
+      "detail": "Production workflow missing: staging-evidence-input.",
+      "status": "PASS"
+    },
+    {
+      "check": "rollback-execution",
+      "detail": "Production workflow missing: rollback-execution.",
+      "status": "PASS"
+    },
+    {
+      "check": "staging-artifact-download",
+      "detail": "Production workflow missing: staging-artifact-download.",
+      "status": "PASS"
+    },
+    {
+      "check": "provider-neutral-adapter",
+      "detail": "Provider-specific deployment commands must remain outside the governance workflow.",
+      "status": "PASS"
+    }
+  ],
+  "failures": [],
+  "generated_at": "2026-07-11T09:25:43.746064+00:00",
+  "schema_version": "1.0",
+  "status": "PASS"
+}

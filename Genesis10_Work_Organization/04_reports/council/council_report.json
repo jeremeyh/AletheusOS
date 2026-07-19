@@ -1,0 +1,60 @@
+{
+  "council": {
+    "version": "1.0.0",
+    "timestamp": "2026-07-01T09:35:26.216602",
+    "root": "/Users/master_lord_6ixth/Development/AletheusOS",
+    "source": "council-test",
+    "proposal": "Add Council governance layer",
+    "assessments": {
+      "lighthouse": {
+        "available": true,
+        "status": "healthy",
+        "score": null,
+        "message": "Report loaded."
+      },
+      "platform": {
+        "available": true,
+        "status": "healthy",
+        "score": 100,
+        "message": "Report loaded."
+      },
+      "sentinel": {
+        "available": true,
+        "status": "healthy",
+        "score": 100,
+        "message": "Report loaded."
+      },
+      "atlas": {
+        "available": true,
+        "status": "watching",
+        "score": 93,
+        "message": "Report loaded."
+      },
+      "watch_tower": {
+        "available": true,
+        "status": "watching",
+        "score": 0,
+        "message": "Report loaded."
+      },
+      "guardian": {
+        "available": true,
+        "status": "loaded",
+        "allowed": false,
+        "risk": "critical",
+        "message": "Critical event blocked. Watch Tower scan requested."
+      }
+    },
+    "decision": {
+      "approved": true,
+      "mode": "approved_with_warnings",
+      "confidence": 82,
+      "blockers": [],
+      "warnings": [
+        "watch_tower score below 80.",
+        "Guardian recent risk is critical."
+      ],
+      "principle_x": false,
+      "message": "Council approves with warnings. Review before applying major changes."
+    }
+  }
+}

@@ -1,0 +1,8 @@
+path,classification
+workspace,DELETE_CANDIDATE
+runtime/cache,DELETE_CANDIDATE
+uploads/scans,DELETE_CANDIDATE
+uploads/thumbnails,DELETE_CANDIDATE
+exports/csv,DELETE_CANDIDATE
+exports/reports,DELETE_CANDIDATE
+watch_tower/reports,DELETE_CANDIDATE

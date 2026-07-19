@@ -1,0 +1,5 @@
+AletheusOS Repository Doctor
+Status: CLEAN
+Top-level entries: 319
+Root executable scripts: 155
+Generated artifacts: 0

@@ -1,0 +1,1444 @@
+{
+  "modules": [
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "agent.assign",
+        "agent.bootstrap",
+        "agent.heartbeat",
+        "agent.message",
+        "agent.pause",
+        "agent.resume",
+        "agent.spawn",
+        "agent.statistics",
+        "agent.stop"
+      ],
+      "file": "aletheus/runtime/registrations/agent_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "agent.assign",
+        "agent.bootstrap",
+        "agent.heartbeat",
+        "agent.message",
+        "agent.pause",
+        "agent.resume",
+        "agent.spawn",
+        "agent.statistics",
+        "agent.stop"
+      ],
+      "loadable_functions": [
+        "register_agent_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.agent_commands",
+      "references": {
+        "register_agent_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:28:from aletheus.runtime.registrations.agent_commands import register_agent_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:51:register_agent_commands,"
+        ]
+      },
+      "registration_functions": [
+        "register_agent_commands"
+      ]
+    },
+    {
+      "all_declared_live": false,
+      "declared_commands": [
+        "application.bootstrap.defaults",
+        "application.events",
+        "application.health",
+        "application.install",
+        "application.list",
+        "application.manifest",
+        "application.register",
+        "application.restart",
+        "application.start",
+        "application.stats",
+        "application.stop",
+        "application.uninstall"
+      ],
+      "file": "aletheus/runtime/registrations/application_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [],
+      "loadable_functions": [
+        "register_application_commands"
+      ],
+      "missing_commands": [
+        "application.bootstrap.defaults",
+        "application.events",
+        "application.health",
+        "application.install",
+        "application.list",
+        "application.manifest",
+        "application.register",
+        "application.restart",
+        "application.start",
+        "application.stats",
+        "application.stop",
+        "application.uninstall"
+      ],
+      "module": "aletheus.runtime.registrations.application_commands",
+      "references": {
+        "register_application_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:29:from aletheus.runtime.registrations.application_commands import register_application_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:48:register_application_commands,"
+        ]
+      },
+      "registration_functions": [
+        "register_application_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "architecture.validate"
+      ],
+      "file": "aletheus/runtime/registrations/architecture_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "architecture.validate"
+      ],
+      "loadable_functions": [
+        "register_architecture_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.architecture_commands",
+      "references": {
+        "register_architecture_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:4:from aletheus.runtime.registrations.governance_architecture_commands import register_architecture_governance_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:5:from aletheus.runtime.registrations.architecture_commands import register_architecture_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:179:register_architecture_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_architecture_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "cluster.elect_leader",
+        "cluster.heartbeat",
+        "cluster.join",
+        "cluster.leave",
+        "cluster.nodes",
+        "cluster.services",
+        "cluster.statistics"
+      ],
+      "file": "aletheus/runtime/registrations/cluster_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "cluster.elect_leader",
+        "cluster.heartbeat",
+        "cluster.join",
+        "cluster.leave",
+        "cluster.nodes",
+        "cluster.services",
+        "cluster.statistics"
+      ],
+      "loadable_functions": [
+        "register_cluster_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.cluster_commands",
+      "references": {
+        "register_cluster_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:8:from aletheus.runtime.registrations.cluster_commands import register_cluster_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:167:register_cluster_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_cluster_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "compat.contract",
+        "compat.list",
+        "compat.resolve",
+        "compat.statistics"
+      ],
+      "file": "aletheus/runtime/registrations/compatibility_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "compat.contract",
+        "compat.list",
+        "compat.resolve",
+        "compat.statistics"
+      ],
+      "loadable_functions": [
+        "register_compatibility_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.compatibility_commands",
+      "references": {
+        "register_compatibility_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:30:from aletheus.runtime.registrations.compatibility_commands import register_compatibility_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:56:register_compatibility_commands,"
+        ]
+      },
+      "registration_functions": [
+        "register_compatibility_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "copilot.ask",
+        "copilot.brief",
+        "copilot.history",
+        "copilot.recommend",
+        "copilot.statistics",
+        "copilot.timeline"
+      ],
+      "file": "aletheus/runtime/registrations/copilot_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "copilot.ask",
+        "copilot.brief",
+        "copilot.history",
+        "copilot.recommend",
+        "copilot.statistics",
+        "copilot.timeline"
+      ],
+      "loadable_functions": [
+        "register_copilot_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.copilot_commands",
+      "references": {
+        "register_copilot_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:31:from aletheus.runtime.registrations.copilot_commands import register_copilot_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:53:register_copilot_commands,"
+        ]
+      },
+      "registration_functions": [
+        "register_copilot_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "decision.bootstrap",
+        "decision.evaluate",
+        "decision.execute",
+        "decision.explain",
+        "decision.history",
+        "decision.policy.add",
+        "decision.rollback",
+        "decision.statistics"
+      ],
+      "file": "aletheus/runtime/registrations/decision_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "decision.bootstrap",
+        "decision.evaluate",
+        "decision.execute",
+        "decision.explain",
+        "decision.history",
+        "decision.policy.add",
+        "decision.rollback",
+        "decision.statistics"
+      ],
+      "loadable_functions": [
+        "register_decision_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.decision_commands",
+      "references": {
+        "register_decision_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:32:from aletheus.runtime.registrations.decision_commands import register_decision_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:55:register_decision_commands,"
+        ]
+      },
+      "registration_functions": [
+        "register_decision_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "audit.history",
+        "department.create",
+        "enterprise.bootstrap.cardhawk",
+        "enterprise.create",
+        "enterprise.list",
+        "enterprise.stats",
+        "governance.check",
+        "policy.create",
+        "team.create"
+      ],
+      "file": "aletheus/runtime/registrations/enterprise_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "audit.history",
+        "department.create",
+        "enterprise.bootstrap.cardhawk",
+        "enterprise.create",
+        "enterprise.list",
+        "enterprise.stats",
+        "governance.check",
+        "policy.create",
+        "team.create"
+      ],
+      "loadable_functions": [
+        "register_enterprise_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.enterprise_commands",
+      "references": {
+        "register_enterprise_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:9:from aletheus.runtime.registrations.enterprise_commands import register_enterprise_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:166:register_enterprise_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_enterprise_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "event.bootstrap",
+        "event.history",
+        "event.publish",
+        "event.replay",
+        "event.statistics",
+        "event.subscribe",
+        "event.unsubscribe"
+      ],
+      "file": "aletheus/runtime/registrations/event_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "event.bootstrap",
+        "event.history",
+        "event.publish",
+        "event.replay",
+        "event.statistics",
+        "event.subscribe",
+        "event.unsubscribe"
+      ],
+      "loadable_functions": [
+        "register_event_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.event_commands",
+      "references": {
+        "register_event_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:10:from aletheus.runtime.registrations.event_commands import register_event_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:170:register_event_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_event_commands"
+      ]
+    },
+    {
+      "all_declared_live": false,
+      "declared_commands": [
+        "executive.daily_brief",
+        "executive.recommendations",
+        "executive.risks",
+        "executive.snapshot",
+        "executive.status",
+        "executive.summary",
+        "executive.system_report"
+      ],
+      "file": "aletheus/runtime/registrations/executive_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [],
+      "loadable_functions": [
+        "register_executive_commands"
+      ],
+      "missing_commands": [
+        "executive.daily_brief",
+        "executive.recommendations",
+        "executive.risks",
+        "executive.snapshot",
+        "executive.status",
+        "executive.summary",
+        "executive.system_report"
+      ],
+      "module": "aletheus.runtime.registrations.executive_commands",
+      "references": {
+        "register_executive_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:33:from aletheus.runtime.registrations.executive_commands import register_executive_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:50:register_executive_commands,"
+        ]
+      },
+      "registration_functions": [
+        "register_executive_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "federation.bootstrap",
+        "federation.broadcast",
+        "federation.discover",
+        "federation.join",
+        "federation.leave",
+        "federation.query",
+        "federation.statistics"
+      ],
+      "file": "aletheus/runtime/registrations/federation_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "federation.bootstrap",
+        "federation.broadcast",
+        "federation.discover",
+        "federation.join",
+        "federation.leave",
+        "federation.query",
+        "federation.statistics"
+      ],
+      "loadable_functions": [
+        "register_federation_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.federation_commands",
+      "references": {
+        "register_federation_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:11:from aletheus.runtime.registrations.federation_commands import register_federation_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:171:register_federation_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_federation_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "architecture.governance.check"
+      ],
+      "file": "aletheus/runtime/registrations/governance_architecture_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "architecture.governance.check"
+      ],
+      "loadable_functions": [
+        "register_architecture_governance_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.governance_architecture_commands",
+      "references": {
+        "register_architecture_governance_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:4:from aletheus.runtime.registrations.governance_architecture_commands import register_architecture_governance_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:180:register_architecture_governance_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_architecture_governance_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "architecture.validate",
+        "runtime.audit",
+        "spa.assess",
+        "spa.drift"
+      ],
+      "file": "aletheus/runtime/registrations/governance_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "architecture.validate",
+        "runtime.audit",
+        "spa.assess",
+        "spa.drift"
+      ],
+      "loadable_functions": [
+        "register_governance_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.governance_commands",
+      "references": {
+        "register_governance_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:4:from aletheus.runtime.registrations.governance_architecture_commands import register_architecture_governance_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:7:from aletheus.runtime.registrations.governance_commands import register_governance_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:180:register_architecture_governance_commands(runtime)",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:181:register_governance_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_governance_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "entity.create",
+        "entity.search",
+        "graph.export",
+        "graph.query",
+        "graph.stats",
+        "relationship.create",
+        "relationship.search"
+      ],
+      "file": "aletheus/runtime/registrations/graph_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "entity.create",
+        "entity.search",
+        "graph.export",
+        "graph.query",
+        "graph.stats",
+        "relationship.create",
+        "relationship.search"
+      ],
+      "loadable_functions": [
+        "register_graph_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.graph_commands",
+      "references": {
+        "register_graph_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:14:from aletheus.runtime.registrations.knowledge_graph_commands import register_knowledge_graph_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:34:from aletheus.runtime.registrations.graph_commands import register_graph_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:45:register_graph_commands,",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:177:register_knowledge_graph_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_graph_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "ha.bootstrap",
+        "ha.demote",
+        "ha.failover",
+        "ha.join",
+        "ha.leave",
+        "ha.promote",
+        "ha.recover",
+        "ha.replicate",
+        "ha.statistics",
+        "ha.status"
+      ],
+      "file": "aletheus/runtime/registrations/ha_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "ha.bootstrap",
+        "ha.demote",
+        "ha.failover",
+        "ha.join",
+        "ha.leave",
+        "ha.promote",
+        "ha.recover",
+        "ha.replicate",
+        "ha.statistics",
+        "ha.status"
+      ],
+      "loadable_functions": [
+        "register_ha_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.ha_commands",
+      "references": {
+        "register_ha_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:12:from aletheus.runtime.registrations.ha_commands import register_ha_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:173:register_ha_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_ha_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "kernel.bootstrap",
+        "kernel.dispatcher",
+        "kernel.execute",
+        "kernel.scheduler",
+        "kernel.statistics",
+        "kernel.supervisor",
+        "kernel.tasks"
+      ],
+      "file": "aletheus/runtime/registrations/kernel_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "kernel.bootstrap",
+        "kernel.dispatcher",
+        "kernel.execute",
+        "kernel.scheduler",
+        "kernel.statistics",
+        "kernel.supervisor",
+        "kernel.tasks"
+      ],
+      "loadable_functions": [
+        "register_kernel_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.kernel_commands",
+      "references": {
+        "register_kernel_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:13:from aletheus.runtime.registrations.kernel_commands import register_kernel_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:163:register_kernel_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_kernel_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "knowledge.bootstrap.cardhawk",
+        "knowledge.entity.create",
+        "knowledge.entity.delete",
+        "knowledge.entity.update",
+        "knowledge.graph",
+        "knowledge.infer",
+        "knowledge.neighbors",
+        "knowledge.relationship.create",
+        "knowledge.relationship.delete",
+        "knowledge.search",
+        "knowledge.statistics"
+      ],
+      "file": "aletheus/runtime/registrations/knowledge_graph_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "knowledge.bootstrap.cardhawk",
+        "knowledge.entity.create",
+        "knowledge.entity.delete",
+        "knowledge.entity.update",
+        "knowledge.graph",
+        "knowledge.infer",
+        "knowledge.neighbors",
+        "knowledge.relationship.create",
+        "knowledge.relationship.delete",
+        "knowledge.search",
+        "knowledge.statistics"
+      ],
+      "loadable_functions": [
+        "register_knowledge_graph_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.knowledge_graph_commands",
+      "references": {
+        "register_knowledge_graph_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:14:from aletheus.runtime.registrations.knowledge_graph_commands import register_knowledge_graph_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:177:register_knowledge_graph_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_knowledge_graph_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "learning.feedback",
+        "learning.improve",
+        "learning.lesson",
+        "learning.patterns",
+        "learning.record",
+        "learning.snapshot",
+        "learning.statistics"
+      ],
+      "file": "aletheus/runtime/registrations/learning_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "learning.feedback",
+        "learning.improve",
+        "learning.lesson",
+        "learning.patterns",
+        "learning.record",
+        "learning.snapshot",
+        "learning.statistics"
+      ],
+      "loadable_functions": [
+        "register_learning_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.learning_commands",
+      "references": {
+        "register_learning_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:15:from aletheus.runtime.registrations.learning_commands import register_learning_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:162:register_learning_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_learning_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "memory.clear_working",
+        "memory.recall",
+        "memory.remember",
+        "memory.stats"
+      ],
+      "file": "aletheus/runtime/registrations/memory_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "memory.clear_working",
+        "memory.recall",
+        "memory.remember",
+        "memory.stats"
+      ],
+      "loadable_functions": [
+        "register_memory_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.memory_commands",
+      "references": {
+        "register_memory_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:16:from aletheus.runtime.registrations.memory_commands import register_memory_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:159:register_memory_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_memory_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "memory.mesh.cache",
+        "memory.mesh.history",
+        "memory.mesh.replicate",
+        "memory.mesh.restore",
+        "memory.mesh.retrieve",
+        "memory.mesh.search",
+        "memory.mesh.snapshot",
+        "memory.mesh.stats",
+        "memory.mesh.store",
+        "memory.mesh.sync"
+      ],
+      "file": "aletheus/runtime/registrations/memory_mesh_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "memory.mesh.cache",
+        "memory.mesh.history",
+        "memory.mesh.replicate",
+        "memory.mesh.restore",
+        "memory.mesh.retrieve",
+        "memory.mesh.search",
+        "memory.mesh.snapshot",
+        "memory.mesh.stats",
+        "memory.mesh.store",
+        "memory.mesh.sync"
+      ],
+      "loadable_functions": [
+        "register_memory_mesh_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.memory_mesh_commands",
+      "references": {
+        "register_memory_mesh_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:17:from aletheus.runtime.registrations.memory_mesh_commands import register_memory_mesh_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:176:register_memory_mesh_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_memory_mesh_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "mission.complete",
+        "mission.create",
+        "mission.from_goal",
+        "mission.history",
+        "mission.list",
+        "mission.run",
+        "mission.stats",
+        "mission.task.complete"
+      ],
+      "file": "aletheus/runtime/registrations/mission_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "mission.complete",
+        "mission.create",
+        "mission.from_goal",
+        "mission.history",
+        "mission.list",
+        "mission.run",
+        "mission.stats",
+        "mission.task.complete"
+      ],
+      "loadable_functions": [
+        "register_mission_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.mission_commands",
+      "references": {
+        "register_mission_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:35:from aletheus.runtime.registrations.mission_commands import register_mission_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:46:register_mission_commands,"
+        ]
+      },
+      "registration_functions": [
+        "register_mission_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "mission.complete",
+        "mission.create",
+        "mission.execute",
+        "mission.list",
+        "mission.statistics"
+      ],
+      "file": "aletheus/runtime/registrations/mission_v2_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "mission.complete",
+        "mission.create",
+        "mission.execute",
+        "mission.list",
+        "mission.statistics"
+      ],
+      "loadable_functions": [
+        "register_mission_v2_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.mission_v2_commands",
+      "references": {
+        "register_mission_v2_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:18:from aletheus.runtime.registrations.mission_v2_commands import register_mission_v2_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:164:register_mission_v2_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_mission_v2_commands"
+      ]
+    },
+    {
+      "all_declared_live": false,
+      "declared_commands": [
+        "plan.generate",
+        "plan.list"
+      ],
+      "file": "aletheus/runtime/registrations/planning_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [],
+      "loadable_functions": [
+        "register_planning_commands"
+      ],
+      "missing_commands": [
+        "plan.generate",
+        "plan.list"
+      ],
+      "module": "aletheus.runtime.registrations.planning_commands",
+      "references": {
+        "register_planning_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:36:from aletheus.runtime.registrations.planning_commands import register_planning_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:52:register_planning_commands,"
+        ]
+      },
+      "registration_functions": [
+        "register_planning_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "plugin.bootstrap",
+        "plugin.disable",
+        "plugin.enable",
+        "plugin.install",
+        "plugin.list",
+        "plugin.remove",
+        "plugin.statistics",
+        "plugin.status",
+        "plugin.update"
+      ],
+      "file": "aletheus/runtime/registrations/plugin_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "plugin.bootstrap",
+        "plugin.disable",
+        "plugin.enable",
+        "plugin.install",
+        "plugin.list",
+        "plugin.remove",
+        "plugin.statistics",
+        "plugin.status",
+        "plugin.update"
+      ],
+      "loadable_functions": [
+        "register_plugin_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.plugin_commands",
+      "references": {
+        "register_plugin_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:19:from aletheus.runtime.registrations.plugin_commands import register_plugin_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:168:register_plugin_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_plugin_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "prediction.forecast",
+        "prediction.opportunities",
+        "prediction.recommend",
+        "prediction.risks",
+        "prediction.scenario",
+        "prediction.statistics",
+        "prediction.timeline"
+      ],
+      "file": "aletheus/runtime/registrations/prediction_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "prediction.forecast",
+        "prediction.opportunities",
+        "prediction.recommend",
+        "prediction.risks",
+        "prediction.scenario",
+        "prediction.statistics",
+        "prediction.timeline"
+      ],
+      "loadable_functions": [
+        "register_prediction_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.prediction_commands",
+      "references": {
+        "register_prediction_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:20:from aletheus.runtime.registrations.prediction_commands import register_prediction_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:161:register_prediction_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_prediction_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "reason.bootstrap",
+        "reason.confidence",
+        "reason.decision",
+        "reason.evaluate",
+        "reason.explain",
+        "reason.rule.add",
+        "reason.statistics",
+        "reason.trace"
+      ],
+      "file": "aletheus/runtime/registrations/reasoning_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "reason.bootstrap",
+        "reason.confidence",
+        "reason.decision",
+        "reason.evaluate",
+        "reason.explain",
+        "reason.rule.add",
+        "reason.statistics",
+        "reason.trace"
+      ],
+      "loadable_functions": [
+        "register_reasoning_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.reasoning_commands",
+      "references": {
+        "register_reasoning_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:21:from aletheus.runtime.registrations.reasoning_commands import register_reasoning_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:160:register_reasoning_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_reasoning_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "registry.components",
+        "registry.domains",
+        "registry.health",
+        "registry.services",
+        "registry.snapshot"
+      ],
+      "file": "aletheus/runtime/registrations/registry_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "registry.components",
+        "registry.domains",
+        "registry.health",
+        "registry.services",
+        "registry.snapshot"
+      ],
+      "loadable_functions": [
+        "register_registry_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.registry_commands",
+      "references": {
+        "register_registry_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:6:from aletheus.runtime.registrations.registry_commands import register_registry_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:178:register_registry_commands(runtime)",
+          "aletheus/runtime/commands/command_bus.py:338:\"registry_commands\": self.registry.count(),"
+        ]
+      },
+      "registration_functions": [
+        "register_registry_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "runtime.audit",
+        "runtime.boot.validate",
+        "runtime.dashboard",
+        "runtime.docs",
+        "runtime.doctor",
+        "runtime.health_report",
+        "runtime.invariants",
+        "runtime.selftest",
+        "runtime.snapshot"
+      ],
+      "file": "aletheus/runtime/registrations/runtime_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "runtime.audit",
+        "runtime.boot.validate",
+        "runtime.dashboard",
+        "runtime.docs",
+        "runtime.doctor",
+        "runtime.health_report",
+        "runtime.invariants",
+        "runtime.selftest",
+        "runtime.snapshot"
+      ],
+      "loadable_functions": [
+        "register_runtime_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.runtime_commands",
+      "references": {
+        "register_runtime_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:22:from aletheus.runtime.registrations.runtime_commands import register_runtime_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:158:register_runtime_commands(runtime)",
+          "aletheus/runtime/commands/command_bus.py:22:from .runtime_commands import RuntimeCommands",
+          "aletheus/runtime/commands/command_bus.py:40:self.runtime_commands = RuntimeCommands(runtime)",
+          "aletheus/runtime/commands/command_bus.py:47:self._register_builtin_runtime_commands()",
+          "aletheus/runtime/commands/command_bus.py:53:def _register_builtin_runtime_commands(self) -> None:",
+          "aletheus/runtime/commands/command_bus.py:55:\"runtime.health\": self.runtime_commands.health,",
+          "aletheus/runtime/commands/command_bus.py:56:\"runtime.diagnostics\": self.runtime_commands.diagnostics,",
+          "aletheus/runtime/commands/command_bus.py:57:\"runtime.metrics\": self.runtime_commands.metrics,",
+          "aletheus/runtime/commands/command_bus.py:58:\"runtime.events\": self.runtime_commands.events,",
+          "aletheus/runtime/commands/command_bus.py:59:\"runtime.queue\": self.runtime_commands.queue,",
+          "aletheus/runtime/commands/command_bus.py:61:self.runtime_commands.run_next_job"
+        ]
+      },
+      "registration_functions": [
+        "register_runtime_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "security.audit",
+        "security.authenticate",
+        "security.authorize",
+        "security.bootstrap",
+        "security.policy",
+        "security.role_assign",
+        "security.role_create",
+        "security.statistics"
+      ],
+      "file": "aletheus/runtime/registrations/security_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "security.audit",
+        "security.authenticate",
+        "security.authorize",
+        "security.bootstrap",
+        "security.policy",
+        "security.role_assign",
+        "security.role_create",
+        "security.statistics"
+      ],
+      "loadable_functions": [
+        "register_security_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.security_commands",
+      "references": {
+        "register_security_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:23:from aletheus.runtime.registrations.security_commands import register_security_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:174:register_security_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_security_commands"
+      ]
+    },
+    {
+      "all_declared_live": false,
+      "declared_commands": [
+        "semantic.assert",
+        "semantic.bootstrap.cardhawk",
+        "semantic.concept.create",
+        "semantic.concept.search",
+        "semantic.explain",
+        "semantic.query",
+        "semantic.stats"
+      ],
+      "file": "aletheus/runtime/registrations/semantic_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [],
+      "loadable_functions": [
+        "register_semantic_commands"
+      ],
+      "missing_commands": [
+        "semantic.assert",
+        "semantic.bootstrap.cardhawk",
+        "semantic.concept.create",
+        "semantic.concept.search",
+        "semantic.explain",
+        "semantic.query",
+        "semantic.stats"
+      ],
+      "module": "aletheus.runtime.registrations.semantic_commands",
+      "references": {
+        "register_semantic_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:37:from aletheus.runtime.registrations.semantic_commands import register_semantic_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:49:register_semantic_commands,"
+        ]
+      },
+      "registration_functions": [
+        "register_semantic_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "state.bootstrap",
+        "state.export",
+        "state.import",
+        "state.load",
+        "state.restore",
+        "state.save",
+        "state.snapshot",
+        "state.statistics"
+      ],
+      "file": "aletheus/runtime/registrations/state_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "state.bootstrap",
+        "state.export",
+        "state.import",
+        "state.load",
+        "state.restore",
+        "state.save",
+        "state.snapshot",
+        "state.statistics"
+      ],
+      "loadable_functions": [
+        "register_state_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.state_commands",
+      "references": {
+        "register_state_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:24:from aletheus.runtime.registrations.state_commands import register_state_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:169:register_state_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_state_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "telemetry.bootstrap",
+        "telemetry.health",
+        "telemetry.log",
+        "telemetry.metric",
+        "telemetry.record",
+        "telemetry.statistics",
+        "telemetry.timeline",
+        "telemetry.trace"
+      ],
+      "file": "aletheus/runtime/registrations/telemetry_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "telemetry.bootstrap",
+        "telemetry.health",
+        "telemetry.log",
+        "telemetry.metric",
+        "telemetry.record",
+        "telemetry.statistics",
+        "telemetry.timeline",
+        "telemetry.trace"
+      ],
+      "loadable_functions": [
+        "register_telemetry_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.telemetry_commands",
+      "references": {
+        "register_telemetry_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:25:from aletheus.runtime.registrations.telemetry_commands import register_telemetry_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:172:register_telemetry_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_telemetry_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "organization.create",
+        "organization.update",
+        "tenant.bootstrap",
+        "tenant.create",
+        "tenant.delete",
+        "tenant.health",
+        "tenant.list",
+        "tenant.select",
+        "tenant.statistics",
+        "workspace.create",
+        "workspace.delete",
+        "workspace.list"
+      ],
+      "file": "aletheus/runtime/registrations/tenancy_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "organization.create",
+        "organization.update",
+        "tenant.bootstrap",
+        "tenant.create",
+        "tenant.delete",
+        "tenant.health",
+        "tenant.list",
+        "tenant.select",
+        "tenant.statistics",
+        "workspace.create",
+        "workspace.delete",
+        "workspace.list"
+      ],
+      "loadable_functions": [
+        "register_tenancy_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.tenancy_commands",
+      "references": {
+        "register_tenancy_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:26:from aletheus.runtime.registrations.tenancy_commands import register_tenancy_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:175:register_tenancy_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_tenancy_commands"
+      ]
+    },
+    {
+      "all_declared_live": false,
+      "declared_commands": [
+        "uil.brief",
+        "uil.context",
+        "uil.decide",
+        "uil.reason",
+        "uil.snapshot",
+        "uil.stats",
+        "uil.synthesize",
+        "uil.timeline"
+      ],
+      "file": "aletheus/runtime/registrations/uil_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [],
+      "loadable_functions": [
+        "register_uil_commands"
+      ],
+      "missing_commands": [
+        "uil.brief",
+        "uil.context",
+        "uil.decide",
+        "uil.reason",
+        "uil.snapshot",
+        "uil.stats",
+        "uil.synthesize",
+        "uil.timeline"
+      ],
+      "module": "aletheus.runtime.registrations.uil_commands",
+      "references": {
+        "register_uil_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:38:from aletheus.runtime.registrations.uil_commands import register_uil_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:54:register_uil_commands,"
+        ]
+      },
+      "registration_functions": [
+        "register_uil_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "workflow.bootstrap",
+        "workflow.cancel",
+        "workflow.create",
+        "workflow.pause",
+        "workflow.resume",
+        "workflow.start",
+        "workflow.statistics",
+        "workflow.status"
+      ],
+      "file": "aletheus/runtime/registrations/workflow_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": false,
+      "live_commands": [
+        "workflow.bootstrap",
+        "workflow.cancel",
+        "workflow.create",
+        "workflow.pause",
+        "workflow.resume",
+        "workflow.start",
+        "workflow.statistics",
+        "workflow.status"
+      ],
+      "loadable_functions": [
+        "register_workflow_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.workflow_commands",
+      "references": {
+        "register_workflow_commands": []
+      },
+      "registration_functions": [
+        "register_workflow_commands"
+      ]
+    },
+    {
+      "all_declared_live": true,
+      "declared_commands": [
+        "workflow.bootstrap",
+        "workflow.cancel",
+        "workflow.create",
+        "workflow.pause",
+        "workflow.resume",
+        "workflow.start",
+        "workflow.statistics",
+        "workflow.status"
+      ],
+      "file": "aletheus/runtime/registrations/workflow_v2_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [
+        "workflow.bootstrap",
+        "workflow.cancel",
+        "workflow.create",
+        "workflow.pause",
+        "workflow.resume",
+        "workflow.start",
+        "workflow.statistics",
+        "workflow.status"
+      ],
+      "loadable_functions": [
+        "register_workflow_v2_commands"
+      ],
+      "missing_commands": [],
+      "module": "aletheus.runtime.registrations.workflow_v2_commands",
+      "references": {
+        "register_workflow_v2_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:27:from aletheus.runtime.registrations.workflow_v2_commands import register_workflow_v2_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:165:register_workflow_v2_commands(runtime)"
+        ]
+      },
+      "registration_functions": [
+        "register_workflow_v2_commands"
+      ]
+    },
+    {
+      "all_declared_live": false,
+      "declared_commands": [
+        "founder.journal.create",
+        "founder.journal.list",
+        "notification.create",
+        "notification.list",
+        "objective.create",
+        "objective.list",
+        "workspace.overview",
+        "workspace.stats"
+      ],
+      "file": "aletheus/runtime/registrations/workspace_commands.py",
+      "import_error": null,
+      "likely_referenced_by_bootstrap": true,
+      "live_commands": [],
+      "loadable_functions": [
+        "register_workspace_commands"
+      ],
+      "missing_commands": [
+        "founder.journal.create",
+        "founder.journal.list",
+        "notification.create",
+        "notification.list",
+        "objective.create",
+        "objective.list",
+        "workspace.overview",
+        "workspace.stats"
+      ],
+      "module": "aletheus.runtime.registrations.workspace_commands",
+      "references": {
+        "register_workspace_commands": [
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:39:from aletheus.runtime.registrations.workspace_commands import register_workspace_commands",
+          "aletheus/runtime/command_bootstrap/bootstrapper.py:47:register_workspace_commands,"
+        ]
+      },
+      "registration_functions": [
+        "register_workspace_commands"
+      ]
+    }
+  ],
+  "summary": {
+    "fully_live_modules": 31,
+    "modules_with_import_errors": 0,
+    "partially_or_fully_missing_modules": 6,
+    "registration_modules": 37,
+    "unreferenced_missing_modules": 0
+  }
+}

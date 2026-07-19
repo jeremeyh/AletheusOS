@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-07-03T06:11:45.988296+00:00",
+  "platform": "AletheusOS",
+  "kernel": {
+    "version": "2.0.0-alpha",
+    "status": "online",
+    "events": 0,
+    "registry_items": 0,
+    "registry_by_type": {}
+  },
+  "runtime": {
+    "version": "4.6.2",
+    "status": "online",
+    "commands": 305,
+    "services": 32
+  },
+  "discovery": {
+    "discovered": 93,
+    "loaded": 90
+  },
+  "homeostasis": {
+    "vital_signs": 0,
+    "overall_score": 100.0,
+    "overall_status": "optimal"
+  },
+  "service_manager": {
+    "name": "Service Manager",
+    "genesis": "13.5",
+    "version": "0.2.0",
+    "services": 0,
+    "registered": []
+  },
+  "overall": "PASS"
+}

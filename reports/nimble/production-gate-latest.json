@@ -1,0 +1,86 @@
+{
+  "bundle": {
+    "chunks": [
+      {
+        "bytes": 3144,
+        "kind": "secondary",
+        "name": "CommandHistoryRoute-DyL4T3mF.js",
+        "path": "nimble/apps/platform-shell/dist/assets/CommandHistoryRoute-DyL4T3mF.js"
+      },
+      {
+        "bytes": 49389,
+        "kind": "secondary",
+        "name": "CommandSurface-DoMPExIX.js",
+        "path": "nimble/apps/platform-shell/dist/assets/CommandSurface-DoMPExIX.js"
+      },
+      {
+        "bytes": 1228,
+        "kind": "secondary",
+        "name": "OidcCallbackRoute-Be4BGyS7.js",
+        "path": "nimble/apps/platform-shell/dist/assets/OidcCallbackRoute-Be4BGyS7.js"
+      },
+      {
+        "bytes": 3455,
+        "kind": "secondary",
+        "name": "commandQueries-Bjv7rfLL.js",
+        "path": "nimble/apps/platform-shell/dist/assets/commandQueries-Bjv7rfLL.js"
+      },
+      {
+        "bytes": 447168,
+        "kind": "primary",
+        "name": "index-CW82vOQv.js",
+        "path": "nimble/apps/platform-shell/dist/assets/index-CW82vOQv.js"
+      },
+      {
+        "bytes": 67533,
+        "kind": "secondary",
+        "name": "oidc-client-ts-C_veRLI2.js",
+        "path": "nimble/apps/platform-shell/dist/assets/oidc-client-ts-C_veRLI2.js"
+      },
+      {
+        "bytes": 12967,
+        "kind": "secondary",
+        "name": "oidcSession-BQVirP6V.js",
+        "path": "nimble/apps/platform-shell/dist/assets/oidcSession-BQVirP6V.js"
+      }
+    ],
+    "primary": {
+      "bytes": 447168,
+      "kind": "primary",
+      "name": "index-CW82vOQv.js",
+      "path": "nimble/apps/platform-shell/dist/assets/index-CW82vOQv.js"
+    },
+    "primary_limit_bytes": 500000,
+    "primary_within_budget": true,
+    "secondary_chunk_count": 6
+  },
+  "environment": {
+    "ci": null,
+    "github_actions": null,
+    "github_run_id": null
+  },
+  "gate": {
+    "duration_seconds": 7.3578,
+    "exit_code": 0,
+    "output": "\n> @aletheus/nimble-workspace@0.1.0 typecheck\n> npm run typecheck --workspaces --if-present\n\n\n> @aletheus/nimble-shell@0.1.0 typecheck\n> tsc -b --pretty false\n\n\n> @aletheus/nimble-core@0.1.0 typecheck\n> tsc -p tsconfig.json --noEmit --pretty false\n\n\n> @aletheus/nimble-motion@0.1.0 typecheck\n> tsc -p tsconfig.json --noEmit --pretty false\n\n\n> @aletheus/nimble-react@0.1.0 typecheck\n> tsc -p tsconfig.json --noEmit --pretty false\n\n\n> @aletheus/nimble-testing@0.1.0 typecheck\n> tsc -p tsconfig.json --noEmit --pretty false\n\n\n> @aletheus/nimble-transparency@0.1.0 typecheck\n> tsc -p tsconfig.json --noEmit --pretty false\n\n\n> @aletheus/nimble-workspace-engine@0.1.0 typecheck\n> tsc -p tsconfig.json --noEmit --pretty false\n\n\n> @aletheus/nimble-workspace@0.1.0 test\n> npm run test --workspaces --if-present --run\n\nnpm warn Unknown cli config \"--run\". This will stop working in the next major version of npm.\n\n> @aletheus/nimble-shell@0.1.0 test\n> vitest run --config vitest.config.ts\n\n\n\u001b[1m\u001b[30m\u001b[46m RUN \u001b[49m\u001b[39m\u001b[22m \u001b[36mv4.1.10 \u001b[39m\u001b[90m/Users/master_lord_6ixth/Development/AletheusOS/nimble/apps/platform-shell\u001b[39m\n\n \u001b[32m\u2713\u001b[39m src/nimble/api/__tests__/lazyImport.test.ts \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 6\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m src/nimble/api/__tests__/commandTypes.test.ts \u001b[2m(\u001b[22m\u001b[2m1 test\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 2\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m src/nimble/api/__tests__/commandHistory.test.ts \u001b[2m(\u001b[22m\u001b[2m2 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 2\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m src/nimble/api/__tests__/commandEligibility.test.ts \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 5\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m src/nimble/api/__tests__/oidcSession.test.ts \u001b[2m(\u001b[22m\u001b[2m2 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 23\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m src/nimble/api/__tests__/apiTransport.test.ts \u001b[2m(\u001b[22m\u001b[2m3 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 5\u001b[2mms\u001b[22m\u001b[39m\n \u001b[32m\u2713\u001b[39m src/nimble/api/__tests__/prefetch.test.ts \u001b[2m(\u001b[22m\u001b[2m4 tests\u001b[22m\u001b[2m)\u001b[22m\u001b[32m 255\u001b[2mms\u001b[22m\u001b[39m\n\n\u001b[2m Test Files \u001b[22m \u001b[1m\u001b[32m7 passed\u001b[39m\u001b[22m\u001b[90m (7)\u001b[39m\n\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m18 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m\n\u001b[2m   Start at \u001b[22m 18:00:20\n\u001b[2m   Duration \u001b[22m 1.25s\u001b[2m (transform 198ms, setup 0ms, import 232ms, tests 296ms, environment 5.82s)\u001b[22m\n\n\n> @aletheus/nimble-workspace@0.1.0 build\n> npm run build --workspace @aletheus/nimble-shell\n\n\n> @aletheus/nimble-shell@0.1.0 build\n> tsc -b && vite build\n\n\u001b[36mvite v8.1.4 \u001b[32mbuilding client environment for production...\u001b[36m\u001b[39m\n\u001b[2K\ntransforming...\u2713 621 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                                0.54 kB \u2502 gzip:   0.32 kB\ndist/assets/index-BYV9smdh.css                38.02 kB \u2502 gzip:   6.92 kB\ndist/assets/OidcCallbackRoute-Be4BGyS7.js      1.22 kB \u2502 gzip:   0.59 kB\ndist/assets/CommandHistoryRoute-DyL4T3mF.js    3.14 kB \u2502 gzip:   1.13 kB\ndist/assets/commandQueries-Bjv7rfLL.js         3.45 kB \u2502 gzip:   1.28 kB\ndist/assets/oidcSession-BQVirP6V.js           12.96 kB \u2502 gzip:   4.76 kB\ndist/assets/CommandSurface-DoMPExIX.js        49.38 kB \u2502 gzip:  16.10 kB\ndist/assets/oidc-client-ts-C_veRLI2.js        67.53 kB \u2502 gzip:  17.04 kB\ndist/assets/index-CW82vOQv.js                447.16 kB \u2502 gzip: 141.84 kB\n\n\u001b[32m\u2713 built in 126ms\u001b[39m\n========================================================================\nNIMBLE\u2122 FOUNDATION VALIDATION\n========================================================================\nManifest: valid\nEngine contracts: valid\nApplication inheritance: valid\nToken schema: valid\nRequired engines: 10\nStatus: PASS\n========================================================================\nNIMBLE\u2122 TOKEN VALIDATION\n========================================================================\nPrimitive groups: 7\nSemantic themes: 2\nMotion groups: 6\nGenerated outputs: 3\nStatus: PASS\n========================================================================\nNIMBLE\u2122 COMPONENT FOUNDATION VALIDATION\n========================================================================\nComponent categories: 9\nComponent contracts: 6\nInteraction contracts: 7\nWorkspace capabilities: 7\nAccessibility standard: present\nPrinciple X enforcement: active\nStatus: PASS\n========================================================================\nNIMBLE\u2122 REFERENCE SHELL VALIDATION\n========================================================================\nRendered shell: present\nImplemented engines: 8\nImplemented surfaces: 9\nAdvanced motion: present\nCommand interaction: present\nState persistence: present\nReduced motion: present\nPrinciple X disclosure: active\nStatus: PASS\nPASS: Nimble bundle boundary is valid.\nPrimary: nimble/apps/platform-shell/dist/assets/index-CW82vOQv.js (447168 bytes)\nOIDC lazy chunk: nimble/apps/platform-shell/dist/assets/oidc-client-ts-C_veRLI2.js (67533 bytes)\nOIDC lazy chunk: nimble/apps/platform-shell/dist/assets/oidcSession-BQVirP6V.js (12967 bytes)\nPASS: Nimble route splitting is valid.\nPrimary: nimble/apps/platform-shell/dist/assets/index-CW82vOQv.js (447168 bytes)\nSecondary chunks: 6\n- nimble/apps/platform-shell/dist/assets/CommandHistoryRoute-DyL4T3mF.js (3144 bytes)\n- nimble/apps/platform-shell/dist/assets/CommandSurface-DoMPExIX.js (49389 bytes)\n- nimble/apps/platform-shell/dist/assets/OidcCallbackRoute-Be4BGyS7.js (1228 bytes)\n- nimble/apps/platform-shell/dist/assets/commandQueries-Bjv7rfLL.js (3455 bytes)\n- nimble/apps/platform-shell/dist/assets/oidc-client-ts-C_veRLI2.js (67533 bytes)\n- nimble/apps/platform-shell/dist/assets/oidcSession-BQVirP6V.js (12967 bytes)\n========================================================================\nNIMBLE\u2122 CI VALIDATION\n========================================================================\nWorkflow: present\nPython runtime: configured\nNode 24 runtime: configured\nDeterministic npm install: configured\nGateway tests: configured\nProduction gate: configured\nBuild artifacts: retained\nConcurrency control: active\nStatus: PASS\n\n========================================================================\nFRONTEND TYPECHECK\n========================================================================\nCommand: /Users/master_lord_6ixth/.nvm/versions/node/v24.18.0/bin/npm run typecheck\nDirectory: nimble\nPASS: Frontend typecheck (2.64s)\n\n========================================================================\nFRONTEND TESTS\n========================================================================\nCommand: /Users/master_lord_6ixth/.nvm/versions/node/v24.18.0/bin/npm run test -- --run\nDirectory: nimble\nPASS: Frontend tests (1.81s)\n\n========================================================================\nFRONTEND PRODUCTION BUILD\n========================================================================\nCommand: /Users/master_lord_6ixth/.nvm/versions/node/v24.18.0/bin/npm run build\nDirectory: nimble\nPASS: Frontend production build (1.62s)\n\n========================================================================\nNIMBLE FOUNDATION\n========================================================================\nCommand: /Users/master_lord_6ixth/Development/AletheusOS/.venv/bin/python validate_nimble_foundation.py\nDirectory: .\nPASS: Nimble foundation (0.06s)\n\n========================================================================\nNIMBLE TOKENS\n========================================================================\nCommand: /Users/master_lord_6ixth/Development/AletheusOS/.venv/bin/python validate_nimble_tokens.py\nDirectory: .\nPASS: Nimble tokens (0.05s)\n\n========================================================================\nNIMBLE COMPONENTS\n========================================================================\nCommand: /Users/master_lord_6ixth/Development/AletheusOS/.venv/bin/python validate_nimble_components.py\nDirectory: .\nPASS: Nimble components (0.05s)\n\n========================================================================\nNIMBLE REFERENCE SHELL\n========================================================================\nCommand: /Users/master_lord_6ixth/Development/AletheusOS/.venv/bin/python validate_nimble_reference_shell.py\nDirectory: .\nPASS: Nimble reference shell (0.04s)\n\n========================================================================\nNIMBLE BUNDLE BOUNDARY\n========================================================================\nCommand: /Users/master_lord_6ixth/Development/AletheusOS/.venv/bin/python validate_nimble_bundle_boundary.py\nDirectory: .\nPASS: Nimble bundle boundary (0.04s)\n\n========================================================================\nNIMBLE ROUTE SPLITTING\n========================================================================\nCommand: /Users/master_lord_6ixth/Development/AletheusOS/.venv/bin/python validate_nimble_route_splitting.py\nDirectory: .\nPASS: Nimble route splitting (0.04s)\n\n========================================================================\nNIMBLE CI CONTRACT\n========================================================================\nCommand: /Users/master_lord_6ixth/Development/AletheusOS/.venv/bin/python validate_nimble_ci.py\nDirectory: .\nPASS: Nimble CI contract (0.04s)\n\n========================================================================\nNIMBLE BUNDLE BUDGET\n========================================================================\nPrimary: nimble/apps/platform-shell/dist/assets/index-CW82vOQv.js\nSize: 447,168 bytes\nLimit: 500,000 bytes\nSecondary chunks: 6\nStatus: PASS\n\n========================================================================\nNIMBLE\u2122 PRODUCTION GATE\n========================================================================\nChecks completed: 11\nFrontend type safety: PASS\nFrontend tests: PASS\nProduction build: PASS\nArchitecture contracts: PASS\nReference implementation: PASS\nOIDC bundle isolation: PASS\nRoute splitting: PASS\nPrimary bundle budget: PASS\nElapsed: 6.38s\nStatus: PASS\n",
+    "status": "PASS"
+  },
+  "generated_at": "2026-07-10T23:00:16.004274+00:00",
+  "git": {
+    "branch": "feature/cardhawk-streamlit-v0.1",
+    "commit": "eb53711f55031b7d09b3f2f0e34f83f406a6117f",
+    "dirty": true,
+    "short_commit": "eb53711",
+    "tags_at_head": [
+      "nimble-production-observability-v0.1"
+    ]
+  },
+  "runtime": {
+    "node": "v24.18.0",
+    "npm": "11.16.0",
+    "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+    "python": "3.14.6",
+    "python_executable": "/Users/master_lord_6ixth/Development/AletheusOS/.venv/bin/python"
+  },
+  "schema_version": "1.0"
+}

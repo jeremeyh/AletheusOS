@@ -1,0 +1,24 @@
+ADDED
+aletheus/version.py
+docs/ARCHITECTURE_IDENTITY.md
+tests/architecture/test_runtime_singleton.py
+tests/architecture/test_version_consistency.py
+tests/architecture/test_top_level_allowlist.py
+tests/architecture/test_no_generated_artifacts.py
+reports/repository/PHASE2_RUNTIME_SPINE_REPAIR.md
+reports/repository/PHASE2_RUNTIME_SMOKE.txt
+reports/repository/PHASE2_REPOSITORY_DOCTOR.txt
+
+MODIFIED
+aletheus/__init__.py
+aletheus/runtime/core.py
+pyproject.toml
+README.md
+
+REMOVED FROM ACTIVE SOURCE
+.git
+all virtual environments
+all node_modules directories
+all Python/test caches
+.aletheus_restore_points (preserved externally)
+26 source backup/patch snapshots (preserved externally)

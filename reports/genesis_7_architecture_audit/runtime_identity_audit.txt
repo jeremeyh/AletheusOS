@@ -1,0 +1,116 @@
+Genesis 7 Runtime Identity and Ownership Audit
+==============================================================================
+Generated: 2026-07-10T07:43:39.580786+00:00
+Runtime: AletheusRuntime
+
+[AGENTS]
+------------------------------------------------------------------------------
+agents                       type=AletheusAutonomousAgentRuntime     module=aletheus.agents_v2.agent_core id=4418814032
+agents_v2                    type=AletheusAutonomousAgentRuntime     module=aletheus.agents_v2.agent_core id=4418814032
+
+Relationships:
+  agents                   <-> agents_v2                SAME_OBJECT_ALIAS
+
+[EVENT_SYSTEM]
+------------------------------------------------------------------------------
+event_bus                    type=AletheusEventBus                   module=aletheus.event_bus_v3.event_bus_core id=4418821760
+event_bus_v3                 type=AletheusEventBus                   module=aletheus.event_bus_v3.event_bus_core id=4418821760
+events                       type=EventBus                           module=aletheus.runtime.events id=4420936528
+
+Relationships:
+  event_bus                <-> event_bus_v3             SAME_OBJECT_ALIAS
+  event_bus                <-> events                   DISTINCT_IMPLEMENTATIONS
+  event_bus_v3             <-> events                   DISTINCT_IMPLEMENTATIONS
+
+[HIGH_AVAILABILITY]
+------------------------------------------------------------------------------
+high_availability            type=AletheusHighAvailabilityEngine     module=aletheus.high_availability_v3.high_availability_core id=4418822768
+high_availability_v3         type=AletheusHighAvailabilityEngine     module=aletheus.high_availability_v3.high_availability_core id=4418822768
+
+Relationships:
+  high_availability        <-> high_availability_v3     SAME_OBJECT_ALIAS
+
+[KERNEL]
+------------------------------------------------------------------------------
+kernel                       type=KernelExecutor                     module=aletheus.runtime.kernel.executor id=4421769872
+kernel_v2                    type=AletheusAutonomousKernel           module=aletheus.kernel_v2.kernel_core id=4417496672
+
+Relationships:
+  kernel                   <-> kernel_v2                DISTINCT_IMPLEMENTATIONS
+
+[MISSION]
+------------------------------------------------------------------------------
+mission                      type=AletheusMissionCore                module=aletheus.mission.mission_core id=4417487936
+mission_v2                   type=AletheusAutonomousMissionEngine    module=aletheus.missions_v2.mission_core id=4417497680
+
+Relationships:
+  mission                  <-> mission_v2               DISTINCT_IMPLEMENTATIONS
+
+[PLANNING]
+------------------------------------------------------------------------------
+planning                     type=AletheusPlanningEngine             module=aletheus.planning_v2.planning_core id=4418817728
+planning_v2                  type=AletheusPlanningEngine             module=aletheus.planning_v2.planning_core id=4418817728
+
+Relationships:
+  planning                 <-> planning_v2              SAME_OBJECT_ALIAS
+
+[PLUGINS]
+------------------------------------------------------------------------------
+plugins                      type=RuntimePluginManager               module=aletheus.plugins.runtime_plugin_manager id=4421769552
+plugins_v3                   type=AletheusPluginManager              module=aletheus.plugins_v3.plugin_core id=4418820752
+
+Relationships:
+  plugins                  <-> plugins_v3               DISTINCT_IMPLEMENTATIONS
+
+[SECURITY]
+------------------------------------------------------------------------------
+security                     type=AletheusSecurityEngine             module=aletheus.security_v3.security_core id=4418824112
+security_v3                  type=AletheusSecurityEngine             module=aletheus.security_v3.security_core id=4418824112
+
+Relationships:
+  security                 <-> security_v3              SAME_OBJECT_ALIAS
+
+[SERVICES]
+------------------------------------------------------------------------------
+services                     type=ServiceRegistry                    module=aletheus.runtime.services.service_registry id=4420937168
+service_registry             type=ServiceRegistry                    module=aletheus.platform.service_registry id=4421532512
+
+Relationships:
+  services                 <-> service_registry         DISTINCT_IMPLEMENTATIONS
+
+[TENANCY]
+------------------------------------------------------------------------------
+tenancy                      type=AletheusTenancyEngine              module=aletheus.tenancy_v3.tenancy_core id=4418825120
+tenancy_v3                   type=AletheusTenancyEngine              module=aletheus.tenancy_v3.tenancy_core id=4418825120
+
+Relationships:
+  tenancy                  <-> tenancy_v3               SAME_OBJECT_ALIAS
+
+[WORKFLOW]
+------------------------------------------------------------------------------
+workflow                     type=AletheusWorkflowEngine             module=aletheus.workflow_v3.workflow_core id=4418816384
+workflow_v2                  type=AletheusWorkflowFabric             module=aletheus.workflows_v2.workflow_core id=4417498688
+workflow_v3                  type=AletheusWorkflowEngine             module=aletheus.workflow_v3.workflow_core id=4418816384
+workflows                    type=WorkflowExecutor                   module=aletheus.runtime.workflow id=4421768592
+
+Relationships:
+  workflow                 <-> workflow_v2              DISTINCT_IMPLEMENTATIONS
+  workflow                 <-> workflow_v3              SAME_OBJECT_ALIAS
+  workflow                 <-> workflows                DISTINCT_IMPLEMENTATIONS
+  workflow_v2              <-> workflow_v3              DISTINCT_IMPLEMENTATIONS
+  workflow_v2              <-> workflows                DISTINCT_IMPLEMENTATIONS
+  workflow_v3              <-> workflows                DISTINCT_IMPLEMENTATIONS
+
+==============================================================================
+Summary
+------------------------------------------------------------------------------
+Same-object alias relationships: 7
+Distinct instances of same type: 0
+Distinct implementations: 11
+Missing attachments: 0
+
+Interpretation
+------------------------------------------------------------------------------
+SAME_OBJECT_ALIAS: Low immediate risk. Preserve temporarily and select one canonical public name.
+DISTINCT_INSTANCES_SAME_TYPE: Review required. Separate state may drift even though implementation types match.
+DISTINCT_IMPLEMENTATIONS: Explicit ownership boundaries or retirement plans are required.

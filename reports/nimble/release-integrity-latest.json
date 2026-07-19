@@ -1,0 +1,58 @@
+{
+  "checks": [
+    {
+      "actual": "1746ce4d5e36a15e43b70329e2637f7b45a60e939b28f439470be9c1189261d7",
+      "check": "manifest-checksum",
+      "expected": "1746ce4d5e36a15e43b70329e2637f7b45a60e939b28f439470be9c1189261d7",
+      "status": "PASS"
+    },
+    {
+      "actual": "7ab2ddb367583f9b0766cd41a2aa6f43b2e7b335c4ae9e0d8419eb81f6345b9e",
+      "check": "subject-checksum:nimble/governance/deployment/build-metadata.json",
+      "expected": "7ab2ddb367583f9b0766cd41a2aa6f43b2e7b335c4ae9e0d8419eb81f6345b9e",
+      "status": "PASS"
+    },
+    {
+      "actual": "11ea752d5e91b8c1ec03910d305c5bf3cb85959de532ee783f360644d6c3f039",
+      "check": "subject-checksum:nimble/governance/deployment/deployment-contract.json",
+      "expected": "11ea752d5e91b8c1ec03910d305c5bf3cb85959de532ee783f360644d6c3f039",
+      "status": "PASS"
+    },
+    {
+      "actual": "78f94f6e214d0ee14ce035163fc6152318df20a39c551908c6b9ba1b85c5f6d8",
+      "check": "subject-checksum:nimble/governance/deployment/image-provenance-contract.json",
+      "expected": "78f94f6e214d0ee14ce035163fc6152318df20a39c551908c6b9ba1b85c5f6d8",
+      "status": "PASS"
+    },
+    {
+      "actual": "0ef92893a969d3f6829b04705f208ee592d84e82bf07e3b0d3263109e4394fd1",
+      "check": "subject-checksum:reports/nimble/container-smoke-latest.json",
+      "expected": "0ef92893a969d3f6829b04705f208ee592d84e82bf07e3b0d3263109e4394fd1",
+      "status": "PASS"
+    },
+    {
+      "actual": "ca202344a0b1c6250c8e4fafb41aea6fa66859d60d2186413b2df6a2587bb145",
+      "check": "subject-checksum:reports/nimble/image-digest-latest.json",
+      "expected": "ca202344a0b1c6250c8e4fafb41aea6fa66859d60d2186413b2df6a2587bb145",
+      "status": "PASS"
+    },
+    {
+      "actual": "ca202344a0b1c6250c8e4fafb41aea6fa66859d60d2186413b2df6a2587bb145",
+      "check": "subject-checksum:reports/nimble/image-identity-latest.json",
+      "expected": "ca202344a0b1c6250c8e4fafb41aea6fa66859d60d2186413b2df6a2587bb145",
+      "status": "PASS"
+    },
+    {
+      "check": "git-revision",
+      "current": "dd3bff3d41687b220340d0891cda4d637ca11d63",
+      "manifest": "dd3bff3d41687b220340d0891cda4d637ca11d63",
+      "status": "PASS"
+    }
+  ],
+  "failures": [],
+  "generated_at": "2026-07-11T05:44:12.036789+00:00",
+  "manifest_sha256": "1746ce4d5e36a15e43b70329e2637f7b45a60e939b28f439470be9c1189261d7",
+  "schema_version": "1.0",
+  "status": "PASS",
+  "subject_count": 6
+}

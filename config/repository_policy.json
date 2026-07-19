@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "repository_name": "AletheusOS",
+
+  "allowed_root_documents": [
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "ARCHITECTURE.md",
+    "ROADMAP.md",
+    "CHANGELOG.md",
+    "FEATURES.md",
+    "MAPPING.md",
+    "MIGRATION.md",
+    "RUNTIME_DOCUMENTATION.md"
+  ],
+
+  "allowed_root_configuration": [
+    ".gitignore",
+    ".dockerignore",
+    ".env.example",
+    ".env.experience-gateway.example",
+    "pyproject.toml",
+    "requirements.txt",
+    "requirements_aletheus.txt",
+    "Dockerfile",
+    "Dockerfile.nimble",
+    "compose.yml",
+    "compose.yaml",
+    "compose.nimble.yml",
+    "release_manifest.json",
+    "VERSION"
+  ],
+
+  "allowed_root_entrypoints": [
+    "app.py",
+    "run.py",
+    "manage.py",
+    "run_aletheus_founder_console.py",
+    "run_aletheus_system_test.sh",
+    "run_repository_self_repair.sh"
+  ],
+
+  "ignored_directories": [
+    ".git",
+    ".venv",
+    "venv",
+    "node_modules",
+    "__pycache__",
+    ".pytest_cache",
+    ".mypy_cache",
+    ".ruff_cache",
+    ".repository_steward",
+    ".aletheus_restore_points",
+    "logs",
+    "uploads"
+  ],
+
+  "ignored_files": [
+    ".DS_Store",
+    ".coverage"
+  ],
+
+  "deterministic_moves": {
+    "AletheusOS_Repository_Self_Repair_SHA256.txt": "docs/repository/AletheusOS_Repository_Self_Repair_SHA256.txt",
+    "remove_safe_empty_directories.py": "tools/cleanup/remove_safe_empty_directories.py",
+    "card_hawk_genesis_23_1_to_24_bulk_loader.sh": "tools/migration/card_hawk_genesis_23_1_to_24_bulk_loader.sh",
+    "inventory_summary.sh": "tools/reporting/inventory_summary.sh",
+    "import_streamlit.py": "tools/bootstrap/import_streamlit.py"
+  },
+
+  "protected_root_files": [
+    "__init__.py",
+    "card_hawk_console.py",
+    "history.py"
+  ],
+
+  "root_file_classifications": {
+    "__init__.py": "root-package-marker-review",
+    "card_hawk_console.py": "application-console-entrypoint",
+    "history.py": "repository-history-utility",
+    "card_hawk_genesis_23_1_to_24_bulk_loader.sh": "migration-utility",
+    "inventory_summary.sh": "reporting-utility",
+    "import_streamlit.py": "bootstrap-helper"
+  },
+
+  "severity_weights": {
+    "critical": 20.0,
+    "error": 5.0,
+    "warning": 1.0,
+    "policy": 0.5,
+    "info": 0.0
+  },
+
+  "health_dimensions": {
+    "organization": 0.30,
+    "policy": 0.25,
+    "naming": 0.15,
+    "drift": 0.15,
+    "hygiene": 0.15
+  }
+}

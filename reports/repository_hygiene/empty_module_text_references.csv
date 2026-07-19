@@ -1,0 +1,4 @@
+module,path,reference_count,references,classification
+capability_engine.health,capability_engine/health.py,2,aletheus/capability_engine/health.py | aletheus/execution_engine/core.py,REVIEW_ACTIVE_TEXT_REFERENCE
+dependency_resolver,dependency_resolver.py,1,aletheus/self_assembly/dependency_resolver.py,REVIEW_ACTIVE_TEXT_REFERENCE
+portfolio.allocation,portfolio/allocation.py,1,aletheus/applications/application_core.py,REVIEW_ACTIVE_TEXT_REFERENCE

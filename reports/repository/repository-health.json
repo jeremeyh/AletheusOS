@@ -1,0 +1,247 @@
+{
+  "generated_at": "2026-07-19T09:32:51.215966+00:00",
+  "health_score": 99.0,
+  "dimensions": {
+    "organization": 100.0,
+    "policy": 96.0,
+    "naming": 100.0,
+    "drift": 100.0,
+    "hygiene": 100.0
+  },
+  "counts": {
+    "critical": 0,
+    "error": 0,
+    "warning": 0,
+    "policy": 8,
+    "info": 22
+  },
+  "files": 9528,
+  "directories": 2516,
+  "drift": {
+    "baseline": false,
+    "files_added": 1,
+    "files_removed": 0,
+    "directories_added": 2,
+    "directories_removed": 0,
+    "root_entries_added": [
+      "archives"
+    ],
+    "root_entries_removed": [
+      "import"
+    ],
+    "manifest_changed": true
+  },
+  "snapshot": "reports/repository/snapshots/repository-20260719T093251Z.json",
+  "findings": [
+    {
+      "severity": "policy",
+      "category": "classification",
+      "path": "__init__.py",
+      "message": "Protected artifact requires an explicit architecture decision: root-package-marker-review.",
+      "recommendation": "Keep in place until imports and entry-point ownership are verified."
+    },
+    {
+      "severity": "policy",
+      "category": "classification",
+      "path": "card_hawk_console.py",
+      "message": "Protected artifact requires an explicit architecture decision: application-console-entrypoint.",
+      "recommendation": "Keep in place until imports and entry-point ownership are verified."
+    },
+    {
+      "severity": "policy",
+      "category": "classification",
+      "path": "history.py",
+      "message": "Protected artifact requires an explicit architecture decision: repository-history-utility.",
+      "recommendation": "Keep in place until imports and entry-point ownership are verified."
+    },
+    {
+      "severity": "policy",
+      "category": "boundary",
+      "path": "event_bus ↔ eventbus",
+      "message": "Parallel namespaces may represent duplicate ownership or historical lineage.",
+      "recommendation": "Create an ADR identifying the canonical namespace and compatibility boundary."
+    },
+    {
+      "severity": "policy",
+      "category": "boundary",
+      "path": "backup ↔ backups",
+      "message": "Parallel namespaces may represent duplicate ownership or historical lineage.",
+      "recommendation": "Create an ADR identifying the canonical namespace and compatibility boundary."
+    },
+    {
+      "severity": "policy",
+      "category": "boundary",
+      "path": "card_hawk ↔ cardhawk",
+      "message": "Parallel namespaces may represent duplicate ownership or historical lineage.",
+      "recommendation": "Create an ADR identifying the canonical namespace and compatibility boundary."
+    },
+    {
+      "severity": "policy",
+      "category": "boundary",
+      "path": "workflow ↔ workflows",
+      "message": "Parallel namespaces may represent duplicate ownership or historical lineage.",
+      "recommendation": "Create an ADR identifying the canonical namespace and compatibility boundary."
+    },
+    {
+      "severity": "policy",
+      "category": "boundary",
+      "path": "engine ↔ engines",
+      "message": "Parallel namespaces may represent duplicate ownership or historical lineage.",
+      "recommendation": "Create an ADR identifying the canonical namespace and compatibility boundary."
+    },
+    {
+      "severity": "info",
+      "category": "boundary",
+      "path": "architecture",
+      "message": "High-authority root namespace exists outside the canonical aletheus package.",
+      "recommendation": "Verify whether it is canonical, compatibility, application-specific, or legacy."
+    },
+    {
+      "severity": "info",
+      "category": "boundary",
+      "path": "core",
+      "message": "High-authority root namespace exists outside the canonical aletheus package.",
+      "recommendation": "Verify whether it is canonical, compatibility, application-specific, or legacy."
+    },
+    {
+      "severity": "info",
+      "category": "boundary",
+      "path": "engine",
+      "message": "High-authority root namespace exists outside the canonical aletheus package.",
+      "recommendation": "Verify whether it is canonical, compatibility, application-specific, or legacy."
+    },
+    {
+      "severity": "info",
+      "category": "boundary",
+      "path": "engines",
+      "message": "High-authority root namespace exists outside the canonical aletheus package.",
+      "recommendation": "Verify whether it is canonical, compatibility, application-specific, or legacy."
+    },
+    {
+      "severity": "info",
+      "category": "boundary",
+      "path": "kernel",
+      "message": "High-authority root namespace exists outside the canonical aletheus package.",
+      "recommendation": "Verify whether it is canonical, compatibility, application-specific, or legacy."
+    },
+    {
+      "severity": "info",
+      "category": "boundary",
+      "path": "repository",
+      "message": "High-authority root namespace exists outside the canonical aletheus package.",
+      "recommendation": "Verify whether it is canonical, compatibility, application-specific, or legacy."
+    },
+    {
+      "severity": "info",
+      "category": "boundary",
+      "path": "runtime",
+      "message": "High-authority root namespace exists outside the canonical aletheus package.",
+      "recommendation": "Verify whether it is canonical, compatibility, application-specific, or legacy."
+    },
+    {
+      "severity": "info",
+      "category": "hygiene",
+      "path": "tools/release",
+      "message": "Empty directory detected.",
+      "recommendation": "Remove it if it is not an intentional namespace placeholder."
+    },
+    {
+      "severity": "info",
+      "category": "hygiene",
+      "path": "workspace",
+      "message": "Empty directory detected.",
+      "recommendation": "Remove it if it is not an intentional namespace placeholder."
+    },
+    {
+      "severity": "info",
+      "category": "hygiene",
+      "path": "runtime/cache",
+      "message": "Empty directory detected.",
+      "recommendation": "Remove it if it is not an intentional namespace placeholder."
+    },
+    {
+      "severity": "info",
+      "category": "hygiene",
+      "path": "tests/platform_intelligence/constitutional_runtime_observatory",
+      "message": "Empty directory detected.",
+      "recommendation": "Remove it if it is not an intentional namespace placeholder."
+    },
+    {
+      "severity": "info",
+      "category": "hygiene",
+      "path": ".runtime/certificates",
+      "message": "Empty directory detected.",
+      "recommendation": "Remove it if it is not an intentional namespace placeholder."
+    },
+    {
+      "severity": "info",
+      "category": "hygiene",
+      "path": "docs/decisions",
+      "message": "Empty directory detected.",
+      "recommendation": "Remove it if it is not an intentional namespace placeholder."
+    },
+    {
+      "severity": "info",
+      "category": "hygiene",
+      "path": "docs/implementation",
+      "message": "Empty directory detected.",
+      "recommendation": "Remove it if it is not an intentional namespace placeholder."
+    },
+    {
+      "severity": "info",
+      "category": "hygiene",
+      "path": "docs/governance",
+      "message": "Empty directory detected.",
+      "recommendation": "Remove it if it is not an intentional namespace placeholder."
+    },
+    {
+      "severity": "info",
+      "category": "hygiene",
+      "path": "exports/csv",
+      "message": "Empty directory detected.",
+      "recommendation": "Remove it if it is not an intentional namespace placeholder."
+    },
+    {
+      "severity": "info",
+      "category": "hygiene",
+      "path": "exports/reports",
+      "message": "Empty directory detected.",
+      "recommendation": "Remove it if it is not an intentional namespace placeholder."
+    },
+    {
+      "severity": "info",
+      "category": "hygiene",
+      "path": "Genesis10_Work_Organization/01_repository_intelligence/docs",
+      "message": "Empty directory detected.",
+      "recommendation": "Remove it if it is not an intentional namespace placeholder."
+    },
+    {
+      "severity": "info",
+      "category": "hygiene",
+      "path": "nimble/visualization",
+      "message": "Empty directory detected.",
+      "recommendation": "Remove it if it is not an intentional namespace placeholder."
+    },
+    {
+      "severity": "info",
+      "category": "hygiene",
+      "path": "nimble/reference-shell/tests",
+      "message": "Empty directory detected.",
+      "recommendation": "Remove it if it is not an intentional namespace placeholder."
+    },
+    {
+      "severity": "info",
+      "category": "hygiene",
+      "path": "watch_tower/reports",
+      "message": "Empty directory detected.",
+      "recommendation": "Remove it if it is not an intentional namespace placeholder."
+    },
+    {
+      "severity": "info",
+      "category": "drift",
+      "path": "repository-root",
+      "message": "New root entries detected: archives",
+      "recommendation": "Review whether each new root entry is constitutionally permitted."
+    }
+  ]
+}

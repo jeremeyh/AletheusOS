@@ -1,0 +1,5735 @@
+{
+  "candidate_components": {
+    "agents": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "dict",
+          "name": "agents",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "assign",
+          "signature": "(agent_id: 'str', mission: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "heartbeat",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "list_agents",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "message",
+          "signature": "(sender: 'str', recipient: 'str', message: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "pause",
+          "signature": "(agent_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "register_default_agents",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "resume",
+          "signature": "(agent_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "spawn",
+          "signature": "(name: 'str', role: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "stop",
+          "signature": "(agent_id: 'str')"
+        }
+      ],
+      "type": "aletheus.agents_v2.agent_core.AletheusAutonomousAgentRuntime"
+    },
+    "agents_v2": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "dict",
+          "name": "agents",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "assign",
+          "signature": "(agent_id: 'str', mission: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "heartbeat",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "list_agents",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "message",
+          "signature": "(sender: 'str', recipient: 'str', message: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "pause",
+          "signature": "(agent_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "register_default_agents",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "resume",
+          "signature": "(agent_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "spawn",
+          "signature": "(name: 'str', role: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "stop",
+          "signature": "(agent_id: 'str')"
+        }
+      ],
+      "type": "aletheus.agents_v2.agent_core.AletheusAutonomousAgentRuntime"
+    },
+    "anchor_dependencies": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "can_detach",
+          "signature": "(anchor)"
+        },
+        {
+          "kind": "dict",
+          "name": "dependencies",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "dependencies_for",
+          "signature": "(anchor)"
+        },
+        {
+          "kind": "method",
+          "name": "register_dependency",
+          "signature": "(anchor, requires)"
+        },
+        {
+          "kind": "AnchorRegistry",
+          "name": "registry",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "snapshot",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "startup_order",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "validate",
+          "signature": "()"
+        }
+      ],
+      "type": "aletheus.runtime.anchors.dependency.AnchorDependencyGraph"
+    },
+    "anchor_governance_analyzer": {
+      "members": [
+        {
+          "kind": "list",
+          "name": "decisions",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "evaluate",
+          "signature": "(anchor, proposal)"
+        },
+        {
+          "kind": "method",
+          "name": "history",
+          "signature": "()"
+        },
+        {
+          "kind": "AletheusUniversalIntelligence",
+          "name": "intelligence",
+          "signature": null
+        },
+        {
+          "kind": "module",
+          "name": "predictive",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "snapshot",
+          "signature": "()"
+        }
+      ],
+      "type": "aletheus.runtime.anchors.governance.AnchorGovernanceCouncil"
+    },
+    "anchor_lifecycle": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "attach",
+          "signature": "(name)"
+        },
+        {
+          "kind": "method",
+          "name": "detach",
+          "signature": "(name)"
+        },
+        {
+          "kind": "method",
+          "name": "health",
+          "signature": "(name=None)"
+        },
+        {
+          "kind": "list",
+          "name": "history",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "history_snapshot",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "record",
+          "signature": "(action, anchor)"
+        },
+        {
+          "kind": "AnchorRegistry",
+          "name": "registry",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "restart",
+          "signature": "(name)"
+        }
+      ],
+      "type": "aletheus.runtime.anchors.lifecycle.AnchorLifecycleController"
+    },
+    "anchor_registry": {
+      "members": [
+        {
+          "kind": "dict",
+          "name": "anchors",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "attach_all",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "get",
+          "signature": "(name)"
+        },
+        {
+          "kind": "method",
+          "name": "list",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "register",
+          "signature": "(name, anchor)"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "validate_contracts",
+          "signature": "()"
+        }
+      ],
+      "type": "aletheus.runtime.anchors.registry.AnchorRegistry"
+    },
+    "application_anchor": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "attach",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "capabilities",
+          "signature": "()"
+        },
+        {
+          "kind": "bool",
+          "name": "connected",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "contract",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "detach",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "health",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "name",
+          "signature": null
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "validate_contract",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.anchors.application.ApplicationAnchorCircuit"
+    },
+    "application_runtime": {
+      "members": [
+        {
+          "kind": "dict",
+          "name": "applications",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "health",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "install",
+          "signature": "(name)"
+        },
+        {
+          "kind": "method",
+          "name": "manifest",
+          "signature": "(name)"
+        },
+        {
+          "kind": "method",
+          "name": "register",
+          "signature": "(name, version='1.0.0', description='', services=None)"
+        },
+        {
+          "kind": "method",
+          "name": "restart",
+          "signature": "(name)"
+        },
+        {
+          "kind": "method",
+          "name": "start",
+          "signature": "(name)"
+        },
+        {
+          "kind": "method",
+          "name": "stop",
+          "signature": "(name)"
+        }
+      ],
+      "type": "aletheus.platform.application_runtime.ApplicationRuntime"
+    },
+    "applications": {
+      "members": [
+        {
+          "kind": "list",
+          "name": "applications",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "events",
+          "signature": "(app_id: 'str' = '', application_id: 'str' = '', name: 'str' = '') -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "get_application",
+          "signature": "(app_id: 'str' = '', application_id: 'str' = '', name: 'str' = '') -> 'NativeApplication | None'"
+        },
+        {
+          "kind": "method",
+          "name": "health",
+          "signature": "(app_id: 'str' = '', application_id: 'str' = '', name: 'str' = '') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "install_application",
+          "signature": "(app_id: 'str', name: 'str', version: 'str' = '1.0.0', author: 'str' = '6th Dimension Multimedia', description: 'str' = '', autostart: 'bool' = False, permissions: 'List[str] | None' = None, dependencies: 'List[str] | None' = None, commands: 'List[str] | None' = None, services: 'List[str] | None' = None) -> 'NativeApplication'"
+        },
+        {
+          "kind": "method",
+          "name": "install_default_applications",
+          "signature": "() -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "list_applications",
+          "signature": "() -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "manifest",
+          "signature": "(app_id: 'str' = '', application_id: 'str' = '', name: 'str' = '') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "register_application",
+          "signature": "(name: 'str', version: 'str', description: 'str' = '', services: 'List[Dict[str, Any]] | None' = None, dependencies: 'List[str] | None' = None, commands: 'List[str] | None' = None) -> 'NativeApplication'"
+        },
+        {
+          "kind": "method",
+          "name": "register_card_hawk_foundation",
+          "signature": "() -> 'NativeApplication'"
+        },
+        {
+          "kind": "method",
+          "name": "restart_application",
+          "signature": "(app_id: 'str' = '', application_id: 'str' = '', name: 'str' = '') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "start_application",
+          "signature": "(app_id: 'str' = '', application_id: 'str' = '', name: 'str' = '') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "stop_application",
+          "signature": "(app_id: 'str' = '', application_id: 'str' = '', name: 'str' = '') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "uninstall_application",
+          "signature": "(app_id: 'str' = '', name: 'str' = '') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.applications.application_core.AletheusApplicationManager"
+    },
+    "architecture_governance": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "commands_have_handlers",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "domains_registered",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "evaluate",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "registry_healthy",
+          "signature": "()"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "validator_healthy",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.governance.architecture_rules.ArchitectureGovernanceRules"
+    },
+    "architecture_validator": {
+      "members": [
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "validate",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.architecture.validator.ArchitectureValidator"
+    },
+    "boot_certification": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "certify",
+          "signature": "(runtime)"
+        }
+      ],
+      "type": "aletheus.runtime.certification.boot_certification.BootCertification"
+    },
+    "boot_context": {
+      "members": [
+        {
+          "kind": "list",
+          "name": "executed",
+          "signature": null
+        },
+        {
+          "kind": "BootReport",
+          "name": "report",
+          "signature": null
+        },
+        {
+          "kind": "list",
+          "name": "skipped",
+          "signature": null
+        },
+        {
+          "kind": "dict",
+          "name": "timings",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.boot_pipeline.context.RuntimeBootContext"
+    },
+    "boot_report": {
+      "members": [
+        {
+          "kind": "bool",
+          "name": "completed",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "finish",
+          "signature": "()"
+        },
+        {
+          "kind": "list",
+          "name": "phases",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "record",
+          "signature": "(phase_name: str)"
+        },
+        {
+          "kind": "str",
+          "name": "started_at",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.boot_pipeline.report.BootReport"
+    },
+    "boot_validator": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "validate",
+          "signature": "() -> 'Dict[str, Any]'"
+        }
+      ],
+      "type": "aletheus.runtime.integrity.boot_validator.RuntimeBootValidator"
+    },
+    "certification_manager": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "certify",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "freeze_review",
+          "signature": "()"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.managers.certification_manager.CertificationManager"
+    },
+    "cognition": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "complete_goal",
+          "signature": "(goal_id: 'str') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "create_goal",
+          "signature": "(title: 'str', description: 'str' = '', priority: 'str' = 'medium', owner: 'str' = 'Founder', application: 'str' = 'system') -> 'Goal'"
+        },
+        {
+          "kind": "method",
+          "name": "decision_history",
+          "signature": "() -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "list",
+          "name": "decisions",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "generate_plan",
+          "signature": "(goal_id: 'str', goal_title: 'str' = '') -> 'Plan'"
+        },
+        {
+          "kind": "list",
+          "name": "goals",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "list_goals",
+          "signature": "(status: 'str | None' = None) -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "list_plans",
+          "signature": "() -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "list_reasoning_sessions",
+          "signature": "() -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "list",
+          "name": "plans",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "reason",
+          "signature": "(prompt: 'str', evidence: 'List[str] | None' = None, assumptions: 'List[str] | None' = None) -> 'ReasoningSession'"
+        },
+        {
+          "kind": "list",
+          "name": "reasoning_sessions",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "record_decision",
+          "signature": "(title: 'str', decision: 'str', rationale: 'str', confidence: 'float' = 0.75, evidence: 'List[str] | None' = None) -> 'Decision'"
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.cognition.cognition_core.AletheusCognitionCore"
+    },
+    "command_auditor": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "audit",
+          "signature": "()"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.audit.command_surface.CommandSurfaceAuditor"
+    },
+    "command_bootstrapper": {
+      "members": [
+        {
+          "kind": "tuple",
+          "name": "LEGACY_REGISTRATION_FUNCTIONS",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "(runtime)"
+        },
+        {
+          "kind": "dict",
+          "name": "compatibility_report",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.command_bootstrap.bootstrapper.RuntimeCommandBootstrapper"
+    },
+    "command_manager": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "RuntimeCommandBootstrapper",
+          "name": "bootstrapper",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "count",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "list",
+          "signature": "()"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        }
+      ],
+      "type": "aletheus.runtime.managers.command_manager.CommandManager"
+    },
+    "commands": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "categories",
+          "signature": "() -> 'list[str]'"
+        },
+        {
+          "kind": "method",
+          "name": "count",
+          "signature": "() -> 'int'"
+        },
+        {
+          "kind": "method",
+          "name": "dispatch",
+          "signature": "(command: 'str', payload: 'dict[str, Any] | None' = None, application: 'str' = 'system') -> 'RuntimeContext'"
+        },
+        {
+          "kind": "method",
+          "name": "execute",
+          "signature": "(command: 'str', payload: 'dict[str, Any] | None' = None, application: 'str' = 'system') -> 'RuntimeContext'"
+        },
+        {
+          "kind": "method",
+          "name": "has",
+          "signature": "(command: 'str') -> 'bool'"
+        },
+        {
+          "kind": "method",
+          "name": "health",
+          "signature": "() -> 'dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "list",
+          "signature": "() -> 'list[str]'"
+        },
+        {
+          "kind": "method",
+          "name": "register",
+          "signature": "(name: 'str', handler: 'Callable[..., Any]', category: 'str' = 'general', description: 'str' = '', metadata: 'dict[str, Any] | None' = None, *, replace: 'bool' = False)"
+        },
+        {
+          "kind": "method",
+          "name": "register_context_handler",
+          "signature": "(name: 'str', handler: 'Callable[[RuntimeContext], RuntimeContext]', *, replace: 'bool' = False) -> 'Callable[[RuntimeContext], RuntimeContext]'"
+        },
+        {
+          "kind": "RuntimeCommandRegistry",
+          "name": "registry",
+          "signature": null
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "RuntimeCommands",
+          "name": "runtime_commands",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "unregister",
+          "signature": "(name: 'str') -> 'bool'"
+        }
+      ],
+      "type": "aletheus.runtime.commands.command_bus.CommandBus"
+    },
+    "compat": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "list",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "register",
+          "signature": "(alias: 'str', implementation: 'Any', capabilities=None)"
+        },
+        {
+          "kind": "method",
+          "name": "resolve",
+          "signature": "(alias)"
+        },
+        {
+          "kind": "dict",
+          "name": "services",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        }
+      ],
+      "type": "aletheus.runtime.compat.registry.CompatibilityRegistry"
+    },
+    "compatibility_adapter": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "contract",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "list",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "resolve",
+          "signature": "(context)"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "(context)"
+        }
+      ],
+      "type": "aletheus.runtime.adapters.compatibility_adapter.CompatibilityCommandAdapter"
+    },
+    "copilot": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "ask",
+          "signature": "(prompt: 'str', runtime: 'Any') -> 'CopilotExchange'"
+        },
+        {
+          "kind": "method",
+          "name": "brief",
+          "signature": "(runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "classify_intent",
+          "signature": "(prompt: 'str') -> 'str'"
+        },
+        {
+          "kind": "list",
+          "name": "exchanges",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "history",
+          "signature": "() -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "recommend",
+          "signature": "(runtime: 'Any') -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "list",
+          "name": "recommendations",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "timeline",
+          "signature": "(runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.copilot.copilot_core.AletheusFounderCopilot"
+    },
+    "decision": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "add_policy",
+          "signature": "(name: 'str', description: 'str', policy_type: 'str' = 'general', weight: 'float' = 1.0) -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "dict",
+          "name": "decisions",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "evaluate",
+          "signature": "(title: 'str', objective: 'str', options: 'List[Dict[str, Any]]', policy: 'str', runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "execute",
+          "signature": "(decision_id: 'str') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "explain",
+          "signature": "(decision_id: 'str') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "history",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "dict",
+          "name": "policies",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "rollback",
+          "signature": "(decision_id: 'str') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.decision_v2.decision_core.AletheusAutonomousDecisionEngine"
+    },
+    "diagnostics": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "report",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.diagnostics.RuntimeDiagnostics"
+    },
+    "distributed": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "assign_task",
+          "signature": "(*args, **kwargs)"
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap_primary_cluster",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "broadcast",
+          "signature": "(*args, **kwargs)"
+        },
+        {
+          "kind": "NoneType",
+          "name": "cluster",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "cluster_status",
+          "signature": "(cluster_id='')"
+        },
+        {
+          "kind": "method",
+          "name": "create_cluster",
+          "signature": "(name='Aletheus Cluster')"
+        },
+        {
+          "kind": "method",
+          "name": "elect_leader",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "heartbeat",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "history",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "join",
+          "signature": "(node_name: 'str', capabilities=None, services=None)"
+        },
+        {
+          "kind": "method",
+          "name": "leave",
+          "signature": "(node_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "list_clusters",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "nodes",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "register_node",
+          "signature": "(**kwargs)"
+        },
+        {
+          "kind": "method",
+          "name": "remove_node",
+          "signature": "(node_id)"
+        },
+        {
+          "kind": "method",
+          "name": "services",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.distributed_v3.distributed_core.AletheusDistributedRuntimeFabric"
+    },
+    "engines": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "count",
+          "signature": "() -> 'int'"
+        },
+        {
+          "kind": "dict",
+          "name": "engines",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "list",
+          "signature": "() -> 'List[str]'"
+        },
+        {
+          "kind": "method",
+          "name": "register",
+          "signature": "(name: 'str', handler: 'Callable[[RuntimeContext], RuntimeContext]') -> 'None'"
+        },
+        {
+          "kind": "method",
+          "name": "run",
+          "signature": "(name: 'str', context: 'RuntimeContext') -> 'RuntimeContext'"
+        }
+      ],
+      "type": "aletheus.runtime.registries.EngineRegistry"
+    },
+    "enterprise": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "audit",
+          "signature": "(actor: 'str', action: 'str', target: 'str', outcome: 'str' = 'recorded', metadata: 'Dict[str, Any] | None' = None) -> 'AuditRecord'"
+        },
+        {
+          "kind": "method",
+          "name": "audit_history",
+          "signature": "() -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "list",
+          "name": "audit_records",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap_cardhawk_enterprise",
+          "signature": "() -> 'EnterpriseOrganization'"
+        },
+        {
+          "kind": "method",
+          "name": "create_department",
+          "signature": "(organization_id: 'str', name: 'str', description: 'str' = '') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "create_organization",
+          "signature": "(name: 'str', description: 'str' = '', applications: 'List[str] | None' = None) -> 'EnterpriseOrganization'"
+        },
+        {
+          "kind": "method",
+          "name": "create_policy",
+          "signature": "(organization_id: 'str', name: 'str', description: 'str' = '', scope: 'str' = 'enterprise', rules: 'List[str] | None' = None) -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "create_team",
+          "signature": "(organization_id: 'str', department_id: 'str', name: 'str', description: 'str' = '', members: 'List[str] | None' = None) -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "get_organization",
+          "signature": "(organization_id: 'str' = '', name: 'str' = '') -> 'EnterpriseOrganization | None'"
+        },
+        {
+          "kind": "method",
+          "name": "governed_action",
+          "signature": "(actor: 'str', action: 'str', target: 'str', organization_id: 'str' = '', metadata: 'Dict[str, Any] | None' = None) -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "list_organizations",
+          "signature": "() -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "list",
+          "name": "organizations",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.enterprise.enterprise_core.AletheusEnterpriseCore"
+    },
+    "event_adapter": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "history",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "publish",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "replay",
+          "signature": "(context)"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "subscribe",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "unsubscribe",
+          "signature": "(context)"
+        }
+      ],
+      "type": "aletheus.runtime.adapters.event_adapter.EventCommandAdapter"
+    },
+    "event_bus": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "list",
+          "name": "dead_letter_queue",
+          "signature": null
+        },
+        {
+          "kind": "list",
+          "name": "events",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "history",
+          "signature": "(topic=None)"
+        },
+        {
+          "kind": "method",
+          "name": "publish",
+          "signature": "(topic, payload, publisher='runtime', priority='normal', source=None, **kwargs)"
+        },
+        {
+          "kind": "method",
+          "name": "replay",
+          "signature": "(topic)"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "subscribe",
+          "signature": "(topic, subscriber)"
+        },
+        {
+          "kind": "dict",
+          "name": "subscribers",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "unsubscribe",
+          "signature": "(topic, subscriber)"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.event_bus_v3.event_bus_core.AletheusEventBus"
+    },
+    "event_bus_v3": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "list",
+          "name": "dead_letter_queue",
+          "signature": null
+        },
+        {
+          "kind": "list",
+          "name": "events",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "history",
+          "signature": "(topic=None)"
+        },
+        {
+          "kind": "method",
+          "name": "publish",
+          "signature": "(topic, payload, publisher='runtime', priority='normal', source=None, **kwargs)"
+        },
+        {
+          "kind": "method",
+          "name": "replay",
+          "signature": "(topic)"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "subscribe",
+          "signature": "(topic, subscriber)"
+        },
+        {
+          "kind": "dict",
+          "name": "subscribers",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "unsubscribe",
+          "signature": "(topic, subscriber)"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.event_bus_v3.event_bus_core.AletheusEventBus"
+    },
+    "events": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "count",
+          "signature": "() -> 'int'"
+        },
+        {
+          "kind": "list",
+          "name": "events",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "publish",
+          "signature": "(event_type: 'str', payload: 'Dict[str, Any]', source: 'str' = 'system') -> 'RuntimeEvent'"
+        },
+        {
+          "kind": "method",
+          "name": "recent",
+          "signature": "(limit: 'int' = 100) -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "subscribe",
+          "signature": "(event_type: 'str', handler: 'Callable[[RuntimeEvent], None]') -> 'None'"
+        },
+        {
+          "kind": "dict",
+          "name": "subscribers",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.events.EventBus"
+    },
+    "executive": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "analyze_risks",
+          "signature": "(runtime: 'Any') -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "list",
+          "name": "briefs",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "daily_brief",
+          "signature": "(runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "generate_recommendations",
+          "signature": "(runtime: 'Any') -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "list",
+          "name": "recommendations",
+          "signature": null
+        },
+        {
+          "kind": "list",
+          "name": "risks",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "snapshot",
+          "signature": "(runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "summarize",
+          "signature": "(runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "system_report",
+          "signature": "(runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.executive.executive_core.AletheusExecutiveCore"
+    },
+    "federation_v3": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "broadcast",
+          "signature": "(message)"
+        },
+        {
+          "kind": "method",
+          "name": "discover",
+          "signature": "()"
+        },
+        {
+          "kind": "NoneType",
+          "name": "federation",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "join",
+          "signature": "(name, address, capabilities=None, services=None)"
+        },
+        {
+          "kind": "method",
+          "name": "leave",
+          "signature": "(node_id)"
+        },
+        {
+          "kind": "method",
+          "name": "query",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.federation_v3.federation_core.AletheusFederationEngine"
+    },
+    "genesis6_report": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "generate",
+          "signature": "(runtime)"
+        }
+      ],
+      "type": "aletheus.runtime.release.genesis6_report.Genesis6CertificationReport"
+    },
+    "genesis6_review": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "review",
+          "signature": "(runtime)"
+        }
+      ],
+      "type": "aletheus.runtime.release.genesis6_review.Genesis6FreezeReview"
+    },
+    "genesis6_validator": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "validate",
+          "signature": "(runtime)"
+        }
+      ],
+      "type": "aletheus.runtime.release.genesis6_validator.Genesis6Validator"
+    },
+    "governance": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "overall_status",
+          "signature": "()"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "validate_constitution",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "validate_principle_x",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "validate_repository",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "validate_runtime",
+          "signature": "()"
+        }
+      ],
+      "type": "aletheus.runtime.governance.governance_core.GovernanceEngine"
+    },
+    "governance_history": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "list",
+          "name": "events",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "history",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "record",
+          "signature": "(event_type: 'str', payload: 'dict')"
+        }
+      ],
+      "type": "aletheus.runtime.governance.history.GovernanceHistory"
+    },
+    "governance_manager": {
+      "members": [
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        }
+      ],
+      "type": "aletheus.runtime.managers.governance_manager.GovernanceManager"
+    },
+    "graph_adapter": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "entity_create",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "entity_search",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "graph_export",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "graph_query",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "graph_stats",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "relationship_create",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "relationship_search",
+          "signature": "(context)"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.adapters.graph_adapter.GraphCommandAdapter"
+    },
+    "hardening": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "audit",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "dashboard",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "documentation",
+          "signature": "() -> 'str'"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "selftest",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "snapshot",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "write_documentation",
+          "signature": "(path: 'str' = 'RUNTIME_DOCUMENTATION.md') -> 'Dict[str, Any]'"
+        }
+      ],
+      "type": "aletheus.runtime.hardening.RuntimeHardening"
+    },
+    "health_manager": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "health",
+          "signature": "()"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.managers.health_manager.HealthManager"
+    },
+    "high_availability": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "demote",
+          "signature": "(node_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "failover",
+          "signature": "()"
+        },
+        {
+          "kind": "list",
+          "name": "failover_events",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "join",
+          "signature": "(name: 'str', metadata=None)"
+        },
+        {
+          "kind": "NoneType",
+          "name": "leader_id",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "leave",
+          "signature": "(node_id: 'str')"
+        },
+        {
+          "kind": "dict",
+          "name": "nodes",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "promote",
+          "signature": "(node_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "recover",
+          "signature": "(node_id: 'str')"
+        },
+        {
+          "kind": "list",
+          "name": "recovery_events",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "replicate",
+          "signature": "(payload=None)"
+        },
+        {
+          "kind": "list",
+          "name": "replication_events",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.high_availability_v3.high_availability_core.AletheusHighAvailabilityEngine"
+    },
+    "high_availability_v3": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "demote",
+          "signature": "(node_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "failover",
+          "signature": "()"
+        },
+        {
+          "kind": "list",
+          "name": "failover_events",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "join",
+          "signature": "(name: 'str', metadata=None)"
+        },
+        {
+          "kind": "NoneType",
+          "name": "leader_id",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "leave",
+          "signature": "(node_id: 'str')"
+        },
+        {
+          "kind": "dict",
+          "name": "nodes",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "promote",
+          "signature": "(node_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "recover",
+          "signature": "(node_id: 'str')"
+        },
+        {
+          "kind": "list",
+          "name": "recovery_events",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "replicate",
+          "signature": "(payload=None)"
+        },
+        {
+          "kind": "list",
+          "name": "replication_events",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.high_availability_v3.high_availability_core.AletheusHighAvailabilityEngine"
+    },
+    "intelligence": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "brief",
+          "signature": "(runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "build_context",
+          "signature": "(question: 'str', runtime: 'Any') -> 'IntelligenceContext'"
+        },
+        {
+          "kind": "method",
+          "name": "confidence_score",
+          "signature": "(context: 'Dict[str, Any]') -> 'float'"
+        },
+        {
+          "kind": "list",
+          "name": "contexts",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "decide",
+          "signature": "(question: 'str', runtime: 'Any') -> 'IntelligenceDecision'"
+        },
+        {
+          "kind": "list",
+          "name": "decisions",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "reason",
+          "signature": "(question: 'str', runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "snapshot",
+          "signature": "(runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "synthesize",
+          "signature": "(question: 'str', runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "timeline",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.intelligence.intelligence_core.AletheusUniversalIntelligence"
+    },
+    "intelligence_dispatcher": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "dispatch",
+          "signature": "(runtime: 'Any', command: 'str', payload: 'Dict | None' = None)"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        }
+      ],
+      "type": "aletheus.runtime.kernel.dispatcher.IntelligenceDispatcher"
+    },
+    "intelligence_orchestrator": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "create_task",
+          "signature": "(command: 'str', payload: 'Dict[str, Any] | None' = None, priority: 'int' = 5, metadata: 'Dict[str, Any] | None' = None) -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "execute",
+          "signature": "(command: 'str', payload: 'Dict[str, Any] | None', runtime: 'Any', priority: 'int' = 5) -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "execute_task",
+          "signature": "(task_id: 'str', runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "list",
+          "name": "history",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "list_tasks",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "dict",
+          "name": "tasks",
+          "signature": null
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.kernel.orchestrator.IntelligenceOrchestrator"
+    },
+    "intelligence_scheduler": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "next",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "list",
+          "name": "queue",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "schedule",
+          "signature": "(task_id: 'str', priority: 'int' = 5) -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "() -> 'Dict[str, Any]'"
+        }
+      ],
+      "type": "aletheus.runtime.kernel.scheduler.IntelligenceScheduler"
+    },
+    "intelligence_supervisor": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "check",
+          "signature": "(runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "list",
+          "name": "health_events",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "() -> 'Dict[str, Any]'"
+        }
+      ],
+      "type": "aletheus.runtime.kernel.supervisor.IntelligenceSupervisor"
+    },
+    "invariant_manager": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "check",
+          "signature": "()"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.managers.invariant_manager.InvariantManager"
+    },
+    "kernel": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "execute",
+          "signature": "(command: 'str', payload: 'Dict[str, Any] | None' = None, priority: 'int' = 5)"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.kernel.executor.KernelExecutor"
+    },
+    "kernel_v2": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "boot",
+          "signature": "(runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "list",
+          "name": "events",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "publish",
+          "signature": "(event_type: 'str', source: 'str', payload: 'Dict[str, Any] | None' = None) -> 'KernelEvent'"
+        },
+        {
+          "kind": "method",
+          "name": "register",
+          "signature": "(name: 'str', item_type: 'str', status: 'str' = 'registered', metadata: 'Dict[str, Any] | None' = None) -> 'KernelRegistryItem'"
+        },
+        {
+          "kind": "list",
+          "name": "registry",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "route_event",
+          "signature": "(event_type: 'str', source: 'str', payload: 'Dict[str, Any] | None' = None) -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "snapshot",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "KernelState",
+          "name": "state",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "sync_runtime",
+          "signature": "(runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.kernel_v2.kernel_core.AletheusAutonomousKernel"
+    },
+    "knowledge": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "create_entity",
+          "signature": "(label: 'str', entity_type: 'str' = 'generic', properties: 'Dict[str, Any] | None' = None) -> 'Entity'"
+        },
+        {
+          "kind": "method",
+          "name": "create_relationship",
+          "signature": "(source_id: 'str', target_id: 'str', relationship_type: 'str', properties: 'Dict[str, Any] | None' = None) -> 'Relationship'"
+        },
+        {
+          "kind": "list",
+          "name": "entities",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "graph_export",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "graph_query",
+          "signature": "(entity_id: 'str') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "list",
+          "name": "relationships",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "search_entities",
+          "signature": "(label: 'str | None' = None, entity_type: 'str | None' = None) -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "search_relationships",
+          "signature": "(source_id: 'str | None' = None, target_id: 'str | None' = None, relationship_type: 'str | None' = None) -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.knowledge.knowledge_core.AletheusKnowledgeCore"
+    },
+    "knowledge_anchor": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "attach",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "capabilities",
+          "signature": "()"
+        },
+        {
+          "kind": "bool",
+          "name": "connected",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "contract",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "detach",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "health",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "name",
+          "signature": null
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "validate_contract",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.anchors.knowledge.KnowledgeAnchorCircuit"
+    },
+    "knowledge_graph": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "analyze",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "connect",
+          "signature": "(source, target)"
+        },
+        {
+          "kind": "list",
+          "name": "nodes",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "register_node",
+          "signature": "(node)"
+        },
+        {
+          "kind": "list",
+          "name": "relationships",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.knowledge_graph.knowledge_graph_core.KnowledgeGraphCore"
+    },
+    "learning": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "create_lesson",
+          "signature": "(title: 'str', lesson: 'str', source_experience_id: 'str' = '', confidence: 'float' = 0.75, tags: 'List[str] | None' = None) -> 'LearnedLesson'"
+        },
+        {
+          "kind": "method",
+          "name": "discover_patterns",
+          "signature": "() -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "list",
+          "name": "experiences",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "feedback",
+          "signature": "(experience_id: 'str', outcome: 'str', lesson: 'str' = '', confidence: 'float' = 0.8) -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "improve",
+          "signature": "(runtime: 'Any') -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "list",
+          "name": "improvements",
+          "signature": null
+        },
+        {
+          "kind": "list",
+          "name": "lessons",
+          "signature": null
+        },
+        {
+          "kind": "list",
+          "name": "pattern_history",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "record_experience",
+          "signature": "(event_type: 'str', description: 'str', source: 'str' = 'aletheus', outcome: 'str' = 'unknown', confidence: 'float' = 0.75, metadata: 'Dict[str, Any] | None' = None) -> 'LearningExperience'"
+        },
+        {
+          "kind": "method",
+          "name": "snapshot",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.learning.learning_core.AletheusAdaptiveLearning"
+    },
+    "memory": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "clear_working_memory",
+          "signature": "() -> 'int'"
+        },
+        {
+          "kind": "method",
+          "name": "recall",
+          "signature": "(key: 'Optional[str]' = None, namespace: 'Optional[str]' = None, memory_type: 'Optional[str]' = None, tag: 'Optional[str]' = None, limit: 'int' = 100) -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "list",
+          "name": "records",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "remember",
+          "signature": "(key: 'str', value: 'Any', namespace: 'str' = 'system', memory_type: 'str' = 'working', tags: 'Optional[List[str]]' = None) -> 'MemoryRecord'"
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.memory.core.AletheusMemoryCore"
+    },
+    "memory_anchor": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "attach",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "capabilities",
+          "signature": "()"
+        },
+        {
+          "kind": "bool",
+          "name": "connected",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "contract",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "detach",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "health",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "name",
+          "signature": null
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "validate_contract",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.anchors.memory.MemoryAnchorCircuit"
+    },
+    "memory_mesh": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "cache",
+          "signature": "(object_id: 'str' = '') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "history",
+          "signature": "(object_id: 'str' = '') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "dict",
+          "name": "objects",
+          "signature": null
+        },
+        {
+          "kind": "list",
+          "name": "replicas",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "replicate",
+          "signature": "(object_id: 'str' = '', target_node: 'str' = 'primary') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "restore",
+          "signature": "(snapshot_id: 'str') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "retrieve",
+          "signature": "(object_id: 'str' = '', key: 'str' = '', namespace: 'str' = 'global') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "search",
+          "signature": "(query: 'str' = '', tags: 'List[str] | None' = None, namespace: 'str' = '') -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "dict",
+          "name": "semantic_cache",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "snapshot",
+          "signature": "(name: 'str' = 'Memory Mesh Snapshot') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "dict",
+          "name": "snapshots",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "store",
+          "signature": "(key: 'str', value: 'Any', namespace: 'str' = 'global', object_type: 'str' = 'generic', tags: 'List[str] | None' = None, owner: 'str' = 'aletheus', metadata: 'Dict[str, Any] | None' = None) -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "sync",
+          "signature": "(node: 'str' = 'distributed_fabric') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "list",
+          "name": "sync_events",
+          "signature": null
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        },
+        {
+          "kind": "dict",
+          "name": "versions",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.memory_mesh.mesh_core.AletheusMemoryMesh"
+    },
+    "metrics": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "count",
+          "signature": "() -> 'int'"
+        },
+        {
+          "kind": "list",
+          "name": "metrics",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "recent",
+          "signature": "(limit: 'int' = 100) -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "record",
+          "signature": "(name: 'str', value: 'Any') -> 'None'"
+        }
+      ],
+      "type": "aletheus.runtime.metrics.RuntimeMetrics"
+    },
+    "mission": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "complete_mission",
+          "signature": "(mission_id: 'str') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "complete_task",
+          "signature": "(mission_id: 'str', task_id: 'str') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "create_mission",
+          "signature": "(title: 'str', objective: 'str', application: 'str' = 'system', priority: 'str' = 'medium', tasks: 'List[Dict[str, Any]] | None' = None) -> 'Mission'"
+        },
+        {
+          "kind": "method",
+          "name": "generate_mission_from_goal",
+          "signature": "(goal_title: 'str', goal_description: 'str' = '', application: 'str' = 'system', priority: 'str' = 'high') -> 'Mission'"
+        },
+        {
+          "kind": "method",
+          "name": "get_mission",
+          "signature": "(mission_id: 'str') -> 'Mission | None'"
+        },
+        {
+          "kind": "method",
+          "name": "history",
+          "signature": "() -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "list_missions",
+          "signature": "(status: 'str | None' = None) -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "list",
+          "name": "missions",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "run_mission",
+          "signature": "(mission_id: 'str') -> 'MissionRun'"
+        },
+        {
+          "kind": "list",
+          "name": "runs",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.mission.mission_core.AletheusMissionCore"
+    },
+    "mission_adapter": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "complete",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "create",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "from_goal",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "history",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "list",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "run",
+          "signature": "(context)"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "task_complete",
+          "signature": "(context)"
+        }
+      ],
+      "type": "aletheus.runtime.adapters.mission_adapter.MissionCommandAdapter"
+    },
+    "mission_v2": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "cancel_mission",
+          "signature": "(mission_id: 'str') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "create_mission",
+          "signature": "(title: 'str', objective: 'str', application: 'str' = 'AletheusOS', priority: 'str' = 'high', tasks: 'List[Dict[str, Any]] | None' = None) -> 'AutonomousMissionV2'"
+        },
+        {
+          "kind": "method",
+          "name": "default_tasks",
+          "signature": "(objective: 'str', application: 'str') -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "emit",
+          "signature": "(mission_id: 'str', event_type: 'str', message: 'str', payload: 'Dict[str, Any] | None' = None) -> 'MissionTelemetryV2'"
+        },
+        {
+          "kind": "method",
+          "name": "execute_mission",
+          "signature": "(mission_id: 'str', runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "execute_next",
+          "signature": "(mission_id: 'str', runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "get_mission",
+          "signature": "(mission_id: 'str') -> 'AutonomousMissionV2 | None'"
+        },
+        {
+          "kind": "method",
+          "name": "list_missions",
+          "signature": "(status: 'str | None' = None) -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "mission_telemetry",
+          "signature": "(mission_id: 'str' = '') -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "list",
+          "name": "missions",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "pause_mission",
+          "signature": "(mission_id: 'str') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "plan_mission",
+          "signature": "(mission_id: 'str', runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "resume_mission",
+          "signature": "(mission_id: 'str') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "list",
+          "name": "telemetry",
+          "signature": null
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.missions_v2.mission_core.AletheusAutonomousMissionEngine"
+    },
+    "persistence_v3": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "PosixPath",
+          "name": "base_path",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "export",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "import_state",
+          "signature": "(state: 'Dict[str, Any]')"
+        },
+        {
+          "kind": "NoneType",
+          "name": "last_load",
+          "signature": null
+        },
+        {
+          "kind": "NoneType",
+          "name": "last_save",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "load",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "restore",
+          "signature": "(snapshot_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "save",
+          "signature": "(runtime=None)"
+        },
+        {
+          "kind": "method",
+          "name": "snapshot",
+          "signature": "(name: 'str' = 'Runtime Snapshot', runtime=None)"
+        },
+        {
+          "kind": "dict",
+          "name": "snapshots",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.persistence_v3.persistence_core.AletheusPersistenceEngine"
+    },
+    "pipelines": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "execute",
+          "signature": "(pipeline_name: 'str', context: 'RuntimeContext') -> 'RuntimeContext'"
+        },
+        {
+          "kind": "method",
+          "name": "list",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "dict",
+          "name": "pipelines",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "register",
+          "signature": "(pipeline: 'Pipeline') -> 'None'"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.pipeline.PipelineExecutor"
+    },
+    "planning": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "complete",
+          "signature": "(plan_id)"
+        },
+        {
+          "kind": "method",
+          "name": "create",
+          "signature": "(goal: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "execute",
+          "signature": "(plan_id)"
+        },
+        {
+          "kind": "method",
+          "name": "list_plans",
+          "signature": "()"
+        },
+        {
+          "kind": "dict",
+          "name": "plans",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "progress",
+          "signature": "(plan_id)"
+        },
+        {
+          "kind": "method",
+          "name": "register_default_plans",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "replan",
+          "signature": "(plan_id)"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        },
+        {
+          "kind": "list",
+          "name": "strategies",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "version",
+          "signature": "()"
+        }
+      ],
+      "type": "aletheus.planning_v2.planning_core.AletheusPlanningEngine"
+    },
+    "planning_v2": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "complete",
+          "signature": "(plan_id)"
+        },
+        {
+          "kind": "method",
+          "name": "create",
+          "signature": "(goal: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "execute",
+          "signature": "(plan_id)"
+        },
+        {
+          "kind": "method",
+          "name": "list_plans",
+          "signature": "()"
+        },
+        {
+          "kind": "dict",
+          "name": "plans",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "progress",
+          "signature": "(plan_id)"
+        },
+        {
+          "kind": "method",
+          "name": "register_default_plans",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "replan",
+          "signature": "(plan_id)"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        },
+        {
+          "kind": "list",
+          "name": "strategies",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "version",
+          "signature": "()"
+        }
+      ],
+      "type": "aletheus.planning_v2.planning_core.AletheusPlanningEngine"
+    },
+    "plugins": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "list",
+          "signature": "() -> 'Dict[str, Dict[str, str]]'"
+        },
+        {
+          "kind": "dict",
+          "name": "plugins",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "register",
+          "signature": "(plugin: 'RuntimePlugin') -> 'None'"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.plugins.runtime_plugin_manager.RuntimePluginManager"
+    },
+    "plugins_v3": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "disable",
+          "signature": "(plugin_id)"
+        },
+        {
+          "kind": "method",
+          "name": "enable",
+          "signature": "(plugin_id)"
+        },
+        {
+          "kind": "method",
+          "name": "install",
+          "signature": "(**payload)"
+        },
+        {
+          "kind": "method",
+          "name": "list",
+          "signature": "()"
+        },
+        {
+          "kind": "dict",
+          "name": "plugins",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "remove",
+          "signature": "(plugin_id)"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "update",
+          "signature": "(plugin_id, version)"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.plugins_v3.plugin_core.AletheusPluginManager"
+    },
+    "principle_x": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "validate",
+          "signature": "()"
+        }
+      ],
+      "type": "aletheus.runtime.governance.principle_x.PrincipleXValidator"
+    },
+    "queue": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "enqueue",
+          "signature": "(command: 'str', payload: 'Dict[str, Any] | None' = None, application: 'str' = 'system') -> 'RuntimeJob'"
+        },
+        {
+          "kind": "list",
+          "name": "jobs",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "list",
+          "signature": "() -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "run_next",
+          "signature": "() -> 'RuntimeJob | None'"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.job_queue.JobQueue"
+    },
+    "readiness_snapshot": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "generate",
+          "signature": "(runtime)"
+        }
+      ],
+      "type": "aletheus.runtime.readiness.snapshot.RuntimeReadinessSnapshot"
+    },
+    "reasoning": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "add_rule",
+          "signature": "(name: 'str', description: 'str', rule_type: 'str' = 'general', weight: 'float' = 0.75) -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap_rules",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "confidence",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "decision",
+          "signature": "(question: 'str', runtime: 'Any', context: 'Dict[str, Any] | None' = None) -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "evaluate",
+          "signature": "(question: 'str', runtime: 'Any', context: 'Dict[str, Any] | None' = None) -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "explain",
+          "signature": "(trace_id: 'str' = '') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "dict",
+          "name": "rules",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "trace",
+          "signature": "(trace_id: 'str' = '') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "list",
+          "name": "traces",
+          "signature": null
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.reasoning.reasoning_core.AletheusCognitiveReasoningEngine"
+    },
+    "registry": {
+      "members": [
+        {
+          "kind": "dict",
+          "name": "components",
+          "signature": null
+        },
+        {
+          "kind": "dict",
+          "name": "domains",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "register_component",
+          "signature": "(name: 'str', metadata: 'Dict[str, Any]')"
+        },
+        {
+          "kind": "method",
+          "name": "register_domain",
+          "signature": "(name: 'str', instance: 'Any')"
+        },
+        {
+          "kind": "method",
+          "name": "register_service",
+          "signature": "(name: 'str', instance: 'Any')"
+        },
+        {
+          "kind": "dict",
+          "name": "services",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "snapshot",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.registry.runtime_registry.RuntimeRegistry"
+    },
+    "registry_compatibility": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "CURRENT_VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "migrate",
+          "signature": "(registry)"
+        },
+        {
+          "kind": "method",
+          "name": "validate",
+          "signature": "(registry)"
+        }
+      ],
+      "type": "aletheus.runtime.registry.compatibility.RegistryCompatibility"
+    },
+    "registry_governance": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "validate",
+          "signature": "(runtime)"
+        }
+      ],
+      "type": "aletheus.runtime.governance.registry_rules.RegistryGovernanceRules"
+    },
+    "registry_manager": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "healthy",
+          "signature": "()"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "snapshot",
+          "signature": "()"
+        }
+      ],
+      "type": "aletheus.runtime.managers.registry_manager.RegistryManager"
+    },
+    "release": {
+      "members": [
+        {
+          "kind": "ReleaseManifest",
+          "name": "manifest",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "validate_runtime",
+          "signature": "(runtime: 'Any') -> 'Dict[str, Any]'"
+        }
+      ],
+      "type": "aletheus.release.core.AletheusReleaseCore"
+    },
+    "runtime_adapter": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "audit",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "boot_validate",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "dashboard",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "docs",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "doctor",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "health_report",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "invariants",
+          "signature": "(context)"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "selftest",
+          "signature": "(context)"
+        },
+        {
+          "kind": "method",
+          "name": "snapshot",
+          "signature": "(context)"
+        }
+      ],
+      "type": "aletheus.runtime.adapters.runtime_adapter.RuntimeCommandAdapter"
+    },
+    "runtime_doctor": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "run",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "write_reports",
+          "signature": "() -> 'Dict[str, Any]'"
+        }
+      ],
+      "type": "aletheus.runtime.integrity.doctor.RuntimeDoctor"
+    },
+    "runtime_facade": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "applications_snapshot",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "architecture_snapshot",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "boot_certification_validate",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "diagnostics",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "health",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "invariants",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "platform_services",
+          "signature": "()"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "runtime_readiness",
+          "signature": "()"
+        }
+      ],
+      "type": "aletheus.runtime.managers.runtime_facade.RuntimeFacade"
+    },
+    "runtime_invariants": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "validate",
+          "signature": "() -> 'Dict[str, Any]'"
+        }
+      ],
+      "type": "aletheus.runtime.integrity.invariants.RuntimeInvariantEngine"
+    },
+    "scheduler": {
+      "members": [
+        {
+          "kind": "dict",
+          "name": "jobs",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "list",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "register",
+          "signature": "(name: 'str', description: 'str', handler: 'Callable[[], Any]') -> 'None'"
+        },
+        {
+          "kind": "method",
+          "name": "run",
+          "signature": "(name: 'str') -> 'Any'"
+        }
+      ],
+      "type": "aletheus.runtime.scheduler.Scheduler"
+    },
+    "security": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "assign_role",
+          "signature": "(identity: 'str', role: 'str')"
+        },
+        {
+          "kind": "dict",
+          "name": "assignments",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "audit",
+          "signature": "(action: 'str', actor: 'str', status='success', metadata=None)"
+        },
+        {
+          "kind": "list",
+          "name": "audit_log",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "authenticate",
+          "signature": "(identity: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "authorize",
+          "signature": "(identity: 'str', permission: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "create_role",
+          "signature": "(name: 'str', permissions=None)"
+        },
+        {
+          "kind": "dict",
+          "name": "policies",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "policy",
+          "signature": "(name: 'str', definition=None)"
+        },
+        {
+          "kind": "dict",
+          "name": "roles",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.security_v3.security_core.AletheusSecurityEngine"
+    },
+    "security_v3": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "assign_role",
+          "signature": "(identity: 'str', role: 'str')"
+        },
+        {
+          "kind": "dict",
+          "name": "assignments",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "audit",
+          "signature": "(action: 'str', actor: 'str', status='success', metadata=None)"
+        },
+        {
+          "kind": "list",
+          "name": "audit_log",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "authenticate",
+          "signature": "(identity: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "authorize",
+          "signature": "(identity: 'str', permission: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "create_role",
+          "signature": "(name: 'str', permissions=None)"
+        },
+        {
+          "kind": "dict",
+          "name": "policies",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "policy",
+          "signature": "(name: 'str', definition=None)"
+        },
+        {
+          "kind": "dict",
+          "name": "roles",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.security_v3.security_core.AletheusSecurityEngine"
+    },
+    "semantic": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "assert_fact",
+          "signature": "(subject: 'str', predicate: 'str', object_value: 'str', confidence: 'float' = 0.75, source: 'str' = 'aletheus', metadata: 'Dict[str, Any] | None' = None) -> 'SemanticAssertion'"
+        },
+        {
+          "kind": "list",
+          "name": "assertions",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap_cardhawk_semantics",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "list",
+          "name": "concepts",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "create_concept",
+          "signature": "(name: 'str', concept_type: 'str' = 'concept', description: 'str' = '', aliases: 'List[str] | None' = None, metadata: 'Dict[str, Any] | None' = None) -> 'SemanticConcept'"
+        },
+        {
+          "kind": "method",
+          "name": "explain_concept",
+          "signature": "(name: 'str') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "find_concept_exact",
+          "signature": "(name: 'str') -> 'SemanticConcept | None'"
+        },
+        {
+          "kind": "method",
+          "name": "query_assertions",
+          "signature": "(subject: 'str' = '', predicate: 'str' = '', object_value: 'str' = '') -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "search_concepts",
+          "signature": "(query: 'str' = '', concept_type: 'str' = '') -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.semantic.semantic_core.AletheusSemanticCore"
+    },
+    "service_registry": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "get",
+          "signature": "(name)"
+        },
+        {
+          "kind": "method",
+          "name": "health",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "list",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "register",
+          "signature": "(name, version='1.0.0', domain='core', status='active', metadata=None)"
+        },
+        {
+          "kind": "dict",
+          "name": "services",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.platform.service_registry.ServiceRegistry"
+    },
+    "services": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "get",
+          "signature": "(name)"
+        },
+        {
+          "kind": "method",
+          "name": "has",
+          "signature": "(name)"
+        },
+        {
+          "kind": "method",
+          "name": "list",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "register",
+          "signature": "(name, service)"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "unregister",
+          "signature": "(name)"
+        }
+      ],
+      "type": "aletheus.runtime.services.service_registry.ServiceRegistry"
+    },
+    "snapshot_manager": {
+      "members": [
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "snapshot",
+          "signature": "()"
+        }
+      ],
+      "type": "aletheus.runtime.managers.snapshot_manager.SnapshotManager"
+    },
+    "spa": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "assess",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "drift_report",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "registry_governance_check",
+          "signature": "()"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.intelligence.spa_bridge.RuntimeSPABridge"
+    },
+    "telemetry_v3": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "health",
+          "signature": "(component: 'str' = 'runtime', status: 'str' = 'healthy')"
+        },
+        {
+          "kind": "dict",
+          "name": "health_registry",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "log",
+          "signature": "(level: 'str', message: 'str', source: 'str' = 'runtime', metadata=None)"
+        },
+        {
+          "kind": "list",
+          "name": "logs",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "metric",
+          "signature": "(name: 'str', value: 'Any', category: 'str' = 'runtime', metadata=None)"
+        },
+        {
+          "kind": "list",
+          "name": "metrics",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "record",
+          "signature": "(name: 'str', value: 'Any' = None, category: 'str' = 'runtime', metadata=None)"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "timeline",
+          "signature": "(message: 'str', source: 'str' = 'runtime', metadata=None)"
+        },
+        {
+          "kind": "list",
+          "name": "timeline_events",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "trace",
+          "signature": "(name: 'str', status: 'str' = 'completed', parent_span=None, correlation_id=None, metadata=None)"
+        },
+        {
+          "kind": "list",
+          "name": "traces",
+          "signature": null
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.telemetry_v3.telemetry_core.AletheusTelemetryEngine"
+    },
+    "tenancy": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "NoneType",
+          "name": "active_tenant_id",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "create_organization",
+          "signature": "(name: 'str', metadata=None)"
+        },
+        {
+          "kind": "method",
+          "name": "create_tenant",
+          "signature": "(organization_id: 'str', name: 'str', environment: 'str' = 'production', quotas=None, metadata=None)"
+        },
+        {
+          "kind": "method",
+          "name": "create_workspace",
+          "signature": "(tenant_id: 'str', name: 'str', metadata=None)"
+        },
+        {
+          "kind": "method",
+          "name": "delete_tenant",
+          "signature": "(tenant_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "delete_workspace",
+          "signature": "(workspace_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "health",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "list_tenants",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "list_workspaces",
+          "signature": "(tenant_id=None)"
+        },
+        {
+          "kind": "dict",
+          "name": "organizations",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "select_tenant",
+          "signature": "(tenant_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "dict",
+          "name": "tenants",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "update_organization",
+          "signature": "(organization_id: 'str', name=None, metadata=None, status=None)"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        },
+        {
+          "kind": "dict",
+          "name": "workspaces",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.tenancy_v3.tenancy_core.AletheusTenancyEngine"
+    },
+    "tenancy_v3": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "NoneType",
+          "name": "active_tenant_id",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "create_organization",
+          "signature": "(name: 'str', metadata=None)"
+        },
+        {
+          "kind": "method",
+          "name": "create_tenant",
+          "signature": "(organization_id: 'str', name: 'str', environment: 'str' = 'production', quotas=None, metadata=None)"
+        },
+        {
+          "kind": "method",
+          "name": "create_workspace",
+          "signature": "(tenant_id: 'str', name: 'str', metadata=None)"
+        },
+        {
+          "kind": "method",
+          "name": "delete_tenant",
+          "signature": "(tenant_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "delete_workspace",
+          "signature": "(workspace_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "health",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "list_tenants",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "list_workspaces",
+          "signature": "(tenant_id=None)"
+        },
+        {
+          "kind": "dict",
+          "name": "organizations",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "select_tenant",
+          "signature": "(tenant_id: 'str')"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "dict",
+          "name": "tenants",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "update_organization",
+          "signature": "(organization_id: 'str', name=None, metadata=None, status=None)"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        },
+        {
+          "kind": "dict",
+          "name": "workspaces",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.tenancy_v3.tenancy_core.AletheusTenancyEngine"
+    },
+    "validation_manager": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "boot_certification",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "genesis6_validate",
+          "signature": "()"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.managers.validation_manager.ValidationManager"
+    },
+    "workflow": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "cancel",
+          "signature": "(workflow_id)"
+        },
+        {
+          "kind": "method",
+          "name": "create",
+          "signature": "(title, description)"
+        },
+        {
+          "kind": "method",
+          "name": "pause",
+          "signature": "(workflow_id)"
+        },
+        {
+          "kind": "method",
+          "name": "resume",
+          "signature": "(workflow_id)"
+        },
+        {
+          "kind": "method",
+          "name": "start",
+          "signature": "(workflow_id)"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        },
+        {
+          "kind": "dict",
+          "name": "workflows",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.workflow_v3.workflow_core.AletheusWorkflowEngine"
+    },
+    "workflow_v2": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "cancel",
+          "signature": "(workflow_id: 'str') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "create_workflow",
+          "signature": "(title: 'str', objective: 'str', application: 'str' = 'AletheusOS', nodes: 'List[Dict[str, Any]] | None' = None) -> 'WorkflowExecution'"
+        },
+        {
+          "kind": "method",
+          "name": "default_nodes",
+          "signature": "(objective: 'str', application: 'str') -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "emit",
+          "signature": "(workflow_id: 'str', event_type: 'str', message: 'str', payload: 'Dict[str, Any] | None' = None) -> 'WorkflowEvent'"
+        },
+        {
+          "kind": "list",
+          "name": "events",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "execute_next",
+          "signature": "(workflow_id: 'str', runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "execute_node",
+          "signature": "(workflow: 'WorkflowExecution', node: 'WorkflowNode', runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "execute_workflow",
+          "signature": "(workflow_id: 'str', runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "get_workflow",
+          "signature": "(workflow_id: 'str') -> 'WorkflowExecution | None'"
+        },
+        {
+          "kind": "method",
+          "name": "history",
+          "signature": "(workflow_id: 'str' = '') -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "list_workflows",
+          "signature": "(status: 'str | None' = None) -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "pause",
+          "signature": "(workflow_id: 'str') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "resume",
+          "signature": "(workflow_id: 'str') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        },
+        {
+          "kind": "list",
+          "name": "workflows",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.workflows_v2.workflow_core.AletheusWorkflowFabric"
+    },
+    "workflow_v3": {
+      "members": [
+        {
+          "kind": "str",
+          "name": "VERSION",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "bootstrap",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "cancel",
+          "signature": "(workflow_id)"
+        },
+        {
+          "kind": "method",
+          "name": "create",
+          "signature": "(title, description)"
+        },
+        {
+          "kind": "method",
+          "name": "pause",
+          "signature": "(workflow_id)"
+        },
+        {
+          "kind": "method",
+          "name": "resume",
+          "signature": "(workflow_id)"
+        },
+        {
+          "kind": "method",
+          "name": "start",
+          "signature": "(workflow_id)"
+        },
+        {
+          "kind": "method",
+          "name": "statistics",
+          "signature": "()"
+        },
+        {
+          "kind": "method",
+          "name": "status",
+          "signature": "()"
+        },
+        {
+          "kind": "dict",
+          "name": "workflows",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.workflow_v3.workflow_core.AletheusWorkflowEngine"
+    },
+    "workflows": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "execute",
+          "signature": "(workflow_name: 'str', application: 'str' = 'system') -> 'RuntimeContext'"
+        },
+        {
+          "kind": "method",
+          "name": "list",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "register",
+          "signature": "(workflow: 'WorkflowGraph') -> 'None'"
+        },
+        {
+          "kind": "AletheusRuntime",
+          "name": "runtime",
+          "signature": null
+        },
+        {
+          "kind": "dict",
+          "name": "workflows",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.runtime.workflow.WorkflowExecutor"
+    },
+    "workspace": {
+      "members": [
+        {
+          "kind": "method",
+          "name": "create_journal_entry",
+          "signature": "(title: 'str', body: 'str', category: 'str' = 'general', tags: 'List[str] | None' = None) -> 'FounderJournalEntry'"
+        },
+        {
+          "kind": "method",
+          "name": "create_notification",
+          "signature": "(title: 'str', message: 'str', severity: 'str' = 'info', source: 'str' = 'aletheus') -> 'FounderNotification'"
+        },
+        {
+          "kind": "method",
+          "name": "create_objective",
+          "signature": "(title: 'str', description: 'str' = '', priority: 'str' = 'medium', application: 'str' = 'system') -> 'StrategicObjective'"
+        },
+        {
+          "kind": "list",
+          "name": "journal",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "list_journal",
+          "signature": "() -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "list_notifications",
+          "signature": "(unread_only: 'bool' = False) -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "method",
+          "name": "list_objectives",
+          "signature": "(status: 'str | None' = None) -> 'List[Dict[str, Any]]'"
+        },
+        {
+          "kind": "list",
+          "name": "notifications",
+          "signature": null
+        },
+        {
+          "kind": "list",
+          "name": "objectives",
+          "signature": null
+        },
+        {
+          "kind": "method",
+          "name": "overview",
+          "signature": "(runtime: 'Any') -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "method",
+          "name": "stats",
+          "signature": "() -> 'Dict[str, Any]'"
+        },
+        {
+          "kind": "str",
+          "name": "version",
+          "signature": null
+        }
+      ],
+      "type": "aletheus.workspace.workspace_core.AletheusFounderWorkspace"
+    }
+  },
+  "runtime_public_members": [
+    {
+      "kind": "AletheusAutonomousAgentRuntime",
+      "name": "agents",
+      "signature": null
+    },
+    {
+      "kind": "AletheusAutonomousAgentRuntime",
+      "name": "agents_v2",
+      "signature": null
+    },
+    {
+      "kind": "method",
+      "name": "anchor_analytics_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_architect_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_architecture_selection_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_architecture_simulator_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_cognitive_architect_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_cognitive_optimization_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_cognitive_selection_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_cognitive_self_improvement_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_cognitive_simulation_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_cognitive_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_consensus_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_constitution_reasoning_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_constitution_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_continuity_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_contract_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_council_status",
+      "signature": "()"
+    },
+    {
+      "kind": "AnchorDependencyGraph",
+      "name": "anchor_dependencies",
+      "signature": null
+    },
+    {
+      "kind": "method",
+      "name": "anchor_dependency_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_deployment_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_discovery_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_evolution_graph_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_execution_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_forecasting_status",
+      "signature": "()"
+    },
+    {
+      "kind": "AnchorGovernanceCouncil",
+      "name": "anchor_governance_analyzer",
+      "signature": null
+    },
+    {
+      "kind": "method",
+      "name": "anchor_governance_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_healing_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_improvement_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_institutional_memory_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_intelligence_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_judgment_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_learning_status",
+      "signature": "()"
+    },
+    {
+      "kind": "AnchorLifecycleController",
+      "name": "anchor_lifecycle",
+      "signature": null
+    },
+    {
+      "kind": "method",
+      "name": "anchor_lifecycle_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_meta_reasoning_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_migration_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_negotiation_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_optimization_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_pattern_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_performance_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_portfolio_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_predictive_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_proposal_status",
+      "signature": "()"
+    },
+    {
+      "kind": "AnchorRegistry",
+      "name": "anchor_registry",
+      "signature": null
+    },
+    {
+      "kind": "method",
+      "name": "anchor_research_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_resource_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_simulation_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_steward_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_strategy_status",
+      "signature": "()"
+    },
+    {
+      "kind": "method",
+      "name": "anchor_verification_status",
+      "signature": "()"
+    },
+    {
+      "kind": "ApplicationAnchorCircuit",
+      "name": "application_anchor",
+      "signature": null
+    },
+    {
+      "kind": "ApplicationRuntime",
+      "name": "application_runtime",
+      "signature": null
+    },
+    {
+      "kind": "AletheusApplicationManager",
+      "name": "applications",
+      "signature": null
+    },
+    {
+      "kind": "ArchitectureGovernanceRules",
+      "name": "architecture_governance",
+      "signature": null
+    },
+    {
+      "kind": "ArchitectureValidator",
+      "name": "architecture_validator",
+      "signature": null
+    },
+    {
+      "kind": "method",
+      "name": "boot",
+      "signature": "() -> 'None'"
+    },
+    {
+      "kind": "BootCertification",
+      "name": "boot_certification",
+      "signature": null
+    },
+    {
+      "kind": "method",
+      "name": "boot_certification_validate",
+      "signature": "()"
+    },
+    {
+      "kind": "RuntimeBootContext",
+      "name": "boot_context",
+      "signature": null
+    },
+    {
+      "kind": "BootReport",
+      "name": "boot_report",
+      "signature": null
+    },
+    {
+      "kind": "RuntimeBootValidator",
+      "name": "boot_validator",
+      "signature": null
+    },
+    {
+      "kind": "method",
+      "name": "bootstrap_registry",
+      "signature": "()"
+    },
+    {
+      "kind": "CertificationManager",
+      "name": "certification_manager",
+      "signature": null
+    },
+    {
+      "kind": "AletheusCognitionCore",
+      "name": "cognition",
+      "signature": null
+    },
+    {
+      "kind": "CommandSurfaceAuditor",
+      "name": "command_auditor",
+      "signature": null
+    },
+    {
+      "kind": "RuntimeCommandBootstrapper",
+      "name": "command_bootstrapper",
+      "signature": null
+    },
+    {
+      "kind": "CommandManager",
+      "name": "command_manager",
+      "signature": null
+    },
+    {
+      "kind": "method",
+      "name": "command_surface_audit",
+      "signature": "()"
+    },
+    {
+      "kind": "CommandBus",
+      "name": "commands",
+      "signature": null
+    },
+    {
+      "kind": "CompatibilityRegistry",
+      "name": "compat",
+      "signature": null
+    },
+    {
+      "kind": "CompatibilityCommandAdapter",
+      "name": "compatibility_adapter",
+      "signature": null
+    },
+    {
+      "kind": "AletheusFounderCopilot",
+      "name": "copilot",
+      "signature": null
+    },
+    {
+      "kind": "AletheusAutonomousDecisionEngine",
+      "name": "decision",
+      "signature": null
+    },
+    {
+      "kind": "RuntimeDiagnostics",
+      "name": "diagnostics",
+      "signature": null
+    },
+    {
+      "kind": "AletheusDistributedRuntimeFabric",
+      "name": "distributed",
+      "signature": null
+    },
+    {
+      "kind": "EngineRegistry",
+      "name": "engines",
+      "signature": null
+    },
+    {
+      "kind": "AletheusEnterpriseCore",
+      "name": "enterprise",
+      "signature": null
+    },
+    {
+      "kind": "EventCommandAdapter",
+      "name": "event_adapter",
+      "signature": null
+    },
+    {
+      "kind": "AletheusEventBus",
+      "name": "event_bus",
+      "signature": null
+    },
+    {
+      "kind": "AletheusEventBus",
+      "name": "event_bus_v3",
+      "signature": null
+    },
+    {
+      "kind": "EventBus",
+      "name": "events",
+      "signature": null
+    },
+    {
+      "kind": "AletheusExecutiveCore",
+      "name": "executive",
+      "signature": null
+    },
+    {
+      "kind": "AletheusFederationEngine",
+      "name": "federation_v3",
+      "signature": null
+    },
+    {
+      "kind": "method",
+      "name": "genesis6_freeze_review",
+      "signature": "()"
+    },
+    {
+      "kind": "Genesis6CertificationReport",
+      "name": "genesis6_report",
+      "signature": null
+    },
+    {
+      "kind": "Genesis6FreezeReview",
+      "name": "genesis6_review",
+      "signature": null
+    },
+    {
+      "kind": "method",
+      "name": "genesis6_validate",
+      "signature": "()"
+    },
+    {
+      "kind": "Genesis6Validator",
+      "name": "genesis6_validator",
+      "signature": null
+    },
+    {
+      "kind": "GovernanceEngine",
+      "name": "governance",
+      "signature": null
+    },
+    {
+      "kind": "GovernanceHistory",
+      "name": "governance_history",
+      "signature": null
+    },
+    {
+      "kind": "GovernanceManager",
+      "name": "governance_manager",
+      "signature": null
+    },
+    {
+      "kind": "method",
+      "name": "governance_record",
+      "signature": "(event_type, payload)"
+    },
+    {
+      "kind": "GraphCommandAdapter",
+      "name": "graph_adapter",
+      "signature": null
+    },
+    {
+      "kind": "RuntimeHardening",
+      "name": "hardening",
+      "signature": null
+    },
+    {
+      "kind": "method",
+      "name": "health",
+      "signature": "()"
+    },
+    {
+      "kind": "HealthManager",
+      "name": "health_manager",
+      "signature": null
+    },
+    {
+      "kind": "AletheusHighAvailabilityEngine",
+      "name": "high_availability",
+      "signature": null
+    },
+    {
+      "kind": "AletheusHighAvailabilityEngine",
+      "name": "high_availability_v3",
+      "signature": null
+    },
+    {
+      "kind": "AletheusUniversalIntelligence",
+      "name": "intelligence",
+      "signature": null
+    },
+    {
+      "kind": "IntelligenceDispatcher",
+      "name": "intelligence_dispatcher",
+      "signature": null
+    },
+    {
+      "kind": "IntelligenceOrchestrator",
+      "name": "intelligence_orchestrator",
+      "signature": null
+    },
+    {
+      "kind": "IntelligenceScheduler",
+      "name": "intelligence_scheduler",
+      "signature": null
+    },
+    {
+      "kind": "IntelligenceSupervisor",
+      "name": "intelligence_supervisor",
+      "signature": null
+    },
+    {
+      "kind": "InvariantManager",
+      "name": "invariant_manager",
+      "signature": null
+    },
+    {
+      "kind": "KernelExecutor",
+      "name": "kernel",
+      "signature": null
+    },
+    {
+      "kind": "AletheusAutonomousKernel",
+      "name": "kernel_v2",
+      "signature": null
+    },
+    {
+      "kind": "AletheusKnowledgeCore",
+      "name": "knowledge",
+      "signature": null
+    },
+    {
+      "kind": "KnowledgeAnchorCircuit",
+      "name": "knowledge_anchor",
+      "signature": null
+    },
+    {
+      "kind": "KnowledgeGraphCore",
+      "name": "knowledge_graph",
+      "signature": null
+    },
+    {
+      "kind": "AletheusAdaptiveLearning",
+      "name": "learning",
+      "signature": null
+    },
+    {
+      "kind": "AletheusMemoryCore",
+      "name": "memory",
+      "signature": null
+    },
+    {
+      "kind": "MemoryAnchorCircuit",
+      "name": "memory_anchor",
+      "signature": null
+    },
+    {
+      "kind": "AletheusMemoryMesh",
+      "name": "memory_mesh",
+      "signature": null
+    },
+    {
+      "kind": "RuntimeMetrics",
+      "name": "metrics",
+      "signature": null
+    },
+    {
+      "kind": "AletheusMissionCore",
+      "name": "mission",
+      "signature": null
+    },
+    {
+      "kind": "MissionCommandAdapter",
+      "name": "mission_adapter",
+      "signature": null
+    },
+    {
+      "kind": "AletheusAutonomousMissionEngine",
+      "name": "mission_v2",
+      "signature": null
+    },
+    {
+      "kind": "str",
+      "name": "organization",
+      "signature": null
+    },
+    {
+      "kind": "AletheusPersistenceEngine",
+      "name": "persistence_v3",
+      "signature": null
+    },
+    {
+      "kind": "PipelineExecutor",
+      "name": "pipelines",
+      "signature": null
+    },
+    {
+      "kind": "AletheusPlanningEngine",
+      "name": "planning",
+      "signature": null
+    },
+    {
+      "kind": "AletheusPlanningEngine",
+      "name": "planning_v2",
+      "signature": null
+    },
+    {
+      "kind": "RuntimePluginManager",
+      "name": "plugins",
+      "signature": null
+    },
+    {
+      "kind": "AletheusPluginManager",
+      "name": "plugins_v3",
+      "signature": null
+    },
+    {
+      "kind": "module",
+      "name": "prediction",
+      "signature": null
+    },
+    {
+      "kind": "PrincipleXValidator",
+      "name": "principle_x",
+      "signature": null
+    },
+    {
+      "kind": "str",
+      "name": "product",
+      "signature": null
+    },
+    {
+      "kind": "str",
+      "name": "product_type",
+      "signature": null
+    },
+    {
+      "kind": "JobQueue",
+      "name": "queue",
+      "signature": null
+    },
+    {
+      "kind": "RuntimeReadinessSnapshot",
+      "name": "readiness_snapshot",
+      "signature": null
+    },
+    {
+      "kind": "AletheusCognitiveReasoningEngine",
+      "name": "reasoning",
+      "signature": null
+    },
+    {
+      "kind": "method",
+      "name": "register_engine",
+      "signature": "(name: 'str', handler: 'Any') -> 'None'"
+    },
+    {
+      "kind": "method",
+      "name": "register_pipeline",
+      "signature": "(pipeline: 'Pipeline') -> 'None'"
+    },
+    {
+      "kind": "method",
+      "name": "register_service",
+      "signature": "(name: 'str', service: 'Any') -> 'None'"
+    },
+    {
+      "kind": "method",
+      "name": "register_workflow",
+      "signature": "(workflow: 'WorkflowGraph') -> 'None'"
+    },
+    {
+      "kind": "RuntimeRegistry",
+      "name": "registry",
+      "signature": null
+    },
+    {
+      "kind": "RegistryCompatibility",
+      "name": "registry_compatibility",
+      "signature": null
+    },
+    {
+      "kind": "RegistryGovernanceRules",
+      "name": "registry_governance",
+      "signature": null
+    },
+    {
+      "kind": "RegistryManager",
+      "name": "registry_manager",
+      "signature": null
+    },
+    {
+      "kind": "method",
+      "name": "registry_snapshot",
+      "signature": "()"
+    },
+    {
+      "kind": "AletheusReleaseCore",
+      "name": "release",
+      "signature": null
+    },
+    {
+      "kind": "RuntimeCommandAdapter",
+      "name": "runtime_adapter",
+      "signature": null
+    },
+    {
+      "kind": "RuntimeDoctor",
+      "name": "runtime_doctor",
+      "signature": null
+    },
+    {
+      "kind": "RuntimeFacade",
+      "name": "runtime_facade",
+      "signature": null
+    },
+    {
+      "kind": "RuntimeInvariantEngine",
+      "name": "runtime_invariants",
+      "signature": null
+    },
+    {
+      "kind": "Scheduler",
+      "name": "scheduler",
+      "signature": null
+    },
+    {
+      "kind": "AletheusSecurityEngine",
+      "name": "security",
+      "signature": null
+    },
+    {
+      "kind": "AletheusSecurityEngine",
+      "name": "security_v3",
+      "signature": null
+    },
+    {
+      "kind": "AletheusSemanticCore",
+      "name": "semantic",
+      "signature": null
+    },
+    {
+      "kind": "ServiceRegistry",
+      "name": "service_registry",
+      "signature": null
+    },
+    {
+      "kind": "ServiceRegistry",
+      "name": "services",
+      "signature": null
+    },
+    {
+      "kind": "SnapshotManager",
+      "name": "snapshot_manager",
+      "signature": null
+    },
+    {
+      "kind": "RuntimeSPABridge",
+      "name": "spa",
+      "signature": null
+    },
+    {
+      "kind": "str",
+      "name": "status",
+      "signature": null
+    },
+    {
+      "kind": "AletheusTelemetryEngine",
+      "name": "telemetry_v3",
+      "signature": null
+    },
+    {
+      "kind": "AletheusTenancyEngine",
+      "name": "tenancy",
+      "signature": null
+    },
+    {
+      "kind": "AletheusTenancyEngine",
+      "name": "tenancy_v3",
+      "signature": null
+    },
+    {
+      "kind": "ValidationManager",
+      "name": "validation_manager",
+      "signature": null
+    },
+    {
+      "kind": "str",
+      "name": "version",
+      "signature": null
+    },
+    {
+      "kind": "AletheusWorkflowEngine",
+      "name": "workflow",
+      "signature": null
+    },
+    {
+      "kind": "AletheusWorkflowFabric",
+      "name": "workflow_v2",
+      "signature": null
+    },
+    {
+      "kind": "AletheusWorkflowEngine",
+      "name": "workflow_v3",
+      "signature": null
+    },
+    {
+      "kind": "WorkflowExecutor",
+      "name": "workflows",
+      "signature": null
+    },
+    {
+      "kind": "AletheusFounderWorkspace",
+      "name": "workspace",
+      "signature": null
+    }
+  ],
+  "runtime_type": "aletheus.runtime.core.AletheusRuntime",
+  "stale_registration_modules": [
+    {
+      "commands": [
+        {
+          "command": "workspace.overview",
+          "handler_expression": "runtime._cmd_workspace_overview",
+          "line": 12
+        },
+        {
+          "command": "workspace.stats",
+          "handler_expression": "runtime._cmd_workspace_stats",
+          "line": 17
+        },
+        {
+          "command": "founder.journal.create",
+          "handler_expression": "runtime._cmd_founder_journal_create",
+          "line": 22
+        },
+        {
+          "command": "founder.journal.list",
+          "handler_expression": "runtime._cmd_founder_journal_list",
+          "line": 27
+        },
+        {
+          "command": "objective.create",
+          "handler_expression": "runtime._cmd_objective_create",
+          "line": 32
+        },
+        {
+          "command": "objective.list",
+          "handler_expression": "runtime._cmd_objective_list",
+          "line": 37
+        },
+        {
+          "command": "notification.create",
+          "handler_expression": "runtime._cmd_notification_create",
+          "line": 42
+        },
+        {
+          "command": "notification.list",
+          "handler_expression": "runtime._cmd_notification_list",
+          "line": 47
+        }
+      ],
+      "file": "aletheus/runtime/registrations/workspace_commands.py",
+      "module": "workspace_commands"
+    },
+    {
+      "commands": [
+        {
+          "command": "application.register",
+          "handler_expression": "runtime._cmd_application_register",
+          "line": 12
+        },
+        {
+          "command": "application.list",
+          "handler_expression": "runtime._cmd_application_list",
+          "line": 17
+        },
+        {
+          "command": "application.start",
+          "handler_expression": "runtime._cmd_application_start",
+          "line": 22
+        },
+        {
+          "command": "application.stop",
+          "handler_expression": "runtime._cmd_application_stop",
+          "line": 27
+        },
+        {
+          "command": "application.restart",
+          "handler_expression": "runtime._cmd_application_restart",
+          "line": 32
+        },
+        {
+          "command": "application.health",
+          "handler_expression": "runtime._cmd_application_health",
+          "line": 37
+        },
+        {
+          "command": "application.stats",
+          "handler_expression": "runtime._cmd_application_stats",
+          "line": 42
+        },
+        {
+          "command": "application.install",
+          "handler_expression": "runtime._cmd_application_install",
+          "line": 47
+        },
+        {
+          "command": "application.uninstall",
+          "handler_expression": "runtime._cmd_application_uninstall",
+          "line": 52
+        },
+        {
+          "command": "application.manifest",
+          "handler_expression": "runtime._cmd_application_manifest",
+          "line": 57
+        },
+        {
+          "command": "application.events",
+          "handler_expression": "runtime._cmd_application_events",
+          "line": 62
+        },
+        {
+          "command": "application.bootstrap.defaults",
+          "handler_expression": "runtime._cmd_application_bootstrap_defaults",
+          "line": 67
+        }
+      ],
+      "file": "aletheus/runtime/registrations/application_commands.py",
+      "module": "application_commands"
+    },
+    {
+      "commands": [
+        {
+          "command": "semantic.concept.create",
+          "handler_expression": "runtime._cmd_semantic_concept_create",
+          "line": 12
+        },
+        {
+          "command": "semantic.concept.search",
+          "handler_expression": "runtime._cmd_semantic_concept_search",
+          "line": 17
+        },
+        {
+          "command": "semantic.assert",
+          "handler_expression": "runtime._cmd_semantic_assert",
+          "line": 22
+        },
+        {
+          "command": "semantic.query",
+          "handler_expression": "runtime._cmd_semantic_query",
+          "line": 27
+        },
+        {
+          "command": "semantic.explain",
+          "handler_expression": "runtime._cmd_semantic_explain",
+          "line": 32
+        },
+        {
+          "command": "semantic.bootstrap.cardhawk",
+          "handler_expression": "runtime._cmd_semantic_bootstrap_cardhawk",
+          "line": 37
+        },
+        {
+          "command": "semantic.stats",
+          "handler_expression": "runtime._cmd_semantic_stats",
+          "line": 42
+        }
+      ],
+      "file": "aletheus/runtime/registrations/semantic_commands.py",
+      "module": "semantic_commands"
+    },
+    {
+      "commands": [
+        {
+          "command": "executive.status",
+          "handler_expression": "runtime._cmd_executive_status",
+          "line": 12
+        },
+        {
+          "command": "executive.snapshot",
+          "handler_expression": "runtime._cmd_executive_snapshot",
+          "line": 17
+        },
+        {
+          "command": "executive.summary",
+          "handler_expression": "runtime._cmd_executive_summary",
+          "line": 22
+        },
+        {
+          "command": "executive.recommendations",
+          "handler_expression": "runtime._cmd_executive_recommendations",
+          "line": 27
+        },
+        {
+          "command": "executive.risks",
+          "handler_expression": "runtime._cmd_executive_risks",
+          "line": 32
+        },
+        {
+          "command": "executive.daily_brief",
+          "handler_expression": "runtime._cmd_executive_daily_brief",
+          "line": 37
+        },
+        {
+          "command": "executive.system_report",
+          "handler_expression": "runtime._cmd_executive_system_report",
+          "line": 42
+        }
+      ],
+      "file": "aletheus/runtime/registrations/executive_commands.py",
+      "module": "executive_commands"
+    },
+    {
+      "commands": [
+        {
+          "command": "plan.generate",
+          "handler_expression": "domain.generate",
+          "line": 14
+        },
+        {
+          "command": "plan.list",
+          "handler_expression": "domain.list",
+          "line": 19
+        }
+      ],
+      "file": "aletheus/runtime/registrations/planning_commands.py",
+      "module": "planning_commands"
+    },
+    {
+      "commands": [
+        {
+          "command": "uil.context",
+          "handler_expression": "runtime._cmd_uil_context",
+          "line": 12
+        },
+        {
+          "command": "uil.reason",
+          "handler_expression": "runtime._cmd_uil_reason",
+          "line": 17
+        },
+        {
+          "command": "uil.synthesize",
+          "handler_expression": "runtime._cmd_uil_synthesize",
+          "line": 22
+        },
+        {
+          "command": "uil.decide",
+          "handler_expression": "runtime._cmd_uil_decide",
+          "line": 27
+        },
+        {
+          "command": "uil.brief",
+          "handler_expression": "runtime._cmd_uil_brief",
+          "line": 32
+        },
+        {
+          "command": "uil.snapshot",
+          "handler_expression": "runtime._cmd_uil_snapshot",
+          "line": 37
+        },
+        {
+          "command": "uil.timeline",
+          "handler_expression": "runtime._cmd_uil_timeline",
+          "line": 42
+        },
+        {
+          "command": "uil.stats",
+          "handler_expression": "runtime._cmd_uil_stats",
+          "line": 47
+        }
+      ],
+      "file": "aletheus/runtime/registrations/uil_commands.py",
+      "module": "uil_commands"
+    }
+  ]
+}

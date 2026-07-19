@@ -1,0 +1,226 @@
+Genesis 7 Runtime Composition Audit
+==============================================================================
+Generated: 2026-07-10T07:34:28.502696+00:00
+Runtime: AletheusRuntime
+Public attachments: 107
+
+Role Summary
+------------------------------------------------------------------------------
+adapter              5
+anchor               3
+auditor              1
+bootstrapper         1
+component           23
+controller           1
+core                 9
+engine              18
+executor             3
+fabric               1
+manager             11
+metadata             5
+orchestrator         1
+registry             8
+runtime             12
+scheduler            1
+supervisor           1
+validator            3
+
+Runtime Attachments
+------------------------------------------------------------------------------
+
+[ADAPTER]
+compatibility_adapter              CompatibilityCommandAdapter
+event_adapter                      EventCommandAdapter
+graph_adapter                      GraphCommandAdapter
+mission_adapter                    MissionCommandAdapter
+runtime_adapter                    RuntimeCommandAdapter
+
+[ANCHOR]
+application_anchor                 ApplicationAnchorCircuit
+knowledge_anchor                   KnowledgeAnchorCircuit
+memory_anchor                      MemoryAnchorCircuit
+
+[AUDITOR]
+command_auditor                    CommandSurfaceAuditor
+
+[BOOTSTRAPPER]
+command_bootstrapper               RuntimeCommandBootstrapper
+
+[COMPONENT]
+anchor_dependencies                AnchorDependencyGraph
+anchor_governance_analyzer         AnchorGovernanceCouncil
+architecture_governance            ArchitectureGovernanceRules
+boot_certification                 BootCertification
+boot_report                        BootReport
+commands                           CommandBus
+copilot                            AletheusFounderCopilot
+event_bus                          AletheusEventBus
+event_bus_v3                       AletheusEventBus
+events                             EventBus
+genesis6_report                    Genesis6CertificationReport
+genesis6_review                    Genesis6FreezeReview
+governance_history                 GovernanceHistory
+intelligence                       AletheusUniversalIntelligence
+intelligence_dispatcher            IntelligenceDispatcher
+kernel_v2                          AletheusAutonomousKernel
+learning                           AletheusAdaptiveLearning
+memory_mesh                        AletheusMemoryMesh
+prediction                         module
+principle_x                        PrincipleXValidator
+queue                              JobQueue
+scheduler                          Scheduler
+workspace                          AletheusFounderWorkspace
+
+[CONTROLLER]
+anchor_lifecycle                   AnchorLifecycleController
+
+[CORE]
+cognition                          AletheusCognitionCore
+enterprise                         AletheusEnterpriseCore
+executive                          AletheusExecutiveCore
+knowledge                          AletheusKnowledgeCore
+knowledge_graph                    KnowledgeGraphCore
+memory                             AletheusMemoryCore
+mission                            AletheusMissionCore
+release                            AletheusReleaseCore
+semantic                           AletheusSemanticCore
+
+[ENGINE]
+decision                           AletheusAutonomousDecisionEngine
+federation_v3                      AletheusFederationEngine
+governance                         GovernanceEngine
+high_availability                  AletheusHighAvailabilityEngine
+high_availability_v3               AletheusHighAvailabilityEngine
+mission_v2                         AletheusAutonomousMissionEngine
+persistence_v3                     AletheusPersistenceEngine
+planning                           AletheusPlanningEngine
+planning_v2                        AletheusPlanningEngine
+reasoning                          AletheusCognitiveReasoningEngine
+runtime_invariants                 RuntimeInvariantEngine
+security                           AletheusSecurityEngine
+security_v3                        AletheusSecurityEngine
+telemetry_v3                       AletheusTelemetryEngine
+tenancy                            AletheusTenancyEngine
+tenancy_v3                         AletheusTenancyEngine
+workflow                           AletheusWorkflowEngine
+workflow_v3                        AletheusWorkflowEngine
+
+[EXECUTOR]
+kernel                             KernelExecutor
+pipelines                          PipelineExecutor
+workflows                          WorkflowExecutor
+
+[FABRIC]
+workflow_v2                        AletheusWorkflowFabric
+
+[MANAGER]
+applications                       AletheusApplicationManager
+certification_manager              CertificationManager
+command_manager                    CommandManager
+governance_manager                 GovernanceManager
+health_manager                     HealthManager
+invariant_manager                  InvariantManager
+plugins                            RuntimePluginManager
+plugins_v3                         AletheusPluginManager
+registry_manager                   RegistryManager
+snapshot_manager                   SnapshotManager
+validation_manager                 ValidationManager
+
+[METADATA]
+organization                       str
+product                            str
+product_type                       str
+status                             str
+version                            str
+
+[ORCHESTRATOR]
+intelligence_orchestrator          IntelligenceOrchestrator
+
+[REGISTRY]
+anchor_registry                    AnchorRegistry
+compat                             CompatibilityRegistry
+engines                            EngineRegistry
+registry                           RuntimeRegistry
+registry_compatibility             RegistryCompatibility
+registry_governance                RegistryGovernanceRules
+service_registry                   ServiceRegistry
+services                           ServiceRegistry
+
+[RUNTIME]
+agents                             AletheusAutonomousAgentRuntime
+agents_v2                          AletheusAutonomousAgentRuntime
+application_runtime                ApplicationRuntime
+boot_context                       RuntimeBootContext
+diagnostics                        RuntimeDiagnostics
+distributed                        AletheusDistributedRuntimeFabric
+hardening                          RuntimeHardening
+metrics                            RuntimeMetrics
+readiness_snapshot                 RuntimeReadinessSnapshot
+runtime_doctor                     RuntimeDoctor
+runtime_facade                     RuntimeFacade
+spa                                RuntimeSPABridge
+
+[SCHEDULER]
+intelligence_scheduler             IntelligenceScheduler
+
+[SUPERVISOR]
+intelligence_supervisor            IntelligenceSupervisor
+
+[VALIDATOR]
+architecture_validator             ArchitectureValidator
+boot_validator                     RuntimeBootValidator
+genesis6_validator                 Genesis6Validator
+
+Generation / Ownership Overlap
+------------------------------------------------------------------------------
+
+agents:
+  agents                         generation=base  type=AletheusAutonomousAgentRuntime
+  agents_v2                      generation=v2    type=AletheusAutonomousAgentRuntime
+
+event_bus:
+  event_bus                      generation=base  type=AletheusEventBus
+  event_bus_v3                   generation=v3    type=AletheusEventBus
+
+high_availability:
+  high_availability              generation=base  type=AletheusHighAvailabilityEngine
+  high_availability_v3           generation=v3    type=AletheusHighAvailabilityEngine
+
+kernel:
+  kernel                         generation=base  type=KernelExecutor
+  kernel_v2                      generation=v2    type=AletheusAutonomousKernel
+
+mission:
+  mission                        generation=base  type=AletheusMissionCore
+  mission_v2                     generation=v2    type=AletheusAutonomousMissionEngine
+
+planning:
+  planning                       generation=base  type=AletheusPlanningEngine
+  planning_v2                    generation=v2    type=AletheusPlanningEngine
+
+plugins:
+  plugins                        generation=base  type=RuntimePluginManager
+  plugins_v3                     generation=v3    type=AletheusPluginManager
+
+security:
+  security                       generation=base  type=AletheusSecurityEngine
+  security_v3                    generation=v3    type=AletheusSecurityEngine
+
+tenancy:
+  tenancy                        generation=base  type=AletheusTenancyEngine
+  tenancy_v3                     generation=v3    type=AletheusTenancyEngine
+
+workflow:
+  workflow                       generation=base  type=AletheusWorkflowEngine
+  workflow_v2                    generation=v2    type=AletheusWorkflowFabric
+  workflow_v3                    generation=v3    type=AletheusWorkflowEngine
+
+Initial Structural Signals
+------------------------------------------------------------------------------
+PASS: Runtime imports and boots.
+PASS: Command surface is operational.
+REVIEW: Public attachment density should be assessed against composition-root boundaries.
+REVIEW: Generation overlaps require canonical ownership and compatibility classification.
+REVIEW: services and service_registry may represent duplicate references or separate ownership.
+REVIEW: event_bus, event_bus_v3, and events require boundary clarification.
+REVIEW: workflow, workflow_v2, workflow_v3, and workflows require canonical-path reconciliation.

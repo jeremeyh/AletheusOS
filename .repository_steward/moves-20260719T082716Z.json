@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "created_at": "20260719T082716Z",
+  "repository_root": "/Users/master_lord_6ixth/Development/AletheusOS",
+  "moves": [
+    {
+      "source": "append_nimble_audit_event.py",
+      "destination": "tools/append/append_nimble_audit_event.py",
+      "category": "append"
+    },
+    {
+      "source": "apply_nimble_audit_recovery.py",
+      "destination": "tools/apply/apply_nimble_audit_recovery.py",
+      "category": "apply"
+    },
+    {
+      "source": "archive_historical_backups.py",
+      "destination": "tools/archive/archive_historical_backups.py",
+      "category": "archive"
+    },
+    {
+      "source": "audit_nimble_ui_foundation.py",
+      "destination": "tools/audit/audit_nimble_ui_foundation.py",
+      "category": "audit"
+    },
+    {
+      "source": "audit_repository_orphans.py",
+      "destination": "tools/audit/audit_repository_orphans.py",
+      "category": "audit"
+    },
+    {
+      "source": "audit_runtime_v302.py",
+      "destination": "tools/audit/audit_runtime_v302.py",
+      "category": "audit"
+    },
+    {
+      "source": "build_experience_foundation.py",
+      "destination": "tools/build/build_experience_foundation.py",
+      "category": "build"
+    },
+    {
+      "source": "build_nimble_founder_console_shell.py",
+      "destination": "tools/build/build_nimble_founder_console_shell.py",
+      "category": "build"
+    },
+    {
+      "source": "build_nimble_intelligence_instrumentation_preview.py",
+      "destination": "tools/build/build_nimble_intelligence_instrumentation_preview.py",
+      "category": "build"
+    },
+    {
+      "source": "build_nimble_orchestrator.py",
+      "destination": "tools/build/build_nimble_orchestrator.py",
+      "category": "build"
+    },
+    {
+      "source": "build_nimble_primitive_experience.py",
+      "destination": "tools/build/build_nimble_primitive_experience.py",
+      "category": "build"
+    },
+    {
+      "source": "build_nimble_workspace_engine.py",
+      "destination": "tools/build/build_nimble_workspace_engine.py",
+      "category": "build"
+    },
+    {
+      "source": "classify_empty_directories.py",
+      "destination": "tools/classify/classify_empty_directories.py",
+      "category": "classify"
+    },
+    {
+      "source": "classify_empty_module_references.py",
+      "destination": "tools/classify/classify_empty_module_references.py",
+      "category": "classify"
+    },
+    {
+      "source": "clean_diff.txt",
+      "destination": "docs/repository/clean_diff.txt",
+      "category": "docs/repository"
+    },
+    {
+      "source": "cleanup_repository_debris.py",
+      "destination": "tools/cleanup/cleanup_repository_debris.py",
+      "category": "cleanup"
+    },
+    {
+      "source": "collect_nimble_production_telemetry.py",
+      "destination": "tools/collect/collect_nimble_production_telemetry.py",
+      "category": "collect"
+    },
+    {
+      "source": "compile_nimble_tokens.py",
+      "destination": "tools/compile/compile_nimble_tokens.py",
+      "category": "compile"
+    },
+    {
+      "source": "create_nimble_audit_checkpoint.py",
+      "destination": "tools/create/create_nimble_audit_checkpoint.py",
+      "category": "create"
+    },
+    {
+      "source": "create_nimble_audit_recovery_source.py",
+      "destination": "tools/create/create_nimble_audit_recovery_source.py",
+      "category": "create"
+    },
+    {
+      "source": "create_nimble_performance_baseline.py",
+      "destination": "tools/create/create_nimble_performance_baseline.py",
+      "category": "create"
+    },
+    {
+      "source": "create_nimble_signed_audit_anchor.py",
+      "destination": "tools/create/create_nimble_signed_audit_anchor.py",
+      "category": "create"
+    },
+    {
+      "source": "discover_nimble_frontend.py",
+      "destination": "tools/discovery/discover_nimble_frontend.py",
+      "category": "discovery"
+    },
+    {
+      "source": "docs_span_architecture.md",
+      "destination": "docs/repository/docs_span_architecture.md",
+      "category": "docs/repository"
+    },
+    {
+      "source": "engine_imports.txt",
+      "destination": "docs/repository/engine_imports.txt",
+      "category": "docs/repository"
+    },
+    {
+      "source": "hawkeye_refs.txt",
+      "destination": "docs/repository/hawkeye_refs.txt",
+      "category": "docs/repository"
+    },
+    {
+      "source": "inspect_nimble_image_identity.py",
+      "destination": "tools/inspect/inspect_nimble_image_identity.py",
+      "category": "inspect"
+    },
+    {
+      "source": "install_genesis10_organizer.sh",
+      "destination": "tools/migration/install_genesis10_organizer.sh",
+      "category": "migration"
+    },
+    {
+      "source": "map_empty_module_importers.py",
+      "destination": "tools/mapping/map_empty_module_importers.py",
+      "category": "mapping"
+    },
+    {
+      "source": "map_empty_module_text_references.py",
+      "destination": "tools/mapping/map_empty_module_text_references.py",
+      "category": "mapping"
+    },
+    {
+      "source": "organize_genesis10.sh",
+      "destination": "tools/migration/organize_genesis10.sh",
+      "category": "migration"
+    },
+    {
+      "source": "patch_authoritative_compatibility_paths.py",
+      "destination": "tools/patch/patch_authoritative_compatibility_paths.py",
+      "category": "patch"
+    },
+    {
+      "source": "patch_legacy_workflow_bootstrap.py",
+      "destination": "tools/patch/patch_legacy_workflow_bootstrap.py",
+      "category": "patch"
+    },
+    {
+      "source": "patch_remaining_result_contracts.py",
+      "destination": "tools/patch/patch_remaining_result_contracts.py",
+      "category": "patch"
+    },
+    {
+      "source": "patch_runtime_foundation_adapter.py",
+      "destination": "tools/patch/patch_runtime_foundation_adapter.py",
+      "category": "patch"
+    },
+    {
+      "source": "patch_runtime_health_compatibility.py",
+      "destination": "tools/patch/patch_runtime_health_compatibility.py",
+      "category": "patch"
+    },
+    {
+      "source": "patch_uil_runtime_composition.py",
+      "destination": "tools/patch/patch_uil_runtime_composition.py",
+      "category": "patch"
+    },
+    {
+      "source": "plan_nimble_audit_recovery.py",
+      "destination": "tools/planning/plan_nimble_audit_recovery.py",
+      "category": "planning"
+    },
+    {
+      "source": "promote_nimble_performance_baseline.py",
+      "destination": "tools/promotion/promote_nimble_performance_baseline.py",
+      "category": "promotion"
+    },
+    {
+      "source": "provider_refs.txt",
+      "destination": "docs/repository/provider_refs.txt",
+      "category": "docs/repository"
+    },
+    {
+      "source": "quarantine_archive_review_empty_modules.py",
+      "destination": "tools/quarantine/quarantine_archive_review_empty_modules.py",
+      "category": "quarantine"
+    },
+    {
+      "source": "quarantine_backup_files.py",
+      "destination": "tools/quarantine/quarantine_backup_files.py",
+      "category": "quarantine"
+    },
+    {
+      "source": "quarantine_empty_modules.py",
+      "destination": "tools/quarantine/quarantine_empty_modules.py",
+      "category": "quarantine"
+    },
+    {
+      "source": "quarantine_zero_byte_files.py",
+      "destination": "tools/quarantine/quarantine_zero_byte_files.py",
+      "category": "quarantine"
+    },
+    {
+      "source": "reconcile_nimble_dependency_exceptions.py",
+      "destination": "tools/reconciliation/reconcile_nimble_dependency_exceptions.py",
+      "category": "reconciliation"
+    },
+    {
+      "source": "remediate_utcnow_warnings.py",
+      "destination": "tools/remediation/remediate_utcnow_warnings.py",
+      "category": "remediation"
+    },
+    {
+      "source": "repair_anchor_constitution_layer.sh",
+      "destination": "tools/repair/repair_anchor_constitution_layer.sh",
+      "category": "repair"
+    },
+    {
+      "source": "repair_anchor_contract_layer.sh",
+      "destination": "tools/repair/repair_anchor_contract_layer.sh",
+      "category": "repair"
+    },
+    {
+      "source": "repair_anchor_package_contract.sh",
+      "destination": "tools/repair/repair_anchor_package_contract.sh",
+      "category": "repair"
+    },
+    {
+      "source": "repair_intelligence_anchor_contract.sh",
+      "destination": "tools/repair/repair_intelligence_anchor_contract.sh",
+      "category": "repair"
+    },
+    {
+      "source": "repair_runtime_core_integrity.sh",
+      "destination": "tools/repair/repair_runtime_core_integrity.sh",
+      "category": "repair"
+    },
+    {
+      "source": "repo_diff.txt",
+      "destination": "docs/repository/repo_diff.txt",
+      "category": "docs/repository"
+    },
+    {
+      "source": "scan_nimble_dependency_risk.py",
+      "destination": "tools/scanning/scan_nimble_dependency_risk.py",
+      "category": "scanning"
+    },
+    {
+      "source": "smoke_test_nimble_container.py",
+      "destination": "tools/smoke/smoke_test_nimble_container.py",
+      "category": "smoke"
+    },
+    {
+      "source": "step6_remove_namespace_collision.sh",
+      "destination": "tools/migration/step6_remove_namespace_collision.sh",
+      "category": "migration"
+    },
+    {
+      "source": "step6_verify_namespace.sh",
+      "destination": "tools/migration/step6_verify_namespace.sh",
+      "category": "migration"
+    },
+    {
+      "source": "untracked-files.txt",
+      "destination": "docs/repository/untracked-files.txt",
+      "category": "docs/repository"
+    },
+    {
+      "source": "workflow_refs.txt",
+      "destination": "docs/repository/workflow_refs.txt",
+      "category": "docs/repository"
+    },
+    {
+      "source": "xogenesis_drop_012A_span_foundation.sh",
+      "destination": "tools/migration/xogenesis_drop_012A_span_foundation.sh",
+      "category": "migration"
+    }
+  ],
+  "conflicts": []
+}

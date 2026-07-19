@@ -1,0 +1,4662 @@
+{
+  "atlas": {
+    "version": "1.0.0",
+    "timestamp": "2026-07-01T09:23:04.402289",
+    "root": "/Users/master_lord_6ixth/Development/AletheusOS",
+    "status": "watching",
+    "score": 93,
+    "summary": {
+      "modules": 1143,
+      "imports": 1744,
+      "local_edges": 688,
+      "cycles": 0,
+      "duplicate_families": 4
+    },
+    "modules": {
+      "verify_agents_import": "verify_agents_import.py",
+      "run": "run.py",
+      "verify_reasoning_service": "verify_reasoning_service.py",
+      "verify_persistence_services": "verify_persistence_services.py",
+      "__init__": "__init__.py",
+      "run_aletheus_founder_console": "run_aletheus_founder_console.py",
+      "verify_plugins_runtime": "verify_plugins_runtime.py",
+      "verify_persistence_runtime": "verify_persistence_runtime.py",
+      "app": "app.py",
+      "verify_plugin_commands": "verify_plugin_commands.py",
+      "manage": "manage.py",
+      "verify_services": "verify_services.py",
+      "verify_state_commands": "verify_state_commands.py",
+      "verify_event_bus": "verify_event_bus.py",
+      "audit_runtime_v302": "audit_runtime_v302.py",
+      "verify_federation_runtime": "verify_federation_runtime.py",
+      "verify_event_services": "verify_event_services.py",
+      "import_streamlit": "import_streamlit.py",
+      "verify_planning_runtime": "verify_planning_runtime.py",
+      "background.worker": "background/worker.py",
+      "background": "background/__init__.py",
+      "background.job_queue": "background/job_queue.py",
+      "founder.founder_memory": "founder/founder_memory.py",
+      "founder": "founder/__init__.py",
+      "founder.dynamic_brief": "founder/dynamic_brief.py",
+      "metrics.system_metrics": "metrics/system_metrics.py",
+      "ui": "ui/__init__.py",
+      "pipeline": "pipeline/__init__.py",
+      "migrations.schema_v2_3": "migrations/schema_v2_3.py",
+      "migrations.migration_registry": "migrations/migration_registry.py",
+      "migrations": "migrations/__init__.py",
+      "migrations.rollback": "migrations/rollback.py",
+      "migrations.migration_runner": "migrations/migration_runner.py",
+      "migrations.schema_v2_4": "migrations/schema_v2_4.py",
+      "acquisition_simulator.acquisition_simulator": "acquisition_simulator/acquisition_simulator.py",
+      "acquisition_simulator": "acquisition_simulator/__init__.py",
+      "knowledge_graph": "knowledge_graph/__init__.py",
+      "knowledge_graph.graph_store": "knowledge_graph/graph_store.py",
+      "eventbus": "eventbus/__init__.py",
+      "eventbus.event_bus": "eventbus/event_bus.py",
+      "tools.dependency_audit": "tools/dependency_audit.py",
+      "asset_core.asset_notes": "asset_core/asset_notes.py",
+      "asset_core.asset_genome": "asset_core/asset_genome.py",
+      "asset_core.asset_filters": "asset_core/asset_filters.py",
+      "asset_core.asset_tags": "asset_core/asset_tags.py",
+      "asset_core": "asset_core/__init__.py",
+      "asset_core.asset_search": "asset_core/asset_search.py",
+      "asset_core.asset_media": "asset_core/asset_media.py",
+      "asset_core.asset_validator": "asset_core/asset_validator.py",
+      "asset_core.asset_factory": "asset_core/asset_factory.py",
+      "asset_core.asset_service": "asset_core/asset_service.py",
+      "asset_core.asset_dna": "asset_core/asset_dna.py",
+      "core.bootstrap": "core/bootstrap.py",
+      "core.logging": "core/logging.py",
+      "core.metrics": "core/metrics.py",
+      "core.startup": "core/startup.py",
+      "core.engine_events": "core/engine_events.py",
+      "core.config": "core/config.py",
+      "core.version": "core/version.py",
+      "core.discovery": "core/discovery.py",
+      "core.registry": "core/registry.py",
+      "core.health": "core/health.py",
+      "core.constants": "core/constants.py",
+      "core.shutdown": "core/shutdown.py",
+      "core": "core/__init__.py",
+      "core.service_registry": "core/service_registry.py",
+      "core.container": "core/container.py",
+      "core.engine_adapter": "core/engine_adapter.py",
+      "core.application": "core/application.py",
+      "core.event_bus": "core/event_bus.py",
+      "core.engine_metadata": "core/engine_metadata.py",
+      "core.register_engines": "core/register_engines.py",
+      "core.exceptions": "core/exceptions.py",
+      "core.scheduler": "core/scheduler.py",
+      "core.publisher": "core/publisher.py",
+      "core.engine_registry": "core/engine_registry.py",
+      "core.engine_monitor": "core/engine_monitor.py",
+      "core.service_base": "core/service_base.py",
+      "core.provider_registry": "core/provider_registry.py",
+      "core.service_adapter": "core/service_adapter.py",
+      "core.service_discovery": "core/service_discovery.py",
+      "core.engine_base": "core/engine_base.py",
+      "production_hardening": "production_hardening/__init__.py",
+      "production_hardening.hardening_service": "production_hardening/hardening_service.py",
+      "intelligence.command": "intelligence/command.py",
+      "intelligence": "intelligence/__init__.py",
+      "intelligence.scout": "intelligence/scout.py",
+      "intelligence.founder": "intelligence/founder.py",
+      "config.constants": "config/constants.py",
+      "config": "config/__init__.py",
+      "config.feature_flags": "config/feature_flags.py",
+      "config.development": "config/development.py",
+      "config.settings": "config/settings.py",
+      "config.staging": "config/staging.py",
+      "config.production": "config/production.py",
+      "security.secrets_manager": "security/secrets_manager.py",
+      "security.config_validator": "security/config_validator.py",
+      "security": "security/__init__.py",
+      "security.audit_logger": "security/audit_logger.py",
+      "plugins.strike": "plugins/strike.py",
+      "plugins.roost": "plugins/roost.py",
+      "plugins": "plugins/__init__.py",
+      "plugins.perch": "plugins/perch.py",
+      "plugins.talon": "plugins/talon.py",
+      "plugins.base_plugin": "plugins/base_plugin.py",
+      "plugins.soar": "plugins/soar.py",
+      "logging_utils": "logging_utils/__init__.py",
+      "logging_utils.cardhawk_logger": "logging_utils/cardhawk_logger.py",
+      "cardhawkos": "cardhawkos/__init__.py",
+      "capital_allocation.capital_allocator": "capital_allocation/capital_allocator.py",
+      "capital_allocation": "capital_allocation/__init__.py",
+      "learning.parallel_history": "learning/parallel_history.py",
+      "learning": "learning/__init__.py",
+      "learning.pricing_history": "learning/pricing_history.py",
+      "learning.market_cycles": "learning/market_cycles.py",
+      "learning.population_history": "learning/population_history.py",
+      "learning.player_profiles": "learning/player_profiles.py",
+      "contracts": "contracts/__init__.py",
+      "providers.base_provider": "providers/base_provider.py",
+      "providers.mercari_live": "providers/mercari_live.py",
+      "providers.comc_live": "providers/comc_live.py",
+      "providers.ebay_live": "providers/ebay_live.py",
+      "providers.goldin_live": "providers/goldin_live.py",
+      "providers.centerstage_live": "providers/centerstage_live.py",
+      "providers": "providers/__init__.py",
+      "providers.fanatics_live": "providers/fanatics_live.py",
+      "providers.marketmovers_live": "providers/marketmovers_live.py",
+      "providers.facebook_live": "providers/facebook_live.py",
+      "providers.pwcc_live": "providers/pwcc_live.py",
+      "providers.cardladder_live": "providers/cardladder_live.py",
+      "health": "health/__init__.py",
+      "health.system_health": "health/system_health.py",
+      "platform.router": "platform/router.py",
+      "workflow_automation": "workflow_automation/__init__.py",
+      "workflow_automation.workflow_service": "workflow_automation/workflow_service.py",
+      "marketplace.marketplace_service": "marketplace/marketplace_service.py",
+      "marketplace.comp_engine": "marketplace/comp_engine.py",
+      "continuous_scout": "continuous_scout/__init__.py",
+      "continuous_scout.candidate_queue": "continuous_scout/candidate_queue.py",
+      "continuous_scout.scan_job": "continuous_scout/scan_job.py",
+      "continuous_scout.continuous_scout_service": "continuous_scout/continuous_scout_service.py",
+      "runtime": "runtime/__init__.py",
+      "tests.test_aletheus_v40_kernel": "tests/test_aletheus_v40_kernel.py",
+      "tests.test_aletheus_genesis_10": "tests/test_aletheus_genesis_10.py",
+      "tests.test_aletheus_v31_plugins": "tests/test_aletheus_v31_plugins.py",
+      "tests.test_aletheus_v15_copilot": "tests/test_aletheus_v15_copilot.py",
+      "tests.test_aletheus_genesis_04": "tests/test_aletheus_genesis_04.py",
+      "tests.test_aletheus_v20b_applications": "tests/test_aletheus_v20b_applications.py",
+      "tests.test_aletheus_genesis_05": "tests/test_aletheus_genesis_05.py",
+      "tests.test_cardhawk_asset_service": "tests/test_cardhawk_asset_service.py",
+      "tests.test_aletheus_v421_runtime_integrity": "tests/test_aletheus_v421_runtime_integrity.py",
+      "tests.test_aletheus_v21_enterprise": "tests/test_aletheus_v21_enterprise.py",
+      "tests.test_aletheus_v33_event_bus": "tests/test_aletheus_v33_event_bus.py",
+      "tests.test_aletheus_v20c_missions": "tests/test_aletheus_v20c_missions.py",
+      "tests.test_aletheus_v32_persistence": "tests/test_aletheus_v32_persistence.py",
+      "tests.test_aletheus_genesis_031": "tests/test_aletheus_genesis_031.py",
+      "tests.regression_runner": "tests/regression_runner.py",
+      "tests": "tests/__init__.py",
+      "tests.test_aletheus_v24_graph": "tests/test_aletheus_v24_graph.py",
+      "tests.test_aletheus_v450_runtime_modules": "tests/test_aletheus_v450_runtime_modules.py",
+      "tests.test_aletheus_v26_decision_engine": "tests/test_aletheus_v26_decision_engine.py",
+      "tests.test_aletheus_v11_semantic": "tests/test_aletheus_v11_semantic.py",
+      "tests.test_aletheus_genesis_09a": "tests/test_aletheus_genesis_09a.py",
+      "tests.test_aletheus_v29_planning": "tests/test_aletheus_v29_planning.py",
+      "tests.test_aletheus_v41_compatibility": "tests/test_aletheus_v41_compatibility.py",
+      "tests.test_aletheus_v22_distributed": "tests/test_aletheus_v22_distributed.py",
+      "tests.test_aletheus_v12_executive": "tests/test_aletheus_v12_executive.py",
+      "tests.test_aletheus_v18_learning": "tests/test_aletheus_v18_learning.py",
+      "tests.test_aletheus_v35_telemetry": "tests/test_aletheus_v35_telemetry.py",
+      "tests.test_aletheus_v30_distributed": "tests/test_aletheus_v30_distributed.py",
+      "tests.test_aletheus_v17_prediction": "tests/test_aletheus_v17_prediction.py",
+      "tests.test_aletheus_genesis_08": "tests/test_aletheus_genesis_08.py",
+      "tests.test_aletheus_v39_tenancy": "tests/test_aletheus_v39_tenancy.py",
+      "tests.test_aletheus_v37_security": "tests/test_aletheus_v37_security.py",
+      "tests.test_aletheus_v13_agents": "tests/test_aletheus_v13_agents.py",
+      "tests.test_aletheus_v25_reasoning": "tests/test_aletheus_v25_reasoning.py",
+      "tests.test_aletheus_v34_federation": "tests/test_aletheus_v34_federation.py",
+      "tests.test_aletheus_v411_foundation": "tests/test_aletheus_v411_foundation.py",
+      "tests.test_aletheus_genesis_06": "tests/test_aletheus_genesis_06.py",
+      "tests.test_aletheus_v28_workflows": "tests/test_aletheus_v28_workflows.py",
+      "tests.test_aletheus_runtime_a3": "tests/test_aletheus_runtime_a3.py",
+      "tests.test_aletheus_v14_planning": "tests/test_aletheus_v14_planning.py",
+      "tests.test_aletheus_v20_kernel": "tests/test_aletheus_v20_kernel.py",
+      "tests.test_aletheus_v23_memory_mesh": "tests/test_aletheus_v23_memory_mesh.py",
+      "tests.test_aletheus_v27_agents": "tests/test_aletheus_v27_agents.py",
+      "tests.test_aletheus_v36_high_availability": "tests/test_aletheus_v36_high_availability.py",
+      "tests.test_aletheus_v20d_workflows": "tests/test_aletheus_v20d_workflows.py",
+      "tests.test_aletheus_genesis_07": "tests/test_aletheus_genesis_07.py",
+      "tests.test_aletheus_v16_universal_intelligence": "tests/test_aletheus_v16_universal_intelligence.py",
+      "workflows": "workflows/__init__.py",
+      "scheduler.runtime_scheduler": "scheduler/runtime_scheduler.py",
+      "qa.smoke_tests": "qa/smoke_tests.py",
+      "qa": "qa/__init__.py",
+      "qa.benchmark_tests": "qa/benchmark_tests.py",
+      "qa.regression_tests": "qa/regression_tests.py",
+      "utils.image_utils": "utils/image_utils.py",
+      "utils.validators": "utils/validators.py",
+      "utils": "utils/__init__.py",
+      "utils.formatting": "utils/formatting.py",
+      "datalake": "datalake/__init__.py",
+      "datalake.intelligence_store": "datalake/intelligence_store.py",
+      "release.release_notes": "release/release_notes.py",
+      "release.manifest": "release/manifest.py",
+      "release.package_builder": "release/package_builder.py",
+      "release": "release/__init__.py",
+      "release.build_manager": "release/build_manager.py",
+      "scout.candidate_filter": "scout/candidate_filter.py",
+      "scout.alert_manager": "scout/alert_manager.py",
+      "scout": "scout/__init__.py",
+      "scout.scout_service": "scout/scout_service.py",
+      "scout.market_scanner": "scout/market_scanner.py",
+      "scout.scheduler": "scout/scheduler.py",
+      "scout.listing_queue": "scout/listing_queue.py",
+      "scout.watchlist_manager": "scout/watchlist_manager.py",
+      "models.asset_genome": "models/asset_genome.py",
+      "models.asset": "models/asset.py",
+      "models": "models/__init__.py",
+      "models.portfolio": "models/portfolio.py",
+      "models.asset_dna": "models/asset_dna.py",
+      "adaptive_intelligence": "adaptive_intelligence/__init__.py",
+      "adaptive_intelligence.adaptive_service": "adaptive_intelligence/adaptive_service.py",
+      "portfolio_digital_twin.digital_twin_service": "portfolio_digital_twin/digital_twin_service.py",
+      "portfolio_digital_twin": "portfolio_digital_twin/__init__.py",
+      "observability.telemetry": "observability/telemetry.py",
+      "live_data.live_data_service": "live_data/live_data_service.py",
+      "live_data": "live_data/__init__.py",
+      "commercial": "commercial/__init__.py",
+      "commercial.commercial_readiness": "commercial/commercial_readiness.py",
+      "hawk_aeye.year_detector": "hawk_aeye/year_detector.py",
+      "hawk_aeye.player_detector": "hawk_aeye/player_detector.py",
+      "hawk_aeye.parallel_detector": "hawk_aeye/parallel_detector.py",
+      "hawk_aeye.brand_detector": "hawk_aeye/brand_detector.py",
+      "hawk_aeye": "hawk_aeye/__init__.py",
+      "hawk_aeye.card_classifier": "hawk_aeye/card_classifier.py",
+      "hawk_aeye.quality_score": "hawk_aeye/quality_score.py",
+      "hawk_aeye.asset_dna_builder": "hawk_aeye/asset_dna_builder.py",
+      "hawk_aeye.condition_estimator": "hawk_aeye/condition_estimator.py",
+      "hawk_aeye.serial_detector": "hawk_aeye/serial_detector.py",
+      "hawk_aeye.ocr_runtime": "hawk_aeye/ocr_runtime.py",
+      "hawk_aeye.vision_pipeline": "hawk_aeye/vision_pipeline.py",
+      "styles.theme": "styles/theme.py",
+      "styles": "styles/__init__.py",
+      "components.live_data_ui": "components/live_data_ui.py",
+      "components": "components/__init__.py",
+      "components.cardhawk_utils": "components/cardhawk_utils.py",
+      "architecture.import_migrator": "architecture/import_migrator.py",
+      "architecture.dependency_graph": "architecture/dependency_graph.py",
+      "architecture": "architecture/__init__.py",
+      "architecture.project_auditor": "architecture/project_auditor.py",
+      "marketplace_normalizer": "marketplace_normalizer/__init__.py",
+      "marketplace_normalizer.listing_deduper": "marketplace_normalizer/listing_deduper.py",
+      "marketplace_normalizer.normalized_listing": "marketplace_normalizer/normalized_listing.py",
+      "marketplace_normalizer.normalizer": "marketplace_normalizer/normalizer.py",
+      "aletheus": "aletheus/__init__.py",
+      "founder_studio": "founder_studio/__init__.py",
+      "founder_studio.studio_service": "founder_studio/studio_service.py",
+      "cardhawk": "cardhawk/__init__.py",
+      "cardhawk.main": "cardhawk/main.py",
+      "founder_ai.founder_ai_service": "founder_ai/founder_ai_service.py",
+      "founder_ai": "founder_ai/__init__.py",
+      "deal_finder": "deal_finder/__init__.py",
+      "commercialization.auth": "commercialization/auth.py",
+      "commercialization": "commercialization/__init__.py",
+      "commercialization.permissions": "commercialization/permissions.py",
+      "commercialization.workspace": "commercialization/workspace.py",
+      "commercialization.api_versioning": "commercialization/api_versioning.py",
+      "engines": "engines/__init__.py",
+      "ai": "ai/__init__.py",
+      "deployment": "deployment/__init__.py",
+      "deployment.profile_loader": "deployment/profile_loader.py",
+      "deployment.development": "deployment/development.py",
+      "deployment.staging": "deployment/staging.py",
+      "deployment.production": "deployment/production.py",
+      "data_providers": "data_providers/__init__.py",
+      "workflow.asset_workflow": "workflow/asset_workflow.py",
+      "workflow.selling_workflow": "workflow/selling_workflow.py",
+      "workflow.negotiation_workflow": "workflow/negotiation_workflow.py",
+      "workflow.grading_workflow": "workflow/grading_workflow.py",
+      "scripts.cardhawk_cleanup_report": "scripts/cardhawk_cleanup_report.py",
+      "scripts.rescore_assets": "scripts/rescore_assets.py",
+      "data_layer.database_manager": "data_layer/database_manager.py",
+      "data_layer": "data_layer/__init__.py",
+      "diagnostics.execution_trace": "diagnostics/execution_trace.py",
+      "diagnostics.enterprise_diagnostics": "diagnostics/enterprise_diagnostics.py",
+      "applications": "applications/__init__.py",
+      "registry": "registry/__init__.py",
+      "registry.engine_registry": "registry/engine_registry.py",
+      "registry.provider_registry": "registry/provider_registry.py",
+      "portfolio": "portfolio/__init__.py",
+      "portfolio.portfolio_engine": "portfolio/portfolio_engine.py",
+      "portfolio.allocation": "portfolio/allocation.py",
+      "portfolio.performance": "portfolio/performance.py",
+      "cardhawk_platform.navigation": "cardhawk_platform/navigation.py",
+      "cardhawk_platform.router": "cardhawk_platform/router.py",
+      "operations_live": "operations_live/__init__.py",
+      "operations_live.operations_service": "operations_live/operations_service.py",
+      "command_center": "command_center/__init__.py",
+      "command_center.command_center_service": "command_center/command_center_service.py",
+      "thesis.asset_thesis": "thesis/asset_thesis.py",
+      "thesis": "thesis/__init__.py",
+      "thesis.market_thesis": "thesis/market_thesis.py",
+      "thesis.player_thesis": "thesis/player_thesis.py",
+      "negotiation": "negotiation/__init__.py",
+      "negotiation.negotiation_ai": "negotiation/negotiation_ai.py",
+      "negotiation.offer_tracker": "negotiation/offer_tracker.py",
+      "jobs": "jobs/__init__.py",
+      "jobs.market_scanner": "jobs/market_scanner.py",
+      "jobs.price_alerts": "jobs/price_alerts.py",
+      "jobs.valuation_refresh": "jobs/valuation_refresh.py",
+      "jobs.nightly_sync": "jobs/nightly_sync.py",
+      "jobs.weekly_reports": "jobs/weekly_reports.py",
+      "jobs.image_processing": "jobs/image_processing.py",
+      "thorx.liquidity": "thorx/liquidity.py",
+      "thorx.dex_engine": "thorx/dex_engine.py",
+      "thorx.scarcity": "thorx/scarcity.py",
+      "thorx.population": "thorx/population.py",
+      "thorx.portfolio_fit": "thorx/portfolio_fit.py",
+      "thorx.def_engine": "thorx/def_engine.py",
+      "thorx.risk": "thorx/risk.py",
+      "thorx.player_thesis": "thorx/player_thesis.py",
+      "thorx.visual_appeal": "thorx/visual_appeal.py",
+      "thorx.momentum": "thorx/momentum.py",
+      "thorx.market_strength": "thorx/market_strength.py",
+      "thorx.score": "thorx/score.py",
+      "versioning.version_manager": "versioning/version_manager.py",
+      "versioning": "versioning/__init__.py",
+      "genome": "genome/__init__.py",
+      "genome.cardhawk_genome": "genome/cardhawk_genome.py",
+      "performance.cache": "performance/cache.py",
+      "performance": "performance/__init__.py",
+      "intelligence_convergence": "intelligence_convergence/__init__.py",
+      "intelligence_convergence.unified_intelligence_engine": "intelligence_convergence/unified_intelligence_engine.py",
+      "startup": "startup/__init__.py",
+      "startup.startup_verifier": "startup/startup_verifier.py",
+      "backup.restore_manager": "backup/restore_manager.py",
+      "backup": "backup/__init__.py",
+      "backup.backup_manager": "backup/backup_manager.py",
+      "backup.snapshot": "backup/snapshot.py",
+      "watch_tower": "watch_tower/__init__.py",
+      "timeline.timeline_service": "timeline/timeline_service.py",
+      "timeline": "timeline/__init__.py",
+      "pages.mission_control": "pages/mission_control.py",
+      "pages.founder_console": "pages/founder_console.py",
+      "engine.intelligence_engine": "engine/intelligence_engine.py",
+      "engine": "engine/__init__.py",
+      "engine.valuation_engine": "engine/valuation_engine.py",
+      "engine.def_engine": "engine/def_engine.py",
+      "engine.portfolio_engine": "engine/portfolio_engine.py",
+      "engine.cardhawk_engine": "engine/cardhawk_engine.py",
+      "engine.market_engine": "engine/market_engine.py",
+      "engine.notification_engine": "engine/notification_engine.py",
+      "themes.cardhawk_theme": "themes/cardhawk_theme.py",
+      "falcon": "falcon/__init__.py",
+      "cardhawk_aeye.cardhawk_aeye": "cardhawk_aeye/cardhawk_aeye.py",
+      "cardhawk_aeye": "cardhawk_aeye/__init__.py",
+      "exit_strategy.exit_strategy_service": "exit_strategy/exit_strategy_service.py",
+      "exit_strategy": "exit_strategy/__init__.py",
+      "decision_engine": "decision_engine/__init__.py",
+      "nest": "nest/__init__.py",
+      "services.plugin_loader": "services/plugin_loader.py",
+      "services.runtime_scheduler": "services/runtime_scheduler.py",
+      "services.runtime_commands": "services/runtime_commands.py",
+      "services": "services/__init__.py",
+      "services.runtime_events": "services/runtime_events.py",
+      "services.runtime_state": "services/runtime_state.py",
+      "services.context": "services/context.py",
+      "services.founder_state": "services/founder_state.py",
+      "services.runtime_v3": "services/runtime_v3.py",
+      "services.pipeline": "services/pipeline.py",
+      "services.runtime_metrics": "services/runtime_metrics.py",
+      "services.runtime_cache": "services/runtime_cache.py",
+      "orchestrator": "orchestrator/__init__.py",
+      "kernel.metrics": "kernel/metrics.py",
+      "kernel": "kernel/__init__.py",
+      "kernel.runtime": "kernel/runtime.py",
+      "kernel.doctor": "kernel/doctor.py",
+      "analytics": "analytics/__init__.py",
+      "analytics.analytics_service": "analytics/analytics_service.py",
+      "event_bus": "event_bus/__init__.py",
+      "event_bus.runtime.store": "event_bus/runtime/store.py",
+      "event_bus.runtime": "event_bus/runtime/__init__.py",
+      "event_bus.runtime.bus": "event_bus/runtime/bus.py",
+      "analytics.runtime.event_metrics": "analytics/runtime/event_metrics.py",
+      "analytics.pages.portfolio_analytics": "analytics/pages/portfolio_analytics.py",
+      "orchestrator.runtime": "orchestrator/runtime/__init__.py",
+      "orchestrator.runtime.execution_log": "orchestrator/runtime/execution_log.py",
+      "orchestrator.runtime.jobs": "orchestrator/runtime/jobs.py",
+      "orchestrator.runtime.engine": "orchestrator/runtime/engine.py",
+      "orchestrator.models": "orchestrator/models/__init__.py",
+      "orchestrator.models.context": "orchestrator/models/context.py",
+      "nest.runtime": "nest/runtime/__init__.py",
+      "nest.runtime.score": "nest/runtime/score.py",
+      "nest.models": "nest/models/__init__.py",
+      "decision_engine.runtime.strike_zone": "decision_engine/runtime/strike_zone.py",
+      "decision_engine.runtime.qdef": "decision_engine/runtime/qdef.py",
+      "decision_engine.runtime": "decision_engine/runtime/__init__.py",
+      "decision_engine.runtime.ddef": "decision_engine/runtime/ddef.py",
+      "decision_engine.runtime.recommendation": "decision_engine/runtime/recommendation.py",
+      "decision_engine.runtime.engine": "decision_engine/runtime/engine.py",
+      "decision_engine.runtime.explanation": "decision_engine/runtime/explanation.py",
+      "decision_engine.runtime.ranking": "decision_engine/runtime/ranking.py",
+      "decision_engine.models": "decision_engine/models/__init__.py",
+      "decision_engine.models.decision": "decision_engine/models/decision.py",
+      "falcon.runtime.snapshots": "falcon/runtime/snapshots.py",
+      "falcon.runtime.health": "falcon/runtime/health.py",
+      "falcon.runtime": "falcon/runtime/__init__.py",
+      "falcon.runtime.dna": "falcon/runtime/dna.py",
+      "falcon.runtime.engine": "falcon/runtime/engine.py",
+      "falcon.runtime.opportunity_queue": "falcon/runtime/opportunity_queue.py",
+      "falcon.runtime.forecasting": "falcon/runtime/forecasting.py",
+      "falcon.models": "falcon/models/__init__.py",
+      "engine.intelligence.alerts": "engine/intelligence/alerts.py",
+      "engine.intelligence.confidence": "engine/intelligence/confidence.py",
+      "engine.intelligence": "engine/intelligence/__init__.py",
+      "engine.intelligence.player_trends": "engine/intelligence/player_trends.py",
+      "engine.intelligence.market_signals": "engine/intelligence/market_signals.py",
+      "engine.intelligence.opportunity": "engine/intelligence/opportunity.py",
+      "engine.intelligence.news": "engine/intelligence/news.py",
+      "engine.hawk_a_eye.recognition": "engine/hawk_a_eye/recognition.py",
+      "engine.hawk_a_eye.detector": "engine/hawk_a_eye/detector.py",
+      "engine.hawk_a_eye.detection": "engine/hawk_a_eye/detection.py",
+      "engine.hawk_a_eye.scanner": "engine/hawk_a_eye/scanner.py",
+      "engine.hawk_a_eye.grading": "engine/hawk_a_eye/grading.py",
+      "engine.hawk_a_eye": "engine/hawk_a_eye/__init__.py",
+      "engine.hawk_a_eye.ocr": "engine/hawk_a_eye/ocr.py",
+      "engine.hawk_a_eye.embeddings": "engine/hawk_a_eye/embeddings.py",
+      "engine.hawk_a_eye.enhancement": "engine/hawk_a_eye/enhancement.py",
+      "engine.hawk_a_eye.training": "engine/hawk_a_eye/training.py",
+      "engine.prediction.breakout": "engine/prediction/breakout.py",
+      "engine.prediction": "engine/prediction/__init__.py",
+      "engine.prediction.expected_value": "engine/prediction/expected_value.py",
+      "engine.prediction.risk": "engine/prediction/risk.py",
+      "engine.prediction.appreciation": "engine/prediction/appreciation.py",
+      "engine.portfolio": "engine/portfolio/__init__.py",
+      "engine.automation.sync": "engine/automation/sync.py",
+      "engine.automation.exports": "engine/automation/exports.py",
+      "engine.automation": "engine/automation/__init__.py",
+      "engine.automation.imports": "engine/automation/imports.py",
+      "engine.automation.notifications": "engine/automation/notifications.py",
+      "engine.automation.scheduler": "engine/automation/scheduler.py",
+      "engine.thorx.d_def copy": "engine/thorx/d_def copy.py",
+      "engine.thorx.confidence": "engine/thorx/confidence.py",
+      "engine.thorx.strike_zone": "engine/thorx/strike_zone.py",
+      "engine.thorx.acquisition_ranker": "engine/thorx/acquisition_ranker.py",
+      "engine.thorx.q_def": "engine/thorx/q_def.py",
+      "engine.thorx.scoring": "engine/thorx/scoring.py",
+      "engine.thorx.portfolio_fit": "engine/thorx/portfolio_fit.py",
+      "engine.thorx": "engine/thorx/__init__.py",
+      "engine.thorx.recommendation": "engine/thorx/recommendation.py",
+      "engine.thorx.d_def": "engine/thorx/d_def.py",
+      "engine.thorx.nuclear_cloud": "engine/thorx/nuclear_cloud.py",
+      "engine.thorx.learning": "engine/thorx/learning.py",
+      "engine.thorx.projections": "engine/thorx/projections.py",
+      "engine.thorx.evaluator": "engine/thorx/evaluator.py",
+      "engine.valuation.liquidity": "engine/valuation/liquidity.py",
+      "engine.valuation.ceiling": "engine/valuation/ceiling.py",
+      "engine.valuation.scarcity": "engine/valuation/scarcity.py",
+      "engine.valuation": "engine/valuation/__init__.py",
+      "engine.valuation.floor": "engine/valuation/floor.py",
+      "engine.valuation.pricing": "engine/valuation/pricing.py",
+      "engine.valuation.projections": "engine/valuation/projections.py",
+      "engine.valuation.comps": "engine/valuation/comps.py",
+      "engine.valuation.volatility": "engine/valuation/volatility.py",
+      "timeline.demo.events": "timeline/demo/events.py",
+      "timeline.runtime": "timeline/runtime/__init__.py",
+      "timeline.runtime.engine": "timeline/runtime/engine.py",
+      "timeline.storage.store": "timeline/storage/store.py",
+      "timeline.storage": "timeline/storage/__init__.py",
+      "timeline.pages.intelligence_timeline": "timeline/pages/intelligence_timeline.py",
+      "timeline.engine.timeline_projection": "timeline/engine/timeline_projection.py",
+      "timeline.engine.register": "timeline/engine/register.py",
+      "timeline.engine.subscriber": "timeline/engine/subscriber.py",
+      "timeline.engine": "timeline/engine/__init__.py",
+      "timeline.engine.projection": "timeline/engine/projection.py",
+      "watch_tower.runtime": "watch_tower/runtime/__init__.py",
+      "watch_tower.runtime.engine": "watch_tower/runtime/engine.py",
+      "watch_tower.models.finding": "watch_tower/models/finding.py",
+      "watch_tower.models": "watch_tower/models/__init__.py",
+      "intelligence_convergence.engines.decision_model": "intelligence_convergence/engines/decision_model.py",
+      "intelligence_convergence.engines.digital_twin_2": "intelligence_convergence/engines/digital_twin_2.py",
+      "intelligence_convergence.engines.autonomous_scout": "intelligence_convergence/engines/autonomous_scout.py",
+      "intelligence_convergence.engines.acquisition_ai": "intelligence_convergence/engines/acquisition_ai.py",
+      "intelligence_convergence.engines.exit_intelligence": "intelligence_convergence/engines/exit_intelligence.py",
+      "intelligence_convergence.pages.convergence_dashboard": "intelligence_convergence/pages/convergence_dashboard.py",
+      "genome.intelligence": "genome/intelligence/__init__.py",
+      "genome.intelligence.engine": "genome/intelligence/engine.py",
+      "genome.runtime.service": "genome/runtime/service.py",
+      "genome.runtime": "genome/runtime/__init__.py",
+      "thorx.runtime.score": "thorx/runtime/score.py",
+      "jobs.runtime.system_jobs": "jobs/runtime/system_jobs.py",
+      "jobs.runtime": "jobs/runtime/__init__.py",
+      "jobs.runtime.scheduler": "jobs/runtime/scheduler.py",
+      "jobs.runtime.manager": "jobs/runtime/manager.py",
+      "jobs.system.def_jobs": "jobs/system/def_jobs.py",
+      "jobs.system": "jobs/system/__init__.py",
+      "negotiation.runtime": "negotiation/runtime/__init__.py",
+      "negotiation.runtime.engine": "negotiation/runtime/engine.py",
+      "command_center.runtime": "command_center/runtime/__init__.py",
+      "command_center.runtime.palette": "command_center/runtime/palette.py",
+      "command_center.runtime.dashboard": "command_center/runtime/dashboard.py",
+      "command_center.runtime.snapshot": "command_center/runtime/snapshot.py",
+      "operations_live.pages.live_operations_center": "operations_live/pages/live_operations_center.py",
+      "portfolio.health.engine": "portfolio/health/engine.py",
+      "portfolio.runtime": "portfolio/runtime/__init__.py",
+      "portfolio.runtime.engine": "portfolio/runtime/engine.py",
+      "portfolio.runtime.value": "portfolio/runtime/value.py",
+      "portfolio.digital_twin": "portfolio/digital_twin/__init__.py",
+      "portfolio.digital_twin.engine": "portfolio/digital_twin/engine.py",
+      "applications.cardhawk_foundation": "applications/cardhawk_foundation/__init__.py",
+      "applications.cardhawk_foundation.app": "applications/cardhawk_foundation/app.py",
+      "diagnostics.dependency": "diagnostics/dependency/__init__.py",
+      "diagnostics.dependency.validate_imports": "diagnostics/dependency/validate_imports.py",
+      "diagnostics.imports": "diagnostics/imports/__init__.py",
+      "diagnostics.imports.import_doctor": "diagnostics/imports/import_doctor.py",
+      "data_layer.importers.asset_csv_importer": "data_layer/importers/asset_csv_importer.py",
+      "data_layer.exporters.asset_csv_exporter": "data_layer/exporters/asset_csv_exporter.py",
+      "data_layer.repositories.watchlist_repository": "data_layer/repositories/watchlist_repository.py",
+      "data_layer.repositories.asset_repository": "data_layer/repositories/asset_repository.py",
+      "data_layer.repositories.event_repository": "data_layer/repositories/event_repository.py",
+      "executive_experience.pages.marketplace_opportunity_board": "executive_experience/pages/marketplace_opportunity_board.py",
+      "executive_experience.pages.executive_dashboard": "executive_experience/pages/executive_dashboard.py",
+      "executive_experience.pages.founder_ai_workspace": "executive_experience/pages/founder_ai_workspace.py",
+      "executive_experience.pages.live_intelligence": "executive_experience/pages/live_intelligence.py",
+      "executive_experience.pages.operational_readiness": "executive_experience/pages/operational_readiness.py",
+      "executive_experience.pages.universal_asset_profile": "executive_experience/pages/universal_asset_profile.py",
+      "executive_experience.pages.premium_asset_vault": "executive_experience/pages/premium_asset_vault.py",
+      "workflow.runtime": "workflow/runtime/__init__.py",
+      "workflow.steps": "workflow/steps/__init__.py",
+      "workflow.executors": "workflow/executors/__init__.py",
+      "data_providers.marketmovers": "data_providers/marketmovers/__init__.py",
+      "data_providers.funkopop": "data_providers/funkopop/__init__.py",
+      "data_providers.mercari": "data_providers/mercari/__init__.py",
+      "data_providers.pwcc": "data_providers/pwcc/__init__.py",
+      "data_providers.bgs": "data_providers/bgs/__init__.py",
+      "data_providers.fanatics": "data_providers/fanatics/__init__.py",
+      "data_providers.cardladder": "data_providers/cardladder/__init__.py",
+      "data_providers.comc": "data_providers/comc/__init__.py",
+      "data_providers.fivebelow": "data_providers/fivebelow/__init__.py",
+      "data_providers.ebay": "data_providers/ebay/__init__.py",
+      "data_providers.depop": "data_providers/depop/__init__.py",
+      "data_providers.sgc": "data_providers/sgc/__init__.py",
+      "data_providers.fb_marketplace": "data_providers/fb_marketplace/__init__.py",
+      "data_providers.beckett": "data_providers/beckett/__init__.py",
+      "data_providers.centerstage": "data_providers/centerstage/__init__.py",
+      "data_providers.goodwill_auctions": "data_providers/goodwill_auctions/__init__.py",
+      "data_providers.psa": "data_providers/psa/__init__.py",
+      "data_providers.alt": "data_providers/alt/__init__.py",
+      "data_providers.goldin": "data_providers/goldin/__init__.py",
+      "ai.agents": "ai/agents/__init__.py",
+      "ai.models": "ai/models/__init__.py",
+      "ai.vision": "ai/vision/__init__.py",
+      "ai.rag": "ai/rag/__init__.py",
+      "engines.talon": "engines/talon/__init__.py",
+      "engines.talon.engine": "engines/talon/engine.py",
+      "engines.perch": "engines/perch/__init__.py",
+      "engines.perch.engine": "engines/perch/engine.py",
+      "engines.def_engine": "engines/def_engine/__init__.py",
+      "engines.def_engine.engine": "engines/def_engine/engine.py",
+      "engines.roost": "engines/roost/__init__.py",
+      "engines.roost.engine": "engines/roost/engine.py",
+      "engines.hawk_aeye": "engines/hawk_aeye/__init__.py",
+      "engines.hawk_aeye.engine": "engines/hawk_aeye/engine.py",
+      "engines.thorx": "engines/thorx/__init__.py",
+      "engines.thorx.engine": "engines/thorx/engine.py",
+      "engines.strike": "engines/strike/__init__.py",
+      "engines.strike.engine": "engines/strike/engine.py",
+      "engines.falcon": "engines/falcon/__init__.py",
+      "engines.falcon.engine": "engines/falcon/engine.py",
+      "engines.soar": "engines/soar/__init__.py",
+      "engines.soar.engine": "engines/soar/engine.py",
+      "engines.nest": "engines/nest/__init__.py",
+      "engines.nest.engine": "engines/nest/engine.py",
+      "deal_finder.runtime": "deal_finder/runtime/__init__.py",
+      "deal_finder.runtime.engine": "deal_finder/runtime/engine.py",
+      "founder_ai.copilot": "founder_ai/copilot/__init__.py",
+      "founder_ai.copilot.engine": "founder_ai/copilot/engine.py",
+      "founder_ai.runtime": "founder_ai/runtime/__init__.py",
+      "founder_ai.runtime.engine": "founder_ai/runtime/engine.py",
+      "cardhawk.ui": "cardhawk/ui/__init__.py",
+      "cardhawk.ui.asset_vault_dashboard": "cardhawk/ui/asset_vault_dashboard.py",
+      "cardhawk.ui.asset_table": "cardhawk/ui/asset_table.py",
+      "cardhawk.ui.search_panel": "cardhawk/ui/search_panel.py",
+      "cardhawk.ui.asset_form": "cardhawk/ui/asset_form.py",
+      "cardhawk.app": "cardhawk/app/__init__.py",
+      "cardhawk.app.application": "cardhawk/app/application.py",
+      "cardhawk.asset_vault.asset": "cardhawk/asset_vault/asset.py",
+      "cardhawk.asset_vault": "cardhawk/asset_vault/__init__.py",
+      "cardhawk.asset_vault.repository": "cardhawk/asset_vault/repository.py",
+      "cardhawk.importers.json_importer": "cardhawk/importers/json_importer.py",
+      "cardhawk.importers": "cardhawk/importers/__init__.py",
+      "cardhawk.web.app": "cardhawk/web/app.py",
+      "cardhawk.dashboard": "cardhawk/dashboard/__init__.py",
+      "cardhawk.dashboard.dashboard_service": "cardhawk/dashboard/dashboard_service.py",
+      "cardhawk.dashboard.dashboard_model": "cardhawk/dashboard/dashboard_model.py",
+      "cardhawk.portfolio": "cardhawk/portfolio/__init__.py",
+      "cardhawk.portfolio.portfolio_engine": "cardhawk/portfolio/portfolio_engine.py",
+      "cardhawk.index.asset_index": "cardhawk/index/asset_index.py",
+      "cardhawk.index": "cardhawk/index/__init__.py",
+      "cardhawk.services": "cardhawk/services/__init__.py",
+      "cardhawk.services.asset_service": "cardhawk/services/asset_service.py",
+      "cardhawk.analytics.portfolio_analytics": "cardhawk/analytics/portfolio_analytics.py",
+      "cardhawk.analytics": "cardhawk/analytics/__init__.py",
+      "founder_studio.pages.founder_studio": "founder_studio/pages/founder_studio.py",
+      "aletheus.mesh.models": "aletheus/mesh/models.py",
+      "aletheus.mesh.mesh_core": "aletheus/mesh/mesh_core.py",
+      "aletheus.mesh.events": "aletheus/mesh/events.py",
+      "aletheus.mesh.protocol": "aletheus/mesh/protocol.py",
+      "aletheus.mesh": "aletheus/mesh/__init__.py",
+      "aletheus.mesh.heartbeat": "aletheus/mesh/heartbeat.py",
+      "aletheus.mesh.runtime_registry": "aletheus/mesh/runtime_registry.py",
+      "aletheus.kernel_v2.models": "aletheus/kernel_v2/models.py",
+      "aletheus.kernel_v2": "aletheus/kernel_v2/__init__.py",
+      "aletheus.kernel_v2.kernel_core": "aletheus/kernel_v2/kernel_core.py",
+      "aletheus.persistence_v3.persistence_core": "aletheus/persistence_v3/persistence_core.py",
+      "aletheus.persistence_v3": "aletheus/persistence_v3/__init__.py",
+      "aletheus.knowledge_graph": "aletheus/knowledge_graph/__init__.py",
+      "aletheus.knowledge_graph.graph_core": "aletheus/knowledge_graph/graph_core.py",
+      "aletheus.memory": "aletheus/memory/__init__.py",
+      "aletheus.memory.core": "aletheus/memory/core.py",
+      "aletheus.boot": "aletheus/boot/__init__.py",
+      "aletheus.boot.lighthouse": "aletheus/boot/lighthouse.py",
+      "aletheus.enterprise.models": "aletheus/enterprise/models.py",
+      "aletheus.enterprise.enterprise_core": "aletheus/enterprise/enterprise_core.py",
+      "aletheus.enterprise": "aletheus/enterprise/__init__.py",
+      "aletheus.plugins_v3": "aletheus/plugins_v3/__init__.py",
+      "aletheus.plugins_v3.plugin_core": "aletheus/plugins_v3/plugin_core.py",
+      "aletheus.copilot.models": "aletheus/copilot/models.py",
+      "aletheus.copilot": "aletheus/copilot/__init__.py",
+      "aletheus.copilot.copilot_core": "aletheus/copilot/copilot_core.py",
+      "aletheus.intelligence.models": "aletheus/intelligence/models.py",
+      "aletheus.intelligence": "aletheus/intelligence/__init__.py",
+      "aletheus.intelligence.intelligence_core": "aletheus/intelligence/intelligence_core.py",
+      "aletheus.plugins": "aletheus/plugins/__init__.py",
+      "aletheus.plugins.runtime_plugin": "aletheus/plugins/runtime_plugin.py",
+      "aletheus.plugins.runtime_plugin_manager": "aletheus/plugins/runtime_plugin_manager.py",
+      "aletheus.cognition.models": "aletheus/cognition/models.py",
+      "aletheus.cognition": "aletheus/cognition/__init__.py",
+      "aletheus.cognition.cognition_core": "aletheus/cognition/cognition_core.py",
+      "aletheus.learning.models": "aletheus/learning/models.py",
+      "aletheus.learning.learning_core": "aletheus/learning/learning_core.py",
+      "aletheus.learning": "aletheus/learning/__init__.py",
+      "aletheus.optimization.models": "aletheus/optimization/models.py",
+      "aletheus.optimization.optimization_core": "aletheus/optimization/optimization_core.py",
+      "aletheus.optimization": "aletheus/optimization/__init__.py",
+      "aletheus.decision_v2": "aletheus/decision_v2/__init__.py",
+      "aletheus.decision_v2.decision_core": "aletheus/decision_v2/decision_core.py",
+      "aletheus.platform": "aletheus/platform/__init__.py",
+      "aletheus.platform.platform_layer": "aletheus/platform/platform_layer.py",
+      "aletheus.workspace.models": "aletheus/workspace/models.py",
+      "aletheus.workspace.workspace_core": "aletheus/workspace/workspace_core.py",
+      "aletheus.workspace": "aletheus/workspace/__init__.py",
+      "aletheus.prediction.models": "aletheus/prediction/models.py",
+      "aletheus.prediction": "aletheus/prediction/__init__.py",
+      "aletheus.prediction.prediction_core": "aletheus/prediction/prediction_core.py",
+      "aletheus.telemetry_v3.telemetry_core": "aletheus/telemetry_v3/telemetry_core.py",
+      "aletheus.telemetry_v3": "aletheus/telemetry_v3/__init__.py",
+      "aletheus.agents_v2": "aletheus/agents_v2/__init__.py",
+      "aletheus.agents_v2.agent_core": "aletheus/agents_v2/agent_core.py",
+      "aletheus.runtime.metrics": "aletheus/runtime/metrics.py",
+      "aletheus.runtime.events": "aletheus/runtime/events.py",
+      "aletheus.runtime.diagnostics": "aletheus/runtime/diagnostics.py",
+      "aletheus.runtime": "aletheus/runtime/__init__.py",
+      "aletheus.runtime.core": "aletheus/runtime/core.py",
+      "aletheus.runtime.context": "aletheus/runtime/context.py",
+      "aletheus.runtime.pipeline": "aletheus/runtime/pipeline.py",
+      "aletheus.runtime.scheduler": "aletheus/runtime/scheduler.py",
+      "aletheus.runtime.workflow": "aletheus/runtime/workflow.py",
+      "aletheus.runtime.job_queue": "aletheus/runtime/job_queue.py",
+      "aletheus.runtime.commands": "aletheus/runtime/commands.py",
+      "aletheus.runtime.registries": "aletheus/runtime/registries.py",
+      "aletheus.runtime.hardening": "aletheus/runtime/hardening.py",
+      "aletheus.planning.models": "aletheus/planning/models.py",
+      "aletheus.planning": "aletheus/planning/__init__.py",
+      "aletheus.planning.planning_core": "aletheus/planning/planning_core.py",
+      "aletheus.agents.models": "aletheus/agents/models.py",
+      "aletheus.agents": "aletheus/agents/__init__.py",
+      "aletheus.agents.agent_core": "aletheus/agents/agent_core.py",
+      "aletheus.security_v3.security_core": "aletheus/security_v3/security_core.py",
+      "aletheus.security_v3": "aletheus/security_v3/__init__.py",
+      "aletheus.release": "aletheus/release/__init__.py",
+      "aletheus.release.core": "aletheus/release/core.py",
+      "aletheus.missions_v2.models": "aletheus/missions_v2/models.py",
+      "aletheus.missions_v2.mission_core": "aletheus/missions_v2/mission_core.py",
+      "aletheus.missions_v2": "aletheus/missions_v2/__init__.py",
+      "aletheus.reasoning": "aletheus/reasoning/__init__.py",
+      "aletheus.reasoning.reasoning_core": "aletheus/reasoning/reasoning_core.py",
+      "aletheus.mission.models": "aletheus/mission/models.py",
+      "aletheus.mission.mission_core": "aletheus/mission/mission_core.py",
+      "aletheus.mission": "aletheus/mission/__init__.py",
+      "aletheus.planning_v2": "aletheus/planning_v2/__init__.py",
+      "aletheus.planning_v2.planning_core": "aletheus/planning_v2/planning_core.py",
+      "aletheus.knowledge.models": "aletheus/knowledge/models.py",
+      "aletheus.knowledge": "aletheus/knowledge/__init__.py",
+      "aletheus.knowledge.knowledge_core": "aletheus/knowledge/knowledge_core.py",
+      "aletheus.workflows_v2.models": "aletheus/workflows_v2/models.py",
+      "aletheus.workflows_v2": "aletheus/workflows_v2/__init__.py",
+      "aletheus.workflows_v2.workflow_core": "aletheus/workflows_v2/workflow_core.py",
+      "aletheus.distributed_v3": "aletheus/distributed_v3/__init__.py",
+      "aletheus.distributed_v3.distributed_core": "aletheus/distributed_v3/distributed_core.py",
+      "aletheus.sdk": "aletheus/sdk/__init__.py",
+      "aletheus.sdk.runtime_sdk": "aletheus/sdk/runtime_sdk.py",
+      "aletheus.tenancy_v3": "aletheus/tenancy_v3/__init__.py",
+      "aletheus.tenancy_v3.tenancy_core": "aletheus/tenancy_v3/tenancy_core.py",
+      "aletheus.semantic.models": "aletheus/semantic/models.py",
+      "aletheus.semantic": "aletheus/semantic/__init__.py",
+      "aletheus.semantic.semantic_core": "aletheus/semantic/semantic_core.py",
+      "aletheus.applications.application_core": "aletheus/applications/application_core.py",
+      "aletheus.applications.models": "aletheus/applications/models.py",
+      "aletheus.applications": "aletheus/applications/__init__.py",
+      "aletheus.memory_mesh.models": "aletheus/memory_mesh/models.py",
+      "aletheus.memory_mesh.mesh_core": "aletheus/memory_mesh/mesh_core.py",
+      "aletheus.memory_mesh.memory_index": "aletheus/memory_mesh/memory_index.py",
+      "aletheus.memory_mesh": "aletheus/memory_mesh/__init__.py",
+      "aletheus.memory_mesh.snapshot_manager": "aletheus/memory_mesh/snapshot_manager.py",
+      "aletheus.memory_mesh.versioning": "aletheus/memory_mesh/versioning.py",
+      "aletheus.memory_mesh.replication": "aletheus/memory_mesh/replication.py",
+      "aletheus.memory_mesh.semantic_cache": "aletheus/memory_mesh/semantic_cache.py",
+      "aletheus.event_bus_v3.event_bus_core": "aletheus/event_bus_v3/event_bus_core.py",
+      "aletheus.event_bus_v3": "aletheus/event_bus_v3/__init__.py",
+      "aletheus.atlas": "aletheus/atlas/__init__.py",
+      "aletheus.atlas.atlas_engine": "aletheus/atlas/atlas_engine.py",
+      "aletheus.federation_v3": "aletheus/federation_v3/__init__.py",
+      "aletheus.federation_v3.federation_core": "aletheus/federation_v3/federation_core.py",
+      "aletheus.high_availability_v3.high_availability_core": "aletheus/high_availability_v3/high_availability_core.py",
+      "aletheus.high_availability_v3": "aletheus/high_availability_v3/__init__.py",
+      "aletheus.workflow_v3": "aletheus/workflow_v3/__init__.py",
+      "aletheus.workflow_v3.workflow_core": "aletheus/workflow_v3/workflow_core.py",
+      "aletheus.executive.models": "aletheus/executive/models.py",
+      "aletheus.executive": "aletheus/executive/__init__.py",
+      "aletheus.executive.executive_core": "aletheus/executive/executive_core.py",
+      "aletheus.runtime.conclave.audit": "aletheus/runtime/conclave/audit.py",
+      "aletheus.runtime.conclave.shield": "aletheus/runtime/conclave/shield.py",
+      "aletheus.runtime.conclave.policy": "aletheus/runtime/conclave/policy.py",
+      "aletheus.runtime.conclave": "aletheus/runtime/conclave/__init__.py",
+      "aletheus.runtime.conclave.engine": "aletheus/runtime/conclave/engine.py",
+      "aletheus.runtime.conclave.decoy": "aletheus/runtime/conclave/decoy.py",
+      "aletheus.runtime.compat.registry": "aletheus/runtime/compat/registry.py",
+      "aletheus.runtime.compat": "aletheus/runtime/compat/__init__.py",
+      "aletheus.runtime.compat.aliases": "aletheus/runtime/compat/aliases.py",
+      "aletheus.runtime.compat.resolver": "aletheus/runtime/compat/resolver.py",
+      "aletheus.runtime.compat.contracts": "aletheus/runtime/compat/contracts.py",
+      "aletheus.runtime.compat.adapters": "aletheus/runtime/compat/adapters.py",
+      "aletheus.runtime.bootstrap": "aletheus/runtime/bootstrap/__init__.py",
+      "aletheus.runtime.bootstrap.bootstrap_engine": "aletheus/runtime/bootstrap/bootstrap_engine.py",
+      "aletheus.runtime.boot.services": "aletheus/runtime/boot/services.py",
+      "aletheus.runtime.boot.version": "aletheus/runtime/boot/version.py",
+      "aletheus.runtime.boot": "aletheus/runtime/boot/__init__.py",
+      "aletheus.runtime.boot.commands": "aletheus/runtime/boot/commands.py",
+      "aletheus.runtime.inspector": "aletheus/runtime/inspector/__init__.py",
+      "aletheus.runtime.inspector.runtime_inspector": "aletheus/runtime/inspector/runtime_inspector.py",
+      "aletheus.runtime.manifest.manifest_core": "aletheus/runtime/manifest/manifest_core.py",
+      "aletheus.runtime.manifest": "aletheus/runtime/manifest/__init__.py",
+      "aletheus.runtime.managers.lifecycle_manager": "aletheus/runtime/managers/lifecycle_manager.py",
+      "aletheus.runtime.managers": "aletheus/runtime/managers/__init__.py",
+      "aletheus.runtime.managers.runtime_inspector": "aletheus/runtime/managers/runtime_inspector.py",
+      "aletheus.runtime.managers.registration_manager": "aletheus/runtime/managers/registration_manager.py",
+      "aletheus.runtime.sentinel.models": "aletheus/runtime/sentinel/models.py",
+      "aletheus.runtime.sentinel": "aletheus/runtime/sentinel/__init__.py",
+      "aletheus.runtime.sentinel.engine": "aletheus/runtime/sentinel/engine.py",
+      "aletheus.runtime.applications": "aletheus/runtime/applications/__init__.py",
+      "aletheus.runtime.applications.application_runtime": "aletheus/runtime/applications/application_runtime.py",
+      "aletheus.runtime.governance": "aletheus/runtime/governance/__init__.py",
+      "aletheus.runtime.governance.principle_x": "aletheus/runtime/governance/principle_x.py",
+      "aletheus.runtime.governance.governance_core": "aletheus/runtime/governance/governance_core.py",
+      "aletheus.runtime.integrity.boot_validator": "aletheus/runtime/integrity/boot_validator.py",
+      "aletheus.runtime.integrity": "aletheus/runtime/integrity/__init__.py",
+      "aletheus.runtime.integrity.doctor": "aletheus/runtime/integrity/doctor.py",
+      "aletheus.runtime.integrity.invariants": "aletheus/runtime/integrity/invariants.py",
+      "aletheus.runtime.guardian.kernel": "aletheus/runtime/guardian/kernel.py",
+      "aletheus.runtime.guardian.models": "aletheus/runtime/guardian/models.py",
+      "aletheus.runtime.guardian": "aletheus/runtime/guardian/__init__.py",
+      "aletheus.runtime.modules.runtime_commands": "aletheus/runtime/modules/runtime_commands.py",
+      "aletheus.runtime.modules": "aletheus/runtime/modules/__init__.py",
+      "aletheus.runtime.modules.runtime_health": "aletheus/runtime/modules/runtime_health.py",
+      "aletheus.runtime.modules.service_registration": "aletheus/runtime/modules/service_registration.py",
+      "aletheus.runtime.modules.runtime_boot": "aletheus/runtime/modules/runtime_boot.py",
+      "aletheus.runtime.builder.build_core": "aletheus/runtime/builder/build_core.py",
+      "aletheus.runtime.builder": "aletheus/runtime/builder/__init__.py",
+      "aletheus.runtime.handlers": "aletheus/runtime/handlers/__init__.py",
+      "aletheus.runtime.services": "aletheus/runtime/services/__init__.py",
+      "aletheus.runtime.services.service_registry": "aletheus/runtime/services/service_registry.py",
+      "aletheus.runtime.kernel.dispatcher": "aletheus/runtime/kernel/dispatcher.py",
+      "aletheus.runtime.kernel.supervisor": "aletheus/runtime/kernel/supervisor.py",
+      "aletheus.runtime.kernel": "aletheus/runtime/kernel/__init__.py",
+      "aletheus.runtime.kernel.orchestrator": "aletheus/runtime/kernel/orchestrator.py",
+      "aletheus.runtime.kernel.scheduler": "aletheus/runtime/kernel/scheduler.py",
+      "aletheus.runtime.kernel.executor": "aletheus/runtime/kernel/executor.py",
+      "aletheus.runtime.registrations.copilot_commands": "aletheus/runtime/registrations/copilot_commands.py",
+      "aletheus.runtime.registrations.executive_commands": "aletheus/runtime/registrations/executive_commands.py",
+      "aletheus.runtime.registrations.decision_commands": "aletheus/runtime/registrations/decision_commands.py",
+      "aletheus.runtime.registrations.memory_commands": "aletheus/runtime/registrations/memory_commands.py",
+      "aletheus.runtime.registrations.runtime_commands": "aletheus/runtime/registrations/runtime_commands.py",
+      "aletheus.runtime.registrations": "aletheus/runtime/registrations/__init__.py",
+      "aletheus.runtime.registrations.graph_commands": "aletheus/runtime/registrations/graph_commands.py",
+      "aletheus.runtime.registrations.planning_commands": "aletheus/runtime/registrations/planning_commands.py",
+      "aletheus.runtime.registrations.semantic_commands": "aletheus/runtime/registrations/semantic_commands.py",
+      "aletheus.runtime.registrations.application_commands": "aletheus/runtime/registrations/application_commands.py",
+      "aletheus.runtime.registrations.mission_commands": "aletheus/runtime/registrations/mission_commands.py",
+      "aletheus.runtime.registrations.agent_commands": "aletheus/runtime/registrations/agent_commands.py",
+      "aletheus.runtime.registrations.reasoning_commands": "aletheus/runtime/registrations/reasoning_commands.py",
+      "aletheus.runtime.registrations.workspace_commands": "aletheus/runtime/registrations/workspace_commands.py",
+      "aletheus.runtime.registrations.uil_commands": "aletheus/runtime/registrations/uil_commands.py",
+      "components.chds.metrics": "components/chds/metrics.py",
+      "components.chds.asset_gallery": "components/chds/asset_gallery.py",
+      "components.chds.market_widget": "components/chds/market_widget.py",
+      "components.chds.runtime_card": "components/chds/runtime_card.py",
+      "components.chds.timeline": "components/chds/timeline.py",
+      "components.chds.portfolio_health_card": "components/chds/portfolio_health_card.py",
+      "components.chds.engine_health": "components/chds/engine_health.py",
+      "components.chds.theme": "components/chds/theme.py",
+      "components.chds.page_header": "components/chds/page_header.py",
+      "components.chds.marketplace_card": "components/chds/marketplace_card.py",
+      "components.chds.portfolio_health": "components/chds/portfolio_health.py",
+      "components.chds.layout": "components/chds/layout.py",
+      "components.chds.status_badge": "components/chds/status_badge.py",
+      "components.chds.def_card": "components/chds/def_card.py",
+      "components.chds.intelligence_workspace": "components/chds/intelligence_workspace.py",
+      "components.chds.cards": "components/chds/cards.py",
+      "components.chds": "components/chds/__init__.py",
+      "components.chds.orchestrator_card": "components/chds/orchestrator_card.py",
+      "components.chds.intelligence_panel": "components/chds/intelligence_panel.py",
+      "components.chds.timeline_card": "components/chds/timeline_card.py",
+      "components.chds.asset_table": "components/chds/asset_table.py",
+      "components.chds.falcon_card": "components/chds/falcon_card.py",
+      "components.chds.hero_banner": "components/chds/hero_banner.py",
+      "components.chds.kpi_panel": "components/chds/kpi_panel.py",
+      "components.chds.runtime_status": "components/chds/runtime_status.py",
+      "components.chds.info_card": "components/chds/info_card.py",
+      "components.chds.asset_card": "components/chds/asset_card.py",
+      "components.chds.chart_card": "components/chds/chart_card.py",
+      "components.chds.metric_card": "components/chds/metric_card.py",
+      "components.chds.runtime_monitor": "components/chds/runtime_monitor.py",
+      "components.chds.dashboard_grid": "components/chds/dashboard_grid.py",
+      "components.chds.section_header": "components/chds/section_header.py",
+      "components.chds.core.bootstrap": "components/chds/core/bootstrap.py",
+      "components.chds.core": "components/chds/core/__init__.py",
+      "components.chds.shell.sidebar": "components/chds/shell/sidebar.py",
+      "components.chds.shell": "components/chds/shell/__init__.py",
+      "components.chds.charts": "components/chds/charts/__init__.py",
+      "components.chds.charts.portfolio": "components/chds/charts/portfolio.py",
+      "live_platform.pages.digital_twin": "live_platform/pages/digital_twin.py",
+      "live_platform.pages.universal_asset_viewer": "live_platform/pages/universal_asset_viewer.py",
+      "live_platform.pages.founder_workspace": "live_platform/pages/founder_workspace.py",
+      "live_platform.pages.marketplace_intelligence": "live_platform/pages/marketplace_intelligence.py",
+      "live_platform.pages.intelligence_everywhere": "live_platform/pages/intelligence_everywhere.py",
+      "live_platform.pages.live_dashboard": "live_platform/pages/live_dashboard.py",
+      "integrations.mercari": "integrations/mercari/__init__.py",
+      "integrations.fanatics": "integrations/fanatics/__init__.py",
+      "integrations.whatnot": "integrations/whatnot/__init__.py",
+      "integrations.comc": "integrations/comc/__init__.py",
+      "integrations.ebay": "integrations/ebay/__init__.py",
+      "integrations.sgc": "integrations/sgc/__init__.py",
+      "integrations.beckett": "integrations/beckett/__init__.py",
+      "integrations.sportscardspro": "integrations/sportscardspro/__init__.py",
+      "integrations.psa": "integrations/psa/__init__.py",
+      "hawk_aeye.parsers.card_parser": "hawk_aeye/parsers/card_parser.py",
+      "hawk_aeye.parsers": "hawk_aeye/parsers/__init__.py",
+      "hawk_aeye.runtime.service": "hawk_aeye/runtime/service.py",
+      "hawk_aeye.runtime": "hawk_aeye/runtime/__init__.py",
+      "hawk_aeye.runtime.engine": "hawk_aeye/runtime/engine.py",
+      "hawk_aeye.runtime.pipeline": "hawk_aeye/runtime/pipeline.py",
+      "hawk_aeye.runtime.extract": "hawk_aeye/runtime/extract.py",
+      "hawk_aeye.tests": "hawk_aeye/tests/__init__.py",
+      "hawk_aeye.ocr": "hawk_aeye/ocr/__init__.py",
+      "hawk_aeye.ocr.tesseract_engine": "hawk_aeye/ocr/tesseract_engine.py",
+      "hawk_aeye.models": "hawk_aeye/models/__init__.py",
+      "hawk_aeye.models.card_fields": "hawk_aeye/models/card_fields.py",
+      "hawk_aeye.vision.parallel_detector": "hawk_aeye/vision/parallel_detector.py",
+      "hawk_aeye.vision.slab_detector": "hawk_aeye/vision/slab_detector.py",
+      "hawk_aeye.vision": "hawk_aeye/vision/__init__.py",
+      "hawk_aeye.vision.image_intelligence": "hawk_aeye/vision/image_intelligence.py",
+      "hawk_aeye.vision.color_detector": "hawk_aeye/vision/color_detector.py",
+      "hawk_aeye.vision.patch_detector": "hawk_aeye/vision/patch_detector.py",
+      "hawk_aeye.vision.vision_engine": "hawk_aeye/vision/vision_engine.py",
+      "hawk_aeye.vision.auto_detector": "hawk_aeye/vision/auto_detector.py",
+      "hawk_aeye.knowledge.database": "hawk_aeye/knowledge/database.py",
+      "hawk_aeye.knowledge": "hawk_aeye/knowledge/__init__.py",
+      "hawk_aeye.preprocessing.image_processor": "hawk_aeye/preprocessing/image_processor.py",
+      "hawk_aeye.preprocessing": "hawk_aeye/preprocessing/__init__.py",
+      "live_data.providers.demo_provider": "live_data/providers/demo_provider.py",
+      "live_data.providers.provider_contract": "live_data/providers/provider_contract.py",
+      "live_data.comps.comp_engine": "live_data/comps/comp_engine.py",
+      "live_data.pages.live_market": "live_data/pages/live_market.py",
+      "live_data.pricing.pricing_engine": "live_data/pricing/pricing_engine.py",
+      "live_data.watchlist.live_watchlist": "live_data/watchlist/live_watchlist.py",
+      "adaptive_intelligence.research.research_workspace": "adaptive_intelligence/research/research_workspace.py",
+      "adaptive_intelligence.quality.quality_dashboard": "adaptive_intelligence/quality/quality_dashboard.py",
+      "adaptive_intelligence.plugins.plugin_framework": "adaptive_intelligence/plugins/plugin_framework.py",
+      "adaptive_intelligence.simulation.simulation_lab": "adaptive_intelligence/simulation/simulation_lab.py",
+      "adaptive_intelligence.explainability.explainer": "adaptive_intelligence/explainability/explainer.py",
+      "adaptive_intelligence.feedback.feedback_loop": "adaptive_intelligence/feedback/feedback_loop.py",
+      "adaptive_intelligence.deployment.deployment_profiles": "adaptive_intelligence/deployment/deployment_profiles.py",
+      "adaptive_intelligence.governance.platform_governance": "adaptive_intelligence/governance/platform_governance.py",
+      "adaptive_intelligence.pages.adaptive_dashboard": "adaptive_intelligence/pages/adaptive_dashboard.py",
+      "workflows.runtime": "workflows/runtime/__init__.py",
+      "workflows.runtime.engine": "workflows/runtime/engine.py",
+      "runtime.workflows": "runtime/workflows/__init__.py",
+      "runtime.workers": "runtime/workers/__init__.py",
+      "runtime.jobs.process_upload": "runtime/jobs/process_upload.py",
+      "runtime.jobs": "runtime/jobs/__init__.py",
+      "runtime.jobs.job_runner": "runtime/jobs/job_runner.py",
+      "runtime.jobs.demo": "runtime/jobs/demo.py",
+      "runtime.orchestrator": "runtime/orchestrator/__init__.py",
+      "runtime.registrations.runtime_commands": "runtime/registrations/runtime_commands.py",
+      "runtime.registrations._init_": "runtime/registrations/_init_.py",
+      "runtime.registrations.uil_commands": "runtime/registrations/uil_commands.py",
+      "marketplace.connectors.sportcardspro": "marketplace/connectors/sportcardspro.py",
+      "marketplace.connectors.ebay": "marketplace/connectors/ebay.py",
+      "marketplace.connectors.comc": "marketplace/connectors/comc.py",
+      "marketplace.connectors": "marketplace/connectors/__init__.py",
+      "marketplace.connectors.mercari_connector": "marketplace/connectors/mercari_connector.py",
+      "marketplace.connectors.cardladder": "marketplace/connectors/cardladder.py",
+      "marketplace.connectors.comc_connector": "marketplace/connectors/comc_connector.py",
+      "marketplace.connectors.fanatics_connector": "marketplace/connectors/fanatics_connector.py",
+      "marketplace.connectors.goldin_connector": "marketplace/connectors/goldin_connector.py",
+      "marketplace.connectors.ebay_connector": "marketplace/connectors/ebay_connector.py",
+      "marketplace.connectors.manager": "marketplace/connectors/manager.py",
+      "marketplace.connectors.base": "marketplace/connectors/base.py",
+      "marketplace.parsers.listing_parser": "marketplace/parsers/listing_parser.py",
+      "marketplace.providers.base_provider": "marketplace/providers/base_provider.py",
+      "marketplace.providers.ebay_provider": "marketplace/providers/ebay_provider.py",
+      "marketplace.providers.comc_provider": "marketplace/providers/comc_provider.py",
+      "marketplace.providers": "marketplace/providers/__init__.py",
+      "marketplace.providers.cardladder_provider": "marketplace/providers/cardladder_provider.py",
+      "marketplace.runtime.service": "marketplace/runtime/service.py",
+      "marketplace.runtime.market_snapshot": "marketplace/runtime/market_snapshot.py",
+      "marketplace.runtime": "marketplace/runtime/__init__.py",
+      "marketplace.runtime.valuation_engine": "marketplace/runtime/valuation_engine.py",
+      "marketplace.runtime.value": "marketplace/runtime/value.py",
+      "marketplace.runtime.comps": "marketplace/runtime/comps.py",
+      "marketplace.pricing.pricing_service": "marketplace/pricing/pricing_service.py",
+      "workflow_automation.pages.workflows": "workflow_automation/pages/workflows.py",
+      "contracts.messages": "contracts/messages/__init__.py",
+      "contracts.messages.asset_message": "contracts/messages/asset_message.py",
+      "contracts.events": "contracts/events/__init__.py",
+      "contracts.events.names": "contracts/events/names.py",
+      "cardhawkos.boot": "cardhawkos/boot/__init__.py",
+      "cardhawkos.boot.boot_manager": "cardhawkos/boot/boot_manager.py",
+      "cardhawkos.config": "cardhawkos/config/__init__.py",
+      "cardhawkos.config.settings": "cardhawkos/config/settings.py",
+      "cardhawkos.runtime.registry": "cardhawkos/runtime/registry.py",
+      "cardhawkos.runtime.health": "cardhawkos/runtime/health.py",
+      "cardhawkos.runtime.cache": "cardhawkos/runtime/cache.py",
+      "cardhawkos.runtime": "cardhawkos/runtime/__init__.py",
+      "cardhawkos.runtime.logger": "cardhawkos/runtime/logger.py",
+      "cardhawkos.runtime.service_registry": "cardhawkos/runtime/service_registry.py",
+      "cardhawkos.runtime.orchestrator": "cardhawkos/runtime/orchestrator.py",
+      "cardhawkos.kernel.kernel": "cardhawkos/kernel/kernel.py",
+      "cardhawkos.kernel": "cardhawkos/kernel/__init__.py",
+      "intelligence.journal.event_journal": "intelligence/journal/event_journal.py",
+      "intelligence.journal": "intelligence/journal/__init__.py",
+      "intelligence.journal.replay": "intelligence/journal/replay.py",
+      "intelligence.runtime": "intelligence/runtime/__init__.py",
+      "intelligence.runtime.output_store": "intelligence/runtime/output_store.py",
+      "intelligence.projections": "intelligence/projections/__init__.py",
+      "intelligence.projections.manager": "intelligence/projections/manager.py",
+      "intelligence.projections.base": "intelligence/projections/base.py",
+      "intelligence.fabric.event": "intelligence/fabric/event.py",
+      "intelligence.fabric": "intelligence/fabric/__init__.py",
+      "intelligence.fabric.context": "intelligence/fabric/context.py",
+      "intelligence.replay": "intelligence/replay/__init__.py",
+      "intelligence.replay.replay_engine": "intelligence/replay/replay_engine.py",
+      "intelligence.replay.event_store": "intelligence/replay/event_store.py",
+      "intelligence.replay.rebuild": "intelligence/replay/rebuild.py",
+      "intelligence.events.dispatcher": "intelligence/events/dispatcher.py",
+      "intelligence.events.events": "intelligence/events/events.py",
+      "intelligence.events": "intelligence/events/__init__.py",
+      "legacy_backup.distributed_legacy.models": "legacy_backup/distributed_legacy/models.py",
+      "legacy_backup.distributed_legacy": "legacy_backup/distributed_legacy/__init__.py",
+      "legacy_backup.distributed_legacy.distributed_core": "legacy_backup/distributed_legacy/distributed_core.py",
+      "production_hardening.pages.production_hardening": "production_hardening/pages/production_hardening.py",
+      "asset_core.repository.asset_repository": "asset_core/repository/asset_repository.py",
+      "asset_core.repository.sqlite_repository": "asset_core/repository/sqlite_repository.py",
+      "asset_core.repository": "asset_core/repository/__init__.py",
+      "asset_core.runtime.enrichment": "asset_core/runtime/enrichment.py",
+      "asset_core.runtime.intake_pipeline": "asset_core/runtime/intake_pipeline.py",
+      "asset_core.runtime": "asset_core/runtime/__init__.py",
+      "asset_core.runtime.image_service": "asset_core/runtime/image_service.py",
+      "asset_core.runtime.demo": "asset_core/runtime/demo.py",
+      "asset_core.runtime.image_repository": "asset_core/runtime/image_repository.py",
+      "asset_core.workflows": "asset_core/workflows/__init__.py",
+      "asset_core.workflows.asset_pipeline": "asset_core/workflows/asset_pipeline.py",
+      "asset_core.projections": "asset_core/projections/__init__.py",
+      "asset_core.commands": "asset_core/commands/__init__.py",
+      "asset_core.events": "asset_core/events/__init__.py",
+      "asset_core.handlers": "asset_core/handlers/__init__.py",
+      "asset_core.handlers.asset_created": "asset_core/handlers/asset_created.py",
+      "tools.verification.verify_v28": "tools/verification/verify_v28.py",
+      "tools.verification.verify_v39_runtime": "tools/verification/verify_v39_runtime.py",
+      "tools.verification.verify_v33_runtime": "tools/verification/verify_v33_runtime.py",
+      "tools.verification.verify_v40_runtime": "tools/verification/verify_v40_runtime.py",
+      "tools.verification.verify_v36_runtime": "tools/verification/verify_v36_runtime.py",
+      "tools.verification.verify_v35_runtime": "tools/verification/verify_v35_runtime.py",
+      "tools.verification.verify_v37_runtime": "tools/verification/verify_v37_runtime.py",
+      "tools.verification.verify_v32_runtime": "tools/verification/verify_v32_runtime.py",
+      "tools.cleanup.cleanup_accidental_files": "tools/cleanup/cleanup_accidental_files.py",
+      "tools.maintenance.release_cleanup": "tools/maintenance/release_cleanup.py",
+      "tools.maintenance.check_project_hygiene": "tools/maintenance/check_project_hygiene.py",
+      "tools.maintenance.run_atlas": "tools/maintenance/run_atlas.py",
+      "tools.maintenance.run_watch_tower": "tools/maintenance/run_watch_tower.py",
+      "tools.maintenance.run_guardian_kernel": "tools/maintenance/run_guardian_kernel.py",
+      "tools.maintenance.run_platform_layer": "tools/maintenance/run_platform_layer.py",
+      "tools.maintenance.build_guardian_kernel": "tools/maintenance/build_guardian_kernel.py",
+      "tools.maintenance.run_conclave": "tools/maintenance/run_conclave.py",
+      "tools.maintenance.run_lighthouse": "tools/maintenance/run_lighthouse.py",
+      "tools.maintenance.run_sentinel": "tools/maintenance/run_sentinel.py",
+      "tools.migration.setup_v411_engineering_foundation": "tools/migration/setup_v411_engineering_foundation.py",
+      "tools.experiments.debug.debug_v36_high_availability": "tools/experiments/debug/debug_v36_high_availability.py",
+      "tools.experiments.debug.debug_v32_runner": "tools/experiments/debug/debug_v32_runner.py",
+      "tools.experiments.debug.debug_v27_commands": "tools/experiments/debug/debug_v27_commands.py",
+      "tools.experiments.debug.debug_state_bootstrap": "tools/experiments/debug/debug_state_bootstrap.py",
+      "tools.experiments.debug.debug_v33_event_bus": "tools/experiments/debug/debug_v33_event_bus.py",
+      "tools.experiments.debug.debug_cluster_bootstrap": "tools/experiments/debug/debug_cluster_bootstrap.py",
+      "tools.experiments.debug.debug_v32_persistence": "tools/experiments/debug/debug_v32_persistence.py",
+      "tools.patches.v4.2.fix_v421_known_errors": "tools/patches/v4.2/fix_v421_known_errors.py",
+      "tools.patches.v4.2.patch_v421_integrity_runtime": "tools/patches/v4.2/patch_v421_integrity_runtime.py",
+      "tools.patches.v4.3.patch_v431_principle_x": "tools/patches/v4.3/patch_v431_principle_x.py",
+      "tools.patches.v4.3.patch_v430_runtime_governance": "tools/patches/v4.3/patch_v430_runtime_governance.py",
+      "tools.patches.v4.4.patch_v440_service_registry": "tools/patches/v4.4/patch_v440_service_registry.py",
+      "tools.patches.v4.4.fix_v440_remove_legacy_registration_block": "tools/patches/v4.4/fix_v440_remove_legacy_registration_block.py",
+      "tools.patches.v4.4.fix_v440_service_registry_order": "tools/patches/v4.4/fix_v440_service_registry_order.py",
+      "tools.patches.v4.4.fix_v13_runtime_agents": "tools/patches/v4.4/fix_v13_runtime_agents.py",
+      "tools.patches.v4.4.fix_v440_runtime_order": "tools/patches/v4.4/fix_v440_runtime_order.py",
+      "tools.patches.v4.4.fix_v440_duplicate_registrations": "tools/patches/v4.4/fix_v440_duplicate_registrations.py",
+      "tools.patches.v5.0.fix_v501_core_registration_exports": "tools/patches/v5.0/fix_v501_core_registration_exports.py",
+      "tools.patches.v2.patch_v28_runtime": "tools/patches/v2/patch_v28_runtime.py",
+      "tools.patches.v2.patch_v27_register_default_agents": "tools/patches/v2/patch_v27_register_default_agents.py",
+      "tools.patches.v2.patch_v25_runtime": "tools/patches/v2/patch_v25_runtime.py",
+      "tools.patches.v2.patch_v27_fix_agents_version": "tools/patches/v2/patch_v27_fix_agents_version.py",
+      "tools.patches.v2.patch_v27_missing_agent_handlers": "tools/patches/v2/patch_v27_missing_agent_handlers.py",
+      "tools.patches.v2.patch_v25_service_registration": "tools/patches/v2/patch_v25_service_registration.py",
+      "tools.patches.v2.patch_v25_complete_reasoning_runtime": "tools/patches/v2/patch_v25_complete_reasoning_runtime.py",
+      "tools.patches.v2.patch_v25_diagnostics_fix": "tools/patches/v2/patch_v25_diagnostics_fix.py",
+      "tools.patches.v2.patch_v20b_runtime": "tools/patches/v2/patch_v20b_runtime.py",
+      "tools.patches.v2.patch_v27_runtime": "tools/patches/v2/patch_v27_runtime.py",
+      "tools.patches.v2.patch_v27_agent_runtime_api": "tools/patches/v2/patch_v27_agent_runtime_api.py",
+      "tools.patches.v2.patch_v22_runtime": "tools/patches/v2/patch_v22_runtime.py",
+      "tools.patches.v2.patch_v21_runtime": "tools/patches/v2/patch_v21_runtime.py",
+      "tools.patches.v2.patch_v20d_runtime": "tools/patches/v2/patch_v20d_runtime.py",
+      "tools.patches.v2.patch_v29_runtime": "tools/patches/v2/patch_v29_runtime.py",
+      "tools.patches.v2.patch_v24_runtime": "tools/patches/v2/patch_v24_runtime.py",
+      "tools.patches.v2.patch_v29_fix_planning_version": "tools/patches/v2/patch_v29_fix_planning_version.py",
+      "tools.patches.v2.patch_v25_register_reasoning_commands": "tools/patches/v2/patch_v25_register_reasoning_commands.py",
+      "tools.patches.v2.patch_v27_register_commands": "tools/patches/v2/patch_v27_register_commands.py",
+      "tools.patches.v2.patch_v23_runtime": "tools/patches/v2/patch_v23_runtime.py",
+      "tools.patches.v2.patch_v29_plan_handlers": "tools/patches/v2/patch_v29_plan_handlers.py",
+      "tools.patches.v2.patch_v28_workflow_handlers": "tools/patches/v2/patch_v28_workflow_handlers.py",
+      "tools.patches.v2.patch_v27_agent_handlers": "tools/patches/v2/patch_v27_agent_handlers.py",
+      "tools.patches.v2.patch_v25_runtime_safe": "tools/patches/v2/patch_v25_runtime_safe.py",
+      "tools.patches.v2.patch_v29_runtime_compatibility": "tools/patches/v2/patch_v29_runtime_compatibility.py",
+      "tools.patches.v2.patch_v25_reasoning_service": "tools/patches/v2/patch_v25_reasoning_service.py",
+      "tools.patches.v2.patch_v20c_runtime": "tools/patches/v2/patch_v20c_runtime.py",
+      "tools.patches.v2.patch_v26_runtime": "tools/patches/v2/patch_v26_runtime.py",
+      "tools.patches.v3.patch_v301_canonical_distributed": "tools/patches/v3/patch_v301_canonical_distributed.py",
+      "tools.patches.v3.patch_v34_runtime": "tools/patches/v3/patch_v34_runtime.py",
+      "tools.patches.v3.patch_v33_add_handlers": "tools/patches/v3/patch_v33_add_handlers.py",
+      "tools.patches.v3.patch_v30_compatibility_api": "tools/patches/v3/patch_v30_compatibility_api.py",
+      "tools.patches.v3.patch_v35_fix_diagnostics": "tools/patches/v3/patch_v35_fix_diagnostics.py",
+      "tools.patches.v3.patch_v36_fix_diagnostics": "tools/patches/v3/patch_v36_fix_diagnostics.py",
+      "tools.patches.v3.patch_v34_fix_federation_recursion": "tools/patches/v3/patch_v34_fix_federation_recursion.py",
+      "tools.patches.v3.patch_v32_register_state_commands": "tools/patches/v3/patch_v32_register_state_commands.py",
+      "tools.patches.v3.patch_v34_add_handlers": "tools/patches/v3/patch_v34_add_handlers.py",
+      "tools.patches.v3.patch_v36_runtime_repair": "tools/patches/v3/patch_v36_runtime_repair.py",
+      "tools.patches.v3.patch_v30_fix_bootstrap": "tools/patches/v3/patch_v30_fix_bootstrap.py",
+      "tools.patches.v3.patch_v36_runtime": "tools/patches/v3/patch_v36_runtime.py",
+      "tools.patches.v3.patch_v35_add_handlers": "tools/patches/v3/patch_v35_add_handlers.py",
+      "tools.patches.v3.patch_v31_runtime_registration": "tools/patches/v3/patch_v31_runtime_registration.py",
+      "tools.patches.v3.patch_v30_register_missing_cluster_commands": "tools/patches/v3/patch_v30_register_missing_cluster_commands.py",
+      "tools.patches.v3.patch_v33_fix_diagnostics": "tools/patches/v3/patch_v33_fix_diagnostics.py",
+      "tools.patches.v3.patch_v33_runtime": "tools/patches/v3/patch_v33_runtime.py",
+      "tools.patches.v3.patch_v32_add_handlers": "tools/patches/v3/patch_v32_add_handlers.py",
+      "tools.patches.v3.patch_v32_fix_recursion": "tools/patches/v3/patch_v32_fix_recursion.py",
+      "tools.patches.v3.patch_v31_add_plugin_handlers": "tools/patches/v3/patch_v31_add_plugin_handlers.py",
+      "tools.patches.v3.patch_v32_fix_diagnostics": "tools/patches/v3/patch_v32_fix_diagnostics.py",
+      "tools.patches.v3.patch_v31_register_plugin_commands": "tools/patches/v3/patch_v31_register_plugin_commands.py",
+      "tools.patches.v3.patch_v30_alias_distributed": "tools/patches/v3/patch_v30_alias_distributed.py",
+      "tools.patches.v3.patch_v30_cluster_handlers": "tools/patches/v3/patch_v30_cluster_handlers.py",
+      "tools.patches.v3.patch_v30_runtime": "tools/patches/v3/patch_v30_runtime.py",
+      "tools.patches.v3.patch_v35_runtime": "tools/patches/v3/patch_v35_runtime.py",
+      "tools.patches.v3.patch_v32_harden_persistence": "tools/patches/v3/patch_v32_harden_persistence.py",
+      "tools.patches.v3.patch_v301_runtime_unification": "tools/patches/v3/patch_v301_runtime_unification.py",
+      "tools.patches.v3.patch_v31_fix_diagnostics": "tools/patches/v3/patch_v31_fix_diagnostics.py",
+      "tools.patches.v3.patch_v30_fix_cluster_bootstrap_handler": "tools/patches/v3/patch_v30_fix_cluster_bootstrap_handler.py",
+      "tools.patches.v3.patch_v36_runtime_v2": "tools/patches/v3/patch_v36_runtime_v2.py",
+      "tools.patches.v3.patch_v32_runtime": "tools/patches/v3/patch_v32_runtime.py",
+      "tools.patches.v3.patch_v36_add_handlers": "tools/patches/v3/patch_v36_add_handlers.py",
+      "tools.patches.v3.patch_v34_fix_diagnostics": "tools/patches/v3/patch_v34_fix_diagnostics.py",
+      "tools.patches.v3.patch_v31_register_plugin_service": "tools/patches/v3/patch_v31_register_plugin_service.py",
+      "tools.patches.v3.patch_v36_runtime_init": "tools/patches/v3/patch_v36_runtime_init.py",
+      "tools.patches.v4.1.patch_v41_finalize_bootstrap": "tools/patches/v4.1/patch_v41_finalize_bootstrap.py",
+      "tools.patches.v4.1.patch_v41_add_compat_commands": "tools/patches/v4.1/patch_v41_add_compat_commands.py",
+      "tools.patches.v4.1.patch_v41_remove_compat_debug": "tools/patches/v4.1/patch_v41_remove_compat_debug.py",
+      "tools.patches.v4.1.patch_v411_runtime_commands": "tools/patches/v4.1/patch_v411_runtime_commands.py",
+      "tools.patches.v4.1.patch_v41_eventbus_source_compat": "tools/patches/v4.1/patch_v41_eventbus_source_compat.py",
+      "tools.patches.v4.1.patch_v41_add_compat_commands_final": "tools/patches/v4.1/patch_v41_add_compat_commands_final.py",
+      "tools.patches.v4.1.patch_v41_fix_import_block": "tools/patches/v4.1/patch_v41_fix_import_block.py",
+      "tools.patches.v4.1.patch_v41_rebuild_kernel_bootstrap": "tools/patches/v4.1/patch_v41_rebuild_kernel_bootstrap.py",
+      "tools.patches.v4.1.patch_v41_rebuild_compat_block": "tools/patches/v4.1/patch_v41_rebuild_compat_block.py",
+      "tools.patches.v4.1.patch_v41_fix_bootstrap_order_final": "tools/patches/v4.1/patch_v41_fix_bootstrap_order_final.py",
+      "tools.patches.v4.1.patch_v41_place_bootstrap_before_boot": "tools/patches/v4.1/patch_v41_place_bootstrap_before_boot.py",
+      "tools.patches.v4.1.patch_v41_fix_kernel_bootstrap_syntax": "tools/patches/v4.1/patch_v41_fix_kernel_bootstrap_syntax.py",
+      "tools.patches.v4.1.patch_v41_debug_registry": "tools/patches/v4.1/patch_v41_debug_registry.py",
+      "tools.patches.v4.1.patch_v41_fix_runtime_compat": "tools/patches/v4.1/patch_v41_fix_runtime_compat.py",
+      "tools.patches.v4.1.patch_v41_complete": "tools/patches/v4.1/patch_v41_complete.py",
+      "tools.patches.v4.1.patch_v41_fix_registry_statistics": "tools/patches/v4.1/patch_v41_fix_registry_statistics.py",
+      "tools.patches.v4.1.patch_v41_final_compat_fix": "tools/patches/v4.1/patch_v41_final_compat_fix.py",
+      "tools.patches.v4.1.patch_v41_move_bootstrap": "tools/patches/v4.1/patch_v41_move_bootstrap.py",
+      "tools.patches.v4.1.patch_v41_eventbus_publish_compat": "tools/patches/v4.1/patch_v41_eventbus_publish_compat.py",
+      "tools.patches.v4.1.patch_v41_fix_registry_registration": "tools/patches/v4.1/patch_v41_fix_registry_registration.py",
+      "tools.patches.v4.1.patch_v41_runtime_compat_init": "tools/patches/v4.1/patch_v41_runtime_compat_init.py",
+      "tools.patches.v4.1.patch_v41_fix_eventbus_signature": "tools/patches/v4.1/patch_v41_fix_eventbus_signature.py",
+      "tools.patches.v4.6.patch_v462_memory_registration_redirect": "tools/patches/v4.6/patch_v462_memory_registration_redirect.py",
+      "tools.patches.v4.6.fix_v462_memory_import": "tools/patches/v4.6/fix_v462_memory_import.py",
+      "tools.patches.v4.6.patch_v461_runtime_registration_redirect": "tools/patches/v4.6/patch_v461_runtime_registration_redirect.py",
+      "tools.patches.v4.0.patch_v40_agent_stats_compat": "tools/patches/v4.0/patch_v40_agent_stats_compat.py",
+      "tools.patches.v4.0.patch_v40_fix_planning_alias": "tools/patches/v4.0/patch_v40_fix_planning_alias.py",
+      "tools.patches.v4.0.patch_v40_kernel_runtime": "tools/patches/v4.0/patch_v40_kernel_runtime.py",
+      "tools.patches.v4.0.patch_v40_kernel_executor": "tools/patches/v4.0/patch_v40_kernel_executor.py",
+      "tools.patches.v4.0.patch_v40_fix_orchestrator_execute": "tools/patches/v4.0/patch_v40_fix_orchestrator_execute.py",
+      "tools.patches.v4.0.patch_v40_fix_runtime_diagnostics": "tools/patches/v4.0/patch_v40_fix_runtime_diagnostics.py",
+      "tools.patches.v4.0.patch_v40_safe_diagnostics": "tools/patches/v4.0/patch_v40_safe_diagnostics.py",
+      "tools.patches.v4.0.patch_v40_add_kernel_handlers": "tools/patches/v4.0/patch_v40_add_kernel_handlers.py",
+      "tools.patches.v3.7.patch_v37_add_handlers": "tools/patches/v3.7/patch_v37_add_handlers.py",
+      "tools.patches.v3.7.patch_v37_fix_diagnostics": "tools/patches/v3.7/patch_v37_fix_diagnostics.py",
+      "tools.patches.v3.7.patch_v37_runtime": "tools/patches/v3.7/patch_v37_runtime.py",
+      "tools.patches.v3.9.patch_v39_runtime": "tools/patches/v3.9/patch_v39_runtime.py",
+      "tools.patches.v3.9.patch_v39_fix_diagnostics": "tools/patches/v3.9/patch_v39_fix_diagnostics.py",
+      "tools.patches.v3.9.patch_v39_add_handlers": "tools/patches/v3.9/patch_v39_add_handlers.py",
+      "pipeline.context": "pipeline/context/__init__.py",
+      "pipeline.stages": "pipeline/stages/__init__.py",
+      "pipeline.workflows": "pipeline/workflows/__init__.py",
+      "pipeline.intake": "pipeline/intake/__init__.py",
+      "pipeline.processors": "pipeline/processors/__init__.py",
+      "pipeline.execution": "pipeline/execution/__init__.py",
+      "pipeline.telemetry": "pipeline/telemetry/__init__.py",
+      "pipeline.events": "pipeline/events/__init__.py",
+      "database.migrations.001_initial_schema": "database/migrations/001_initial_schema.py",
+      "database.seed.seed_assets": "database/seed/seed_assets.py",
+      "ui.pages": "ui/pages/__init__.py",
+      "ui.pages.aletheus_founder_workspace": "ui/pages/aletheus_founder_workspace.py",
+      "ui.pages.aletheus_runtime_console": "ui/pages/aletheus_runtime_console.py",
+      "founder.runtime.brief": "founder/runtime/brief.py",
+      "founder.runtime.summary": "founder/runtime/summary.py"
+    },
+    "edges": [
+      {
+        "source": "verify_agents_import",
+        "target": "aletheus.agents_v2",
+        "type": "from"
+      },
+      {
+        "source": "run",
+        "target": "core.startup",
+        "type": "from"
+      },
+      {
+        "source": "run",
+        "target": "core.application",
+        "type": "from"
+      },
+      {
+        "source": "verify_reasoning_service",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "verify_persistence_services",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "verify_plugins_runtime",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "verify_persistence_runtime",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "app",
+        "target": "command_center.runtime.palette",
+        "type": "from"
+      },
+      {
+        "source": "app",
+        "target": "components.chds.asset_gallery",
+        "type": "from"
+      },
+      {
+        "source": "app",
+        "target": "components.chds.core.bootstrap",
+        "type": "from"
+      },
+      {
+        "source": "app",
+        "target": "components.chds.layout",
+        "type": "from"
+      },
+      {
+        "source": "app",
+        "target": "components.chds.metrics",
+        "type": "from"
+      },
+      {
+        "source": "app",
+        "target": "components.chds.portfolio_health",
+        "type": "from"
+      },
+      {
+        "source": "app",
+        "target": "components.chds.portfolio_health_card",
+        "type": "from"
+      },
+      {
+        "source": "app",
+        "target": "founder_ai.copilot.engine",
+        "type": "from"
+      },
+      {
+        "source": "app",
+        "target": "portfolio.digital_twin.engine",
+        "type": "from"
+      },
+      {
+        "source": "app",
+        "target": "portfolio.health.engine",
+        "type": "from"
+      },
+      {
+        "source": "verify_plugin_commands",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "manage",
+        "target": "core.bootstrap",
+        "type": "from"
+      },
+      {
+        "source": "manage",
+        "target": "intelligence.replay.replay_engine",
+        "type": "from"
+      },
+      {
+        "source": "manage",
+        "target": "diagnostics.execution_trace",
+        "type": "from"
+      },
+      {
+        "source": "manage",
+        "target": "core.health",
+        "type": "from"
+      },
+      {
+        "source": "manage",
+        "target": "kernel.runtime",
+        "type": "from"
+      },
+      {
+        "source": "verify_services",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "verify_state_commands",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "verify_event_bus",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "verify_federation_runtime",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "verify_event_services",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "verify_planning_runtime",
+        "target": "aletheus.planning_v2",
+        "type": "from"
+      },
+      {
+        "source": "background.worker",
+        "target": "background.job_queue",
+        "type": "from"
+      },
+      {
+        "source": "background",
+        "target": "background.job_queue",
+        "type": "from"
+      },
+      {
+        "source": "background",
+        "target": "background.worker",
+        "type": "from"
+      },
+      {
+        "source": "founder",
+        "target": "founder.founder_memory",
+        "type": "from"
+      },
+      {
+        "source": "founder",
+        "target": "founder.dynamic_brief",
+        "type": "from"
+      },
+      {
+        "source": "founder.dynamic_brief",
+        "target": "components.cardhawk_utils",
+        "type": "from"
+      },
+      {
+        "source": "metrics.system_metrics",
+        "target": "observability.telemetry",
+        "type": "from"
+      },
+      {
+        "source": "pipeline",
+        "target": "pipeline.event_store",
+        "type": "from"
+      },
+      {
+        "source": "migrations",
+        "target": "migrations.migration_runner",
+        "type": "from"
+      },
+      {
+        "source": "migrations.migration_runner",
+        "target": "migrations.migration_registry",
+        "type": "from"
+      },
+      {
+        "source": "acquisition_simulator.acquisition_simulator",
+        "target": "portfolio_digital_twin.digital_twin_service",
+        "type": "from"
+      },
+      {
+        "source": "acquisition_simulator",
+        "target": "acquisition_simulator.acquisition_simulator",
+        "type": "from"
+      },
+      {
+        "source": "knowledge_graph",
+        "target": "knowledge_graph.graph_store",
+        "type": "from"
+      },
+      {
+        "source": "eventbus",
+        "target": "eventbus.event_bus",
+        "type": "from"
+      },
+      {
+        "source": "asset_core.asset_factory",
+        "target": "models.asset",
+        "type": "from"
+      },
+      {
+        "source": "asset_core.asset_factory",
+        "target": "asset_core.asset_validator",
+        "type": "from"
+      },
+      {
+        "source": "asset_core.asset_factory",
+        "target": "asset_core.asset_tags",
+        "type": "from"
+      },
+      {
+        "source": "asset_core.asset_service",
+        "target": "asset_core.asset_factory",
+        "type": "from"
+      },
+      {
+        "source": "asset_core.asset_service",
+        "target": "asset_core.asset_search",
+        "type": "from"
+      },
+      {
+        "source": "asset_core.asset_service",
+        "target": "asset_core.asset_filters",
+        "type": "from"
+      },
+      {
+        "source": "asset_core.asset_service",
+        "target": "services.asset_service",
+        "type": "from"
+      },
+      {
+        "source": "core.bootstrap",
+        "target": "core.discovery",
+        "type": "from"
+      },
+      {
+        "source": "core.bootstrap",
+        "target": "core.container",
+        "type": "from"
+      },
+      {
+        "source": "core.bootstrap",
+        "target": "core.engine_registry",
+        "type": "from"
+      },
+      {
+        "source": "core.bootstrap",
+        "target": "core.service_discovery",
+        "type": "from"
+      },
+      {
+        "source": "core.bootstrap",
+        "target": "core.event_bus",
+        "type": "from"
+      },
+      {
+        "source": "core.bootstrap",
+        "target": "core.scheduler",
+        "type": "from"
+      },
+      {
+        "source": "core.startup",
+        "target": "core.logging",
+        "type": "from"
+      },
+      {
+        "source": "core.startup",
+        "target": "core.bootstrap",
+        "type": "from"
+      },
+      {
+        "source": "core.startup",
+        "target": "core.metrics",
+        "type": "from"
+      },
+      {
+        "source": "core.discovery",
+        "target": "core.engine_adapter",
+        "type": "from"
+      },
+      {
+        "source": "core.discovery",
+        "target": "core.engine_registry",
+        "type": "from"
+      },
+      {
+        "source": "core.health",
+        "target": "core.container",
+        "type": "from"
+      },
+      {
+        "source": "core.health",
+        "target": "core.scheduler",
+        "type": "from"
+      },
+      {
+        "source": "core.shutdown",
+        "target": "core.logging",
+        "type": "from"
+      },
+      {
+        "source": "core.service_registry",
+        "target": "core.container",
+        "type": "from"
+      },
+      {
+        "source": "core.container",
+        "target": "core.registry",
+        "type": "from"
+      },
+      {
+        "source": "core.engine_adapter",
+        "target": "core.engine_base",
+        "type": "from"
+      },
+      {
+        "source": "core.application",
+        "target": "core.bootstrap",
+        "type": "from"
+      },
+      {
+        "source": "core.application",
+        "target": "core.engine_registry",
+        "type": "from"
+      },
+      {
+        "source": "core.application",
+        "target": "core.event_bus",
+        "type": "from"
+      },
+      {
+        "source": "core.application",
+        "target": "core.scheduler",
+        "type": "from"
+      },
+      {
+        "source": "core.application",
+        "target": "core.version",
+        "type": "from"
+      },
+      {
+        "source": "core.register_engines",
+        "target": "core.engine_registry",
+        "type": "from"
+      },
+      {
+        "source": "core.publisher",
+        "target": "core.event_bus",
+        "type": "from"
+      },
+      {
+        "source": "core.publisher",
+        "target": "intelligence.fabric.event",
+        "type": "from"
+      },
+      {
+        "source": "core.publisher",
+        "target": "intelligence.fabric.context",
+        "type": "from"
+      },
+      {
+        "source": "core.publisher",
+        "target": "intelligence.journal.event_journal",
+        "type": "from"
+      },
+      {
+        "source": "core.engine_registry",
+        "target": "core.container",
+        "type": "from"
+      },
+      {
+        "source": "core.engine_monitor",
+        "target": "core.engine_registry",
+        "type": "from"
+      },
+      {
+        "source": "core.provider_registry",
+        "target": "core.container",
+        "type": "from"
+      },
+      {
+        "source": "core.service_adapter",
+        "target": "core.service_base",
+        "type": "from"
+      },
+      {
+        "source": "core.service_discovery",
+        "target": "core.service_adapter",
+        "type": "from"
+      },
+      {
+        "source": "core.service_discovery",
+        "target": "core.service_registry",
+        "type": "from"
+      },
+      {
+        "source": "production_hardening",
+        "target": "production_hardening.hardening_service",
+        "type": "from"
+      },
+      {
+        "source": "config",
+        "target": "config.settings",
+        "type": "from"
+      },
+      {
+        "source": "config.development",
+        "target": "config.settings",
+        "type": "from"
+      },
+      {
+        "source": "config.settings",
+        "target": "config.constants",
+        "type": "from"
+      },
+      {
+        "source": "config.staging",
+        "target": "config.settings",
+        "type": "from"
+      },
+      {
+        "source": "config.production",
+        "target": "config.settings",
+        "type": "from"
+      },
+      {
+        "source": "security",
+        "target": "security.config_validator",
+        "type": "from"
+      },
+      {
+        "source": "plugins.strike",
+        "target": "services.context",
+        "type": "from"
+      },
+      {
+        "source": "plugins.strike",
+        "target": "plugins.base_plugin",
+        "type": "from"
+      },
+      {
+        "source": "plugins.roost",
+        "target": "services.context",
+        "type": "from"
+      },
+      {
+        "source": "plugins.roost",
+        "target": "plugins.base_plugin",
+        "type": "from"
+      },
+      {
+        "source": "plugins.perch",
+        "target": "services.context",
+        "type": "from"
+      },
+      {
+        "source": "plugins.perch",
+        "target": "plugins.base_plugin",
+        "type": "from"
+      },
+      {
+        "source": "plugins.talon",
+        "target": "services.context",
+        "type": "from"
+      },
+      {
+        "source": "plugins.talon",
+        "target": "plugins.base_plugin",
+        "type": "from"
+      },
+      {
+        "source": "plugins.base_plugin",
+        "target": "services.context",
+        "type": "from"
+      },
+      {
+        "source": "plugins.soar",
+        "target": "services.context",
+        "type": "from"
+      },
+      {
+        "source": "plugins.soar",
+        "target": "plugins.base_plugin",
+        "type": "from"
+      },
+      {
+        "source": "logging_utils",
+        "target": "logging_utils.cardhawk_logger",
+        "type": "from"
+      },
+      {
+        "source": "logging_utils.cardhawk_logger",
+        "target": "config.settings",
+        "type": "from"
+      },
+      {
+        "source": "capital_allocation",
+        "target": "capital_allocation.capital_allocator",
+        "type": "from"
+      },
+      {
+        "source": "providers.mercari_live",
+        "target": "providers.base_provider",
+        "type": "from"
+      },
+      {
+        "source": "providers.comc_live",
+        "target": "providers.base_provider",
+        "type": "from"
+      },
+      {
+        "source": "providers.ebay_live",
+        "target": "providers.base_provider",
+        "type": "from"
+      },
+      {
+        "source": "providers.goldin_live",
+        "target": "providers.base_provider",
+        "type": "from"
+      },
+      {
+        "source": "providers.centerstage_live",
+        "target": "providers.base_provider",
+        "type": "from"
+      },
+      {
+        "source": "providers.fanatics_live",
+        "target": "providers.base_provider",
+        "type": "from"
+      },
+      {
+        "source": "providers.marketmovers_live",
+        "target": "providers.base_provider",
+        "type": "from"
+      },
+      {
+        "source": "providers.facebook_live",
+        "target": "providers.base_provider",
+        "type": "from"
+      },
+      {
+        "source": "providers.pwcc_live",
+        "target": "providers.base_provider",
+        "type": "from"
+      },
+      {
+        "source": "providers.cardladder_live",
+        "target": "providers.base_provider",
+        "type": "from"
+      },
+      {
+        "source": "health",
+        "target": "health.system_health",
+        "type": "from"
+      },
+      {
+        "source": "health.system_health",
+        "target": "config.settings",
+        "type": "from"
+      },
+      {
+        "source": "health.system_health",
+        "target": "registry.provider_registry",
+        "type": "from"
+      },
+      {
+        "source": "health.system_health",
+        "target": "registry.engine_registry",
+        "type": "from"
+      },
+      {
+        "source": "workflow_automation",
+        "target": "workflow_automation.workflow_service",
+        "type": "from"
+      },
+      {
+        "source": "continuous_scout",
+        "target": "continuous_scout.continuous_scout_service",
+        "type": "from"
+      },
+      {
+        "source": "continuous_scout.continuous_scout_service",
+        "target": "continuous_scout.scan_job",
+        "type": "from"
+      },
+      {
+        "source": "continuous_scout.continuous_scout_service",
+        "target": "continuous_scout.candidate_queue",
+        "type": "from"
+      },
+      {
+        "source": "continuous_scout.continuous_scout_service",
+        "target": "marketplace_normalizer.normalizer",
+        "type": "from"
+      },
+      {
+        "source": "continuous_scout.continuous_scout_service",
+        "target": "marketplace_normalizer.listing_deduper",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v40_kernel",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_genesis_10",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v31_plugins",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v15_copilot",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_genesis_04",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v20b_applications",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_genesis_05",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_cardhawk_asset_service",
+        "target": "cardhawk.services",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v421_runtime_integrity",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v21_enterprise",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v33_event_bus",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v20c_missions",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v32_persistence",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_genesis_031",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v24_graph",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v450_runtime_modules",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v450_runtime_modules",
+        "target": "aletheus.runtime.modules",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v26_decision_engine",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v11_semantic",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_genesis_09a",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v29_planning",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v41_compatibility",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v22_distributed",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v12_executive",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v18_learning",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v35_telemetry",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v30_distributed",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v17_prediction",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_genesis_08",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v39_tenancy",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v37_security",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v13_agents",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v25_reasoning",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v34_federation",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v411_foundation",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_genesis_06",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v28_workflows",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_runtime_a3",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v14_planning",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v20_kernel",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v23_memory_mesh",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v27_agents",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v36_high_availability",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v20d_workflows",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_genesis_07",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tests.test_aletheus_v16_universal_intelligence",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "scheduler.runtime_scheduler",
+        "target": "background.job_queue",
+        "type": "from"
+      },
+      {
+        "source": "qa",
+        "target": "qa.smoke_tests",
+        "type": "from"
+      },
+      {
+        "source": "datalake",
+        "target": "datalake.intelligence_store",
+        "type": "from"
+      },
+      {
+        "source": "release",
+        "target": "release.build_manager",
+        "type": "from"
+      },
+      {
+        "source": "release.build_manager",
+        "target": "release.manifest",
+        "type": "from"
+      },
+      {
+        "source": "scout.scout_service",
+        "target": "scout.market_scanner",
+        "type": "from"
+      },
+      {
+        "source": "scout.scout_service",
+        "target": "scout.listing_queue",
+        "type": "from"
+      },
+      {
+        "source": "scout.scout_service",
+        "target": "scout.candidate_filter",
+        "type": "from"
+      },
+      {
+        "source": "scout.scout_service",
+        "target": "scout.watchlist_manager",
+        "type": "from"
+      },
+      {
+        "source": "scout.scout_service",
+        "target": "scout.alert_manager",
+        "type": "from"
+      },
+      {
+        "source": "scout.market_scanner",
+        "target": "scout.listing_queue",
+        "type": "from"
+      },
+      {
+        "source": "adaptive_intelligence",
+        "target": "adaptive_intelligence.adaptive_service",
+        "type": "from"
+      },
+      {
+        "source": "adaptive_intelligence.adaptive_service",
+        "target": "adaptive_intelligence.feedback.feedback_loop",
+        "type": "from"
+      },
+      {
+        "source": "adaptive_intelligence.adaptive_service",
+        "target": "adaptive_intelligence.explainability.explainer",
+        "type": "from"
+      },
+      {
+        "source": "adaptive_intelligence.adaptive_service",
+        "target": "adaptive_intelligence.simulation.simulation_lab",
+        "type": "from"
+      },
+      {
+        "source": "adaptive_intelligence.adaptive_service",
+        "target": "adaptive_intelligence.quality.quality_dashboard",
+        "type": "from"
+      },
+      {
+        "source": "adaptive_intelligence.adaptive_service",
+        "target": "adaptive_intelligence.research.research_workspace",
+        "type": "from"
+      },
+      {
+        "source": "adaptive_intelligence.adaptive_service",
+        "target": "adaptive_intelligence.plugins.plugin_framework",
+        "type": "from"
+      },
+      {
+        "source": "adaptive_intelligence.adaptive_service",
+        "target": "adaptive_intelligence.deployment.deployment_profiles",
+        "type": "from"
+      },
+      {
+        "source": "adaptive_intelligence.adaptive_service",
+        "target": "adaptive_intelligence.governance.platform_governance",
+        "type": "from"
+      },
+      {
+        "source": "portfolio_digital_twin.digital_twin_service",
+        "target": "components.cardhawk_utils",
+        "type": "from"
+      },
+      {
+        "source": "portfolio_digital_twin",
+        "target": "portfolio_digital_twin.digital_twin_service",
+        "type": "from"
+      },
+      {
+        "source": "live_data.live_data_service",
+        "target": "live_data.providers.demo_provider",
+        "type": "from"
+      },
+      {
+        "source": "live_data.live_data_service",
+        "target": "live_data.comps.comp_engine",
+        "type": "from"
+      },
+      {
+        "source": "live_data.live_data_service",
+        "target": "live_data.watchlist.live_watchlist",
+        "type": "from"
+      },
+      {
+        "source": "live_data",
+        "target": "live_data.live_data_service",
+        "type": "from"
+      },
+      {
+        "source": "commercial",
+        "target": "commercial.commercial_readiness",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.vision_pipeline",
+        "target": "hawk_aeye.ocr_runtime",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.vision_pipeline",
+        "target": "hawk_aeye.card_classifier",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.vision_pipeline",
+        "target": "hawk_aeye.player_detector",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.vision_pipeline",
+        "target": "hawk_aeye.brand_detector",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.vision_pipeline",
+        "target": "hawk_aeye.year_detector",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.vision_pipeline",
+        "target": "hawk_aeye.parallel_detector",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.vision_pipeline",
+        "target": "hawk_aeye.serial_detector",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.vision_pipeline",
+        "target": "hawk_aeye.condition_estimator",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.vision_pipeline",
+        "target": "hawk_aeye.asset_dna_builder",
+        "type": "from"
+      },
+      {
+        "source": "architecture",
+        "target": "architecture.project_auditor",
+        "type": "from"
+      },
+      {
+        "source": "architecture",
+        "target": "architecture.import_migrator",
+        "type": "from"
+      },
+      {
+        "source": "architecture",
+        "target": "architecture.dependency_graph",
+        "type": "from"
+      },
+      {
+        "source": "marketplace_normalizer",
+        "target": "marketplace_normalizer.normalizer",
+        "type": "from"
+      },
+      {
+        "source": "marketplace_normalizer.normalizer",
+        "target": "marketplace_normalizer.normalized_listing",
+        "type": "from"
+      },
+      {
+        "source": "founder_studio",
+        "target": "founder_studio.studio_service",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.main",
+        "target": "cardhawk.app",
+        "type": "from"
+      },
+      {
+        "source": "founder_ai",
+        "target": "founder_ai.founder_ai_service",
+        "type": "from"
+      },
+      {
+        "source": "commercialization",
+        "target": "commercialization.workspace",
+        "type": "from"
+      },
+      {
+        "source": "deployment",
+        "target": "deployment.profile_loader",
+        "type": "from"
+      },
+      {
+        "source": "scripts.rescore_assets",
+        "target": "engines.thorx.runtime",
+        "type": "from"
+      },
+      {
+        "source": "scripts.rescore_assets",
+        "target": "asset_core.repository.asset_repository",
+        "type": "from"
+      },
+      {
+        "source": "data_layer",
+        "target": "data_layer.database_manager",
+        "type": "from"
+      },
+      {
+        "source": "diagnostics.enterprise_diagnostics",
+        "target": "startup.startup_verifier",
+        "type": "from"
+      },
+      {
+        "source": "diagnostics.enterprise_diagnostics",
+        "target": "qa.smoke_tests",
+        "type": "from"
+      },
+      {
+        "source": "diagnostics.enterprise_diagnostics",
+        "target": "release.build_manager",
+        "type": "from"
+      },
+      {
+        "source": "registry",
+        "target": "registry.engine_registry",
+        "type": "from"
+      },
+      {
+        "source": "registry",
+        "target": "registry.provider_registry",
+        "type": "from"
+      },
+      {
+        "source": "operations_live",
+        "target": "operations_live.operations_service",
+        "type": "from"
+      },
+      {
+        "source": "command_center",
+        "target": "command_center.command_center_service",
+        "type": "from"
+      },
+      {
+        "source": "command_center.command_center_service",
+        "target": "eventbus.event_bus",
+        "type": "from"
+      },
+      {
+        "source": "command_center.command_center_service",
+        "target": "negotiation.offer_tracker",
+        "type": "from"
+      },
+      {
+        "source": "command_center.command_center_service",
+        "target": "founder.dynamic_brief",
+        "type": "from"
+      },
+      {
+        "source": "command_center.command_center_service",
+        "target": "datalake.intelligence_store",
+        "type": "from"
+      },
+      {
+        "source": "negotiation",
+        "target": "negotiation.offer_tracker",
+        "type": "from"
+      },
+      {
+        "source": "negotiation",
+        "target": "negotiation.negotiation_ai",
+        "type": "from"
+      },
+      {
+        "source": "thorx.score",
+        "target": "thorx.scarcity",
+        "type": "from"
+      },
+      {
+        "source": "thorx.score",
+        "target": "thorx.liquidity",
+        "type": "from"
+      },
+      {
+        "source": "thorx.score",
+        "target": "thorx.population",
+        "type": "from"
+      },
+      {
+        "source": "thorx.score",
+        "target": "thorx.momentum",
+        "type": "from"
+      },
+      {
+        "source": "thorx.score",
+        "target": "thorx.risk",
+        "type": "from"
+      },
+      {
+        "source": "thorx.score",
+        "target": "thorx.market_strength",
+        "type": "from"
+      },
+      {
+        "source": "thorx.score",
+        "target": "thorx.player_thesis",
+        "type": "from"
+      },
+      {
+        "source": "thorx.score",
+        "target": "thorx.visual_appeal",
+        "type": "from"
+      },
+      {
+        "source": "thorx.score",
+        "target": "thorx.portfolio_fit",
+        "type": "from"
+      },
+      {
+        "source": "thorx.score",
+        "target": "thorx.def_engine",
+        "type": "from"
+      },
+      {
+        "source": "thorx.score",
+        "target": "thorx.dex_engine",
+        "type": "from"
+      },
+      {
+        "source": "versioning.version_manager",
+        "target": "config.settings",
+        "type": "from"
+      },
+      {
+        "source": "versioning",
+        "target": "versioning.version_manager",
+        "type": "from"
+      },
+      {
+        "source": "genome",
+        "target": "genome.cardhawk_genome",
+        "type": "from"
+      },
+      {
+        "source": "performance",
+        "target": "performance.cache",
+        "type": "from"
+      },
+      {
+        "source": "intelligence_convergence",
+        "target": "intelligence_convergence.unified_intelligence_engine",
+        "type": "from"
+      },
+      {
+        "source": "intelligence_convergence.unified_intelligence_engine",
+        "target": "intelligence_convergence.engines.acquisition_ai",
+        "type": "from"
+      },
+      {
+        "source": "intelligence_convergence.unified_intelligence_engine",
+        "target": "intelligence_convergence.engines.exit_intelligence",
+        "type": "from"
+      },
+      {
+        "source": "intelligence_convergence.unified_intelligence_engine",
+        "target": "intelligence_convergence.engines.digital_twin_2",
+        "type": "from"
+      },
+      {
+        "source": "intelligence_convergence.unified_intelligence_engine",
+        "target": "intelligence_convergence.engines.decision_model",
+        "type": "from"
+      },
+      {
+        "source": "startup",
+        "target": "startup.startup_verifier",
+        "type": "from"
+      },
+      {
+        "source": "startup.startup_verifier",
+        "target": "security.config_validator",
+        "type": "from"
+      },
+      {
+        "source": "startup.startup_verifier",
+        "target": "migrations.migration_runner",
+        "type": "from"
+      },
+      {
+        "source": "startup.startup_verifier",
+        "target": "versioning.version_manager",
+        "type": "from"
+      },
+      {
+        "source": "backup",
+        "target": "backup.backup_manager",
+        "type": "from"
+      },
+      {
+        "source": "watch_tower",
+        "target": "watch_tower.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "timeline",
+        "target": "timeline.timeline_service",
+        "type": "from"
+      },
+      {
+        "source": "pages.mission_control",
+        "target": "services.runtime_v3",
+        "type": "from"
+      },
+      {
+        "source": "pages.founder_console",
+        "target": "services.runtime_v3",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk_aeye.cardhawk_aeye",
+        "target": "hawk_aeye.vision_pipeline",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk_aeye",
+        "target": "cardhawk_aeye.cardhawk_aeye",
+        "type": "from"
+      },
+      {
+        "source": "exit_strategy.exit_strategy_service",
+        "target": "components.cardhawk_utils",
+        "type": "from"
+      },
+      {
+        "source": "exit_strategy",
+        "target": "exit_strategy.exit_strategy_service",
+        "type": "from"
+      },
+      {
+        "source": "services.plugin_loader",
+        "target": "plugins.base_plugin",
+        "type": "from"
+      },
+      {
+        "source": "services.runtime_scheduler",
+        "target": "services.context",
+        "type": "from"
+      },
+      {
+        "source": "services.runtime_commands",
+        "target": "services.context",
+        "type": "from"
+      },
+      {
+        "source": "services.runtime_commands",
+        "target": "services.runtime_events",
+        "type": "from"
+      },
+      {
+        "source": "services.runtime_state",
+        "target": "services.context",
+        "type": "from"
+      },
+      {
+        "source": "services.founder_state",
+        "target": "services.runtime_state",
+        "type": "from"
+      },
+      {
+        "source": "services.runtime_v3",
+        "target": "services.context",
+        "type": "from"
+      },
+      {
+        "source": "services.runtime_v3",
+        "target": "services.founder_state",
+        "type": "from"
+      },
+      {
+        "source": "services.runtime_v3",
+        "target": "services.pipeline",
+        "type": "from"
+      },
+      {
+        "source": "services.runtime_v3",
+        "target": "services.plugin_loader",
+        "type": "from"
+      },
+      {
+        "source": "services.runtime_v3",
+        "target": "services.runtime_cache",
+        "type": "from"
+      },
+      {
+        "source": "services.runtime_v3",
+        "target": "services.runtime_commands",
+        "type": "from"
+      },
+      {
+        "source": "services.runtime_v3",
+        "target": "services.runtime_events",
+        "type": "from"
+      },
+      {
+        "source": "services.runtime_v3",
+        "target": "services.runtime_metrics",
+        "type": "from"
+      },
+      {
+        "source": "services.runtime_v3",
+        "target": "services.runtime_scheduler",
+        "type": "from"
+      },
+      {
+        "source": "services.runtime_v3",
+        "target": "services.runtime_state",
+        "type": "from"
+      },
+      {
+        "source": "services.pipeline",
+        "target": "services.context",
+        "type": "from"
+      },
+      {
+        "source": "services.pipeline",
+        "target": "services.plugin_loader",
+        "type": "from"
+      },
+      {
+        "source": "kernel.runtime",
+        "target": "core.bootstrap",
+        "type": "from"
+      },
+      {
+        "source": "kernel.runtime",
+        "target": "core.engine_registry",
+        "type": "from"
+      },
+      {
+        "source": "kernel.runtime",
+        "target": "core.service_registry",
+        "type": "from"
+      },
+      {
+        "source": "kernel.runtime",
+        "target": "intelligence.projections.manager",
+        "type": "from"
+      },
+      {
+        "source": "kernel.runtime",
+        "target": "core.event_bus",
+        "type": "from"
+      },
+      {
+        "source": "kernel.doctor",
+        "target": "kernel.runtime",
+        "type": "from"
+      },
+      {
+        "source": "analytics",
+        "target": "analytics.analytics_service",
+        "type": "from"
+      },
+      {
+        "source": "analytics.analytics_service",
+        "target": "components.cardhawk_utils",
+        "type": "from"
+      },
+      {
+        "source": "event_bus.runtime.bus",
+        "target": "event_bus.runtime.store",
+        "type": "from"
+      },
+      {
+        "source": "analytics.pages.portfolio_analytics",
+        "target": "analytics.analytics_service",
+        "type": "from"
+      },
+      {
+        "source": "orchestrator.runtime.jobs",
+        "target": "orchestrator.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "orchestrator.runtime.engine",
+        "target": "asset_core.repository.asset_repository",
+        "type": "from"
+      },
+      {
+        "source": "orchestrator.runtime.engine",
+        "target": "decision_engine.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "orchestrator.runtime.engine",
+        "target": "event_bus.runtime.bus",
+        "type": "from"
+      },
+      {
+        "source": "orchestrator.runtime.engine",
+        "target": "falcon.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "orchestrator.runtime.engine",
+        "target": "intelligence.runtime.output_store",
+        "type": "from"
+      },
+      {
+        "source": "orchestrator.runtime.engine",
+        "target": "marketplace.runtime.market_snapshot",
+        "type": "from"
+      },
+      {
+        "source": "orchestrator.runtime.engine",
+        "target": "nest.runtime.score",
+        "type": "from"
+      },
+      {
+        "source": "orchestrator.runtime.engine",
+        "target": "orchestrator.models.context",
+        "type": "from"
+      },
+      {
+        "source": "orchestrator.runtime.engine",
+        "target": "orchestrator.runtime.execution_log",
+        "type": "from"
+      },
+      {
+        "source": "decision_engine.runtime.engine",
+        "target": "asset_core.repository.asset_repository",
+        "type": "from"
+      },
+      {
+        "source": "decision_engine.runtime.engine",
+        "target": "decision_engine.models.decision",
+        "type": "from"
+      },
+      {
+        "source": "decision_engine.runtime.engine",
+        "target": "decision_engine.runtime.ddef",
+        "type": "from"
+      },
+      {
+        "source": "decision_engine.runtime.engine",
+        "target": "decision_engine.runtime.explanation",
+        "type": "from"
+      },
+      {
+        "source": "decision_engine.runtime.engine",
+        "target": "decision_engine.runtime.qdef",
+        "type": "from"
+      },
+      {
+        "source": "decision_engine.runtime.engine",
+        "target": "decision_engine.runtime.ranking",
+        "type": "from"
+      },
+      {
+        "source": "decision_engine.runtime.engine",
+        "target": "decision_engine.runtime.recommendation",
+        "type": "from"
+      },
+      {
+        "source": "decision_engine.runtime.engine",
+        "target": "decision_engine.runtime.strike_zone",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.snapshots",
+        "target": "decision_engine.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.snapshots",
+        "target": "nest.runtime.score",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.snapshots",
+        "target": "portfolio.digital_twin.engine",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.health",
+        "target": "asset_core.repository.asset_repository",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.health",
+        "target": "decision_engine.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.health",
+        "target": "portfolio.digital_twin.engine",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.dna",
+        "target": "asset_core.repository.asset_repository",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.engine",
+        "target": "falcon.runtime.dna",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.engine",
+        "target": "falcon.runtime.forecasting",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.engine",
+        "target": "falcon.runtime.health",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.engine",
+        "target": "falcon.runtime.opportunity_queue",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.engine",
+        "target": "falcon.runtime.snapshots",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.opportunity_queue",
+        "target": "asset_core.repository.asset_repository",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.opportunity_queue",
+        "target": "decision_engine.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.opportunity_queue",
+        "target": "nest.runtime.score",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.forecasting",
+        "target": "asset_core.repository.asset_repository",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.forecasting",
+        "target": "decision_engine.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "falcon.runtime.forecasting",
+        "target": "nest.runtime.score",
+        "type": "from"
+      },
+      {
+        "source": "engine.thorx.evaluator",
+        "target": "engine.def_engine",
+        "type": "from"
+      },
+      {
+        "source": "engine.thorx.evaluator",
+        "target": "engine.thorx.scoring",
+        "type": "from"
+      },
+      {
+        "source": "engine.thorx.evaluator",
+        "target": "engine.thorx.confidence",
+        "type": "from"
+      },
+      {
+        "source": "engine.thorx.evaluator",
+        "target": "engine.thorx.q_def",
+        "type": "from"
+      },
+      {
+        "source": "engine.thorx.evaluator",
+        "target": "engine.thorx.d_def",
+        "type": "from"
+      },
+      {
+        "source": "engine.thorx.evaluator",
+        "target": "engine.thorx.strike_zone",
+        "type": "from"
+      },
+      {
+        "source": "engine.thorx.evaluator",
+        "target": "engine.thorx.projections",
+        "type": "from"
+      },
+      {
+        "source": "engine.thorx.evaluator",
+        "target": "engine.thorx.nuclear_cloud",
+        "type": "from"
+      },
+      {
+        "source": "timeline.pages.intelligence_timeline",
+        "target": "timeline.timeline_service",
+        "type": "from"
+      },
+      {
+        "source": "timeline.engine.timeline_projection",
+        "target": "intelligence.projections.base",
+        "type": "from"
+      },
+      {
+        "source": "timeline.engine.timeline_projection",
+        "target": "timeline.engine.projection",
+        "type": "from"
+      },
+      {
+        "source": "timeline.engine.register",
+        "target": "intelligence.projections.manager",
+        "type": "from"
+      },
+      {
+        "source": "timeline.engine.register",
+        "target": "timeline.engine.timeline_projection",
+        "type": "from"
+      },
+      {
+        "source": "timeline.engine.subscriber",
+        "target": "core.event_bus",
+        "type": "from"
+      },
+      {
+        "source": "timeline.engine.subscriber",
+        "target": "timeline.engine.projection",
+        "type": "from"
+      },
+      {
+        "source": "timeline.engine.projection",
+        "target": "timeline.storage.store",
+        "type": "from"
+      },
+      {
+        "source": "watch_tower.runtime",
+        "target": "watch_tower.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "watch_tower.runtime.engine",
+        "target": "watch_tower.models.finding",
+        "type": "from"
+      },
+      {
+        "source": "watch_tower.models",
+        "target": "watch_tower.models.finding",
+        "type": "from"
+      },
+      {
+        "source": "intelligence_convergence.engines.digital_twin_2",
+        "target": "components.cardhawk_utils",
+        "type": "from"
+      },
+      {
+        "source": "intelligence_convergence.engines.autonomous_scout",
+        "target": "marketplace_normalizer.normalizer",
+        "type": "from"
+      },
+      {
+        "source": "intelligence_convergence.engines.exit_intelligence",
+        "target": "components.cardhawk_utils",
+        "type": "from"
+      },
+      {
+        "source": "intelligence_convergence.pages.convergence_dashboard",
+        "target": "services.intelligence_convergence_service",
+        "type": "from"
+      },
+      {
+        "source": "intelligence_convergence.pages.convergence_dashboard",
+        "target": "components.convergence_ui",
+        "type": "from"
+      },
+      {
+        "source": "genome.runtime.service",
+        "target": "asset_core.asset_genome",
+        "type": "from"
+      },
+      {
+        "source": "jobs.runtime.system_jobs",
+        "target": "jobs.runtime.scheduler",
+        "type": "from"
+      },
+      {
+        "source": "jobs.runtime.scheduler",
+        "target": "jobs.runtime.manager",
+        "type": "from"
+      },
+      {
+        "source": "jobs.system.def_jobs",
+        "target": "asset_core.repository.asset_repository",
+        "type": "from"
+      },
+      {
+        "source": "jobs.system.def_jobs",
+        "target": "decision_engine.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "jobs.system.def_jobs",
+        "target": "event_bus.runtime.bus",
+        "type": "from"
+      },
+      {
+        "source": "jobs.system.def_jobs",
+        "target": "intelligence.runtime.output_store",
+        "type": "from"
+      },
+      {
+        "source": "command_center.runtime.palette",
+        "target": "portfolio.digital_twin.engine",
+        "type": "from"
+      },
+      {
+        "source": "command_center.runtime.palette",
+        "target": "asset_core.runtime.enrichment",
+        "type": "from"
+      },
+      {
+        "source": "command_center.runtime.snapshot",
+        "target": "kernel.runtime",
+        "type": "from"
+      },
+      {
+        "source": "command_center.runtime.snapshot",
+        "target": "core.engine_registry",
+        "type": "from"
+      },
+      {
+        "source": "command_center.runtime.snapshot",
+        "target": "core.service_registry",
+        "type": "from"
+      },
+      {
+        "source": "command_center.runtime.snapshot",
+        "target": "intelligence.projections.manager",
+        "type": "from"
+      },
+      {
+        "source": "command_center.runtime.snapshot",
+        "target": "core.event_bus",
+        "type": "from"
+      },
+      {
+        "source": "operations_live.pages.live_operations_center",
+        "target": "operations_live.operations_service",
+        "type": "from"
+      },
+      {
+        "source": "portfolio.health.engine",
+        "target": "asset_core.repository.asset_repository",
+        "type": "from"
+      },
+      {
+        "source": "portfolio.runtime.engine",
+        "target": "asset_core.repository.asset_repository",
+        "type": "from"
+      },
+      {
+        "source": "portfolio.digital_twin.engine",
+        "target": "portfolio.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "applications.cardhawk_foundation.app",
+        "target": "aletheus",
+        "type": "from"
+      },
+      {
+        "source": "applications.cardhawk_foundation.app",
+        "target": "engines.hawk_aeye.engine",
+        "type": "from"
+      },
+      {
+        "source": "applications.cardhawk_foundation.app",
+        "target": "engines.thorx.engine",
+        "type": "from"
+      },
+      {
+        "source": "applications.cardhawk_foundation.app",
+        "target": "engines.def_engine.engine",
+        "type": "from"
+      },
+      {
+        "source": "applications.cardhawk_foundation.app",
+        "target": "engines.nest.engine",
+        "type": "from"
+      },
+      {
+        "source": "applications.cardhawk_foundation.app",
+        "target": "engines.falcon.engine",
+        "type": "from"
+      },
+      {
+        "source": "applications.cardhawk_foundation.app",
+        "target": "engines.perch.engine",
+        "type": "from"
+      },
+      {
+        "source": "applications.cardhawk_foundation.app",
+        "target": "engines.talon.engine",
+        "type": "from"
+      },
+      {
+        "source": "applications.cardhawk_foundation.app",
+        "target": "engines.strike.engine",
+        "type": "from"
+      },
+      {
+        "source": "applications.cardhawk_foundation.app",
+        "target": "engines.soar.engine",
+        "type": "from"
+      },
+      {
+        "source": "applications.cardhawk_foundation.app",
+        "target": "engines.roost.engine",
+        "type": "from"
+      },
+      {
+        "source": "data_layer.importers.asset_csv_importer",
+        "target": "data_layer.repositories.asset_repository",
+        "type": "from"
+      },
+      {
+        "source": "data_layer.exporters.asset_csv_exporter",
+        "target": "data_layer.repositories.asset_repository",
+        "type": "from"
+      },
+      {
+        "source": "data_layer.repositories.watchlist_repository",
+        "target": "data_layer.database_manager",
+        "type": "from"
+      },
+      {
+        "source": "data_layer.repositories.asset_repository",
+        "target": "data_layer.database_manager",
+        "type": "from"
+      },
+      {
+        "source": "data_layer.repositories.event_repository",
+        "target": "data_layer.database_manager",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.marketplace_opportunity_board",
+        "target": "services.executive_experience_service",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.marketplace_opportunity_board",
+        "target": "components.executive_ui",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.executive_dashboard",
+        "target": "services.executive_experience_service",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.executive_dashboard",
+        "target": "components.executive_ui",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.founder_ai_workspace",
+        "target": "components.executive_ui",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.founder_ai_workspace",
+        "target": "founder_ai.founder_ai_service",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.live_intelligence",
+        "target": "services.executive_experience_service",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.live_intelligence",
+        "target": "components.executive_ui",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.operational_readiness",
+        "target": "components.executive_ui",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.universal_asset_profile",
+        "target": "services.executive_experience_service",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.universal_asset_profile",
+        "target": "components.executive_ui",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.universal_asset_profile",
+        "target": "components.cardhawk_utils",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.universal_asset_profile",
+        "target": "exit_strategy.exit_strategy_service",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.premium_asset_vault",
+        "target": "services.executive_experience_service",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.premium_asset_vault",
+        "target": "components.executive_ui",
+        "type": "from"
+      },
+      {
+        "source": "executive_experience.pages.premium_asset_vault",
+        "target": "components.cardhawk_utils",
+        "type": "from"
+      },
+      {
+        "source": "engines.talon.engine",
+        "target": "aletheus.context",
+        "type": "from"
+      },
+      {
+        "source": "engines.perch.engine",
+        "target": "aletheus.context",
+        "type": "from"
+      },
+      {
+        "source": "engines.def_engine.engine",
+        "target": "aletheus.context",
+        "type": "from"
+      },
+      {
+        "source": "engines.roost.engine",
+        "target": "aletheus.context",
+        "type": "from"
+      },
+      {
+        "source": "engines.hawk_aeye.engine",
+        "target": "aletheus.context",
+        "type": "from"
+      },
+      {
+        "source": "engines.thorx.engine",
+        "target": "aletheus.context",
+        "type": "from"
+      },
+      {
+        "source": "engines.strike.engine",
+        "target": "aletheus.context",
+        "type": "from"
+      },
+      {
+        "source": "engines.falcon.engine",
+        "target": "aletheus.context",
+        "type": "from"
+      },
+      {
+        "source": "engines.soar.engine",
+        "target": "aletheus.context",
+        "type": "from"
+      },
+      {
+        "source": "engines.nest.engine",
+        "target": "aletheus.context",
+        "type": "from"
+      },
+      {
+        "source": "founder_ai.copilot.engine",
+        "target": "portfolio.digital_twin.engine",
+        "type": "from"
+      },
+      {
+        "source": "founder_ai.copilot.engine",
+        "target": "asset_core.runtime.enrichment",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.ui.asset_vault_dashboard",
+        "target": "cardhawk.services",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.ui.asset_vault_dashboard",
+        "target": "cardhawk.analytics",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.ui.asset_vault_dashboard",
+        "target": "cardhawk.portfolio",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.ui.asset_table",
+        "target": "cardhawk.services",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.ui.search_panel",
+        "target": "cardhawk.services",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.ui.asset_form",
+        "target": "cardhawk.services",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.app.application",
+        "target": "cardhawk.dashboard",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.app.application",
+        "target": "cardhawk.services",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.app.application",
+        "target": "cardhawk.analytics",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.app.application",
+        "target": "cardhawk.portfolio",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.importers.json_importer",
+        "target": "cardhawk.asset_vault",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.web.app",
+        "target": "cardhawk.dashboard",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.web.app",
+        "target": "cardhawk.services",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.dashboard.dashboard_service",
+        "target": "cardhawk.services",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.dashboard.dashboard_service",
+        "target": "cardhawk.portfolio",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.dashboard.dashboard_service",
+        "target": "cardhawk.analytics",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.dashboard.dashboard_model",
+        "target": "cardhawk.dashboard",
+        "type": "from"
+      },
+      {
+        "source": "cardhawk.services.asset_service",
+        "target": "cardhawk.asset_vault",
+        "type": "from"
+      },
+      {
+        "source": "founder_studio.pages.founder_studio",
+        "target": "founder_studio.studio_service",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.mesh",
+        "target": "models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.mesh.runtime_registry",
+        "target": "models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.kernel_v2",
+        "target": "aletheus.kernel_v2.kernel_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.kernel_v2",
+        "target": "aletheus.kernel_v2.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.kernel_v2.kernel_core",
+        "target": "aletheus.kernel_v2.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.knowledge_graph",
+        "target": "aletheus.knowledge_graph.graph_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.memory",
+        "target": "aletheus.memory.core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.enterprise.enterprise_core",
+        "target": "aletheus.enterprise.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.enterprise",
+        "target": "aletheus.enterprise.enterprise_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.enterprise",
+        "target": "aletheus.enterprise.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.copilot",
+        "target": "aletheus.copilot.copilot_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.copilot",
+        "target": "aletheus.copilot.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.copilot.copilot_core",
+        "target": "aletheus.copilot.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.intelligence",
+        "target": "aletheus.intelligence.intelligence_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.intelligence",
+        "target": "aletheus.intelligence.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.intelligence.intelligence_core",
+        "target": "aletheus.intelligence.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.plugins.runtime_plugin",
+        "target": "aletheus.runtime.context",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.plugins.runtime_plugin_manager",
+        "target": "aletheus.plugins.runtime_plugin",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.cognition",
+        "target": "aletheus.cognition.cognition_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.cognition",
+        "target": "aletheus.cognition.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.cognition.cognition_core",
+        "target": "aletheus.cognition.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.learning.learning_core",
+        "target": "aletheus.learning.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.learning",
+        "target": "aletheus.learning.learning_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.learning",
+        "target": "aletheus.learning.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.decision_v2",
+        "target": "aletheus.decision_v2.decision_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.platform.platform_layer",
+        "target": "platform",
+        "type": "import"
+      },
+      {
+        "source": "aletheus.workspace.workspace_core",
+        "target": "aletheus.workspace.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.workspace",
+        "target": "aletheus.workspace.workspace_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.workspace",
+        "target": "aletheus.workspace.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.prediction",
+        "target": "aletheus.prediction.prediction_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.prediction",
+        "target": "aletheus.prediction.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.prediction.prediction_core",
+        "target": "aletheus.prediction.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime",
+        "target": "aletheus.runtime.core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime",
+        "target": "aletheus.runtime.context",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime",
+        "target": "aletheus.runtime.pipeline",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime",
+        "target": "aletheus.runtime.workflow",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.memory",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.cognition",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.knowledge",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.mission",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.workspace",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.applications",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.release",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.semantic",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.executive",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.agents",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.planning",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.copilot",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.intelligence",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.prediction",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.learning",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.kernel_v2",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.missions_v2",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.workflows_v2",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.enterprise",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.memory_mesh",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.knowledge_graph",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.reasoning",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.decision_v2",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.agents_v2",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.workflow_v3",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.planning_v2",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.distributed_v3",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.plugins_v3",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.persistence_v3",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.event_bus_v3",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.federation_v3",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.telemetry_v3",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.high_availability_v3",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.security_v3",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.tenancy_v3",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.kernel",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.plugins.runtime_plugin_manager",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.commands",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.context",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.compat",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.diagnostics",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.events",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.job_queue",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.metrics",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.pipeline",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.registries",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.scheduler",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.workflow",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.hardening",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.integrity",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.governance",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.services",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.registrations",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.core",
+        "target": "aletheus.runtime.integrity",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.pipeline",
+        "target": "aletheus.runtime.context",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.workflow",
+        "target": "aletheus.runtime.context",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.commands",
+        "target": "aletheus.runtime.context",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.registries",
+        "target": "aletheus.runtime.context",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.planning",
+        "target": "aletheus.planning.planning_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.planning",
+        "target": "aletheus.planning.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.planning.planning_core",
+        "target": "aletheus.planning.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.agents",
+        "target": "aletheus.agents.agent_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.agents",
+        "target": "aletheus.agents.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.agents.agent_core",
+        "target": "aletheus.agents.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.release",
+        "target": "aletheus.release.core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.missions_v2.mission_core",
+        "target": "aletheus.missions_v2.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.missions_v2",
+        "target": "aletheus.missions_v2.mission_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.missions_v2",
+        "target": "aletheus.missions_v2.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.reasoning",
+        "target": "aletheus.reasoning.reasoning_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.mission.mission_core",
+        "target": "aletheus.mission.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.mission",
+        "target": "aletheus.mission.mission_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.mission",
+        "target": "aletheus.mission.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.knowledge",
+        "target": "aletheus.knowledge.knowledge_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.knowledge",
+        "target": "aletheus.knowledge.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.knowledge.knowledge_core",
+        "target": "aletheus.knowledge.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.workflows_v2",
+        "target": "aletheus.workflows_v2.workflow_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.workflows_v2",
+        "target": "aletheus.workflows_v2.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.workflows_v2.workflow_core",
+        "target": "aletheus.workflows_v2.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.sdk.runtime_sdk",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.semantic",
+        "target": "aletheus.semantic.semantic_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.semantic",
+        "target": "aletheus.semantic.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.semantic.semantic_core",
+        "target": "aletheus.semantic.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.applications.application_core",
+        "target": "aletheus.applications.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.applications",
+        "target": "aletheus.applications.application_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.applications",
+        "target": "aletheus.applications.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.memory_mesh.mesh_core",
+        "target": "aletheus.memory_mesh.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.memory_mesh",
+        "target": "aletheus.memory_mesh.mesh_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.memory_mesh",
+        "target": "aletheus.memory_mesh.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.executive",
+        "target": "aletheus.executive.executive_core",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.executive",
+        "target": "aletheus.executive.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.executive.executive_core",
+        "target": "aletheus.executive.models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.conclave",
+        "target": "engine",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.compat",
+        "target": "registry",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.compat",
+        "target": "contracts",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.compat.resolver",
+        "target": "registry",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.bootstrap.bootstrap_engine",
+        "target": "aletheus.runtime.managers",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.managers.registration_manager",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.sentinel",
+        "target": "engine",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.sentinel.engine",
+        "target": "models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.guardian.kernel",
+        "target": "models",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.guardian.kernel",
+        "target": "watch_tower.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.guardian",
+        "target": "kernel",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.kernel",
+        "target": "orchestrator",
+        "type": "from"
+      },
+      {
+        "source": "aletheus.runtime.kernel",
+        "target": "scheduler",
+        "type": "from"
+      },
+      {
+        "source": "components.chds.asset_gallery",
+        "target": "components.chds.asset_card",
+        "type": "from"
+      },
+      {
+        "source": "components.chds.cards",
+        "target": "components.chds.asset_card",
+        "type": "from"
+      },
+      {
+        "source": "components.chds",
+        "target": "components.chds.asset_card",
+        "type": "from"
+      },
+      {
+        "source": "components.chds",
+        "target": "components.chds.asset_gallery",
+        "type": "from"
+      },
+      {
+        "source": "components.chds",
+        "target": "components.chds.cards",
+        "type": "from"
+      },
+      {
+        "source": "components.chds",
+        "target": "components.chds.layout",
+        "type": "from"
+      },
+      {
+        "source": "components.chds",
+        "target": "components.chds.metrics",
+        "type": "from"
+      },
+      {
+        "source": "components.chds.runtime_status",
+        "target": "cardhawkos.config.settings",
+        "type": "from"
+      },
+      {
+        "source": "components.chds.runtime_status",
+        "target": "cardhawkos.runtime.cache",
+        "type": "from"
+      },
+      {
+        "source": "components.chds.runtime_status",
+        "target": "cardhawkos.runtime.health",
+        "type": "from"
+      },
+      {
+        "source": "components.chds.asset_card",
+        "target": "asset_core.runtime.image_service",
+        "type": "from"
+      },
+      {
+        "source": "components.chds.runtime_monitor",
+        "target": "cardhawkos.boot.boot_manager",
+        "type": "from"
+      },
+      {
+        "source": "components.chds.runtime_monitor",
+        "target": "cardhawkos.runtime.registry",
+        "type": "from"
+      },
+      {
+        "source": "components.chds.runtime_monitor",
+        "target": "cardhawkos.runtime.service_registry",
+        "type": "from"
+      },
+      {
+        "source": "components.chds.runtime_monitor",
+        "target": "jobs.runtime.scheduler",
+        "type": "from"
+      },
+      {
+        "source": "components.chds.runtime_monitor",
+        "target": "jobs.runtime.manager",
+        "type": "from"
+      },
+      {
+        "source": "components.chds.core.bootstrap",
+        "target": "components.chds.shell.sidebar",
+        "type": "from"
+      },
+      {
+        "source": "components.chds.core.bootstrap",
+        "target": "components.chds.theme",
+        "type": "from"
+      },
+      {
+        "source": "live_platform.pages.digital_twin",
+        "target": "services.live_platform_service",
+        "type": "from"
+      },
+      {
+        "source": "live_platform.pages.digital_twin",
+        "target": "components.live_platform_ui",
+        "type": "from"
+      },
+      {
+        "source": "live_platform.pages.digital_twin",
+        "target": "portfolio_digital_twin.digital_twin_service",
+        "type": "from"
+      },
+      {
+        "source": "live_platform.pages.universal_asset_viewer",
+        "target": "services.live_platform_service",
+        "type": "from"
+      },
+      {
+        "source": "live_platform.pages.universal_asset_viewer",
+        "target": "components.cardhawk_utils",
+        "type": "from"
+      },
+      {
+        "source": "live_platform.pages.universal_asset_viewer",
+        "target": "components.live_platform_ui",
+        "type": "from"
+      },
+      {
+        "source": "live_platform.pages.founder_workspace",
+        "target": "services.live_platform_service",
+        "type": "from"
+      },
+      {
+        "source": "live_platform.pages.founder_workspace",
+        "target": "components.live_platform_ui",
+        "type": "from"
+      },
+      {
+        "source": "live_platform.pages.marketplace_intelligence",
+        "target": "services.live_platform_service",
+        "type": "from"
+      },
+      {
+        "source": "live_platform.pages.marketplace_intelligence",
+        "target": "components.live_platform_ui",
+        "type": "from"
+      },
+      {
+        "source": "live_platform.pages.intelligence_everywhere",
+        "target": "services.live_platform_service",
+        "type": "from"
+      },
+      {
+        "source": "live_platform.pages.intelligence_everywhere",
+        "target": "components.live_platform_ui",
+        "type": "from"
+      },
+      {
+        "source": "live_platform.pages.live_dashboard",
+        "target": "services.live_platform_service",
+        "type": "from"
+      },
+      {
+        "source": "live_platform.pages.live_dashboard",
+        "target": "components.live_platform_ui",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.parsers.card_parser",
+        "target": "hawk_aeye.models.card_fields",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.parsers.card_parser",
+        "target": "hawk_aeye.knowledge.database",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.runtime.service",
+        "target": "hawk_aeye.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.runtime.engine",
+        "target": "hawk_aeye.ocr.tesseract_engine",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.runtime.engine",
+        "target": "hawk_aeye.parsers.card_parser",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.runtime.engine",
+        "target": "hawk_aeye.vision.vision_engine",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.runtime.pipeline",
+        "target": "hawk_aeye.runtime.service",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.runtime.pipeline",
+        "target": "marketplace.runtime.value",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.runtime.pipeline",
+        "target": "engines.thorx.runtime",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.runtime.pipeline",
+        "target": "negotiation.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.runtime.pipeline",
+        "target": "founder_ai.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.ocr.tesseract_engine",
+        "target": "hawk_aeye.preprocessing.image_processor",
+        "type": "from"
+      },
+      {
+        "source": "hawk_aeye.vision.vision_engine",
+        "target": "hawk_aeye.vision.image_intelligence",
+        "type": "from"
+      },
+      {
+        "source": "live_data.providers.demo_provider",
+        "target": "live_data.providers.provider_contract",
+        "type": "from"
+      },
+      {
+        "source": "live_data.comps.comp_engine",
+        "target": "live_data.pricing.pricing_engine",
+        "type": "from"
+      },
+      {
+        "source": "live_data.pages.live_market",
+        "target": "services.live_data_activation_service",
+        "type": "from"
+      },
+      {
+        "source": "live_data.pages.live_market",
+        "target": "components.live_data_ui",
+        "type": "from"
+      },
+      {
+        "source": "adaptive_intelligence.quality.quality_dashboard",
+        "target": "adaptive_intelligence.feedback.feedback_loop",
+        "type": "from"
+      },
+      {
+        "source": "adaptive_intelligence.pages.adaptive_dashboard",
+        "target": "adaptive_intelligence.adaptive_service",
+        "type": "from"
+      },
+      {
+        "source": "adaptive_intelligence.pages.adaptive_dashboard",
+        "target": "components.adaptive_ui",
+        "type": "from"
+      },
+      {
+        "source": "workflows.runtime.engine",
+        "target": "cardhawkos.runtime.orchestrator",
+        "type": "from"
+      },
+      {
+        "source": "workflows.runtime.engine",
+        "target": "decision_engine.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "workflows.runtime.engine",
+        "target": "jobs.system.def_jobs",
+        "type": "from"
+      },
+      {
+        "source": "workflows.runtime.engine",
+        "target": "portfolio.digital_twin.engine",
+        "type": "from"
+      },
+      {
+        "source": "runtime.jobs.demo",
+        "target": "runtime.jobs.job_runner",
+        "type": "from"
+      },
+      {
+        "source": "marketplace.connectors.manager",
+        "target": "marketplace.providers.ebay_provider",
+        "type": "from"
+      },
+      {
+        "source": "marketplace.connectors.manager",
+        "target": "marketplace.providers.comc_provider",
+        "type": "from"
+      },
+      {
+        "source": "marketplace.connectors.manager",
+        "target": "marketplace.providers.cardladder_provider",
+        "type": "from"
+      },
+      {
+        "source": "marketplace.providers.ebay_provider",
+        "target": "marketplace.providers.base_provider",
+        "type": "from"
+      },
+      {
+        "source": "marketplace.providers.comc_provider",
+        "target": "marketplace.providers.base_provider",
+        "type": "from"
+      },
+      {
+        "source": "marketplace.providers.cardladder_provider",
+        "target": "marketplace.providers.base_provider",
+        "type": "from"
+      },
+      {
+        "source": "marketplace.runtime.market_snapshot",
+        "target": "marketplace.connectors.manager",
+        "type": "from"
+      },
+      {
+        "source": "marketplace.runtime.valuation_engine",
+        "target": "marketplace.runtime.market_snapshot",
+        "type": "from"
+      },
+      {
+        "source": "marketplace.runtime.value",
+        "target": "marketplace.connectors.manager",
+        "type": "from"
+      },
+      {
+        "source": "marketplace.pricing.pricing_service",
+        "target": "marketplace.comp_engine",
+        "type": "from"
+      },
+      {
+        "source": "workflow_automation.pages.workflows",
+        "target": "workflow_automation.workflow_service",
+        "type": "from"
+      },
+      {
+        "source": "cardhawkos.boot.boot_manager",
+        "target": "cardhawkos.runtime.registry",
+        "type": "from"
+      },
+      {
+        "source": "cardhawkos.boot.boot_manager",
+        "target": "cardhawkos.runtime.service_registry",
+        "type": "from"
+      },
+      {
+        "source": "cardhawkos.runtime.health",
+        "target": "event_bus.runtime.store",
+        "type": "from"
+      },
+      {
+        "source": "cardhawkos.runtime.orchestrator",
+        "target": "cardhawkos.runtime.logger",
+        "type": "from"
+      },
+      {
+        "source": "cardhawkos.runtime.orchestrator",
+        "target": "event_bus.runtime.bus",
+        "type": "from"
+      },
+      {
+        "source": "cardhawkos.kernel.kernel",
+        "target": "cardhawkos.runtime.registry",
+        "type": "from"
+      },
+      {
+        "source": "intelligence.projections.manager",
+        "target": "core.event_bus",
+        "type": "from"
+      },
+      {
+        "source": "intelligence.replay.replay_engine",
+        "target": "intelligence.replay.event_store",
+        "type": "from"
+      },
+      {
+        "source": "intelligence.replay.replay_engine",
+        "target": "intelligence.projections.manager",
+        "type": "from"
+      },
+      {
+        "source": "intelligence.replay.rebuild",
+        "target": "core.bootstrap",
+        "type": "from"
+      },
+      {
+        "source": "intelligence.replay.rebuild",
+        "target": "intelligence.replay.replay_engine",
+        "type": "from"
+      },
+      {
+        "source": "intelligence.events.dispatcher",
+        "target": "core.event_bus",
+        "type": "from"
+      },
+      {
+        "source": "intelligence.events.dispatcher",
+        "target": "intelligence.events.events",
+        "type": "from"
+      },
+      {
+        "source": "legacy_backup.distributed_legacy",
+        "target": "aletheus.distributed.distributed_core",
+        "type": "from"
+      },
+      {
+        "source": "legacy_backup.distributed_legacy",
+        "target": "aletheus.distributed.models",
+        "type": "from"
+      },
+      {
+        "source": "legacy_backup.distributed_legacy.distributed_core",
+        "target": "aletheus.distributed.models",
+        "type": "from"
+      },
+      {
+        "source": "production_hardening.pages.production_hardening",
+        "target": "production_hardening.hardening_service",
+        "type": "from"
+      },
+      {
+        "source": "asset_core.runtime.enrichment",
+        "target": "marketplace.runtime.value",
+        "type": "from"
+      },
+      {
+        "source": "asset_core.runtime.enrichment",
+        "target": "engines.thorx.runtime",
+        "type": "from"
+      },
+      {
+        "source": "asset_core.runtime.enrichment",
+        "target": "asset_core.repository.asset_repository",
+        "type": "from"
+      },
+      {
+        "source": "asset_core.runtime.intake_pipeline",
+        "target": "hawk_aeye.runtime.pipeline",
+        "type": "from"
+      },
+      {
+        "source": "asset_core.runtime.intake_pipeline",
+        "target": "hawk_aeye.vision.vision_engine",
+        "type": "from"
+      },
+      {
+        "source": "asset_core.runtime.intake_pipeline",
+        "target": "asset_core.repository.asset_repository",
+        "type": "from"
+      },
+      {
+        "source": "asset_core.runtime.demo",
+        "target": "asset_core.workflows.asset_pipeline",
+        "type": "from"
+      },
+      {
+        "source": "tools.verification.verify_v28",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tools.verification.verify_v39_runtime",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tools.verification.verify_v33_runtime",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tools.verification.verify_v40_runtime",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tools.verification.verify_v36_runtime",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tools.verification.verify_v35_runtime",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tools.verification.verify_v37_runtime",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tools.verification.verify_v32_runtime",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tools.maintenance.run_atlas",
+        "target": "aletheus.atlas",
+        "type": "from"
+      },
+      {
+        "source": "tools.maintenance.run_watch_tower",
+        "target": "watch_tower.runtime.engine",
+        "type": "from"
+      },
+      {
+        "source": "tools.maintenance.run_platform_layer",
+        "target": "aletheus.platform",
+        "type": "from"
+      },
+      {
+        "source": "tools.maintenance.run_lighthouse",
+        "target": "aletheus.boot",
+        "type": "from"
+      },
+      {
+        "source": "tools.experiments.debug.debug_v36_high_availability",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tools.experiments.debug.debug_v32_runner",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tools.experiments.debug.debug_v27_commands",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tools.experiments.debug.debug_state_bootstrap",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tools.experiments.debug.debug_v33_event_bus",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tools.experiments.debug.debug_cluster_bootstrap",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "tools.experiments.debug.debug_v32_persistence",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "ui.pages.aletheus_founder_workspace",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "ui.pages.aletheus_runtime_console",
+        "target": "aletheus.runtime",
+        "type": "from"
+      },
+      {
+        "source": "founder.runtime.summary",
+        "target": "timeline.storage.store",
+        "type": "from"
+      }
+    ],
+    "cycles": [],
+    "duplicates": [
+      {
+        "family": [
+          "workflow",
+          "workflow_v3",
+          "workflows",
+          "workflows_v2"
+        ],
+        "present": [
+          "workflow",
+          "workflows"
+        ],
+        "message": "Multiple related architecture packages exist. Confirm canonical ownership before deleting."
+      },
+      {
+        "family": [
+          "event_bus",
+          "eventbus"
+        ],
+        "present": [
+          "event_bus",
+          "eventbus"
+        ],
+        "message": "Multiple related architecture packages exist. Confirm canonical ownership before deleting."
+      },
+      {
+        "family": [
+          "hawk_aeye",
+          "hawk_a_eye",
+          "cardhawk_aeye"
+        ],
+        "present": [
+          "hawk_aeye",
+          "cardhawk_aeye"
+        ],
+        "message": "Multiple related architecture packages exist. Confirm canonical ownership before deleting."
+      },
+      {
+        "family": [
+          "thorx",
+          "engine/thorx",
+          "engines/thorx"
+        ],
+        "present": [
+          "thorx",
+          "engine/thorx",
+          "engines/thorx"
+        ],
+        "message": "Multiple related architecture packages exist. Confirm canonical ownership before deleting."
+      }
+    ],
+    "findings": [
+      {
+        "severity": "medium",
+        "code": "DUPLICATE_ARCHITECTURE_FAMILIES",
+        "message": "4 duplicate architecture family/families detected."
+      }
+    ]
+  }
+}

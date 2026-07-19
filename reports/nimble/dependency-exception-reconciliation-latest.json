@@ -1,0 +1,12 @@
+{
+  "active_exception_count": 0,
+  "current_risk_count": 78,
+  "duplicate_exceptions": [],
+  "failures": [],
+  "generated_at": "2026-07-11T00:00:21.441345+00:00",
+  "matched": [],
+  "orphaned": [],
+  "schema_version": "1.0",
+  "status": "PASS",
+  "unwaived_enforceable_risks": []
+}

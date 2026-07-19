@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-07-03T06:11:45.997728+00:00",
+  "platform": "AletheusOS",
+  "certified": false,
+  "checks": {
+    "runtime_census": true,
+    "platform_inspection": true,
+    "kernel_online": true,
+    "runtime_online": true,
+    "discovery_loaded": false
+  },
+  "kernel": {
+    "version": "2.0.0-alpha",
+    "status": "online",
+    "events": 0,
+    "registry_items": 0,
+    "registry_by_type": {}
+  },
+  "runtime": {
+    "version": "4.6.2",
+    "status": "online",
+    "commands": 305,
+    "services": 32
+  },
+  "discovery": {
+    "discovered": 93,
+    "loaded": 90
+  },
+  "commands": {
+    "runtime_census": {
+      "command": "python3 tools/maintenance/runtime_census.py",
+      "return_code": 0,
+      "stdout": "AletheusOS Runtime Census\n========================================\nRuntime type: AletheusRuntime\nRuntime version: 4.6.2\nRuntime status: online\n\nRegistries\n----------\ncommands     FOUND    CommandBus count=305\nservices     FOUND    ServiceRegistry count=32\nengines      FOUND    EngineRegistry count=0\npipelines    FOUND    PipelineExecutor count=0\nworkflows    FOUND    WorkflowExecutor count=0\nevents       FOUND    EventBus count=2\nmetrics      FOUND    RuntimeMetrics count=4\nscheduler    FOUND    Scheduler count=0\njob_queue    MISSING   count=0\n\nRuntime Self Commands\n---------------------\nPASS runtime.diagnostics\nPASS runtime.selftest\nPASS runtime.dashboard\nPASS runtime.snapshot\nPASS runtime.audit\nPASS runtime.doctor\nPASS runtime.invariants\nPASS runtime.boot.validate\nPASS runtime.health_report\nPASS runtime.metrics\nPASS runtime.events\nPASS runtime.queue\nPASS runtime.health\n\nInspector\n---------\nsummary: {'version': '4.6.2', 'status': 'online', 'handlers': 315, 'services': 32}\nhandlers: 315\nservices: 32\n\nOverall\n-------\nRuntime command checks passed: 13\nRuntime command checks failed: 0\nOVERALL: PASS\n",
+      "stderr": "",
+      "passed": true
+    },
+    "platform_inspection": {
+      "command": "python3 tools/maintenance/platform_inspection.py",
+      "return_code": 0,
+      "stdout": "\nAletheusOS Platform Inspection\n==================================================\nOverall Status : PASS\nKernel Version : 2.0.0-alpha\nRuntime Version: 4.6.2\nCommands       : 305\nServices       : 32\nDiscovered     : 93\n\nJSON Report    : /Users/master_lord_6ixth/Development/AletheusOS/reports/platform_inspection/platform_inspection.json\nMarkdown Report: /Users/master_lord_6ixth/Development/AletheusOS/reports/platform_inspection/platform_inspection.md\n\n",
+      "stderr": "",
+      "passed": true
+    }
+  }
+}

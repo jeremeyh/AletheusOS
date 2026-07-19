@@ -1,0 +1,4205 @@
+{
+  "checkpoint_entry_count": 0,
+  "checkpoint_hash": "da3827583cb7d48ff78f9b6cb3d8f916381db02f09c9f9d1d7e9115f554deed6",
+  "checkpoint_head_hash": "GENESIS",
+  "created_at": "2026-07-13T07:56:39.732856+00:00",
+  "ledger_entries": [
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "993b9ae15ba34f3a4fa2c6f74cc45a6d0e20ff646db41cb3ea18f6cddc623d3a",
+      "event_id": "e1548b73-ad26-435a-98db-4034f1d4a1c4",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:18:54.146997+00:00",
+      "previous_hash": "GENESIS",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 1
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "adc7491eed5aa2f55faa09829a583598cc6e931eac48e4239d1ed367f03ca069",
+      "event_id": "a71cb716-0537-4b1d-b609-851e365aefe1",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:19:08.450478+00:00",
+      "previous_hash": "993b9ae15ba34f3a4fa2c6f74cc45a6d0e20ff646db41cb3ea18f6cddc623d3a",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 2
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "a861a24c63f7c7c9cdf2d61270e5669affa717fe371e8935bcf1d30a16f16397",
+      "event_id": "e150215c-9ca5-44e3-8be3-f38cd74d32bd",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:19:09.024630+00:00",
+      "previous_hash": "adc7491eed5aa2f55faa09829a583598cc6e931eac48e4239d1ed367f03ca069",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 3
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "74dec544a0190ce9cb676b4afcaed98e0ffd764baeefc8f03279670b5e102e49",
+      "event_id": "b4a8bb1c-d052-4f21-bfe0-6faf44ca3463",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:19:09.647864+00:00",
+      "previous_hash": "a861a24c63f7c7c9cdf2d61270e5669affa717fe371e8935bcf1d30a16f16397",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 4
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "9d1c0cbdc2e9c6acb91ad8f45cbd0f5aad0bd8bccec83d0a5f93d7e251c0b086",
+      "event_id": "6ad2f9c0-2598-4c5c-9bd5-69d79efb4aa8",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:19:10.296822+00:00",
+      "previous_hash": "74dec544a0190ce9cb676b4afcaed98e0ffd764baeefc8f03279670b5e102e49",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 5
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "1fc089c2e1935e5ca6be02cefacfb8338c8a02bea687f3eb3bb196c3fa492b6f",
+      "event_id": "ff554abe-921d-4911-afe0-1854c2957fd7",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:19:10.955961+00:00",
+      "previous_hash": "9d1c0cbdc2e9c6acb91ad8f45cbd0f5aad0bd8bccec83d0a5f93d7e251c0b086",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 6
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "731bdca5d6fe9501e38a3cfeadb9e864fbc29861158fef5f7b8efbe6ae99c9f4",
+      "event_id": "c273c982-34aa-44da-b57f-ada0c247d2e2",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:19:11.992116+00:00",
+      "previous_hash": "1fc089c2e1935e5ca6be02cefacfb8338c8a02bea687f3eb3bb196c3fa492b6f",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 7
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "2b6d8cc540e395e76700bcc91002f28bac4a18bf3156f9bf0336e6b874a3430a",
+      "event_id": "6b0c392c-581c-4c80-a198-7f34b3ce94dc",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:19:12.241412+00:00",
+      "previous_hash": "731bdca5d6fe9501e38a3cfeadb9e864fbc29861158fef5f7b8efbe6ae99c9f4",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 8
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "5ede7ede7cdf93f45b08a6d27eb00e69c6850b84ebe4edc90466dcd7bd73c269",
+      "event_id": "e61cf663-f269-41bd-8aa9-810c9d6be0e8",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:19:13.651110+00:00",
+      "previous_hash": "2b6d8cc540e395e76700bcc91002f28bac4a18bf3156f9bf0336e6b874a3430a",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 9
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "d43865e09e100f8d5b54169456aac631978e316a1b152ac781e3a3330f5a2f08",
+      "event_id": "b8fc6c70-a715-4072-ad36-f01b95f1df99",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:19:13.899964+00:00",
+      "previous_hash": "5ede7ede7cdf93f45b08a6d27eb00e69c6850b84ebe4edc90466dcd7bd73c269",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 10
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "d82bd2824f9605802633d65f515455d3f12772053adb542cea6c710d77ce563e",
+      "event_id": "16e8f3a7-5f82-4b24-88fd-315e5807f761",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:19:15.099045+00:00",
+      "previous_hash": "d43865e09e100f8d5b54169456aac631978e316a1b152ac781e3a3330f5a2f08",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 11
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "30c4455793e5b0e5ed649eb4c562134fd5c598cb5e2c61805700325274b805c5",
+      "event_id": "8fd76a1e-4354-4496-82db-8936bd4a42cc",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:19:15.346651+00:00",
+      "previous_hash": "d82bd2824f9605802633d65f515455d3f12772053adb542cea6c710d77ce563e",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 12
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "695a5a3c9eafb2b41b6da3c0ed322249dce2a85b6ee823f62ea382aa1c1c338f",
+      "event_id": "06c9b67e-1151-4d18-80e7-ec7704f755aa",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:19:16.304087+00:00",
+      "previous_hash": "30c4455793e5b0e5ed649eb4c562134fd5c598cb5e2c61805700325274b805c5",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 13
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "544b893a52d6a6504e50b99f068546ea6c3ffd3bad83afb4db47474be3fc4415",
+      "event_id": "8ad96b5d-49df-4a0f-8abf-1e79b581f9a2",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:19:16.550839+00:00",
+      "previous_hash": "695a5a3c9eafb2b41b6da3c0ed322249dce2a85b6ee823f62ea382aa1c1c338f",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 14
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "8ef8755d93cfefdd89a01305afcad219fe9342a87f7ab34eb7250cd2f33443aa",
+      "event_id": "3e7a718b-9cae-48e7-b6e3-21be8fcbb5c2",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:19:17.753829+00:00",
+      "previous_hash": "544b893a52d6a6504e50b99f068546ea6c3ffd3bad83afb4db47474be3fc4415",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 15
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "9397899c27cf2b766416b70b38ed41561bea4c0743ea16b568aa39ec3e375e20",
+      "event_id": "f01611fc-fc64-4f8a-8b4a-d86fce3d136c",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:19:17.997436+00:00",
+      "previous_hash": "8ef8755d93cfefdd89a01305afcad219fe9342a87f7ab34eb7250cd2f33443aa",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 16
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "9d32bb39b4168fcb0d95dd626e7efd4a7186d2ac2540d2a7bfeff79f2c107fec",
+      "event_id": "5cb33b29-649c-42af-81db-7b62d7f7e59a",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:19:18.760538+00:00",
+      "previous_hash": "9397899c27cf2b766416b70b38ed41561bea4c0743ea16b568aa39ec3e375e20",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 17
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "cc0704f2f6709af5b8f2cdec751e49fa37219275bf0287862f8590a7b86dd067",
+      "event_id": "9bc78e36-51ec-4527-ae93-2cad47c25f30",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:22:41.912468+00:00",
+      "previous_hash": "9d32bb39b4168fcb0d95dd626e7efd4a7186d2ac2540d2a7bfeff79f2c107fec",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 18
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "9024aed18be0b5aa5d95f69d51f20aa23d1fedb2a216e32df4e4e32d06f25c9d",
+      "event_id": "f3b990c2-1e82-42cf-b167-5fd20aa9c3f7",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:22:42.525699+00:00",
+      "previous_hash": "cc0704f2f6709af5b8f2cdec751e49fa37219275bf0287862f8590a7b86dd067",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 19
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "f3312f38c99c85332a863e9377f4c7355af4eb5ce66b7fae2b3372e873e863bd",
+      "event_id": "8ef1f2be-f3ef-481d-8bfe-36bbb7f56178",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:22:43.138641+00:00",
+      "previous_hash": "9024aed18be0b5aa5d95f69d51f20aa23d1fedb2a216e32df4e4e32d06f25c9d",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 20
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "102f9e603a67af871b720056f3c9a60bb6ab6b4a39171a36d4cc0ba4f09a95e3",
+      "event_id": "a86ebdb9-2bfd-4d4d-a4a2-bf8bb23cd3e9",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:22:43.742073+00:00",
+      "previous_hash": "f3312f38c99c85332a863e9377f4c7355af4eb5ce66b7fae2b3372e873e863bd",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 21
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "e40a7c8e5c5b7a1604c64d997db56943b6945a02cd1ce15aa96b1064822f4c84",
+      "event_id": "c7d74d2f-2be1-4898-bb35-2adc76c0287c",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:22:44.166274+00:00",
+      "previous_hash": "102f9e603a67af871b720056f3c9a60bb6ab6b4a39171a36d4cc0ba4f09a95e3",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 22
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "7512f96d1a1b8c5ef2f14d4e88ba2951ef8f524179c04b9febd4eb1b02a9c48d",
+      "event_id": "0a3241d2-4de5-43b5-bb9f-da010c0199bf",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:22:45.137389+00:00",
+      "previous_hash": "e40a7c8e5c5b7a1604c64d997db56943b6945a02cd1ce15aa96b1064822f4c84",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 23
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "88c3dfafde0934d41334ec47d1e3842138b5a50f7d419d4655df6b71c35efec7",
+      "event_id": "723ec720-200b-4151-95dc-56eb440de8a3",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:22:45.384778+00:00",
+      "previous_hash": "7512f96d1a1b8c5ef2f14d4e88ba2951ef8f524179c04b9febd4eb1b02a9c48d",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 24
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "7ddad0c6c76dd0ca00cff20428bab5052bce4d17f331db9359da03485fa686f3",
+      "event_id": "dc8b2d66-ffdc-4816-b0cb-ef95de35d5a1",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:22:46.808032+00:00",
+      "previous_hash": "88c3dfafde0934d41334ec47d1e3842138b5a50f7d419d4655df6b71c35efec7",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 25
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "a2f6c050f1a21cdef033aa4a66b88c1505442a2f0ee0ef20ee9ec09ca664e7a9",
+      "event_id": "801694f3-d961-407c-95d1-2bdf85d8978d",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:22:47.043925+00:00",
+      "previous_hash": "7ddad0c6c76dd0ca00cff20428bab5052bce4d17f331db9359da03485fa686f3",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 26
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "e70138da14a6e99924ff4c2ce5b864f6142dd028aa3b415e49ff8743d590772e",
+      "event_id": "e1e52ece-5d93-47fe-9878-44ede98f1246",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:22:57.701484+00:00",
+      "previous_hash": "a2f6c050f1a21cdef033aa4a66b88c1505442a2f0ee0ef20ee9ec09ca664e7a9",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 27
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "b69f57c08bf140249ee306fe657ff14c3ca3053e541e7290128a07662dd7e668",
+      "event_id": "039824a4-67a7-4b40-9c74-3b1587643c0b",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:22:57.963576+00:00",
+      "previous_hash": "e70138da14a6e99924ff4c2ce5b864f6142dd028aa3b415e49ff8743d590772e",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 28
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "c462853040a808de76a65f2fe5eb275efd7c7202247939526ab53cdcc1151346",
+      "event_id": "22b93182-ecf0-4a17-a48f-49cbfd77216a",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:22:58.904494+00:00",
+      "previous_hash": "b69f57c08bf140249ee306fe657ff14c3ca3053e541e7290128a07662dd7e668",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 29
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "0f84d2ce0f0b5e0b0c4167f67f921f8696bcdb70c172a566786edbfa562872f0",
+      "event_id": "04cc3fd9-6b5b-4b18-9b74-a13e2860089d",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:22:59.137294+00:00",
+      "previous_hash": "c462853040a808de76a65f2fe5eb275efd7c7202247939526ab53cdcc1151346",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 30
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "6a2c5b8840409fd6241ab0ffea78f892d53a27d87e233785019fb67d00379601",
+      "event_id": "d0476142-1a19-408e-ba04-5711893f5bac",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:23:07.317676+00:00",
+      "previous_hash": "0f84d2ce0f0b5e0b0c4167f67f921f8696bcdb70c172a566786edbfa562872f0",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 31
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "5eac18dbd4801447d5ed769ad904a9b3204faa9b2f5b27205a56e58cc6c390ea",
+      "event_id": "5452c230-c785-4ada-8089-b7b9be4cca1d",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:23:07.562647+00:00",
+      "previous_hash": "6a2c5b8840409fd6241ab0ffea78f892d53a27d87e233785019fb67d00379601",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 32
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "d09a2228cd0603892488f5f8311a33d70d0f7f72d54808b73f8c7df357b289ec",
+      "event_id": "9550947c-55c6-4b03-9fc6-0a08aa9d925e",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:23:08.318899+00:00",
+      "previous_hash": "5eac18dbd4801447d5ed769ad904a9b3204faa9b2f5b27205a56e58cc6c390ea",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 33
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "6b7a818addd2cbd0ae1fa650ddc8b7e9186b25ef6672d9fd164d7119ebe60c88",
+      "event_id": "f5cc0a84-cec2-4c43-89ba-c2509081ade7",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:28:50.579650+00:00",
+      "previous_hash": "d09a2228cd0603892488f5f8311a33d70d0f7f72d54808b73f8c7df357b289ec",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 34
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "2545945401dd70cd31268fbf84984791444aab015b440d1980468c48433114f2",
+      "event_id": "b3ccbbd4-eef6-467e-8ddc-61f264e3ccd8",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:28:51.239062+00:00",
+      "previous_hash": "6b7a818addd2cbd0ae1fa650ddc8b7e9186b25ef6672d9fd164d7119ebe60c88",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 35
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "849b583c3f5501fab752e308396cc84f1d67e97f6e77aec919230474e28b76ba",
+      "event_id": "e4049631-8af0-4781-8353-b4844f9e5aea",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:28:51.868711+00:00",
+      "previous_hash": "2545945401dd70cd31268fbf84984791444aab015b440d1980468c48433114f2",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 36
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "5dcfd10a3802625794be438e124a76f5af264f2774a3c83121416490fc5a2bfa",
+      "event_id": "41f491c8-9c56-4db6-9e93-386b32f41bf1",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:28:52.501654+00:00",
+      "previous_hash": "849b583c3f5501fab752e308396cc84f1d67e97f6e77aec919230474e28b76ba",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 37
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "b911fc8719170750e374d1a58b8e2f683a04993eee1e04ed9b3cc3c566bc8a15",
+      "event_id": "879c7d2c-a5cd-485b-84ec-9f41922b4f55",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:28:52.976249+00:00",
+      "previous_hash": "5dcfd10a3802625794be438e124a76f5af264f2774a3c83121416490fc5a2bfa",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 38
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "78f6eb89e4b7c3219bf00363441c4234a2d7b814b24933a10230d3dd3ec32e03",
+      "event_id": "a74e6663-60c8-4004-9d5a-9b37bb298be6",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:28:54.001506+00:00",
+      "previous_hash": "b911fc8719170750e374d1a58b8e2f683a04993eee1e04ed9b3cc3c566bc8a15",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 39
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "2b134c400ef7d3620324c1b5e96cfa7c37074334347daf2ba91ad9cdc288e580",
+      "event_id": "5a091280-15e2-46d6-b609-7d241911be99",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:28:54.261299+00:00",
+      "previous_hash": "78f6eb89e4b7c3219bf00363441c4234a2d7b814b24933a10230d3dd3ec32e03",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 40
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "efab3251861b33ef9428e10ba0eebb747b00ad064a911584e6072ec329362e5e",
+      "event_id": "c6b060e0-b0ee-4111-905c-f01924f16a9b",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:28:55.728782+00:00",
+      "previous_hash": "2b134c400ef7d3620324c1b5e96cfa7c37074334347daf2ba91ad9cdc288e580",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 41
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "ad3f8d1ff368ead3d40dc0f4c523f35cecdcaa5294f893dbd0d9575f8c758a3b",
+      "event_id": "25e55022-2553-4ed4-a4d7-cbe9482db7d9",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:28:55.985045+00:00",
+      "previous_hash": "efab3251861b33ef9428e10ba0eebb747b00ad064a911584e6072ec329362e5e",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 42
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "51acadee325a07c89ac4bc405381b0c69b168068db825b4e02f6fc7703033456",
+      "event_id": "bfc48b8f-51ed-4bc5-a164-9d42241aa098",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:29:06.850061+00:00",
+      "previous_hash": "ad3f8d1ff368ead3d40dc0f4c523f35cecdcaa5294f893dbd0d9575f8c758a3b",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 43
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "93e7a785b016a87cd54c0d53c517893347b44d96fe0e9284045995a75ee519e7",
+      "event_id": "f5070d9e-74de-4c93-9232-e8a252b458ac",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:29:07.131476+00:00",
+      "previous_hash": "51acadee325a07c89ac4bc405381b0c69b168068db825b4e02f6fc7703033456",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 44
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "8a5d53e8c9bb383bd60f074de747ea81221f533d445670ecb56a5fbff6fd04aa",
+      "event_id": "e2aae679-b035-4657-a3e6-17a676d9d682",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:29:08.103691+00:00",
+      "previous_hash": "93e7a785b016a87cd54c0d53c517893347b44d96fe0e9284045995a75ee519e7",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 45
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "71ccd259b7bc308fe7be0a812ac89fd68b044cfea43a0c44655196381ea0e5b0",
+      "event_id": "7d2b6ce1-c872-4226-9824-cc8712ed37e5",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:29:08.368596+00:00",
+      "previous_hash": "8a5d53e8c9bb383bd60f074de747ea81221f533d445670ecb56a5fbff6fd04aa",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 46
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "e064083a9bc6295ab7bdc40ac9fc9cd0ed5258bf3dc04fabdc6c4150f43089d8",
+      "event_id": "136b0e5c-7de8-41b4-8ffc-87346b677767",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:29:16.462713+00:00",
+      "previous_hash": "71ccd259b7bc308fe7be0a812ac89fd68b044cfea43a0c44655196381ea0e5b0",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 47
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "158723045096f56de2716d23062db9a4eb76f83d4adf47afb524d17672e7f77e",
+      "event_id": "f6bc7bf0-c067-4dec-8b58-f0a9ac754be8",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:29:16.721435+00:00",
+      "previous_hash": "e064083a9bc6295ab7bdc40ac9fc9cd0ed5258bf3dc04fabdc6c4150f43089d8",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 48
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "cd999cf4eeac27a79c421a3139f937a3b2d9423ca274f725f7d82082a899480f",
+      "event_id": "f341482f-0e3e-451d-983d-05fa6ca72990",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:29:17.531266+00:00",
+      "previous_hash": "158723045096f56de2716d23062db9a4eb76f83d4adf47afb524d17672e7f77e",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 49
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "f892fe0b6bce07c1acacafeb55fa02d69120903af099e8048860ac9fc0fbfa16",
+      "event_id": "230b97f8-89f7-4469-aa77-6c7e24ab1649",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:45:28.958088+00:00",
+      "previous_hash": "cd999cf4eeac27a79c421a3139f937a3b2d9423ca274f725f7d82082a899480f",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 50
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "c18d30cd1473af9233c07e4ad9e5b90899562dbbab4b6b3e3f5cad063c8a6acd",
+      "event_id": "b3d5f535-3c43-4169-aa2c-e583004d8df0",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:45:29.604714+00:00",
+      "previous_hash": "f892fe0b6bce07c1acacafeb55fa02d69120903af099e8048860ac9fc0fbfa16",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 51
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "6350c6f8c8a8a6d85fbb4a62e88b0415918c43b6d7cf80a212914ef8182dbf59",
+      "event_id": "86deca7d-9428-416e-bbce-c228bfa092b3",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:45:30.238325+00:00",
+      "previous_hash": "c18d30cd1473af9233c07e4ad9e5b90899562dbbab4b6b3e3f5cad063c8a6acd",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 52
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "ade38e32b1ad6670cee127fcc0b84baa95940ccdfa83d5e61c6ed399dca6dbfa",
+      "event_id": "47afb6b0-628f-4d70-b34c-0c0d7db3c8be",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:45:30.834264+00:00",
+      "previous_hash": "6350c6f8c8a8a6d85fbb4a62e88b0415918c43b6d7cf80a212914ef8182dbf59",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 53
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "e0c97e8cb2901473dd2cec828157155bd368314f6f6403cca8744c707773fcf2",
+      "event_id": "4d94f5a1-4c39-469e-a2a3-822c0b11103f",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:45:31.294072+00:00",
+      "previous_hash": "ade38e32b1ad6670cee127fcc0b84baa95940ccdfa83d5e61c6ed399dca6dbfa",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 54
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "0dba1860a7026849c7df7558b82d6c71fc816ecc60b07ab664fe86b7ad784b74",
+      "event_id": "636df1a9-0263-40be-a50b-3e5d4b854ca0",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:45:32.307803+00:00",
+      "previous_hash": "e0c97e8cb2901473dd2cec828157155bd368314f6f6403cca8744c707773fcf2",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 55
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "9535dfcfb6275681b4796c6ee92807fbbe18a127bc73e8dc72095a331179a8f0",
+      "event_id": "bd2e967d-b833-4116-be68-0aecb8f2a5f7",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:45:32.565832+00:00",
+      "previous_hash": "0dba1860a7026849c7df7558b82d6c71fc816ecc60b07ab664fe86b7ad784b74",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 56
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "9d4f3ebb38fb21a8c26c6c9f026e9cec795abf8a84a97f696234c9e39907e2bf",
+      "event_id": "40b79b39-ebee-4615-a7e0-95f0bdaf2463",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:45:33.984253+00:00",
+      "previous_hash": "9535dfcfb6275681b4796c6ee92807fbbe18a127bc73e8dc72095a331179a8f0",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 57
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "fbc7f94d8c343632c3d0bc0c1baa268a8d887ab4268f25c43060bb6f404d5fab",
+      "event_id": "38dbf4c5-3148-4d04-b78a-4603ca8b65b2",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:45:34.213147+00:00",
+      "previous_hash": "9d4f3ebb38fb21a8c26c6c9f026e9cec795abf8a84a97f696234c9e39907e2bf",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 58
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "e261f4e568c03d1f4f30e830132d27a5d2dd4df28a17b68d7d494076af2bd8e9",
+      "event_id": "7e1e2194-e9b3-49d5-b37b-13da6cf8c799",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:45:44.990346+00:00",
+      "previous_hash": "fbc7f94d8c343632c3d0bc0c1baa268a8d887ab4268f25c43060bb6f404d5fab",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 59
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "d391463d14255336c1025d10b721ba5e7e2aa3c7219d1a203bbea1d03f745fac",
+      "event_id": "b0d90350-a602-41bd-88a6-3a492b6b668a",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:45:45.237020+00:00",
+      "previous_hash": "e261f4e568c03d1f4f30e830132d27a5d2dd4df28a17b68d7d494076af2bd8e9",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 60
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "3a1aae5cb06f81fb42efbd05ef448ce57a6736b5e4b14c2de488f831eb877112",
+      "event_id": "4369cfc8-c71b-4ea0-9700-f44f624c15f7",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:45:46.210458+00:00",
+      "previous_hash": "d391463d14255336c1025d10b721ba5e7e2aa3c7219d1a203bbea1d03f745fac",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 61
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "44b2b8f1304ea561cd65604934514b3be50a31cf90955e413d3d4e6ae31f87a6",
+      "event_id": "9782022c-0d58-4e7d-bc7f-3322a7c99e3b",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:45:46.462620+00:00",
+      "previous_hash": "3a1aae5cb06f81fb42efbd05ef448ce57a6736b5e4b14c2de488f831eb877112",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 62
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "15a53ae20ec74af6bf137f22df267622158af58c424f8f163303e6316db001fb",
+      "event_id": "7b89800d-e81f-492d-8f12-f73d9be12d19",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:45:54.602986+00:00",
+      "previous_hash": "44b2b8f1304ea561cd65604934514b3be50a31cf90955e413d3d4e6ae31f87a6",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 63
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "bab84fff4fac91f8fabacff9adb24f026195a64c433306eb028ed10d7d5678ef",
+      "event_id": "6b9e3943-7962-4573-8e7d-65b94daf2d5c",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T02:45:54.855511+00:00",
+      "previous_hash": "15a53ae20ec74af6bf137f22df267622158af58c424f8f163303e6316db001fb",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 64
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "ea1fea5a9f00dd2be01d606ddb9702194222d2610698c4a7f6d85d7eccc0d7a5",
+      "event_id": "5ff8a889-7182-4467-b49f-791cf1e129db",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T02:45:55.626139+00:00",
+      "previous_hash": "bab84fff4fac91f8fabacff9adb24f026195a64c433306eb028ed10d7d5678ef",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 65
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "a8d400a10b65a09144a720da3d69a257ebbf64ea6e4f513d8114685b454071a1",
+      "event_id": "77e645e9-6156-434c-861c-ce2131dfa116",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T03:27:49.983224+00:00",
+      "previous_hash": "ea1fea5a9f00dd2be01d606ddb9702194222d2610698c4a7f6d85d7eccc0d7a5",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 66
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "a15ed243abf0af60582b7469a55b8f5e46b429256ae846669e818c2539a77284",
+      "event_id": "6f44e521-a446-44a5-8c7f-658fd85c8411",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T03:27:50.631784+00:00",
+      "previous_hash": "a8d400a10b65a09144a720da3d69a257ebbf64ea6e4f513d8114685b454071a1",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 67
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "bbc4825731b73e98c99f5dc5761f4476b657dc27852af768d606b7843ece155c",
+      "event_id": "0cac18ee-7b62-4949-9512-8975f076c1ca",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T03:27:51.290767+00:00",
+      "previous_hash": "a15ed243abf0af60582b7469a55b8f5e46b429256ae846669e818c2539a77284",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 68
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "2219c11107251d13d78f186436ba0ed9f868fcbf502c498fc295bd036f5ab351",
+      "event_id": "696f0835-e080-43e6-9c20-be1c2ca5a2d8",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T03:27:51.923388+00:00",
+      "previous_hash": "bbc4825731b73e98c99f5dc5761f4476b657dc27852af768d606b7843ece155c",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 69
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "7a414af8a943733dc888c6c79841875e52db6afe391025ca477d2b18d214c4ca",
+      "event_id": "dd983681-cd91-42b0-acf7-aa2f7c12cc35",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T03:27:52.371636+00:00",
+      "previous_hash": "2219c11107251d13d78f186436ba0ed9f868fcbf502c498fc295bd036f5ab351",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 70
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "22eecde80cefa4ffa850e795921ea7b52b405f6c73b9578f08cf1d0582d64069",
+      "event_id": "51df897d-6e24-4b46-8045-46e7e1e94dae",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T03:27:53.406775+00:00",
+      "previous_hash": "7a414af8a943733dc888c6c79841875e52db6afe391025ca477d2b18d214c4ca",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 71
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "a4d9c9f61978f4667d1980228991252647617b9955d2e9d452fe4ce4da7f4b62",
+      "event_id": "425ff270-d663-4690-b4ec-86660b24df95",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T03:27:53.662616+00:00",
+      "previous_hash": "22eecde80cefa4ffa850e795921ea7b52b405f6c73b9578f08cf1d0582d64069",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 72
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "52725116902c3d1d077d4535312b2f9cc22cb2df1a5b195befef026c74451850",
+      "event_id": "cb5b3d63-3f35-4f4c-918a-dd6a5b7594c8",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T03:27:55.123521+00:00",
+      "previous_hash": "a4d9c9f61978f4667d1980228991252647617b9955d2e9d452fe4ce4da7f4b62",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 73
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "d5c27eff37fa89e551e708dc115aa9c4e66f5668d340ba38b291c2e31e7e004d",
+      "event_id": "b3045bef-5eaa-44e9-a065-8f9fb72e5ba6",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T03:27:55.380175+00:00",
+      "previous_hash": "52725116902c3d1d077d4535312b2f9cc22cb2df1a5b195befef026c74451850",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 74
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "0012e2329c7c5072feebb2bd5459f3fe0279305191fff233edefc1b6b4e70a25",
+      "event_id": "3015359b-ee73-4088-abaf-9f57f5525fce",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T03:28:05.755743+00:00",
+      "previous_hash": "d5c27eff37fa89e551e708dc115aa9c4e66f5668d340ba38b291c2e31e7e004d",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 75
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "650fb0951be9182e67bbb0916fee0109c0bc624a1b5a804f4319b661f56f2834",
+      "event_id": "4fe5cfec-8e43-4207-b45a-18bd9c8fa2e7",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T03:28:06.016593+00:00",
+      "previous_hash": "0012e2329c7c5072feebb2bd5459f3fe0279305191fff233edefc1b6b4e70a25",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 76
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "630da94188cc93de7a7c8bbac648834e2003966fee2b2935e415f4b22e6ce0f1",
+      "event_id": "ee2667af-98b4-4c38-8d85-65a2b45786a1",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T03:28:07.088353+00:00",
+      "previous_hash": "650fb0951be9182e67bbb0916fee0109c0bc624a1b5a804f4319b661f56f2834",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 77
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "51537b5cb392e164290fe01b1e564259729befbe0663a6be233107f60f90d80c",
+      "event_id": "234e90c1-8ae3-4e9b-aa47-b989a38962b7",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T03:28:07.351624+00:00",
+      "previous_hash": "630da94188cc93de7a7c8bbac648834e2003966fee2b2935e415f4b22e6ce0f1",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 78
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "e9fedfd094a1f7a6f22f0ad3c7e3513c7f45f5bdb775ab1a5fcd7cb71855def5",
+      "event_id": "3b004f95-948a-4fd6-ad0d-6089b4f7b4e1",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T03:28:15.654865+00:00",
+      "previous_hash": "51537b5cb392e164290fe01b1e564259729befbe0663a6be233107f60f90d80c",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 79
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "63e7344957e3d383a055cb542202c0ac1bc239220176631f8cdcf8f0fe229718",
+      "event_id": "ea5380b4-642b-48d8-af28-5e8cb9a5c3b2",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T03:28:15.922278+00:00",
+      "previous_hash": "e9fedfd094a1f7a6f22f0ad3c7e3513c7f45f5bdb775ab1a5fcd7cb71855def5",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 80
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "ade6400bdf625ccaef5002b9f496d3c7bf632a5d9558a80e91abee12583f033a",
+      "event_id": "21a57a2a-0e06-4c28-952d-8f328f48c21a",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T03:28:16.698478+00:00",
+      "previous_hash": "63e7344957e3d383a055cb542202c0ac1bc239220176631f8cdcf8f0fe229718",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 81
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "2bb05c7dceb9e5b8ee87e20fc164f7d6c653004881ee3d6805c640c1e1a1f71b",
+      "event_id": "d143e4c3-5523-43f0-ba70-644c852b71d5",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:00:04.101114+00:00",
+      "previous_hash": "ade6400bdf625ccaef5002b9f496d3c7bf632a5d9558a80e91abee12583f033a",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 82
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "c2b55297ab8b653d74df27717c86e062eacb0d4c043b998567efd549535cb246",
+      "event_id": "c20ee02a-58b3-4ffa-b22b-df296625e781",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:00:04.689339+00:00",
+      "previous_hash": "2bb05c7dceb9e5b8ee87e20fc164f7d6c653004881ee3d6805c640c1e1a1f71b",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 83
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "6e481fea7bb852c243424f64b4ae8a54bb6df09a274b6f16a1a0290dfe1c2aa9",
+      "event_id": "1f77790f-6ac9-4cd8-b511-ebf5d031eedd",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:00:05.298396+00:00",
+      "previous_hash": "c2b55297ab8b653d74df27717c86e062eacb0d4c043b998567efd549535cb246",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 84
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "9ce2b46d6fec41aa1b43a0392078c9ed5e54f6d7e2fac643c88a3ef8cede0562",
+      "event_id": "d670ddad-4fcc-431c-939c-907a0d9cdf63",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:00:05.899113+00:00",
+      "previous_hash": "6e481fea7bb852c243424f64b4ae8a54bb6df09a274b6f16a1a0290dfe1c2aa9",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 85
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "eef3ad36b924c71130655d87de56ac07b4907efbe81bd7eabf75bd77d69cc46a",
+      "event_id": "8c0d12e0-6734-4ff7-9086-bf989ec742f6",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:00:06.339712+00:00",
+      "previous_hash": "9ce2b46d6fec41aa1b43a0392078c9ed5e54f6d7e2fac643c88a3ef8cede0562",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 86
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "a104c8a441e65658cd394ac8827dc6bc9a901c5128ecf1ae0e84a38608ad06cb",
+      "event_id": "56f77a9a-ac3a-4eb4-a2ca-6d5993611a3a",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:00:07.314008+00:00",
+      "previous_hash": "eef3ad36b924c71130655d87de56ac07b4907efbe81bd7eabf75bd77d69cc46a",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 87
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "fdac62a42e8f1eb2fd54961b8d8ae4b0d77bf804eee130058fefa9cbe63c7f00",
+      "event_id": "be8fdc8c-59de-411d-8d59-6f970c2cac2d",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:00:07.555211+00:00",
+      "previous_hash": "a104c8a441e65658cd394ac8827dc6bc9a901c5128ecf1ae0e84a38608ad06cb",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 88
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "3e4dbe9b3cdc31371eeef759f8084b03b5c1616ca7e84ecb0f54e1a575d91348",
+      "event_id": "3989976f-2309-4636-93e4-a44bd09f39ab",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:00:08.990556+00:00",
+      "previous_hash": "fdac62a42e8f1eb2fd54961b8d8ae4b0d77bf804eee130058fefa9cbe63c7f00",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 89
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "4f60445fcd35b7f633ca2aa5437bca7220e22b8e879aa0b59cfa18537a21bb2e",
+      "event_id": "3f060989-6d2f-4f87-948e-3783fc2d4439",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:00:09.237918+00:00",
+      "previous_hash": "3e4dbe9b3cdc31371eeef759f8084b03b5c1616ca7e84ecb0f54e1a575d91348",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 90
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "79f1d687e82b30591b56924edcb0bd5f4956e2c5f9e002c7e357c563df7cd519",
+      "event_id": "31a90ccb-6d98-41e5-976d-b3500da40c99",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:00:19.901770+00:00",
+      "previous_hash": "4f60445fcd35b7f633ca2aa5437bca7220e22b8e879aa0b59cfa18537a21bb2e",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 91
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "20189469339ff1cc2ba8f944cd384ed21ea2cc3a3004324c67acbc44d3167a59",
+      "event_id": "6f87d9c2-782b-4580-a906-99825e09d87f",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:00:20.135979+00:00",
+      "previous_hash": "79f1d687e82b30591b56924edcb0bd5f4956e2c5f9e002c7e357c563df7cd519",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 92
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "bf25ed4824218c357dfbfbfb981a345cd7b5348e080323435b9b7a7aedbd9a1e",
+      "event_id": "1ad81b10-5cb3-40c5-8bbd-221ddc91475e",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:00:21.066833+00:00",
+      "previous_hash": "20189469339ff1cc2ba8f944cd384ed21ea2cc3a3004324c67acbc44d3167a59",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 93
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "003d86146b2872872e145aef3f66054aad879b91ccbfce2e9014f3bb28cd0f1f",
+      "event_id": "c2f49a66-0034-45c3-8c75-d20ae8b459d8",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:00:21.309360+00:00",
+      "previous_hash": "bf25ed4824218c357dfbfbfb981a345cd7b5348e080323435b9b7a7aedbd9a1e",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 94
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "7b9f46534b20e66b17b8e063ff166eb75a2f0eee68506b1cbb15dec97ec8bc7b",
+      "event_id": "6b75abb9-c67f-46e3-9747-b5696839db75",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:00:29.438617+00:00",
+      "previous_hash": "003d86146b2872872e145aef3f66054aad879b91ccbfce2e9014f3bb28cd0f1f",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 95
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "022f703e5c40a1e4f1e90e6561d3c43aece3ea0192e3ed93f7d638804940a64d",
+      "event_id": "6f46e4ed-5921-477f-b32f-5011ab0ed027",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:00:29.683793+00:00",
+      "previous_hash": "7b9f46534b20e66b17b8e063ff166eb75a2f0eee68506b1cbb15dec97ec8bc7b",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 96
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "b44237047026756aaff660a664a8b02790fe50676618dffe20605ff66f10c374",
+      "event_id": "3868417b-e80b-456b-9637-48525af874dc",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:00:30.444947+00:00",
+      "previous_hash": "022f703e5c40a1e4f1e90e6561d3c43aece3ea0192e3ed93f7d638804940a64d",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 97
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "c783c0faf460e68f7c9c03aed8e7434ad9138d6ffd718c84c8e37d46a7a49748",
+      "event_id": "77d78721-0931-4931-91e0-a48c00ff40d6",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:25:27.139276+00:00",
+      "previous_hash": "b44237047026756aaff660a664a8b02790fe50676618dffe20605ff66f10c374",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 98
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "a3296fa9cfebb9ee10671fd7668d2ca45dedcc66c1373163af307c8084dfafcb",
+      "event_id": "bde0d002-1eb0-48e1-b8f8-ce46d43c9970",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:25:27.777705+00:00",
+      "previous_hash": "c783c0faf460e68f7c9c03aed8e7434ad9138d6ffd718c84c8e37d46a7a49748",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 99
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "77e68d3ad28cb649ae7f21efd9fa83d266ab9f4d497c0f1ebde2893bb40d6401",
+      "event_id": "9116f629-a2de-4940-9232-041e28a1ec0a",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:25:28.414463+00:00",
+      "previous_hash": "a3296fa9cfebb9ee10671fd7668d2ca45dedcc66c1373163af307c8084dfafcb",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 100
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "8e37670cadfc4b2ac22874e9123fd0977a31a8c0070b4fe18696963f5af2e793",
+      "event_id": "0b7f58c3-6112-41fe-b929-4465ff9b8278",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:25:29.067353+00:00",
+      "previous_hash": "77e68d3ad28cb649ae7f21efd9fa83d266ab9f4d497c0f1ebde2893bb40d6401",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 101
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "2cf3bfaa32e9c8fb55148eec67625c98436a922323e682a46ea7f8fa3ecc472b",
+      "event_id": "362c4754-6aad-4fb5-bc1f-41eda3636b9f",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:25:29.524310+00:00",
+      "previous_hash": "8e37670cadfc4b2ac22874e9123fd0977a31a8c0070b4fe18696963f5af2e793",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 102
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "592fdd64b33d44b7d97fcc7c7cc1d2a84c0fadb17c98695a9a0f1ff6c8879a3b",
+      "event_id": "ed5a871d-d524-42d0-a02f-6d1a6d277f23",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:25:30.546438+00:00",
+      "previous_hash": "2cf3bfaa32e9c8fb55148eec67625c98436a922323e682a46ea7f8fa3ecc472b",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 103
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "4d367169de312300bafde2a953406d4e70259d369aff7b362597e46dbdad17fa",
+      "event_id": "88b8dad5-c5c1-4e1d-b434-1e00943c5448",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:25:30.811821+00:00",
+      "previous_hash": "592fdd64b33d44b7d97fcc7c7cc1d2a84c0fadb17c98695a9a0f1ff6c8879a3b",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 104
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "02d8a5dd82c588103e6aca725d7505f07f8cddb5a3cc8c979fbead6fbdbcf1e6",
+      "event_id": "0e346aea-f9f5-4b4c-b897-bce32cff8455",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:25:32.335686+00:00",
+      "previous_hash": "4d367169de312300bafde2a953406d4e70259d369aff7b362597e46dbdad17fa",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 105
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "00eaf91e6be9a44b500f9ad39545408ba75bec363f6834602cf260e17d9a3076",
+      "event_id": "d152b595-56e1-4c02-8db0-7c5a6bd53518",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:25:32.599622+00:00",
+      "previous_hash": "02d8a5dd82c588103e6aca725d7505f07f8cddb5a3cc8c979fbead6fbdbcf1e6",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 106
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "6a4ae6fe2728eac282549966a5375f1830651536500121af0096f24c1da3d9a8",
+      "event_id": "6f8886e8-aba1-4f1e-923d-7dac954863cc",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:25:43.512344+00:00",
+      "previous_hash": "00eaf91e6be9a44b500f9ad39545408ba75bec363f6834602cf260e17d9a3076",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 107
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "57b591db3a9af43af8d3a971a6b45ee4a3df85cbbb6997b1f366811f4661e450",
+      "event_id": "58ca6638-2aca-4006-bd2b-bc83eeaf76dc",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:25:43.778084+00:00",
+      "previous_hash": "6a4ae6fe2728eac282549966a5375f1830651536500121af0096f24c1da3d9a8",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 108
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "e4d292fae11225a382da7d929b193884c331fd7e75d5b145618fff75727840af",
+      "event_id": "72d60f5e-a14a-45b2-9a3a-d7375c0c0065",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:25:44.875267+00:00",
+      "previous_hash": "57b591db3a9af43af8d3a971a6b45ee4a3df85cbbb6997b1f366811f4661e450",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 109
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "7e7abc372cb9a8821e97555c0fb8644cbbff1707d310fff73e54fe71f23d01f5",
+      "event_id": "5d420f94-4806-4b33-ad56-c1831522e16e",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:25:45.162854+00:00",
+      "previous_hash": "e4d292fae11225a382da7d929b193884c331fd7e75d5b145618fff75727840af",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 110
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "444025038e96dfa04ba98bd740bdfeb85ce109d7c64686e6b508d9b87ec976b8",
+      "event_id": "58bdf818-a107-49a1-a78a-7593d5ae9e38",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:25:53.716342+00:00",
+      "previous_hash": "7e7abc372cb9a8821e97555c0fb8644cbbff1707d310fff73e54fe71f23d01f5",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 111
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "8a0f840e0b47b738eddb401c899d83cc3d035bb3f714c626f0697040c11719f3",
+      "event_id": "55a4d543-f9fa-489f-a9ef-b8a91b9d01f0",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:25:53.975678+00:00",
+      "previous_hash": "444025038e96dfa04ba98bd740bdfeb85ce109d7c64686e6b508d9b87ec976b8",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 112
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "c15096c5755d2f7484a762d50070df50158bb497e92ec131d3a78c12afa51ba9",
+      "event_id": "71baac97-df6f-4636-ba5f-406f5050a43c",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:25:54.809054+00:00",
+      "previous_hash": "8a0f840e0b47b738eddb401c899d83cc3d035bb3f714c626f0697040c11719f3",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 113
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "90e121f7d4741d976a93729e5a412bb6200cb555e4395449463f12521c19fe66",
+      "event_id": "5d3cba65-6a77-4e4a-8058-cbd32938464f",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:32:51.897195+00:00",
+      "previous_hash": "c15096c5755d2f7484a762d50070df50158bb497e92ec131d3a78c12afa51ba9",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 114
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "43097c652c9aba6c9752f2ef8b278f7efe2c40583370366a7044c2383b1d0d87",
+      "event_id": "02fca055-27e8-40c9-a59e-60a2d98a3592",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:32:52.493234+00:00",
+      "previous_hash": "90e121f7d4741d976a93729e5a412bb6200cb555e4395449463f12521c19fe66",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 115
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "493732c45cc5202bb609be8d6b13eef51dd08d32426a4d2c0613b574b081989f",
+      "event_id": "1f0fa098-0160-46b2-bc0d-7bdd5295f087",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:32:53.104165+00:00",
+      "previous_hash": "43097c652c9aba6c9752f2ef8b278f7efe2c40583370366a7044c2383b1d0d87",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 116
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "a1619185fe7b0dfb4f59b5799240656bdfa940727c36ea435268967b699ea121",
+      "event_id": "e6cb48b7-f292-47de-8df4-86ba2d09f492",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:32:53.724453+00:00",
+      "previous_hash": "493732c45cc5202bb609be8d6b13eef51dd08d32426a4d2c0613b574b081989f",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 117
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "d03b5f0aa979e01fabf49b9b3ffaa8796816682f3514c2de96ab86c65b51e608",
+      "event_id": "679411df-b2b8-4d77-90a8-d7ce40129595",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:32:54.144760+00:00",
+      "previous_hash": "a1619185fe7b0dfb4f59b5799240656bdfa940727c36ea435268967b699ea121",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 118
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "cfbae8b2ea8961f20e90f3668e920b93c51dd4a443aa0aa42e91b6416fdcbdeb",
+      "event_id": "eb4c744f-645f-4f1d-8f57-8fd052766be6",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:32:55.106905+00:00",
+      "previous_hash": "d03b5f0aa979e01fabf49b9b3ffaa8796816682f3514c2de96ab86c65b51e608",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 119
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "aca73dc265f8bc09185156f4bca30fa5b1efd8644db5ca1271f73483b296d2a4",
+      "event_id": "5ce65a13-c2a0-41a5-ada5-f780348465a8",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:32:55.344603+00:00",
+      "previous_hash": "cfbae8b2ea8961f20e90f3668e920b93c51dd4a443aa0aa42e91b6416fdcbdeb",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 120
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "dad40cfb811a4f1f6cf0448977bee60fa6445c78782008b21d7c2cd847ec5d0b",
+      "event_id": "954f91d8-f0bd-45cf-a710-ff376440c5f8",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:32:56.811349+00:00",
+      "previous_hash": "aca73dc265f8bc09185156f4bca30fa5b1efd8644db5ca1271f73483b296d2a4",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 121
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "02720ad95cf689cc8e7dac132eadd1c45984355aef9763bc9bdc92c2255c1a4d",
+      "event_id": "de03e980-a94e-4c54-aa5e-00053788717f",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:32:57.060418+00:00",
+      "previous_hash": "dad40cfb811a4f1f6cf0448977bee60fa6445c78782008b21d7c2cd847ec5d0b",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 122
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "1bdabdd957aa5c580655ee2282e601dd8e23976cfdfa519c000c995e1c96c13a",
+      "event_id": "46e79682-2365-4aa0-b879-7e90a2e5a8aa",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:33:07.665378+00:00",
+      "previous_hash": "02720ad95cf689cc8e7dac132eadd1c45984355aef9763bc9bdc92c2255c1a4d",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 123
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "5bc5027aa9e885ffb8ba01932d8d219e61e965ca7352931d26c78d8ef7a4165a",
+      "event_id": "a584db90-9ad5-4132-bfe1-22450c6e6d5d",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:33:07.911396+00:00",
+      "previous_hash": "1bdabdd957aa5c580655ee2282e601dd8e23976cfdfa519c000c995e1c96c13a",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 124
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "27a97cc951ce90f477e3e29cf0e82d28f68e75a8d54ccdb933c319ee0c1a9189",
+      "event_id": "a9191325-8f31-4ad0-ae2a-8d8be60f2e11",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:33:08.864826+00:00",
+      "previous_hash": "5bc5027aa9e885ffb8ba01932d8d219e61e965ca7352931d26c78d8ef7a4165a",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 125
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "65f647e788a20820f9db9b241747c36d622b23d19421ba69ffe0c88cf464013e",
+      "event_id": "b5550974-97b3-4714-a692-b2ef0d1355ba",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:33:09.118170+00:00",
+      "previous_hash": "27a97cc951ce90f477e3e29cf0e82d28f68e75a8d54ccdb933c319ee0c1a9189",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 126
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "5df2de97b50dd43d1526cbcdc7e244c83e5cffe24667b76f3f6d918627cc60f3",
+      "event_id": "123af837-ea80-4981-b1ac-2ca83d221e6d",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:33:17.089417+00:00",
+      "previous_hash": "65f647e788a20820f9db9b241747c36d622b23d19421ba69ffe0c88cf464013e",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 127
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "a5c54d9f3feade65869862f800de8d8cb9e41a0338a9c5846e50b4b9831fcf3d",
+      "event_id": "ce2dfe11-bc95-4520-9d7a-61383cf0b60c",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:33:17.344299+00:00",
+      "previous_hash": "5df2de97b50dd43d1526cbcdc7e244c83e5cffe24667b76f3f6d918627cc60f3",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 128
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "5205651ef15fa3d0cfb1cd12bb525b3726e06085b6d543781f19cf4c5feaec27",
+      "event_id": "335134c1-b732-49af-b33a-e2b1fa56e4b8",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:33:18.145129+00:00",
+      "previous_hash": "a5c54d9f3feade65869862f800de8d8cb9e41a0338a9c5846e50b4b9831fcf3d",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 129
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "45862df652ec7106fd302712261a5b24ce75c33a8d951040c759997476e6b4bc",
+      "event_id": "5861d96e-22c4-4af3-8eb2-90117c876f39",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:57:47.657075+00:00",
+      "previous_hash": "5205651ef15fa3d0cfb1cd12bb525b3726e06085b6d543781f19cf4c5feaec27",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 130
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "087351a9fed8b715a2ae1a18451739f93f459dbef9a144ce6060c3824072d00f",
+      "event_id": "fa727774-cccd-4928-a90f-23e900dbb051",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:57:48.279216+00:00",
+      "previous_hash": "45862df652ec7106fd302712261a5b24ce75c33a8d951040c759997476e6b4bc",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 131
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "156b40d9befce31cea18ccd34f4f319abfd0e337d9a4b3df6bf3708605fc390f",
+      "event_id": "a3f61d14-895a-4fb7-8896-0b8d8a49cc70",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:57:48.891781+00:00",
+      "previous_hash": "087351a9fed8b715a2ae1a18451739f93f459dbef9a144ce6060c3824072d00f",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 132
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "e5950732f3998510b6b3bb2be9d7d265fcb8693cabdf55f4d571357071f2da97",
+      "event_id": "3f2d760c-6081-439e-b75c-4a4027451b09",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:57:49.510356+00:00",
+      "previous_hash": "156b40d9befce31cea18ccd34f4f319abfd0e337d9a4b3df6bf3708605fc390f",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 133
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "46aa90acb4f11854d33f54d9c499c1ef453c4d85110918dd282495ea0ac098eb",
+      "event_id": "f4e9b7d9-87de-4785-9c1e-5b5ba78768cc",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:57:49.952021+00:00",
+      "previous_hash": "e5950732f3998510b6b3bb2be9d7d265fcb8693cabdf55f4d571357071f2da97",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 134
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "f3d90aeb9320f3daf6d3bc8c0dbaa899a97dc037c2fd5e4612234a1590911218",
+      "event_id": "26257e51-923e-456a-bf68-b522b945644a",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:57:50.927771+00:00",
+      "previous_hash": "46aa90acb4f11854d33f54d9c499c1ef453c4d85110918dd282495ea0ac098eb",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 135
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "4f014d3e5ab07161e31fa5922e468e202344640690f4db6a5e1c69a432c1ad82",
+      "event_id": "e07317d1-2924-471a-97ba-85399c551248",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:57:51.182824+00:00",
+      "previous_hash": "f3d90aeb9320f3daf6d3bc8c0dbaa899a97dc037c2fd5e4612234a1590911218",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 136
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "96cbca4fddc849120de28c9650b811bb26d487318e2f92da3c77d208c12bfcd6",
+      "event_id": "30c63059-195b-441b-84b8-2f99bcbae02a",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:57:52.601195+00:00",
+      "previous_hash": "4f014d3e5ab07161e31fa5922e468e202344640690f4db6a5e1c69a432c1ad82",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 137
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "814f3a0d62bd97cae7c4bc17846b1c975123ff1d24315e1744344551ccae495c",
+      "event_id": "ee75ea40-bb04-42ce-954e-412e4fdbf845",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:57:52.858093+00:00",
+      "previous_hash": "96cbca4fddc849120de28c9650b811bb26d487318e2f92da3c77d208c12bfcd6",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 138
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "5b77163d65668383d2868c8e40c90a1872be93e071fe773d84dc9b7fec572a6c",
+      "event_id": "c4217440-5d23-417b-9b6d-9bc5cf75c1a5",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:58:03.467114+00:00",
+      "previous_hash": "814f3a0d62bd97cae7c4bc17846b1c975123ff1d24315e1744344551ccae495c",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 139
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "b81df28c985faa5e0d7f956b9d5d89af071674eb88c44bc9945f3cc430fd9938",
+      "event_id": "d4d77f65-2324-4395-ab4f-f34b5b425b37",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:58:03.691620+00:00",
+      "previous_hash": "5b77163d65668383d2868c8e40c90a1872be93e071fe773d84dc9b7fec572a6c",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 140
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "362069fa6dc8757b8156aaca3e63baf083817ee15aa34a4b73af5919490ca122",
+      "event_id": "68cb1427-0941-4278-892d-b6d3a2e8f0a4",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:58:04.672217+00:00",
+      "previous_hash": "b81df28c985faa5e0d7f956b9d5d89af071674eb88c44bc9945f3cc430fd9938",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 141
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "d1d6fd09a7aa87ff59a1afb9bee8a18d6f36c8dbf45e5797448030f9dfd68f48",
+      "event_id": "2aa85eee-f655-4779-8ec9-f4b4eea05e65",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:58:04.923221+00:00",
+      "previous_hash": "362069fa6dc8757b8156aaca3e63baf083817ee15aa34a4b73af5919490ca122",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 142
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "660d1f1a4df882a22fa64695e824e999b781fb8e31fa179735e9e92b87e93ca0",
+      "event_id": "f2accc91-5c60-44e0-a519-39bebc88b9c2",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:58:13.153483+00:00",
+      "previous_hash": "d1d6fd09a7aa87ff59a1afb9bee8a18d6f36c8dbf45e5797448030f9dfd68f48",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 143
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "dfefa156b011400fb8343bedd68089ce5e6d0872a087659a527730f8fa987b5d",
+      "event_id": "d7d1f113-b860-431e-a01a-fbe154263b99",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T05:58:13.395908+00:00",
+      "previous_hash": "660d1f1a4df882a22fa64695e824e999b781fb8e31fa179735e9e92b87e93ca0",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 144
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "364824b5ace7d7b639d4eca2c58f84c18f2d92b950b7cbe48d7a580ecb0818ad",
+      "event_id": "e5ae4d3a-c6dd-4d2f-a90a-42bd795b58b7",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T05:58:14.149346+00:00",
+      "previous_hash": "dfefa156b011400fb8343bedd68089ce5e6d0872a087659a527730f8fa987b5d",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 145
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "34557596418a5111e2f155ab40af6eb471daf1432261a42d7e72c0dbeb98d0da",
+      "event_id": "b5b8cd9d-d898-467d-97f3-56d5c59d3f9a",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:21:38.085737+00:00",
+      "previous_hash": "364824b5ace7d7b639d4eca2c58f84c18f2d92b950b7cbe48d7a580ecb0818ad",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 146
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "aa1a44ea30c39d5ef8120ef3cdc2436579c106aed6169a3f344d70131df65085",
+      "event_id": "f31397f0-40c3-4e85-b24c-9ac47ccde327",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:21:38.711456+00:00",
+      "previous_hash": "34557596418a5111e2f155ab40af6eb471daf1432261a42d7e72c0dbeb98d0da",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 147
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "a659f6f38b48679d330bcb0585fb21d94dbdc101c0f352877ff454dae58f3a9c",
+      "event_id": "1db80f1a-2b8a-4d84-a893-18bc277eed6c",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:21:39.327668+00:00",
+      "previous_hash": "aa1a44ea30c39d5ef8120ef3cdc2436579c106aed6169a3f344d70131df65085",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 148
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "8f4e2fe1d6ba4538ab275632ba00fac3a4c83c816e7c62217811091126a77731",
+      "event_id": "d8f469ef-4be1-4627-a4a4-99632985cd43",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:21:39.949346+00:00",
+      "previous_hash": "a659f6f38b48679d330bcb0585fb21d94dbdc101c0f352877ff454dae58f3a9c",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 149
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "f3bb7abad3efcd48f73c41674ac546f07d1e1029a3640b8385a7cfad8a2b46ea",
+      "event_id": "ab1836ed-e08e-4b5e-a079-a6d645186ec5",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:21:40.372852+00:00",
+      "previous_hash": "8f4e2fe1d6ba4538ab275632ba00fac3a4c83c816e7c62217811091126a77731",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 150
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "ffb0498d4f246277ae601acb835fbc25a130034296745f811ac83d7b50a7f9f4",
+      "event_id": "efd59358-f6fb-4882-a714-e296494d6e61",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:21:41.349931+00:00",
+      "previous_hash": "f3bb7abad3efcd48f73c41674ac546f07d1e1029a3640b8385a7cfad8a2b46ea",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 151
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "5f6fa305eb88fed5610f28e552daff2aca86001fe38c1a0839cc31a0f8726936",
+      "event_id": "ff086bdb-ff06-4f51-8139-8b6a6ef128d0",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T06:21:41.603570+00:00",
+      "previous_hash": "ffb0498d4f246277ae601acb835fbc25a130034296745f811ac83d7b50a7f9f4",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 152
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "5e6f5ae1d73d1186e2b6c578be81f0f6d003127c9190cb553333a33a41c5a252",
+      "event_id": "0fa47b1d-244f-4eda-825d-1a723bdfad54",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:21:43.037077+00:00",
+      "previous_hash": "5f6fa305eb88fed5610f28e552daff2aca86001fe38c1a0839cc31a0f8726936",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 153
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "a6afcb16780fc85af7b87c2e3d69e6c6f7c1ea66d79835b8ace02a0c5d8e2161",
+      "event_id": "448a8b93-45fa-4ab5-a1f6-994d007c559a",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T06:21:43.282401+00:00",
+      "previous_hash": "5e6f5ae1d73d1186e2b6c578be81f0f6d003127c9190cb553333a33a41c5a252",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 154
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "2a6a8500345fd7a825a327955a016dfbb457ee06980075835d5e1b168957f0a9",
+      "event_id": "d03035c1-5c8c-4195-8650-ccdbe14a882b",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:21:53.831673+00:00",
+      "previous_hash": "a6afcb16780fc85af7b87c2e3d69e6c6f7c1ea66d79835b8ace02a0c5d8e2161",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 155
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "971e9a0c5aeaf07faed20c0553514cd42d99b6edabf1142d1a21edb45825374d",
+      "event_id": "cf125241-d980-4e43-8f39-ad2a44092629",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T06:21:54.062251+00:00",
+      "previous_hash": "2a6a8500345fd7a825a327955a016dfbb457ee06980075835d5e1b168957f0a9",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 156
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "6cb07f65ebb6878626131358d38241b44aa7b718b8507b6b4ef60a563f0b7c4d",
+      "event_id": "673ab0c2-31e4-49d0-a430-4d4f255228de",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:21:55.048074+00:00",
+      "previous_hash": "971e9a0c5aeaf07faed20c0553514cd42d99b6edabf1142d1a21edb45825374d",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 157
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "7fb1fd37d8a9297014065c31d8013024f12c2a8427c6e9ec2112042aee06ff4f",
+      "event_id": "7c329dc3-3326-4734-ab83-d6903e006cdb",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T06:21:55.293152+00:00",
+      "previous_hash": "6cb07f65ebb6878626131358d38241b44aa7b718b8507b6b4ef60a563f0b7c4d",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 158
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "c266ef6aed4e2ed38be8fef60ebd2b16aafa299bf5acd6b2eaada82de0cb2d92",
+      "event_id": "aae72c95-35d9-46ad-af6e-7ce6fb9806de",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:22:03.105863+00:00",
+      "previous_hash": "7fb1fd37d8a9297014065c31d8013024f12c2a8427c6e9ec2112042aee06ff4f",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 159
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "f04658299e676096a07a1661fea749aadec7a087dbb9754aefa13009d6407532",
+      "event_id": "2cf455a3-a173-452f-a1c4-abb2a89d7fc9",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T06:22:03.357466+00:00",
+      "previous_hash": "c266ef6aed4e2ed38be8fef60ebd2b16aafa299bf5acd6b2eaada82de0cb2d92",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 160
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "ecf90b759e596ef495454fe8aa612c19b36639c1de8bc8f9d42acc77843b52c7",
+      "event_id": "374941e8-77aa-4550-a054-bbdc1c08abcb",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:22:04.125394+00:00",
+      "previous_hash": "f04658299e676096a07a1661fea749aadec7a087dbb9754aefa13009d6407532",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 161
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "d096dc5a00de7a798cbbac99085a0d833a8d4872ea688845ae51befba97464a6",
+      "event_id": "c2e3160e-8720-4649-9c1a-2452185bc4c6",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:34:50.481654+00:00",
+      "previous_hash": "ecf90b759e596ef495454fe8aa612c19b36639c1de8bc8f9d42acc77843b52c7",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 162
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "e334a7ad6f6ff062f6bdb29d2b183d2b4ee571720c3be19cdbc62967f3631e4a",
+      "event_id": "1c90b79f-3a20-477e-bfa7-12314b00a6f5",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:34:51.086527+00:00",
+      "previous_hash": "d096dc5a00de7a798cbbac99085a0d833a8d4872ea688845ae51befba97464a6",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 163
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "f4385893d2223730a0a4af138f7fb825bd4c87f6fefb77844a9bdc772f661dae",
+      "event_id": "a4306510-0f56-4c19-b101-9ae3a298cc06",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:34:51.673747+00:00",
+      "previous_hash": "e334a7ad6f6ff062f6bdb29d2b183d2b4ee571720c3be19cdbc62967f3631e4a",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 164
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "794b4fe7d83e831a804c760e9428324fc7c2cebded98642b9944e632defe1a3d",
+      "event_id": "9ec279d0-8d0d-4e45-9a80-39864286ae66",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:34:52.278397+00:00",
+      "previous_hash": "f4385893d2223730a0a4af138f7fb825bd4c87f6fefb77844a9bdc772f661dae",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 165
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "1318deb29c13d3151efac7762a44f6d8761057d9c58fbe778cc3b7c48e35a4d9",
+      "event_id": "7538e00e-4cd3-4721-8437-fbd99f766699",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:34:52.713545+00:00",
+      "previous_hash": "794b4fe7d83e831a804c760e9428324fc7c2cebded98642b9944e632defe1a3d",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 166
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "facb94ff71eca1e217aedfabfc3fac0681b28bb3524a96416643143031b6d4d6",
+      "event_id": "7a0cc271-686a-459f-9dc3-d9f84779fe2b",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:34:53.676892+00:00",
+      "previous_hash": "1318deb29c13d3151efac7762a44f6d8761057d9c58fbe778cc3b7c48e35a4d9",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 167
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "96c3b1b477de3002a801cbe2b458daff24f4176e918910cf7c54853a770dfd74",
+      "event_id": "fe42f166-5fcf-4c86-822a-ced2bf0533d2",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T06:34:53.898422+00:00",
+      "previous_hash": "facb94ff71eca1e217aedfabfc3fac0681b28bb3524a96416643143031b6d4d6",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 168
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "6532ad9603904e324620c4659df392c0e006a11df4dfa4639dde73e8c95f6744",
+      "event_id": "712ad41e-e85a-4f25-996f-2843f7c858b8",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:34:55.337880+00:00",
+      "previous_hash": "96c3b1b477de3002a801cbe2b458daff24f4176e918910cf7c54853a770dfd74",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 169
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "a61d642e40e2954f24f0935233bd7e292d8e5c06881e1c052cadc17c127df69d",
+      "event_id": "21f78e65-876e-4dfe-88a8-fd539828e181",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T06:34:55.588975+00:00",
+      "previous_hash": "6532ad9603904e324620c4659df392c0e006a11df4dfa4639dde73e8c95f6744",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 170
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "0abd52b0ded22776723be92fb066ea38c5652118f872b1ebe8d0e79f32c42ff5",
+      "event_id": "2c559f4a-9770-4501-8a8c-16f1b778472b",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:35:05.254576+00:00",
+      "previous_hash": "a61d642e40e2954f24f0935233bd7e292d8e5c06881e1c052cadc17c127df69d",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 171
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "78acdf8cfd0abeb3c5bc6f1943f739154c7bba0fee92a4b1f725175a6987019f",
+      "event_id": "a6bff157-71e6-4994-9370-99db942fb09e",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T06:35:05.489056+00:00",
+      "previous_hash": "0abd52b0ded22776723be92fb066ea38c5652118f872b1ebe8d0e79f32c42ff5",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 172
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "367f2b5b3ba2d4bdf0cc832a50fdb574c04f09b3a6725df4383e229a76fe6f68",
+      "event_id": "3a338b00-c1d2-4d58-9a73-a0e0bab49974",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:35:06.443541+00:00",
+      "previous_hash": "78acdf8cfd0abeb3c5bc6f1943f739154c7bba0fee92a4b1f725175a6987019f",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 173
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "9b0f01fbb328a9da141fef621cc84a66605149f5674b9339f637ed4011e1284f",
+      "event_id": "43995c4c-acb9-4803-b055-fed6eaf8c219",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T06:35:06.689822+00:00",
+      "previous_hash": "367f2b5b3ba2d4bdf0cc832a50fdb574c04f09b3a6725df4383e229a76fe6f68",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 174
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "610c6e66c4ca9c759fbffdfa5fbfc4ff06c7eb709536c6617593917d7cef7fd8",
+      "event_id": "899c252f-41db-49d6-a662-b703d9efb875",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:35:14.847489+00:00",
+      "previous_hash": "9b0f01fbb328a9da141fef621cc84a66605149f5674b9339f637ed4011e1284f",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 175
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "52ee84137e4ca2d5388b6eb5e4edc3ba09c7c638d8b3d824914b3f674548c29f",
+      "event_id": "22021405-a748-4c46-858e-54a0059686e7",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T06:35:15.101465+00:00",
+      "previous_hash": "610c6e66c4ca9c759fbffdfa5fbfc4ff06c7eb709536c6617593917d7cef7fd8",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 176
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "e293b2d2b3bfc79a6a8609d1efb891a8cc86e4389bd5c66a3a4f25656a414dcd",
+      "event_id": "06ec8ef3-5376-4f80-bed2-a457b2287e9a",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:35:15.869514+00:00",
+      "previous_hash": "52ee84137e4ca2d5388b6eb5e4edc3ba09c7c638d8b3d824914b3f674548c29f",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 177
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "808288782f7b156ab5d8a7f7cf8ea34669ba3052f474fb109f1917cc3f512384",
+      "event_id": "71db2df5-cfad-4d80-9ea9-de2a28904802",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:48:29.693303+00:00",
+      "previous_hash": "e293b2d2b3bfc79a6a8609d1efb891a8cc86e4389bd5c66a3a4f25656a414dcd",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 178
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "995e9114fc33e75a7df6719a4b9eac5ef361ec1d7f67ec95826031b22e6c7b7c",
+      "event_id": "7c58a106-5741-44f9-8f98-6c808153c415",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:48:30.323023+00:00",
+      "previous_hash": "808288782f7b156ab5d8a7f7cf8ea34669ba3052f474fb109f1917cc3f512384",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 179
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "f902fe826a4d3b37e1db61bdfa1696fbfd18aaff0be602c01a44d86cb12c9656",
+      "event_id": "2f6b1c9e-9433-4bd5-bbc8-d9d4bbe0008c",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:48:30.917513+00:00",
+      "previous_hash": "995e9114fc33e75a7df6719a4b9eac5ef361ec1d7f67ec95826031b22e6c7b7c",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 180
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "636a4f66857083dcc607bb52868ed8104986e75ab2ecbe169da75f077d9a0e54",
+      "event_id": "e897fb7d-c134-485a-b524-f24239cc5a59",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:48:31.528474+00:00",
+      "previous_hash": "f902fe826a4d3b37e1db61bdfa1696fbfd18aaff0be602c01a44d86cb12c9656",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 181
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "066b9fcded6c33d0c32117eeccbbe4462bcac6a8626991e4b06f241bc3450f27",
+      "event_id": "30d8b76d-5c93-4cc5-b259-088891f59bc0",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:48:31.972858+00:00",
+      "previous_hash": "636a4f66857083dcc607bb52868ed8104986e75ab2ecbe169da75f077d9a0e54",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 182
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "45d121a0c83096b3bc4cf36a3bcd1c7a73b894dfb3242f846e0874ed41c61f9b",
+      "event_id": "aa1e79fb-281a-4ea2-9c19-5d4131baa600",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:48:32.955053+00:00",
+      "previous_hash": "066b9fcded6c33d0c32117eeccbbe4462bcac6a8626991e4b06f241bc3450f27",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 183
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "33f058810c9d7585f8f94f97942c9367ddbbe5f72a10c2fe4b797d9e29f40117",
+      "event_id": "a1d3e231-0f75-4b6b-89bd-a6324c56e82f",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T06:48:33.205206+00:00",
+      "previous_hash": "45d121a0c83096b3bc4cf36a3bcd1c7a73b894dfb3242f846e0874ed41c61f9b",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 184
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "8ed5a1a6c810b95e4991f506901fd41766704f60cd6ee022c530884cbab7b49a",
+      "event_id": "6d36e0aa-b141-4704-9793-c7f7511d71b4",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:48:34.636533+00:00",
+      "previous_hash": "33f058810c9d7585f8f94f97942c9367ddbbe5f72a10c2fe4b797d9e29f40117",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 185
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "ae415d8bf1961eb3a7686b7b0eab4b82624bb24ebcb60e094d698b05952d4559",
+      "event_id": "b5c64f05-2a42-42e8-ae3a-5083cde80bf6",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T06:48:34.883905+00:00",
+      "previous_hash": "8ed5a1a6c810b95e4991f506901fd41766704f60cd6ee022c530884cbab7b49a",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 186
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "8b9d4f8db0223f6920bd79d37c5fbb6389adf00f3cc68af6c35831dd391664c7",
+      "event_id": "041d10cd-5ab1-4a48-b722-d88d4ee6dd19",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:48:45.698811+00:00",
+      "previous_hash": "ae415d8bf1961eb3a7686b7b0eab4b82624bb24ebcb60e094d698b05952d4559",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 187
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "9e36fbc99b8ff43f04d13b434cc554bcf31a3cdb001fddbf53e13b03470e3516",
+      "event_id": "99e3ac83-8517-4dad-97d4-75c8e64ee59c",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T06:48:45.947344+00:00",
+      "previous_hash": "8b9d4f8db0223f6920bd79d37c5fbb6389adf00f3cc68af6c35831dd391664c7",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 188
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "02b85116d11f5b41b89671ef13caee18adcd8b75c027831899efe7df96a18bba",
+      "event_id": "988fc58a-06c8-47ca-ac9a-56122cd9a1cc",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:48:46.951148+00:00",
+      "previous_hash": "9e36fbc99b8ff43f04d13b434cc554bcf31a3cdb001fddbf53e13b03470e3516",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 189
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "137b044b89e477ab39dcb2767bce8086111aed4d930ec2084cb7075b27029b7e",
+      "event_id": "97a130c3-010e-4fd1-b5c4-6e9d285e40e2",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T06:48:47.191351+00:00",
+      "previous_hash": "02b85116d11f5b41b89671ef13caee18adcd8b75c027831899efe7df96a18bba",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 190
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "6b01bfefa5c8d1ebd1864aeb939f8b138da9f2df5eb221d2cf7bf3b81e47f68b",
+      "event_id": "b9e1d786-bd4b-4870-b62f-5d4236965df2",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:48:55.583665+00:00",
+      "previous_hash": "137b044b89e477ab39dcb2767bce8086111aed4d930ec2084cb7075b27029b7e",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 191
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "ec8c7834591665b9806aeebed8fadb41ba6d56aac1c4c3179c97c1c50dcefe29",
+      "event_id": "50caca11-7b6f-4479-9f92-a6ba191166b5",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T06:48:55.837884+00:00",
+      "previous_hash": "6b01bfefa5c8d1ebd1864aeb939f8b138da9f2df5eb221d2cf7bf3b81e47f68b",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 192
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "75fb44ffce8f82d2e267d09bcfc5b1be7520d0ce0955b7a324a22f1e0f40b99c",
+      "event_id": "e2eadb2a-3f3d-49bd-a64f-d017e3263381",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T06:48:56.684734+00:00",
+      "previous_hash": "ec8c7834591665b9806aeebed8fadb41ba6d56aac1c4c3179c97c1c50dcefe29",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 193
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "7db3e6973c1b9aab6c17865e697070349e4bc282d0a6ee921a307348bbda67e8",
+      "event_id": "996ce23d-7eb2-4243-8df2-cd1d70bedd26",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:02:31.956052+00:00",
+      "previous_hash": "75fb44ffce8f82d2e267d09bcfc5b1be7520d0ce0955b7a324a22f1e0f40b99c",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 194
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "e0462b8c13dfccf23d1e3701d3f7649b2a63b8544b6a8c3ff7f3eef641af5ea3",
+      "event_id": "71aeecdc-b501-4364-abf7-cb114e06320f",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:02:32.644678+00:00",
+      "previous_hash": "7db3e6973c1b9aab6c17865e697070349e4bc282d0a6ee921a307348bbda67e8",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 195
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "918b6970afca5f6411784f31035116cf2a968e84f9fa8e5f0af64daa81ba362f",
+      "event_id": "a9ef5677-8df3-4bb1-bd30-27794912774c",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:02:33.325787+00:00",
+      "previous_hash": "e0462b8c13dfccf23d1e3701d3f7649b2a63b8544b6a8c3ff7f3eef641af5ea3",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 196
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "43b21d4a8f4b7f5e249fd159f1e8908f458788e0261eab82d080b13d39aeca95",
+      "event_id": "7a5509ce-4dca-40de-8227-daae8d6ca536",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:02:34.000559+00:00",
+      "previous_hash": "918b6970afca5f6411784f31035116cf2a968e84f9fa8e5f0af64daa81ba362f",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 197
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "8cc20127fa832bc2479416ac79e5536902703002e30faac4b26a22a02754712b",
+      "event_id": "b88984c8-e162-4b8d-8d98-e99cf29f1a45",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:02:34.465928+00:00",
+      "previous_hash": "43b21d4a8f4b7f5e249fd159f1e8908f458788e0261eab82d080b13d39aeca95",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 198
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "42502d9de6dadbb0deaf2b41128c1c0029dfad97489f352522048162e5563940",
+      "event_id": "1f8c1c05-1708-474c-8ca7-b469b578225c",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:02:35.555258+00:00",
+      "previous_hash": "8cc20127fa832bc2479416ac79e5536902703002e30faac4b26a22a02754712b",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 199
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "fd5cdc283e78852afe203059b4dc4736b2aec7ffd77a4430a570604bb241d99f",
+      "event_id": "4c6b214a-b1b6-49fe-a08a-25aa52e6d49f",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:02:35.832154+00:00",
+      "previous_hash": "42502d9de6dadbb0deaf2b41128c1c0029dfad97489f352522048162e5563940",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 200
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "6445324b768f02d4ee9f7879e7d07d173b6188d8c4361dbaf9d41e0738b4750a",
+      "event_id": "411695a4-39f3-47e7-bf36-dd5ad17389ce",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:02:37.389433+00:00",
+      "previous_hash": "fd5cdc283e78852afe203059b4dc4736b2aec7ffd77a4430a570604bb241d99f",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 201
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "29e900a03942f744e12da38578e55f8f4cd887aef49e8ef0599fd280615771e0",
+      "event_id": "a1f31998-0394-4788-84a0-d832fddd3dc3",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:02:37.635174+00:00",
+      "previous_hash": "6445324b768f02d4ee9f7879e7d07d173b6188d8c4361dbaf9d41e0738b4750a",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 202
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "56cfa35971f88312799353f5232feb5bc87100fb1e989da875c066b503512956",
+      "event_id": "0bb7689d-3620-4ed7-8180-a03951bab38c",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:02:48.346125+00:00",
+      "previous_hash": "29e900a03942f744e12da38578e55f8f4cd887aef49e8ef0599fd280615771e0",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 203
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "3945e3b83e0e0f74deac261a2886c6334b9e7493d6d8e0f869ad6cdc759a542c",
+      "event_id": "bd06965f-b71c-4767-9dd7-98502e9561bd",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:02:48.580259+00:00",
+      "previous_hash": "56cfa35971f88312799353f5232feb5bc87100fb1e989da875c066b503512956",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 204
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "d491e3831c70082e891a5b9beafe9487ead3abf5768a49951c96e7e5634ed818",
+      "event_id": "538bd724-b7b3-4297-a35e-f261caf664b7",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:02:49.538370+00:00",
+      "previous_hash": "3945e3b83e0e0f74deac261a2886c6334b9e7493d6d8e0f869ad6cdc759a542c",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 205
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "2d68c10caa7bba915f14ae112efecc5b541ed953533fbcccf02aaf873e79d680",
+      "event_id": "53d8f914-9517-4fab-a2b0-ddb123b0cc1a",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:02:49.789843+00:00",
+      "previous_hash": "d491e3831c70082e891a5b9beafe9487ead3abf5768a49951c96e7e5634ed818",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 206
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "bbf701ca415517edb53dc5316f54772463d849dfaaebc390b99e7d1882796f4d",
+      "event_id": "e5d79987-bd81-402f-8c34-73cc10c1b54f",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:02:57.983120+00:00",
+      "previous_hash": "2d68c10caa7bba915f14ae112efecc5b541ed953533fbcccf02aaf873e79d680",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 207
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "8f88ef354fbbe9517489fd1898ee2f1c257a918425c2fec069624bc6e31ac4e3",
+      "event_id": "5ed640e9-6059-4606-83c3-6b48f35dd866",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:02:58.238029+00:00",
+      "previous_hash": "bbf701ca415517edb53dc5316f54772463d849dfaaebc390b99e7d1882796f4d",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 208
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "5a56470f30070511d985ee9d87bf8041bbe465d960832f6befcc1a08416569d4",
+      "event_id": "a345c6c1-1b8f-4781-8b64-ca7dce4f0c34",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:02:59.008291+00:00",
+      "previous_hash": "8f88ef354fbbe9517489fd1898ee2f1c257a918425c2fec069624bc6e31ac4e3",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 209
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "35448ef6e1b5dd2594d20bfdf014cbae924c208ed2615492f3c092bf93ed0655",
+      "event_id": "84bfd5a9-754a-4583-af0b-d4986cfd943a",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:17:09.392105+00:00",
+      "previous_hash": "5a56470f30070511d985ee9d87bf8041bbe465d960832f6befcc1a08416569d4",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 210
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "4ac3bcb26120d74dacb06ab10879768014689c6d0409056b6d0bbd1e7fd67c4f",
+      "event_id": "87f9ba97-131a-422b-8671-d62c3d02a405",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:17:09.989916+00:00",
+      "previous_hash": "35448ef6e1b5dd2594d20bfdf014cbae924c208ed2615492f3c092bf93ed0655",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 211
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "208c6d87b6c0e4b1b9e9cc98e3dbde4bd2f2dc0c7b9ad08adb986058ce0194e1",
+      "event_id": "6c6779e1-659d-473c-a660-40698964816b",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:17:10.562890+00:00",
+      "previous_hash": "4ac3bcb26120d74dacb06ab10879768014689c6d0409056b6d0bbd1e7fd67c4f",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 212
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "66fbac99e03d75235b98ed1b15e54d2094013fa13648d341bad5cb626122952e",
+      "event_id": "24dbef79-2db9-494d-b973-b36f9318034b",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:17:11.167493+00:00",
+      "previous_hash": "208c6d87b6c0e4b1b9e9cc98e3dbde4bd2f2dc0c7b9ad08adb986058ce0194e1",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 213
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "86763257e9fbdc2935473692795117351334d0aeeacb28cb74d9d80719d517e0",
+      "event_id": "25bd065e-0751-4232-965a-48b54cb68cad",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:17:11.601472+00:00",
+      "previous_hash": "66fbac99e03d75235b98ed1b15e54d2094013fa13648d341bad5cb626122952e",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 214
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "9d280702376a7d4114835cbc15cfd56ff0c299333bea767ea2827366105a2f27",
+      "event_id": "72fa6ba1-a0c9-42ed-b513-b7df05b78465",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:17:12.567159+00:00",
+      "previous_hash": "86763257e9fbdc2935473692795117351334d0aeeacb28cb74d9d80719d517e0",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 215
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "915a53526144fc9ed7cdfbe5691ef541314b51438ae84df45c356cd99fa7dbe0",
+      "event_id": "34c51f49-54b5-4b43-b51e-b0b61536df7b",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:17:12.809147+00:00",
+      "previous_hash": "9d280702376a7d4114835cbc15cfd56ff0c299333bea767ea2827366105a2f27",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 216
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "5c9e02c61aba22f86b9adbb0358b22d0e7606a9563f810f3d9c4a40da9e9f56b",
+      "event_id": "3058db8f-49dc-47cf-94f7-b0a548f4221c",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:17:14.185611+00:00",
+      "previous_hash": "915a53526144fc9ed7cdfbe5691ef541314b51438ae84df45c356cd99fa7dbe0",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 217
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "c83c08828ad9a8f98fc6b03633befb939465399522d5ce53690f24cf629f1d02",
+      "event_id": "b93eda09-7482-4937-87e2-2d4908509215",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:17:14.448766+00:00",
+      "previous_hash": "5c9e02c61aba22f86b9adbb0358b22d0e7606a9563f810f3d9c4a40da9e9f56b",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 218
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "91b10cd33d3f73c80548b23f26a01f3af9546ace4e609e7b770c1d35dffdde3f",
+      "event_id": "12ddd8c3-27e6-4dd4-836b-89bf57e35927",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:17:25.157659+00:00",
+      "previous_hash": "c83c08828ad9a8f98fc6b03633befb939465399522d5ce53690f24cf629f1d02",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 219
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "9631a874a89abb151165e0f61738ac3cbb24f84474636341c5de707b05b30367",
+      "event_id": "8e2fe4d2-b4bd-481f-b7d4-9870627dea5c",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:17:25.383583+00:00",
+      "previous_hash": "91b10cd33d3f73c80548b23f26a01f3af9546ace4e609e7b770c1d35dffdde3f",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 220
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "eb4608ac4cec0f20ad320db3fed685e58a5d25d3d7cae1da77c51d9bde8804e9",
+      "event_id": "963aaede-b4b0-44b9-8817-97b6bed1e44a",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:17:26.319896+00:00",
+      "previous_hash": "9631a874a89abb151165e0f61738ac3cbb24f84474636341c5de707b05b30367",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 221
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "21feae4f9726bc140a1ff898701d947b70263a27334b86c5551e5058309b651a",
+      "event_id": "aecbff71-3a60-4d4f-a15e-48ad6c955b96",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:17:26.573471+00:00",
+      "previous_hash": "eb4608ac4cec0f20ad320db3fed685e58a5d25d3d7cae1da77c51d9bde8804e9",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 222
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "c3f59608b42e2fa6c7087090c7d130ec76216e366b86122c54ed0ff44432655b",
+      "event_id": "d4069595-b453-4ff5-8517-826ca240ebd8",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:17:34.245377+00:00",
+      "previous_hash": "21feae4f9726bc140a1ff898701d947b70263a27334b86c5551e5058309b651a",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 223
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "6c118cade38c8bdb86b724d0bb942f6e42189041a49c8ddf730c33b933d8d05e",
+      "event_id": "81f9eabe-bf00-4f8b-b0b5-e0a7256dab3b",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:17:34.482840+00:00",
+      "previous_hash": "c3f59608b42e2fa6c7087090c7d130ec76216e366b86122c54ed0ff44432655b",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 224
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "f87c30428e46d94cc4c97789174db5b06a3cc8270b1aa360677686a1966ed3f1",
+      "event_id": "544e17e2-43ae-4bfe-8f3e-b072d57a678f",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:17:35.255660+00:00",
+      "previous_hash": "6c118cade38c8bdb86b724d0bb942f6e42189041a49c8ddf730c33b933d8d05e",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 225
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "53917bd35691df96eee7db6509c9c7da2c9f4c9744e6239aa2db7ca6f9828a38",
+      "event_id": "6128f99c-d868-4cf4-b59c-aea41b81c034",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:27:00.388305+00:00",
+      "previous_hash": "f87c30428e46d94cc4c97789174db5b06a3cc8270b1aa360677686a1966ed3f1",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 226
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "ee37e53cec04202746c6230707313ab97950f67381146caf63c8a155b0ba1d59",
+      "event_id": "3c4dad3d-1a32-49a8-a72f-aca65ee0beaa",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:27:01.013193+00:00",
+      "previous_hash": "53917bd35691df96eee7db6509c9c7da2c9f4c9744e6239aa2db7ca6f9828a38",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 227
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "7491e5502ec4ebba54c5f2e04d35cd33fdeb466c8f5d1a53de85b3cb44c15013",
+      "event_id": "0b749952-cd79-4e53-97d9-70b5cf651300",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:27:01.605136+00:00",
+      "previous_hash": "ee37e53cec04202746c6230707313ab97950f67381146caf63c8a155b0ba1d59",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 228
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "3edf2ad149773537ffa73a8349cf3b45b9d317d2b5248bdc29d68e14b3c50bd6",
+      "event_id": "71288565-0595-4ee0-a5ae-37f98f400d5e",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:27:02.208034+00:00",
+      "previous_hash": "7491e5502ec4ebba54c5f2e04d35cd33fdeb466c8f5d1a53de85b3cb44c15013",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 229
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "9b015d74fa2fdfeaa0bb083da08de21178869bc833e241a489ae466e8c877055",
+      "event_id": "1bc2816c-c504-4437-baa6-4a16fb7b2de5",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:27:02.659616+00:00",
+      "previous_hash": "3edf2ad149773537ffa73a8349cf3b45b9d317d2b5248bdc29d68e14b3c50bd6",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 230
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "16513382ebc3b652bfd30efe6343009d37e989425179d04f05eddf9a2a5fbe62",
+      "event_id": "8d674e03-36f9-45a6-ab09-8edf961c8181",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:27:03.636686+00:00",
+      "previous_hash": "9b015d74fa2fdfeaa0bb083da08de21178869bc833e241a489ae466e8c877055",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 231
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "1861df8248431e5b7083a0755fce7c26440196ffdc55f67fbf6381b84ec5f307",
+      "event_id": "10a1e7b6-86e4-4a55-b7ea-d36ac64927df",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:27:03.892695+00:00",
+      "previous_hash": "16513382ebc3b652bfd30efe6343009d37e989425179d04f05eddf9a2a5fbe62",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 232
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "7573b14276412cdf2f7cc2e2670d2ac801536ac58ed7f52db9c65890b1eecdba",
+      "event_id": "9a7db75d-7a8e-4388-a930-b59d8c686c51",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:27:05.346566+00:00",
+      "previous_hash": "1861df8248431e5b7083a0755fce7c26440196ffdc55f67fbf6381b84ec5f307",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 233
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "77c7f94ccb770f53b41b8add4970e3c847f2e6b3d0a3aced4a65b6600f575ea3",
+      "event_id": "ffc0d8c3-f91f-4c96-b6c9-30e4edde9b2a",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:27:05.609295+00:00",
+      "previous_hash": "7573b14276412cdf2f7cc2e2670d2ac801536ac58ed7f52db9c65890b1eecdba",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 234
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "0570c962dd56200d58091022010baa66a2131d0cfe6790251e7df38e1be3dede",
+      "event_id": "ef91b41f-06bb-497a-b909-a6902e942bc0",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:27:16.068754+00:00",
+      "previous_hash": "77c7f94ccb770f53b41b8add4970e3c847f2e6b3d0a3aced4a65b6600f575ea3",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 235
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "05a992af7e9c544f726c366280447ce905e91d9c00e39645509ccc3b1893f9af",
+      "event_id": "f0e61637-c2a1-42f4-8e65-824ba64dd593",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:27:16.304646+00:00",
+      "previous_hash": "0570c962dd56200d58091022010baa66a2131d0cfe6790251e7df38e1be3dede",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 236
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "58816967ea8f274fa8d3285f56beea0d181b38cbd7bf8a16483bc5c555dba96f",
+      "event_id": "2a78a2e1-9cca-44d7-8b9b-9d071b9f015b",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:27:17.241184+00:00",
+      "previous_hash": "05a992af7e9c544f726c366280447ce905e91d9c00e39645509ccc3b1893f9af",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 237
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "6a1bf74061b9cb02bea88f02bba56e6a2c10862fdbe821b6ff2e4efae9a98159",
+      "event_id": "8ce7c4ac-a7ad-4446-917a-ccf6230f16cc",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:27:17.489731+00:00",
+      "previous_hash": "58816967ea8f274fa8d3285f56beea0d181b38cbd7bf8a16483bc5c555dba96f",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 238
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "cbb8d1a76ee0f0d364746e9cd333f252851a2db3ae97b180e41287b60c3105f9",
+      "event_id": "841ef6d6-4989-47f7-a8ae-6bff9efa381d",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:27:25.320819+00:00",
+      "previous_hash": "6a1bf74061b9cb02bea88f02bba56e6a2c10862fdbe821b6ff2e4efae9a98159",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 239
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "45c23cc24e94e454ba08c5594430572b25016a7d320f2a04994f2c7c8b6afca0",
+      "event_id": "99a64a1c-1182-4777-ba9b-3b48aacc27a9",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:27:25.567592+00:00",
+      "previous_hash": "cbb8d1a76ee0f0d364746e9cd333f252851a2db3ae97b180e41287b60c3105f9",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 240
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "ca17e76567adf9f7626fd098eb5598c1aea9102ae67134df60a3b9e5f4ef80b6",
+      "event_id": "64fbb606-8523-4b03-806f-999b57888f8f",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:27:26.348561+00:00",
+      "previous_hash": "45c23cc24e94e454ba08c5594430572b25016a7d320f2a04994f2c7c8b6afca0",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 241
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "219d18b41b65780cf52614f302b5a716a57a8491e77101f8475c89dcb513f90c",
+      "event_id": "963d6281-41dd-4c9d-baff-45e20d0d446c",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:44:35.114814+00:00",
+      "previous_hash": "ca17e76567adf9f7626fd098eb5598c1aea9102ae67134df60a3b9e5f4ef80b6",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 242
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "28f1e3c567050f715179cce5f45e52a7388518059cc3df43454e00abb77e1b34",
+      "event_id": "3fd64afc-26f9-4001-bd7b-ae7eacdb7fdc",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:44:35.785978+00:00",
+      "previous_hash": "219d18b41b65780cf52614f302b5a716a57a8491e77101f8475c89dcb513f90c",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 243
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "2b2b92863e6de8a16de8a8ad90daedcbac08389dd1e95f9f8d14e9adbc454639",
+      "event_id": "54a48214-e6df-4b64-98d3-65089cc1f145",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:44:36.455429+00:00",
+      "previous_hash": "28f1e3c567050f715179cce5f45e52a7388518059cc3df43454e00abb77e1b34",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 244
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "f9ddc9d571cd00d3102cdcbd0450d47a5c486925c26d9d862278234773ee11ff",
+      "event_id": "a3c53fff-5675-4e32-86c6-009c8e632f2e",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "unknown-provider",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:44:37.108157+00:00",
+      "previous_hash": "2b2b92863e6de8a16de8a8ad90daedcbac08389dd1e95f9f8d14e9adbc454639",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 245
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "1f413185c77c89f8b4db495da175ec647aa1b64c85e35be500a5a109e0b75873",
+      "event_id": "3c594e35-0f41-4dfc-853a-d9c701e2f77c",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:44:37.559192+00:00",
+      "previous_hash": "f9ddc9d571cd00d3102cdcbd0450d47a5c486925c26d9d862278234773ee11ff",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 246
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "113c706464674552e3b1855420020165a5737f536d2f980ce7963e6c28819772",
+      "event_id": "e030335d-d78c-48ce-820c-6c5f3da1b0e8",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:44:38.599751+00:00",
+      "previous_hash": "1f413185c77c89f8b4db495da175ec647aa1b64c85e35be500a5a109e0b75873",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 247
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "dbdeab05c2879c71084e039175b32d7999016e9bb480592c6290ac13555230fa",
+      "event_id": "f9fce811-b5df-4638-ac73-feab822a27c5",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:44:38.861817+00:00",
+      "previous_hash": "113c706464674552e3b1855420020165a5737f536d2f980ce7963e6c28819772",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 248
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "8fd01f5ff3a55a5e10e409a83796b7832da648baef3c62e7f7207173121dfed6",
+      "event_id": "cb714286-b3ed-4d49-89ec-517a3d56c559",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:44:40.388934+00:00",
+      "previous_hash": "dbdeab05c2879c71084e039175b32d7999016e9bb480592c6290ac13555230fa",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 249
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "4893b4e7dbd5626db7fac31bfbc52e3506c37fa6607452e7426d33ce2958f3db",
+      "event_id": "5f4833d4-1834-42f5-9e99-3ebe24e1b51f",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:44:40.649430+00:00",
+      "previous_hash": "8fd01f5ff3a55a5e10e409a83796b7832da648baef3c62e7f7207173121dfed6",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 250
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "817372d9b32bea34349797c346cad494f0e0b102a6ddbcd8c8bba70d11540ad9",
+      "event_id": "0cad28ad-a8d5-4431-913b-0032fba45513",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:44:51.548462+00:00",
+      "previous_hash": "4893b4e7dbd5626db7fac31bfbc52e3506c37fa6607452e7426d33ce2958f3db",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 251
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "b0145f766fafce54a3d180dfe44ab733ee2b9d5ecb4f17735cfcb85f82d0d3b3",
+      "event_id": "ff55f335-e5db-4b20-b329-e01233f3c6e8",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:44:51.799543+00:00",
+      "previous_hash": "817372d9b32bea34349797c346cad494f0e0b102a6ddbcd8c8bba70d11540ad9",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 252
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "a5d2f0e17bed28fb04a6ebe968598777b257e35ffe93edc89ae2c4c460d6cade",
+      "event_id": "922a8395-60ad-4c2c-9b92-5b257d16cc99",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:44:52.862508+00:00",
+      "previous_hash": "b0145f766fafce54a3d180dfe44ab733ee2b9d5ecb4f17735cfcb85f82d0d3b3",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 253
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "4220117086c67039f9ac05afde30ad3a99a219005d9f5deea0be6f8836614b83",
+      "event_id": "7abbbb1a-c1be-4ec8-a855-33047b0554fa",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "rollback",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:44:53.119844+00:00",
+      "previous_hash": "a5d2f0e17bed28fb04a6ebe968598777b257e35ffe93edc89ae2c4c460d6cade",
+      "release": "release-v1",
+      "revision": "abc123",
+      "sequence": 254
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "65a8c0aaf2314f93ba63359f09f2b75eda16f784e088b4f0cebead2cf64f577e",
+      "event_id": "63b8a223-5c1a-41c6-98e5-5a7d18656afd",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:45:01.413481+00:00",
+      "previous_hash": "4220117086c67039f9ac05afde30ad3a99a219005d9f5deea0be6f8836614b83",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 255
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "staging",
+      "event_hash": "63d97f9aa642fadbef093e8c25f765303935d1234feb22ba84bd3fa2a9253e4b",
+      "event_id": "112075cc-63bd-4819-ba88-b5feda0b58e9",
+      "event_type": "provider_preflight",
+      "metadata": {
+        "action": "deploy",
+        "mode": "dry-run",
+        "provider": "dry-run"
+      },
+      "occurred_at": "2026-07-13T07:45:01.684226+00:00",
+      "previous_hash": "65a8c0aaf2314f93ba63359f09f2b75eda16f784e088b4f0cebead2cf64f577e",
+      "release": "preflight",
+      "revision": "unknown",
+      "sequence": 256
+    },
+    {
+      "actor": "master_lord_6ixth",
+      "environment": "production",
+      "event_hash": "f9ab45514627ffaa3c738c6267f81d1f6b6dc7fa5c478fac5203d5f63e458275",
+      "event_id": "24e92b15-eeb5-4142-b861-87d467c08ba3",
+      "event_type": "credential_rotation_validated",
+      "metadata": {
+        "provider": "dry-run",
+        "record_count": 0
+      },
+      "occurred_at": "2026-07-13T07:45:02.517817+00:00",
+      "previous_hash": "63d97f9aa642fadbef093e8c25f765303935d1234feb22ba84bd3fa2a9253e4b",
+      "release": "credential-governance",
+      "revision": "unknown",
+      "sequence": 257
+    }
+  ],
+  "ledger_entry_count": 257,
+  "ledger_file_sha256": "3647844a72b97f2cc826c47bb971d378a3bddbd784770787ad99ee03c1fbff4a",
+  "schema_version": "1.0",
+  "source_hash": "3c7fe4627c49f4ec2865076ea74589dab51364f20bf0a539004dc5f84a45cd0c",
+  "source_id": "dc709502-8c06-4ffc-9d1d-ca353a6d0932"
+}

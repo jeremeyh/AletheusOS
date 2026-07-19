@@ -1,0 +1,4 @@
+module,path,reference_count,reference_types,references,classification
+capability_engine.health,capability_engine/health.py,2,ACTIVE_RUNTIME_REFERENCE,aletheus/capability_engine/health.py | aletheus/execution_engine/core.py,KEEP_OR_IMPLEMENT
+dependency_resolver,dependency_resolver.py,1,ACTIVE_RUNTIME_REFERENCE,aletheus/self_assembly/dependency_resolver.py,KEEP_OR_IMPLEMENT
+portfolio.allocation,portfolio/allocation.py,1,ACTIVE_RUNTIME_REFERENCE,aletheus/applications/application_core.py,KEEP_OR_IMPLEMENT

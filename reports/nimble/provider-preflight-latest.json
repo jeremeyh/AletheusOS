@@ -1,0 +1,26 @@
+{
+  "action": "deploy",
+  "checks": [
+    {
+      "check": "provider-registered",
+      "status": "PASS"
+    },
+    {
+      "check": "provider-enabled",
+      "status": "PASS"
+    },
+    {
+      "check": "credential-isolation",
+      "status": "PASS"
+    }
+  ],
+  "environment": "production",
+  "failures": [
+    "Provider dry-run is not approved for production execution."
+  ],
+  "generated_at": "2026-07-13T07:58:01.901123+00:00",
+  "mode": "execute",
+  "provider": "dry-run",
+  "schema_version": "1.0",
+  "status": "FAIL"
+}

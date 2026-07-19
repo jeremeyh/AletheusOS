@@ -1,0 +1,42 @@
+{
+    "report_id": "REPORT-7CBD549C",
+    "generated_at": "2026-07-05T06:45:58.142690",
+    "score": {
+        "architecture": 100.0,
+        "coupling": 100.0,
+        "boundaries": 100.0,
+        "maintainability": 96.0,
+        "constitutional": 100.0,
+        "security": 100.0,
+        "health": 100.0,
+        "overall": 99.43
+    },
+    "findings": [
+        {
+            "finding_id": "SPA-E006740F",
+            "finding_type": "GOD_OBJECT",
+            "severity": "HIGH",
+            "title": "Oversized Component",
+            "description": "aletheus/runtime/core.py contains 3586 lines.",
+            "component": "aletheus/runtime/core.py",
+            "recommendation": "Reduce responsibility by extracting focused managers/components.",
+            "evidence": [],
+            "created_at": "2026-07-05T06:45:57.856047"
+        },
+        {
+            "finding_id": "SPA-8D44A2E8",
+            "finding_type": "GOD_OBJECT",
+            "severity": "HIGH",
+            "title": "Oversized Component",
+            "description": "aletheus/core_v481_registration_cutover.py contains 3572 lines.",
+            "component": "aletheus/core_v481_registration_cutover.py",
+            "recommendation": "Reduce responsibility by extracting focused managers/components.",
+            "evidence": [],
+            "created_at": "2026-07-05T06:45:57.856063"
+        }
+    ],
+    "metadata": {
+        "genesis": "54.0",
+        "version": "1.0.0"
+    }
+}

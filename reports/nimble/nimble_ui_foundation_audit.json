@@ -1,0 +1,63 @@
+{
+  "component_files": [],
+  "configuration_files": [],
+  "detected_dependency_groups": {},
+  "entrypoints": [],
+  "frontend_extension_counts": {
+    ".css": 2
+  },
+  "package_manifests": [],
+  "probable_frontend_roots": [],
+  "probable_routes": [],
+  "repository_root": "/Users/master_lord_6ixth/Development/AletheusOS",
+  "style_files": [
+    "assets/css/cardhawk.css",
+    "assets/styles.css"
+  ],
+  "summary": {
+    "active_files": 6395,
+    "component_files": 0,
+    "entrypoints": 0,
+    "frontend_configs": 0,
+    "frontend_files": 2,
+    "package_manifests": 0,
+    "probable_routes": 0,
+    "style_files": 2,
+    "token_candidates": 5,
+    "ui_directories": 25
+  },
+  "token_candidates": [
+    "aletheus/overlay_manager/themes.py",
+    "command_center/runtime/palette.py",
+    "components/chds/theme.py",
+    "styles/theme.py",
+    "themes/cardhawk_theme.py"
+  ],
+  "ui_directories": [
+    "adaptive_intelligence/pages",
+    "aletheus/apps",
+    "aletheus/mastery/dashboard",
+    "aletheus/runtime/dashboard",
+    "analytics/pages",
+    "card_hawk/dashboard",
+    "cardhawk/app",
+    "cardhawk/dashboard",
+    "cardhawk/ui",
+    "cardhawk/web",
+    "components",
+    "executive_experience/pages",
+    "founder_studio/pages",
+    "intelligence_convergence/pages",
+    "live_data/pages",
+    "live_platform/pages",
+    "operations_live/pages",
+    "pages",
+    "production_hardening/pages",
+    "styles",
+    "themes",
+    "timeline/pages",
+    "ui",
+    "ui/pages",
+    "workflow_automation/pages"
+  ]
+}

@@ -1,0 +1,422 @@
+{
+  "changes": [
+    {
+      "path": "aletheus/agents_v2/agent_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/applications/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/boot/lighthouse.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/civilization/engine.py",
+      "patterns": {
+        "datetime.utcnow()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/cognition/cognition_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/cognition/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/copilot/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/council/engine.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/decision_v2/decision_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/distributed_v3/distributed_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/enterprise/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/event_bus_v3/event_bus_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/executive/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/federation_v3/federation_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/founder_console/core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/high_availability_v3/high_availability_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/intelligence/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/kernel_v2/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/knowledge/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/knowledge_graph/graph_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/learning/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/memory/core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/memory_mesh/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/mesh/heartbeat.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/mesh/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/mission/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/missions_v2/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/persistence_v3/persistence_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/planning/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/planning_v2/planning_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/platform/platform_layer.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/plugins_v3/plugin_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/prediction/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/reasoning/reasoning_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/release/core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/runtime/boot_pipeline/report.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/runtime/context.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 2
+      },
+      "replacements": 2
+    },
+    {
+      "path": "aletheus/runtime/events.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/runtime/governance/history.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/runtime/hardening.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/runtime/integrity/doctor.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/runtime/job_queue.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 2
+      },
+      "replacements": 2
+    },
+    {
+      "path": "aletheus/runtime/kernel/orchestrator.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/runtime/kernel/scheduler.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/runtime/kernel/supervisor.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/runtime/metrics.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/runtime/readiness/snapshot.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/runtime/release/genesis6_report.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/runtime/scheduler.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/security_v3/security_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/semantic/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/spectrum_platform_analyzer/assessment.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/spectrum_platform_analyzer/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/telemetry_v3/telemetry_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/tenancy_v3/tenancy_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/watch_tower/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/workflow_v3/workflow_core.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/workflows_v2/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    },
+    {
+      "path": "aletheus/workspace/models.py",
+      "patterns": {
+        "datetime.utcnow().isoformat()": 1
+      },
+      "replacements": 1
+    }
+  ],
+  "files_changed": 59,
+  "mode": "apply",
+  "total_replacements": 61,
+  "utility": "aletheus/time_utils.py",
+  "utility_created": true
+}

@@ -1,0 +1,48 @@
+{
+  "checks": [
+    {
+      "check": "attest-action",
+      "status": "PASS"
+    },
+    {
+      "check": "subject-path",
+      "status": "PASS"
+    },
+    {
+      "check": "id-token-permission",
+      "status": "PASS"
+    },
+    {
+      "check": "attestations-permission",
+      "status": "PASS"
+    },
+    {
+      "check": "artifact-metadata-permission",
+      "status": "PASS"
+    },
+    {
+      "check": "repository-verification",
+      "status": "PASS"
+    },
+    {
+      "check": "signer-workflow-verification",
+      "status": "PASS"
+    },
+    {
+      "check": "attestation-variable-guard",
+      "status": "PASS"
+    },
+    {
+      "check": "bundle-retention",
+      "status": "PASS"
+    },
+    {
+      "check": "verification-retention",
+      "status": "PASS"
+    }
+  ],
+  "failures": [],
+  "generated_at": "2026-07-11T23:56:49.553872+00:00",
+  "schema_version": "1.0",
+  "status": "PASS"
+}
