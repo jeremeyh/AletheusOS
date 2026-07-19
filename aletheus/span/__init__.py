@@ -32,3 +32,9 @@ def __getattr__(name: str):
     raise AttributeError(name)
 
 __version__ = "11.0.0"
+
+# Genesis 11.1 provider framework exports.
+from .analyzer import Analyzer, AnalyzerContext, AnalyzerResult
+from .evidence_store import EvidenceRecord, EvidenceStore
+from .finding import Finding, FindingSet, Severity
+from .pipeline import PipelineResult, SPANPipeline, default_providers
