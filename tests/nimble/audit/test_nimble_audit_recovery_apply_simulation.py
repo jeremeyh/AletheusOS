@@ -11,19 +11,19 @@ import tempfile
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[3]
 
 SCRIPTS = [
-    "append_nimble_audit_event.py",
-    "create_nimble_audit_checkpoint.py",
-    "create_nimble_signed_audit_anchor.py",
-    "create_nimble_audit_recovery_source.py",
-    "validate_nimble_audit_ledger.py",
-    "validate_nimble_audit_checkpoints.py",
-    "validate_nimble_signed_audit_anchor.py",
-    "validate_nimble_audit_recovery_source.py",
-    "plan_nimble_audit_recovery.py",
-    "apply_nimble_audit_recovery.py",
+    "bin/append_nimble_audit_event.py",
+    "bin/create_nimble_audit_checkpoint.py",
+    "bin/create_nimble_signed_audit_anchor.py",
+    "bin/create_nimble_audit_recovery_source.py",
+    "bin/validate_nimble_audit_ledger.py",
+    "bin/validate_nimble_audit_checkpoints.py",
+    "bin/validate_nimble_signed_audit_anchor.py",
+    "bin/validate_nimble_audit_recovery_source.py",
+    "bin/plan_nimble_audit_recovery.py",
+    "bin/apply_nimble_audit_recovery.py",
 ]
 
 LEDGER_RELATIVE = Path(
@@ -137,6 +137,8 @@ def copy_runtime(root: Path) -> None:
             root / "reports/nimble"
         ).mkdir(parents=True)
 
+    (root / "bin").mkdir(parents=True, exist_ok=True)
+
     for script in SCRIPTS:
         shutil.copy2(
             ROOT / script,
@@ -191,7 +193,7 @@ def append_event(
     run(
         [
             "python",
-            "append_nimble_audit_event.py",
+            "bin/append_nimble_audit_event.py",
             "--event-type",
             event_type,
             "--environment",
@@ -225,7 +227,7 @@ def prepare_recoverable_state(
     run(
         [
             "python",
-            "create_nimble_audit_checkpoint.py",
+            "bin/create_nimble_audit_checkpoint.py",
             "--release",
             "recovery-apply-simulation-v0.1",
         ],
@@ -235,7 +237,7 @@ def prepare_recoverable_state(
     run(
         [
             "python",
-            "create_nimble_signed_audit_anchor.py",
+            "bin/create_nimble_signed_audit_anchor.py",
         ],
         cwd=root,
     )
@@ -243,7 +245,7 @@ def prepare_recoverable_state(
     run(
         [
             "python",
-            "create_nimble_audit_recovery_source.py",
+            "bin/create_nimble_audit_recovery_source.py",
         ],
         cwd=root,
     )
@@ -274,7 +276,7 @@ def prepare_recoverable_state(
     plan = run(
         [
             "python",
-            "plan_nimble_audit_recovery.py",
+            "bin/plan_nimble_audit_recovery.py",
         ],
         cwd=root,
         expected=2,
@@ -315,7 +317,7 @@ def verify_successful_apply() -> None:
         result = run(
             [
                 "python",
-                "apply_nimble_audit_recovery.py",
+                "bin/apply_nimble_audit_recovery.py",
                 "--confirm",
                 "APPLY-AUDIT-RECOVERY",
             ],
@@ -390,7 +392,7 @@ def verify_successful_apply() -> None:
         run(
             [
                 "python",
-                "validate_nimble_audit_ledger.py",
+                "bin/validate_nimble_audit_ledger.py",
             ],
             cwd=root,
         )
@@ -409,7 +411,7 @@ def verify_validation_failure_rollback() -> None:
 
         validator = (
             root
-            / "validate_nimble_audit_ledger.py"
+            / "bin/validate_nimble_audit_ledger.py"
         )
 
         validator.write_text(
@@ -422,7 +424,7 @@ def verify_validation_failure_rollback() -> None:
         result = run(
             [
                 "python",
-                "apply_nimble_audit_recovery.py",
+                "bin/apply_nimble_audit_recovery.py",
                 "--confirm",
                 "APPLY-AUDIT-RECOVERY",
             ],

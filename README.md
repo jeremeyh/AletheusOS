@@ -1,13 +1,4 @@
-# Aletheus™ Genesis 0.3 / Sprint A3 — Runtime Core
+# Aletheus™ v4.2.1 — Genesis 0.3 / Sprint A3 — Runtime Core
 
-Adds Runtime Context, Engine Registry, Service Registry, Command Bus, Event Bus, Pipeline Executor, Workflow Graph, Scheduler, Job Queue, Runtime Metrics, Plugin Manager, Diagnostics, Runtime Console, and smoke tests.
+<!-- Paste the remainder of your existing README.md below this line, unchanged. -->
 
-Launch:
-```bash
-PYTHONPATH=. streamlit run ui/pages/aletheus_runtime_console.py
-```
-
-Test:
-```bash
-PYTHONPATH=. python tests/test_aletheus_runtime_a3.py
-```

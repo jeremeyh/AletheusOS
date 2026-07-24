@@ -1,0 +1,12 @@
+{
+  "checks": [],
+  "failures": [
+    "Missing signed-anchor file: nimble/governance/audit/signed-audit-anchor-contract.json",
+    "Missing signed-anchor file: nimble/governance/audit/checkpoints/latest.json",
+    "Missing signed-anchor file: reports/nimble/signed-audit-anchor.json",
+    "Missing signed-anchor file: reports/nimble/signed-audit-anchor.sha256"
+  ],
+  "generated_at": "2026-07-23T11:15:13.649762+00:00",
+  "schema_version": "1.0",
+  "status": "FAIL"
+}

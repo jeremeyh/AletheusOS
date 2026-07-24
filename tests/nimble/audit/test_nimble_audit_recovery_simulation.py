@@ -9,7 +9,22 @@ import tempfile
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+def _find_repo_root() -> Path:
+    current = Path(__file__).resolve().parent
+
+    while True:
+        if (current / "pyproject.toml").is_file():
+            return current
+
+        if current.parent == current:
+            raise RuntimeError(
+                "Unable to locate repository root."
+            )
+
+        current = current.parent
+
+
+ROOT = _find_repo_root()
 
 LEDGER_RELATIVE_PATH = Path(
     "nimble/governance/audit/"
@@ -17,14 +32,14 @@ LEDGER_RELATIVE_PATH = Path(
 )
 
 SOURCE_GENERATOR = (
-    "create_nimble_audit_recovery_source.py"
+    "bin/create_nimble_audit_recovery_source.py"
 )
 
 SOURCE_VALIDATOR = (
-    "validate_nimble_audit_recovery_source.py"
+    "bin/validate_nimble_audit_recovery_source.py"
 )
 
-AUDIT_WRITER = "append_nimble_audit_event.py"
+AUDIT_WRITER = "bin/append_nimble_audit_event.py"
 
 
 def run(

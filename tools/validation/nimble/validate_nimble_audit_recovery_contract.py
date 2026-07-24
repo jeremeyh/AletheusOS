@@ -7,18 +7,47 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+def _find_repo_root() -> Path:
+    current = Path(__file__).resolve().parent
+
+    while True:
+        contract = (
+            current
+            / "nimble"
+            / "governance"
+            / "audit"
+            / "recovery"
+            / "audit-recovery-contract.json"
+        )
+
+        if contract.is_file():
+            return current
+
+        if current.parent == current:
+            raise RuntimeError(
+                "Unable to locate repository root."
+            )
+
+        current = current.parent
+
+
+ROOT = _find_repo_root()
 
 CONTRACT_PATH = (
     ROOT
-    / "nimble/governance/audit/recovery/"
-    "audit-recovery-contract.json"
+    / "nimble"
+    / "governance"
+    / "audit"
+    / "recovery"
+    / "audit-recovery-contract.json"
 )
 
 REPORT_PATH = (
     ROOT
-    / "reports/nimble/recovery/"
-    "audit-recovery-contract-validation-latest.json"
+    / "reports"
+    / "nimble"
+    / "recovery"
+    / "audit-recovery-contract-validation-latest.json"
 )
 
 
@@ -58,38 +87,13 @@ def main() -> int:
         "ambiguous_source_rejection_required",
         "pre_recovery_snapshot_required_before_apply",
         "recovery_provenance_required",
-        "absolute_paths_forbidden"
+        "absolute_paths_forbidden",
     ]
 
     for key in required_policy:
         if policy.get(key) is not True:
             failures.append(
                 f"Recovery policy must be true: {key}"
-            )
-
-    apply_policy = contract.get("apply", {})
-
-    if (
-        apply_policy.get("confirmation_token")
-        != "APPLY-AUDIT-RECOVERY"
-    ):
-        failures.append(
-            "Recovery confirmation token is invalid."
-        )
-
-    required_apply_policy = [
-        "atomic_replacement_required",
-        "source_revalidation_required",
-        "plan_hash_validation_required",
-        "pre_recovery_snapshot_required",
-        "post_recovery_validation_required",
-        "recovery_audit_event_required",
-    ]
-
-    for key in required_apply_policy:
-        if apply_policy.get(key) is not True:
-            failures.append(
-                f"Recovery apply policy must be true: {key}"
             )
 
     apply_policy = contract.get("apply", {})
@@ -141,20 +145,14 @@ def main() -> int:
         encoding="utf-8",
     )
 
-    print("=" * 72)
-    print("NIMBLE™ AUDIT RECOVERY CONTRACT")
-    print("=" * 72)
-    print(f"Failures: {len(failures)}")
-    print(f"Status: {status}")
-    print(
-        "Report:",
-        REPORT_PATH.relative_to(ROOT),
-    )
+    if failures:
+        print("Status: FAIL")
+        for failure in failures:
+            print(f"- {failure}")
+        return 1
 
-    for failure in failures:
-        print(f"- {failure}")
-
-    return 0 if status == "PASS" else 1
+    print("Status: PASS")
+    return 0
 
 
 if __name__ == "__main__":

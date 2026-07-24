@@ -1,14 +1,22 @@
 """
-Aletheus Intelligence Civilization
+Aletheus Intelligence Civilization.
 
-Post-Genesis 205-215
+Public package API for the civilization engine and canonical
+Civilization Orchestrator bootstrap.
 """
 
-from .engine import IntelligenceCivilizationEngine
-
+from .bootstrap import (
+    build_civilization_orchestrator,
+)
+from .engine import (
+    IntelligenceCivilizationEngine,
+)
+from .orchestrator import (
+    CivilizationOrchestrator,
+)
 
 __all__ = [
-
-"IntelligenceCivilizationEngine"
-
+    "CivilizationOrchestrator",
+    "IntelligenceCivilizationEngine",
+    "build_civilization_orchestrator",
 ]

@@ -35,12 +35,12 @@
   "contract_id": "nimble-audit-recovery-continuity-v0.1",
   "current_ledger": {
     "anchored_prefix_hash": "GENESIS",
-    "entry_count": 257,
-    "head_hash": "f9ab45514627ffaa3c738c6267f81d1f6b6dc7fa5c478fac5203d5f63e458275",
+    "entry_count": 0,
+    "head_hash": "GENESIS",
     "path": "nimble/governance/audit/deployment-audit-ledger.jsonl"
   },
   "failures": [],
-  "generated_at": "2026-07-13T07:56:39.539336+00:00",
+  "generated_at": "2026-07-23T14:17:01.007632+00:00",
   "mode": "plan_only",
   "mutation_performed": false,
   "next_requirements": {
@@ -48,7 +48,7 @@
     "explicit_apply_command_required": false,
     "pre_recovery_snapshot_required": false
   },
-  "plan_hash": "b3f374791464524a345eec16d43e53c28084423898efe2cca35af0511370b074",
+  "plan_hash": "47555cbb4e37bdfa1eabeb81357cd7e93a570dacef6b7ab0b6ac297f9aa0f808",
   "recommended_action": "none",
   "schema_version": "1.0",
   "trusted_checkpoint": {
@@ -63,24 +63,24 @@
   "validation_results": [
     {
       "returncode": 0,
-      "script": "validate_nimble_audit_ledger.py",
+      "script": "bin/validate_nimble_audit_ledger.py",
       "status": "PASS",
       "stderr": "",
-      "stdout": "========================================================================\nNIMBLE\u2122 DEPLOYMENT AUDIT LEDGER\n========================================================================\nEntries: 257\nFailures: 0\nStatus: PASS\nHead hash: f9ab45514627ffaa3c738c6267f81d1f6b6dc7fa5c478fac5203d5f63e458275\nReport: reports/nimble/deployment-audit-ledger-validation-latest.json"
+      "stdout": "========================================================================\nNIMBLE\u2122 DEPLOYMENT AUDIT LEDGER\n========================================================================\nEntries: 0\nFailures: 0\nStatus: PASS\nHead hash: GENESIS\nReport: reports/nimble/deployment-audit-ledger-validation-latest.json"
     },
     {
       "returncode": 0,
-      "script": "validate_nimble_audit_checkpoints.py",
+      "script": "bin/validate_nimble_audit_checkpoints.py",
       "status": "PASS",
       "stderr": "",
-      "stdout": "========================================================================\nNIMBLE\u2122 AUDIT CHECKPOINT VALIDATION\n========================================================================\nCheckpoints: 1\nLedger entries: 257\nLatest checkpoint: da3827583cb7d48ff78f9b6cb3d8f916381db02f09c9f9d1d7e9115f554deed6\nFailures: 0\nStatus: PASS\nReport: reports/nimble/audit-checkpoint-validation-latest.json"
+      "stdout": "========================================================================\nNIMBLE\u2122 AUDIT CHECKPOINT VALIDATION\n========================================================================\nCheckpoints: 1\nLedger entries: 0\nLatest checkpoint: da3827583cb7d48ff78f9b6cb3d8f916381db02f09c9f9d1d7e9115f554deed6\nFailures: 0\nStatus: PASS\nReport: reports/nimble/audit-checkpoint-validation-latest.json"
     },
     {
       "returncode": 0,
-      "script": "validate_nimble_signed_audit_anchor.py",
+      "script": "bin/validate_nimble_signed_audit_anchor.py",
       "status": "PASS",
       "stderr": "",
-      "stdout": "========================================================================\nNIMBLE\u2122 SIGNED AUDIT ANCHOR\n========================================================================\nCheckpoint hash: da3827583cb7d48ff78f9b6cb3d8f916381db02f09c9f9d1d7e9115f554deed6\nAnchor hash: d2d78b80704c2db6b0943826ff98f5a97dee170753d0baea2b0c69fefaa3fb6f\nFailures: 0\nStatus: PASS\nReport: reports/nimble/signed-audit-anchor-validation-latest.json"
+      "stdout": "========================================================================\nNIMBLE\u2122 SIGNED AUDIT ANCHOR\n========================================================================\nCheckpoint hash: da3827583cb7d48ff78f9b6cb3d8f916381db02f09c9f9d1d7e9115f554deed6\nAnchor hash: d5526b475fd0d0e77e13ce821c016d842a3df32ae445c6feb1ff158a76c4a25a\nFailures: 0\nStatus: PASS\nReport: reports/nimble/signed-audit-anchor-validation-latest.json"
     }
   ]
 }

@@ -19,9 +19,9 @@ LEDGER_PATH = (
     "deployment-audit-ledger.jsonl"
 )
 
-WRITER = ROOT / "append_nimble_audit_event.py"
+WRITER = ROOT / "bin/append_nimble_audit_event.py"
 
-VALIDATOR = ROOT / "validate_nimble_audit_ledger.py"
+VALIDATOR = ROOT / "bin/validate_nimble_audit_ledger.py"
 
 
 def test_audit_contract_exists() -> None:

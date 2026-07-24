@@ -9,7 +9,29 @@ from pathlib import Path
 from typing import Any
 
 
-ROOT = Path(__file__).resolve().parent
+def _find_root() -> Path:
+    current = Path(__file__).resolve().parent
+
+    # Running from the isolated recovery simulation.
+    if (current / "nimble").is_dir():
+        return current
+
+    # Running from the repository.
+    probe = current
+    while True:
+        if (probe / "pyproject.toml").is_file():
+            return probe
+
+        if probe.parent == probe:
+            raise RuntimeError(
+                "Unable to locate repository root."
+            )
+
+        probe = probe.parent
+
+
+ROOT = _find_root()
+
 
 LATEST_POINTER_PATH = (
     ROOT

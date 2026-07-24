@@ -15,12 +15,12 @@ CONTRACT_PATH = (
 
 GENERATOR = (
     ROOT
-    / "create_nimble_signed_audit_anchor.py"
+    / "bin/create_nimble_signed_audit_anchor.py"
 )
 
 VALIDATOR = (
     ROOT
-    / "validate_nimble_signed_audit_anchor.py"
+    / "bin/validate_nimble_signed_audit_anchor.py"
 )
 
 

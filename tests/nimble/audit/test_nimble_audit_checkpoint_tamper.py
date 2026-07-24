@@ -10,11 +10,11 @@ import tempfile
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[3]
 
-WRITER = ROOT / "append_nimble_audit_event.py"
-CHECKPOINT_CREATOR = ROOT / "create_nimble_audit_checkpoint.py"
-CHECKPOINT_VALIDATOR = ROOT / "validate_nimble_audit_checkpoints.py"
+WRITER = ROOT / "bin/append_nimble_audit_event.py"
+CHECKPOINT_CREATOR = ROOT / "bin/create_nimble_audit_checkpoint.py"
+CHECKPOINT_VALIDATOR = ROOT / "bin/validate_nimble_audit_checkpoints.py"
 
 
 def run(

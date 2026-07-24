@@ -4,22 +4,26 @@ import json
 import subprocess
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[2]
 
 CONTRACT_PATH = (
     ROOT
-    / "nimble/governance/audit/recovery/"
-    "audit-recovery-contract.json"
+    / "nimble"
+    / "governance"
+    / "audit"
+    / "recovery"
+    / "audit-recovery-contract.json"
 )
 
 PLANNER = (
     ROOT
+    / "bin"
     / "plan_nimble_audit_recovery.py"
 )
 
 CONTRACT_VALIDATOR = (
     ROOT
+    / "bin"
     / "validate_nimble_audit_recovery_contract.py"
 )
 
@@ -107,11 +111,13 @@ def test_trusted_recovery_source_contract() -> None:
 def test_recovery_source_generator_and_validator() -> None:
     generator = (
         ROOT
+        / "bin"
         / "create_nimble_audit_recovery_source.py"
     )
 
     validator = (
         ROOT
+        / "bin"
         / "validate_nimble_audit_recovery_source.py"
     )
 
@@ -148,6 +154,9 @@ def test_recovery_source_generator_and_validator() -> None:
 def test_isolated_recovery_simulation() -> None:
     simulation = (
         ROOT
+        / "tests"
+        / "nimble"
+        / "audit"
         / "test_nimble_audit_recovery_simulation.py"
     )
 
@@ -171,10 +180,12 @@ def test_isolated_recovery_simulation() -> None:
     )
 
 
-
 def test_isolated_recovery_apply_simulation() -> None:
     simulation = (
         ROOT
+        / "tests"
+        / "nimble"
+        / "audit"
         / "test_nimble_audit_recovery_apply_simulation.py"
     )
 

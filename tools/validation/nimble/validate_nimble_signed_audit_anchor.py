@@ -10,36 +10,59 @@ from pathlib import Path
 from typing import Any
 
 
-ROOT = Path(__file__).resolve().parent
+def _find_repo_root() -> Path:
+    current = Path(__file__).resolve().parent
+
+    while True:
+        if (current / "pyproject.toml").is_file():
+            return current
+
+        if current.parent == current:
+            raise RuntimeError(
+                "Unable to locate repository root."
+            )
+
+        current = current.parent
+
+
+ROOT = _find_repo_root()
 
 CONTRACT_PATH = (
     ROOT
-    / "nimble/governance/audit/"
-    "signed-audit-anchor-contract.json"
+    / "nimble"
+    / "governance"
+    / "audit"
+    / "signed-audit-anchor-contract.json"
 )
 
 LATEST_POINTER = (
     ROOT
-    / "nimble/governance/audit/checkpoints/"
-    "latest.json"
+    / "nimble"
+    / "governance"
+    / "audit"
+    / "checkpoints"
+    / "latest.json"
 )
 
 ANCHOR_PATH = (
     ROOT
-    / "reports/nimble/"
-    "signed-audit-anchor.json"
+    / "reports"
+    / "nimble"
+    / "signed-audit-anchor.json"
 )
 
 CHECKSUM_PATH = (
     ROOT
-    / "reports/nimble/"
-    "signed-audit-anchor.sha256"
+    / "reports"
+    / "nimble"
+    / "signed-audit-anchor.sha256"
 )
 
 REPORT_PATH = (
     ROOT
-    / "reports/nimble/"
-    "signed-audit-anchor-validation-latest.json"
+    / "reports"
+    / "nimble"
+    / "signed-audit-anchor-validation-latest.json"
 )
 
 

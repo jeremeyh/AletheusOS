@@ -13,10 +13,26 @@ class ProviderRegistry:
         self._providers: Dict[str, Provider] = {}
         self._enabled: Dict[str, bool] = {}
 
-    def register(self, provider: Provider, *, name: Optional[str] = None) -> None:
+    @classmethod
+    def default(cls) -> "ProviderRegistry":
+        """
+        Discover and register the built-in SPAN providers.
+        """
+        from .provider_loader import ProviderLoader
+
+        return ProviderLoader().load_registry(registry=cls())
+
+    def register(
+        self,
+        provider: Provider,
+        *,
+        name: Optional[str] = None,
+    ) -> None:
         key = name or provider.__class__.__name__
+
         if key in self._providers:
             raise ValueError(f"Provider already registered: {key}")
+
         self._providers[key] = provider
         self._enabled[key] = True
 
@@ -40,12 +56,15 @@ class ProviderRegistry:
     def list(self) -> Iterable[str]:
         return tuple(self._providers.keys())
 
-    def enabled(self) -> Iterable[Provider]:
+    def enabled(self) -> tuple[Provider, ...]:
         return tuple(
             provider
             for name, provider in self._providers.items()
             if self._enabled.get(name, False)
         )
+
+    def providers(self) -> tuple[Provider, ...]:
+        return self.enabled()
 
     def build_pipeline(self, analyzers=None) -> SPANPipeline:
         return SPANPipeline(

@@ -20,7 +20,7 @@ CHECKPOINT_DIRECTORY = (
 
 VALIDATOR = (
     ROOT
-    / "validate_nimble_audit_checkpoints.py"
+    / "bin/validate_nimble_audit_checkpoints.py"
 )
 
 
@@ -99,6 +99,9 @@ def test_checkpoint_tamper_simulation() -> None:
             "python",
             str(
                 ROOT
+                / "tests"
+                / "nimble"
+                / "audit"
                 / "test_nimble_audit_checkpoint_tamper.py"
             ),
         ],
@@ -108,7 +111,11 @@ def test_checkpoint_tamper_simulation() -> None:
         check=False,
     )
 
-    assert result.returncode == 0
+    assert result.returncode == 0, (
+        f"Checkpoint tamper simulation failed.\n\n"
+        f"STDOUT:\n{result.stdout}\n\n"
+        f"STDERR:\n{result.stderr}"
+    )
     assert "Ledger truncation: DETECTED" in result.stdout
     assert (
         "Ledger rollback/replacement: DETECTED"

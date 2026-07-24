@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 MODULE_PATH = (
     ROOT
-    / "validate_nimble_attested_release.py"
+    / "bin/validate_nimble_attested_release.py"
 )
 
 

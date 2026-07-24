@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Any
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[3]
 
 CONTRACT_PATH = (
     ROOT

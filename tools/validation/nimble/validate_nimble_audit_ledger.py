@@ -9,30 +9,51 @@ from pathlib import Path
 from typing import Any
 
 
-ROOT = Path(__file__).resolve().parent
+def _find_repo_root() -> Path:
+    current = Path(__file__).resolve().parent
+
+    while True:
+        if (current / "pyproject.toml").is_file():
+            return current
+
+        if current.parent == current:
+            raise RuntimeError(
+                "Unable to locate repository root."
+            )
+
+        current = current.parent
+
+
+ROOT = _find_repo_root()
 
 CONTRACT_PATH = (
     ROOT
-    / "nimble/governance/audit/"
-    "deployment-audit-ledger-contract.json"
+    / "nimble"
+    / "governance"
+    / "audit"
+    / "deployment-audit-ledger-contract.json"
 )
 
 LEDGER_PATH = (
     ROOT
-    / "nimble/governance/audit/"
-    "deployment-audit-ledger.jsonl"
+    / "nimble"
+    / "governance"
+    / "audit"
+    / "deployment-audit-ledger.jsonl"
 )
 
 REPORT_PATH = (
     ROOT
-    / "reports/nimble/"
-    "deployment-audit-ledger-validation-latest.json"
+    / "reports"
+    / "nimble"
+    / "deployment-audit-ledger-validation-latest.json"
 )
 
 SUMMARY_PATH = (
     ROOT
-    / "reports/nimble/"
-    "deployment-audit-ledger-summary-latest.json"
+    / "reports"
+    / "nimble"
+    / "deployment-audit-ledger-summary-latest.json"
 )
 
 
