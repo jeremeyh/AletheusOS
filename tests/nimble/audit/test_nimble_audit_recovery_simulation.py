@@ -116,9 +116,12 @@ def main() -> int:
             SOURCE_VALIDATOR,
             AUDIT_WRITER,
         ]:
+            destination = temporary_root / script_name
+            destination.parent.mkdir(parents=True, exist_ok=True)
+
             shutil.copy2(
                 ROOT / script_name,
-                temporary_root / script_name,
+                destination,
             )
 
         temporary_ledger = (

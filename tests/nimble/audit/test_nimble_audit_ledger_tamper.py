@@ -9,7 +9,20 @@ import tempfile
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+def find_repo_root() -> Path:
+    current = Path(__file__).resolve().parent
+
+    while True:
+        if (current / "pyproject.toml").is_file():
+            return current
+
+        if current.parent == current:
+            raise RuntimeError("Unable to locate repository root.")
+
+        current = current.parent
+
+
+ROOT = find_repo_root()
 
 CANONICAL_LEDGER = (
     ROOT
@@ -42,6 +55,11 @@ def main() -> int:
         shutil.copytree(
             ROOT / "nimble",
             temporary_root / "nimble",
+        )
+
+        shutil.copy2(
+            ROOT / "pyproject.toml",
+            temporary_root / "pyproject.toml",
         )
 
         shutil.copy2(
