@@ -1,0 +1,1875 @@
+RUF012 Mutable default value for class attribute
+  --> Genesis14_SPAN_Constitutional_Intelligence/package/aletheus/span/constitutional_context.py:74:22
+   |
+72 |       """Build deterministic static-analysis context for Genesis 14 rules."""
+73 |
+74 |       EXCLUDED_PARTS = {
+   |  ______________________^
+75 | |         ".git", ".venv", "venv", "__pycache__", "node_modules",
+76 | |         "dist", "build", ".mypy_cache", ".pytest_cache", "reports",
+77 | |         "backups", "archive", "archives",
+78 | |     }
+   | |_____^
+79 |
+80 |       def inspect(self, project_root: str | Path) -> ProjectContext:
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> adaptive_intelligence/deployment/deployment_profiles.py:4:16
+   |
+ 2 |       """7.0G — Deployment Profiles™."""
+ 3 |
+ 4 |       PROFILES = {
+   |  ________________^
+ 5 | |         "local": {
+ 6 | |             "name": "Local Development",
+ 7 | |             "debug": True,
+ 8 | |             "background_jobs": False,
+ 9 | |             "live_providers": False,
+10 | |             "logging_level": "DEBUG",
+11 | |         },
+12 | |         "demo": {
+13 | |             "name": "Demo",
+14 | |             "debug": False,
+15 | |             "background_jobs": False,
+16 | |             "live_providers": False,
+17 | |             "logging_level": "INFO",
+18 | |         },
+19 | |         "testing": {
+20 | |             "name": "Testing",
+21 | |             "debug": True,
+22 | |             "background_jobs": False,
+23 | |             "live_providers": False,
+24 | |             "logging_level": "DEBUG",
+25 | |         },
+26 | |         "production": {
+27 | |             "name": "Production",
+28 | |             "debug": False,
+29 | |             "background_jobs": True,
+30 | |             "live_providers": True,
+31 | |             "logging_level": "WARNING",
+32 | |         },
+33 | |     }
+   | |_____^
+34 |
+35 |       @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> adaptive_intelligence/feedback/feedback_loop.py:21:17
+   |
+19 | class IntelligenceFeedbackLoop:
+20 |     """7.0A — Intelligence Feedback Loop™."""
+21 |     _feedback = []
+   |                 ^^
+22 |
+23 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> adaptive_intelligence/plugins/plugin_framework.py:16:16
+   |
+14 |     """7.0F — Plugin & Extension Framework™."""
+15 |
+16 |     _plugins = {}
+   |                ^^
+17 |
+18 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> adaptive_intelligence/research/research_workspace.py:19:14
+   |
+17 | class ResearchWorkspace:
+18 |     """7.0E — Research Workspace™."""
+19 |     _notes = []
+   |              ^^
+20 |
+21 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/application_runtime/services.py:19:21
+   |
+17 |       """
+18 |
+19 |       SERVICE_NAMES = {
+   |  _____________________^
+20 | |         "runtime",
+21 | |         "security",
+22 | |         "cases",
+23 | |         "missions",
+24 | |         "ledger",
+25 | |         "cognition",
+26 | |         "instrumentation",
+27 | |         "scenarios",
+28 | |     }
+   | |_____^
+29 |
+30 |       def __init__(
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/apps/demo/application.py:11:19
+   |
+ 9 |       VERSION = "1.0.0"
+10 |
+11 |       PERMISSIONS = [
+   |  ___________________^
+12 | |         "runtime.read",
+13 | |         "services.read",
+14 | |     ]
+   | |_____^
+15 |
+16 |       SERVICES = [
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/apps/demo/application.py:16:16
+   |
+14 |       ]
+15 |
+16 |       SERVICES = [
+   |  ________________^
+17 | |         "demo.status",
+18 | |     ]
+   | |_____^
+19 |
+20 |       DEPENDENCIES = [
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/apps/demo/application.py:20:20
+   |
+18 |       ]
+19 |
+20 |       DEPENDENCIES = [
+   |  ____________________^
+21 | |         "aletheus.application_runtime",
+22 | |         "aletheus.sdk",
+23 | |     ]
+   | |_____^
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/civilization/adapters.py:26:26
+   |
+24 |       """
+25 |
+26 |       EVENT_EVIDENCE_MAP = {
+   |  __________________________^
+27 | |         "IntegrityFindingCreated": "integrity_finding",
+28 | |         "ThreatClassified": "threat_classification",
+29 | |         "EntityQuarantined": "containment_result",
+30 | |         "EvidencePreserved": "forensic_preservation",
+31 | |         "SecurityIncidentStabilized": "stabilization_result",
+32 | |     }
+   | |_____^
+33 |
+34 |       def evidence_from_events(
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/constitutional_memory/precedent.py:8:23
+   |
+ 6 |       VERSION = "0.1.0"
+ 7 |
+ 8 |       PRECEDENT_ORDER = {
+   |  _______________________^
+ 9 | |         "NONE": 0,
+10 | |         "LOW": 1,
+11 | |         "MEDIUM": 2,
+12 | |         "HIGH": 3,
+13 | |         "CANONICAL": 4,
+14 | |     }
+   | |_____^
+15 |
+16 |       def strongest(self, records: list[dict]):
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/neural/state/manager.py:12:20
+   |
+10 |       VERSION = "0.1.0"
+11 |
+12 |       VALID_STATES = {
+   |  ____________________^
+13 | |         "idle",
+14 | |         "online",
+15 | |         "thinking",
+16 | |         "reasoning",
+17 | |         "learning",
+18 | |         "planning",
+19 | |         "predicting",
+20 | |         "observing",
+21 | |         "communicating",
+22 | |         "recovering",
+23 | |         "synchronizing",
+24 | |         "dreaming",
+25 | |         "protected",
+26 | |     }
+   | |_____^
+27 |
+28 |       def __init__(self):
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/overlay_manager/validation.py:8:22
+   |
+ 6 |       VERSION = "0.1.0"
+ 7 |
+ 8 |       RESERVED_TERMS = {
+   |  ______________________^
+ 9 | |         "Principle X",
+10 | |         "Constitutional Root Authority",
+11 | |         "Founder Console",
+12 | |     }
+   | |_____^
+13 |
+14 |       def validate(self, definition, existing: list[dict] | None = None):
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/platform/platform_layer.py:22:21
+   |
+20 |       VERSION = "1.0.1"
+21 |
+22 |       REQUIRED_DIRS = [
+   |  _____________________^
+23 | |         "aletheus",
+24 | |         "cardhawk",
+25 | |         "tools",
+26 | |         "reports",
+27 | |         "runtime_state",
+28 | |     ]
+   | |_____^
+29 |
+30 |       REQUIRED_TOOLS = [
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/platform/platform_layer.py:30:22
+   |
+28 |       ]
+29 |
+30 |       REQUIRED_TOOLS = [
+   |  ______________________^
+31 | |         "python3",
+32 | |     ]
+   | |_____^
+33 |
+34 |       OPTIONAL_TOOLS = [
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/platform/platform_layer.py:34:22
+   |
+32 |       ]
+33 |
+34 |       OPTIONAL_TOOLS = [
+   |  ______________________^
+35 | |         "git",
+36 | |         "pip",
+37 | |         "streamlit",
+38 | |     ]
+   | |_____^
+39 |
+40 |       def __init__(self, root="."):
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/platform_intelligence/engine.py:14:20
+   |
+12 |       """
+13 |
+14 |       IGNORED_DIRS = {
+   |  ____________________^
+15 | |         ".git",
+16 | |         ".venv",
+17 | |         "venv",
+18 | |         "venv_backup",
+19 | |         "__pycache__",
+20 | |         ".pytest_cache",
+21 | |         "node_modules",
+22 | |     }
+   | |_____^
+23 |
+24 |       LARGE_FILE_LINE_THRESHOLD = 400
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/platform_intelligence/runtime_health.py:11:19
+   |
+ 9 |       """
+10 |
+11 |       STAT_FIELDS = [
+   |  ___________________^
+12 | |         ("memory", "memory_records", "total_records"),
+13 | |         ("cognition", "goals", "goals"),
+14 | |         ("cognition", "decisions", "decisions"),
+15 | |         ("knowledge", "knowledge_entities", "entities"),
+16 | |         ("knowledge", "knowledge_relationships", "relationships"),
+17 | |         ("mission", "missions", "missions"),
+18 | |         ("mission", "active_missions", "active_missions"),
+19 | |         ("workspace", "active_objectives", "active_objectives"),
+20 | |         ("workspace", "notifications", "notifications"),
+21 | |         ("applications", "applications", "applications"),
+22 | |         ("applications", "running_applications", "running"),
+23 | |         ("semantic", "semantic_concepts", "concepts"),
+24 | |         ("semantic", "semantic_assertions", "assertions"),
+25 | |         ("executive", "executive_recommendations", "recommendations"),
+26 | |         ("executive", "executive_risks", "risks"),
+27 | |         ("agents", "agents", "agents"),
+28 | |         ("agents", "online_agents", "online_agents"),
+29 | |         ("agents", "agent_tasks", "tasks"),
+30 | |         ("planning", "plans", "plans"),
+31 | |         ("planning", "active_plans", "active_plans"),
+32 | |         ("copilot", "copilot_exchanges", "exchanges"),
+33 | |         ("copilot", "copilot_recommendations", "recommendations"),
+34 | |         ("intelligence", "uil_contexts", "contexts"),
+35 | |         ("intelligence", "uil_decisions", "decisions"),
+36 | |         ("prediction", "forecasts", "forecasts"),
+37 | |         ("prediction", "predictive_risks", "risks"),
+38 | |         ("prediction", "predictive_opportunities", "opportunities"),
+39 | |         ("learning", "learning_experiences", "experiences"),
+40 | |         ("learning", "learning_score", "learning_score"),
+41 | |         ("kernel_v2", "kernel_events", "events"),
+42 | |         ("kernel_v2", "kernel_registry_items", "registry_items"),
+43 | |         ("mission_v2", "v2_missions", "missions"),
+44 | |         ("mission_v2", "v2_mission_events", "telemetry_events"),
+45 | |         ("workflow_v2", "v2_workflows", "workflows"),
+46 | |         ("workflow_v2", "v2_workflow_events", "events"),
+47 | |         ("enterprise", "enterprises", "organizations"),
+48 | |         ("enterprise", "enterprise_audit_events", "audit_events"),
+49 | |         ("enterprise", "compliance_score", "compliance_score"),
+50 | |         ("distributed", "distributed_clusters", "clusters"),
+51 | |         ("distributed", "distributed_nodes", "nodes"),
+52 | |         ("distributed", "distributed_tasks", "tasks"),
+53 | |         ("memory_mesh", "memory_mesh_objects", "memory_objects"),
+54 | |         ("memory_mesh", "memory_mesh_snapshots", "snapshots"),
+55 | |         ("memory_mesh", "memory_mesh_versions", "memory_versions"),
+56 | |         ("knowledge_graph", "graph_nodes", "nodes"),
+57 | |         ("knowledge_graph", "graph_relationships", "relationships"),
+58 | |         ("knowledge_graph", "inference_rules", "inference_rules"),
+59 | |         ("reasoning", "reasoning_traces", "traces"),
+60 | |         ("reasoning", "reasoning_rules", "rules"),
+61 | |         ("reasoning", "reasoning_confidence", "confidence"),
+62 | |     ]
+   | |_____^
+63 |
+64 |       @staticmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/platform_intelligence/runtime_snapshot.py:13:18
+   |
+11 |       """
+12 |
+13 |       COMPONENTS = [
+   |  __________________^
+14 | |         ("memory", "memory"),
+15 | |         ("cognition", "cognition"),
+16 | |         ("knowledge", "knowledge"),
+17 | |         ("mission", "mission"),
+18 | |         ("workspace", "workspace"),
+19 | |         ("applications", "applications"),
+20 | |         ("semantic", "semantic"),
+21 | |         ("executive", "executive"),
+22 | |         ("agents", "agents"),
+23 | |         ("planning", "planning"),
+24 | |         ("copilot", "copilot"),
+25 | |         ("universal_intelligence", "intelligence"),
+26 | |         ("prediction", "prediction"),
+27 | |         ("learning", "learning"),
+28 | |         ("kernel_v2", "kernel_v2"),
+29 | |         ("mission_v2", "mission_v2"),
+30 | |         ("workflow_v2", "workflow_v2"),
+31 | |         ("enterprise", "enterprise"),
+32 | |         ("distributed", "distributed"),
+33 | |         ("memory_mesh", "memory_mesh"),
+34 | |         ("knowledge_graph", "knowledge_graph"),
+35 | |     ]
+   | |_____^
+36 |
+37 |       _statistics = RuntimeStatisticsAdapter.collect
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/platform_lifecycle/state.py:23:20
+   |
+21 | class PlatformStateEngine:
+22 |
+23 |     VALID_STATES = {state.value for state in PlatformState}
+   |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+24 |
+25 |     def __init__(self):
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/repository_dna/collision_auditor.py:11:22
+   |
+ 9 |       """Detects likely concept overlap clusters from subsystem names."""
+10 |
+11 |       KNOWN_CLUSTERS = {
+   |  ______________________^
+12 | |         "kernel": ["kernel", "kernel_v2", "platform_kernel", "executive_kernel", "cognitive_kernel"],
+13 | |         "runtime": ["runtime", "application_runtime", "intent_runtime", "cognitive_runtime", "constitutional_runtime", "runtime_regist…
+14 | |         "memory": ["memory", "working_memory", "memory_mesh", "constitutional_memory"],
+15 | |         "mesh": ["mesh", "cognitive_mesh", "memory_mesh"],
+16 | |         "registry": ["platform_registry", "runtime_registry_v2", "engine_registry", "council_registry", "boot_registry"],
+17 | |         "planning": ["planning", "planning_v2"],
+18 | |         "agents": ["agents", "agents_v2"],
+19 | |     }
+   | |_____^
+20 |
+21 |       def audit(self, records: Iterable[SubsystemRecord]) -> list[CollisionCandidate]:
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+   --> aletheus/runtime/commands_v2/dispatcher.py:45:44
+    |
+ 43 |       """
+ 44 |
+ 45 |       RESULT_KEY_CONTRACTS: dict[str, str] = {
+    |  ____________________________________________^
+ 46 | |         "plugin.bootstrap": "plugin",
+ 47 | |         "plugin.install": "plugin",
+ 48 | |         "plugin.enable": "plugin",
+ 49 | |         "plugin.disable": "plugin",
+ 50 | |         "plugin.remove": "plugin",
+ 51 | |         "plugin.statistics": "plugin_stats",
+ 52 | |
+ 53 | |         "kernel.bootstrap": "kernel",
+ 54 | |         "kernel.boot": "kernel",
+ 55 | |         "kernel.sync": "kernel",
+ 56 | |         "kernel.publish": "event",
+ 57 | |         "kernel.snapshot": "snapshot",
+ 58 | |         "kernel.execute": "task",
+ 59 | |         "kernel.tasks": "tasks",
+ 60 | |         "kernel.scheduler": "schedule",
+ 61 | |         "kernel.dispatcher": "dispatch",
+ 62 | |         "kernel.supervisor": "supervisor",
+ 63 | |         "kernel.statistics": "kernel_stats",
+ 64 | |
+ 65 | |         "state.bootstrap": "state",
+ 66 | |         "state.save": "state",
+ 67 | |         "state.load": "state",
+ 68 | |         "state.snapshot": "snapshot",
+ 69 | |         "state.restore": "state",
+ 70 | |         "state.export": "state",
+ 71 | |         "state.import": "state",
+ 72 | |         "state.statistics": "state_stats",
+ 73 | |
+ 74 | |         "federation.bootstrap": "federation",
+ 75 | |         "federation.join": "node",
+ 76 | |         "federation.discover": "nodes",
+ 77 | |         "federation.query": "federation",
+ 78 | |         "federation.broadcast": "broadcast",
+ 79 | |         "federation.leave": "node",
+ 80 | |         "federation.statistics": "federation_stats",
+ 81 | |
+ 82 | |         "telemetry.bootstrap": "telemetry",
+ 83 | |         "telemetry.metric": "metric",
+ 84 | |         "telemetry.record": "record",
+ 85 | |         "telemetry.log": "log",
+ 86 | |         "telemetry.trace": "trace",
+ 87 | |         "telemetry.health": "health",
+ 88 | |         "telemetry.timeline": "timeline",
+ 89 | |         "telemetry.statistics": "telemetry_stats",
+ 90 | |
+ 91 | |         "ha.bootstrap": "ha",
+ 92 | |         "ha.join": "node",
+ 93 | |         "ha.status": "ha_status",
+ 94 | |         "ha.replicate": "replication",
+ 95 | |         "ha.failover": "failover",
+ 96 | |         "ha.statistics": "ha_stats",
+ 97 | |
+ 98 | |         "security.bootstrap": "security",
+ 99 | |         "security.authenticate": "authentication",
+100 | |         "security.authorize": "authorization",
+101 | |         "security.policy": "policy",
+102 | |         "security.audit": "audit",
+103 | |         "security.statistics": "security_stats",
+104 | |         "security.role_create": "role",
+105 | |         "security.role_assign": "assignment",
+106 | |         "security.role.create": "role",
+107 | |         "security.role.assign": "assignment",
+108 | |
+109 | |         "tenant.bootstrap": "tenant",
+110 | |         "organization.create": "organization",
+111 | |         "tenant.create": "tenant",
+112 | |         "workspace.create": "workspace",
+113 | |         "tenant.statistics": "tenant_stats",
+114 | |         "tenant.health": "tenant_health",
+115 | |         "cluster.elect_leader": "leader",
+116 | |         "mission.v2.create": "mission",
+117 | |         "mission.v2.plan": "planning",
+118 | |         "mission.v2.execute": "execution",
+119 | |         "mission.v2.execute_next": "execution",
+120 | |         "mission.v2.telemetry": "telemetry",
+121 | |         "mission.v2.stats": "mission_v2_stats",
+122 | |
+123 | |         "workflow.v2.create": "workflow",
+124 | |         "workflow.v2.execute": "execution",
+125 | |         "workflow.v2.execute_next": "execution",
+126 | |         "workflow.v2.history": "history",
+127 | |         "workflow.v2.stats": "workflow_v2_stats",
+128 | |
+129 | |         "workspace.overview": "workspace",
+130 | |         "workspace.stats": "workspace_stats",
+131 | |         "founder.journal.create": "journal_entry",
+132 | |         "founder.journal.list": "journal",
+133 | |         "objective.create": "objective",
+134 | |         "objective.list": "objectives",
+135 | |         "notification.create": "notification",
+136 | |         "notification.list": "notifications",
+137 | |
+138 | |         "application.register": "application",
+139 | |         "application.list": "applications",
+140 | |         "application.start": "application",
+141 | |         "application.stop": "application",
+142 | |         "application.restart": "application",
+143 | |         "application.health": "application_health",
+144 | |         "application.stats": "application_stats",
+145 | |         "application.install": "application",
+146 | |         "application.uninstall": "application",
+147 | |         "application.manifest": "manifest",
+148 | |         "application.events": "events",
+149 | |         "application.bootstrap.defaults": "applications",
+150 | |         "cardhawk.start": "cardhawk",
+151 | |         "cardhawk.status": "cardhawk",
+152 | |
+153 | |         "semantic.concept.create": "concept",
+154 | |         "semantic.concept.search": "concepts",
+155 | |         "semantic.assert": "assertion",
+156 | |         "semantic.query": "assertions",
+157 | |         "semantic.explain": "explanation",
+158 | |         "semantic.bootstrap.cardhawk": "bootstrap",
+159 | |         "semantic.stats": "semantic_stats",
+160 | |
+161 | |         "executive.status": "executive_status",
+162 | |         "executive.snapshot": "snapshot",
+163 | |         "executive.summary": "summary",
+164 | |         "executive.recommendations": "recommendations",
+165 | |         "executive.risks": "risks",
+166 | |         "executive.daily_brief": "brief",
+167 | |         "executive.system_report": "system_report",
+168 | |
+169 | |         "uil.context": "context",
+170 | |         "uil.reason": "reasoning",
+171 | |         "uil.synthesize": "synthesis",
+172 | |         "uil.decide": "decision",
+173 | |         "uil.brief": "brief",
+174 | |         "uil.snapshot": "snapshot",
+175 | |         "uil.timeline": "timeline",
+176 | |         "uil.stats": "uil_stats",
+177 | |
+178 | |         "goal.create": "goal",
+179 | |         "goal.complete": "goal",
+180 | |         "goal.list": "goals",
+181 | |         "plan.generate": "plan",
+182 | |         "plan.list": "plans",
+183 | |         "reason.evaluate": "reasoning",
+184 | |         "decision.record": "decision",
+185 | |         "decision.history": "decisions",
+186 | |         "planning.create": "plan",
+187 | |         "planning.execute_next": "execution",
+188 | |         "planning.execute": "execution",
+189 | |         "planning.statistics": "planning_stats",
+190 | |         "plan.bootstrap": "planning",
+191 | |         "plan.create": "plan",
+192 | |         "plan.execute": "plan",
+193 | |         "plan.progress": "plan",
+194 | |         "plan.replan": "plan",
+195 | |         "plan.complete": "plan",
+196 | |         "plan.statistics": "planning_stats",
+197 | |
+198 | |         "cluster.bootstrap": "cluster",
+199 | |         "cluster.join": "node",
+200 | |         "cluster.nodes": "nodes",
+201 | |         "cluster.heartbeat": "heartbeat",
+202 | |         "node.heartbeat": "heartbeat",
+203 | |         "cluster.status": "cluster_status",
+204 | |         "cluster.statistics": "cluster_stats",
+205 | |         "cluster.stats": "cluster_stats",
+206 | |         "cluster.broadcast": "broadcast",
+207 | |         "cluster.task.assign": "task",
+208 | |
+209 | |         "compat.statistics": "compat_stats",
+210 | |
+211 | |         "agent.task.assign": "task",
+212 | |         "agent.run": "agent_run",
+213 | |         "agent.orchestrate": "orchestration",
+214 | | }
+    | |_^
+215 |
+216 |       __slots__ = (
+    |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/runtime/compatibility_layer/layer.py:12:24
+   |
+10 |       """
+11 |
+12 |       SERVICE_REGISTRY = [
+   |  ________________________^
+13 | |         ("memory", ["memory"]),
+14 | |         ("knowledge", ["knowledge"]),
+15 | |         ("reasoning", ["reasoning"]),
+16 | |         ("decision", ["decision"]),
+17 | |         ("planning", ["planning_v2", "planning"]),
+18 | |         ("workflow", ["workflow_v3", "workflow_v2", "workflow"]),
+19 | |         ("agents", ["agents_v2", "agents"]),
+20 | |         ("plugins", ["plugins_v3"]),
+21 | |         ("persistence", ["persistence_v3"]),
+22 | |         ("events", ["event_bus_v3"]),
+23 | |         ("federation", ["federation_v3"]),
+24 | |         ("telemetry", ["telemetry_v3"]),
+25 | |         ("ha", ["high_availability_v3"]),
+26 | |         ("security", ["security_v3"]),
+27 | |         ("tenancy", ["tenancy_v3"]),
+28 | |     ]
+   | |_____^
+29 |
+30 |       SAFE_ALIASES = [
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/runtime/compatibility_layer/layer.py:30:20
+   |
+28 |       ]
+29 |
+30 |       SAFE_ALIASES = [
+   |  ____________________^
+31 | |         "memory",
+32 | |         "knowledge",
+33 | |         "reasoning",
+34 | |         "decision",
+35 | |         "planning",
+36 | |         "workflow",
+37 | |         "agents",
+38 | |         "security",
+39 | |         "tenancy",
+40 | |     ]
+   | |_____^
+41 |
+42 |       def __init__(self, registry):
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/runtime/decomposition/responsibility.py:11:24
+   |
+ 9 |       """
+10 |
+11 |       RESPONSIBILITIES = {
+   |  ________________________^
+12 | |         "lifecycle": {
+13 | |             "keywords": ["boot", "start", "stop", "shutdown", "initialize", "lifecycle"],
+14 | |             "destination": "Executive Kernel",
+15 | |         },
+16 | |         "registration": {
+17 | |             "keywords": ["register", "registry", "registrar"],
+18 | |             "destination": "Runtime Registry",
+19 | |         },
+20 | |         "services": {
+21 | |             "keywords": ["service", "services"],
+22 | |             "destination": "Service Manager / Service Mesh",
+23 | |         },
+24 | |         "commands": {
+25 | |             "keywords": ["command", "commands", "handler"],
+26 | |             "destination": "Command Registry",
+27 | |         },
+28 | |         "events": {
+29 | |             "keywords": ["event", "events", "publish", "subscribe"],
+30 | |             "destination": "Relay Network / Event Fabric",
+31 | |         },
+32 | |         "governance": {
+33 | |             "keywords": ["governance", "policy", "principle", "constitution"],
+34 | |             "destination": "Governance Circuit",
+35 | |         },
+36 | |         "memory": {
+37 | |             "keywords": ["memory", "remember", "recall"],
+38 | |             "destination": "Memory Circuit",
+39 | |         },
+40 | |         "metrics": {
+41 | |             "keywords": ["metric", "metrics", "telemetry", "health"],
+42 | |             "destination": "Platform Intelligence",
+43 | |         },
+44 | |         "applications": {
+45 | |             "keywords": ["application", "applications", "app"],
+46 | |             "destination": "Application Registry / Application Circuit",
+47 | |         },
+48 | |         "routing": {
+49 | |             "keywords": ["route", "router", "dispatch", "relay"],
+50 | |             "destination": "Service Mesh / Relay Network",
+51 | |         },
+52 | |         "optimization": {
+53 | |             "keywords": ["optimize", "optimization", "cache", "warm"],
+54 | |             "destination": "Catalyst",
+55 | |         },
+56 | |         "workflow": {
+57 | |             "keywords": ["workflow", "plan", "mission"],
+58 | |             "destination": "Workflow Circuit / Mission Registry",
+59 | |         },
+60 | |     }
+   | |_____^
+61 |
+62 |       def __init__(self, path: str = "aletheus/runtime/core.py"):
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/runtime_supervisor/core.py:14:22
+   |
+12 |       VERSION = "0.1.0"
+13 |
+14 |       WATCHED_EVENTS = [
+   |  ______________________^
+15 | |         "platform.booting",
+16 | |         "platform.online",
+17 | |         "platform.degraded",
+18 | |         "platform.shutdown",
+19 | |         "application.started",
+20 | |         "application.stopped",
+21 | |         "application.failed",
+22 | |         "component.failed",
+23 | |     ]
+   | |_____^
+24 |
+25 |       def __init__(self):
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/sdk/application.py:18:30
+   |
+16 |     SDK_VERSION = "12.0"
+17 |
+18 |     PERMISSIONS: list[str] = []
+   |                              ^^
+19 |     SERVICES: list[str] = []
+20 |     DEPENDENCIES: list[str] = []
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/sdk/application.py:19:27
+   |
+18 |     PERMISSIONS: list[str] = []
+19 |     SERVICES: list[str] = []
+   |                           ^^
+20 |     DEPENDENCIES: list[str] = []
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/sdk/application.py:20:31
+   |
+18 |     PERMISSIONS: list[str] = []
+19 |     SERVICES: list[str] = []
+20 |     DEPENDENCIES: list[str] = []
+   |                               ^^
+21 |
+22 |     def startup(self) -> bool:
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/span/constitutional_context.py:74:22
+   |
+72 |       """Build deterministic static-analysis context for Genesis 14 rules."""
+73 |
+74 |       EXCLUDED_PARTS = {
+   |  ______________________^
+75 | |         ".git", ".venv", "venv", "__pycache__", "node_modules",
+76 | |         "dist", "build", ".mypy_cache", ".pytest_cache", "reports",
+77 | |         "backups", "archive", "archives",
+78 | |     }
+   | |_____^
+79 |
+80 |       def inspect(self, project_root: str | Path) -> ProjectContext:
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> aletheus/spectrum_platform_analyzer/boundary_analysis.py:25:15
+   |
+23 |       #
+24 |
+25 |       ALLOWED = {
+   |  _______________^
+26 | |
+27 | |         #
+28 | |         # Runtime
+29 | |         #
+30 | |
+31 | |         "aletheus.runtime": [
+32 | |
+33 | |             "aletheus.runtime",
+34 | |
+35 | |             "aletheus.foundation",
+36 | |
+37 | |             "aletheus.kernel",
+38 | |
+39 | |             "aletheus.memory",
+40 | |
+41 | |             "aletheus.reasoning",
+42 | |
+43 | |             "aletheus.knowledge",
+44 | |
+45 | |         ],
+46 | |
+47 | |         #
+48 | |         # Memory
+49 | |         #
+50 | |
+51 | |         "aletheus.memory": [
+52 | |
+53 | |             "aletheus.foundation",
+54 | |
+55 | |             "aletheus.memory",
+56 | |
+57 | |         ],
+58 | |
+59 | |         #
+60 | |         # Knowledge
+61 | |         #
+62 | |
+63 | |         "aletheus.knowledge": [
+64 | |
+65 | |             "aletheus.foundation",
+66 | |
+67 | |             "aletheus.memory",
+68 | |
+69 | |             "aletheus.knowledge",
+70 | |
+71 | |         ],
+72 | |
+73 | |         #
+74 | |         # Applications
+75 | |         #
+76 | |
+77 | |         "aletheus.applications": [
+78 | |
+79 | |             "aletheus.foundation",
+80 | |
+81 | |             "aletheus.runtime",
+82 | |
+83 | |             "aletheus.applications",
+84 | |
+85 | |         ],
+86 | |     }
+   | |_____^
+87 |
+88 |       def subsystem(self, module: str):
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> architecture/import_migrator.py:12:20
+   |
+10 |       """
+11 |
+12 |       REPLACEMENTS = {
+   |  ____________________^
+13 | |         "from engine.": "from engines.",
+14 | |         "import engine.": "import engines.",
+15 | |         "from cardhawk_aeye.": "from hawk_aeye.",
+16 | |         "import cardhawk_aeye.": "import hawk_aeye.",
+17 | |         "hawk_a_eye": "hawk_aeye",
+18 | |     }
+   | |_____^
+19 |
+20 |       @staticmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> architecture/project_auditor.py:35:27
+   |
+33 |       """
+34 |
+35 |       DEPRECATED_PATTERNS = {
+   |  ___________________________^
+36 | |         "deprecated_engine_package": ["from engine", "import engine"],
+37 | |         "deprecated_cardhawk_aeye_package": ["from cardhawk_aeye", "import cardhawk_aeye"],
+38 | |         "legacy_hawk_a_eye_spelling": ["hawk_a_eye"],
+39 | |     }
+   | |_____^
+40 |
+41 |       @staticmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> asset_core/runtime/image_service.py:8:20
+   |
+ 7 |   class AssetImageService:
+ 8 |       IMAGE_FIELDS = [
+   |  ____________________^
+ 9 | |         "image_path",
+10 | |         "front_image",
+11 | |         "back_image",
+12 | |     ]
+   | |_____^
+13 |
+14 |       EXTENSIONS = [
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> asset_core/runtime/image_service.py:14:18
+   |
+12 |       ]
+13 |
+14 |       EXTENSIONS = [
+   |  __________________^
+15 | |         "jpg",
+16 | |         "jpeg",
+17 | |         "png",
+18 | |         "webp",
+19 | |     ]
+   | |_____^
+20 |
+21 |       @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> asset_core/workflows/asset_pipeline.py:7:14
+   |
+ 5 |   class AssetPipeline:
+ 6 |
+ 7 |       STAGES = [
+   |  ______________^
+ 8 | |         "asset.created",
+ 9 | |         "hawk_aeye.process",
+10 | |         "dna.completed",
+11 | |         "thorx.score",
+12 | |         "portfolio.update",
+13 | |         "timeline.update",
+14 | |         "founder.brief",
+15 | |         "market.sync",
+16 | |     ]
+   | |_____^
+17 |
+18 |       def run(self, asset):
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> background/job_queue.py:21:13
+   |
+19 |     """In-process job queue for Alpha 2.3B."""
+20 |
+21 |     _jobs = []
+   |             ^^
+22 |
+23 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> card_hawk/assets/categories.py:11:13
+   |
+11 |       TYPES = [
+   |  _____________^
+12 | |
+13 | |         "sports_card",
+14 | |
+15 | |         "memorabilia",
+16 | |
+17 | |         "funko",
+18 | |
+19 | |         "music",
+20 | |
+21 | |         "art",
+22 | |
+23 | |         "coins",
+24 | |
+25 | |         "toys",
+26 | |
+27 | |         "other"
+28 | |
+29 | |     ]
+   | |_____^
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> card_hawk/assets/lifecycle.py:11:14
+   |
+11 |       STATES = [
+   |  ______________^
+12 | |
+13 | |         "discovered",
+14 | |
+15 | |         "evaluated",
+16 | |
+17 | |         "acquired",
+18 | |
+19 | |         "vault",
+20 | |
+21 | |         "sold"
+22 | |
+23 | |     ]
+   | |_____^
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> card_hawk/collector_app/subscriptions.py:11:13
+   |
+11 |       TIERS = [
+   |  _____________^
+12 | |
+13 | |         "free",
+14 | |
+15 | |         "pro",
+16 | |
+17 | |         "elite"
+18 | |
+19 | |     ]
+   | |_____^
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> card_hawk/founder_console/modules.py:11:15
+   |
+11 |       MODULES = [
+   |  _______________^
+12 | |
+13 | |         "portfolio",
+14 | |
+15 | |         "marketplace",
+16 | |
+17 | |         "thorx",
+18 | |
+19 | |         "agents",
+20 | |
+21 | |         "missions",
+22 | |
+23 | |         "trust",
+24 | |
+25 | |         "vision",
+26 | |
+27 | |         "analytics"
+28 | |
+29 | |     ]
+   | |_____^
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> card_hawk/universal_collectibles/categories.py:11:13
+   |
+11 |       TYPES = [
+   |  _____________^
+12 | |
+13 | |         "sports",
+14 | |
+15 | |         "funko",
+16 | |
+17 | |         "music",
+18 | |
+19 | |         "art",
+20 | |
+21 | |         "coins",
+22 | |
+23 | |         "toys",
+24 | |
+25 | |         "historical"
+26 | |
+27 | |     ]
+   | |_____^
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> cardhawkos/config/settings.py:23:21
+   |
+21 |       PORTFOLIO_REFRESH_INTERVAL_MINUTES = 30
+22 |
+23 |       FEATURE_FLAGS = {
+   |  _____________________^
+24 | |         "marketplace_intelligence": True,
+25 | |         "def_command_center": True,
+26 | |         "event_bus": True,
+27 | |         "runtime_orchestrator": True,
+28 | |         "founder_copilot": True,
+29 | |         "hawk_aeye": True,
+30 | |     }
+   | |_____^
+31 |
+32 |       @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> cardhawkos/runtime/cache.py:11:14
+   |
+ 9 |     """
+10 |
+11 |     _cache = {}
+   |              ^^
+12 |
+13 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> cardhawkos/runtime/registry.py:8:16
+   |
+ 6 |     """
+ 7 |
+ 8 |     _engines = {}
+   |                ^^
+ 9 |
+10 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> cardhawkos/runtime/service_registry.py:18:17
+   |
+16 |     """
+17 |
+18 |     _services = {}
+   |                 ^^
+19 |
+20 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> commercial/commercial_readiness.py:4:14
+   |
+ 2 |       """Commercial Readiness™ checklist and scaffolding."""
+ 3 |
+ 4 |       CHECKS = {
+   |  ______________^
+ 5 | |         "multi_user_architecture": "staged",
+ 6 | |         "accounts_authentication": "staged",
+ 7 | |         "workspace_support": "staged",
+ 8 | |         "subscription_tiers": "staged",
+ 9 | |         "license_management": "staged",
+10 | |         "api_keys": "staged",
+11 | |         "public_rest_api": "staged",
+12 | |         "webhooks": "staged",
+13 | |         "plugin_framework": "staged",
+14 | |         "white_label_support": "staged",
+15 | |         "audit_logs": "staged",
+16 | |         "rbac": "staged",
+17 | |         "backup_versioning": "ready",
+18 | |         "deployment_tooling": "ready",
+19 | |         "documentation_portal": "staged",
+20 | |         "admin_console": "staged",
+21 | |     }
+   | |_____^
+22 |
+23 |       @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+ --> commercialization/permissions.py:2:24
+  |
+1 |   class Permissions:
+2 |       ROLE_PERMISSIONS = {
+  |  ________________________^
+3 | |         "owner": ["*"],
+4 | |         "admin": ["read", "write", "export"],
+5 | |         "viewer": ["read"],
+6 | |     }
+  | |_____^
+7 |
+8 |       @staticmethod
+  |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> core/config.py:20:21
+   |
+18 |       LOG_LEVEL = os.getenv("CARDHAWK_LOG_LEVEL", "INFO")
+19 |
+20 |       FEATURE_FLAGS = {
+   |  _____________________^
+21 | |         "hawk_aeye": True,
+22 | |         "thorx": True,
+23 | |         "founder_ai": True,
+24 | |         "continuous_scout": True,
+25 | |         "adaptive_intelligence": True,
+26 | |         "live_data": False,
+27 | |         "commercialization": False,
+28 | |     }
+   | |_____^
+29 |
+30 |   config = Config()
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> core/engine_base.py:15:14
+   |
+14 |     # Events this engine subscribes to
+15 |     events = []
+   |              ^^
+16 |
+17 |     def initialize(self):
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> datalake/intelligence_store.py:16:16
+   |
+14 | class IntelligenceStore:
+15 |     """Data Lake Intelligence™ in-memory store for Alpha 1.0."""
+16 |     _records = []
+   |                ^^
+17 |
+18 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+ --> event_bus/runtime/bus.py:5:20
+  |
+4 | class EventBus:
+5 |     _subscribers = {}
+  |                    ^^
+6 |
+7 |     @classmethod
+  |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> eventbus/event_bus.py:17:15
+   |
+15 | class EventBus:
+16 |     """Universal Event Bus™ for Alpha 1.0."""
+17 |     _events = []
+   |               ^^
+18 |     _subscribers = {}
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> eventbus/event_bus.py:18:20
+   |
+16 |     """Universal Event Bus™ for Alpha 1.0."""
+17 |     _events = []
+18 |     _subscribers = {}
+   |                    ^^
+19 |
+20 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> founder/founder_memory.py:14:14
+   |
+12 | class FounderMemory:
+13 |     """Founder Memory™ remembers preferences and decision patterns."""
+14 |     _items = []
+   |              ^^
+15 |
+16 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> founder_studio/studio_service.py:17:14
+   |
+15 | class FounderStudioService:
+16 |     """CardHawk OS™ 6.0E Founder Intelligence Studio™."""
+17 |     _items = []
+   |              ^^
+18 |
+19 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> genome/cardhawk_genome.py:17:16
+   |
+15 | class CardHawkGenome:
+16 |     """CardHawk Genome™ lifecycle memory."""
+17 |     _records = []
+   |                ^^
+18 |
+19 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> genome/runtime/service.py:9:16
+   |
+ 7 |     """
+ 8 |
+ 9 |     _genomes = {}
+   |                ^^
+10 |
+11 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> hawk_aeye/brand_detector.py:4:20
+   |
+ 2 |       """Detects card/manufacturer brands from text."""
+ 3 |
+ 4 |       KNOWN_BRANDS = [
+   |  ____________________^
+ 5 | |         "Prizm", "Optic", "Select", "Phoenix", "Mosaic", "Donruss",
+ 6 | |         "Donruss Elite", "National Treasures", "Flawless", "Immaculate",
+ 7 | |         "Topps Chrome", "Bowman Chrome", "Bowman", "Topps Midnight",
+ 8 | |         "Court Kings", "Obsidian", "Revolution", "Leaf", "Panini"
+ 9 | |     ]
+   | |_____^
+10 |
+11 |       def detect(self, text: str = "") -> dict:
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> hawk_aeye/parallel_detector.py:4:23
+   |
+ 2 |       """Detects likely parallels and premium terms."""
+ 3 |
+ 4 |       KNOWN_PARALLELS = [
+   |  _______________________^
+ 5 | |         "Gold", "Black", "Silver", "Green", "Red", "Blue", "Purple", "Orange",
+ 6 | |         "White Sparkle", "Color Blast", "Downtown", "Kaboom", "Manga", "Galactic",
+ 7 | |         "Superfractor", "Finite", "Vinyl", "Pandora", "X-Fractor", "Refractor",
+ 8 | |         "RPA", "Patch Auto", "Rookie Auto", "Auto"
+ 9 | |     ]
+   | |_____^
+10 |
+11 |       def detect(self, text: str = "") -> dict:
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> hawk_aeye/player_detector.py:4:21
+   |
+ 2 |       """Detects known player names from OCR/context text."""
+ 3 |
+ 4 |       KNOWN_PLAYERS = [
+   |  _____________________^
+ 5 | |         "Caleb Williams", "Rome Odunze", "Luther Burden", "Colston Loveland",
+ 6 | |         "Garrett Wilson", "Isaiah Thomas", "Derrick Rose", "Noa Essengue",
+ 7 | |         "Matas Buzelis", "Amen Thompson", "Ausar Thompson", "Will Anderson",
+ 8 | |         "C.J. Stroud", "CJ Stroud", "Jalen Carter", "Austin Booker"
+ 9 | |     ]
+   | |_____^
+10 |
+11 |       def detect(self, text: str = "") -> dict:
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> intelligence/projections/base.py:13:14
+   |
+11 |     name = "Projection"
+12 |
+13 |     events = []
+   |              ^^
+14 |
+15 |     @abstractmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> intelligence_convergence/engines/digital_twin_2.py:7:17
+   |
+ 5 |       """Digital Twin 2.0™ simulates portfolio futures."""
+ 6 |
+ 7 |       SCENARIOS = {
+   |  _________________^
+ 8 | |         "Player MVP": 2.5,
+ 9 | |         "PSA 10 Grade": 1.85,
+10 | |         "Championship Run": 1.75,
+11 | |         "Market Pullback": 0.72,
+12 | |         "Injury / Thesis Break": 0.45,
+13 | |         "Base Case": 1.0,
+14 | |     }
+   | |_____^
+15 |
+16 |       @staticmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+ --> jobs/runtime/manager.py:3:16
+  |
+1 | class JobManager:
+2 |
+3 |     _history = []
+  |                ^^
+4 |
+5 |     @classmethod
+  |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+ --> jobs/runtime/scheduler.py:7:13
+  |
+6 | class JobScheduler:
+7 |     _jobs = []
+  |             ^^
+8 |
+9 |     @classmethod
+  |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> live_data/watchlist/live_watchlist.py:16:16
+   |
+15 | class LiveWatchlist:
+16 |     _targets = []
+   |                ^^
+17 |
+18 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> marketplace/connectors/manager.py:14:17
+   |
+12 |       """
+13 |
+14 |       PROVIDERS = [
+   |  _________________^
+15 | |         EbayProvider(),
+16 | |         COMCProvider(),
+17 | |         CardLadderProvider(),
+18 | |     ]
+   | |_____^
+19 |
+20 |       @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> negotiation/offer_tracker.py:20:15
+   |
+18 | class OfferTracker:
+19 |     """Offer Tracker™ for acquisition negotiation history."""
+20 |     _offers = []
+   |               ^^
+21 |
+22 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> observability/telemetry.py:11:14
+   |
+ 9 |     timestamp:str=field(default_factory=lambda:datetime.utcnow().isoformat())
+10 | class Telemetry:
+11 |     _metrics=[]
+   |              ^^
+12 |     @classmethod
+13 |     def record(cls,name,value):
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+ --> performance/cache.py:5:14
+  |
+4 | class ResultCache:
+5 |     _cache = {}
+  |              ^^
+6 |
+7 |     @classmethod
+  |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> scheduler/runtime_scheduler.py:9:20
+   |
+ 7 |       """Runtime Scheduler™ registers jobs into the in-process queue."""
+ 8 |
+ 9 |       DEFAULT_JOBS = [
+   |  ____________________^
+10 | |         ("Refresh Portfolio Metrics", "portfolio_refresh"),
+11 | |         ("Run Scout Scan", "scout_scan"),
+12 | |         ("Generate Founder Brief", "founder_brief"),
+13 | |         ("Sync Data Lake", "datalake_sync"),
+14 | |     ]
+   | |_____^
+15 |
+16 |       @staticmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+ --> security/config_validator.py:7:21
+  |
+5 |     """Configuration validation and startup integrity checks."""
+6 |
+7 |     REQUIRED_DIRS = ["data", "uploads", "logs"]
+  |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+8 |
+9 |     @staticmethod
+  |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+ --> thorx/liquidity.py:4:22
+  |
+2 |       """Liquidity™ scoring based on brand strength, asset type, grade, and player relevance."""
+3 |
+4 |       PREMIUM_BRANDS = {
+  |  ______________________^
+5 | |         "Prizm", "Optic", "Select", "National Treasures", "Flawless", "Immaculate",
+6 | |         "Topps Chrome", "Bowman Chrome", "Phoenix", "Mosaic", "Obsidian"
+7 | |     }
+  | |_____^
+8 |
+9 |       @staticmethod
+  |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+ --> thorx/market_strength.py:4:18
+  |
+2 |     """Market Strength™ scoring based on sport, team, card category, and premium attributes."""
+3 |
+4 |     HOT_SPORTS = {"Football", "Basketball", "Baseball"}
+  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5 |     CORE_TEAMS = {
+6 |         "Bears", "Chicago Bears", "Bulls", "Chicago Bulls", "Rockets", "Houston Rockets",
+  |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> thorx/market_strength.py:5:18
+   |
+ 4 |       HOT_SPORTS = {"Football", "Basketball", "Baseball"}
+ 5 |       CORE_TEAMS = {
+   |  __________________^
+ 6 | |         "Bears", "Chicago Bears", "Bulls", "Chicago Bulls", "Rockets", "Houston Rockets",
+ 7 | |         "Texans", "Houston Texans", "Lakers", "Los Angeles Lakers"
+ 8 | |     }
+   | |_____^
+ 9 |
+10 |       @staticmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> thorx/player_thesis.py:4:23
+   |
+ 2 |       """Player Thesis™ Alpha heuristic."""
+ 3 |
+ 4 |       HIGH_CONVICTION = {
+   |  _______________________^
+ 5 | |         "Caleb Williams": 10.0,
+ 6 | |         "Rome Odunze": 9.0,
+ 7 | |         "Garrett Wilson": 8.8,
+ 8 | |         "Amen Thompson": 9.0,
+ 9 | |         "Matas Buzelis": 8.8,
+10 | |         "Noa Essengue": 8.8,
+11 | |         "Will Anderson": 8.7,
+12 | |         "Isaiah Thomas": 8.5,
+13 | |         "Derrick Rose": 8.4,
+14 | |     }
+   | |_____^
+15 |
+16 |       @staticmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+ --> thorx/portfolio_fit.py:4:18
+  |
+2 |     """Portfolio Fit™ scoring: answers whether the asset fits CardHawk specifically."""
+3 |
+4 |     CORE_TEAMS = {"Bears", "Chicago Bears", "Bulls", "Chicago Bulls", "Rockets", "Houston Rockets", "Texans", "Houston Texans"}
+  |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5 |
+6 |     @staticmethod
+  |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+ --> thorx/risk.py:4:20
+  |
+2 |     """Risk™ score where higher is safer."""
+3 |
+4 |     RISKY_BRANDS = {"Leaf", "SAGE", "Wild Card"}
+  |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5 |
+6 |     @staticmethod
+  |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> thorx/score.py:17:15
+   |
+15 |       """THORᵡ™ Intelligence Engine Alpha 0.8."""
+16 |
+17 |       WEIGHTS = {
+   |  _______________^
+18 | |         "scarcity": 0.17,
+19 | |         "liquidity": 0.10,
+20 | |         "population": 0.08,
+21 | |         "momentum": 0.10,
+22 | |         "risk": 0.08,
+23 | |         "market_strength": 0.12,
+24 | |         "player_thesis": 0.15,
+25 | |         "visual_appeal": 0.08,
+26 | |         "portfolio_fit": 0.12,
+27 | |     }
+   | |_____^
+28 |
+29 |       @staticmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+ --> thorx/visual_appeal.py:4:25
+  |
+2 |     """Visual Appeal™ Alpha heuristic."""
+3 |
+4 |     PREMIUM_PARALLELS = ["Gold", "Black", "Color Blast", "Kaboom", "Downtown", "Manga", "Galactic", "Superfractor", "Pandora"]
+  |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5 |
+6 |     @staticmethod
+  |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> timeline/engine/timeline_projection.py:9:14
+   |
+ 7 |       name = "Timeline"
+ 8 |
+ 9 |       events = [
+   |  ______________^
+10 | |         "asset.created",
+11 | |         "dna.completed",
+12 | |         "thorx.completed",
+13 | |         "portfolio.updated",
+14 | |         "founder.updated",
+15 | |     ]
+   | |_____^
+16 |
+17 |       def handle(self,event,payload):
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> timeline/timeline_service.py:18:15
+   |
+16 | class IntelligenceTimelineService:
+17 |     """CardHawk OS™ 6.0C Intelligence Timeline™."""
+18 |     _events = []
+   |               ^^
+19 |
+20 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> tools/repository/rules.py:24:34
+   |
+23 |   class RepositoryPolicy:
+24 |       DEFAULT_ALLOWED_ROOT_FILES = {
+   |  __________________________________^
+25 | |         ".editorconfig",
+26 | |         ".gitignore",
+27 | |         ".pre-commit-config.yaml",
+28 | |         "ARCHITECTURE.md",
+29 | |         "CHANGELOG.md",
+30 | |         "Dockerfile",
+31 | |         "Dockerfile.nimble",
+32 | |         "FEATURES.md",
+33 | |         "LICENSE",
+34 | |         "Makefile",
+35 | |         "MAPPING.md",
+36 | |         "MIGRATION.md",
+37 | |         "README.md",
+38 | |         "ROADMAP.md",
+39 | |         "SECURITY.md",
+40 | |         "VERSION",
+41 | |         "app.py",
+42 | |         "compose.nimble.yml",
+43 | |         "manage.py",
+44 | |         "pyproject.toml",
+45 | |         "release_manifest.json",
+46 | |         "requirements.txt",
+47 | |         "requirements_aletheus.txt",
+48 | |         "run.py",
+49 | |         "run_aletheus_founder_console.py",
+50 | |         "run_aletheus_system_test.sh",
+51 | |         "run_repository_self_repair.sh",
+52 | |     }
+   | |_____^
+53 |
+54 |       def __init__(
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> watch_tower/runtime/engine.py:24:25
+   |
+22 |       VERSION = "1.0.0"
+23 |
+24 |       SAFE_DELETE_NAMES = {
+   |  _________________________^
+25 | |         ".DS_Store",
+26 | |     }
+   | |_____^
+27 |
+28 |       SAFE_DELETE_DIRS = {
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> watch_tower/runtime/engine.py:28:24
+   |
+26 |       }
+27 |
+28 |       SAFE_DELETE_DIRS = {
+   |  ________________________^
+29 | |         "__pycache__",
+30 | |         ".pytest_cache",
+31 | |         ".mypy_cache",
+32 | |         ".ruff_cache",
+33 | |     }
+   | |_____^
+34 |
+35 |       REQUIRED_ROOT_FILES = [
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> watch_tower/runtime/engine.py:35:27
+   |
+33 |       }
+34 |
+35 |       REQUIRED_ROOT_FILES = [
+   |  ___________________________^
+36 | |         "README.md",
+37 | |         "VERSION",
+38 | |         "CHANGELOG.md",
+39 | |     ]
+   | |_____^
+40 |
+41 |       REQUIRED_ROOT_DIRS = [
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> watch_tower/runtime/engine.py:41:26
+   |
+39 |       ]
+40 |
+41 |       REQUIRED_ROOT_DIRS = [
+   |  __________________________^
+42 | |         "aletheus",
+43 | |         "cardhawk",
+44 | |         "watch_tower",
+45 | |         "tools",
+46 | |         "tests",
+47 | |     ]
+   | |_____^
+48 |
+49 |       SUSPICIOUS_NAMES = [
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> watch_tower/runtime/engine.py:49:24
+   |
+47 |       ]
+48 |
+49 |       SUSPICIOUS_NAMES = [
+   |  ________________________^
+50 | |         "_ _init_ _ .py",
+51 | |         "...",
+52 | |         "portfolio_enine.py",
+53 | |     ]
+   | |_____^
+54 |
+55 |       def __init__(self, root: str | Path = "."):
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> workflow_automation/workflow_service.py:24:17
+   |
+22 |       """CardHawk OS™ 6.0A Workflow Automation™."""
+23 |
+24 |       TEMPLATES = {
+   |  _________________^
+25 | |         "Asset Intake Wizard™": [
+26 | |             "Upload Images",
+27 | |             "Run Hawk A•Eye™",
+28 | |             "Review Asset DNA™",
+29 | |             "Compute THORᵡ™",
+30 | |             "Founder Approval",
+31 | |             "Save to Asset Vault™",
+32 | |         ],
+33 | |         "Acquisition Workflow™": [
+34 | |             "Import Listing",
+35 | |             "Normalize Marketplace Data",
+36 | |             "Compute THORᵡ™",
+37 | |             "Run Acquisition AI™",
+38 | |             "Generate Offer Strategy",
+39 | |             "Add Watchlist / Purchase",
+40 | |         ],
+41 | |         "Exit Workflow™": [
+42 | |             "Recompute Market Value",
+43 | |             "Run Exit Intelligence™",
+44 | |             "Grade Recommendation",
+45 | |             "Suggested Marketplace",
+46 | |             "Expected Proceeds",
+47 | |             "Archive Sale",
+48 | |         ],
+49 | |     }
+   | |_____^
+50 |
+51 |       _runs = []
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+RUF012 Mutable default value for class attribute
+  --> workflow_automation/workflow_service.py:51:13
+   |
+49 |     }
+50 |
+51 |     _runs = []
+   |             ^^
+52 |
+53 |     @classmethod
+   |
+help: Consider initializing in `__init__` or annotating with `typing.ClassVar`
+
+Found 90 errors.

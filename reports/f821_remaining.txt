@@ -1,0 +1,176 @@
+F821 Undefined name `session`
+   --> Genesis10_Work_Organization/04_reports/genesis_8_command_dispatch/prediction_adapter_backup_20260710_050230/core.py:426:19
+    |
+424 |         self.memory.remember(
+425 |             key="reasoning_session",
+426 |             value=session.to_dict(),
+    |                   ^^^^^^^
+427 |             namespace="aletheus.cognition",
+428 |             memory_type="decision",
+    |
+
+F821 Undefined name `session`
+   --> Genesis10_Work_Organization/04_reports/genesis_8_command_dispatch/prediction_adapter_backup_20260710_050230/core.py:431:41
+    |
+429 |             tags=["reasoning", "cognition"],
+430 |         )
+431 |         context.add_result("reasoning", session.to_dict())
+    |                                         ^^^^^^^
+432 |         return context
+    |
+
+F821 Undefined name `session`
+   --> aletheus/runtime/core.py:430:19
+    |
+428 |         self.memory.remember(
+429 |             key="reasoning_session",
+430 |             value=session.to_dict(),
+    |                   ^^^^^^^
+431 |             namespace="aletheus.cognition",
+432 |             memory_type="decision",
+    |
+
+F821 Undefined name `session`
+   --> aletheus/runtime/core.py:435:41
+    |
+433 |             tags=["reasoning", "cognition"],
+434 |         )
+435 |         context.add_result("reasoning", session.to_dict())
+    |                                         ^^^^^^^
+436 |         return context
+    |
+
+F821 Undefined name `session`
+   --> reports/genesis_8_command_dispatch/prediction_adapter_backup_20260710_050230/core.py:426:19
+    |
+424 |         self.memory.remember(
+425 |             key="reasoning_session",
+426 |             value=session.to_dict(),
+    |                   ^^^^^^^
+427 |             namespace="aletheus.cognition",
+428 |             memory_type="decision",
+    |
+
+F821 Undefined name `session`
+   --> reports/genesis_8_command_dispatch/prediction_adapter_backup_20260710_050230/core.py:431:41
+    |
+429 |             tags=["reasoning", "cognition"],
+430 |         )
+431 |         context.add_result("reasoning", session.to_dict())
+    |                                         ^^^^^^^
+432 |         return context
+    |
+
+F821 Undefined name `bootstrap_text`
+ --> tools/genesis/genesis_8/install_safe_command_aliases.py:8:21
+  |
+6 | )
+7 |
+8 | if call_line not in bootstrap_text:
+  |                     ^^^^^^^^^^^^^^
+9 |     anchor = "        register_governance_commands(runtime)"
+  |
+
+F821 Undefined name `bootstrap_text`
+  --> tools/genesis/genesis_8/install_safe_command_aliases.py:11:22
+   |
+ 9 |     anchor = "        register_governance_commands(runtime)"
+10 |
+11 |     if anchor not in bootstrap_text:
+   |                      ^^^^^^^^^^^^^^
+12 |         raise RuntimeError(
+13 |             "Governance registration anchor not found."
+   |
+
+F821 Undefined name `bootstrap_text`
+  --> tools/genesis/genesis_8/install_safe_command_aliases.py:16:22
+   |
+14 |         )
+15 |
+16 |     bootstrap_text = bootstrap_text.replace(
+   |                      ^^^^^^^^^^^^^^
+17 |         anchor,
+18 |         (
+   |
+
+F821 Undefined name `BOOTSTRAPPER`
+  --> tools/genesis/genesis_8/install_safe_command_aliases.py:28:1
+   |
+28 | BOOTSTRAPPER.write_text(
+   | ^^^^^^^^^^^^
+29 |     bootstrap_text,
+30 |     encoding="utf-8",
+   |
+
+F821 Undefined name `ALIAS_MODULE`
+  --> tools/genesis/genesis_8/install_safe_command_aliases.py:34:5
+   |
+33 | alias_count = len(
+34 |     ALIAS_MODULE.read_text(encoding="utf-8").splitlines()
+   |     ^^^^^^^^^^^^
+35 | )
+   |
+
+F821 Undefined name `backup`
+  --> tools/genesis/genesis_8/install_safe_command_aliases.py:38:18
+   |
+37 | print("Genesis 8 safe command aliases installed.")
+38 | print(f"Backup: {backup.relative_to(ROOT)}")
+   |                  ^^^^^^
+39 | print(f"Created: {ALIAS_MODULE.relative_to(ROOT)}")
+40 | print(f"Updated: {BOOTSTRAPPER.relative_to(ROOT)}")
+   |
+
+F821 Undefined name `ROOT`
+  --> tools/genesis/genesis_8/install_safe_command_aliases.py:38:37
+   |
+37 | print("Genesis 8 safe command aliases installed.")
+38 | print(f"Backup: {backup.relative_to(ROOT)}")
+   |                                     ^^^^
+39 | print(f"Created: {ALIAS_MODULE.relative_to(ROOT)}")
+40 | print(f"Updated: {BOOTSTRAPPER.relative_to(ROOT)}")
+   |
+
+F821 Undefined name `ALIAS_MODULE`
+  --> tools/genesis/genesis_8/install_safe_command_aliases.py:39:19
+   |
+37 | print("Genesis 8 safe command aliases installed.")
+38 | print(f"Backup: {backup.relative_to(ROOT)}")
+39 | print(f"Created: {ALIAS_MODULE.relative_to(ROOT)}")
+   |                   ^^^^^^^^^^^^
+40 | print(f"Updated: {BOOTSTRAPPER.relative_to(ROOT)}")
+41 | print(f"Alias count: {alias_count}")
+   |
+
+F821 Undefined name `ROOT`
+  --> tools/genesis/genesis_8/install_safe_command_aliases.py:39:44
+   |
+37 | print("Genesis 8 safe command aliases installed.")
+38 | print(f"Backup: {backup.relative_to(ROOT)}")
+39 | print(f"Created: {ALIAS_MODULE.relative_to(ROOT)}")
+   |                                            ^^^^
+40 | print(f"Updated: {BOOTSTRAPPER.relative_to(ROOT)}")
+41 | print(f"Alias count: {alias_count}")
+   |
+
+F821 Undefined name `BOOTSTRAPPER`
+  --> tools/genesis/genesis_8/install_safe_command_aliases.py:40:19
+   |
+38 | print(f"Backup: {backup.relative_to(ROOT)}")
+39 | print(f"Created: {ALIAS_MODULE.relative_to(ROOT)}")
+40 | print(f"Updated: {BOOTSTRAPPER.relative_to(ROOT)}")
+   |                   ^^^^^^^^^^^^
+41 | print(f"Alias count: {alias_count}")
+   |
+
+F821 Undefined name `ROOT`
+  --> tools/genesis/genesis_8/install_safe_command_aliases.py:40:44
+   |
+38 | print(f"Backup: {backup.relative_to(ROOT)}")
+39 | print(f"Created: {ALIAS_MODULE.relative_to(ROOT)}")
+40 | print(f"Updated: {BOOTSTRAPPER.relative_to(ROOT)}")
+   |                                            ^^^^
+41 | print(f"Alias count: {alias_count}")
+   |
+
+Found 17 errors.

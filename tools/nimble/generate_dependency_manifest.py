@@ -6,11 +6,10 @@ import json
 import platform
 import subprocess
 import sys
+import tomllib
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
-
-import tomllib
 
 
 def find_repo_root(start: Path) -> Path:

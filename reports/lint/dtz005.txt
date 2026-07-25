@@ -1,0 +1,178 @@
+DTZ005 `datetime.datetime.now()` called without a `tz` argument
+  --> asset_core/runtime/intake_pipeline.py:34:16
+   |
+33 |         filename = (
+34 |             f"{datetime.now().strftime('%Y%m%d_%H%M%S')}_"
+   |                ^^^^^^^^^^^^^^
+35 |             f"{uuid.uuid4().hex[:8]}"
+36 |             f"{suffix}"
+   |
+help: Pass a `datetime.timezone` object to the `tz` parameter
+
+DTZ005 `datetime.datetime.now()` called without a `tz` argument
+  --> jobs/runtime/scheduler.py:27:23
+   |
+25 |             status = "SUCCESS"
+26 |
+27 |             started = datetime.now()
+   |                       ^^^^^^^^^^^^^^
+28 |
+29 |             try:
+   |
+help: Pass a `datetime.timezone` object to the `tz` parameter
+
+DTZ005 `datetime.datetime.now()` called without a `tz` argument
+  --> jobs/runtime/scheduler.py:39:25
+   |
+37 |                 error = str(e)
+38 |
+39 |             completed = datetime.now()
+   |                         ^^^^^^^^^^^^^^
+40 |
+41 |             record = {
+   |
+help: Pass a `datetime.timezone` object to the `tz` parameter
+
+DTZ005 `datetime.datetime.now()` called without a `tz` argument
+  --> tests/platform_intelligence/events/test_event.py:48:25
+   |
+46 |             source="runtime.core",
+47 |             subject="runtime.core",
+48 |             occurred_at=datetime.now(),
+   |                         ^^^^^^^^^^^^^^
+49 |         )
+   |
+help: Pass a `datetime.timezone` object to the `tz` parameter
+
+DTZ005 `datetime.datetime.now()` called without a `tz` argument
+ --> timeline/demo/events.py:6:11
+  |
+4 | def sample_events():
+5 |
+6 |     now = datetime.now().strftime("%H:%M:%S")
+  |           ^^^^^^^^^^^^^^
+7 |
+8 |     return [
+  |
+help: Pass a `datetime.timezone` object to the `tz` parameter
+
+DTZ005 `datetime.datetime.now()` called without a `tz` argument
+  --> tools/genesis/genesis_8/guard_legacy_registration_catalog.py:13:9
+   |
+11 | )
+12 |
+13 | stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+   |         ^^^^^^^^^^^^^^
+14 | backup_dir = (
+15 |     ROOT
+   |
+help: Pass a `datetime.timezone` object to the `tz` parameter
+
+DTZ005 `datetime.datetime.now()` called without a `tz` argument
+  --> tools/genesis/genesis_8/install_compiled_dispatcher.py:13:13
+   |
+11 | TEST_FILE = ROOT / "aletheus/runtime/commands/tests/test_compiled_registry_dispatcher.py"
+12 |
+13 | timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+   |             ^^^^^^^^^^^^^^
+14 | backup_dir = (
+15 |     ROOT
+   |
+help: Pass a `datetime.timezone` object to the `tz` parameter
+
+DTZ005 `datetime.datetime.now()` called without a `tz` argument
+  --> tools/genesis/genesis_8/install_prediction_adapter.py:16:9
+   |
+14 | CORE = ROOT / "aletheus/runtime/core.py"
+15 |
+16 | stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+   |         ^^^^^^^^^^^^^^
+17 | backup_dir = (
+18 |     ROOT
+   |
+help: Pass a `datetime.timezone` object to the `tz` parameter
+
+DTZ005 `datetime.datetime.now()` called without a `tz` argument
+  --> tools/genesis/genesis_8/install_result_contracts.py:11:9
+   |
+ 9 | COMMAND_BUS = ROOT / "aletheus/runtime/commands/command_bus.py"
+10 |
+11 | stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+   |         ^^^^^^^^^^^^^^
+12 | backup = (
+13 |     ROOT
+   |
+help: Pass a `datetime.timezone` object to the `tz` parameter
+
+DTZ005 `datetime.datetime.now()` called without a `tz` argument
+  --> tools/genesis/genesis_8/repair_dispatch_contracts.py:11:9
+   |
+ 9 | COMMAND_BUS = ROOT / "aletheus/runtime/commands/command_bus.py"
+10 |
+11 | stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+   |         ^^^^^^^^^^^^^^
+12 | backup = (
+13 |     ROOT
+   |
+help: Pass a `datetime.timezone` object to the `tz` parameter
+
+DTZ005 `datetime.datetime.now()` called without a `tz` argument
+  --> tools/genesis/genesis_8/repair_runtime_integrity_commands.py:13:9
+   |
+11 | )
+12 |
+13 | stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+   |         ^^^^^^^^^^^^^^
+14 | backup = (
+15 |     ROOT
+   |
+help: Pass a `datetime.timezone` object to the `tz` parameter
+
+DTZ005 `datetime.datetime.now()` called without a `tz` argument
+  --> tools/genesis/genesis_8/restore_registration_catalog.py:13:9
+   |
+11 | )
+12 |
+13 | stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+   |         ^^^^^^^^^^^^^^
+14 | backup_dir = (
+15 |     ROOT
+   |
+help: Pass a `datetime.timezone` object to the `tz` parameter
+
+DTZ005 `datetime.datetime.now()` called without a `tz` argument
+  --> tools/maintenance/create_restore_point.py:70:17
+   |
+69 | def main():
+70 |     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+   |                 ^^^^^^^^^^^^^^
+71 |     restore_dir = RESTORE_ROOT / f"restore_{timestamp}"
+72 |     restore_dir.mkdir(parents=True, exist_ok=False)
+   |
+help: Pass a `datetime.timezone` object to the `tz` parameter
+
+DTZ005 `datetime.datetime.now()` called without a `tz` argument
+  --> tools/maintenance/create_restore_point.py:76:23
+   |
+74 |     manifest = {
+75 |         "name": f"AletheusOS Restore Point {timestamp}",
+76 |         "created_at": datetime.now().isoformat(),
+   |                       ^^^^^^^^^^^^^^
+77 |         "project_root": str(ROOT),
+78 |         "git_status": run(["git", "status", "--short"]),
+   |
+help: Pass a `datetime.timezone` object to the `tz` parameter
+
+DTZ005 `datetime.datetime.now()` called without a `tz` argument
+   --> tools/maintenance/release_cleanup.py:153:32
+    |
+151 |     lines.append("# AletheusOS Release Cleanup")
+152 |     lines.append("")
+153 |     lines.append(f"Generated: {datetime.now().isoformat()}")
+    |                                ^^^^^^^^^^^^^^
+154 |     lines.append("")
+155 |     lines.append(f"Mode: {'APPLY' if apply else 'DRY RUN'}")
+    |
+help: Pass a `datetime.timezone` object to the `tz` parameter
+
+Found 15 errors.

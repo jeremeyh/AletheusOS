@@ -1,0 +1,782 @@
+DTZ003 `datetime.datetime.utcnow()` used
+   --> Genesis10_Work_Organization/01_repository_intelligence/tools/genesis10_repository_normalization.py:158:22
+    |
+157 |     manifest = {
+158 |         "generated": datetime.utcnow().isoformat() + "Z",
+    |                      ^^^^^^^^^^^^^^^^^
+159 |         "moved": result.moved,
+160 |         "skipped": result.skipped,
+    |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> adaptive_intelligence/feedback/feedback_loop.py:17:53
+   |
+15 |     notes: str = ""
+16 |     feedback_id: str = field(default_factory=lambda: f"FB-{uuid.uuid4().hex[:10].upper()}")
+17 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+18 |
+19 | class IntelligenceFeedbackLoop:
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> adaptive_intelligence/research/research_workspace.py:15:53
+   |
+13 |     status: str = "active"
+14 |     note_id: str = field(default_factory=lambda: f"RS-{uuid.uuid4().hex[:10].upper()}")
+15 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+16 |
+17 | class ResearchWorkspace:
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> asset_core/asset_genome.py:40:27
+   |
+38 |             GenomeEvent(
+39 |
+40 |                 timestamp=datetime.utcnow().isoformat(),
+   |                           ^^^^^^^^^^^^^^^^^
+41 |
+42 |                 event=event,
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> asset_core/asset_notes.py:9:53
+   |
+ 7 |     note: str
+ 8 |     category: str = "Founder"
+ 9 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+10 |
+11 | @dataclass
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+   --> asset_core/repository/asset_repository.py:143:15
+    |
+141 |         AssetRepository.ensure_schema()
+142 |
+143 |         now = datetime.utcnow().isoformat()
+    |               ^^^^^^^^^^^^^^^^^
+144 |
+145 |         player = (
+    |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+   --> asset_core/repository/asset_repository.py:336:23
+    |
+335 |         fields.append("updated_at = ?")
+336 |         values.append(datetime.utcnow().isoformat())
+    |                       ^^^^^^^^^^^^^^^^^
+337 |         values.append(asset_id)
+    |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> asset_core/runtime/image_repository.py:34:16
+   |
+33 |         filename = (
+34 |             f"{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}_"
+   |                ^^^^^^^^^^^^^^^^^
+35 |             f"{uuid.uuid4().hex[:10]}"
+36 |             f"{suffix}"
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> background/job_queue.py:15:53
+   |
+13 |     error: str = ""
+14 |     job_id: str = field(default_factory=lambda: f"JOB-{uuid.uuid4().hex[:10].upper()}")
+15 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+16 |     updated_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> background/job_queue.py:16:53
+   |
+14 |     job_id: str = field(default_factory=lambda: f"JOB-{uuid.uuid4().hex[:10].upper()}")
+15 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+16 |     updated_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+17 |
+18 | class JobQueue:
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> background/worker.py:28:34
+   |
+26 |                 job.status = "skipped"
+27 |                 job.error = f"No handler registered for {job.job_type}"
+28 |                 job.updated_at = datetime.utcnow().isoformat()
+   |                                  ^^^^^^^^^^^^^^^^^
+29 |                 ran.append(job)
+30 |                 continue
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> background/worker.py:34:34
+   |
+32 |             try:
+33 |                 job.status = "running"
+34 |                 job.updated_at = datetime.utcnow().isoformat()
+   |                                  ^^^^^^^^^^^^^^^^^
+35 |                 job.result = handler(job.payload) or {}
+36 |                 job.status = "complete"
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> background/worker.py:41:30
+   |
+39 |                 job.error = str(exc)
+40 |
+41 |             job.updated_at = datetime.utcnow().isoformat()
+   |                              ^^^^^^^^^^^^^^^^^
+42 |             ran.append(job)
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> cardhawk/asset_vault/asset.py:34:31
+   |
+32 |     def __post_init__(self):
+33 |         if not self.created_at:
+34 |             self.created_at = datetime.utcnow().isoformat()
+   |                               ^^^^^^^^^^^^^^^^^
+35 |
+36 |     def to_dict(self):
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> cardhawkos/runtime/cache.py:17:27
+   |
+15 |         cls._cache[key] = {
+16 |             "value": value,
+17 |             "expires_at": datetime.utcnow() + timedelta(seconds=ttl_seconds),
+   |                           ^^^^^^^^^^^^^^^^^
+18 |             "created_at": datetime.utcnow(),
+19 |         }
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> cardhawkos/runtime/cache.py:18:27
+   |
+16 |             "value": value,
+17 |             "expires_at": datetime.utcnow() + timedelta(seconds=ttl_seconds),
+18 |             "created_at": datetime.utcnow(),
+   |                           ^^^^^^^^^^^^^^^^^
+19 |         }
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> cardhawkos/runtime/cache.py:28:12
+   |
+26 |             return None
+27 |
+28 |         if datetime.utcnow() > item["expires_at"]:
+   |            ^^^^^^^^^^^^^^^^^
+29 |             cls._cache.pop(key, None)
+30 |             return None
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> cardhawkos/runtime/logger.py:14:16
+   |
+13 |         line = (
+14 |             f"{datetime.utcnow().isoformat()} "
+   |                ^^^^^^^^^^^^^^^^^
+15 |             f"[{level.upper()}] "
+16 |             f"{message}\n"
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> cardhawkos/runtime/orchestrator.py:28:19
+   |
+26 |         payload = payload or {}
+27 |
+28 |         started = datetime.utcnow().isoformat()
+   |                   ^^^^^^^^^^^^^^^^^
+29 |         start_time = time.time()
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> cardhawkos/runtime/orchestrator.py:35:25
+   |
+34 |             duration = round(time.time() - start_time, 4)
+35 |             completed = datetime.utcnow().isoformat()
+   |                         ^^^^^^^^^^^^^^^^^
+36 |
+37 |             EventBus.publish(
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> cardhawkos/runtime/orchestrator.py:69:25
+   |
+67 |         except Exception as exc:
+68 |             duration = round(time.time() - start_time, 4)
+69 |             completed = datetime.utcnow().isoformat()
+   |                         ^^^^^^^^^^^^^^^^^
+70 |             error = str(exc)
+71 |             trace = traceback.format_exc()
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> command_center/runtime/snapshot.py:21:22
+   |
+19 |     return {
+20 |
+21 |         "generated": datetime.utcnow().isoformat(),
+   |                      ^^^^^^^^^^^^^^^^^
+22 |
+23 |         "engines": list(engine_registry.all().keys()),
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> continuous_scout/scan_job.py:12:53
+   |
+10 |     enabled: bool = True
+11 |     job_id: str = field(default_factory=lambda: f"SCAN-{uuid.uuid4().hex[:10].upper()}")
+12 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> core/scheduler.py:44:24
+   |
+42 |         job.callback()
+43 |
+44 |         job.last_run = datetime.utcnow().isoformat()
+   |                        ^^^^^^^^^^^^^^^^^
+45 |
+46 |         return True
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> core/version.py:37:11
+   |
+35 |     patch=0,
+36 |     codename="Repository Consolidation",
+37 |     build=datetime.utcnow().strftime("%Y.%m.%d"),
+   |           ^^^^^^^^^^^^^^^^^
+38 | )
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> data_layer/repositories/asset_repository.py:14:15
+   |
+12 |     def create(data):
+13 |         data = dict(data or {})
+14 |         now = datetime.utcnow().isoformat()
+   |               ^^^^^^^^^^^^^^^^^
+15 |         data.setdefault("created_at", now)
+16 |         data.setdefault("updated_at", now)
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> data_layer/repositories/asset_repository.py:41:30
+   |
+39 |     def update(asset_id, data):
+40 |         data = dict(data or {})
+41 |         data["updated_at"] = datetime.utcnow().isoformat()
+   |                              ^^^^^^^^^^^^^^^^^
+42 |         columns = db.columns(AssetRepository.TABLE)
+43 |         clean = {k: v for k, v in data.items() if k in columns and k != "asset_id"}
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> data_layer/repositories/event_repository.py:12:70
+   |
+10 |         db.execute(
+11 |             "INSERT INTO intelligence_events (event_type, source, message, payload, created_at) VALUES (?, ?, ?, ?, ?)",
+12 |             (event_type, source, message, json.dumps(payload or {}), datetime.utcnow().isoformat()),
+   |                                                                      ^^^^^^^^^^^^^^^^^
+13 |         )
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> data_layer/repositories/watchlist_repository.py:12:79
+   |
+10 |             INSERT INTO watchlist (title, player, query, max_price, target_thorx, status, notes, created_at)
+11 |             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+12 |         """, (title, player, query, max_price, target_thorx, "Active", notes, datetime.utcnow().isoformat()))
+   |                                                                               ^^^^^^^^^^^^^^^^^
+13 |
+14 |     @staticmethod
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> datalake/intelligence_store.py:12:53
+   |
+10 |     source: str = "CardHawk OS™"
+11 |     record_id: str = field(default_factory=lambda: f"DL-{uuid.uuid4().hex[:10].upper()}")
+12 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+13 |
+14 | class IntelligenceStore:
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> event_bus/runtime/store.py:73:17
+   |
+71 |                 message,
+72 |                 payload,
+73 |                 datetime.utcnow().isoformat(),
+   |                 ^^^^^^^^^^^^^^^^^
+74 |             ),
+75 |         )
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> eventbus/event_bus.py:13:53
+   |
+11 |     payload: dict = field(default_factory=dict)
+12 |     event_id: str = field(default_factory=lambda: f"EVT-{uuid.uuid4().hex[:10].upper()}")
+13 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+14 |
+15 | class EventBus:
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> falcon/runtime/snapshots.py:91:27
+   |
+89 |             "average_def": round(float(def_summary.get("average_score") or 0), 2),
+90 |             "average_nest": round(average_nest, 2),
+91 |             "created_at": datetime.utcnow().isoformat(),
+   |                           ^^^^^^^^^^^^^^^^^
+92 |         }
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> founder/founder_memory.py:10:53
+   |
+ 8 |     value: str
+ 9 |     category: str = "General"
+10 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+11 |
+12 | class FounderMemory:
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> founder_studio/studio_service.py:13:53
+   |
+11 |     status: str = "active"
+12 |     item_id: str = field(default_factory=lambda: f"FS-{uuid.uuid4().hex[:10].upper()}")
+13 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+14 |
+15 | class FounderStudioService:
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> genome/cardhawk_genome.py:13:53
+   |
+11 |     payload: dict = field(default_factory=dict)
+12 |     genome_id: str = field(default_factory=lambda: f"GEN-{uuid.uuid4().hex[:10].upper()}")
+13 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+14 |
+15 | class CardHawkGenome:
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> intelligence/events/events.py:17:20
+   |
+15 |     payload: dict
+16 |
+17 |     created: str = datetime.utcnow().isoformat()
+   |                    ^^^^^^^^^^^^^^^^^
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> intelligence/fabric/event.py:22:33
+   |
+21 |     timestamp: str = field(
+22 |         default_factory=lambda: datetime.utcnow().isoformat()
+   |                                 ^^^^^^^^^^^^^^^^^
+23 |     )
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> intelligence/journal/event_journal.py:21:26
+   |
+19 |         record = {
+20 |
+21 |             "timestamp": datetime.utcnow().isoformat(),
+   |                          ^^^^^^^^^^^^^^^^^
+22 |
+23 |             "event": event,
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> intelligence/runtime/output_store.py:69:17
+   |
+67 |                 recommendation,
+68 |                 str(payload),
+69 |                 datetime.utcnow().isoformat(),
+   |                 ^^^^^^^^^^^^^^^^^
+70 |             ),
+71 |         )
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+ --> kernel/metrics.py:7:13
+  |
+5 | from datetime import datetime
+6 |
+7 | BOOT_TIME = datetime.utcnow()
+  |             ^^^^^^^^^^^^^^^^^
+8 |
+9 | def uptime():
+  |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> kernel/metrics.py:11:12
+   |
+ 9 | def uptime():
+10 |
+11 |     return datetime.utcnow()-BOOT_TIME
+   |            ^^^^^^^^^^^^^^^^^
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> knowledge_graph/graph_store.py:20:53
+   |
+18 |     properties: dict = field(default_factory=dict)
+19 |     edge_id: str = field(default_factory=lambda: f"EDGE-{uuid.uuid4().hex[:10].upper()}")
+20 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+21 |
+22 | class KnowledgeGraph:
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> legacy_backup/distributed_legacy/models.py:10:12
+   |
+ 9 | def now() -> str:
+10 |     return datetime.utcnow().isoformat()
+   |            ^^^^^^^^^^^^^^^^^
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> live_data/providers/provider_contract.py:16:53
+   |
+14 |     status: str = "active"
+15 |     listing_id: str = field(default_factory=lambda: f"LD-{uuid.uuid4().hex[:10].upper()}")
+16 |     fetched_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+17 |
+18 | class ProviderContract:
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> live_data/watchlist/live_watchlist.py:13:53
+   |
+11 |     status: str = "active"
+12 |     target_id: str = field(default_factory=lambda: f"WATCH-{uuid.uuid4().hex[:10].upper()}")
+13 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+14 |
+15 | class LiveWatchlist:
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> marketplace_normalizer/normalized_listing.py:23:56
+   |
+21 |     source_id: str = ""
+22 |     listing_id: str = field(default_factory=lambda: f"LST-{uuid.uuid4().hex[:10].upper()}")
+23 |     normalized_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                        ^^^^^^^^^^^^^^^^^
+24 |     raw: dict[str, Any] = field(default_factory=dict)
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> migrations/migration_runner.py:47:29
+   |
+45 |             conn.execute(
+46 |                 "INSERT OR IGNORE INTO migration_history (migration, applied_at) VALUES (?, ?)",
+47 |                 (migration, datetime.utcnow().isoformat()),
+   |                             ^^^^^^^^^^^^^^^^^
+48 |             )
+49 |             conn.commit()
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> negotiation/offer_tracker.py:16:53
+   |
+14 |     notes: str = ""
+15 |     offer_id: str = field(default_factory=lambda: f"OFF-{uuid.uuid4().hex[:10].upper()}")
+16 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+17 |
+18 | class OfferTracker:
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> observability/telemetry.py:9:48
+   |
+ 7 |     name:str
+ 8 |     value:float|int|str
+ 9 |     timestamp:str=field(default_factory=lambda:datetime.utcnow().isoformat())
+   |                                                ^^^^^^^^^^^^^^^^^
+10 | class Telemetry:
+11 |     _metrics=[]
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+   --> orchestrator/runtime/engine.py:204:32
+    |
+203 |         duration = round(time.time() - start, 4)
+204 |         context.completed_at = datetime.utcnow().isoformat()
+    |                                ^^^^^^^^^^^^^^^^^
+205 |         context.set_metric("total_duration", duration)
+    |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> orchestrator/runtime/execution_log.py:72:17
+   |
+70 |                 float(duration or 0),
+71 |                 str(context.to_dict()),
+72 |                 datetime.utcnow().isoformat(),
+   |                 ^^^^^^^^^^^^^^^^^
+73 |             ),
+74 |         )
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> providers/base_provider.py:15:53
+   |
+13 |     image_url: str = ""
+14 |     raw: dict[str, Any] = field(default_factory=dict)
+15 |     fetched_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> runtime/jobs/job_runner.py:19:27
+   |
+17 |         print("=" * 60)
+18 |         print("Job:", name)
+19 |         print("Started:", datetime.utcnow().isoformat())
+   |                           ^^^^^^^^^^^^^^^^^
+20 |         print("Payload:", payload)
+21 |         print("=" * 60)
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> runtime/jobs/job_runner.py:26:26
+   |
+24 |             "job": name,
+25 |             "status": "completed",
+26 |             "timestamp": datetime.utcnow().isoformat()
+   |                          ^^^^^^^^^^^^^^^^^
+27 |         }
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> scheduler/runtime_scheduler.py:20:75
+   |
+18 |         jobs = []
+19 |         for name, job_type in RuntimeScheduler.DEFAULT_JOBS:
+20 |             jobs.append(JobQueue.enqueue(name, job_type, {"scheduled_at": datetime.utcnow().isoformat()}))
+   |                                                                           ^^^^^^^^^^^^^^^^^
+21 |         return jobs
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> scout/alert_manager.py:10:53
+   |
+ 8 |     message: str
+ 9 |     severity: str = "Info"
+10 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> scout/listing_queue.py:16:53
+   |
+14 |     raw: dict[str, Any] = field(default_factory=dict)
+15 |     candidate_id: str = field(default_factory=lambda: f"SCOUT-{uuid.uuid4().hex[:10].upper()}")
+16 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+17 |     status: str = "Queued"
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> scout/scheduler.py:19:27
+   |
+17 |             "query": query,
+18 |             "cadence": cadence,
+19 |             "created_at": datetime.utcnow().isoformat(),
+   |                           ^^^^^^^^^^^^^^^^^
+20 |             "enabled": True,
+21 |         }
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> security/audit_logger.py:13:19
+   |
+11 |     def write(cls, actor, action, detail=""):
+12 |         cls.LOG.parent.mkdir(parents=True, exist_ok=True)
+13 |         line = f"{datetime.utcnow().isoformat()} | {actor} | {action} | {detail}\n"
+   |                   ^^^^^^^^^^^^^^^^^
+14 |         with cls.LOG.open("a", encoding="utf-8") as f:
+15 |             f.write(line)
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> timeline/engine/projection.py:13:25
+   |
+11 |         entry={
+12 |
+13 |             "timestamp":datetime.utcnow().isoformat(),
+   |                         ^^^^^^^^^^^^^^^^^
+14 |
+15 |             "event":event,
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> timeline/runtime/engine.py:60:17
+   |
+58 |                 event_type,
+59 |                 description,
+60 |                 datetime.utcnow().isoformat(),
+   |                 ^^^^^^^^^^^^^^^^^
+61 |             ),
+62 |         )
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> timeline/timeline_service.py:14:53
+   |
+12 |     payload: dict = field(default_factory=dict)
+13 |     timeline_id: str = field(default_factory=lambda: f"TL-{uuid.uuid4().hex[:10].upper()}")
+14 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+15 |
+16 | class IntelligenceTimelineService:
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> tools/maintenance/platform_census.py:93:29
+   |
+91 |     result = {
+92 |         "platform_census": {
+93 |             "generated_at": datetime.utcnow().isoformat(),
+   |                             ^^^^^^^^^^^^^^^^^
+94 |             "root": str(ROOT),
+95 |             "aletheus_packages": len(packages),
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+   --> tools/migration/genesis10_repository_normalization.py:158:22
+    |
+157 |     manifest = {
+158 |         "generated": datetime.utcnow().isoformat() + "Z",
+    |                      ^^^^^^^^^^^^^^^^^
+159 |         "moved": result.moved,
+160 |         "skipped": result.skipped,
+    |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+   --> watch_tower/runtime/engine.py:352:28
+    |
+350 |                 path=path,
+351 |                 repairable=repairable,
+352 |                 created_at=datetime.utcnow().isoformat(),
+    |                            ^^^^^^^^^^^^^^^^^
+353 |             )
+354 |         )
+    |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+   --> watch_tower/runtime/engine.py:386:33
+    |
+384 |                 "version": self.VERSION,
+385 |                 "root": str(self.root),
+386 |                 "generated_at": datetime.utcnow().isoformat(),
+    |                                 ^^^^^^^^^^^^^^^^^
+387 |                 "status": status,
+388 |                 "score": score,
+    |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+DTZ003 `datetime.datetime.utcnow()` used
+  --> workflow_automation/workflow_service.py:19:53
+   |
+17 |     steps: list = field(default_factory=list)
+18 |     run_id: str = field(default_factory=lambda: f"WF-{uuid.uuid4().hex[:10].upper()}")
+19 |     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+   |                                                     ^^^^^^^^^^^^^^^^^
+20 |
+21 | class WorkflowAutomationService:
+   |
+help: Use `datetime.datetime.now(tz=...)` instead
+
+Found 68 errors.

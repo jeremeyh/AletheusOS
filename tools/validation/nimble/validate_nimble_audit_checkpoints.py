@@ -23,8 +23,6 @@ def find_repo_root(start: Path) -> Path:
 
 
 ROOT = find_repo_root(Path(__file__).parent)
-s[3]
-
 CONTRACT_PATH = (
     ROOT
     / "nimble/governance/audit/"

@@ -1,6 +1,5 @@
-from pathlib import Path
-
 import tomllib
+from pathlib import Path
 
 from aletheus import __version__
 from aletheus.runtime import runtime_core

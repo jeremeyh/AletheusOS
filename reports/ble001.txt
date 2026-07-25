@@ -1,0 +1,1671 @@
+BLE001 Do not catch blind exception: `Exception`
+  --> Genesis10_Work_Organization/01_repository_intelligence/tools/doctor/doctor.py:19:12
+   |
+17 |         p=subprocess.run(["git","status","--porcelain"],cwd=ROOT,capture_output=True,text=True)
+18 |         run("Git", p.returncode==0, "clean" if p.stdout.strip()=="" else "changes present")
+19 |     except Exception as e:
+   |            ^^^^^^^^^
+20 |         run("Git",False,str(e))
+21 |     return 0
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> Genesis10_Work_Organization/04_reports/genesis_8_command_dispatch/backup_20260710_041440/registry.py:105:16
+    |
+103 |             )
+104 |
+105 |         except Exception as exc:
+    |                ^^^^^^^^^
+106 |
+107 |             return CommandResult(
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> Genesis10_Work_Organization/04_reports/genesis_8_command_dispatch/contract_repair_backup_20260710_042036/command_bus.py:188:20
+    |
+186 |                 return result
+187 |
+188 |             except Exception as exc:
+    |                    ^^^^^^^^^
+189 |                 context.add_error(
+190 |                     f"{type(exc).__name__}: {exc}"
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> Genesis10_Work_Organization/04_reports/genesis_8_command_dispatch/contract_repair_backup_20260710_042036/dispatcher.py:172:16
+    |
+170 |             )
+171 |
+172 |         except Exception as exc:
+    |                ^^^^^^^^^
+173 |             return CommandResult(
+174 |                 command=name,
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> Genesis10_Work_Organization/04_reports/genesis_8_command_dispatch/result_contract_backup_20260710_042429/command_bus.py:189:20
+    |
+187 |                 return result
+188 |
+189 |             except Exception as exc:
+    |                    ^^^^^^^^^
+190 |                 context.add_error(
+191 |                     f"{type(exc).__name__}: {exc}"
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> Genesis10_Work_Organization/04_reports/genesis_8_command_dispatch/result_contract_backup_20260710_042429/dispatcher.py:298:16
+    |
+296 |             )
+297 |
+298 |         except Exception as exc:
+    |                ^^^^^^^^^
+299 |             return CommandResult(
+300 |                 command=name,
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> Genesis10_Work_Organization/04_reports/genesis_8_command_dispatch/safe_alias_backup_20260710_045355/bootstrapper.py:155:16
+    |
+153 |             registration_function(runtime)
+154 |
+155 |         except Exception as exc:
+    |                ^^^^^^^^^
+156 |             commands_after = set(registry.list())
+157 |             partial_commands = sorted(
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> Genesis10_Work_Organization/04_reports/genesis_8_command_dispatch/safe_alias_backup_20260710_045355/bootstrapper.py:166:24
+    |
+164 |                 try:
+165 |                     registry.unregister(command)
+166 |                 except Exception as rollback_exc:
+    |                        ^^^^^^^^^
+167 |                     rollback_errors[command] = (
+168 |                         f"{type(rollback_exc).__name__}: "
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/atlas/dependency_engine.py:18:20
+   |
+16 |             try:
+17 |                 tree = ast.parse(py_file.read_text(encoding="utf-8"))
+18 |             except Exception:
+   |                    ^^^^^^^^^
+19 |                 continue
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/atlas/repository_dna_service.py:14:8
+   |
+12 |         RepositoryDNAInventoryProvider,
+13 |     )
+14 | except Exception:  # pragma: no cover
+   |        ^^^^^^^^^
+15 |     RepositoryDNAInventoryProvider = None
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/boot_runtime/executor.py:50:20
+   |
+48 |                 )
+49 |
+50 |             except Exception as exc:
+   |                    ^^^^^^^^^
+51 |
+52 |                 report.results.append(
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/constitutional_cognition/mesh.py:216:24
+    |
+214 |                     contribution = future.result()
+215 |
+216 |                 except Exception as exc:
+    |                        ^^^^^^^^^
+217 |                     self._participant_failures += 1
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/constitutional_events/fabric.py:163:20
+    |
+161 |                     result=result,
+162 |                 )
+163 |             except Exception as exc:
+    |                    ^^^^^^^^^
+164 |                 delivery = EventDelivery(
+165 |                     event_id=event.event_id,
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/constitutional_events/fabric.py:238:24
+    |
+236 |                         result=result,
+237 |                     )
+238 |                 except Exception as exc:
+    |                        ^^^^^^^^^
+239 |                     delivery = EventDelivery(
+240 |                         event_id=event.event_id,
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/constitutional_instrumentation/bus.py:141:20
+    |
+139 |             try:
+140 |                 subscriber(signal)
+141 |             except Exception:
+    |                    ^^^^^^^^^
+142 |                 self._subscriber_failures += 1
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/council/engine.py:69:16
+   |
+67 |         try:
+68 |             return json.loads(path.read_text(encoding="utf-8"))
+69 |         except Exception as exc:
+   |                ^^^^^^^^^
+70 |             return {
+71 |                 "available": False,
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/ctf/router.py:101:16
+    |
+ 99 |             )
+100 |
+101 |         except Exception as ex:
+    |                ^^^^^^^^^
+102 |
+103 |             elapsed_ms = (
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/discovery/loader.py:21:16
+   |
+19 |             return importlib.import_module(module_name)
+20 |
+21 |         except Exception:
+   |                ^^^^^^^^^
+22 |
+23 |             return None
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/executive_kernel/composition.py:165:20
+    |
+163 |                 descriptor.status = ExecutiveComponentStatus.READY
+164 |
+165 |             except Exception as exc:
+    |                    ^^^^^^^^^
+166 |                 descriptor.status = ExecutiveComponentStatus.FAILED
+167 |                 errors.append(
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/experience_gateway/api/commands.py:119:12
+    |
+117 |             },
+118 |         }
+119 |     except Exception as exc:
+    |            ^^^^^^^^^
+120 |         return {
+121 |             "mutated": False,
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/experience_gateway/api/runtime.py:56:12
+   |
+54 |         )
+55 |         runtime_ok = hasattr(runtime_module, "runtime_core")
+56 |     except Exception:
+   |            ^^^^^^^^^
+57 |         runtime_ok = False
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/experience_gateway/api/runtime.py:77:12
+   |
+75 |         )
+76 |         gateway_ok = True
+77 |     except Exception:
+   |            ^^^^^^^^^
+78 |         gateway_ok = False
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/experience_gateway/commands/service.py:283:16
+    |
+281 |                 reversal_token=reversal_token,
+282 |             )
+283 |         except Exception as error:
+    |                ^^^^^^^^^
+284 |             execution = CommandExecution(
+285 |                 execution_id=execution_id,
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/experience_gateway/providers/aggregator.py:110:20
+    |
+108 |             try:
+109 |                 source_missions = registered.source()
+110 |             except Exception as error:
+    |                    ^^^^^^^^^
+111 |                 missions.append(
+112 |                     {
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/experience_gateway/providers/aggregator.py:147:16
+    |
+145 |         try:
+146 |             result = registered.probe()
+147 |         except Exception as error:
+    |                ^^^^^^^^^
+148 |             elapsed_ms = round(
+149 |                 (perf_counter() - started_at)
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/foundation_readiness/core.py:19:16
+   |
+17 |             results["capability_engine"] = runtime_core.services.has("capability_engine")
+18 |             results["aos_search"] = runtime_core.services.has("aos_search")
+19 |         except Exception:
+   |                ^^^^^^^^^
+20 |             results["runtime"] = False
+21 |             results["identity_engine"] = False
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/foundation_readiness/core.py:28:16
+   |
+26 |             from aletheus.execution_engine import execution_engine
+27 |             results["execution_engine"] = execution_engine.health()["status"] == "healthy"
+28 |         except Exception:
+   |                ^^^^^^^^^
+29 |             results["execution_engine"] = False
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/foundation_readiness/core.py:37:16
+   |
+35 |                 aletheus_foundation.statistics()["engines"] >= 10
+36 |             )
+37 |         except Exception:
+   |                ^^^^^^^^^
+38 |             results["foundation_registry"] = False
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/founder_console/core.py:72:24
+   |
+70 |                 try:
+71 |                     details["commands"] = runtime_core.commands.count()
+72 |                 except Exception:
+   |                        ^^^^^^^^^
+73 |                     details["commands"] = "unknown"
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/founder_console/core.py:78:24
+   |
+76 |                 try:
+77 |                     details["services"] = runtime_core.services.count()
+78 |                 except Exception:
+   |                        ^^^^^^^^^
+79 |                     details["services"] = "unknown"
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/founder_console/core.py:88:16
+   |
+86 |             )
+87 |
+88 |         except Exception as exc:
+   |                ^^^^^^^^^
+89 |             return FounderConsoleComponent(
+90 |                 name="Runtime",
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/founder_console/core.py:108:16
+    |
+106 |             )
+107 |
+108 |         except Exception as exc:
+    |                ^^^^^^^^^
+109 |             return FounderConsoleComponent(
+110 |                 name="Executive Kernel",
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/founder_console/core.py:132:16
+    |
+130 |             )
+131 |
+132 |         except Exception as exc:
+    |                ^^^^^^^^^
+133 |             return FounderConsoleComponent(
+134 |                 name="Platform Layer",
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/institutional_civilization/bootstrap.py:98:16
+    |
+ 96 |                 )
+ 97 |             )
+ 98 |         except Exception as exc:
+    |                ^^^^^^^^^
+ 99 |             report.checks.append(
+100 |                 ReadinessCheck(
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/institutional_civilization/wiring.py:110:16
+    |
+108 |                 evidence=evidence,
+109 |             )
+110 |         except Exception as exc:
+    |                ^^^^^^^^^
+111 |             return ReadinessCheck(
+112 |                 name="watch_tower_activation",
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/institutional_civilization/wiring.py:164:16
+    |
+162 |                 evidence=evidence,
+163 |             )
+164 |         except Exception as exc:
+    |                ^^^^^^^^^
+165 |             return ReadinessCheck(
+166 |                 name="spa_assessment",
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/institutional_civilization/wiring.py:236:16
+    |
+234 |                 evidence=evidence,
+235 |             )
+236 |         except Exception as exc:
+    |                ^^^^^^^^^
+237 |             return ReadinessCheck(
+238 |                 name="homeostasis_equilibrium",
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/institutional_civilization/wiring.py:326:16
+    |
+324 |                 evidence=evidence,
+325 |             )
+326 |         except Exception as exc:
+    |                ^^^^^^^^^
+327 |             return ReadinessCheck(
+328 |                 name="council_escalation",
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/institutional_civilization/wiring.py:382:16
+    |
+380 |                 evidence=_as_mapping(result),
+381 |             )
+382 |         except Exception as exc:
+    |                ^^^^^^^^^
+383 |             return ReadinessCheck(
+384 |                 name="ledger_boot_record",
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/orchestrator/core.py:70:24
+   |
+68 |                     subsystem.instance.boot()
+69 |                     status = "booted"
+70 |                 except Exception as exc:
+   |                        ^^^^^^^^^
+71 |                     status = f"error: {exc}"
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/orchestrator/core.py:90:24
+   |
+88 |                 try:
+89 |                     report[subsystem.name] = subsystem.instance.health()
+90 |                 except Exception as exc:
+   |                        ^^^^^^^^^
+91 |                     report[subsystem.name] = {
+92 |                         "status": "error",
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/persistence_v3/persistence_core.py:86:20
+   |
+84 |             try:
+85 |                 loaded[file.stem] = json.loads(file.read_text())
+86 |             except Exception:
+   |                    ^^^^^^^^^
+87 |                 loaded[file.stem] = {}
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/persistence_v3/persistence_core.py:224:20
+    |
+222 |             try:
+223 |                 return callable_obj()
+224 |             except Exception:
+    |                    ^^^^^^^^^
+225 |                 return fallback
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/platform_intelligence/engine.py:45:20
+   |
+43 |             try:
+44 |                 lines = path.read_text(errors="ignore").splitlines()
+45 |             except Exception:
+   |                    ^^^^^^^^^
+46 |                 continue
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/platform_intelligence/event_bus/bus.py:171:20
+    |
+169 |             try:
+170 |                 subscription.handler(published_event)
+171 |             except Exception as error:
+    |                    ^^^^^^^^^
+172 |                 with self._lock:
+173 |                     self._failed_deliveries += 1
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/platform_lifecycle/core.py:69:16
+   |
+67 |             ).to_dict()
+68 |
+69 |         except Exception as exc:
+   |                ^^^^^^^^^
+70 |             self.state_value = self.DEGRADED
+71 |             return PlatformLifecycleResult(
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/platform_verification/checks/capability_check.py:30:16
+   |
+28 |         try:
+29 |             importlib.import_module(module_path)
+30 |         except Exception as exc:
+   |                ^^^^^^^^^
+31 |             missing.append(f"{name}: {exc!r}")
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/platform_verification/checks/runtime_boot_check.py:28:12
+   |
+26 |         )
+27 |
+28 |     except Exception as exc:
+   |            ^^^^^^^^^
+29 |         duration = time.perf_counter() - start
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/repository_dna/inventory_provider.py:8:8
+   |
+ 6 |     from .audit_models import SubsystemRecord
+ 7 |     from .audit_service import RepositoryDNAAuditService
+ 8 | except Exception:  # pragma: no cover - compatibility fallback
+   |        ^^^^^^^^^
+ 9 |     RepositoryDNAAuditService = None
+10 |     SubsystemRecord = None
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/repository_self_repair/executor.py:72:20
+   |
+70 |                             shutil.copy2(source / action.relative_path, review)
+71 |                         result.applied.append({"action": "stage_conflict", "path": action.relative_path, "candidate": str(review)})
+72 |             except Exception as exc:  # execution boundary: record and continue
+   |                    ^^^^^^^^^
+73 |                 result.failed.append({"path": action.relative_path, "error": str(exc)})
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/runtime/adapter.py:299:16
+    |
+297 |             )
+298 |
+299 |         except Exception as exc:
+    |                ^^^^^^^^^
+300 |             return RuntimeDispatchResult(
+301 |                 command=request.command,
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/runtime/adapters/prediction_adapter.py:54:20
+   |
+52 |                     f"{commands.count()} runtime commands registered."
+53 |                 )
+54 |             except Exception:
+   |                    ^^^^^^^^^
+55 |                 pass
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/runtime/adapters/prediction_adapter.py:69:16
+   |
+67 |         try:
+68 |             command_count = runtime.commands.count()
+69 |         except Exception:
+   |                ^^^^^^^^^
+70 |             pass
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/runtime/architecture/validator.py:75:16
+   |
+73 |             )
+74 |
+75 |         except Exception:
+   |                ^^^^^^^^^
+76 |
+77 |             return False
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/runtime/architecture/validator.py:96:16
+   |
+94 |             )
+95 |
+96 |         except Exception:
+   |                ^^^^^^^^^
+97 |
+98 |             return False
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/runtime/architecture/validator.py:117:16
+    |
+115 |             )
+116 |
+117 |         except Exception:
+    |                ^^^^^^^^^
+118 |
+119 |             return False
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/runtime/command_bootstrap/bootstrapper.py:165:16
+    |
+163 |             registration_function(runtime)
+164 |
+165 |         except Exception as exc:
+    |                ^^^^^^^^^
+166 |             commands_after = set(registry.list())
+167 |             partial_commands = sorted(
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/runtime/command_bootstrap/bootstrapper.py:176:24
+    |
+174 |                 try:
+175 |                     registry.unregister(command)
+176 |                 except Exception as rollback_exc:
+    |                        ^^^^^^^^^
+177 |                     rollback_errors[command] = (
+178 |                         f"{type(rollback_exc).__name__}: "
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/runtime/commands/command_bus.py:189:20
+    |
+187 |                 return result
+188 |
+189 |             except Exception as exc:
+    |                    ^^^^^^^^^
+190 |                 context.add_error(
+191 |                     f"{type(exc).__name__}: {exc}"
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/runtime/commands_v2/dispatcher.py:491:16
+    |
+489 |             )
+490 |
+491 |         except Exception as exc:
+    |                ^^^^^^^^^
+492 |             return CommandResult(
+493 |                 command=name,
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/runtime/governance/architecture_rules.py:76:16
+   |
+74 |             )
+75 |
+76 |         except Exception:
+   |                ^^^^^^^^^
+77 |
+78 |             return False
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/runtime/governance/architecture_rules.py:97:16
+   |
+95 |             )
+96 |
+97 |         except Exception:
+   |                ^^^^^^^^^
+98 |
+99 |             return False
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/runtime/governance/architecture_rules.py:115:16
+    |
+113 |             )
+114 |
+115 |         except Exception:
+    |                ^^^^^^^^^
+116 |
+117 |             return False
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/runtime/governance/architecture_rules.py:136:16
+    |
+134 |             )
+135 |
+136 |         except Exception:
+    |                ^^^^^^^^^
+137 |
+138 |             return False
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/runtime/hardening.py:38:20
+   |
+36 |                 self.runtime.compat.resolve(alias)
+37 |                 checks[alias] = "pass"
+38 |             except Exception:
+   |                    ^^^^^^^^^
+39 |                 checks[alias] = "fail"
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/runtime/kernel/orchestrator.py:94:16
+   |
+92 |                 task.status = "completed"
+93 |
+94 |         except Exception as exc:
+   |                ^^^^^^^^^
+95 |             task.status = "failed"
+96 |             task.errors.append(str(exc))
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/runtime/relay/network.py:47:16
+   |
+45 |             )
+46 |
+47 |         except Exception as exc:
+   |                ^^^^^^^^^
+48 |             result = RelayResult(
+49 |                 packet_id=packet.packet_id,
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/runtime/service_mesh/mesh.py:68:16
+   |
+66 |                 response=response if isinstance(response, dict) else {"result": response},
+67 |             )
+68 |         except Exception as exc:
+   |                ^^^^^^^^^
+69 |             result = MeshRouteResult(
+70 |                 source=source,
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/self_assembly/dependency_resolver.py:63:16
+   |
+61 |             }
+62 |
+63 |         except Exception as exc:
+   |                ^^^^^^^^^
+64 |             return {
+65 |                 "verified": False,
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/span/bootstrap.py:627:24
+    |
+625 |                 try:
+626 |                     return len(tuple(method()))
+627 |                 except Exception:
+    |                        ^^^^^^^^^
+628 |                     continue
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/span/providers/ast.py:27:12
+   |
+25 |     try:
+26 |         return ast.unparse(node)
+27 |     except Exception:
+   |            ^^^^^^^^^
+28 |         return node.__class__.__name__
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/span/providers/ast.py:105:32
+    |
+103 |                         try:
+104 |                             bases.append(ast.unparse(base))
+105 |                         except Exception:
+    |                                ^^^^^^^^^
+106 |                             bases.append(base.__class__.__name__)
+107 |                     yield EvidenceRecord(
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/span/providers/configuration.py:81:20
+   |
+79 |                     payload["content"] = _load_yaml(path)
+80 |                 payload["parsed"] = True
+81 |             except Exception as exc:
+   |                    ^^^^^^^^^
+82 |                 payload["parsed"] = False
+83 |                 payload["error"] = f"{exc.__class__.__name__}: {exc}"
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/span/providers/runtime.py:95:28
+   |
+93 |                     try:
+94 |                         function_name = ast.unparse(node.func)
+95 |                     except Exception:
+   |                            ^^^^^^^^^
+96 |                         pass
+97 |                     if any(
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/span/rule_loader.py:261:16
+    |
+259 |         try:
+260 |             rules = self.extract_rules(module)
+261 |         except Exception as exc:
+    |                ^^^^^^^^^
+262 |             report.add(
+263 |                 "error",
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/span/rule_loader.py:307:20
+    |
+305 |             try:
+306 |                 self.registry.register(rule)
+307 |             except Exception as exc:
+    |                    ^^^^^^^^^
+308 |                 report.add(
+309 |                     "error",
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/span/rule_loader.py:339:16
+    |
+337 |         try:
+338 |             report.discovered_modules.extend(self.discover())
+339 |         except Exception as exc:
+    |                ^^^^^^^^^
+340 |             report.add(
+341 |                 "error",
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> aletheus/span/rule_loader.py:352:20
+    |
+350 |             try:
+351 |                 module = self.import_module(module_name)
+352 |             except Exception as exc:
+    |                    ^^^^^^^^^
+353 |                 report.add(
+354 |                     "error",
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/spectrum_platform_analyzer/dependency.py:76:16
+   |
+74 |             )
+75 |
+76 |         except Exception:
+   |                ^^^^^^^^^
+77 |
+78 |             return []
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/spectrum_platform_analyzer/duplicate_capability.py:66:16
+   |
+64 |             )
+65 |
+66 |         except Exception:
+   |                ^^^^^^^^^
+67 |
+68 |             return []
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheus/spectrum_platform_analyzer/hotspots.py:70:16
+   |
+68 |             )
+69 |
+70 |         except Exception:
+   |                ^^^^^^^^^
+71 |
+72 |             return 0
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> aletheusos_kernel_sprint1/tests/test_mission_lifecycle.py:28:12
+   |
+26 |         )
+27 |         assert False
+28 |     except Exception:
+   |            ^^^^^^^^^
+29 |         assert True
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> analytics/runtime/event_metrics.py:23:24
+   |
+21 |                     counts[event.get("event","unknown")] += 1
+22 |
+23 |                 except Exception:
+   |                        ^^^^^^^^^
+24 |
+25 |                     pass
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> architecture/dependency_graph.py:19:20
+   |
+17 |             try:
+18 |                 tree = ast.parse(path.read_text(errors="ignore"))
+19 |             except Exception:
+   |                    ^^^^^^^^^
+20 |                 continue
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> background/worker.py:37:20
+   |
+35 |                 job.result = handler(job.payload) or {}
+36 |                 job.status = "complete"
+37 |             except Exception as exc:
+   |                    ^^^^^^^^^
+38 |                 job.status = "failed"
+39 |                 job.error = str(exc)
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> cardhawk_aeye/cardhawk_aeye.py:12:16
+   |
+10 |             from hawk_aeye.vision_pipeline import VisionPipeline
+11 |             return VisionPipeline().analyze(image_path, context_text)
+12 |         except Exception:
+   |                ^^^^^^^^^
+13 |             return {
+14 |                 "image_path": image_path,
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> cardhawk_platform/navigation.py:54:16
+   |
+52 |             rendered = True
+53 |             break
+54 |         except Exception:
+   |                ^^^^^^^^^
+55 |             continue
+56 |     if not rendered:
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> cardhawk_platform/router.py:41:12
+   |
+39 |         module = __import__(module_path, fromlist=[fn_name])
+40 |         getattr(module, fn_name)(state)
+41 |     except Exception as exc:
+   |            ^^^^^^^^^
+42 |         st.error(f"Route failed: {route}")
+43 |         st.exception(exc)
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> cardhawkos/runtime/orchestrator.py:67:16
+   |
+65 |             }
+66 |
+67 |         except Exception as exc:
+   |                ^^^^^^^^^
+68 |             duration = round(time.time() - start_time, 4)
+69 |             completed = datetime.utcnow().isoformat()
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> components/cardhawk_utils.py:33:12
+   |
+31 |         return float(value)
+32 |
+33 |     except Exception:
+   |            ^^^^^^^^^
+34 |
+35 |         return 0.0
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> components/cardhawk_utils.py:77:12
+   |
+75 |         return ((value - cost) / cost) * 100.0
+76 |
+77 |     except Exception:
+   |            ^^^^^^^^^
+78 |         return 0.0
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> conftest.py:14:8
+   |
+12 |     import nimble
+13 |     print("nimble:", nimble.__file__)
+14 | except Exception as e:
+   |        ^^^^^^^^^
+15 |     print("nimble import failed:", repr(e))
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> core/bootstrap.py:52:20
+   |
+50 |             try:
+51 |                 engine.initialize()
+52 |             except Exception as exc:
+   |                    ^^^^^^^^^
+53 |                 print(f"[INIT] {engine.name}: {exc}")
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> core/bootstrap.py:63:20
+   |
+61 |             try:
+62 |                 engine.subscribe(event_bus)
+63 |             except Exception as exc:
+   |                    ^^^^^^^^^
+64 |                 print(f"[SUBSCRIBE] {engine.name}: {exc}")
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> core/discovery.py:42:20
+   |
+40 |                 registered.append(engine.name)
+41 |
+42 |             except Exception as exc:
+   |                    ^^^^^^^^^
+43 |
+44 |                 print("Discovery skipped:", full_name, exc)
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> core/service_discovery.py:47:20
+   |
+45 |                 registered.append(service.name)
+46 |
+47 |             except Exception as exc:
+   |                    ^^^^^^^^^
+48 |
+49 |                 print("Service skipped:",full,exc)
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> data_layer/database_manager.py:35:16
+   |
+33 |         try:
+34 |             return {r["name"] for r in self.query(f"PRAGMA table_info({table})")}
+35 |         except Exception:
+   |                ^^^^^^^^^
+36 |             return set()
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> diagnostics/imports/import_doctor.py:64:12
+   |
+62 |         return True, elapsed, None
+63 |
+64 |     except Exception as e:
+   |            ^^^^^^^^^
+65 |
+66 |         elapsed = (time.perf_counter() - start) * 1000
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> engine/thorx/scoring.py:15:16
+   |
+13 |             elif denom <= 99:
+14 |                 score += 4
+15 |         except Exception:
+   |                ^^^^^^^^^
+16 |             pass
+17 |     if "auto" in name or "autograph" in name:
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> engine/valuation/scarcity.py:12:16
+   |
+10 |             elif denom <= 99:
+11 |                 score += 12
+12 |         except Exception:
+   |                ^^^^^^^^^
+13 |             pass
+14 |     if population is not None:
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> eventbus/event_bus.py:27:20
+   |
+25 |             try:
+26 |                 fn(event)
+27 |             except Exception:
+   |                    ^^^^^^^^^
+28 |                 pass
+29 |         return event
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> executive_experience/pages/founder_ai_workspace.py:15:16
+   |
+13 |             from founder_ai.founder_ai_service import FounderAIService
+14 |             st.success(FounderAIService.answer(q))
+15 |         except Exception:
+   |                ^^^^^^^^^
+16 |             st.info("Founder AI is staged. Connect full reasoning engine next.")
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> executive_experience/pages/universal_asset_profile.py:49:16
+   |
+47 |             from exit_strategy.exit_strategy_service import ExitStrategyService
+48 |             st.json(ExitStrategyService.recommend(asset))
+49 |         except Exception:
+   |                ^^^^^^^^^
+50 |             st.info("Exit Strategy™ staged.")
+51 |     with tabs[7]:
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> intelligence/replay/event_store.py:25:20
+   |
+23 |             try:
+24 |                 events.append(json.loads(line))
+25 |             except Exception:
+   |                    ^^^^^^^^^
+26 |                 pass
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> intelligence_convergence/engines/autonomous_scout.py:16:20
+   |
+14 |             try:
+15 |                 raw.extend(provider.search(query))
+16 |             except Exception:
+   |                    ^^^^^^^^^
+17 |                 continue
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> intelligence_convergence/pages/convergence_dashboard.py:56:20
+   |
+54 | …     if svc:
+55 | …         try: assets = svc.get_all()
+56 | …         except Exception: assets = []
+   |                  ^^^^^^^^^
+57 | …     scenario = st.selectbox("Scenario", ["Base Case", "Player MVP", "PSA 10 Grade", "Championship Run", "Market Pullback", "Injury /…
+58 | …     st.json(engine.simulate_future(assets, scenario))
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> intelligence_convergence/pages/convergence_dashboard.py:65:20
+   |
+63 |         if svc:
+64 |             try: assets = svc.get_all()
+65 |             except Exception: assets = []
+   |                    ^^^^^^^^^
+66 |         st.json(IntelligenceConvergenceService.build_knowledge_graph(assets))
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> jobs/runtime/scheduler.py:33:20
+   |
+31 |                 job["func"]()
+32 |
+33 |             except Exception as e:
+   |                    ^^^^^^^^^
+34 |
+35 |                 status = "FAILED"
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> live_data/live_data_service.py:17:20
+   |
+15 |             try:
+16 |                 listings.extend(provider.search(query, limit))
+17 |             except Exception:
+   |                    ^^^^^^^^^
+18 |                 continue
+19 |         return listings
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> live_platform/pages/digital_twin.py:18:12
+   |
+16 |         if st.button("Simulate Portfolio Impact"):
+17 |             st.json(PortfolioDigitalTwin.simulate_add(assets, ask, est))
+18 |     except Exception:
+   |            ^^^^^^^^^
+19 |         st.info("Digital Twin service staged.")
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> live_platform/pages/universal_asset_viewer.py:36:20
+   |
+34 |         if img:
+35 |             try: st.image(img, width=420)
+36 |             except Exception: st.info("Image path stored but not displayable.")
+   |                    ^^^^^^^^^
+37 |         else:
+38 |             st.info("No image stored.")
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> marketplace/connectors/manager.py:34:20
+   |
+32 |                     comps.extend(provider_results)
+33 |
+34 |             except Exception as exc:
+   |                    ^^^^^^^^^
+35 |
+36 |                 print(
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> marketplace/marketplace_service.py:10:20
+   |
+ 8 |             try:
+ 9 |                 results.extend(c.search(query))
+10 |             except Exception:
+   |                    ^^^^^^^^^
+11 |                 pass
+12 |         return results
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> marketplace/runtime/market_snapshot.py:20:20
+   |
+18 |             try:
+19 |                 prices.append(float(comp.get("price") or 0))
+20 |             except Exception:
+   |                    ^^^^^^^^^
+21 |                 pass
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> orchestrator/runtime/engine.py:58:16
+   |
+56 |             return result
+57 |
+58 |         except Exception as exc:
+   |                ^^^^^^^^^
+59 |             duration = round(time.time() - start, 4)
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+ --> performance/__init__.py:3:8
+  |
+1 | try:
+2 |     from performance.cache import ResultCache
+3 | except Exception:
+  |        ^^^^^^^^^
+4 |     ResultCache = None
+  |
+
+BLE001 Do not catch blind exception: `Exception`
+ --> pipeline/__init__.py:3:8
+  |
+1 | try:
+2 |     from pipeline.event_store import EventStore
+3 | except Exception:
+  |        ^^^^^^^^^
+4 |     EventStore = None
+  |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> platform/router.py:31:12
+   |
+29 |         module = __import__(module_path, fromlist=[fn_name])
+30 |         getattr(module, fn_name)(state)
+31 |     except Exception as exc:
+   |            ^^^^^^^^^
+32 |         st.error(f"Route failed: {route}")
+33 |         st.exception(exc)
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> qa/smoke_tests.py:18:20
+   |
+16 |                 fn()
+17 |                 results[name] = "pass"
+18 |             except Exception as exc:
+   |                    ^^^^^^^^^
+19 |                 results[name] = f"fail: {exc}"
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> registry/engine_registry.py:25:20
+   |
+23 |                 module = __import__(module_path, fromlist=[class_name])
+24 |                 self.register(name, getattr(module, class_name))
+25 |             except Exception:
+   |                    ^^^^^^^^^
+26 |                 pass
+27 |         return self
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> registry/provider_registry.py:31:20
+   |
+29 |                 module = __import__(module_path, fromlist=[class_name])
+30 |                 self.register(name, getattr(module, class_name)())
+31 |             except Exception:
+   |                    ^^^^^^^^^
+32 |                 pass
+33 |         return self
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> reports/genesis_8_command_dispatch/backup_20260710_041440/registry.py:105:16
+    |
+103 |             )
+104 |
+105 |         except Exception as exc:
+    |                ^^^^^^^^^
+106 |
+107 |             return CommandResult(
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> reports/genesis_8_command_dispatch/contract_repair_backup_20260710_042036/command_bus.py:188:20
+    |
+186 |                 return result
+187 |
+188 |             except Exception as exc:
+    |                    ^^^^^^^^^
+189 |                 context.add_error(
+190 |                     f"{type(exc).__name__}: {exc}"
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> reports/genesis_8_command_dispatch/contract_repair_backup_20260710_042036/dispatcher.py:172:16
+    |
+170 |             )
+171 |
+172 |         except Exception as exc:
+    |                ^^^^^^^^^
+173 |             return CommandResult(
+174 |                 command=name,
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> reports/genesis_8_command_dispatch/result_contract_backup_20260710_042429/command_bus.py:189:20
+    |
+187 |                 return result
+188 |
+189 |             except Exception as exc:
+    |                    ^^^^^^^^^
+190 |                 context.add_error(
+191 |                     f"{type(exc).__name__}: {exc}"
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> reports/genesis_8_command_dispatch/result_contract_backup_20260710_042429/dispatcher.py:298:16
+    |
+296 |             )
+297 |
+298 |         except Exception as exc:
+    |                ^^^^^^^^^
+299 |             return CommandResult(
+300 |                 command=name,
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> reports/genesis_8_command_dispatch/safe_alias_backup_20260710_045355/bootstrapper.py:155:16
+    |
+153 |             registration_function(runtime)
+154 |
+155 |         except Exception as exc:
+    |                ^^^^^^^^^
+156 |             commands_after = set(registry.list())
+157 |             partial_commands = sorted(
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> reports/genesis_8_command_dispatch/safe_alias_backup_20260710_045355/bootstrapper.py:166:24
+    |
+164 |                 try:
+165 |                     registry.unregister(command)
+166 |                 except Exception as rollback_exc:
+    |                        ^^^^^^^^^
+167 |                     rollback_errors[command] = (
+168 |                         f"{type(rollback_exc).__name__}: "
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> scout/market_scanner.py:20:20
+   |
+18 |             try:
+19 |                 rows = connector.search(query)
+20 |             except Exception:
+   |                    ^^^^^^^^^
+21 |                 rows = []
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> scripts/rescore_assets.py:81:16
+   |
+79 |             updated += 1
+80 |
+81 |         except Exception as exc:
+   |                ^^^^^^^^^
+82 |
+83 |             print(
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> services/pipeline.py:18:20
+   |
+16 |             try:
+17 |                 context = plugin.execute(context)
+18 |             except Exception as exc:
+   |                    ^^^^^^^^^
+19 |                 context.add_error(f"{plugin.name} failed: {exc}")
+20 |         return context
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> services/runtime_commands.py:29:16
+   |
+27 |             context = handler(context)
+28 |             return context
+29 |         except Exception as exc:
+   |                ^^^^^^^^^
+30 |             context.add_error(str(exc))
+31 |             return context
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> thorx/population.py:13:16
+   |
+11 |         try:
+12 |             pop = int(pop)
+13 |         except Exception:
+   |                ^^^^^^^^^
+14 |             return 5.0
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> thorx/score.py:57:16
+   |
+55 |             asset.recommendation = recommendation
+56 |             asset.strike_zone = strike_zone
+57 |         except Exception:
+   |                ^^^^^^^^^
+58 |             pass
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> tools/cleanup/cleanup_repository_debris.py:234:16
+    |
+232 |             remove_target(path)
+233 |             removed_files += 1
+234 |         except Exception as exc:
+    |                ^^^^^^^^^
+235 |             failures.append((path, exc))
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> tools/cleanup/cleanup_repository_debris.py:247:16
+    |
+245 |         except FileNotFoundError:
+246 |             continue
+247 |         except Exception as exc:
+    |                ^^^^^^^^^
+248 |             failures.append((path, exc))
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> tools/dependency_audit.py:15:12
+   |
+13 |         if spec is None:
+14 |             failures.append((str(pyfile), module))
+15 |     except Exception:
+   |            ^^^^^^^^^
+16 |         failures.append((str(pyfile), module))
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> tools/dependency_audit.py:23:12
+   |
+21 |         source = py.read_text(encoding="utf-8")
+22 |         tree = ast.parse(source, filename=str(py))
+23 |     except Exception:
+   |            ^^^^^^^^^
+24 |         continue
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> tools/doctor/doctor.py:19:12
+   |
+17 |         p=subprocess.run(["git","status","--porcelain"],cwd=ROOT,capture_output=True,text=True)
+18 |         run("Git", p.returncode==0, "clean" if p.stdout.strip()=="" else "changes present")
+19 |     except Exception as e:
+   |            ^^^^^^^^^
+20 |         run("Git",False,str(e))
+21 |     return 0
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> tools/genesis/genesis_8/registration_bootstrap_audit.py:168:12
+    |
+166 |             if callable(getattr(imported, function, None))
+167 |         ]
+168 |     except Exception as exc:
+    |            ^^^^^^^^^
+169 |         import_error = f"{type(exc).__name__}: {exc}"
+170 |         loadable_functions = []
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> tools/genesis/genesis_8/stale_command_capability_audit.py:37:16
+   |
+35 |         try:
+36 |             value = getattr(target, name)
+37 |         except Exception:
+   |                ^^^^^^^^^
+38 |             continue
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> tools/genesis/genesis_8/stale_command_capability_audit.py:92:16
+   |
+90 |         try:
+91 |             handler_text = ast.unparse(handler_node)
+92 |         except Exception:
+   |                ^^^^^^^^^
+93 |             handler_text = "<unknown>"
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> tools/genesis/genesis_8/stale_command_capability_audit.py:116:12
+    |
+114 |     try:
+115 |         value = getattr(runtime_core, name)
+116 |     except Exception:
+    |            ^^^^^^^^^
+117 |         continue
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> tools/maintenance/platform_census.py:49:16
+   |
+47 |         try:
+48 |             text = file.read_text(encoding="utf-8", errors="ignore")
+49 |         except Exception:
+   |                ^^^^^^^^^
+50 |             continue
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> tools/maintenance/runtime_census.py:30:12
+   |
+28 |     try:
+29 |         return len(obj)
+30 |     except Exception:
+   |            ^^^^^^^^^
+31 |         return 0
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> tools/maintenance/runtime_census.py:104:16
+    |
+102 |                 passed += 1
+103 |                 print(f"PASS {command}")
+104 |         except Exception as exc:
+    |                ^^^^^^^^^
+105 |             failed += 1
+106 |             print(f"FAIL {command}")
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> tools/maintenance/runtime_census.py:118:12
+    |
+116 |         print(f"handlers: {len(inspector.handlers())}")
+117 |         print(f"services: {len(inspector.services())}")
+118 |     except Exception as exc:
+    |            ^^^^^^^^^
+119 |         print(f"Inspector failed: {type(exc).__name__}: {exc}")
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> tools/maintenance/runtime_verify.py:23:16
+   |
+21 |             detail = fn() or ""
+22 |             self.results.append(CheckResult(name, "PASS", detail))
+23 |         except Exception as exc:
+   |                ^^^^^^^^^
+24 |             self.results.append(
+25 |                 CheckResult(
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> tools/maintenance/runtime_verify.py:122:20
+    |
+120 |                 importlib.import_module(module)
+121 |                 loaded.append(module)
+122 |             except Exception as exc:
+    |                    ^^^^^^^^^
+123 |                 failed.append(f"{module}: {type(exc).__name__}: {exc}")
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> tools/maintenance/runtime_verify.py:149:20
+    |
+147 |             except ModuleNotFoundError:
+148 |                 missing.append(module)
+149 |             except Exception as exc:
+    |                    ^^^^^^^^^
+150 |                 raise RuntimeError(f"{module}: {type(exc).__name__}: {exc}")
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> tools/smoke/smoke_test_nimble_container.py:240:20
+    |
+238 |                 ):
+239 |                     break
+240 |             except Exception:
+    |                    ^^^^^^^^^
+241 |                 time.sleep(1)
+242 |         else:
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> tools/smoke/smoke_test_nimble_container.py:280:12
+    |
+278 |             )
+279 |
+280 |     except Exception as error:
+    |            ^^^^^^^^^
+281 |         failures.append(
+282 |             f"{type(error).__name__}: {error}"
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> tools/validation/nimble/validate_nimble_baseline_governance.py:110:12
+    |
+108 |         return 0
+109 |
+110 |     except Exception as exc:
+    |            ^^^^^^^^^
+111 |         print(f"✗ {exc}", file=sys.stderr)
+112 |         return 1
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> tools/validation/nimble/validate_nimble_deployment_readiness.py:81:12
+   |
+79 |     try:
+80 |         module = importlib.import_module(module_name)
+81 |     except Exception as error:
+   |            ^^^^^^^^^
+82 |         return [
+83 |             "Backend module import failed: "
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+ --> utils/formatting.py:4:12
+  |
+2 |     try:
+3 |         return f"${float(value):,.2f}"
+4 |     except Exception:
+  |            ^^^^^^^^^
+5 |         return "$0.00"
+  |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> utils/formatting.py:10:12
+   |
+ 8 |     try:
+ 9 |         return f"{float(value):.2f}%"
+10 |     except Exception:
+   |            ^^^^^^^^^
+11 |         return "0.00%"
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> utils/validators.py:9:12
+   |
+ 7 |     try:
+ 8 |         return float(value or 0)
+ 9 |     except Exception:
+   |            ^^^^^^^^^
+10 |         return default
+   |
+
+Found 157 errors.
