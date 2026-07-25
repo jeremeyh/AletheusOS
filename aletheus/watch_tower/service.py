@@ -1,4 +1,6 @@
 from .integrity_engine import IntegrityEngine
+
+
 class WatchTowerService:
     authority="Watch Tower™"
     family="Platform Intelligence"

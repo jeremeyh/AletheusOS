@@ -8,7 +8,6 @@ Genesis 13.10
 from .events import IntelligenceEvent
 
 
-
 class AcquisitionWatchAgent:
 
 

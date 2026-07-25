@@ -12,7 +12,6 @@ from founder_ai.copilot.engine import FounderCopilot
 from portfolio.digital_twin.engine import PortfolioDigitalTwin
 from portfolio.health.engine import PortfolioHealth
 
-
 bootstrap(
     title="CardHawk OS™",
     icon="🦅",

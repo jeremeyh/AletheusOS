@@ -1,7 +1,7 @@
-from .service import ReleaseCertificationService
 from .reporter import ReleaseCertificationReporter
+from .service import ReleaseCertificationService
 
 __all__ = [
-    "ReleaseCertificationService",
     "ReleaseCertificationReporter",
+    "ReleaseCertificationService",
 ]

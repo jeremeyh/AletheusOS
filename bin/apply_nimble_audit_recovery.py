@@ -9,7 +9,7 @@ import os
 import shutil
 import subprocess
 import tempfile
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -257,7 +257,7 @@ def main() -> int:
     )
 
     timestamp = datetime.now(
-        timezone.utc
+        UTC
     ).strftime("%Y%m%dT%H%M%S%fZ")
 
     snapshot_path = (
@@ -280,7 +280,7 @@ def main() -> int:
     snapshot_metadata = {
         "schema_version": "1.0",
         "created_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
         "snapshot_path": snapshot_path.relative_to(
             ROOT

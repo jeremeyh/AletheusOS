@@ -8,7 +8,7 @@ Runtime orchestration boundary for federation intelligence.
 
 
 from aletheus.registry_federation.runtime_binding import (
-    RegistryFederationRuntimeBinding
+    RegistryFederationRuntimeBinding,
 )
 
 

@@ -10,15 +10,15 @@ compiled. Runtime dispatch performs no reflection.
 from __future__ import annotations
 
 import inspect
+from collections.abc import Mapping
 from dataclasses import dataclass
 from hashlib import sha256
 from types import MappingProxyType
-from typing import Any, Literal, Mapping
+from typing import Any, Literal
 
 from aletheus.runtime.context import RuntimeContext
 
 from .models import CommandRecord, CommandResult
-
 
 InvocationMode = Literal[
     "context",

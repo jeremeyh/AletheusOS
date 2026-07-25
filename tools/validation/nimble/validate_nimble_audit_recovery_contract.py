@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 
@@ -133,7 +133,7 @@ def main() -> int:
             {
                 "schema_version": "1.0",
                 "generated_at": datetime.now(
-                    timezone.utc
+                    UTC
                 ).isoformat(),
                 "status": status,
                 "failures": failures,

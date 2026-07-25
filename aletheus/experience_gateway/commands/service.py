@@ -5,8 +5,10 @@ from datetime import timedelta
 from typing import Any
 from uuid import uuid4
 
-from aletheus.experience_gateway.security.contracts import AuthorizationPolicy, Principal
-
+from aletheus.experience_gateway.security.contracts import (
+    AuthorizationPolicy,
+    Principal,
+)
 from aletheus.time_utils import (
     utc_now,
     utc_now_iso,

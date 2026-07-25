@@ -4,8 +4,7 @@ Learning Optimization Models
 Genesis 13.48
 """
 
-from dataclasses import dataclass, field
-
+from dataclasses import dataclass
 
 
 @dataclass

@@ -7,7 +7,6 @@ Post-Genesis 87
 
 from .engine import CrossApplicationCognitionEngine
 
-
 __all__ = [
 
 "CrossApplicationCognitionEngine"

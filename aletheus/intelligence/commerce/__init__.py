@@ -1,5 +1,3 @@
 
-from .commerce_engine import (
-    IntelligenceCommerceLayer
-)
+from .commerce_engine import IntelligenceCommerceLayer
 

@@ -5,12 +5,11 @@ Genesis 13.48
 """
 
 
-from .performance import PerformanceAnalyzer
-from .outcomes import OutcomeTracker
 from .experiments import ExperimentEngine
 from .optimizer import StrategyOptimizer
+from .outcomes import OutcomeTracker
+from .performance import PerformanceAnalyzer
 from .proposals import ProposalEngine
-
 
 
 class LearningOptimizationEngine:

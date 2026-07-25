@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from typing import Dict, List
-
 from aletheus.capabilities.contract import (
     CapabilityHealthReport,
     CapabilityMetadata,
@@ -20,7 +18,7 @@ class CapabilityHost:
     """
 
     def __init__(self) -> None:
-        self._capabilities: Dict[str, RuntimeCapability] = {}
+        self._capabilities: dict[str, RuntimeCapability] = {}
 
     def install(
         self,
@@ -60,16 +58,16 @@ class CapabilityHost:
     ) -> bool:
         return capability_id in self._capabilities
 
-    def all(self) -> List[RuntimeCapability]:
+    def all(self) -> list[RuntimeCapability]:
         return list(self._capabilities.values())
 
-    def metadata(self) -> List[CapabilityMetadata]:
+    def metadata(self) -> list[CapabilityMetadata]:
         return [
             capability.metadata()
             for capability in self._capabilities.values()
         ]
 
-    def health(self) -> List[CapabilityHealthReport]:
+    def health(self) -> list[CapabilityHealthReport]:
         return [
             capability.health()
             for capability in self._capabilities.values()

@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import List
 
 from .models import OntologyEntity, OntologyEntityType, OntologyStatus, RelationshipType
 from .registry import OntologyRegistry, ontology_registry
@@ -10,8 +9,8 @@ from .registry import OntologyRegistry, ontology_registry
 @dataclass
 class OntologyValidationResult:
     valid: bool
-    errors: List[str] = field(default_factory=list)
-    warnings: List[str] = field(default_factory=list)
+    errors: list[str] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
 
 
 class OntologyValidator:
@@ -26,8 +25,8 @@ class OntologyValidator:
         self.registry = registry
 
     def validate_entity(self, entity: OntologyEntity) -> OntologyValidationResult:
-        errors: List[str] = []
-        warnings: List[str] = []
+        errors: list[str] = []
+        warnings: list[str] = []
 
         if not entity.entity_id:
             errors.append("entity_id is required")
@@ -54,8 +53,8 @@ class OntologyValidator:
         )
 
     def validate_registry(self) -> OntologyValidationResult:
-        errors: List[str] = []
-        warnings: List[str] = []
+        errors: list[str] = []
+        warnings: list[str] = []
 
         entity_ids = {entity.entity_id for entity in self.registry.all_entities()}
 
@@ -84,8 +83,8 @@ class OntologyValidator:
 
     def _validate_authority_sovereignty(
         self,
-        errors: List[str],
-        warnings: List[str],
+        errors: list[str],
+        warnings: list[str],
     ) -> None:
         owners_by_target = {}
         for relationship in self.registry.all_relationships():

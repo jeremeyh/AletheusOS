@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from typing import List, Optional
-
 from .models import OntologyEntity, RelationshipType
 from .registry import OntologyRegistry, ontology_registry
 
@@ -12,10 +10,10 @@ class OntologyResolver:
     def __init__(self, registry: OntologyRegistry = ontology_registry) -> None:
         self.registry = registry
 
-    def resolve_by_id(self, entity_id: str) -> Optional[OntologyEntity]:
+    def resolve_by_id(self, entity_id: str) -> OntologyEntity | None:
         return self.registry.get_entity(entity_id)
 
-    def resolve_by_name(self, name: str) -> Optional[OntologyEntity]:
+    def resolve_by_name(self, name: str) -> OntologyEntity | None:
         name_normalized = name.lower()
         for entity in self.registry.all_entities():
             if entity.name.lower() == name_normalized:
@@ -24,7 +22,7 @@ class OntologyResolver:
                 return entity
         return None
 
-    def entities_owned_by(self, authority_id: str) -> List[OntologyEntity]:
+    def entities_owned_by(self, authority_id: str) -> list[OntologyEntity]:
         relationships = self.registry.outgoing_relationships(
             authority_id,
             RelationshipType.OWNS,
@@ -35,7 +33,7 @@ class OntologyResolver:
             if (entity := self.registry.get_entity(relationship.target_entity_id))
         ]
 
-    def owners_of(self, entity_id: str) -> List[OntologyEntity]:
+    def owners_of(self, entity_id: str) -> list[OntologyEntity]:
         relationships = self.registry.incoming_relationships(
             entity_id,
             RelationshipType.OWNS,

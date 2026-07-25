@@ -1,7 +1,7 @@
-from aletheus.runtime.boot_pipeline.executor import RuntimeBootExecutor
 from aletheus.runtime.boot_pipeline.default_pipeline import (
     build_runtime_boot_pipeline,
 )
+from aletheus.runtime.boot_pipeline.executor import RuntimeBootExecutor
 
 
 class DummyRuntime:

@@ -1,5 +1,3 @@
 
-from .civilization_core import (
-    AutonomousIntelligenceCivilizationCore
-)
+from .civilization_core import AutonomousIntelligenceCivilizationCore
 

@@ -1,7 +1,7 @@
-from aletheus.time_utils import utc_now, utc_now_iso
-from dataclasses import dataclass, field
-from datetime import datetime
 import uuid
+from dataclasses import dataclass, field
+
+from aletheus.time_utils import utc_now_iso
 
 
 def now():

@@ -5,12 +5,11 @@ Genesis 155
 """
 
 
+from .constitution_validator import ConstitutionValidator
+from .decision_engine import DecisionEngine
 from .proposal_engine import ProposalEngine
 from .review_engine import ReviewEngine
 from .risk_engine import RiskEngine
-from .constitution_validator import ConstitutionValidator
-from .decision_engine import DecisionEngine
-
 
 
 class ArchitectureCouncil:

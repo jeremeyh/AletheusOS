@@ -8,7 +8,6 @@ Genesis 13.28
 from .models import MemoryRecord
 
 
-
 class EpisodicMemory:
 
 

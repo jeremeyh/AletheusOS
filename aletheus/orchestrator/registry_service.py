@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from aletheus.contracts import PlatformRegistry, PlatformComponent
+from aletheus.contracts import PlatformComponent, PlatformRegistry
 
 
 class RegistryService:

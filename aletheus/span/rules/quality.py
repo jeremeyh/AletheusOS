@@ -1,7 +1,6 @@
 from ..finding import Severity
 from ..rule_engine import Rule
 
-
 SPAN_QUA_001 = Rule(
     id="SPAN-QUA-001",
     title='Oversized module pressure',

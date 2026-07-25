@@ -1,6 +1,6 @@
-from datetime import datetime
 import time
 import traceback
+from datetime import datetime
 
 from cardhawkos.runtime.logger import CardHawkLogger
 from event_bus.runtime.bus import EventBus

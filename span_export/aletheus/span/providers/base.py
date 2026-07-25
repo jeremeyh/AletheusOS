@@ -3,10 +3,11 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Iterable, Mapping
+from typing import Any
 
 from ..evidence_store import EvidenceRecord
 
@@ -63,9 +64,9 @@ class Provider(ABC):
         """Collect normalized architectural evidence."""
 
     def run(self, context: ProviderContext) -> ProviderResult:
-        started = datetime.now(timezone.utc)
+        started = datetime.now(UTC)
         records = tuple(self.collect(context))
-        completed = datetime.now(timezone.utc)
+        completed = datetime.now(UTC)
         return ProviderResult(
             provider=self.name,
             version=self.version,

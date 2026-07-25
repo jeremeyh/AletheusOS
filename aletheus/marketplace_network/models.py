@@ -7,7 +7,6 @@ Genesis 13.41
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class MarketplaceConnector:
 

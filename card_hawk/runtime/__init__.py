@@ -5,11 +5,7 @@ Genesis 60.6
 """
 
 
-from .engine import (
-    CardHawkRuntime,
-    RuntimeDiscoveryEngine
-)
-
+from .engine import CardHawkRuntime, RuntimeDiscoveryEngine
 
 __all__ = [
     "CardHawkRuntime",

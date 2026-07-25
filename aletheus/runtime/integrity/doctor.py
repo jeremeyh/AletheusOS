@@ -1,12 +1,10 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from datetime import datetime
-from pathlib import Path
-from typing import Any, Dict
 import json
-import subprocess
+from pathlib import Path
+from typing import Any
+
+from aletheus.time_utils import utc_now, utc_now_iso
 
 
 def utc_now() -> str:
@@ -19,7 +17,7 @@ class RuntimeDoctor:
     def __init__(self, runtime: Any):
         self.runtime = runtime
 
-    def run(self) -> Dict[str, Any]:
+    def run(self) -> dict[str, Any]:
         commands = self.runtime.commands.list()
         compat = self.runtime.compat.statistics()
 
@@ -74,7 +72,7 @@ class RuntimeDoctor:
 
         return report
 
-    def write_reports(self) -> Dict[str, Any]:
+    def write_reports(self) -> dict[str, Any]:
         Path("reports").mkdir(exist_ok=True)
 
         report = self.run()

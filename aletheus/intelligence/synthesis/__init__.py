@@ -1,5 +1,3 @@
 
-from .synthesis_engine import (
-    IntelligenceSynthesisEngine
-)
+from .synthesis_engine import IntelligenceSynthesisEngine
 

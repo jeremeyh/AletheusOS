@@ -7,7 +7,6 @@ Genesis 65
 
 from .engine import SharedKnowledgeExchangeEngine
 
-
 __all__ = [
 
     "SharedKnowledgeExchangeEngine"

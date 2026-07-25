@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from timeline.storage.store import store
 
 TIMELINE = store.load()

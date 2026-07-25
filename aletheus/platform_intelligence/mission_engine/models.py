@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass, replace
 from datetime import UTC, datetime
 from enum import StrEnum
 from types import MappingProxyType
-from typing import Any, Mapping
+from typing import Any
 from uuid import UUID, uuid4
 
 
@@ -116,7 +117,7 @@ class ConstitutionalMission:
         metadata: Mapping[str, Any] | None = None,
         mission_id: UUID | None = None,
         created_at: datetime | None = None,
-    ) -> "ConstitutionalMission":
+    ) -> ConstitutionalMission:
         normalized_address = address.strip().lower()
 
         if not normalized_address:
@@ -169,7 +170,7 @@ class ConstitutionalMission:
         *,
         failure_reason: str | None = None,
         modified_at: datetime | None = None,
-    ) -> "ConstitutionalMission":
+    ) -> ConstitutionalMission:
         return replace(
             self,
             state=state,

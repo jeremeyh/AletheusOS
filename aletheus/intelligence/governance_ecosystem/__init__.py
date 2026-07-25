@@ -1,5 +1,3 @@
 
-from .ecosystem_governance import (
-    AutonomousEcosystemGovernance
-)
+from .ecosystem_governance import AutonomousEcosystemGovernance
 

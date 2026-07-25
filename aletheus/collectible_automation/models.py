@@ -7,7 +7,6 @@ Genesis 13.42
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class WorkflowDefinition:
 

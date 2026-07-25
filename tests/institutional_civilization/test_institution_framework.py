@@ -6,12 +6,12 @@ from aletheus.institutional_civilization import (
     ConstitutionalLayer,
     ConstitutionalPillar,
     DuplicateInstitutionError,
+    InstitutionalCivilizationEngine,
     InstitutionCriticality,
     InstitutionRecord,
     InstitutionRegistry,
     InstitutionStatus,
     InstitutionValidationError,
-    InstitutionalCivilizationEngine,
 )
 
 

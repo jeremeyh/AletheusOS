@@ -1,6 +1,7 @@
 import streamlit as st
 from components.executive_ui import hero
 
+
 def render(state):
     hero()
     st.title("💬 Founder AI Workspace™")

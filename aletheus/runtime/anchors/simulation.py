@@ -10,7 +10,6 @@ Simulates runtime evolution before execution.
 import time
 
 
-
 class AnchorEvolutionSimulationEngine:
 
 

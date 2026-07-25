@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 from aletheus.kernel_v2.models import KernelEvent, KernelRegistryItem, KernelState
 
@@ -9,10 +9,10 @@ class AletheusAutonomousKernel:
     def __init__(self) -> None:
         self.version = "2.0.0-alpha"
         self.state = KernelState()
-        self.events: List[KernelEvent] = []
-        self.registry: List[KernelRegistryItem] = []
+        self.events: list[KernelEvent] = []
+        self.registry: list[KernelRegistryItem] = []
 
-    def boot(self, runtime: Any) -> Dict[str, Any]:
+    def boot(self, runtime: Any) -> dict[str, Any]:
         health = runtime.commands.dispatch("runtime.health", {}).results.get("health", {})
 
         self.state.status = "online"
@@ -29,7 +29,7 @@ class AletheusAutonomousKernel:
 
         return self.status()
 
-    def publish(self, event_type: str, source: str, payload: Dict[str, Any] | None = None) -> KernelEvent:
+    def publish(self, event_type: str, source: str, payload: dict[str, Any] | None = None) -> KernelEvent:
         event = KernelEvent(
             event_type=event_type,
             source=source,
@@ -44,7 +44,7 @@ class AletheusAutonomousKernel:
         name: str,
         item_type: str,
         status: str = "registered",
-        metadata: Dict[str, Any] | None = None,
+        metadata: dict[str, Any] | None = None,
     ) -> KernelRegistryItem:
         existing = next(
             (item for item in self.registry if item.name == name and item.item_type == item_type),
@@ -69,7 +69,7 @@ class AletheusAutonomousKernel:
 
         return item
 
-    def sync_runtime(self, runtime: Any) -> Dict[str, Any]:
+    def sync_runtime(self, runtime: Any) -> dict[str, Any]:
         diagnostics = runtime.commands.dispatch("runtime.diagnostics", {}).results
         health = runtime.commands.dispatch("runtime.health", {}).results.get("health", {})
 
@@ -112,7 +112,7 @@ class AletheusAutonomousKernel:
 
         return self.status()
 
-    def route_event(self, event_type: str, source: str, payload: Dict[str, Any] | None = None) -> Dict[str, Any]:
+    def route_event(self, event_type: str, source: str, payload: dict[str, Any] | None = None) -> dict[str, Any]:
         event = self.publish(event_type=event_type, source=source, payload=payload or {})
 
         return {
@@ -126,22 +126,22 @@ class AletheusAutonomousKernel:
             "status": "routed",
         }
 
-    def status(self) -> Dict[str, Any]:
+    def status(self) -> dict[str, Any]:
         return {
             "kernel": self.state.to_dict(),
             "registry_items": len(self.registry),
             "events": len(self.events),
         }
 
-    def snapshot(self) -> Dict[str, Any]:
+    def snapshot(self) -> dict[str, Any]:
         return {
             "status": self.status(),
             "registry": [item.to_dict() for item in self.registry],
             "events": [event.to_dict() for event in self.events[-50:]],
         }
 
-    def stats(self) -> Dict[str, Any]:
-        by_type: Dict[str, int] = {}
+    def stats(self) -> dict[str, Any]:
+        by_type: dict[str, int] = {}
 
         for item in self.registry:
             by_type[item.item_type] = by_type.get(item.item_type, 0) + 1

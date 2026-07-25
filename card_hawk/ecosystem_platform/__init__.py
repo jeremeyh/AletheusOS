@@ -7,7 +7,6 @@ Genesis 70
 
 from .engine import CardHawkEcosystemPlatformEngine
 
-
 __all__ = [
 
     "CardHawkEcosystemPlatformEngine"

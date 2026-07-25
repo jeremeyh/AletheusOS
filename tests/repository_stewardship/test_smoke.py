@@ -1,4 +1,5 @@
-from aletheus.repository import RepositoryStewardshipEngine
+from repository.engine import RepositoryStewardshipEngine
+
 
 def test_smoke():
-    assert RepositoryStewardshipEngine().inspect()['status']=='scaffold'
+    assert RepositoryStewardshipEngine().inspect()["status"] == "scaffold"

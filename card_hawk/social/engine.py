@@ -5,10 +5,9 @@ Genesis 14.25
 """
 
 
-from .profiles import ProfileManager
 from .communities import CommunityEngine
+from .profiles import ProfileManager
 from .reputation import ReputationEngine
-
 
 
 class SocialEngine:

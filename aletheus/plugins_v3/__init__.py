@@ -1,11 +1,11 @@
 from .plugin_core import (
-    Plugin,
     AletheusPluginManager,
+    Plugin,
     plugin_core,
 )
 
 __all__ = [
-    "Plugin",
     "AletheusPluginManager",
+    "Plugin",
     "plugin_core",
 ]

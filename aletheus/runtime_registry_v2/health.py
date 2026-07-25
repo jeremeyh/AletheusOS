@@ -1,12 +1,11 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
-from typing import Dict, List
+from datetime import UTC, datetime
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 @dataclass
@@ -23,9 +22,9 @@ class HealthCheck:
 
     message: str = "Healthy"
 
-    warnings: List[str] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
 
-    metrics: Dict[str, float] = field(default_factory=dict)
+    metrics: dict[str, float] = field(default_factory=dict)
 
     timestamp: str = field(default_factory=utc_now)
 
@@ -41,7 +40,7 @@ class HealthMonitor:
 
     def __init__(self):
 
-        self._checks: Dict[str, HealthCheck] = {}
+        self._checks: dict[str, HealthCheck] = {}
 
     # ---------------------------------------------------------
     # Registration

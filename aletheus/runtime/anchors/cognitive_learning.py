@@ -4,8 +4,8 @@ Cognitive Learning Engine
 """
 
 
-import uuid
 import time
+import uuid
 
 
 class CognitiveLearningEngine:

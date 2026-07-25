@@ -1,6 +1,6 @@
 import json
-from pathlib import Path
 from collections import Counter
+from pathlib import Path
 
 LOG = Path("logs/events.jsonl")
 

@@ -1,6 +1,7 @@
 from intelligence.projections.base import Projection
 from timeline.engine.projection import projection
 
+
 class TimelineProjection(Projection):
 
     name = "Timeline"

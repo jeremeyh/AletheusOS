@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Dict, Iterable, List
 
 
 class CapabilityClassification(str, Enum):
@@ -43,8 +43,8 @@ class CapabilityDescriptor:
     health: CapabilityHealth = CapabilityHealth.UNKNOWN
     version: str = "1.0"
     description: str = ""
-    dependencies: List[str] = field(default_factory=list)
-    metadata: Dict[str, str] = field(default_factory=dict)
+    dependencies: list[str] = field(default_factory=list)
+    metadata: dict[str, str] = field(default_factory=dict)
 
 
 class ExecutiveCapabilityRegistry:
@@ -55,7 +55,7 @@ class ExecutiveCapabilityRegistry:
     """
 
     def __init__(self) -> None:
-        self._capabilities: Dict[str, CapabilityDescriptor] = {}
+        self._capabilities: dict[str, CapabilityDescriptor] = {}
 
     def register(self, capability: CapabilityDescriptor) -> None:
         self._capabilities[capability.capability_id] = capability
@@ -72,7 +72,7 @@ class ExecutiveCapabilityRegistry:
     def all(self) -> Iterable[CapabilityDescriptor]:
         return self._capabilities.values()
 
-    def by_kernel(self, kernel_id: str) -> List[CapabilityDescriptor]:
+    def by_kernel(self, kernel_id: str) -> list[CapabilityDescriptor]:
         return [
             capability
             for capability in self._capabilities.values()

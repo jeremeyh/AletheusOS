@@ -1,7 +1,6 @@
 from ..finding import Severity
 from ..rule_engine import Rule
 
-
 SPAN_DEP_001 = Rule(
     id="SPAN-DEP-001",
     title='Two-way import cycle candidate',

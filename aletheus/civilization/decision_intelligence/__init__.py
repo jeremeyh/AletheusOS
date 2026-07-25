@@ -7,7 +7,6 @@ Post-Genesis 128
 
 from .engine import GlobalDecisionIntelligenceEngine
 
-
 __all__ = [
 
 "GlobalDecisionIntelligenceEngine"

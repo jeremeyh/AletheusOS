@@ -1,5 +1,3 @@
 
-from .evolution_accelerator import (
-    IntelligenceEvolutionAccelerator
-)
+from .evolution_accelerator import IntelligenceEvolutionAccelerator
 

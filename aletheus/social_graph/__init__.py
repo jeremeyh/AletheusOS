@@ -7,7 +7,6 @@ Post-Genesis 67
 
 from .engine import CollectorSocialGraphEngine
 
-
 __all__ = [
 
     "CollectorSocialGraphEngine"

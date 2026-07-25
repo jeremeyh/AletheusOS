@@ -7,7 +7,6 @@ Genesis 49
 
 from .engine import PredictiveEcosystemIntelligenceEngine
 
-
 __all__ = [
     "PredictiveEcosystemIntelligenceEngine"
 ]

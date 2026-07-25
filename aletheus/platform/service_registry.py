@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 
 class ServiceRegistry:
@@ -27,7 +27,7 @@ class ServiceRegistry:
             "metadata": metadata or {},
             "registered":
                 datetime.now(
-                    timezone.utc
+                    UTC
                 ).isoformat(),
         }
 

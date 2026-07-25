@@ -33,6 +33,7 @@ from .validation import (
 )
 
 __all__ = [
+    "SECURITY_INCIDENT_CASE_CONTRACT",
     "CaseContract",
     "CaseCriticality",
     "CaseEventType",
@@ -45,7 +46,6 @@ __all__ = [
     "ConstitutionalCaseRegistry",
     "DuplicateCaseError",
     "InvalidCaseTransitionError",
-    "SECURITY_INCIDENT_CASE_CONTRACT",
     "canonical_case_event_definitions",
     "create_security_incident_case",
     "new_case_id",

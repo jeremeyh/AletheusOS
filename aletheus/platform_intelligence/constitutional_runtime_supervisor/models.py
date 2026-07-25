@@ -5,8 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from enum import StrEnum
-from types import MappingProxyType
-from typing import Any, Mapping
+from typing import Any
 from uuid import UUID, uuid4
 
 
@@ -117,7 +116,7 @@ class RuntimeHealthReport:
         stopped: int,
         recoverable_services: tuple[str, ...],
         services: tuple[ServiceSupervisionRecord, ...],
-    ) -> "RuntimeHealthReport":
+    ) -> RuntimeHealthReport:
         return cls(
             report_id=uuid4(),
             generated_at=datetime.now(UTC),

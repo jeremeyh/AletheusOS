@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 from collections import Counter
+from collections.abc import Iterable
 from types import MappingProxyType
-from typing import Iterable
 
 from aletheus.platform_intelligence.constitutional import (
     ConstitutionalAddress,
@@ -33,7 +33,6 @@ from .results import (
     ExplorerSearchResult,
     RuntimeExplorerStatistics,
 )
-
 
 _UNHEALTHY = frozenset(
     {

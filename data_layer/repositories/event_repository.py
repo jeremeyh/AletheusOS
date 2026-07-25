@@ -1,6 +1,8 @@
-from datetime import datetime
 import json
+from datetime import datetime
+
 from data_layer.database_manager import db
+
 
 class EventRepository:
     @staticmethod

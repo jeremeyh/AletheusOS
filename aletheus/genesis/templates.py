@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 DEFAULT_PACKAGE_FILES = [
     "__init__.py",
     "models.py",

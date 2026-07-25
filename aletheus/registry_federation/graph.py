@@ -9,8 +9,8 @@ and runtime relationships.
 """
 
 
-from pathlib import Path
 import json
+from pathlib import Path
 
 
 class RegistryFederationGraph:

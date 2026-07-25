@@ -7,7 +7,6 @@ Post-Genesis 115
 
 from .engine import StrategicPlanningIntelligenceEngine
 
-
 __all__ = [
 
 "StrategicPlanningIntelligenceEngine"

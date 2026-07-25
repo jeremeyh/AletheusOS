@@ -5,10 +5,9 @@ Genesis 13.46
 """
 
 
+from .certification import CertificationEngine
 from .registry import ExtensionRegistry
 from .sandbox import SandboxRuntime
-from .certification import CertificationEngine
-
 
 
 class AletheusDeveloperSDK:

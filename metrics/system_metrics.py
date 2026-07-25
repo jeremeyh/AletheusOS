@@ -1,4 +1,6 @@
 from observability.telemetry import Telemetry
+
+
 class SystemMetrics:
     @staticmethod
     def snapshot():

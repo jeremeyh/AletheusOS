@@ -7,7 +7,6 @@ Genesis 14.18
 from dataclasses import dataclass
 
 
-
 @dataclass
 class SecurityEvent:
 

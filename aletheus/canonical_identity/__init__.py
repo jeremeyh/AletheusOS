@@ -11,7 +11,6 @@ from .core import (
     CanonicalIdentityFramework,
     canonical_identity_framework,
 )
-
 from .models import (
     CanonicalIdentity,
     IdentityRelationship,
@@ -19,7 +18,6 @@ from .models import (
     IdentityType,
     TrustLevel,
 )
-
 from .registry import (
     CanonicalIdentityRegistry,
     canonical_identity_registry,

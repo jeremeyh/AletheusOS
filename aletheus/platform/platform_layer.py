@@ -1,14 +1,13 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
 import json
 import os
 import platform
 import shutil
 import sys
-from datetime import datetime
 from pathlib import Path
+
+from aletheus.time_utils import utc_now_iso
 
 
 class PlatformLayer:

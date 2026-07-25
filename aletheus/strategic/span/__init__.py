@@ -16,8 +16,6 @@ from .models import (
 )
 
 __all__ = [
-    "SPANCapability",
-    "SPANConfig",
     "AnalysisRequest",
     "AnalysisResult",
     "ConstitutionalAssessment",
@@ -27,5 +25,7 @@ __all__ = [
     "RecommendationPriority",
     "RecommendationStatus",
     "RiskLevel",
+    "SPANCapability",
+    "SPANConfig",
     "build_span",
 ]

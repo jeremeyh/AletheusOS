@@ -43,7 +43,7 @@ class ExecutiveContext:
     decision_engine: ExecutiveDecisionEngine
 
     @classmethod
-    def build(cls) -> "ExecutiveContext":
+    def build(cls) -> ExecutiveContext:
         bus = ExecutiveBus()
         kernel_registry = ExecutiveKernelRegistry()
         capability_registry = ExecutiveCapabilityRegistry()

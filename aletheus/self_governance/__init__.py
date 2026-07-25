@@ -7,7 +7,6 @@ Post-Genesis 35
 
 from .engine import SelfGovernanceEngine
 
-
 __all__ = [
 
     "SelfGovernanceEngine"

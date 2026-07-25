@@ -6,9 +6,8 @@ Version 1.0.0
 
 from __future__ import annotations
 
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 from datetime import datetime
-from typing import Optional
 
 
 @dataclass
@@ -16,18 +15,18 @@ class Asset:
     asset_id: str
     category: str
     title: str
-    player: Optional[str] = None
-    team: Optional[str] = None
-    sport: Optional[str] = None
-    year: Optional[str] = None
-    set_name: Optional[str] = None
-    card_number: Optional[str] = None
-    serial_number: Optional[str] = None
-    grade: Optional[str] = None
+    player: str | None = None
+    team: str | None = None
+    sport: str | None = None
+    year: str | None = None
+    set_name: str | None = None
+    card_number: str | None = None
+    serial_number: str | None = None
+    grade: str | None = None
     purchase_price: float = 0.0
     estimated_value: float = 0.0
-    acquisition_source: Optional[str] = None
-    notes: Optional[str] = None
+    acquisition_source: str | None = None
+    notes: str | None = None
     created_at: str = ""
 
     def __post_init__(self):

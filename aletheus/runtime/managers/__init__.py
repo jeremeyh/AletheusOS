@@ -14,7 +14,6 @@ from .registry_manager import RegistryManager
 from .snapshot_manager import SnapshotManager
 from .validation_manager import ValidationManager
 
-
 __all__ = [
     "CertificationManager",
     "CommandManager",

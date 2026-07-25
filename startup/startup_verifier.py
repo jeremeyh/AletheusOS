@@ -1,6 +1,7 @@
-from security.config_validator import ConfigValidator
 from migrations.migration_runner import MigrationRunner
+from security.config_validator import ConfigValidator
 from versioning.version_manager import VersionManager
+
 
 class StartupVerifier:
     """Startup Verification™."""

@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from enum import StrEnum
 from types import MappingProxyType
-from typing import Any, Mapping
+from typing import Any
 from uuid import UUID, uuid4
 
 
@@ -138,7 +139,7 @@ class ObservatorySnapshot:
         ],
         health: ConstitutionalRuntimeHealthScore,
         drift: tuple[ObservatoryDrift, ...],
-    ) -> "ObservatorySnapshot":
+    ) -> ObservatorySnapshot:
         return cls(
             snapshot_id=uuid4(),
             generated_at=datetime.now(UTC),

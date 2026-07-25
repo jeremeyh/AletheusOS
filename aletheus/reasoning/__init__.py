@@ -7,7 +7,7 @@ from aletheus.reasoning.reasoning_core import (
 
 __all__ = [
     "AletheusCognitiveReasoningEngine",
-    "ReasoningRule",
     "DecisionTrace",
+    "ReasoningRule",
     "reasoning_core",
 ]

@@ -7,7 +7,6 @@ Genesis 13.55
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class RealityObservation:
 

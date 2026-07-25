@@ -14,12 +14,12 @@ from .sessions import session_manager
 from .statistics import identity_statistics
 
 __all__ = [
-    "identity_engine",
-    "identity_registry",
-    "identity_resolver",
     "identity_authentication",
     "identity_authorization",
-    "session_manager",
-    "identity_statistics",
+    "identity_engine",
     "identity_health",
+    "identity_registry",
+    "identity_resolver",
+    "identity_statistics",
+    "session_manager",
 ]

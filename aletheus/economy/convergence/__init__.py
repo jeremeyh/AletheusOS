@@ -7,7 +7,6 @@ Post-Genesis 140
 
 from .engine import UniversalIntelligenceEconomyConvergenceEngine
 
-
 __all__ = [
 
 "UniversalIntelligenceEconomyConvergenceEngine"

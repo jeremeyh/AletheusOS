@@ -4,7 +4,6 @@ from aletheus.runtime.capabilities import (
 )
 from aletheus.runtime.container import RuntimeContainer
 
-
 container = RuntimeContainer()
 registry = RuntimeCapabilityRegistry()
 

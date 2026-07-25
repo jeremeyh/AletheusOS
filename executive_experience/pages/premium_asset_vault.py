@@ -1,7 +1,9 @@
 import streamlit as st
-from services.executive_experience_service import ExecutiveExperienceService
 from components.executive_ui import hero
-from components.cardhawk_utils import row_value, safe_float, roi_percent, money
+from services.executive_experience_service import ExecutiveExperienceService
+
+from components.cardhawk_utils import money, roi_percent, row_value, safe_float
+
 
 def render(state):
     assets = ExecutiveExperienceService.get_assets(state)

@@ -5,11 +5,11 @@ Runtime Snapshot
 
 from datetime import datetime
 
-from kernel.runtime import kernel
 from core.engine_registry import engine_registry
+from core.event_bus import event_bus
 from core.service_registry import service_registry
 from intelligence.projections.manager import projection_manager
-from core.event_bus import event_bus
+from kernel.runtime import kernel
 
 
 def snapshot():

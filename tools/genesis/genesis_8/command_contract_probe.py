@@ -7,7 +7,6 @@ from typing import Any
 
 from aletheus.runtime import runtime_core
 
-
 COMMANDS = (
     "plugin.bootstrap",
     "plugin.install",

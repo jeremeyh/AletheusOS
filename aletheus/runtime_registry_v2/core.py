@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from typing import Dict, List, Optional
 
 from .models import (
     ComponentHealth,
@@ -23,7 +22,7 @@ class RuntimeRegistry:
     """
 
     def __init__(self):
-        self._components: Dict[str, RuntimeComponent] = {}
+        self._components: dict[str, RuntimeComponent] = {}
 
     # ---------------------------------------------------------
     # Registration
@@ -46,7 +45,7 @@ class RuntimeRegistry:
     # Lookup
     # ---------------------------------------------------------
 
-    def get(self, component_id: str) -> Optional[RuntimeComponent]:
+    def get(self, component_id: str) -> RuntimeComponent | None:
 
         return self._components.get(component_id)
 
@@ -58,11 +57,11 @@ class RuntimeRegistry:
     # Enumeration
     # ---------------------------------------------------------
 
-    def all(self) -> List[RuntimeComponent]:
+    def all(self) -> list[RuntimeComponent]:
 
         return list(self._components.values())
 
-    def by_layer(self, layer: RuntimeLayer) -> List[RuntimeComponent]:
+    def by_layer(self, layer: RuntimeLayer) -> list[RuntimeComponent]:
 
         return [
             c

@@ -8,7 +8,6 @@ ShortTermMemoryEngine
 from ..engines.base_engine import CognitiveEngine
 
 
-
 class ShortTermMemoryEngine(
     CognitiveEngine
 ):

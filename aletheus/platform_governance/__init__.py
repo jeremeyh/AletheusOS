@@ -7,7 +7,6 @@ Post-Genesis 79
 
 from .engine import PlatformGovernanceEngine
 
-
 __all__ = [
 
     "PlatformGovernanceEngine"

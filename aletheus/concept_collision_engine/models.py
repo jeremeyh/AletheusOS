@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from datetime import UTC, datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
-from datetime import datetime, timezone
+from typing import Any
 
 
 class CollisionSeverity(str, Enum):
@@ -40,20 +40,20 @@ class ConceptSignature:
     """Canonical semantic fingerprint for a concept."""
 
     name: str
-    authority: Optional[str] = None
-    family: Optional[str] = None
-    knows: Optional[str] = None
-    owns: Optional[str] = None
-    purpose: Optional[str] = None
-    aliases: List[str] = field(default_factory=list)
-    tags: List[str] = field(default_factory=list)
-    source: Optional[str] = None
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    authority: str | None = None
+    family: str | None = None
+    knows: str | None = None
+    owns: str | None = None
+    purpose: str | None = None
+    aliases: list[str] = field(default_factory=list)
+    tags: list[str] = field(default_factory=list)
+    source: str | None = None
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     def normalized_terms(self) -> set[str]:
         terms: set[str] = set()
 
-        def add(value: Optional[str]) -> None:
+        def add(value: str | None) -> None:
             if value:
                 for token in value.replace("_", " ").replace("-", " ").lower().split():
                     if len(token) > 2:
@@ -84,16 +84,16 @@ class CollisionFinding:
     recommended_outcome: CollisionOutcome
     rationale: str
     requires_adr: bool = False
-    created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    created_at: str = field(default_factory=lambda: datetime.now(UTC).isoformat())
 
 
 @dataclass
 class CollisionReport:
     candidate: ConceptSignature
-    findings: List[CollisionFinding] = field(default_factory=list)
+    findings: list[CollisionFinding] = field(default_factory=list)
     passed: bool = True
     summary: str = "No collision detected."
-    created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    created_at: str = field(default_factory=lambda: datetime.now(UTC).isoformat())
 
     def add_finding(self, finding: CollisionFinding) -> None:
         self.findings.append(finding)

@@ -13,7 +13,6 @@ from aletheus.platform_surface import (
     build_aletheus_platform,
 )
 
-
 ASSERTION = "card.future_value.increases"
 
 

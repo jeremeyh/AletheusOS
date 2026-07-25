@@ -1,11 +1,10 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Iterable, List
 
 try:
-    from .audit_service import RepositoryDNAAuditService
     from .audit_models import SubsystemRecord
+    from .audit_service import RepositoryDNAAuditService
 except Exception:  # pragma: no cover - compatibility fallback
     RepositoryDNAAuditService = None
     SubsystemRecord = None

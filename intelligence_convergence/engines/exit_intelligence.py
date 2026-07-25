@@ -1,4 +1,5 @@
-from components.cardhawk_utils import row_value, safe_float, roi_percent
+from components.cardhawk_utils import roi_percent, row_value, safe_float
+
 
 class ExitIntelligence:
     """Exit Intelligence™ recommends hold/sell/grade/auction/consign actions."""

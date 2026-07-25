@@ -8,9 +8,8 @@ next-stage intelligence growth.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class IntelligenceExpansionPreparationEngine:

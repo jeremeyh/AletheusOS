@@ -7,7 +7,6 @@ Post-Genesis 52
 
 from .engine import OrganizationalMemoryEngine
 
-
 __all__ = [
 
     "OrganizationalMemoryEngine"

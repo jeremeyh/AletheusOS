@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class AssetStatus(Enum):
     TARGET='Target'
     NEGOTIATING='Negotiating'

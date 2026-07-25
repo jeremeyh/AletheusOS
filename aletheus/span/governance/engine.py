@@ -1,6 +1,7 @@
 from .decision import Decision
 from .policy_registry import PolicyRegistry
 
+
 class GovernanceEngine:
     def __init__(self, registry=None):
         self.registry=registry or PolicyRegistry.default()

@@ -1,7 +1,6 @@
 from ..finding import Severity
 from ..rule_engine import Rule
 
-
 SPAN_RUN_001 = Rule(
     id="SPAN-RUN-001",
     title='Direct Runtime Core coupling',

@@ -1,12 +1,10 @@
 from __future__ import annotations
 
-from typing import List
-
-from .registry import uci
 from .models import UCINode, UCIRelationship
+from .registry import uci
 
 
-def find_nodes_by_tag(tag: str) -> List[UCINode]:
+def find_nodes_by_tag(tag: str) -> list[UCINode]:
     tag = tag.lower()
 
     return [
@@ -16,7 +14,7 @@ def find_nodes_by_tag(tag: str) -> List[UCINode]:
     ]
 
 
-def find_nodes_by_type(node_type: str) -> List[UCINode]:
+def find_nodes_by_type(node_type: str) -> list[UCINode]:
     return [
         node
         for node in uci.all_nodes()
@@ -24,7 +22,7 @@ def find_nodes_by_type(node_type: str) -> List[UCINode]:
     ]
 
 
-def relationships_for_node(node_id: str) -> List[UCIRelationship]:
+def relationships_for_node(node_id: str) -> list[UCIRelationship]:
     return (
         uci.incoming_relationships(node_id)
         + uci.outgoing_relationships(node_id)

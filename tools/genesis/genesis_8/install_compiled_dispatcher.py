@@ -4,7 +4,6 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parent
 REGISTRY_DIR = ROOT / "aletheus/runtime/commands_v2"
 REGISTRY_FILE = REGISTRY_DIR / "registry.py"

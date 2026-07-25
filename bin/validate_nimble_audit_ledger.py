@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -211,7 +211,7 @@ def main() -> int:
     report = {
         "schema_version": "1.0",
         "generated_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
         "status": status,
         "entry_count": len(entries),

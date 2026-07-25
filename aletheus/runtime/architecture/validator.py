@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Dict, Any
+from typing import Any
 
 
 class ArchitectureValidator:
@@ -11,7 +11,7 @@ class ArchitectureValidator:
         self.version = "1.0.0"
 
 
-    def validate(self) -> Dict[str, Any]:
+    def validate(self) -> dict[str, Any]:
 
         checks = {
 

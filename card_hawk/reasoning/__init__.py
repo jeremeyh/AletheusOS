@@ -7,7 +7,6 @@ Genesis 44
 
 from .engine import CrossDomainReasoningEngine
 
-
 __all__ = [
     "CrossDomainReasoningEngine"
 ]

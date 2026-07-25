@@ -7,7 +7,6 @@ Genesis 50
 
 from .engine import PublicPlatformEngine
 
-
 __all__ = [
     "PublicPlatformEngine"
 ]

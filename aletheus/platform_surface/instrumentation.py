@@ -11,7 +11,6 @@ from aletheus.constitutional_instrumentation import (
     InstrumentState,
 )
 
-
 InstrumentObserver = Callable[
     [InstrumentSignal],
     None,

@@ -10,7 +10,6 @@ Controls bounded runtime evolution.
 import time
 
 
-
 class AnchorGovernanceCouncil:
 
 

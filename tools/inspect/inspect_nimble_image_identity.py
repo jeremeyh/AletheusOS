@@ -6,10 +6,9 @@ import argparse
 import json
 import shutil
 import subprocess
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
-
 
 ROOT = Path(__file__).resolve().parent
 CONTRACT_PATH = (
@@ -81,7 +80,7 @@ def main() -> int:
     docker = shutil.which("docker")
 
     generated_at = datetime.now(
-        timezone.utc
+        UTC
     ).isoformat()
 
     if docker is None:

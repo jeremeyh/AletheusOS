@@ -5,9 +5,8 @@ Genesis 13.10
 """
 
 
-from dataclasses import dataclass
 import time
-
+from dataclasses import dataclass
 
 
 @dataclass

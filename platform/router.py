@@ -1,5 +1,6 @@
 import streamlit as st
 
+
 def render_route(route, state):
     routes = {
         "dashboard": ("live_platform.pages.live_dashboard", "render"),

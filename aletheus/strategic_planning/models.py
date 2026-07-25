@@ -7,7 +7,6 @@ Genesis 13.50
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class StrategicGoal:
 

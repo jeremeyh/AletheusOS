@@ -7,7 +7,6 @@ Post-Genesis 123
 
 from .engine import CollectiveIntelligenceEngine
 
-
 __all__ = [
 
 "CollectiveIntelligenceEngine"

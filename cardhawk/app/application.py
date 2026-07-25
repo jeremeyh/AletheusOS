@@ -4,10 +4,10 @@ Card Hawk Application
 Version 3.1.0
 """
 
-from cardhawk.dashboard import DashboardService
-from cardhawk.services import AssetService
 from cardhawk.analytics import PortfolioAnalytics
+from cardhawk.dashboard import DashboardService
 from cardhawk.portfolio import PortfolioEngine
+from cardhawk.services import AssetService
 
 
 class CardHawkApplication:

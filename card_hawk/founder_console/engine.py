@@ -10,7 +10,6 @@ from .decision_queue import DecisionQueue
 from .timeline import IntelligenceTimeline
 
 
-
 class FounderConsoleEngine:
 
 

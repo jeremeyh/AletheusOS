@@ -1,6 +1,7 @@
 from .node import TwinNode
 from .relationship import Relationship
 
+
 class ArchitecturalDigitalTwin:
     def __init__(self):
         self.nodes={}

@@ -1,12 +1,12 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 path = Path("aletheus/distributed_v3/distributed_core.py")
 text = path.read_text()
 
 pattern = re.compile(
     r"def bootstrap\(self\):.*?def join",
-    re.S,
+    re.DOTALL,
 )
 
 replacement = '''

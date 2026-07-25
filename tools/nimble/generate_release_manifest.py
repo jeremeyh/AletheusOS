@@ -7,10 +7,9 @@ import hashlib
 import json
 import os
 import subprocess
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
-
 
 ROOT = Path(__file__).resolve().parent
 
@@ -182,7 +181,7 @@ def main() -> int:
         "schema_version": "1.0",
         "manifest_id": "nimble-release-manifest-v0.1",
         "generated_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
         "release": {
             "name": "AletheusOS Nimble",

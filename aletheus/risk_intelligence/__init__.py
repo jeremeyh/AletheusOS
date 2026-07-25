@@ -7,7 +7,6 @@ Post-Genesis 26
 
 from .engine import AutonomousRiskIntelligenceEngine
 
-
 __all__ = [
 
     "AutonomousRiskIntelligenceEngine"

@@ -6,12 +6,11 @@ Genesis 158
 
 
 from .efficiency_analyzer import EfficiencyAnalyzer
-from .redundancy_detector import RedundancyDetector
-from .optimization_simulator import OptimizationSimulator
-from .refactoring_engine import RefactoringEngine
 from .impact_analyzer import ImpactAnalyzer
 from .optimization_loop import OptimizationLoop
-
+from .optimization_simulator import OptimizationSimulator
+from .redundancy_detector import RedundancyDetector
+from .refactoring_engine import RefactoringEngine
 
 
 class AutonomousOptimizationEngine:

@@ -1,5 +1,7 @@
 import streamlit as st
+
 from timeline.timeline_service import IntelligenceTimelineService
+
 
 def render(state):
     st.title("🧬 Intelligence Timeline™")

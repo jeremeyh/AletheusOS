@@ -5,6 +5,7 @@ from pathlib import Path
 
 from migrations.migration_registry import registered_migrations
 
+
 class MigrationRunner:
     """Database Migration Framework™."""
 

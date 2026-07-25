@@ -7,7 +7,6 @@ Post-Genesis 49
 
 from .engine import DigitalDepartmentArchitectureEngine
 
-
 __all__ = [
 
     "DigitalDepartmentArchitectureEngine"

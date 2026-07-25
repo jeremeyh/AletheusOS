@@ -1,16 +1,15 @@
 from __future__ import annotations
 
-from typing import Callable, List
+from collections.abc import Callable
 
 from .models import VerificationResult
-
 
 VerificationCheck = Callable[[], VerificationResult]
 
 
 class VerificationRegistry:
     def __init__(self) -> None:
-        self._checks: List[VerificationCheck] = []
+        self._checks: list[VerificationCheck] = []
 
     def register(self, check: VerificationCheck) -> None:
         self._checks.append(check)

@@ -8,12 +8,11 @@ import hashlib
 import json
 import os
 import stat
-import sys
+from collections.abc import Iterable
 from dataclasses import asdict, dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Iterable
-
+from typing import Any
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_POLICY = REPOSITORY_ROOT / "config" / "repository_policy.json"
@@ -42,7 +41,7 @@ class HealthResult:
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def load_policy(path: Path) -> dict[str, Any]:
@@ -431,7 +430,7 @@ def compare_snapshots(
 
 def write_snapshot(snapshot: dict[str, Any]) -> Path:
     SNAPSHOT_DIRECTORY.mkdir(parents=True, exist_ok=True)
-    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     path = SNAPSHOT_DIRECTORY / f"repository-{stamp}.json"
     path.write_text(
         json.dumps(snapshot, indent=2, ensure_ascii=False) + "\n",

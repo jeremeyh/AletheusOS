@@ -6,11 +6,10 @@ Genesis 13.41
 
 
 from .connectors import MarketplaceConnectorRegistry
+from .liquidity import LiquidityMappingEngine
 from .normalization import MarketNormalizationEngine
 from .pricing import MarketPricingEngine
 from .saturation import MarketSaturationEngine
-from .liquidity import LiquidityMappingEngine
-
 
 
 class MarketplaceIntelligenceNetwork:

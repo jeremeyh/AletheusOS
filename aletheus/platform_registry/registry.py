@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from aletheus.contracts import RegistryContract, PlatformComponentContract
+from aletheus.contracts import PlatformComponentContract, RegistryContract
 
 from .models import PlatformComponentRecord
 

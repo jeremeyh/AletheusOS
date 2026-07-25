@@ -1,6 +1,5 @@
-from pathlib import Path
 import re
-
+from pathlib import Path
 
 CORE_PATH = Path("aletheus/runtime/core.py")
 UIL_REGISTRATION_PATH = Path(

@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, asdict, field
-from datetime import datetime
-from typing import Dict, List, Any
 import uuid
+from dataclasses import asdict, dataclass, field
+from typing import Any
+
+from aletheus.time_utils import utc_now, utc_now_iso
 
 
 def utc_now():
@@ -17,7 +16,7 @@ class Event:
 
     event_id: str
     topic: str
-    payload: Dict[str, Any]
+    payload: dict[str, Any]
 
     publisher: str = "runtime"
 
@@ -25,7 +24,7 @@ class Event:
 
     priority: str = "normal"
 
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 class AletheusEventBus:
@@ -34,11 +33,11 @@ class AletheusEventBus:
 
     def __init__(self):
 
-        self.subscribers: Dict[str, List[str]] = {}
+        self.subscribers: dict[str, list[str]] = {}
 
-        self.events: List[Event] = []
+        self.events: list[Event] = []
 
-        self.dead_letter_queue: List[Event] = []
+        self.dead_letter_queue: list[Event] = []
 
     @property
     def version(self):

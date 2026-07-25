@@ -1,12 +1,12 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 path = Path("aletheus/runtime/compat/registry.py")
 text = path.read_text()
 
 pattern = re.compile(
     r"def statistics\(self\):.*?return\s*\{.*?\}",
-    re.S,
+    re.DOTALL,
 )
 
 replacement = '''def statistics(self):

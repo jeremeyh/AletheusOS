@@ -7,7 +7,6 @@ Post-Genesis 32
 
 from .engine import CausalIntelligenceEngine
 
-
 __all__ = [
 
     "CausalIntelligenceEngine"

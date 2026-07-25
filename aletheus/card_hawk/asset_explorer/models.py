@@ -7,7 +7,6 @@ Genesis 13.15
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class AssetViewModel:
 

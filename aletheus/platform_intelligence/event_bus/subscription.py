@@ -35,7 +35,7 @@ class ConstitutionalSubscription:
         ) = None,
         source_prefix: str | None = None,
         subject_prefix: str | None = None,
-    ) -> "ConstitutionalSubscription":
+    ) -> ConstitutionalSubscription:
         return cls(
             subscription_id=uuid4(),
             handler=handler,

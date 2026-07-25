@@ -14,7 +14,6 @@ Used by bounded applications:
 from .base import RuntimeAnchorCircuit
 
 
-
 class ApplicationAnchorCircuit(RuntimeAnchorCircuit):
 
 

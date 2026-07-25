@@ -8,7 +8,6 @@ Genesis 13.24
 from abc import ABC, abstractmethod
 
 
-
 class MarketplaceConnector(ABC):
 
 

@@ -1,11 +1,13 @@
 from __future__ import annotations
+
 from dataclasses import dataclass, field
 
-from aletheus.span.provider_registry import ProviderRegistry
 from aletheus.span.analyzer_registry import AnalyzerRegistry
+from aletheus.span.digital_twin import ArchitecturalDigitalTwin
 from aletheus.span.evidence_store import EvidenceStore
 from aletheus.span.metric_registry import MetricRegistry
-from aletheus.span.digital_twin import ArchitecturalDigitalTwin
+from aletheus.span.provider_registry import ProviderRegistry
+
 
 @dataclass
 class LivePipelineResult:

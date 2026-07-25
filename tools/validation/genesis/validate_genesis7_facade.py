@@ -1,6 +1,5 @@
 from aletheus.runtime import runtime_core
 
-
 print("=== Genesis 7 Validation ===")
 
 

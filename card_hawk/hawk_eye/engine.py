@@ -5,13 +5,12 @@ Genesis 14.5
 """
 
 
+from .condition import ConditionEngine
 from .detection import DetectionEngine
+from .fraud import FraudEngine
+from .matching import MatchingEngine
 from .ocr import OCREngine
 from .recognition import RecognitionEngine
-from .matching import MatchingEngine
-from .condition import ConditionEngine
-from .fraud import FraudEngine
-
 
 
 class HawkEyeEngine:

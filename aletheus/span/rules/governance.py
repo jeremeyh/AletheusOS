@@ -1,7 +1,6 @@
 from ..finding import Severity
 from ..rule_engine import Rule
 
-
 SPAN_GOV_001 = Rule(
     id="SPAN-GOV-001",
     title='SPAN constitutional package missing',

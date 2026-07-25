@@ -1,5 +1,4 @@
 import pytesseract
-
 from PIL import Image
 
 from hawk_aeye.preprocessing.image_processor import ImageProcessor

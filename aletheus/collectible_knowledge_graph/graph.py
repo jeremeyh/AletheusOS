@@ -9,7 +9,6 @@ from .entities import EntityRegistry
 from .relationships import RelationshipEngine
 
 
-
 class KnowledgeGraph:
 
 

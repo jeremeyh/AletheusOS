@@ -40,7 +40,7 @@
     "path": "nimble/governance/audit/deployment-audit-ledger.jsonl"
   },
   "failures": [],
-  "generated_at": "2026-07-23T14:17:01.007632+00:00",
+  "generated_at": "2026-07-25T03:20:09.421110+00:00",
   "mode": "plan_only",
   "mutation_performed": false,
   "next_requirements": {
@@ -48,7 +48,7 @@
     "explicit_apply_command_required": false,
     "pre_recovery_snapshot_required": false
   },
-  "plan_hash": "47555cbb4e37bdfa1eabeb81357cd7e93a570dacef6b7ab0b6ac297f9aa0f808",
+  "plan_hash": "6f329701ff3d448f980346841457cab1b6cffbaa0c70e8e46a7804f1a0a880ba",
   "recommended_action": "none",
   "schema_version": "1.0",
   "trusted_checkpoint": {
@@ -80,7 +80,7 @@
       "script": "bin/validate_nimble_signed_audit_anchor.py",
       "status": "PASS",
       "stderr": "",
-      "stdout": "========================================================================\nNIMBLE\u2122 SIGNED AUDIT ANCHOR\n========================================================================\nCheckpoint hash: da3827583cb7d48ff78f9b6cb3d8f916381db02f09c9f9d1d7e9115f554deed6\nAnchor hash: d5526b475fd0d0e77e13ce821c016d842a3df32ae445c6feb1ff158a76c4a25a\nFailures: 0\nStatus: PASS\nReport: reports/nimble/signed-audit-anchor-validation-latest.json"
+      "stdout": "========================================================================\nNIMBLE\u2122 SIGNED AUDIT ANCHOR\n========================================================================\nCheckpoint hash: da3827583cb7d48ff78f9b6cb3d8f916381db02f09c9f9d1d7e9115f554deed6\nAnchor hash: df02bf2ddbe2b4190305daba49b55e45f097191e03e8b6307c503bcb132e6f6b\nFailures: 0\nStatus: PASS\nReport: reports/nimble/signed-audit-anchor-validation-latest.json"
     }
   ]
 }

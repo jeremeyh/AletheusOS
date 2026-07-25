@@ -8,7 +8,6 @@ Genesis 13.14
 from .widgets import DashboardWidgetFactory
 
 
-
 class CardHawkDashboard:
 
 

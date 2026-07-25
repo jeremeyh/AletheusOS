@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, asdict, field
-from typing import Any, Dict, List
+from dataclasses import asdict, dataclass, field
+from typing import Any
 
 
 @dataclass
@@ -10,7 +10,7 @@ class RuntimeService:
     alias: str
     implementation: Any
     version: str
-    capabilities: List[str] = field(default_factory=list)
+    capabilities: list[str] = field(default_factory=list)
 
 
 class CompatibilityRegistry:
@@ -19,7 +19,7 @@ class CompatibilityRegistry:
 
     def __init__(self):
 
-        self.services: Dict[str, RuntimeService] = {}
+        self.services: dict[str, RuntimeService] = {}
 
     def register(
         self,

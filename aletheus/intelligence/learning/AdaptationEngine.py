@@ -8,7 +8,6 @@ AdaptationEngine
 from ..engines.base_engine import CognitiveEngine
 
 
-
 class AdaptationEngine(
     CognitiveEngine
 ):

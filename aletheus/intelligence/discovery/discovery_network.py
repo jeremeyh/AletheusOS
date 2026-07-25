@@ -9,9 +9,8 @@ and expands intelligence boundaries.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class AutonomousDiscoveryNetwork:

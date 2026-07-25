@@ -4,9 +4,4 @@ Runtime Handler Package
 Genesis 7
 """
 
-from . import graph_handlers
-from . import event_handlers
-
-from . import mission_handlers
-
-from . import compatibility_handlers
+from . import compatibility_handlers, event_handlers, graph_handlers, mission_handlers

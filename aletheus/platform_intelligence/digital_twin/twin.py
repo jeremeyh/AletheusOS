@@ -199,9 +199,7 @@ class PlatformDigitalTwin:
 
         if health_counts["critical"] > 0:
             state = "critical"
-        elif health_counts["offline"] > 0:
-            state = "degraded"
-        elif (
+        elif health_counts["offline"] > 0 or (
             health_counts["degraded"] > 0
             or health_counts["warning"] > 0
         ):
@@ -218,9 +216,7 @@ class PlatformDigitalTwin:
             "state": state,
             "total_services": len(services),
             "counts": dict(health_counts),
-            "unhealthy_services": list(
-                sorted(unhealthy)
-            ),
+            "unhealthy_services": sorted(unhealthy),
         }
 
     def snapshot(

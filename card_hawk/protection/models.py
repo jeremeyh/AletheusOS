@@ -7,7 +7,6 @@ Genesis 14.26
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class ProtectedAsset:
 

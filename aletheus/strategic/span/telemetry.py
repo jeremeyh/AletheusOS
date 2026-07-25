@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 from collections import Counter
+from collections.abc import Mapping
 from threading import RLock
-from typing import Mapping
 
 
 class SPANTelemetry:

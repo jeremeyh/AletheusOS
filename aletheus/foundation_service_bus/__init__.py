@@ -9,11 +9,11 @@ from .registry import FoundationServiceRegistry, foundation_service_registry
 from .router import FoundationServiceRouter, foundation_service_router
 
 __all__ = [
-    "FoundationServiceBus",
+    "CapabilityResolution",
     "FoundationCapability",
     "FoundationExecutionPlan",
     "FoundationExecutionStage",
-    "CapabilityResolution",
+    "FoundationServiceBus",
     "FoundationServiceRegistry",
     "FoundationServiceRouter",
     "foundation_service_bus",

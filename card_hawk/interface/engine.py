@@ -9,7 +9,6 @@ from .intent_classifier import IntentClassifier
 from .request_router import RequestRouter
 
 
-
 class CognitiveInterfaceRouter:
 
 

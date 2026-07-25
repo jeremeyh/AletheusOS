@@ -7,7 +7,6 @@ Genesis 14.11
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class VerificationResult:
 

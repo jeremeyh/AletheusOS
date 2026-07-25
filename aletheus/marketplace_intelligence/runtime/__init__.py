@@ -1,12 +1,10 @@
-from .runtime import MarketplaceConnectorRuntime
 from .connector import MarketplaceConnector
-
+from .runtime import MarketplaceConnectorRuntime
 
 __all__ = [
 
-"MarketplaceConnectorRuntime",
-
-"MarketplaceConnector"
+    "MarketplaceConnector",
+    "MarketplaceConnectorRuntime"
 
 ]
 

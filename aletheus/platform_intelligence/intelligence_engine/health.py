@@ -16,7 +16,6 @@ from .models import (
     PlatformRecommendation,
 )
 
-
 _HEALTH_WEIGHTS = {
     ConstitutionalHealth.HEALTHY: 100.0,
     ConstitutionalHealth.UNKNOWN: 70.0,

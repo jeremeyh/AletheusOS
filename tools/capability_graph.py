@@ -1,6 +1,6 @@
 from aletheus.capability_graph import (
-    bootstrap_graph,
     CapabilityGraphReporter,
+    bootstrap_graph,
 )
 
 

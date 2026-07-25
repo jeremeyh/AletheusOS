@@ -7,7 +7,6 @@ Post-Genesis 129
 
 from .engine import CivilizationGovernanceFrameworkEngine
 
-
 __all__ = [
 
 "CivilizationGovernanceFrameworkEngine"

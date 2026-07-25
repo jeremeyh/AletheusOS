@@ -7,7 +7,6 @@ Genesis 14.27
 from dataclasses import dataclass
 
 
-
 @dataclass
 class PortfolioMetric:
 

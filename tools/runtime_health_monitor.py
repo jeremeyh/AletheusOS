@@ -5,7 +5,6 @@ from aletheus.runtime.lifecycle import (
     RuntimeLifecycleManager,
 )
 
-
 lifecycle = RuntimeLifecycleManager()
 container = RuntimeContainer()
 registry = RuntimeCapabilityRegistry()

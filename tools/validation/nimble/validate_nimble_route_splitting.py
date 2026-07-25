@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from pathlib import Path
 
-
 ASSET_DIRECTORY = Path(
     "nimble/apps/platform-shell/dist/assets"
 )

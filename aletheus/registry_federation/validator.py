@@ -7,8 +7,8 @@ Validates registry ownership,
 engine mappings, and capability topology.
 """
 
-from pathlib import Path
 import json
+from pathlib import Path
 
 
 class RegistryFederationValidator:

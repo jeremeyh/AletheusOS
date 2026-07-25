@@ -1,6 +1,7 @@
 import streamlit as st
-from services.live_platform_service import LivePlatformService
 from components.live_platform_ui import hero
+from services.live_platform_service import LivePlatformService
+
 
 def render(state):
     data = LivePlatformService.dashboard(state)

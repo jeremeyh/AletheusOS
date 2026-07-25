@@ -8,7 +8,7 @@ Runtime composition boundary for federation services.
 
 
 from aletheus.runtime.services.registry_federation_bootstrap import (
-    RegistryFederationBootstrap
+    RegistryFederationBootstrap,
 )
 
 

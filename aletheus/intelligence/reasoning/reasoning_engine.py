@@ -8,9 +8,8 @@ decomposition, inference, and evaluation.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class AdvancedReasoningArchitecture:

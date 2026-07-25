@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
 from types import MappingProxyType
-from typing import AbstractSet, Mapping
+from typing import AbstractSet
 
 from .enums import ConstitutionalState
 from .exceptions import ConstitutionalTransitionError
-
 
 _CANONICAL_TRANSITIONS: Mapping[
     ConstitutionalState,
@@ -94,7 +94,7 @@ class ConstitutionalTransitionPolicy:
     ]
 
     @classmethod
-    def canonical(cls) -> "ConstitutionalTransitionPolicy":
+    def canonical(cls) -> ConstitutionalTransitionPolicy:
         return cls(transitions=_CANONICAL_TRANSITIONS)
 
     def allowed_targets(

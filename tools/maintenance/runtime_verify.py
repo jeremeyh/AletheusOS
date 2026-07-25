@@ -1,9 +1,8 @@
 from __future__ import annotations
 
 import importlib
-import traceback
+from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Callable, List
 
 
 @dataclass
@@ -15,7 +14,7 @@ class CheckResult:
 
 class RuntimeVerifier:
     def __init__(self):
-        self.results: List[CheckResult] = []
+        self.results: list[CheckResult] = []
 
     def check(self, name: str, fn: Callable[[], str | None]):
         try:

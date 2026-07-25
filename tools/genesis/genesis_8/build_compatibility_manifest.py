@@ -10,7 +10,6 @@ from typing import Any
 
 from aletheus.runtime import runtime_core
 
-
 ROOT = Path(__file__).resolve().parent
 TESTS = ROOT / "tests"
 ALETHEUS = ROOT / "aletheus"

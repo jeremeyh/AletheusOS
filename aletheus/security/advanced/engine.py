@@ -9,9 +9,8 @@ from .agent_identity import AgentIdentityEngine
 from .capability_guard import CapabilityGuardEngine
 from .execution_policy import ExecutionPolicyEngine
 from .sandbox import AgentSandboxEngine
-from .trust_manager import TrustManagerEngine
 from .security_events import SecurityEventEngine
-
+from .trust_manager import TrustManagerEngine
 
 
 class SecurityArchitectureEngine:

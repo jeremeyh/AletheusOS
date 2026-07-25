@@ -15,7 +15,6 @@ from jwt import (
 from .auth_config import AuthenticationConfig
 from .contracts import Principal, PrincipalRole
 
-
 _ALLOWED_ROLES: set[str] = {
     "viewer",
     "operator",

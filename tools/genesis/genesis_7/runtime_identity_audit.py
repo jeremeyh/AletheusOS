@@ -17,7 +17,6 @@ from typing import Any
 
 from aletheus.runtime import runtime_core
 
-
 REPORT_DIR = Path("reports/genesis_7_architecture_audit")
 REPORT_PATH = REPORT_DIR / "runtime_identity_audit.txt"
 

@@ -1,9 +1,15 @@
 from dataclasses import dataclass
 from pathlib import Path
+
 from config.constants import (
-    APP_NAME, APP_VERSION, BUILD,
-    SCHEMA_VERSION, PIPELINE_VERSION, DATABASE_VERSION,
+    APP_NAME,
+    APP_VERSION,
+    BUILD,
+    DATABASE_VERSION,
+    PIPELINE_VERSION,
+    SCHEMA_VERSION,
 )
+
 
 @dataclass
 class Settings:

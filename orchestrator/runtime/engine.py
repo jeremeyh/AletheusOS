@@ -1,5 +1,5 @@
-from datetime import datetime
 import time
+from datetime import datetime
 
 from asset_core.repository.asset_repository import AssetRepository
 from decision_engine.runtime.engine import DecisionEngine

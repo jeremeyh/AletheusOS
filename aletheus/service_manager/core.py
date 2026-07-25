@@ -1,8 +1,9 @@
 from __future__ import annotations
 
+from aletheus.contracts import PlatformComponentContract
+
 from .models import ServiceRegistration
 from .registry import ServiceRegistry
-from aletheus.contracts import PlatformComponentContract
 
 
 class ServiceManager(PlatformComponentContract):

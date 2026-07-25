@@ -1,13 +1,13 @@
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any
 
 
 class RuntimeDiagnostics:
     def __init__(self, runtime: Any) -> None:
         self.runtime = runtime
 
-    def report(self) -> Dict[str, Any]:
+    def report(self) -> dict[str, Any]:
         services = list(self.runtime.services.list())
 
         runtime_services = [

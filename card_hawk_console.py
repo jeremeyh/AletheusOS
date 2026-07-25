@@ -6,14 +6,12 @@ Internal Runtime Preview
 """
 
 
-from card_hawk.runtime.engine import CardHawkRuntime
-
+from card_hawk.acquisition_v2.engine import AutonomousAcquisitionEngine
+from card_hawk.assistant.engine import IntelligenceAssistantEngine
 from card_hawk.community.engine import CommunityIntelligenceEngine
 from card_hawk.marketplace_intelligence.engine import MarketplaceIntelligenceEngine
-from card_hawk.acquisition_v2.engine import AutonomousAcquisitionEngine
 from card_hawk.portfolio_v2.engine import PortfolioIntelligenceEngine
-from card_hawk.assistant.engine import IntelligenceAssistantEngine
-
+from card_hawk.runtime.engine import CardHawkRuntime
 
 
 def banner():

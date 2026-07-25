@@ -1,10 +1,10 @@
 from .manager import RuntimeCircuitManager
-from .models import RuntimeCircuit, CircuitActivationResult
+from .models import CircuitActivationResult, RuntimeCircuit
 from .reporter import RuntimeCircuitReporter
 
 __all__ = [
-    "RuntimeCircuitManager",
-    "RuntimeCircuit",
     "CircuitActivationResult",
+    "RuntimeCircuit",
+    "RuntimeCircuitManager",
     "RuntimeCircuitReporter",
 ]

@@ -8,11 +8,9 @@ starting the live AletheusOS runtime.
 from __future__ import annotations
 
 import ast
-from pathlib import Path
 
 from ..evidence_store import EvidenceRecord
 from .base import Provider, ProviderContext
-
 
 RUNTIME_PATH_MARKERS = {
     "runtime",

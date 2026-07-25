@@ -6,12 +6,11 @@ Post-Genesis 15
 
 
 from .action_planner import ActionPlanner
-from .workflow_engine import WorkflowEngine
 from .agent_dispatcher import AgentDispatcher
 from .execution_manager import ExecutionManager
-from .validation_engine import ValidationEngine
 from .outcome_capture import OutcomeCapture
-
+from .validation_engine import ValidationEngine
+from .workflow_engine import WorkflowEngine
 
 
 class AutonomousExecutionEngine:

@@ -4,9 +4,8 @@ import argparse
 import csv
 import json
 import shutil
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-
 
 ROOT = Path(__file__).resolve().parent
 REPORT = (
@@ -17,7 +16,7 @@ REPORT = (
 )
 
 BATCH_ID = datetime.now(
-    timezone.utc
+    UTC
 ).strftime("%Y%m%dT%H%M%SZ")
 
 QUARANTINE_ROOT = (
@@ -235,7 +234,7 @@ def main() -> None:
 
     manifest = {
         "created_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
         "source_report": str(
             REPORT.relative_to(ROOT)

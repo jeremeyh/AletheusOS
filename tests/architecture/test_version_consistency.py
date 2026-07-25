@@ -1,4 +1,5 @@
 from pathlib import Path
+
 import tomllib
 
 from aletheus import __version__

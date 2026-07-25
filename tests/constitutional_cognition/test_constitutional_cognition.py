@@ -16,7 +16,6 @@ from aletheus.constitutional_cognition import (
     VirtueContext,
 )
 
-
 ASSERTION = "card.value.increases"
 
 

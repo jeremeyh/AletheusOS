@@ -1,6 +1,6 @@
-from .models import CoreLifecycleBridgeReport
-
 from aletheus.runtime.core_shim import RuntimeCoreShim
+
+from .models import CoreLifecycleBridgeReport
 
 
 class CoreLifecycleBridge:

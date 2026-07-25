@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, field
-from datetime import datetime
-from typing import Any, Dict, List
 import uuid
+from dataclasses import dataclass, field
+from typing import Any
+
+from aletheus.time_utils import utc_now_iso
 
 
 def now() -> str:
@@ -17,11 +16,11 @@ class CopilotExchange:
     prompt: str
     response: str
     intent: str = "general"
-    actions: List[Dict[str, Any]] = field(default_factory=list)
+    actions: list[dict[str, Any]] = field(default_factory=list)
     exchange_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -35,5 +34,5 @@ class CopilotRecommendation:
     recommendation_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__

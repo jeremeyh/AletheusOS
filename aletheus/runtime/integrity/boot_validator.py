@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any
 
 
 class RuntimeBootValidator:
@@ -9,7 +9,7 @@ class RuntimeBootValidator:
     def __init__(self, runtime: Any):
         self.runtime = runtime
 
-    def validate(self) -> Dict[str, Any]:
+    def validate(self) -> dict[str, Any]:
         checks = {
             "status_online": getattr(self.runtime, "status", None) == "online",
             "commands_registered": len(self.runtime.commands.list()) > 0,

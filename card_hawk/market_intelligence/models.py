@@ -4,8 +4,7 @@ Market Intelligence Models
 Genesis 14.13
 """
 
-from dataclasses import dataclass, field
-
+from dataclasses import dataclass
 
 
 @dataclass

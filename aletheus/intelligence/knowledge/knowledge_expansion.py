@@ -8,9 +8,8 @@ knowledge foundation.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class AutonomousKnowledgeExpansionEngine:

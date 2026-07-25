@@ -9,7 +9,6 @@ from .priority import NotificationPriorityEngine
 from .routing import NotificationRouter
 
 
-
 class CardHawkNotificationEngine:
 
 

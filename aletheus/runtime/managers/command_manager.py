@@ -6,9 +6,7 @@ Genesis 7.4
 Canonical command surface authority.
 """
 
-from aletheus.runtime.command_bootstrap.bootstrapper import (
-    RuntimeCommandBootstrapper
-)
+from aletheus.runtime.command_bootstrap.bootstrapper import RuntimeCommandBootstrapper
 
 
 class CommandManager:

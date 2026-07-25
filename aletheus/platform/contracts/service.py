@@ -11,7 +11,7 @@ class PlatformService(ABC):
 
     def initialize(self):
         """Initialize the service."""
-        return None
+        return
 
     def health(self):
         """Return service health."""
@@ -29,4 +29,4 @@ class PlatformService(ABC):
 
     def shutdown(self):
         """Gracefully stop the service."""
-        return None
+        return

@@ -2,84 +2,87 @@ from __future__ import annotations
 
 from typing import Any
 
-from aletheus.memory import memory_core
-from aletheus.cognition import cognition_core
-from aletheus.knowledge import knowledge_core
-from aletheus.mission import mission_core
-from aletheus.workspace import workspace_core
-from aletheus.applications import application_core
-from aletheus.release import release_core
-from aletheus.semantic import semantic_core
-from aletheus.executive import executive_core
 from aletheus.agents import agent_core
-from aletheus.planning import planning_core
-from aletheus.copilot import copilot_core
-from aletheus.intelligence import intelligence_core
-from aletheus.prediction import prediction_core
-from aletheus.learning import learning_core
-from aletheus.kernel_v2 import kernel_core
-from aletheus.missions_v2 import mission_v2_core
-from aletheus.workflows_v2 import workflow_v2_core
-from aletheus.enterprise import enterprise_core
-from aletheus.memory_mesh import memory_mesh_core
-from aletheus.knowledge_graph import knowledge_graph_core
-from aletheus.reasoning import reasoning_core
-from aletheus.decision_v2 import decision_core
 from aletheus.agents_v2 import agent_core
-from aletheus.workflow_v3 import workflow_core
-from aletheus.planning_v2 import planning_core
+from aletheus.applications import application_core
+from aletheus.cognition import cognition_core
+from aletheus.copilot import copilot_core
+from aletheus.decision_v2 import decision_core
 from aletheus.distributed_v3 import distributed_v3_core
-from aletheus.plugins_v3 import plugin_core
-from aletheus.persistence_v3 import persistence_core
+from aletheus.enterprise import enterprise_core
 from aletheus.event_bus_v3 import event_bus_core
+from aletheus.executive import executive_core
 from aletheus.federation_v3 import federation_core
-from aletheus.telemetry_v3 import telemetry_core
 from aletheus.high_availability_v3 import high_availability_core
-from aletheus.security_v3 import security_core
-from aletheus.tenancy_v3 import tenancy_core
-from aletheus.runtime.kernel import (
-    intelligence_orchestrator,
-    intelligence_scheduler,
-    intelligence_dispatcher,
-    intelligence_supervisor,
-    KernelExecutor,
-)
+from aletheus.intelligence import intelligence_core
+from aletheus.kernel_v2 import kernel_core
+from aletheus.knowledge import knowledge_core
+from aletheus.knowledge_graph import knowledge_graph_core
+from aletheus.learning import learning_core
+from aletheus.memory import memory_core
+from aletheus.memory_mesh import memory_mesh_core
+from aletheus.mission import mission_core
+from aletheus.missions_v2 import mission_v2_core
+from aletheus.persistence_v3 import persistence_core
+from aletheus.planning import planning_core
+from aletheus.planning_v2 import planning_core
 from aletheus.plugins.runtime_plugin_manager import RuntimePluginManager
+from aletheus.plugins_v3 import plugin_core
+from aletheus.prediction import prediction_core
+from aletheus.reasoning import reasoning_core
+from aletheus.release import release_core
 from aletheus.runtime.commands import CommandBus
-from aletheus.runtime.context import RuntimeContext
 from aletheus.runtime.compat import compatibility_registry
+from aletheus.runtime.context import RuntimeContext
 from aletheus.runtime.diagnostics import RuntimeDiagnostics
 from aletheus.runtime.events import EventBus
-from aletheus.runtime.job_queue import JobQueue
-from aletheus.runtime.metrics import RuntimeMetrics
-from aletheus.runtime.pipeline import Pipeline, PipelineExecutor
-from aletheus.runtime.registries import EngineRegistry
-from aletheus.runtime.scheduler import Scheduler
-from aletheus.runtime.workflow import WorkflowExecutor, WorkflowGraph
-from aletheus.runtime.hardening import RuntimeHardening
-from aletheus.runtime.integrity import RuntimeDoctor
 from aletheus.runtime.governance import (
     GovernanceEngine,
     PrincipleXValidator,
 )
-from aletheus.runtime.services import ServiceRegistry
-from aletheus.runtime.registrations import (
-    register_runtime_commands,
-    register_memory_commands,
-    register_reasoning_commands,
-    register_decision_commands,
-    register_graph_commands,
-    register_mission_commands,
-    register_workspace_commands,
-    register_application_commands,
-    register_semantic_commands,
-    register_executive_commands,
-    register_agent_commands,
-    register_planning_commands,
-    register_copilot_commands,
-    register_uil_commands,
+from aletheus.runtime.hardening import RuntimeHardening
+from aletheus.runtime.integrity import (
+    RuntimeBootValidator,
+    RuntimeDoctor,
+    RuntimeInvariantEngine,
 )
-from aletheus.runtime.integrity import RuntimeInvariantEngine, RuntimeBootValidator
+from aletheus.runtime.job_queue import JobQueue
+from aletheus.runtime.kernel import (
+    KernelExecutor,
+    intelligence_dispatcher,
+    intelligence_orchestrator,
+    intelligence_scheduler,
+    intelligence_supervisor,
+)
+from aletheus.runtime.metrics import RuntimeMetrics
+from aletheus.runtime.pipeline import Pipeline, PipelineExecutor
+from aletheus.runtime.registrations import (
+    register_agent_commands,
+    register_application_commands,
+    register_copilot_commands,
+    register_decision_commands,
+    register_executive_commands,
+    register_graph_commands,
+    register_memory_commands,
+    register_mission_commands,
+    register_planning_commands,
+    register_reasoning_commands,
+    register_runtime_commands,
+    register_semantic_commands,
+    register_uil_commands,
+    register_workspace_commands,
+)
+from aletheus.runtime.registries import EngineRegistry
+from aletheus.runtime.scheduler import Scheduler
+from aletheus.runtime.services import ServiceRegistry
+from aletheus.runtime.workflow import WorkflowExecutor, WorkflowGraph
+from aletheus.security_v3 import security_core
+from aletheus.semantic import semantic_core
+from aletheus.telemetry_v3 import telemetry_core
+from aletheus.tenancy_v3 import tenancy_core
+from aletheus.workflow_v3 import workflow_core
+from aletheus.workflows_v2 import workflow_v2_core
+from aletheus.workspace import workspace_core
 
 
 class AletheusRuntime:

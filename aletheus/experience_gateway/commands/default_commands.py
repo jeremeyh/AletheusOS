@@ -9,7 +9,6 @@ from .contracts import (
     CommandRegistry,
 )
 
-
 _shell_preferences: dict[str, Any] = {
     "inspectorOpen": True,
 }

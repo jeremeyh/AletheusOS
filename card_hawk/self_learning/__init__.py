@@ -7,7 +7,6 @@ Genesis 82
 
 from .engine import SelfLearningIntelligenceEngine
 
-
 __all__ = [
 
     "SelfLearningIntelligenceEngine"

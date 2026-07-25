@@ -5,11 +5,10 @@ Genesis 100.5
 """
 
 
-from .genesis_registry import GenesisRegistry
-from .capability_topology import CapabilityTopology
-from .health_matrix import HealthMatrix
 from .application_registry import ApplicationRegistry
-
+from .capability_topology import CapabilityTopology
+from .genesis_registry import GenesisRegistry
+from .health_matrix import HealthMatrix
 
 
 class RuntimeConvergenceEngine:
@@ -30,7 +29,7 @@ class RuntimeConvergenceEngine:
     def initialize(self):
 
 
-        for genesis in range(0,101):
+        for genesis in range(101):
 
             self.registry.register(
 

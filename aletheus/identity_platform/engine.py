@@ -5,12 +5,11 @@ Genesis 13.44
 """
 
 
-from .users import UserRegistry
 from .organizations import OrganizationRegistry
-from .tenants import TenantManager
 from .permissions import PermissionEngine
 from .policies import PolicyEngine
-
+from .tenants import TenantManager
+from .users import UserRegistry
 
 
 class IdentityPlatformEngine:

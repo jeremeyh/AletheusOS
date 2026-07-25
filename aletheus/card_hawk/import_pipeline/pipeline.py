@@ -5,10 +5,9 @@ Genesis 13.20
 """
 
 
+from .enrichment import AssetEnrichmentEngine
 from .normalizer import AssetNormalizer
 from .validator import AssetValidator
-from .enrichment import AssetEnrichmentEngine
-
 
 
 class CardHawkImportPipeline:

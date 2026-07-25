@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 class OntologyEntityType(str, Enum):
@@ -92,14 +92,14 @@ class OntologyEntity:
     description: str = ""
     status: OntologyStatus = OntologyStatus.PROPOSED
 
-    family: Optional[str] = None
-    authority: Optional[str] = None
-    authority_sentence: Optional[str] = None
-    genesis: Optional[str] = None
+    family: str | None = None
+    authority: str | None = None
+    authority_sentence: str | None = None
+    genesis: str | None = None
 
-    aliases: List[str] = field(default_factory=list)
-    tags: List[str] = field(default_factory=list)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    aliases: list[str] = field(default_factory=list)
+    tags: list[str] = field(default_factory=list)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     created_at: str = field(default_factory=utc_now)
     updated_at: str = field(default_factory=utc_now)
@@ -116,7 +116,7 @@ class OntologyRelationship:
 
     description: str = ""
     confidence: float = 1.0
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     created_at: str = field(default_factory=utc_now)
     updated_at: str = field(default_factory=utc_now)
@@ -135,7 +135,7 @@ class ConceptCollision:
 
     recommendation: str = "review"
     status: OntologyStatus = OntologyStatus.PROPOSED
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     created_at: str = field(default_factory=utc_now)
     updated_at: str = field(default_factory=utc_now)
@@ -147,12 +147,12 @@ class OntologyLineage:
 
     lineage_id: str
     entity_id: str
-    predecessor_ids: List[str] = field(default_factory=list)
-    successor_ids: List[str] = field(default_factory=list)
-    superseded_by: Optional[str] = None
-    archived_reason: Optional[str] = None
+    predecessor_ids: list[str] = field(default_factory=list)
+    successor_ids: list[str] = field(default_factory=list)
+    superseded_by: str | None = None
+    archived_reason: str | None = None
     migration_status: str = "unknown"
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     created_at: str = field(default_factory=utc_now)
     updated_at: str = field(default_factory=utc_now)
@@ -160,9 +160,9 @@ class OntologyLineage:
 
 @dataclass
 class OntologyQueryResult:
-    entities: List[OntologyEntity] = field(default_factory=list)
-    relationships: List[OntologyRelationship] = field(default_factory=list)
-    collisions: List[ConceptCollision] = field(default_factory=list)
+    entities: list[OntologyEntity] = field(default_factory=list)
+    relationships: list[OntologyRelationship] = field(default_factory=list)
+    collisions: list[ConceptCollision] = field(default_factory=list)
     total_entities: int = 0
     total_relationships: int = 0
     total_collisions: int = 0

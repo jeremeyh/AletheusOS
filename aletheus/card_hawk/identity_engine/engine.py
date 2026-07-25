@@ -5,18 +5,9 @@ Genesis 13.21
 """
 
 
-from .fingerprint import (
-    AssetFingerprintGenerator
-)
-
-from .matcher import (
-    AssetMatcher
-)
-
-from .models import (
-    AssetIdentity
-)
-
+from .fingerprint import AssetFingerprintGenerator
+from .matcher import AssetMatcher
+from .models import AssetIdentity
 
 
 class CardHawkIdentityEngine:

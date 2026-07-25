@@ -8,11 +8,8 @@ and AletheusOS intelligence services.
 """
 
 
+from .models import IntelligenceRequest, IntelligenceResponse
 from .routing import IntelligenceRouter
-from .models import (
-    IntelligenceRequest,
-    IntelligenceResponse
-)
 
 
 class CardHawkIntelligenceGateway:

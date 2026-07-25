@@ -1,6 +1,5 @@
-from .pipeline import CardHawkImportPipeline
 from .models import ImportedAsset
-
+from .pipeline import CardHawkImportPipeline
 
 __all__ = [
 

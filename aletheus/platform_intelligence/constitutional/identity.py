@@ -60,7 +60,7 @@ class ConstitutionalIdentity:
         address: str | ConstitutionalAddress,
         kind: ConstitutionalKind,
         object_id: UUID | None = None,
-    ) -> "ConstitutionalIdentity":
+    ) -> ConstitutionalIdentity:
         constitutional_address = (
             address
             if isinstance(address, ConstitutionalAddress)

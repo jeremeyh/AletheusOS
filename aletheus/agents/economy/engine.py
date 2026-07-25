@@ -5,13 +5,12 @@ Post-Genesis 8
 """
 
 
-from .identity import AgentIdentityEngine
-from .reputation import AgentReputationEngine
-from .marketplace import AgentMarketplaceEngine
-from .collaboration import AgentCollaborationEngine
-from .services import AgentServiceEngine
 from .analytics import AgentAnalyticsEngine
-
+from .collaboration import AgentCollaborationEngine
+from .identity import AgentIdentityEngine
+from .marketplace import AgentMarketplaceEngine
+from .reputation import AgentReputationEngine
+from .services import AgentServiceEngine
 
 
 class AgentEconomyEngine:

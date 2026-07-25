@@ -3,8 +3,8 @@ from aletheus.mission.models import Mission, MissionRun, MissionTask
 
 __all__ = [
     "AletheusMissionCore",
-    "mission_core",
     "Mission",
     "MissionRun",
     "MissionTask",
+    "mission_core",
 ]

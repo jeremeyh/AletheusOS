@@ -7,7 +7,6 @@ Genesis 14.2
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class PortfolioSnapshot:
 

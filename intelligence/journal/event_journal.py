@@ -4,8 +4,8 @@ Intelligence Event Journal
 """
 
 import json
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
 LOG = Path("logs/events.jsonl")
 

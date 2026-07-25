@@ -1,18 +1,16 @@
 from __future__ import annotations
 
-from typing import Dict, Optional
-
-from .models import (
-    Intent,
-    IntentStatus,
-)
-
 from aletheus.unified_cognitive_index.core import (
     uci_service,
 )
 from aletheus.unified_cognitive_index.models import (
     UCINode,
     UCINodeType,
+)
+
+from .models import (
+    Intent,
+    IntentStatus,
 )
 
 
@@ -34,7 +32,7 @@ class IntentRuntime:
 
     def __init__(self):
 
-        self._active: Dict[str, Intent] = {}
+        self._active: dict[str, Intent] = {}
 
     # --------------------------------------------------
     # Registration
@@ -68,7 +66,7 @@ class IntentRuntime:
     def get(
         self,
         intent_id: str,
-    ) -> Optional[Intent]:
+    ) -> Intent | None:
 
         return self._active.get(intent_id)
 

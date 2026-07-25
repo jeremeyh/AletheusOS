@@ -1,5 +1,3 @@
 
-from .recursive_improvement import (
-    RecursiveImprovementGovernanceEngine
-)
+from .recursive_improvement import RecursiveImprovementGovernanceEngine
 

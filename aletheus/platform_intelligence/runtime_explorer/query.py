@@ -6,7 +6,6 @@ from dataclasses import dataclass
 
 from .exceptions import ExplorerQueryError
 
-
 _ALLOWED_FIELDS = frozenset(
     {
         "text",
@@ -30,7 +29,7 @@ class ExplorerQuery:
     def parse(
         cls,
         expression: str,
-    ) -> "ExplorerQuery":
+    ) -> ExplorerQuery:
         normalized = expression.strip()
 
         if not normalized:

@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from threading import RLock
-from typing import Iterable
 
 from aletheus.platform_intelligence.constitutional_runtime_executive.models import (
     ExecutiveContext,
@@ -25,7 +25,6 @@ from .models import (
     PolicyEngineStatistics,
     PolicyEvaluation,
 )
-
 
 _DECISION_PRECEDENCE = {
     ExecutiveDecision.NO_ACTION: 0,

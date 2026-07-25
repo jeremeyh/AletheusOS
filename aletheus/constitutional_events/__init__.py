@@ -43,9 +43,9 @@ __all__ = [
     "EventTypeDefinition",
     "LedgerEventSubscriber",
     "SecurityEventType",
-    "canonical_security_event_definitions",
-    "register_security_event_types",
     "build_canonical_event_registry",
     "canonical_event_definitions",
+    "canonical_security_event_definitions",
     "new_event_id",
+    "register_security_event_types",
 ]

@@ -5,13 +5,12 @@ Genesis 14.6
 """
 
 
+from .collector import CollectorIntelligence
+from .comparables import ComparableEngine
 from .entities import EntityRegistry
 from .graph import KnowledgeGraph
-from .relationships import RelationshipEngine
-from .comparables import ComparableEngine
 from .narratives import NarrativeEngine
-from .collector import CollectorIntelligence
-
+from .relationships import RelationshipEngine
 
 
 class KnowledgeGraphEngine:

@@ -6,7 +6,7 @@ from aletheus.intelligence.models import IntelligenceContext, IntelligenceDecisi
 
 __all__ = [
     "AletheusUniversalIntelligence",
-    "intelligence_core",
     "IntelligenceContext",
     "IntelligenceDecision",
+    "intelligence_core",
 ]

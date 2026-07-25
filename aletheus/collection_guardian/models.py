@@ -7,7 +7,6 @@ Genesis 13.40
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class GuardianAlert:
 

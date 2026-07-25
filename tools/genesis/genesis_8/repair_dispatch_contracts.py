@@ -4,7 +4,6 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parent
 DISPATCHER = ROOT / "aletheus/runtime/commands_v2/dispatcher.py"
 COMMAND_BUS = ROOT / "aletheus/runtime/commands/command_bus.py"

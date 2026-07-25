@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, field
-from datetime import datetime
-from typing import Dict, List, Any
 import uuid
+from dataclasses import dataclass, field
+from typing import Any
+
+from aletheus.time_utils import utc_now, utc_now_iso
 
 
 def utc_now() -> str:
@@ -20,11 +19,11 @@ class RuntimeNode:
     health: str = "healthy"
 
     node_id: str = field(default_factory=lambda: str(uuid.uuid4()))
-    capabilities: List[str] = field(default_factory=list)
-    services: List[str] = field(default_factory=list)
-    agents: List[str] = field(default_factory=list)
-    workflows: List[str] = field(default_factory=list)
-    plans: List[str] = field(default_factory=list)
+    capabilities: list[str] = field(default_factory=list)
+    services: list[str] = field(default_factory=list)
+    agents: list[str] = field(default_factory=list)
+    workflows: list[str] = field(default_factory=list)
+    plans: list[str] = field(default_factory=list)
 
     created_at: str = field(default_factory=utc_now)
     last_seen: str = field(default_factory=utc_now)
@@ -59,8 +58,8 @@ class RuntimeCluster:
     name: str
     cluster_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     leader_node_id: str = ""
-    nodes: Dict[str, RuntimeNode] = field(default_factory=dict)
-    jobs: List[Dict[str, Any]] = field(default_factory=list)
+    nodes: dict[str, RuntimeNode] = field(default_factory=dict)
+    jobs: list[dict[str, Any]] = field(default_factory=list)
     created_at: str = field(default_factory=utc_now)
     health: str = "healthy"
 

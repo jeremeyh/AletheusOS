@@ -8,7 +8,6 @@ FutureModelingEngine
 from ..engines.base_engine import CognitiveEngine
 
 
-
 class FutureModelingEngine(
     CognitiveEngine
 ):

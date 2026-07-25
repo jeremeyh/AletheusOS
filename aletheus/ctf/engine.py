@@ -1,11 +1,7 @@
 from __future__ import annotations
 
 import uuid
-from typing import Any, Dict
-
-from .models import CTFRouteRequest
-from .registry import CTFRegistry
-from .router import CTFRouter
+from typing import Any
 
 from aletheus.runtime_registry_v2.models import (
     ComponentHealth,
@@ -13,6 +9,10 @@ from aletheus.runtime_registry_v2.models import (
     RuntimeComponent,
     RuntimeLayer,
 )
+
+from .models import CTFRouteRequest
+from .registry import CTFRegistry
+from .router import CTFRouter
 
 
 class CognitiveTransitFabric:
@@ -89,7 +89,7 @@ class CognitiveTransitFabric:
     def execute(
         self,
         route_key: str,
-        payload: Dict[str, Any],
+        payload: dict[str, Any],
         *,
         intent_id: str | None = None,
         source: str = "runtime",

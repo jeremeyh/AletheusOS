@@ -7,7 +7,6 @@ Genesis 13.21
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class AssetIdentity:
 

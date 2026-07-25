@@ -5,13 +5,12 @@ Post-Genesis 9
 """
 
 
-from .intelligence import BusinessIntelligenceEngine
-from .workflows import WorkflowOrchestrationEngine
-from .orchestration import AgentTeamOrchestrationEngine
-from .operations import BusinessOperationsEngine
-from .revenue import RevenueIntelligenceEngine
 from .decision_engine import AutonomousDecisionEngine
-
+from .intelligence import BusinessIntelligenceEngine
+from .operations import BusinessOperationsEngine
+from .orchestration import AgentTeamOrchestrationEngine
+from .revenue import RevenueIntelligenceEngine
+from .workflows import WorkflowOrchestrationEngine
 
 
 class AutonomousBusinessEngine:

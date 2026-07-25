@@ -8,7 +8,6 @@ KnowledgeGraphEngine
 from ..engines.base_engine import CognitiveEngine
 
 
-
 class KnowledgeGraphEngine(
     CognitiveEngine
 ):

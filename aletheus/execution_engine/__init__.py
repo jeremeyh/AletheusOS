@@ -8,7 +8,6 @@ from .core import (
     AletheusExecutionEngine,
     execution_engine,
 )
-
 from .models import (
     ExecutionRecord,
     new_execution_id,

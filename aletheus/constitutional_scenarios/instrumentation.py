@@ -13,7 +13,6 @@ from aletheus.constitutional_instrumentation import (
 
 from .models import ScenarioOutcome
 
-
 SCENARIO_CONFIDENCE_ID = (
     "aletheus.instrument.scenario_confidence"
 )

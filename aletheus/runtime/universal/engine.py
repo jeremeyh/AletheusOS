@@ -5,10 +5,9 @@ Genesis 91.5
 """
 
 
+from .application_binding import ApplicationBinding
 from .capability_registry import UniversalCapabilityRegistry
 from .runtime_topology import RuntimeTopology
-from .application_binding import ApplicationBinding
-
 
 
 class UniversalRuntimeIntegrationEngine:

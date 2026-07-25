@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+import re
 import subprocess
 import time
-import re
 
 from aletheus.platform_verification.models import (
     VerificationResult,

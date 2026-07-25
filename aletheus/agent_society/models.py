@@ -4,8 +4,7 @@ Agent Society Models
 Genesis 13.51
 """
 
-from dataclasses import dataclass, field
-
+from dataclasses import dataclass
 
 
 @dataclass

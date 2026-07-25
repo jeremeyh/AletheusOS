@@ -1,6 +1,5 @@
-from pathlib import Path
 import ast
-
+from pathlib import Path
 
 PATH = Path(
     "aletheus/runtime/command_bootstrap/bootstrapper.py"

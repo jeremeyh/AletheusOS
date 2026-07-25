@@ -7,7 +7,6 @@ Post-Genesis 90
 
 from .engine import IntelligenceOperatingKernelEngine
 
-
 __all__ = [
 
 "IntelligenceOperatingKernelEngine"

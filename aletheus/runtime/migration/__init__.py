@@ -1,7 +1,7 @@
-from .tracker import RuntimeMigrationTracker
 from .reporter import RuntimeMigrationReporter
+from .tracker import RuntimeMigrationTracker
 
 __all__ = [
-    "RuntimeMigrationTracker",
     "RuntimeMigrationReporter",
+    "RuntimeMigrationTracker",
 ]

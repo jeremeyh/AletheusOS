@@ -12,7 +12,6 @@ from __future__ import annotations
 from .governance import constitutional_library_governance
 from .models import (
     KnowledgeObject,
-    KnowledgeStatus,
     KnowledgeType,
     new_knowledge_id,
 )

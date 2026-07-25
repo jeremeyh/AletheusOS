@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Callable, Dict, List, Optional
+from collections.abc import Callable
 
 from .models import CTFPathway
 
@@ -21,9 +21,9 @@ class CTFRegistry:
 
     def __init__(self):
 
-        self._routes: Dict[str, Callable] = {}
+        self._routes: dict[str, Callable] = {}
 
-        self._pathways: Dict[str, CTFPathway] = {}
+        self._pathways: dict[str, CTFPathway] = {}
 
     # ---------------------------------------------------------
     # Route Registration
@@ -56,7 +56,7 @@ class CTFRegistry:
     def resolve(
         self,
         route_key: str,
-    ) -> Optional[Callable]:
+    ) -> Callable | None:
 
         return self._routes.get(route_key)
 
@@ -67,7 +67,7 @@ class CTFRegistry:
 
         return route_key in self._routes
 
-    def routes(self) -> List[str]:
+    def routes(self) -> list[str]:
 
         return sorted(self._routes.keys())
 
@@ -85,11 +85,11 @@ class CTFRegistry:
     def pathway(
         self,
         pathway_id: str,
-    ) -> Optional[CTFPathway]:
+    ) -> CTFPathway | None:
 
         return self._pathways.get(pathway_id)
 
-    def pathways(self) -> List[CTFPathway]:
+    def pathways(self) -> list[CTFPathway]:
 
         return list(self._pathways.values())
 
@@ -97,7 +97,7 @@ class CTFRegistry:
     # Statistics
     # ---------------------------------------------------------
 
-    def statistics(self) -> Dict[str, int]:
+    def statistics(self) -> dict[str, int]:
 
         return {
             "routes": len(self._routes),

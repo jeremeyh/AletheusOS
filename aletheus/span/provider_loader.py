@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
 import importlib
 import inspect
 import pkgutil
+from collections.abc import Iterable, Sequence
+from dataclasses import dataclass, field
 from types import ModuleType
-from typing import Iterable, Sequence
 
 from .provider_registry import ProviderRegistry
 from .providers.base import Provider

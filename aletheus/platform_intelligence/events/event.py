@@ -4,10 +4,11 @@ from __future__ import annotations
 
 import hashlib
 import json
+from collections.abc import Mapping
 from dataclasses import dataclass, field, replace
 from datetime import UTC, datetime
 from types import MappingProxyType
-from typing import Any, Mapping
+from typing import Any
 from uuid import UUID, uuid4
 
 from aletheus.platform_intelligence.constitutional import (
@@ -118,7 +119,7 @@ class ConstitutionalEvent:
         schema_version: str = "1.0",
         event_id: UUID | None = None,
         occurred_at: datetime | None = None,
-    ) -> "ConstitutionalEvent":
+    ) -> ConstitutionalEvent:
         return cls(
             event_id=event_id or uuid4(),
             kind=kind,
@@ -145,7 +146,7 @@ class ConstitutionalEvent:
     def with_sequence(
         self,
         sequence: int,
-    ) -> "ConstitutionalEvent":
+    ) -> ConstitutionalEvent:
         """Return a sequenced copy without mutating the original event."""
 
         if sequence < 0:
@@ -160,8 +161,8 @@ class ConstitutionalEvent:
 
     def caused_by(
         self,
-        event: "ConstitutionalEvent",
-    ) -> "ConstitutionalEvent":
+        event: ConstitutionalEvent,
+    ) -> ConstitutionalEvent:
         """Return a copy causally linked to another event."""
 
         return replace(

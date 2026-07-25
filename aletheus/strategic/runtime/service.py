@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from time import perf_counter
-from typing import Any, Mapping
+from typing import Any
 
 from aletheus.strategic.span import build_span
 from aletheus.strategic.spartan import build_spartan
@@ -54,7 +55,7 @@ class SPANRuntimeService:
             raise RuntimeError("SPARTAN has not been initialized")
         return self._spartan
 
-    def initialize(self) -> "SPANRuntimeService":
+    def initialize(self) -> SPANRuntimeService:
         if self._status in {
             RuntimeCapabilityStatus.INITIALIZED,
             RuntimeCapabilityStatus.RUNNING,
@@ -70,7 +71,7 @@ class SPANRuntimeService:
             self._fail(exc)
             raise
 
-    def start(self) -> "SPANRuntimeService":
+    def start(self) -> SPANRuntimeService:
         if self._status is RuntimeCapabilityStatus.CREATED:
             self.initialize()
         if self._status is RuntimeCapabilityStatus.RUNNING:
@@ -81,7 +82,7 @@ class SPANRuntimeService:
         self._emit("StrategicCapabilityStarted", self.health())
         return self
 
-    def stop(self) -> "SPANRuntimeService":
+    def stop(self) -> SPANRuntimeService:
         if self._status is RuntimeCapabilityStatus.STOPPED:
             return self
         self._status = RuntimeCapabilityStatus.STOPPED

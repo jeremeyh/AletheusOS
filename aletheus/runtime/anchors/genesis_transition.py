@@ -7,7 +7,6 @@ Genesis Transition Engine
 import time
 
 
-
 class GenesisTransitionEngine:
 
 

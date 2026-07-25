@@ -1,10 +1,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from datetime import UTC, datetime
 from enum import Enum
 from pathlib import Path
-from typing import Dict, List, Optional
-from datetime import datetime, timezone
 
 
 class GenesisClassification(str, Enum):
@@ -36,27 +35,27 @@ class GenesisPackageSpec:
     package_name: str
     summary: str
     risk: GenesisRisk = GenesisRisk.LOW
-    depends_on: List[str] = field(default_factory=list)
-    files_to_add: List[str] = field(default_factory=list)
-    files_to_modify: List[str] = field(default_factory=list)
-    files_to_delete: List[str] = field(default_factory=list)
-    adr: Optional[str] = None
-    metadata: Dict[str, str] = field(default_factory=dict)
+    depends_on: list[str] = field(default_factory=list)
+    files_to_add: list[str] = field(default_factory=list)
+    files_to_modify: list[str] = field(default_factory=list)
+    files_to_delete: list[str] = field(default_factory=list)
+    adr: str | None = None
+    metadata: dict[str, str] = field(default_factory=dict)
 
 
 @dataclass
 class GenesisPackagePlan:
     spec: GenesisPackageSpec
-    manifest: Dict[str, object]
-    verification_steps: List[str]
-    rollback_steps: List[str]
-    created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    manifest: dict[str, object]
+    verification_steps: list[str]
+    rollback_steps: list[str]
+    created_at: str = field(default_factory=lambda: datetime.now(UTC).isoformat())
 
 
 @dataclass
 class GenesisPackageResult:
     spec: GenesisPackageSpec
     output_dir: Path
-    files_created: List[Path]
+    files_created: list[Path]
     ready: bool = True
-    notes: List[str] = field(default_factory=list)
+    notes: list[str] = field(default_factory=list)

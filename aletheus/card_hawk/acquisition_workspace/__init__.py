@@ -1,12 +1,10 @@
-from .workspace import CardHawkAcquisitionWorkspace
 from .models import AcquisitionOpportunity
-
+from .workspace import CardHawkAcquisitionWorkspace
 
 __all__ = [
 
-    "CardHawkAcquisitionWorkspace",
-
-    "AcquisitionOpportunity"
+    "AcquisitionOpportunity",
+    "CardHawkAcquisitionWorkspace"
 
 ]
 

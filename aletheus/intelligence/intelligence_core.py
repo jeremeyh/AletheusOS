@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 from aletheus.intelligence.models import IntelligenceContext, IntelligenceDecision
 
@@ -8,8 +8,8 @@ from aletheus.intelligence.models import IntelligenceContext, IntelligenceDecisi
 class AletheusUniversalIntelligence:
     def __init__(self) -> None:
         self.version = "1.6.0"
-        self.contexts: List[IntelligenceContext] = []
-        self.decisions: List[IntelligenceDecision] = []
+        self.contexts: list[IntelligenceContext] = []
+        self.decisions: list[IntelligenceDecision] = []
 
     def build_context(self, question: str, runtime: Any) -> IntelligenceContext:
         diagnostics = runtime.commands.dispatch("runtime.diagnostics", {}).results
@@ -30,7 +30,7 @@ class AletheusUniversalIntelligence:
         self.contexts.append(context)
         return context
 
-    def reason(self, question: str, runtime: Any) -> Dict[str, Any]:
+    def reason(self, question: str, runtime: Any) -> dict[str, Any]:
         context = self.build_context(question, runtime)
         data = context.to_dict()
 
@@ -55,7 +55,7 @@ class AletheusUniversalIntelligence:
             "confidence": self.confidence_score(data),
         }
 
-    def synthesize(self, question: str, runtime: Any) -> Dict[str, Any]:
+    def synthesize(self, question: str, runtime: Any) -> dict[str, Any]:
         reasoning_result = self.reason(question, runtime)
         runtime_data = reasoning_result["context"]["runtime"]
 
@@ -118,7 +118,7 @@ class AletheusUniversalIntelligence:
         self.decisions.append(item)
         return item
 
-    def brief(self, runtime: Any) -> Dict[str, Any]:
+    def brief(self, runtime: Any) -> dict[str, Any]:
         question = "What is the current state of Aletheus?"
         synthesis = self.synthesize(question, runtime)
         decision = self.decide(question, runtime)
@@ -130,7 +130,7 @@ class AletheusUniversalIntelligence:
             "decision": decision.to_dict(),
         }
 
-    def snapshot(self, runtime: Any) -> Dict[str, Any]:
+    def snapshot(self, runtime: Any) -> dict[str, Any]:
         return {
             "version": self.version,
             "stats": self.stats(),
@@ -139,7 +139,7 @@ class AletheusUniversalIntelligence:
             "runtime_health": runtime.commands.dispatch("runtime.health", {}).results.get("health", {}),
         }
 
-    def confidence_score(self, context: Dict[str, Any]) -> float:
+    def confidence_score(self, context: dict[str, Any]) -> float:
         score = 0.65
         runtime = context.get("runtime", {})
 
@@ -158,13 +158,13 @@ class AletheusUniversalIntelligence:
 
         return round(min(score, 0.98), 2)
 
-    def timeline(self) -> Dict[str, Any]:
+    def timeline(self) -> dict[str, Any]:
         return {
             "contexts": [item.to_dict() for item in self.contexts[-20:]],
             "decisions": [item.to_dict() for item in self.decisions[-20:]],
         }
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "contexts": len(self.contexts),

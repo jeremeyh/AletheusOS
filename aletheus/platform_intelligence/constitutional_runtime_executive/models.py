@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from enum import StrEnum
 from types import MappingProxyType
-from typing import Any, Mapping
+from typing import Any
 from uuid import UUID, uuid4
 
 
@@ -92,7 +93,7 @@ class ExecutiveContext:
         unknown: int,
         recoverable_services: tuple[str, ...],
         restart_attempts: Mapping[str, int],
-    ) -> "ExecutiveContext":
+    ) -> ExecutiveContext:
         return cls(
             generated_at=datetime.now(UTC),
             runtime_state=runtime_state,
@@ -200,7 +201,7 @@ class ExecutiveRecommendation:
             ExecutivePolicyResult,
             ...,
         ],
-    ) -> "ExecutiveRecommendation":
+    ) -> ExecutiveRecommendation:
         return cls(
             recommendation_id=uuid4(),
             generated_at=datetime.now(UTC),
@@ -257,7 +258,7 @@ class ExecutiveRecoveryPlan:
         ordered_services: tuple[str, ...],
         requires_manual_approval: bool,
         rationale: str,
-    ) -> "ExecutiveRecoveryPlan":
+    ) -> ExecutiveRecoveryPlan:
         return cls(
             plan_id=uuid4(),
             generated_at=datetime.now(UTC),

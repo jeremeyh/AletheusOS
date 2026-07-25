@@ -8,7 +8,6 @@ PredictiveIntelligenceEngine
 from ..engines.base_engine import CognitiveEngine
 
 
-
 class PredictiveIntelligenceEngine(
     CognitiveEngine
 ):

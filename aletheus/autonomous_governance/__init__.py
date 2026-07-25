@@ -7,7 +7,6 @@ Post-Genesis 58
 
 from .engine import AutonomousBusinessGovernanceEngine
 
-
 __all__ = [
 
     "AutonomousBusinessGovernanceEngine"

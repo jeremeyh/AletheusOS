@@ -8,8 +8,8 @@ from aletheus.decision_v2.decision_core import (
 
 __all__ = [
     "AletheusAutonomousDecisionEngine",
-    "DecisionPolicy",
     "DecisionOption",
+    "DecisionPolicy",
     "DecisionRecord",
     "decision_core",
 ]

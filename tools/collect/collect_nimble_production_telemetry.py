@@ -6,12 +6,27 @@ import platform
 import subprocess
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
 
-ROOT = Path(__file__).resolve().parent
+def find_repo_root(start: Path) -> Path:
+    current = start.resolve()
+
+    while True:
+        if (current / "pyproject.toml").exists():
+            return current
+
+        if current.parent == current:
+            raise RuntimeError(
+                "Unable to locate repository root."
+            )
+
+        current = current.parent
+
+
+ROOT = find_repo_root(Path(__file__).parent)
 REPORT_DIRECTORY = ROOT / "reports" / "nimble"
 LATEST_JSON = REPORT_DIRECTORY / "production-gate-latest.json"
 LATEST_MARKDOWN = REPORT_DIRECTORY / "production-gate-latest.md"
@@ -303,7 +318,7 @@ def main() -> int:
     )
 
     started_at = datetime.now(
-        timezone.utc,
+        UTC,
     )
     started = time.perf_counter()
 

@@ -1,7 +1,10 @@
-from aletheus.core import Event,Result
+from aletheus.core import Event, Result
 from aletheus.kernel.memory import LearningRecord
+
 from .evidence import Evidence
 from .mission import Mission
+
+
 class HelloMission(Mission):
     key="hello.mission"; name="Hello Mission"
     def execute(self,context):

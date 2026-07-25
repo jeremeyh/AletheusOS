@@ -85,7 +85,7 @@ class ConstitutionalEvent:
         effective_at: str | None = None,
         constitution_version: str = "0.1.0",
         genesis_version: str = "12",
-    ) -> "ConstitutionalEvent":
+    ) -> ConstitutionalEvent:
         return cls(
             event_id=new_event_id(),
             event_type=event_type,

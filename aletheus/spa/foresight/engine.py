@@ -5,12 +5,11 @@ Genesis 156
 """
 
 
+from .future_simulator import FutureSimulator
 from .growth_model import GrowthModel
 from .pressure_analyzer import PressureAnalyzer
-from .future_simulator import FutureSimulator
 from .risk_forecaster import RiskForecaster
 from .roadmap_engine import RoadmapEngine
-
 
 
 class PredictiveArchitectureEngine:

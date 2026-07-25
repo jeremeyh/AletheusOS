@@ -5,9 +5,8 @@ Genesis 13.13
 """
 
 
-from .manifest import CARD_HAWK_MANIFEST
 from .lifecycle import CardHawkLifecycle
-
+from .manifest import CARD_HAWK_MANIFEST
 
 
 class CardHawkApplication:

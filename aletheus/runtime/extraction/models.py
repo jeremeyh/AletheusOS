@@ -31,7 +31,7 @@ class ExtractionPlan:
 
 
 __all__ = [
-    "ExtractionTarget",
     "ExtractionCandidate",
     "ExtractionPlan",
+    "ExtractionTarget",
 ]

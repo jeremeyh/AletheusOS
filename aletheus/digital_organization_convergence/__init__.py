@@ -7,7 +7,6 @@ Post-Genesis 59
 
 from .engine import DigitalOrganizationConvergenceEngine
 
-
 __all__ = [
 
     "DigitalOrganizationConvergenceEngine"

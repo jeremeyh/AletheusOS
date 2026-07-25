@@ -7,7 +7,6 @@ Post-Genesis 54
 
 from .engine import AutonomousWorkflowOrganizationEngine
 
-
 __all__ = [
 
     "AutonomousWorkflowOrganizationEngine"

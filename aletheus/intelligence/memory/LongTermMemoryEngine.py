@@ -8,7 +8,6 @@ LongTermMemoryEngine
 from ..engines.base_engine import CognitiveEngine
 
 
-
 class LongTermMemoryEngine(
     CognitiveEngine
 ):

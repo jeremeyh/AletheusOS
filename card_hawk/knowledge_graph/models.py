@@ -7,7 +7,6 @@ Genesis 14.6
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class Entity:
 

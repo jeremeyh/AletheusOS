@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def numeric_sum(df: pd.DataFrame, col: str) -> float:
     if df.empty or col not in df.columns:
         return 0.0

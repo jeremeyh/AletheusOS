@@ -1,6 +1,7 @@
 import sqlite3
 from pathlib import Path
 
+
 class DatabaseManager:
     """CardHawk OS™ 5.1 canonical persistence layer."""
 

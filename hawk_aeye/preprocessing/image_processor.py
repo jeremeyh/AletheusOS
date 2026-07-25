@@ -1,6 +1,4 @@
-from PIL import Image
-from PIL import ImageOps
-from PIL import ImageEnhance
+from PIL import Image, ImageEnhance, ImageOps
 
 
 class ImageProcessor:

@@ -5,9 +5,8 @@ Genesis 13.16
 """
 
 
-from .opportunity import OpportunityAnalyzer
 from .comparison import OpportunityComparisonEngine
-
+from .opportunity import OpportunityAnalyzer
 
 
 class CardHawkAcquisitionWorkspace:

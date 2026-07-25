@@ -7,7 +7,7 @@ semantic, memory, event, and workspace capabilities.
 
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any
 
 
 class UniversalIntelligenceAdapter:
@@ -21,8 +21,8 @@ class UniversalIntelligenceAdapter:
     def context(
         self,
         question: str = "",
-        supplied_context: Dict[str, Any] | None = None,
-    ) -> Dict[str, Any]:
+        supplied_context: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         runtime = self.runtime
 
         context = {
@@ -51,8 +51,8 @@ class UniversalIntelligenceAdapter:
     def reason(
         self,
         question: str,
-        supplied_context: Dict[str, Any] | None = None,
-    ) -> Dict[str, Any]:
+        supplied_context: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         context = self.context(
             question=question,
             supplied_context=supplied_context,
@@ -67,8 +67,8 @@ class UniversalIntelligenceAdapter:
     def synthesize(
         self,
         question: str,
-        supplied_context: Dict[str, Any] | None = None,
-    ) -> Dict[str, Any]:
+        supplied_context: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         context = self.context(
             question=question,
             supplied_context=supplied_context,
@@ -97,8 +97,8 @@ class UniversalIntelligenceAdapter:
     def decide(
         self,
         question: str,
-        supplied_context: Dict[str, Any] | None = None,
-    ) -> Dict[str, Any]:
+        supplied_context: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         context = self.context(
             question=question,
             supplied_context=supplied_context,
@@ -110,12 +110,12 @@ class UniversalIntelligenceAdapter:
             context=context,
         )
 
-    def brief(self) -> Dict[str, Any]:
+    def brief(self) -> dict[str, Any]:
         return self.runtime.executive.daily_brief(
             self.runtime,
         )
 
-    def snapshot(self) -> Dict[str, Any]:
+    def snapshot(self) -> dict[str, Any]:
         return {
             "executive": self.runtime.executive.snapshot(
                 self.runtime,
@@ -123,13 +123,13 @@ class UniversalIntelligenceAdapter:
             "context": self.context(),
         }
 
-    def timeline(self, limit: int = 50) -> Dict[str, Any]:
+    def timeline(self, limit: int = 50) -> dict[str, Any]:
         return {
             "events": self.runtime.events.recent(limit=limit),
             "memory": self.runtime.memory.recall(limit=limit),
         }
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "status": "operational",

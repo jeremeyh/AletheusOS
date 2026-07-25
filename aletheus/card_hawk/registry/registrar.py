@@ -5,10 +5,7 @@ Genesis 13.12
 """
 
 
-from .manifest import (
-    CARD_HAWK_CAPABILITIES
-)
-
+from .manifest import CARD_HAWK_CAPABILITIES
 
 
 class CardHawkRegistrar:

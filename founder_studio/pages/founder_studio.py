@@ -1,5 +1,7 @@
 import streamlit as st
+
 from founder_studio.studio_service import FounderStudioService
+
 
 def render(state):
     st.title("🦅 Founder Intelligence Studio™")

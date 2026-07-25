@@ -8,9 +8,8 @@ and prepares next evolutionary phase.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class Genesis11PreparationEngine:

@@ -1,10 +1,9 @@
 from __future__ import annotations
 
+from aletheus.application_runtime import application_runtime
 from aletheus.contracts import PlatformComponentContract
-
 from aletheus.platform_registry import platform_registry
 from aletheus.service_manager import service_manager
-from aletheus.application_runtime import application_runtime
 
 from .models import BootCandidate, BootPlan
 

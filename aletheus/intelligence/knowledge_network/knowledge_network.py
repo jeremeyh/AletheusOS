@@ -8,9 +8,8 @@ a civilization-scale intelligence graph.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class UniversalKnowledgeNetwork:

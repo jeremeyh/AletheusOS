@@ -7,7 +7,6 @@ Genesis 13.32
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class ConsoleWidget:
 

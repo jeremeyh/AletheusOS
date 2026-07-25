@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from typing import Dict, List, Optional
-
 from .models import (
     ConceptCollision,
     OntologyEntity,
@@ -25,10 +23,10 @@ class OntologyRegistry:
     """
 
     def __init__(self) -> None:
-        self._entities: Dict[str, OntologyEntity] = {}
-        self._relationships: Dict[str, OntologyRelationship] = {}
-        self._collisions: Dict[str, ConceptCollision] = {}
-        self._lineage: Dict[str, OntologyLineage] = {}
+        self._entities: dict[str, OntologyEntity] = {}
+        self._relationships: dict[str, OntologyRelationship] = {}
+        self._collisions: dict[str, ConceptCollision] = {}
+        self._lineage: dict[str, OntologyLineage] = {}
 
     # ---------------------------------------------------------
     # Entity Operations
@@ -37,16 +35,16 @@ class OntologyRegistry:
     def register_entity(self, entity: OntologyEntity) -> None:
         self._entities[entity.entity_id] = entity
 
-    def get_entity(self, entity_id: str) -> Optional[OntologyEntity]:
+    def get_entity(self, entity_id: str) -> OntologyEntity | None:
         return self._entities.get(entity_id)
 
     def remove_entity(self, entity_id: str) -> None:
         self._entities.pop(entity_id, None)
 
-    def all_entities(self) -> List[OntologyEntity]:
+    def all_entities(self) -> list[OntologyEntity]:
         return list(self._entities.values())
 
-    def canonical_entities(self) -> List[OntologyEntity]:
+    def canonical_entities(self) -> list[OntologyEntity]:
         return [
             entity
             for entity in self._entities.values()
@@ -63,17 +61,17 @@ class OntologyRegistry:
     def get_relationship(
         self,
         relationship_id: str,
-    ) -> Optional[OntologyRelationship]:
+    ) -> OntologyRelationship | None:
         return self._relationships.get(relationship_id)
 
-    def all_relationships(self) -> List[OntologyRelationship]:
+    def all_relationships(self) -> list[OntologyRelationship]:
         return list(self._relationships.values())
 
     def outgoing_relationships(
         self,
         entity_id: str,
-        relationship_type: Optional[RelationshipType] = None,
-    ) -> List[OntologyRelationship]:
+        relationship_type: RelationshipType | None = None,
+    ) -> list[OntologyRelationship]:
         return [
             relationship
             for relationship in self._relationships.values()
@@ -87,8 +85,8 @@ class OntologyRegistry:
     def incoming_relationships(
         self,
         entity_id: str,
-        relationship_type: Optional[RelationshipType] = None,
-    ) -> List[OntologyRelationship]:
+        relationship_type: RelationshipType | None = None,
+    ) -> list[OntologyRelationship]:
         return [
             relationship
             for relationship in self._relationships.values()
@@ -102,8 +100,8 @@ class OntologyRegistry:
     def related_entities(
         self,
         entity_id: str,
-    ) -> List[OntologyEntity]:
-        related: List[OntologyEntity] = []
+    ) -> list[OntologyEntity]:
+        related: list[OntologyEntity] = []
 
         for relationship in self.outgoing_relationships(entity_id):
             entity = self.get_entity(relationship.target_entity_id)
@@ -124,10 +122,10 @@ class OntologyRegistry:
     def register_collision(self, collision: ConceptCollision) -> None:
         self._collisions[collision.collision_id] = collision
 
-    def all_collisions(self) -> List[ConceptCollision]:
+    def all_collisions(self) -> list[ConceptCollision]:
         return list(self._collisions.values())
 
-    def collisions_for_entity(self, entity_id: str) -> List[ConceptCollision]:
+    def collisions_for_entity(self, entity_id: str) -> list[ConceptCollision]:
         return [
             collision
             for collision in self._collisions.values()
@@ -142,7 +140,7 @@ class OntologyRegistry:
     def register_lineage(self, lineage: OntologyLineage) -> None:
         self._lineage[lineage.lineage_id] = lineage
 
-    def lineage_for_entity(self, entity_id: str) -> List[OntologyLineage]:
+    def lineage_for_entity(self, entity_id: str) -> list[OntologyLineage]:
         return [
             lineage
             for lineage in self._lineage.values()

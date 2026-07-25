@@ -1,5 +1,3 @@
 
-from .economy_engine import (
-    IntelligenceEconomyEngine
-)
+from .economy_engine import IntelligenceEconomyEngine
 

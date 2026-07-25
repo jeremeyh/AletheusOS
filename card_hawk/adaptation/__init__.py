@@ -7,7 +7,6 @@ Genesis 46
 
 from .engine import AdaptiveIntelligenceEngine
 
-
 __all__ = [
     "AdaptiveIntelligenceEngine"
 ]

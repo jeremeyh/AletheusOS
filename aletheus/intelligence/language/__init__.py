@@ -1,5 +1,3 @@
 
-from .language_interface import (
-    UniversalLanguageIntelligenceInterface
-)
+from .language_interface import UniversalLanguageIntelligenceInterface
 

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import importlib
-import inspect
 import pkgutil
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, field

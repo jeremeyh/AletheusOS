@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 from aletheus.planning.models import AutonomousPlan, PlanningStep
 
@@ -8,14 +8,14 @@ from aletheus.planning.models import AutonomousPlan, PlanningStep
 class AletheusPlanningCore:
     def __init__(self) -> None:
         self.version = "1.4.0"
-        self.plans: List[AutonomousPlan] = []
+        self.plans: list[AutonomousPlan] = []
 
     def create_plan(
         self,
         objective: str,
         strategy: str = "",
         priority: str = "high",
-        steps: List[Dict[str, Any]] | None = None,
+        steps: list[dict[str, Any]] | None = None,
     ) -> AutonomousPlan:
         plan_steps = [
             PlanningStep(
@@ -41,7 +41,7 @@ class AletheusPlanningCore:
             return "Use agents to inspect current state, enrich knowledge, generate recommendations, and produce founder-ready actions."
         return "Clarify objective, assign specialist agents, execute the first useful step, and record outcomes."
 
-    def default_steps(self, objective: str) -> List[Dict[str, Any]]:
+    def default_steps(self, objective: str) -> list[dict[str, Any]]:
         lower = objective.lower()
 
         if "card hawk" in lower or "portfolio" in lower:
@@ -61,7 +61,7 @@ class AletheusPlanningCore:
             {"title": "Recommend action", "description": "Produce founder-ready next step.", "assigned_agent": "Founder Agent"},
         ]
 
-    def list_plans(self, status: str | None = None) -> List[Dict[str, Any]]:
+    def list_plans(self, status: str | None = None) -> list[dict[str, Any]]:
         results = self.plans
         if status:
             results = [plan for plan in results if plan.status == status]
@@ -70,7 +70,7 @@ class AletheusPlanningCore:
     def get_plan(self, plan_id: str) -> AutonomousPlan | None:
         return next((plan for plan in self.plans if plan.plan_id == plan_id), None)
 
-    def execute_next_step(self, plan_id: str, runtime: Any) -> Dict[str, Any]:
+    def execute_next_step(self, plan_id: str, runtime: Any) -> dict[str, Any]:
         plan = self.get_plan(plan_id)
         if plan is None:
             return {"error": f"Plan not found: {plan_id}"}
@@ -111,7 +111,7 @@ class AletheusPlanningCore:
             "agent_run": run.results,
         }
 
-    def execute_plan(self, plan_id: str, runtime: Any) -> Dict[str, Any]:
+    def execute_plan(self, plan_id: str, runtime: Any) -> dict[str, Any]:
         outputs = []
         while True:
             result = self.execute_next_step(plan_id, runtime)
@@ -130,7 +130,7 @@ class AletheusPlanningCore:
             "final_plan": self.get_plan(plan_id).to_dict() if self.get_plan(plan_id) else None,
         }
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "plans": len(self.plans),

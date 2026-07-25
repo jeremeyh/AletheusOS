@@ -1,5 +1,3 @@
 
-from .distributed_fabric import (
-    DistributedIntelligenceFabric
-)
+from .distributed_fabric import DistributedIntelligenceFabric
 

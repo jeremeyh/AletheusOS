@@ -8,9 +8,8 @@ intelligence ecosystems.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class AutonomousEcosystemGovernance:

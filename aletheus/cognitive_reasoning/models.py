@@ -7,7 +7,6 @@ Genesis 13.52
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class CognitiveContext:
 

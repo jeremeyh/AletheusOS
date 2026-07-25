@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Dict, Any
+from typing import Any
 
 
 class KernelExecutor:
@@ -16,7 +16,7 @@ class KernelExecutor:
     def execute(
         self,
         command: str,
-        payload: Dict[str, Any] | None = None,
+        payload: dict[str, Any] | None = None,
         priority: int = 5,
     ):
         return self.runtime.intelligence_orchestrator.execute(

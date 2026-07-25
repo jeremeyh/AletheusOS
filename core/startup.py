@@ -3,9 +3,10 @@ CardHawk OS™
 Startup
 """
 
-from core.logging import logger
 from core.bootstrap import bootstrap
+from core.logging import logger
 from core.metrics import metrics
+
 
 def startup():
 

@@ -7,9 +7,6 @@ from uuid import uuid4
 
 from aletheus.time_utils import utc_now_iso
 
-from .providers.aggregator import LiveProviderAggregator
-from .providers.contracts import ProviderRegistry
-
 from .models import (
     ExperienceConfidence,
     ExperienceHealthCheck,
@@ -23,7 +20,8 @@ from .models import (
     HealthState,
     PrincipleXEnvelope,
 )
-
+from .providers.aggregator import LiveProviderAggregator
+from .providers.contracts import ProviderRegistry
 
 HealthProvider = Callable[[], dict[str, Any]]
 MissionProvider = Callable[[], list[dict[str, Any]]]

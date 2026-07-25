@@ -1,5 +1,3 @@
 
-from .knowledge_expansion import (
-    AutonomousKnowledgeExpansionEngine
-)
+from .knowledge_expansion import AutonomousKnowledgeExpansionEngine
 

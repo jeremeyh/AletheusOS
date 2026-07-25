@@ -4,6 +4,7 @@ Projection Manager
 
 from core.event_bus import event_bus
 
+
 class ProjectionManager:
 
     def __init__(self):

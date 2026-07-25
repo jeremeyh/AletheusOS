@@ -1,12 +1,10 @@
-from .registrar import CardHawkRegistrar
 from .manifest import CARD_HAWK_CAPABILITIES
-
+from .registrar import CardHawkRegistrar
 
 __all__ = [
 
-    "CardHawkRegistrar",
-
-    "CARD_HAWK_CAPABILITIES"
+    "CARD_HAWK_CAPABILITIES",
+    "CardHawkRegistrar"
 
 ]
 

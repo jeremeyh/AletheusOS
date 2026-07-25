@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
+import json
 from collections import Counter, defaultdict
+from collections.abc import Iterable, Iterator, Mapping
 from dataclasses import dataclass, field
 from hashlib import sha256
 from pathlib import Path
 from threading import RLock
-from typing import Any, Iterable, Iterator, Mapping
-import json
+from typing import Any
 
 
 @dataclass(frozen=True, slots=True)
@@ -62,7 +63,7 @@ class EvidenceRecord:
         }
 
     @classmethod
-    def from_dict(cls, payload: Mapping[str, Any]) -> "EvidenceRecord":
+    def from_dict(cls, payload: Mapping[str, Any]) -> EvidenceRecord:
         return cls(
             record_id=str(payload.get("record_id", "")),
             kind=str(payload["kind"]),
@@ -190,7 +191,7 @@ class EvidenceStore:
         return destination
 
     @classmethod
-    def read_json(cls, path: str | Path) -> "EvidenceStore":
+    def read_json(cls, path: str | Path) -> EvidenceStore:
         payload = json.loads(Path(path).read_text(encoding="utf-8"))
         store = cls()
         store.extend(

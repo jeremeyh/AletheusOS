@@ -1,7 +1,7 @@
-from pathlib import Path
 import base64
-import uuid
 import shutil
+import uuid
+from pathlib import Path
 
 ALLOWED_IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp"}
 

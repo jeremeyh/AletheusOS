@@ -8,9 +8,8 @@ services, and external systems.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class AutonomousSystemsIntegrationLayer:

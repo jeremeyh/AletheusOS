@@ -7,7 +7,6 @@ Cognitive Architecture Rollback Engine
 import uuid
 
 
-
 class CognitiveRollbackEngine:
 
 

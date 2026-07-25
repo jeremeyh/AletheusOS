@@ -4,8 +4,8 @@ Cognitive Architecture Verification Engine
 """
 
 
-import uuid
 import time
+import uuid
 
 
 class CognitiveVerificationEngine:

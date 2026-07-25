@@ -5,7 +5,6 @@ import os
 import shutil
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parent
 
 REMOVE_DIRECTORY_NAMES = {

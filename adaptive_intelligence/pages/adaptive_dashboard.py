@@ -1,6 +1,8 @@
 import streamlit as st
-from adaptive_intelligence.adaptive_service import AdaptiveIntelligenceService
 from components.adaptive_ui import adaptive_hero, status_panel
+
+from adaptive_intelligence.adaptive_service import AdaptiveIntelligenceService
+
 
 def render(state):
     adaptive_hero()

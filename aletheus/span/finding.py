@@ -20,7 +20,7 @@ class Severity(str, Enum):
     CRITICAL = "critical"
 
     @classmethod
-    def coerce(cls, value: "Severity | str") -> "Severity":
+    def coerce(cls, value: Severity | str) -> Severity:
         if isinstance(value, cls):
             return value
 

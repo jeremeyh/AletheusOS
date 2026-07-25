@@ -8,7 +8,6 @@ MetaReasoningEngine
 from ..engines.base_engine import CognitiveEngine
 
 
-
 class MetaReasoningEngine(
     CognitiveEngine
 ):

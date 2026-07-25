@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from .registry import identity_registry
 from .models import Identity
+from .registry import identity_registry
 
 
 class IdentityResolver:

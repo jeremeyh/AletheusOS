@@ -7,7 +7,6 @@ Post-Genesis 66
 
 from .engine import CollaborativeIntelligenceEngine
 
-
 __all__ = [
 
     "CollaborativeIntelligenceEngine"

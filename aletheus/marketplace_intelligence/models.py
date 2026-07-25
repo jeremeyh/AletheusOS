@@ -7,7 +7,6 @@ Genesis 13.23
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class MarketplaceOpportunity:
 

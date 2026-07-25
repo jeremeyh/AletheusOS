@@ -7,7 +7,6 @@ Genesis 13.49
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class DigitalTwin:
 

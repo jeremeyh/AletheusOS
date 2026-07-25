@@ -1,12 +1,10 @@
 from __future__ import annotations
 
-from typing import Dict, List, Optional
-
 from .models import (
-    UCINode,
-    UCIRelationship,
-    UCIQueryResult,
     UCIHealthReport,
+    UCINode,
+    UCIQueryResult,
+    UCIRelationship,
 )
 
 
@@ -22,8 +20,8 @@ class UnifiedCognitiveIndex:
     """
 
     def __init__(self) -> None:
-        self._nodes: Dict[str, UCINode] = {}
-        self._relationships: Dict[str, UCIRelationship] = {}
+        self._nodes: dict[str, UCINode] = {}
+        self._relationships: dict[str, UCIRelationship] = {}
 
     # ---------------------------------------------------------
     # Node Operations
@@ -32,13 +30,13 @@ class UnifiedCognitiveIndex:
     def register_node(self, node: UCINode) -> None:
         self._nodes[node.node_id] = node
 
-    def get_node(self, node_id: str) -> Optional[UCINode]:
+    def get_node(self, node_id: str) -> UCINode | None:
         return self._nodes.get(node_id)
 
     def remove_node(self, node_id: str) -> None:
         self._nodes.pop(node_id, None)
 
-    def all_nodes(self) -> List[UCINode]:
+    def all_nodes(self) -> list[UCINode]:
         return list(self._nodes.values())
 
     # ---------------------------------------------------------
@@ -56,7 +54,7 @@ class UnifiedCognitiveIndex:
     def get_relationship(
         self,
         relationship_id: str,
-    ) -> Optional[UCIRelationship]:
+    ) -> UCIRelationship | None:
         return self._relationships.get(relationship_id)
 
     def remove_relationship(
@@ -65,7 +63,7 @@ class UnifiedCognitiveIndex:
     ) -> None:
         self._relationships.pop(relationship_id, None)
 
-    def all_relationships(self) -> List[UCIRelationship]:
+    def all_relationships(self) -> list[UCIRelationship]:
         return list(self._relationships.values())
 
     # ---------------------------------------------------------
@@ -75,7 +73,7 @@ class UnifiedCognitiveIndex:
     def outgoing_relationships(
         self,
         node_id: str,
-    ) -> List[UCIRelationship]:
+    ) -> list[UCIRelationship]:
 
         return [
             relationship
@@ -86,7 +84,7 @@ class UnifiedCognitiveIndex:
     def incoming_relationships(
         self,
         node_id: str,
-    ) -> List[UCIRelationship]:
+    ) -> list[UCIRelationship]:
 
         return [
             relationship
@@ -97,7 +95,7 @@ class UnifiedCognitiveIndex:
     def connected_nodes(
         self,
         node_id: str,
-    ) -> List[UCINode]:
+    ) -> list[UCINode]:
 
         connected = []
 

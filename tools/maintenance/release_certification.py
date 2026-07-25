@@ -33,9 +33,9 @@ def run_command(command: list[str]) -> dict:
 
 
 def main():
-    from aletheus.runtime import runtime_core
-    from aletheus.kernel import kernel
     from aletheus.discovery import DiscoveryEngine
+    from aletheus.kernel import kernel
+    from aletheus.runtime import runtime_core
 
     runtime_core.boot()
 

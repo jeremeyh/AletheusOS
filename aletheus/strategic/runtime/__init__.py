@@ -5,8 +5,8 @@ from .models import RuntimeCapabilityStatus, StrategicProposalEnvelope
 from .service import SPANRuntimeService
 
 __all__ = [
-    "install_span_runtime",
     "RuntimeCapabilityStatus",
-    "StrategicProposalEnvelope",
     "SPANRuntimeService",
+    "StrategicProposalEnvelope",
+    "install_span_runtime",
 ]

@@ -7,9 +7,8 @@ Creates and manages intelligence objectives.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class AutonomousGoalFormationEngine:

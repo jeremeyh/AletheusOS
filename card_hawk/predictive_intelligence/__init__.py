@@ -7,7 +7,6 @@ Genesis 78
 
 from .engine import PredictiveMarketIntelligenceEngine
 
-
 __all__ = [
 
     "PredictiveMarketIntelligenceEngine"

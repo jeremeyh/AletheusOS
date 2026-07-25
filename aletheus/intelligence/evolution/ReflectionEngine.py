@@ -8,7 +8,6 @@ ReflectionEngine
 from ..engines.base_engine import CognitiveEngine
 
 
-
 class ReflectionEngine(
     CognitiveEngine
 ):

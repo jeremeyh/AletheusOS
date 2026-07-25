@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from typing import Dict, Iterable, Optional
-
 from .analyzer import Analyzer
 
 
@@ -9,11 +7,11 @@ class AnalyzerRegistry:
     """Canonical registry for SPAN analyzers."""
 
     def __init__(self) -> None:
-        self._analyzers: Dict[str, Analyzer] = {}
-        self._enabled: Dict[str, bool] = {}
+        self._analyzers: dict[str, Analyzer] = {}
+        self._enabled: dict[str, bool] = {}
 
     @classmethod
-    def default(cls) -> "AnalyzerRegistry":
+    def default(cls) -> AnalyzerRegistry:
         """
         Discover and register the built-in SPAN analyzers.
         """
@@ -25,7 +23,7 @@ class AnalyzerRegistry:
         self,
         analyzer: Analyzer,
         *,
-        name: Optional[str] = None,
+        name: str | None = None,
     ) -> None:
         key = name or getattr(
             analyzer,

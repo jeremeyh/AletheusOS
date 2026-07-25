@@ -1,11 +1,9 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, field
-from datetime import datetime
-from typing import Dict, List, Any
 import uuid
+from dataclasses import dataclass, field
+
+from aletheus.time_utils import utc_now, utc_now_iso
 
 
 def utc_now() -> str:
@@ -35,7 +33,7 @@ class Workflow:
 
     checkpoint: int = 0
 
-    steps: List[WorkflowStep] = field(default_factory=list)
+    steps: list[WorkflowStep] = field(default_factory=list)
 
     def start(self):
         self.status = "running"
@@ -81,7 +79,7 @@ class AletheusWorkflowEngine:
 
     def __init__(self):
 
-        self.workflows: Dict[str, Workflow] = {}
+        self.workflows: dict[str, Workflow] = {}
 
     def bootstrap(self):
 

@@ -8,7 +8,6 @@ Genesis 14.14
 from dataclasses import dataclass
 
 
-
 @dataclass
 class IntelligenceResponse:
 

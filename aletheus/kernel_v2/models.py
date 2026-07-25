@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, field
-from datetime import datetime
-from typing import Any, Dict, List
 import uuid
+from dataclasses import dataclass, field
+from typing import Any
+
+from aletheus.time_utils import utc_now_iso
 
 
 def now() -> str:
@@ -16,11 +15,11 @@ def now() -> str:
 class KernelEvent:
     event_type: str
     source: str
-    payload: Dict[str, Any] = field(default_factory=dict)
+    payload: dict[str, Any] = field(default_factory=dict)
     event_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -36,7 +35,7 @@ class KernelState:
     missions: int = 0
     agents: int = 0
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -45,9 +44,9 @@ class KernelRegistryItem:
     name: str
     item_type: str
     status: str = "registered"
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
     item_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__

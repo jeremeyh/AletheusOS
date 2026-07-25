@@ -8,9 +8,8 @@ into new capabilities.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class AutonomousInnovationEngine:

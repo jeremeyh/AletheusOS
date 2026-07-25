@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 from aletheus.copilot.models import CopilotExchange, CopilotRecommendation
 
@@ -8,8 +8,8 @@ from aletheus.copilot.models import CopilotExchange, CopilotRecommendation
 class AletheusFounderCopilot:
     def __init__(self) -> None:
         self.version = "1.5.0"
-        self.exchanges: List[CopilotExchange] = []
-        self.recommendations: List[CopilotRecommendation] = []
+        self.exchanges: list[CopilotExchange] = []
+        self.recommendations: list[CopilotRecommendation] = []
 
     def classify_intent(self, prompt: str) -> str:
         text = prompt.lower()
@@ -23,7 +23,7 @@ class AletheusFounderCopilot:
             return "explanation"
         return "general"
 
-    def brief(self, runtime: Any) -> Dict[str, Any]:
+    def brief(self, runtime: Any) -> dict[str, Any]:
         summary = runtime.commands.dispatch("executive.summary", {}).results.get("summary", {})
         recommendations = runtime.commands.dispatch("executive.recommendations", {}).results.get("recommendations", [])
         risks = runtime.commands.dispatch("executive.risks", {}).results.get("risks", [])
@@ -38,7 +38,7 @@ class AletheusFounderCopilot:
 
     def ask(self, prompt: str, runtime: Any) -> CopilotExchange:
         intent = self.classify_intent(prompt)
-        actions: List[Dict[str, Any]] = []
+        actions: list[dict[str, Any]] = []
 
         if intent == "status":
             result = runtime.commands.dispatch("executive.summary", {})
@@ -77,9 +77,9 @@ class AletheusFounderCopilot:
         self.exchanges.append(exchange)
         return exchange
 
-    def recommend(self, runtime: Any) -> List[Dict[str, Any]]:
+    def recommend(self, runtime: Any) -> list[dict[str, Any]]:
         health = runtime.commands.dispatch("runtime.health", {}).results.get("health", {})
-        recs: List[CopilotRecommendation] = []
+        recs: list[CopilotRecommendation] = []
 
         if health.get("active_plans", 0) == 0:
             recs.append(
@@ -114,7 +114,7 @@ class AletheusFounderCopilot:
         self.recommendations.extend(recs)
         return [item.to_dict() for item in recs]
 
-    def timeline(self, runtime: Any) -> Dict[str, Any]:
+    def timeline(self, runtime: Any) -> dict[str, Any]:
         events = runtime.commands.dispatch("runtime.events", {}).results.get("events", [])
         memory = runtime.commands.dispatch("memory.recall", {"limit": 20}).results.get("memory", [])
 
@@ -124,10 +124,10 @@ class AletheusFounderCopilot:
             "exchanges": [item.to_dict() for item in self.exchanges[-20:]],
         }
 
-    def history(self) -> List[Dict[str, Any]]:
+    def history(self) -> list[dict[str, Any]]:
         return [item.to_dict() for item in self.exchanges]
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "exchanges": len(self.exchanges),

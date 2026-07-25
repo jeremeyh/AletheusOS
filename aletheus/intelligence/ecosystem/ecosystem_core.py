@@ -8,9 +8,8 @@ a complete intelligence ecosystem.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class AutonomousIntelligenceEcosystemCore:

@@ -1,10 +1,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from datetime import UTC, datetime
 from enum import Enum
-from pathlib import Path
-from typing import Dict, List, Optional
-from datetime import datetime, timezone
 
 
 class SubsystemStatus(str, Enum):
@@ -24,13 +22,13 @@ class SubsystemRecord:
     python_files: int
     family: str = "Unclassified"
     status: SubsystemStatus = SubsystemStatus.UNKNOWN
-    notes: List[str] = field(default_factory=list)
+    notes: list[str] = field(default_factory=list)
 
 
 @dataclass(frozen=True)
 class CollisionCandidate:
     cluster: str
-    members: List[str]
+    members: list[str]
     reason: str
     severity: str = "review"
 
@@ -40,9 +38,9 @@ class RepositoryDNAAuditReport:
     root: str
     subsystem_count: int
     python_file_count: int
-    subsystems: List[SubsystemRecord]
-    collision_candidates: List[CollisionCandidate]
-    generated_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    subsystems: list[SubsystemRecord]
+    collision_candidates: list[CollisionCandidate]
+    generated_at: str = field(default_factory=lambda: datetime.now(UTC).isoformat())
 
     def to_markdown(self) -> str:
         lines = [

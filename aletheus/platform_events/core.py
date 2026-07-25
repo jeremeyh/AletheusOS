@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Callable
+from collections.abc import Callable
 
 from aletheus.platform_subscriptions import platform_subscriptions
 

@@ -6,7 +6,6 @@ from decision_engine.runtime.engine import DecisionEngine
 from nest.runtime.score import NestScoringEngine
 from portfolio.digital_twin.engine import PortfolioDigitalTwin
 
-
 DB = "data/cardhawk.db"
 
 

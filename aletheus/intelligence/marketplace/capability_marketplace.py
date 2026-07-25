@@ -8,9 +8,8 @@ intelligence capabilities.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class UniversalCapabilityMarketplace:

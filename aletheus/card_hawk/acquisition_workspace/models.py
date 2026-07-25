@@ -7,7 +7,6 @@ Genesis 13.16
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class AcquisitionOpportunity:
 

@@ -1,5 +1,3 @@
 
-from .goal_engine import (
-    AutonomousGoalFormationEngine
-)
+from .goal_engine import AutonomousGoalFormationEngine
 

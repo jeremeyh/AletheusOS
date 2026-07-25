@@ -6,14 +6,13 @@ Genesis 151
 
 
 from .architecture_analyzer import ArchitectureAnalyzer
-from .dependency_analyzer import DependencyAnalyzer
-from .runtime_analyzer import RuntimeAnalyzer
 from .contract_validator import ContractValidator
-from .intelligence_analyzer import IntelligenceAnalyzer
+from .dependency_analyzer import DependencyAnalyzer
 from .genesis_tracker import GenesisTracker
 from .health_score import HealthScoreEngine
+from .intelligence_analyzer import IntelligenceAnalyzer
 from .recommendation_engine import RecommendationEngine
-
+from .runtime_analyzer import RuntimeAnalyzer
 
 
 class SpectrumPlatformAnalyzer:

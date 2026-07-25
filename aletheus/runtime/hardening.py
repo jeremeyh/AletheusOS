@@ -1,10 +1,9 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
+
+from aletheus.time_utils import utc_now, utc_now_iso
 
 
 def utc_now() -> str:
@@ -17,7 +16,7 @@ class RuntimeHardening:
     def __init__(self, runtime):
         self.runtime = runtime
 
-    def selftest(self) -> Dict[str, Any]:
+    def selftest(self) -> dict[str, Any]:
         checks = {}
 
         required_aliases = [
@@ -61,7 +60,7 @@ class RuntimeHardening:
             "timestamp": utc_now(),
         }
 
-    def dashboard(self) -> Dict[str, Any]:
+    def dashboard(self) -> dict[str, Any]:
         selftest = self.selftest()
         compat = self.runtime.compat.statistics()
 
@@ -76,7 +75,7 @@ class RuntimeHardening:
             "timestamp": utc_now(),
         }
 
-    def snapshot(self) -> Dict[str, Any]:
+    def snapshot(self) -> dict[str, Any]:
         return {
             "timestamp": utc_now(),
             "runtime_version": self.runtime.version,
@@ -92,7 +91,7 @@ class RuntimeHardening:
             },
         }
 
-    def audit(self) -> Dict[str, Any]:
+    def audit(self) -> dict[str, Any]:
         commands = self.runtime.commands.list()
         duplicates = sorted({c for c in commands if commands.count(c) > 1})
 
@@ -138,7 +137,7 @@ class RuntimeHardening:
 
         return "\n".join(lines) + "\n"
 
-    def write_documentation(self, path: str = "RUNTIME_DOCUMENTATION.md") -> Dict[str, Any]:
+    def write_documentation(self, path: str = "RUNTIME_DOCUMENTATION.md") -> dict[str, Any]:
         content = self.documentation()
         Path(path).write_text(content)
         return {

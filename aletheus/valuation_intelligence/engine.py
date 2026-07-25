@@ -6,10 +6,9 @@ Genesis 13.34
 
 
 from .comps import ComparableSalesEngine
-from .scarcity import ScarcityAnalyzer
-from .demand import DemandAnalyzer
 from .confidence import ConfidenceEngine
-
+from .demand import DemandAnalyzer
+from .scarcity import ScarcityAnalyzer
 
 
 class UniversalValuationEngine:

@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 from collections import Counter
+from collections.abc import Iterable
 from threading import RLock
-from typing import Iterable
 
 from aletheus.platform_intelligence.event_bus import (
     ConstitutionalEventBus,

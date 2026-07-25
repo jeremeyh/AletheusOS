@@ -3,10 +3,10 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
-from pathlib import Path
-from typing import Iterable
 import json
+from collections.abc import Iterable
+from datetime import UTC, datetime
+from pathlib import Path
 
 from .metrics import RepositoryMetrics
 from .rules import PolicyViolation
@@ -18,7 +18,7 @@ def render_markdown(
     root: Path | str,
 ) -> str:
     violation_list = list(violations)
-    generated = datetime.now(timezone.utc).isoformat()
+    generated = datetime.now(UTC).isoformat()
 
     lines = [
         "# AletheusOS Repository Health Report",

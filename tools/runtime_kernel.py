@@ -6,7 +6,6 @@ from aletheus.runtime.orchestration import RuntimeOrchestrator
 from aletheus.runtime.providers import RuntimeServiceProvider
 from aletheus.runtime.recovery import RuntimeRecoveryManager
 
-
 orchestrator = RuntimeOrchestrator(
     lifecycle=RuntimeLifecycleManager(),
     service_provider=RuntimeServiceProvider(),

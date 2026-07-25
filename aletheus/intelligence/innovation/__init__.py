@@ -1,5 +1,3 @@
 
-from .innovation_engine import (
-    AutonomousInnovationEngine
-)
+from .innovation_engine import AutonomousInnovationEngine
 

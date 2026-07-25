@@ -6,6 +6,7 @@ from .contracts import (
     CommandRequest,
     CommandResult,
 )
+from .dispatcher import CommandDispatcher
 from .errors import (
     CommandDispatchError,
     CommandExecutionError,
@@ -17,23 +18,22 @@ from .errors import (
 )
 from .models import CompiledCommand
 from .registry import CompiledCommandRegistry
-from .dispatcher import CommandDispatcher
 
 __all__ = [
     "CommandBus",
     "CommandContext",
+    "CommandDispatchError",
+    "CommandDispatcher",
+    "CommandExecutionError",
     "CommandHandler",
     "CommandMiddleware",
+    "CommandNotFoundError",
     "CommandRequest",
     "CommandResult",
-    "CompiledCommand",
-    "CompiledCommandRegistry",
-    "CommandDispatcher",
-    "CommandDispatchError",
-    "CommandExecutionError",
-    "CommandNotFoundError",
     "CommandResultTypeError",
     "CommandValidationError",
+    "CompiledCommand",
+    "CompiledCommandRegistry",
     "DuplicateCommandError",
     "RegistryFrozenError",
 ]

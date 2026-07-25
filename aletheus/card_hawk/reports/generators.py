@@ -8,7 +8,6 @@ Genesis 13.18
 from .models import IntelligenceReport
 
 
-
 class ReportGenerator:
 
 

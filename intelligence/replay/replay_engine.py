@@ -2,8 +2,8 @@
 Replay Engine
 """
 
-from intelligence.replay.event_store import read_events
 from intelligence.projections.manager import projection_manager
+from intelligence.replay.event_store import read_events
 
 
 class ReplayEngine:

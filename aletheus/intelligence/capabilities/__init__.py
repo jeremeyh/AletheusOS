@@ -1,5 +1,3 @@
 
-from .capability_graph import (
-    SelfAwareCapabilityGraph
-)
+from .capability_graph import SelfAwareCapabilityGraph
 

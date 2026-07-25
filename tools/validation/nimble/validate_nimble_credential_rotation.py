@@ -6,12 +6,26 @@ import argparse
 import json
 import os
 import subprocess
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
 
-ROOT = Path(__file__).resolve().parent
+def find_repo_root(start: Path) -> Path:
+    current = start.resolve()
+
+    while True:
+        if (current / "pyproject.toml").exists():
+            return current
+
+        if current.parent == current:
+            raise RuntimeError("Unable to locate repository root.")
+
+        current = current.parent
+
+
+ROOT = find_repo_root(Path(__file__).parent)
+
 
 CONTRACT_PATH = (
     ROOT
@@ -54,7 +68,7 @@ def parse_timestamp(value: str) -> datetime:
             "Credential timestamp must include timezone."
         )
 
-    return parsed.astimezone(timezone.utc)
+    return parsed.astimezone(UTC)
 
 
 def main() -> int:
@@ -81,7 +95,7 @@ def main() -> int:
     warnings: list[str] = []
     checks: list[dict[str, Any]] = []
 
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
 
     tolerance = timedelta(
         seconds=contract["thresholds"][

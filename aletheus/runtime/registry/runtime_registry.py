@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any
 
 
 class RuntimeRegistry:
@@ -29,7 +29,7 @@ class RuntimeRegistry:
     def register_component(
         self,
         name: str,
-        metadata: Dict[str, Any],
+        metadata: dict[str, Any],
     ):
         self.components[name] = metadata
 

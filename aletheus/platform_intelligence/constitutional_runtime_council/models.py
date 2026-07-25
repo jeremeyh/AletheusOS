@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass, field, replace
 from datetime import UTC, datetime
 from enum import StrEnum
 from types import MappingProxyType
-from typing import Any, Mapping
+from typing import Any
 from uuid import UUID, uuid4
 
 
@@ -134,7 +135,7 @@ class CouncilVote:
         member: ConstitutionalCouncilMember,
         choice: CouncilVoteChoice,
         rationale: str = "",
-    ) -> "CouncilVote":
+    ) -> CouncilVote:
         return cls(
             vote_id=uuid4(),
             proposal_id=proposal_id,
@@ -184,7 +185,7 @@ class CouncilProposal:
         strategy: CouncilVotingStrategy,
         proposer: str,
         payload: Mapping[str, Any] | None = None,
-    ) -> "CouncilProposal":
+    ) -> CouncilProposal:
         resolved_title = title.strip()
         resolved_proposer = proposer.strip().lower()
 
@@ -216,7 +217,7 @@ class CouncilProposal:
     def with_vote(
         self,
         vote: CouncilVote,
-    ) -> "CouncilProposal":
+    ) -> CouncilProposal:
         if self.state is not CouncilProposalState.OPEN:
             raise ValueError(
                 "Votes may only be cast on open proposals."
@@ -236,7 +237,7 @@ class CouncilProposal:
     def with_state(
         self,
         state: CouncilProposalState,
-    ) -> "CouncilProposal":
+    ) -> CouncilProposal:
         return replace(self, state=state)
 
     def to_dict(self) -> dict[str, Any]:
@@ -292,7 +293,7 @@ class CouncilDecision:
         eligible_weight: int,
         participating_weight: int,
         quorum_met: bool,
-    ) -> "CouncilDecision":
+    ) -> CouncilDecision:
         return cls(
             decision_id=uuid4(),
             proposal_id=proposal_id,

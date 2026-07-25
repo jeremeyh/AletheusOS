@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Dict, List
+import builtins
 
 from aletheus.sdk import Application
 
@@ -17,7 +17,7 @@ class ApplicationLoader:
     VERSION = "0.1.0"
 
     def __init__(self):
-        self._applications: Dict[str, Application] = {}
+        self._applications: dict[str, Application] = {}
 
     def install(self, app: Application):
         self._applications[app.APP_ID] = app
@@ -43,7 +43,7 @@ class ApplicationLoader:
     def get(self, app_id: str):
         return self._applications.get(app_id)
 
-    def list(self) -> List[dict]:
+    def list(self) -> builtins.list[dict]:
         return [app.manifest() for app in self._applications.values()]
 
     def health(self):

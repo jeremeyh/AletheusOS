@@ -1,4 +1,3 @@
-from aletheus.runtime.registry.runtime_registry import runtime_registry
 
 
 def register_registry_commands(runtime):

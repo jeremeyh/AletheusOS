@@ -3,8 +3,8 @@ import streamlit as st
 from cardhawkos.boot.boot_manager import BootManager
 from cardhawkos.runtime.registry import EngineRegistry
 from cardhawkos.runtime.service_registry import ServiceRegistry
-from jobs.runtime.scheduler import JobScheduler
 from jobs.runtime.manager import JobManager
+from jobs.runtime.scheduler import JobScheduler
 
 
 def render_runtime_monitor():

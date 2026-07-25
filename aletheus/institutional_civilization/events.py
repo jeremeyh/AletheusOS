@@ -26,7 +26,7 @@ class CivilizationEvent:
         event_type: str,
         source: str,
         payload: dict[str, Any] | None = None,
-    ) -> "CivilizationEvent":
+    ) -> CivilizationEvent:
         return cls(
             event_id=f"CIV-{uuid4().hex[:12].upper()}",
             event_type=event_type,

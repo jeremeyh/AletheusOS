@@ -4,7 +4,6 @@ import os
 
 from .contracts import Principal, PrincipalRole
 
-
 _ALLOWED_ROLES: set[str] = {
     "viewer",
     "operator",

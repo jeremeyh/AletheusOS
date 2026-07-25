@@ -1,7 +1,6 @@
 from ..finding import Severity
 from ..rule_engine import Rule
 
-
 SPAN_NAM_001 = Rule(
     id="SPAN-NAM-001",
     title='Canonical namespace ambiguity',

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import inspect
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
 from typing import Any
 
@@ -14,7 +14,7 @@ from .pipeline import SPANPipeline
 from .provider_loader import ProviderLoader
 from .provider_registry import ProviderRegistry
 from .rule_engine import RuleEngine
-from .rule_loader import RuleLoadReport, RuleLoader
+from .rule_loader import RuleLoader, RuleLoadReport
 from .rule_registry import RuleRegistry
 
 
@@ -211,7 +211,7 @@ class SPANBootstrap:
 
         return self._report
 
-    def run(self, project_root: str | None = None) -> "SPANBootstrap":
+    def run(self, project_root: str | None = None) -> SPANBootstrap:
         """
         Legacy Genesis 13.x compatibility entry point.
 
@@ -263,7 +263,7 @@ class SPANBootstrap:
 
         return self._report.to_dict()
 
-    def require_ready(self) -> "SPANBootstrap":
+    def require_ready(self) -> SPANBootstrap:
         """Raise unless all required SPAN runtime components are ready."""
 
         if self.state is not BootstrapState.READY:
@@ -631,7 +631,7 @@ class SPANBootstrap:
 
     @staticmethod
     def _timestamp() -> str:
-        return datetime.now(timezone.utc).isoformat()
+        return datetime.now(UTC).isoformat()
 
 
 def bootstrap_span(

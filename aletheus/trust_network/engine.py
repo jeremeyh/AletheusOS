@@ -5,13 +5,12 @@ Genesis 13.56
 """
 
 
+from .authentication import AuthenticationEngine
+from .custody import CustodyEngine
+from .fraud import FraudDetectionEngine
 from .identity import IdentityEngine
 from .provenance import ProvenanceEngine
-from .custody import CustodyEngine
-from .authentication import AuthenticationEngine
-from .fraud import FraudDetectionEngine
 from .scoring import TrustScoringEngine
-
 
 
 class TrustNetworkEngine:

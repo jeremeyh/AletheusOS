@@ -7,7 +7,6 @@ Genesis 79
 
 from .engine import GlobalCollectorIntelligenceNetworkEngine
 
-
 __all__ = [
 
     "GlobalCollectorIntelligenceNetworkEngine"

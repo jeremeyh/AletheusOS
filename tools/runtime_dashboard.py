@@ -1,4 +1,3 @@
-from aletheus.runtime.dashboard import RuntimeDashboard
 
 print("========================================================")
 print("ALETHEUSOS RUNTIME DASHBOARD")

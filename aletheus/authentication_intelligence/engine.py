@@ -5,11 +5,10 @@ Genesis 13.35
 """
 
 
-from .verification import VerificationEngine
-from .provenance import ProvenanceEngine
-from .fraud import FraudDetectionEngine
 from .confidence import AuthenticationConfidenceEngine
-
+from .fraud import FraudDetectionEngine
+from .provenance import ProvenanceEngine
+from .verification import VerificationEngine
 
 
 class UniversalAuthenticationEngine:

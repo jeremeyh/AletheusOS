@@ -11,15 +11,14 @@ from .core import (
     CognitiveKernel,
     cognitive_kernel,
 )
-
 from .models import (
     CognitiveExecutionStep,
     CognitiveKernelRecord,
 )
 
 __all__ = [
-    "CognitiveKernel",
     "CognitiveExecutionStep",
+    "CognitiveKernel",
     "CognitiveKernelRecord",
     "cognitive_kernel",
 ]

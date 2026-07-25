@@ -14,7 +14,6 @@ from .registry import (
     build_canonical_event_registry,
 )
 
-
 EventHandler = Callable[[ConstitutionalEvent], object]
 
 

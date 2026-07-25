@@ -1,5 +1,6 @@
 import os
 
+
 class SecretsManager:
     """Secure secrets loading helper."""
 

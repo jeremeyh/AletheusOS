@@ -5,10 +5,9 @@ Genesis 60.9
 """
 
 
-from .signal_weighting import SignalWeighting
 from .agreement_analyzer import AgreementAnalyzer
 from .historical_validator import HistoricalValidator
-
+from .signal_weighting import SignalWeighting
 
 
 class IntelligenceConfidenceEngine:

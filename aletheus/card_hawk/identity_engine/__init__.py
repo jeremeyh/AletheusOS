@@ -1,12 +1,10 @@
 from .engine import CardHawkIdentityEngine
 from .models import AssetIdentity
 
-
 __all__ = [
 
-    "CardHawkIdentityEngine",
-
-    "AssetIdentity"
+    "AssetIdentity",
+    "CardHawkIdentityEngine"
 
 ]
 

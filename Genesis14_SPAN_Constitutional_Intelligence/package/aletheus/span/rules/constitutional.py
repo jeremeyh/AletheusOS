@@ -1,7 +1,6 @@
 from ..finding import Severity
 from ..rule_engine import Rule
 
-
 SPAN_CON_001 = Rule(
     id="SPAN-CON-001",
     title='Constitution document missing',

@@ -7,7 +7,6 @@ Genesis 13.11
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class IntelligenceContext:
 

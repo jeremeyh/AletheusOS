@@ -1,6 +1,8 @@
-from aletheus.core import Event,LifecycleState,Result,VERSION
+from aletheus.core import VERSION, Event, LifecycleState, Result
 from aletheus.kernel import ConstitutionalKernel
 from aletheus.sdk.mission import MissionContext
+
+
 class AletheusRuntime:
     def __init__(self,kernel=None): self.kernel=kernel or ConstitutionalKernel()
     def boot(self):

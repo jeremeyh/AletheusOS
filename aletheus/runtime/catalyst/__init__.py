@@ -3,8 +3,8 @@ from .optimizer import CatalystOptimizer
 from .reporter import CatalystReporter
 
 __all__ = [
+    "CatalystOptimizer",
     "CatalystRecommendation",
     "CatalystReport",
-    "CatalystOptimizer",
     "CatalystReporter",
 ]

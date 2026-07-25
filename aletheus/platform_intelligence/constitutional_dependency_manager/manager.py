@@ -2,8 +2,7 @@
 
 from __future__ import annotations
 
-from collections import defaultdict, deque
-from typing import Iterable
+from collections import deque
 
 from aletheus.platform_intelligence.service_registry import (
     PlatformServiceRegistry,

@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, asdict, field
-from datetime import datetime
-from typing import Dict, List, Any
 import uuid
+from dataclasses import asdict, dataclass, field
+from typing import Any
+
+from aletheus.time_utils import utc_now, utc_now_iso
 
 
 def utc_now():
@@ -18,7 +17,7 @@ class Organization:
     name: str
     status: str = "active"
     created_at: str = field(default_factory=utc_now)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -29,8 +28,8 @@ class Tenant:
     environment: str = "production"
     status: str = "active"
     created_at: str = field(default_factory=utc_now)
-    quotas: Dict[str, Any] = field(default_factory=dict)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    quotas: dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -40,16 +39,16 @@ class Workspace:
     name: str
     status: str = "active"
     created_at: str = field(default_factory=utc_now)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 class AletheusTenancyEngine:
     VERSION = "3.9.0"
 
     def __init__(self):
-        self.organizations: Dict[str, Organization] = {}
-        self.tenants: Dict[str, Tenant] = {}
-        self.workspaces: Dict[str, Workspace] = {}
+        self.organizations: dict[str, Organization] = {}
+        self.tenants: dict[str, Tenant] = {}
+        self.workspaces: dict[str, Workspace] = {}
         self.active_tenant_id: str | None = None
 
     @property

@@ -7,7 +7,6 @@ Post-Genesis 65
 
 from .engine import CommunityMarketSignalsEngine
 
-
 __all__ = [
 
     "CommunityMarketSignalsEngine"

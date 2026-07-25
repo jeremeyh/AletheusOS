@@ -1,4 +1,6 @@
 from enum import StrEnum
+
+
 class LifecycleState(StrEnum):
     DORMANT="dormant"
     GENESIS="genesis"

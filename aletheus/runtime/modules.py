@@ -50,6 +50,6 @@ def runtime_health(runtime):
 
 
 __all__ = [
-    "runtime_health",
     "register_runtime_services",
+    "runtime_health",
 ]

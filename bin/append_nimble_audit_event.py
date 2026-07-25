@@ -8,7 +8,7 @@ import json
 import os
 import re
 import uuid
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -202,7 +202,7 @@ def main() -> int:
         "event_id": str(uuid.uuid4()),
         "event_type": arguments.event_type,
         "occurred_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
         "actor": arguments.actor,
         "environment": arguments.environment,

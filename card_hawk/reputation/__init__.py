@@ -7,7 +7,6 @@ Genesis 64
 
 from .engine import ReputationTrustEngine
 
-
 __all__ = [
 
     "ReputationTrustEngine"

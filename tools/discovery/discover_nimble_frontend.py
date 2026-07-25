@@ -6,7 +6,6 @@ import json
 from pathlib import Path
 from typing import Any
 
-
 ROOT = Path(__file__).resolve().parent
 REPORT = ROOT / "reports/nimble/experience/frontend-discovery.json"
 

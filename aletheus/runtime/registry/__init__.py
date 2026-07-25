@@ -1,1 +1,1 @@
-from .runtime_registry import runtime_registry, RuntimeRegistry
+from .runtime_registry import RuntimeRegistry, runtime_registry

@@ -1,7 +1,7 @@
 {
   "agents": [
     {
-      "agent_id": "872e93ce-2533-47f9-a17e-8f05002c697c",
+      "agent_id": "13a38ccf-77c7-40cc-9c2f-312aea91cb91",
       "name": "Founder Agent",
       "role": "Founder",
       "status": "idle",
@@ -11,11 +11,11 @@
       "heartbeat": 1,
       "tasks_completed": 3,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:02.962232+00:00",
-      "last_active": "2026-07-10T12:18:04.434605+00:00"
+      "created_at": "2026-07-25T03:19:44.730399+00:00",
+      "last_active": "2026-07-25T03:21:18.590569+00:00"
     },
     {
-      "agent_id": "64deb12f-85c7-4c4f-a5af-65fed9ad2851",
+      "agent_id": "a20c67fa-ca70-41b3-9538-c747cce9e568",
       "name": "Research Agent",
       "role": "Research",
       "status": "idle",
@@ -25,11 +25,11 @@
       "heartbeat": 1,
       "tasks_completed": 2,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:02.962244+00:00",
-      "last_active": "2026-07-10T12:18:04.434606+00:00"
+      "created_at": "2026-07-25T03:19:44.730406+00:00",
+      "last_active": "2026-07-25T03:21:18.590571+00:00"
     },
     {
-      "agent_id": "1bc7f6a1-a260-4486-a768-b64ed6f797a6",
+      "agent_id": "b7229bdd-7666-4334-984b-b08f50b8bd0d",
       "name": "Marketplace Agent",
       "role": "Marketplace",
       "status": "idle",
@@ -39,11 +39,11 @@
       "heartbeat": 1,
       "tasks_completed": 2,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:02.962250+00:00",
-      "last_active": "2026-07-10T12:18:04.434607+00:00"
+      "created_at": "2026-07-25T03:19:44.730412+00:00",
+      "last_active": "2026-07-25T03:21:18.590572+00:00"
     },
     {
-      "agent_id": "15097976-362b-4d5d-880d-a32bb9ea2693",
+      "agent_id": "ec1783a7-e2f0-45ab-876a-69e69ef1a986",
       "name": "Portfolio Agent",
       "role": "Portfolio",
       "status": "idle",
@@ -53,11 +53,11 @@
       "heartbeat": 1,
       "tasks_completed": 2,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:02.962255+00:00",
-      "last_active": "2026-07-10T12:18:04.434608+00:00"
+      "created_at": "2026-07-25T03:19:44.730417+00:00",
+      "last_active": "2026-07-25T03:21:18.590573+00:00"
     },
     {
-      "agent_id": "0178c7b3-0b6c-4686-bee0-c9deffe97273",
+      "agent_id": "16c0921c-5f14-4637-ab5e-8bbc06a943f4",
       "name": "Operations Agent",
       "role": "Operations",
       "status": "idle",
@@ -67,11 +67,11 @@
       "heartbeat": 1,
       "tasks_completed": 2,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:02.962260+00:00",
-      "last_active": "2026-07-10T12:18:04.434609+00:00"
+      "created_at": "2026-07-25T03:19:44.730421+00:00",
+      "last_active": "2026-07-25T03:21:18.590574+00:00"
     },
     {
-      "agent_id": "385a89a7-9c45-49c1-b7da-00fc0e8d8212",
+      "agent_id": "01a60411-5ff7-4ac3-be95-11f4f1a3fa04",
       "name": "Founder Agent",
       "role": "Founder",
       "status": "idle",
@@ -81,11 +81,11 @@
       "heartbeat": 1,
       "tasks_completed": 2,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:03.652598+00:00",
-      "last_active": "2026-07-10T12:18:04.434611+00:00"
+      "created_at": "2026-07-25T03:19:45.417472+00:00",
+      "last_active": "2026-07-25T03:21:18.590575+00:00"
     },
     {
-      "agent_id": "059b1a5e-cbcc-43bd-96a7-153e1388d1d2",
+      "agent_id": "6e5ea9fb-2ece-4ebb-b2e8-3bf4aa8d9e81",
       "name": "Research Agent",
       "role": "Research",
       "status": "idle",
@@ -95,11 +95,11 @@
       "heartbeat": 1,
       "tasks_completed": 2,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:03.652606+00:00",
-      "last_active": "2026-07-10T12:18:04.434611+00:00"
+      "created_at": "2026-07-25T03:19:45.417481+00:00",
+      "last_active": "2026-07-25T03:21:18.590576+00:00"
     },
     {
-      "agent_id": "d3435821-edf5-4435-b5da-1b005a19953f",
+      "agent_id": "ee3e7a03-4ac1-43ec-94a6-c3e1f3fa7e05",
       "name": "Marketplace Agent",
       "role": "Marketplace",
       "status": "idle",
@@ -109,11 +109,11 @@
       "heartbeat": 1,
       "tasks_completed": 2,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:03.652612+00:00",
-      "last_active": "2026-07-10T12:18:04.434612+00:00"
+      "created_at": "2026-07-25T03:19:45.417487+00:00",
+      "last_active": "2026-07-25T03:21:18.590577+00:00"
     },
     {
-      "agent_id": "769f1997-bd58-491f-9967-5677e1bb6c99",
+      "agent_id": "e3f0b52e-3500-46d7-bf39-f3c1dc903ca5",
       "name": "Portfolio Agent",
       "role": "Portfolio",
       "status": "idle",
@@ -123,11 +123,11 @@
       "heartbeat": 1,
       "tasks_completed": 2,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:03.652616+00:00",
-      "last_active": "2026-07-10T12:18:04.434613+00:00"
+      "created_at": "2026-07-25T03:19:45.417491+00:00",
+      "last_active": "2026-07-25T03:21:18.590578+00:00"
     },
     {
-      "agent_id": "b9fb4089-1b21-417c-843e-bde69b148c32",
+      "agent_id": "15470f4b-88c6-43a8-ae26-0e2f65574275",
       "name": "Operations Agent",
       "role": "Operations",
       "status": "idle",
@@ -137,11 +137,11 @@
       "heartbeat": 1,
       "tasks_completed": 2,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:03.652621+00:00",
-      "last_active": "2026-07-10T12:18:04.434614+00:00"
+      "created_at": "2026-07-25T03:19:45.417496+00:00",
+      "last_active": "2026-07-25T03:21:18.590579+00:00"
     },
     {
-      "agent_id": "41d743fb-770a-4856-a566-6f22b4889e7d",
+      "agent_id": "1fe814fc-9558-49ac-b211-68a35524eb38",
       "name": "Founder Agent",
       "role": "Founder",
       "status": "idle",
@@ -151,11 +151,11 @@
       "heartbeat": 1,
       "tasks_completed": 2,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:04.400265+00:00",
-      "last_active": "2026-07-10T12:18:04.434615+00:00"
+      "created_at": "2026-07-25T03:21:18.549610+00:00",
+      "last_active": "2026-07-25T03:21:18.590580+00:00"
     },
     {
-      "agent_id": "69df6aa9-9db5-4ce6-90e7-c1cf29822db3",
+      "agent_id": "2c94963c-9d6d-4b78-88e5-3cc46c4492a6",
       "name": "Research Agent",
       "role": "Research",
       "status": "idle",
@@ -165,11 +165,11 @@
       "heartbeat": 1,
       "tasks_completed": 2,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:04.400272+00:00",
-      "last_active": "2026-07-10T12:18:04.434616+00:00"
+      "created_at": "2026-07-25T03:21:18.549618+00:00",
+      "last_active": "2026-07-25T03:21:18.590581+00:00"
     },
     {
-      "agent_id": "f605461f-e962-4f68-a095-6e289630a9bd",
+      "agent_id": "9e3d629a-98d1-41c7-9ec8-31b55dc7217c",
       "name": "Marketplace Agent",
       "role": "Marketplace",
       "status": "idle",
@@ -179,11 +179,11 @@
       "heartbeat": 1,
       "tasks_completed": 2,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:04.400277+00:00",
-      "last_active": "2026-07-10T12:18:04.434617+00:00"
+      "created_at": "2026-07-25T03:21:18.549623+00:00",
+      "last_active": "2026-07-25T03:21:18.590582+00:00"
     },
     {
-      "agent_id": "d06850d5-2132-44b8-b783-21047b931457",
+      "agent_id": "4f5ade41-97af-414f-968c-1db0f76025d8",
       "name": "Portfolio Agent",
       "role": "Portfolio",
       "status": "idle",
@@ -193,11 +193,11 @@
       "heartbeat": 1,
       "tasks_completed": 2,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:04.400282+00:00",
-      "last_active": "2026-07-10T12:18:04.434618+00:00"
+      "created_at": "2026-07-25T03:21:18.549628+00:00",
+      "last_active": "2026-07-25T03:21:18.590583+00:00"
     },
     {
-      "agent_id": "95344342-9f74-407c-820e-9282b1619d93",
+      "agent_id": "ebee528d-b3a0-47ac-8c8c-808429cef2ff",
       "name": "Operations Agent",
       "role": "Operations",
       "status": "idle",
@@ -207,11 +207,11 @@
       "heartbeat": 1,
       "tasks_completed": 2,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:04.400286+00:00",
-      "last_active": "2026-07-10T12:18:04.434619+00:00"
+      "created_at": "2026-07-25T03:21:18.549633+00:00",
+      "last_active": "2026-07-25T03:21:18.590584+00:00"
     },
     {
-      "agent_id": "ae322440-8e31-4caa-887a-dc3c91caa93c",
+      "agent_id": "536f50f3-e1b2-448c-892e-71f6817a3f32",
       "name": "Executive Agent",
       "role": "Executive",
       "status": "idle",
@@ -221,11 +221,11 @@
       "heartbeat": 1,
       "tasks_completed": 5,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:04.400657+00:00",
-      "last_active": "2026-07-10T12:18:04.434619+00:00"
+      "created_at": "2026-07-25T03:21:18.550203+00:00",
+      "last_active": "2026-07-25T03:21:18.590585+00:00"
     },
     {
-      "agent_id": "877ff774-1e33-4d94-88d2-99412210327e",
+      "agent_id": "34372d61-0807-478d-bd62-bd2ae8a2dac3",
       "name": "Knowledge Agent",
       "role": "Knowledge",
       "status": "idle",
@@ -235,11 +235,11 @@
       "heartbeat": 1,
       "tasks_completed": 3,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:04.400664+00:00",
-      "last_active": "2026-07-10T12:18:04.434620+00:00"
+      "created_at": "2026-07-25T03:21:18.550209+00:00",
+      "last_active": "2026-07-25T03:21:18.590585+00:00"
     },
     {
-      "agent_id": "e36bb23d-2b14-4669-a20f-a141a3eebd34",
+      "agent_id": "48133b1c-a2b3-453c-b5ee-7c0da79a5d48",
       "name": "Memory Agent",
       "role": "Memory",
       "status": "idle",
@@ -249,11 +249,11 @@
       "heartbeat": 1,
       "tasks_completed": 3,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:04.400669+00:00",
-      "last_active": "2026-07-10T12:18:04.434621+00:00"
+      "created_at": "2026-07-25T03:21:18.550214+00:00",
+      "last_active": "2026-07-25T03:21:18.590586+00:00"
     },
     {
-      "agent_id": "acaf7163-7216-4ce5-ad31-7b5f07c37ff3",
+      "agent_id": "6f07416b-1a89-42c5-beb7-049ea51da2d7",
       "name": "Market Agent",
       "role": "Marketplace",
       "status": "idle",
@@ -263,11 +263,11 @@
       "heartbeat": 1,
       "tasks_completed": 3,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:04.400673+00:00",
-      "last_active": "2026-07-10T12:18:04.434622+00:00"
+      "created_at": "2026-07-25T03:21:18.550219+00:00",
+      "last_active": "2026-07-25T03:21:18.590587+00:00"
     },
     {
-      "agent_id": "a9b32fbe-6a7c-4635-a01f-37409da8b119",
+      "agent_id": "acda3610-38e6-4a18-b13c-d229ffb602d9",
       "name": "Founder Agent",
       "role": "Founder",
       "status": "idle",
@@ -277,11 +277,11 @@
       "heartbeat": 1,
       "tasks_completed": 0,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:04.433760+00:00",
-      "last_active": "2026-07-10T12:18:04.434623+00:00"
+      "created_at": "2026-07-25T03:21:18.589737+00:00",
+      "last_active": "2026-07-25T03:21:18.590588+00:00"
     },
     {
-      "agent_id": "39cb73dd-80c8-4139-beb8-c9634f401ce0",
+      "agent_id": "0b47b441-5ad7-49ed-80c2-d69315bab304",
       "name": "Research Agent",
       "role": "Research",
       "status": "idle",
@@ -291,11 +291,11 @@
       "heartbeat": 1,
       "tasks_completed": 0,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:04.433765+00:00",
-      "last_active": "2026-07-10T12:18:04.434624+00:00"
+      "created_at": "2026-07-25T03:21:18.589744+00:00",
+      "last_active": "2026-07-25T03:21:18.590589+00:00"
     },
     {
-      "agent_id": "954ab41e-52bd-468e-a317-3b966254fbfd",
+      "agent_id": "0b1cbe68-bdd5-46e9-abdb-2b524f5eafe8",
       "name": "Marketplace Agent",
       "role": "Marketplace",
       "status": "idle",
@@ -305,11 +305,11 @@
       "heartbeat": 1,
       "tasks_completed": 0,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:04.433770+00:00",
-      "last_active": "2026-07-10T12:18:04.434624+00:00"
+      "created_at": "2026-07-25T03:21:18.589749+00:00",
+      "last_active": "2026-07-25T03:21:18.590590+00:00"
     },
     {
-      "agent_id": "fd0ce730-64b9-4b8e-97c6-4bbb3c1a9067",
+      "agent_id": "5487a4bb-3843-4f4b-b3ee-22896c220949",
       "name": "Portfolio Agent",
       "role": "Portfolio",
       "status": "idle",
@@ -319,11 +319,11 @@
       "heartbeat": 1,
       "tasks_completed": 0,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:04.433775+00:00",
-      "last_active": "2026-07-10T12:18:04.434625+00:00"
+      "created_at": "2026-07-25T03:21:18.589754+00:00",
+      "last_active": "2026-07-25T03:21:18.590591+00:00"
     },
     {
-      "agent_id": "b7812b59-8857-46c1-b1e9-50fb93077db2",
+      "agent_id": "4b061e76-b8aa-48d6-aa45-e9c0c2139dfc",
       "name": "Operations Agent",
       "role": "Operations",
       "status": "idle",
@@ -333,11 +333,11 @@
       "heartbeat": 1,
       "tasks_completed": 0,
       "messages": 0,
-      "created_at": "2026-07-10T12:18:04.433779+00:00",
-      "last_active": "2026-07-10T12:18:04.434626+00:00"
+      "created_at": "2026-07-25T03:21:18.589758+00:00",
+      "last_active": "2026-07-25T03:21:18.590591+00:00"
     },
     {
-      "agent_id": "365879fc-deb0-4a6f-a3ef-46e96dddb633",
+      "agent_id": "15591dcf-fc18-4166-aaf9-b9302cf690ae",
       "name": "Test Agent",
       "role": "Testing",
       "status": "stopped",
@@ -347,8 +347,8 @@
       "heartbeat": 1,
       "tasks_completed": 0,
       "messages": 1,
-      "created_at": "2026-07-10T12:18:04.434157+00:00",
-      "last_active": "2026-07-10T12:18:04.434627+00:00"
+      "created_at": "2026-07-25T03:21:18.590125+00:00",
+      "last_active": "2026-07-25T03:21:18.590592+00:00"
     }
   ]
 }

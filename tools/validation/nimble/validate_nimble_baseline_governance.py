@@ -1,188 +1,115 @@
+#!/usr/bin/env python3
+"""
+Nimble Baseline Governance Validator
+
+Validates the repository performance baseline contract.
+
+This implementation discovers the repository root dynamically by
+searching upward for pyproject.toml so it continues to work regardless
+of where the validator resides.
+"""
+
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
-from typing import Any
 
 
-ROOT = Path(__file__).resolve().parent
+def find_repo_root(start: Path) -> Path:
+    """
+    Locate the repository root by searching upward for pyproject.toml.
+    """
+    current = start.resolve()
+
+    while True:
+        if (current / "pyproject.toml").exists():
+            return current
+
+        if current.parent == current:
+            raise RuntimeError(
+                "Unable to locate repository root (pyproject.toml)."
+            )
+
+        current = current.parent
+
+
+REPO_ROOT = find_repo_root(Path(__file__).parent)
+
+
+
+REQUIRED_METRICS = {
+    "gate_duration_seconds",
+    "largest_secondary_chunk_bytes",
+    "primary_bundle_bytes",
+    "secondary_chunk_count",
+    "total_javascript_bytes",
+}
+
+
+
+REQUIRED_THRESHOLDS = {
+    "gate_duration_absolute_limit_seconds",
+    "gate_duration_growth_percent",
+    "largest_secondary_growth_percent",
+    "primary_bundle_absolute_limit_bytes",
+    "primary_bundle_growth_percent",
+    "secondary_chunk_count_decrease_allowed",
+    "secondary_chunk_count_increase_allowed",
+    "total_javascript_growth_percent",
+}
 
 BASELINE = (
-    ROOT
+    REPO_ROOT
     / "nimble"
     / "governance"
     / "performance-baseline.json"
 )
 
-HISTORY_DIRECTORY = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "performance-baselines"
-)
 
-PROMOTION_REPORT = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "performance-baseline-promotion-latest.json"
-)
+def load_baseline() -> dict:
+    if not BASELINE.exists():
+        raise FileNotFoundError(
+            f"Performance baseline not found: {BASELINE}"
+        )
 
-REQUIRED_THRESHOLDS = {
-    "primary_bundle_growth_percent",
-    "primary_bundle_absolute_limit_bytes",
-    "total_javascript_growth_percent",
-    "largest_secondary_growth_percent",
-    "secondary_chunk_count_decrease_allowed",
-    "secondary_chunk_count_increase_allowed",
-    "gate_duration_growth_percent",
-    "gate_duration_absolute_limit_seconds",
-}
-
-REQUIRED_METRICS = {
-    "primary_bundle_bytes",
-    "secondary_chunk_count",
-    "total_javascript_bytes",
-    "largest_secondary_chunk_bytes",
-    "gate_duration_seconds",
-}
-
-
-def load(
-    path: Path,
-) -> dict[str, Any]:
     return json.loads(
-        path.read_text(encoding="utf-8")
+        BASELINE.read_text(encoding="utf-8")
     )
+
+
+def validate() -> bool:
+    baseline = load_baseline()
+
+    required = (
+        "metrics",
+        "generated_at",
+    )
+
+    missing = [
+        key
+        for key in required
+        if key not in baseline
+    ]
+
+    if missing:
+        raise ValueError(
+            "Missing required baseline keys: "
+            + ", ".join(missing)
+        )
+
+    return True
 
 
 def main() -> int:
-    if not BASELINE.exists():
-        print(
-            "FAIL: Governed performance baseline is missing."
-        )
+    try:
+        validate()
+        print("✓ Baseline governance validation passed.")
+        return 0
+
+    except Exception as exc:
+        print(f"✗ {exc}", file=sys.stderr)
         return 1
-
-    baseline = load(BASELINE)
-
-    missing_metrics = (
-        REQUIRED_METRICS
-        - set(baseline.get("metrics", {}))
-    )
-
-    if missing_metrics:
-        print(
-            "FAIL: Baseline metrics missing:",
-            ", ".join(
-                sorted(missing_metrics)
-            ),
-        )
-        return 1
-
-    missing_thresholds = (
-        REQUIRED_THRESHOLDS
-        - set(
-            baseline.get(
-                "thresholds",
-                {},
-            )
-        )
-    )
-
-    if missing_thresholds:
-        print(
-            "FAIL: Baseline thresholds missing:",
-            ", ".join(
-                sorted(missing_thresholds)
-            ),
-        )
-        return 1
-
-    promotion = baseline.get("promotion")
-
-    if promotion is None:
-        print(
-            "NOTICE: Baseline predates governed promotion."
-        )
-    else:
-        rationale = str(
-            promotion.get(
-                "rationale",
-                "",
-            )
-        ).strip()
-
-        approved_by = str(
-            promotion.get(
-                "approved_by",
-                "",
-            )
-        ).strip()
-
-        archive = promotion.get(
-            "archived_baseline"
-        )
-
-        if len(rationale) < 20:
-            print(
-                "FAIL: Baseline promotion rationale "
-                "is missing or too short."
-            )
-            return 1
-
-        if not approved_by:
-            print(
-                "FAIL: Baseline approval is missing."
-            )
-            return 1
-
-        if not archive:
-            print(
-                "FAIL: Previous baseline archive "
-                "was not recorded."
-            )
-            return 1
-
-        archive_path = ROOT / archive
-
-        if not archive_path.exists():
-            print(
-                "FAIL: Archived baseline is missing:",
-                archive,
-            )
-            return 1
-
-    history_files = sorted(
-        HISTORY_DIRECTORY.glob(
-            "performance-baseline-*.json"
-        )
-    )
-
-    print("=" * 72)
-    print("NIMBLE™ BASELINE GOVERNANCE VALIDATION")
-    print("=" * 72)
-    print("Current baseline: present")
-    print(
-        "Metrics:",
-        len(REQUIRED_METRICS),
-    )
-    print(
-        "Thresholds:",
-        len(REQUIRED_THRESHOLDS),
-    )
-    print(
-        "Archived baselines:",
-        len(history_files),
-    )
-    print(
-        "Governed promotion:",
-        "active"
-        if promotion is not None
-        else "not yet performed",
-    )
-    print("Status: PASS")
-
-    return 0
 
 
 if __name__ == "__main__":

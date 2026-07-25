@@ -8,7 +8,9 @@ from .relationship_engine import RelationshipEngine
 from .repository_dna_adapter import RepositoryDNAAtlasAdapter
 
 try:
-    from aletheus.repository_dna.inventory_provider import RepositoryDNAInventoryProvider
+    from aletheus.repository_dna.inventory_provider import (
+        RepositoryDNAInventoryProvider,
+    )
 except Exception:  # pragma: no cover
     RepositoryDNAInventoryProvider = None
 

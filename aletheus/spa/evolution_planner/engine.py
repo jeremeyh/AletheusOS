@@ -5,13 +5,12 @@ Genesis 159
 """
 
 
-from .roadmap_engine import RoadmapEngine
-from .future_state_model import FutureStateModel
 from .branch_simulator import BranchSimulator
 from .dependency_mapper import DependencyMapper
+from .future_state_model import FutureStateModel
 from .readiness_score import ReadinessScore
+from .roadmap_engine import RoadmapEngine
 from .strategy_engine import StrategyEngine
-
 
 
 class AutonomousEvolutionPlanner:

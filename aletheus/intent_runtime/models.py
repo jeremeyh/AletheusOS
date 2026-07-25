@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 class IntentPriority(str, Enum):
@@ -42,14 +42,14 @@ class Intent:
     priority: IntentPriority = IntentPriority.NORMAL
     status: IntentStatus = IntentStatus.PROPOSED
 
-    constraints: List[str] = field(default_factory=list)
-    success_metrics: List[str] = field(default_factory=list)
-    constitutional_context: List[str] = field(default_factory=list)
+    constraints: list[str] = field(default_factory=list)
+    success_metrics: list[str] = field(default_factory=list)
+    constitutional_context: list[str] = field(default_factory=list)
 
     source: str = "unknown"
-    steward: Optional[str] = None
+    steward: str | None = None
 
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     created_at: str = field(default_factory=utc_now)
     updated_at: str = field(default_factory=utc_now)

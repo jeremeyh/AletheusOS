@@ -3,7 +3,6 @@ Intelligence Dispatcher
 """
 
 from core.event_bus import event_bus
-
 from intelligence.events.events import *
 
 

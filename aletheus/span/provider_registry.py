@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Dict, Iterable, Optional
+from collections.abc import Iterable
 
 from .pipeline import SPANPipeline
 from .providers.base import Provider
@@ -10,11 +10,11 @@ class ProviderRegistry:
     """Canonical registry for SPAN providers."""
 
     def __init__(self) -> None:
-        self._providers: Dict[str, Provider] = {}
-        self._enabled: Dict[str, bool] = {}
+        self._providers: dict[str, Provider] = {}
+        self._enabled: dict[str, bool] = {}
 
     @classmethod
-    def default(cls) -> "ProviderRegistry":
+    def default(cls) -> ProviderRegistry:
         """
         Discover and register the built-in SPAN providers.
         """
@@ -26,7 +26,7 @@ class ProviderRegistry:
         self,
         provider: Provider,
         *,
-        name: Optional[str] = None,
+        name: str | None = None,
     ) -> None:
         key = name or provider.__class__.__name__
 

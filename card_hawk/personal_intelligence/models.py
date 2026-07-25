@@ -7,7 +7,6 @@ Genesis 14.24
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class CollectorProfile:
 

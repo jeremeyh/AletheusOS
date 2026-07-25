@@ -1,7 +1,8 @@
 from intelligence_convergence.engines.acquisition_ai import AcquisitionAI
-from intelligence_convergence.engines.exit_intelligence import ExitIntelligence
-from intelligence_convergence.engines.digital_twin_2 import DigitalTwin2
 from intelligence_convergence.engines.decision_model import DecisionModel
+from intelligence_convergence.engines.digital_twin_2 import DigitalTwin2
+from intelligence_convergence.engines.exit_intelligence import ExitIntelligence
+
 
 class UnifiedIntelligenceEngine:
     """

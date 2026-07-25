@@ -9,7 +9,6 @@ from .capability_discovery import CapabilityDiscoveryEngine
 from .capability_registry import CapabilityRegistry
 
 
-
 class CardHawkRuntime:
 
 

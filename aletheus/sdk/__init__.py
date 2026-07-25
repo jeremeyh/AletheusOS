@@ -5,11 +5,11 @@ Canonical public SDK surface.
 """
 
 from .application import Application
-from .core import AletheusSDK, aos, aletheus_sdk
+from .core import AletheusSDK, aletheus_sdk, aos
 
 __all__ = [
-    "Application",
     "AletheusSDK",
-    "aos",
+    "Application",
     "aletheus_sdk",
+    "aos",
 ]

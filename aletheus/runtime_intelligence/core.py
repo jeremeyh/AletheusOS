@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from .integration import runtime_intelligence
 from .discovery import runtime_engine_discovery
+from .integration import runtime_intelligence
 
 
 class RuntimeIntelligence:

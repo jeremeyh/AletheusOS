@@ -8,9 +8,8 @@ high-value intelligence improvements.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class IntelligenceEvolutionAccelerator:

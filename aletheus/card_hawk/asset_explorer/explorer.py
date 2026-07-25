@@ -9,7 +9,6 @@ from .cards import AssetCardBuilder
 from .intelligence_view import IntelligencePanel
 
 
-
 class CardHawkAssetExplorer:
 
 

@@ -19,13 +19,13 @@ from .resolver import capability_resolver
 from .statistics import capability_statistics
 
 __all__ = [
+    "CapabilityRegistry",
     "capability_engine",
-    "decision_engine",
     "capability_events",
-    "grant_manager",
-    "foundation_profiles",
+    "capability_health",
     "capability_resolver",
     "capability_statistics",
-    "capability_health",
-    "CapabilityRegistry",
+    "decision_engine",
+    "foundation_profiles",
+    "grant_manager",
 ]

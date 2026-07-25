@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 from aletheus.workflows_v2.models import WorkflowEvent, WorkflowExecution, WorkflowNode
 
@@ -8,10 +8,10 @@ from aletheus.workflows_v2.models import WorkflowEvent, WorkflowExecution, Workf
 class AletheusWorkflowFabric:
     def __init__(self) -> None:
         self.version = "2.0.0-d"
-        self.workflows: List[WorkflowExecution] = []
-        self.events: List[WorkflowEvent] = []
+        self.workflows: list[WorkflowExecution] = []
+        self.events: list[WorkflowEvent] = []
 
-    def emit(self, workflow_id: str, event_type: str, message: str, payload: Dict[str, Any] | None = None) -> WorkflowEvent:
+    def emit(self, workflow_id: str, event_type: str, message: str, payload: dict[str, Any] | None = None) -> WorkflowEvent:
         item = WorkflowEvent(
             workflow_id=workflow_id,
             event_type=event_type,
@@ -21,7 +21,7 @@ class AletheusWorkflowFabric:
         self.events.append(item)
         return item
 
-    def default_nodes(self, objective: str, application: str) -> List[Dict[str, Any]]:
+    def default_nodes(self, objective: str, application: str) -> list[dict[str, Any]]:
         lower = objective.lower()
 
         if "card hawk" in lower or "marketplace" in lower or "asset" in lower:
@@ -117,7 +117,7 @@ class AletheusWorkflowFabric:
         title: str,
         objective: str,
         application: str = "AletheusOS",
-        nodes: List[Dict[str, Any]] | None = None,
+        nodes: list[dict[str, Any]] | None = None,
     ) -> WorkflowExecution:
         workflow_nodes = [
             WorkflowNode(
@@ -145,13 +145,13 @@ class AletheusWorkflowFabric:
     def get_workflow(self, workflow_id: str) -> WorkflowExecution | None:
         return next((item for item in self.workflows if item.workflow_id == workflow_id), None)
 
-    def list_workflows(self, status: str | None = None) -> List[Dict[str, Any]]:
+    def list_workflows(self, status: str | None = None) -> list[dict[str, Any]]:
         items = self.workflows
         if status:
             items = [workflow for workflow in items if workflow.status == status]
         return [workflow.to_dict() for workflow in items]
 
-    def execute_node(self, workflow: WorkflowExecution, node: WorkflowNode, runtime: Any) -> Dict[str, Any]:
+    def execute_node(self, workflow: WorkflowExecution, node: WorkflowNode, runtime: Any) -> dict[str, Any]:
         node.start()
         self.emit(workflow.workflow_id, "workflow.node.started", f"Node started: {node.title}", node.to_dict())
 
@@ -197,7 +197,7 @@ class AletheusWorkflowFabric:
 
         return result
 
-    def execute_next(self, workflow_id: str, runtime: Any) -> Dict[str, Any]:
+    def execute_next(self, workflow_id: str, runtime: Any) -> dict[str, Any]:
         workflow = self.get_workflow(workflow_id)
         if workflow is None:
             return {"error": f"Workflow not found: {workflow_id}"}
@@ -229,7 +229,7 @@ class AletheusWorkflowFabric:
             "result": result,
         }
 
-    def execute_workflow(self, workflow_id: str, runtime: Any) -> Dict[str, Any]:
+    def execute_workflow(self, workflow_id: str, runtime: Any) -> dict[str, Any]:
         outputs = []
 
         while True:
@@ -266,7 +266,7 @@ class AletheusWorkflowFabric:
             "outputs": outputs,
         }
 
-    def pause(self, workflow_id: str) -> Dict[str, Any]:
+    def pause(self, workflow_id: str) -> dict[str, Any]:
         workflow = self.get_workflow(workflow_id)
         if workflow is None:
             return {"error": f"Workflow not found: {workflow_id}"}
@@ -274,7 +274,7 @@ class AletheusWorkflowFabric:
         self.emit(workflow_id, "workflow.paused", f"Workflow paused: {workflow.title}", workflow.to_dict())
         return workflow.to_dict()
 
-    def resume(self, workflow_id: str) -> Dict[str, Any]:
+    def resume(self, workflow_id: str) -> dict[str, Any]:
         workflow = self.get_workflow(workflow_id)
         if workflow is None:
             return {"error": f"Workflow not found: {workflow_id}"}
@@ -282,7 +282,7 @@ class AletheusWorkflowFabric:
         self.emit(workflow_id, "workflow.resumed", f"Workflow resumed: {workflow.title}", workflow.to_dict())
         return workflow.to_dict()
 
-    def cancel(self, workflow_id: str) -> Dict[str, Any]:
+    def cancel(self, workflow_id: str) -> dict[str, Any]:
         workflow = self.get_workflow(workflow_id)
         if workflow is None:
             return {"error": f"Workflow not found: {workflow_id}"}
@@ -290,13 +290,13 @@ class AletheusWorkflowFabric:
         self.emit(workflow_id, "workflow.cancelled", f"Workflow cancelled: {workflow.title}", workflow.to_dict())
         return workflow.to_dict()
 
-    def history(self, workflow_id: str = "") -> List[Dict[str, Any]]:
+    def history(self, workflow_id: str = "") -> list[dict[str, Any]]:
         events = self.events
         if workflow_id:
             events = [event for event in events if event.workflow_id == workflow_id]
         return [event.to_dict() for event in events]
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "workflows": len(self.workflows),

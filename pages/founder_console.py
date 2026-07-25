@@ -1,6 +1,7 @@
 import os
 import sys
 from pathlib import Path
+
 import pandas as pd
 import streamlit as st
 
@@ -46,8 +47,6 @@ print("sys.path AFTER")
 for p in sys.path:
     print(" ", p)
 
-import pandas as pd
-import streamlit as st
 
 from services.runtime_v3 import runtime_v3
 

@@ -7,7 +7,6 @@ Genesis 91
 
 from .engine import UniversalIntelligenceOperatingEngine
 
-
 __all__ = [
 
     "UniversalIntelligenceOperatingEngine"

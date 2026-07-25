@@ -7,7 +7,6 @@ Genesis 47
 
 from .engine import IntelligenceMarketplaceExpansionEngine
 
-
 __all__ = [
     "IntelligenceMarketplaceExpansionEngine"
 ]

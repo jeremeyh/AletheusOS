@@ -1,5 +1,3 @@
 
-from .capability_marketplace import (
-    UniversalCapabilityMarketplace
-)
+from .capability_marketplace import UniversalCapabilityMarketplace
 

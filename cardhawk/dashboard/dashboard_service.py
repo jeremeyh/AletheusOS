@@ -4,9 +4,9 @@ Card Hawk Dashboard Service
 Version 2.0.0
 """
 
-from cardhawk.services import AssetService
-from cardhawk.portfolio import PortfolioEngine
 from cardhawk.analytics import PortfolioAnalytics
+from cardhawk.portfolio import PortfolioEngine
+from cardhawk.services import AssetService
 
 
 class DashboardService:

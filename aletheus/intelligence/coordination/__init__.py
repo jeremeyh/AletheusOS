@@ -1,5 +1,3 @@
 
-from .coordination_layer import (
-    UniversalIntelligenceCoordinationLayer
-)
+from .coordination_layer import UniversalIntelligenceCoordinationLayer
 

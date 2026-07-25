@@ -7,7 +7,6 @@ Genesis 13.37
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class GraphEntity:
 

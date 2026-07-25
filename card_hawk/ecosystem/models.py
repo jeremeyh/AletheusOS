@@ -7,7 +7,6 @@ Genesis 14.21
 from dataclasses import dataclass
 
 
-
 @dataclass
 class Partner:
 

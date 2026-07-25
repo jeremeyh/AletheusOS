@@ -5,12 +5,8 @@ Genesis 13.10
 """
 
 
+from .agents import AcquisitionWatchAgent, PortfolioSentinel
 from .alerts import AlertEngine
-from .agents import (
-    AcquisitionWatchAgent,
-    PortfolioSentinel
-)
-
 
 
 class CardHawkAutomationEngine:

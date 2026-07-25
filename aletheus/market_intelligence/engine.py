@@ -5,14 +5,13 @@ Post-Genesis 25
 """
 
 
-from .market_data import MarketDataEngine
-from .supply_engine import SupplyEngine
 from .demand_engine import DemandEngine
-from .pricing_engine import PricingEngine
-from .trend_engine import TrendEngine
 from .forecast_engine import ForecastEngine
+from .market_data import MarketDataEngine
 from .opportunity_engine import OpportunityEngine
-
+from .pricing_engine import PricingEngine
+from .supply_engine import SupplyEngine
+from .trend_engine import TrendEngine
 
 
 class AutonomousMarketIntelligenceEngine:

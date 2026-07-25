@@ -8,7 +8,7 @@ Attaches federation intelligence during runtime startup.
 
 
 from aletheus.runtime.services.registry_federation_registration import (
-    register_registry_federation
+    register_registry_federation,
 )
 
 

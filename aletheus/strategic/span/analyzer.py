@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from statistics import fmean
-from typing import Iterable
 
 from .models import AnalysisRequest, AnalysisResult, Evidence
 

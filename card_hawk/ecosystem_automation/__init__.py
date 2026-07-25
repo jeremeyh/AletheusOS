@@ -7,7 +7,6 @@ Genesis 69
 
 from .engine import EcosystemAutomationEngine
 
-
 __all__ = [
 
     "EcosystemAutomationEngine"

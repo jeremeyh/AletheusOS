@@ -12,7 +12,6 @@ import time
 import uuid
 
 
-
 class AnchorProposalEngine:
 
 

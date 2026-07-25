@@ -10,12 +10,12 @@ from aletheus.platform_intelligence.constitutional import (
     ConstitutionalHealth,
     ConstitutionalState,
 )
-from aletheus.platform_intelligence.constitutional_graph import (
-    ConstitutionalGraph,
-)
 from aletheus.platform_intelligence.constitutional_dependency_manager import (
     ConstitutionalDependencyManager,
     ConstitutionalDependencyPlan,
+)
+from aletheus.platform_intelligence.constitutional_graph import (
+    ConstitutionalGraph,
 )
 from aletheus.platform_intelligence.digital_twin import (
     PlatformDigitalTwin,
@@ -305,7 +305,7 @@ class ConstitutionalRuntimeKernel:
 
     def compose(
         self,
-    ) -> "ConstitutionalRuntimeKernel":
+    ) -> ConstitutionalRuntimeKernel:
         with self._lock:
             if self._state is not (
                 ConstitutionalRuntimeKernelState.CREATED

@@ -10,10 +10,10 @@ class SPARuntimeIntegration:
 
     def __init__(self):
 
-        from .health_registry import HealthRegistry
         from .boot_validator import BootValidator
-        from .runtime_monitor import RuntimeMonitor
         from .drift_detector import DriftDetector
+        from .health_registry import HealthRegistry
+        from .runtime_monitor import RuntimeMonitor
 
 
         self.registry = HealthRegistry()

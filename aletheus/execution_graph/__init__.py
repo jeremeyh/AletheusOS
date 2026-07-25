@@ -11,29 +11,24 @@ from .core import (
     FoundationExecutionGraph,
     foundation_execution_graph,
 )
-
+from .lineage import (
+    ExecutionGraphLineage,
+    execution_graph_lineage,
+)
 from .models import (
     EdgeType,
     GraphEdge,
     GraphNode,
     NodeType,
 )
-
 from .registry import (
     ExecutionGraphRegistry,
     execution_graph_registry,
 )
-
 from .traversal import (
     ExecutionGraphTraversal,
     execution_graph_traversal,
 )
-
-from .lineage import (
-    ExecutionGraphLineage,
-    execution_graph_lineage,
-)
-
 from .visualization import (
     ExecutionGraphVisualization,
     execution_graph_visualization,

@@ -1,5 +1,7 @@
-from aletheus.runtime import AletheusRuntime
 from aletheus.sdk.hello_mission import HelloMission
+
+from aletheus.runtime import AletheusRuntime
+
 
 def main():
     runtime=AletheusRuntime()

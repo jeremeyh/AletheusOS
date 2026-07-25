@@ -1,5 +1,3 @@
 
-from .integration_layer import (
-    AutonomousSystemsIntegrationLayer
-)
+from .integration_layer import AutonomousSystemsIntegrationLayer
 

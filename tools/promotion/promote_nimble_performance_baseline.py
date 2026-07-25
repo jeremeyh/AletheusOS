@@ -4,12 +4,26 @@ import argparse
 import hashlib
 import json
 import shutil
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
 
-ROOT = Path(__file__).resolve().parent
+def find_repo_root(start: Path) -> Path:
+    current = start.resolve()
+
+    while True:
+        if (current / "pyproject.toml").exists():
+            return current
+
+        if current.parent == current:
+            raise RuntimeError("Unable to locate repository root.")
+
+        current = current.parent
+
+
+ROOT = find_repo_root(Path(__file__).parent)
+
 
 CURRENT_BASELINE = (
     ROOT
@@ -248,7 +262,7 @@ def main() -> int:
     )
 
     promoted_at = datetime.now(
-        timezone.utc
+        UTC
     ).isoformat()
 
     new_baseline = {

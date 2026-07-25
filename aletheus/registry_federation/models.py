@@ -6,7 +6,6 @@ Registry Federation Models
 from dataclasses import dataclass
 
 
-
 @dataclass
 class EngineBinding:
 

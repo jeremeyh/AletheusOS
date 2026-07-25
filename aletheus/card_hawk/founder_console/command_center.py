@@ -5,10 +5,9 @@ Genesis 13.32
 """
 
 
+from .alerts import FounderAlertEngine
 from .dashboard import FounderDashboard
 from .intelligence import FounderIntelligenceFeed
-from .alerts import FounderAlertEngine
-
 
 
 class FounderCommandCenter:

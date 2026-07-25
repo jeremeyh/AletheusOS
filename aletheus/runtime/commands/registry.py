@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Iterable, Iterator, Mapping
 from hashlib import sha256
 from types import MappingProxyType
-from typing import Iterable, Iterator, Mapping
 
 from .errors import CommandNotFoundError, DuplicateCommandError
 from .models import CompiledCommand
@@ -16,7 +16,7 @@ class CompiledCommandRegistry:
     mapping access with no reflection, scanning, or mutation.
     """
 
-    __slots__ = ("_commands", "_canonical", "_fingerprint")
+    __slots__ = ("_canonical", "_commands", "_fingerprint")
 
     def __init__(self, commands: Iterable[CompiledCommand]) -> None:
         command_map: dict[str, CompiledCommand] = {}

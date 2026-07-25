@@ -7,7 +7,6 @@ Genesis 71
 
 from .engine import EnterpriseIntelligenceEngine
 
-
 __all__ = [
 
     "EnterpriseIntelligenceEngine"

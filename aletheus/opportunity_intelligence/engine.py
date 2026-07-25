@@ -8,10 +8,8 @@ Genesis 13.26
 from .analyzers.identity import IdentityAnalyzer
 from .analyzers.market import MarketAnalyzer
 from .analyzers.scarcity import ScarcityAnalyzer
-
-from .scoring.engine import OpportunityScoringEngine
 from .decisions.engine import OpportunityDecisionEngine
-
+from .scoring.engine import OpportunityScoringEngine
 
 
 class UniversalOpportunityEngine:

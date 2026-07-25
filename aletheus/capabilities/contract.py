@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any, Dict, Protocol, runtime_checkable
+from typing import Any, Protocol, runtime_checkable
 
 
 class CapabilityStatus(str, Enum):
@@ -33,7 +33,7 @@ class CapabilityMetadata:
     provider: str = "unknown"
     description: str = ""
     tags: list[str] = field(default_factory=list)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass(slots=True)
@@ -46,7 +46,7 @@ class CapabilityHealthReport:
     status: CapabilityStatus = CapabilityStatus.READY
     score: int = 100
     message: str = "Ready"
-    metrics: Dict[str, Any] = field(default_factory=dict)
+    metrics: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass(slots=True)
@@ -57,10 +57,10 @@ class CapabilityRequest:
 
     capability_id: str
     action: str
-    payload: Dict[str, Any] = field(default_factory=dict)
+    payload: dict[str, Any] = field(default_factory=dict)
     requester: str = "runtime"
     intent_id: str | None = None
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass(slots=True)
@@ -74,7 +74,7 @@ class CapabilityResult:
     success: bool
     result: Any = None
     error: str | None = None
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 @runtime_checkable

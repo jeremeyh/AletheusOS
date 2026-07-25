@@ -8,9 +8,8 @@ intelligence processes themselves.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class MetaCognitionExpansionEngine:

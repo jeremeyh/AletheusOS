@@ -8,7 +8,6 @@ KnowledgeLineageEngine
 from ..engines.base_engine import CognitiveEngine
 
 
-
 class KnowledgeLineageEngine(
     CognitiveEngine
 ):

@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 import time
-from typing import Any, Callable, Dict, Optional
+from collections.abc import Callable
+from typing import Any
 
 from services.context import PipelineContext
 from services.runtime_events import RuntimeEvent
@@ -10,12 +11,12 @@ from services.runtime_events import RuntimeEvent
 class CommandBus:
     def __init__(self, runtime: Any) -> None:
         self.runtime = runtime
-        self.handlers: Dict[str, Callable[[PipelineContext], PipelineContext]] = {}
+        self.handlers: dict[str, Callable[[PipelineContext], PipelineContext]] = {}
 
     def register(self, command: str, handler: Callable[[PipelineContext], PipelineContext]) -> None:
         self.handlers[command] = handler
 
-    def dispatch(self, command: str, payload: Optional[Dict[str, Any]] = None) -> PipelineContext:
+    def dispatch(self, command: str, payload: dict[str, Any] | None = None) -> PipelineContext:
         started = time.time()
         context = PipelineContext(command=command, payload=payload or {})
         try:

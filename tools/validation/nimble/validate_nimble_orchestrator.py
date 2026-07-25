@@ -4,15 +4,35 @@ from __future__ import annotations
 
 import json
 import subprocess
+import sys
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+def _find_repo_root() -> Path:
+    current = Path(__file__).resolve().parent
+
+    while True:
+        if (
+            current / "pyproject.toml"
+        ).is_file():
+            return current
+
+        if current.parent == current:
+            raise RuntimeError(
+                "Unable to locate repository root."
+            )
+
+        current = current.parent
+
+
+ROOT = _find_repo_root()
 
 REPORT = (
     ROOT
-    / "reports/nimble/orchestrator/"
-    "build-state-latest.json"
+    / "reports"
+    / "nimble"
+    / "orchestrator"
+    / "build-state-latest.json"
 )
 
 
@@ -20,6 +40,7 @@ def main() -> int:
     failures: list[str] = []
 
     required = [
+        "nimble/__init__.py",
         "nimble/orchestrator/__init__.py",
         "nimble/orchestrator/__main__.py",
         "nimble/orchestrator/cli.py",
@@ -35,16 +56,24 @@ def main() -> int:
     for relative in required:
         if not (ROOT / relative).is_file():
             failures.append(
-                f"Missing orchestrator file: {relative}"
+                "Missing orchestrator file: "
+                f"{relative}"
             )
+
+    REPORT.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
 
     result = subprocess.run(
         [
-            "python",
+            sys.executable,
             "-m",
             "nimble.orchestrator",
             "--root",
             str(ROOT),
+            "--report",
+            str(REPORT),
         ],
         cwd=ROOT,
         capture_output=True,
@@ -55,35 +84,61 @@ def main() -> int:
 
     if result.returncode != 0:
         failures.append(
-            "Nimble Build Orchestrator execution failed."
+            "Nimble Build Orchestrator "
+            "execution failed."
         )
 
     if not REPORT.is_file():
         failures.append(
-            "Orchestrator state report was not generated."
+            "Orchestrator state report "
+            "was not generated."
         )
-        report = {}
+        report: dict[str, object] = {}
     else:
-        report = json.loads(
-            REPORT.read_text(
-                encoding="utf-8"
+        try:
+            report = json.loads(
+                REPORT.read_text(
+                    encoding="utf-8"
+                )
             )
-        )
+        except (
+            OSError,
+            json.JSONDecodeError,
+        ) as error:
+            failures.append(
+                "Unable to read orchestrator "
+                f"state report: {error}"
+            )
+            report = {}
 
         if (
             report.get("schema_version")
             != "1.0"
         ):
             failures.append(
-                "Invalid orchestrator report schema."
+                "Invalid orchestrator "
+                "report schema."
             )
 
-        capability_ids = {
-            item["capability_id"]
-            for item in report.get(
-                "capabilities",
-                [],
+        capabilities = report.get(
+            "capabilities",
+            [],
+        )
+
+        if not isinstance(
+            capabilities,
+            list,
+        ):
+            failures.append(
+                "Invalid capabilities section "
+                "in orchestrator report."
             )
+            capabilities = []
+
+        capability_ids = {
+            item.get("capability_id")
+            for item in capabilities
+            if isinstance(item, dict)
         }
 
         expected = {
@@ -97,8 +152,11 @@ def main() -> int:
 
         if missing:
             failures.append(
-                "Missing orchestrator capabilities: "
-                + ", ".join(sorted(missing))
+                "Missing orchestrator "
+                "capabilities: "
+                + ", ".join(
+                    sorted(missing)
+                )
             )
 
     status = (
@@ -108,7 +166,10 @@ def main() -> int:
     )
 
     print("=" * 72)
-    print("NIMBLE™ BUILD ORCHESTRATOR VALIDATION")
+    print(
+        "NIMBLE™ BUILD ORCHESTRATOR "
+        "VALIDATION"
+    )
     print("=" * 72)
     print(f"Failures: {len(failures)}")
     print(f"Status: {status}")

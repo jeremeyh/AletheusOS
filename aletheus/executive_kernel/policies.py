@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Dict, Iterable, List
 
 
 class PolicyScope(str, Enum):
@@ -37,8 +37,8 @@ class PolicyDescriptor:
     trust_level: PolicyTrustLevel = PolicyTrustLevel.STANDARD
     version: str = "1.0"
     description: str = ""
-    constraints: List[str] = field(default_factory=list)
-    metadata: Dict[str, str] = field(default_factory=dict)
+    constraints: list[str] = field(default_factory=list)
+    metadata: dict[str, str] = field(default_factory=dict)
 
 
 class ExecutivePolicyRegistry:
@@ -49,7 +49,7 @@ class ExecutivePolicyRegistry:
     """
 
     def __init__(self) -> None:
-        self._policies: Dict[str, PolicyDescriptor] = {}
+        self._policies: dict[str, PolicyDescriptor] = {}
 
     def register(self, policy: PolicyDescriptor) -> None:
         self._policies[policy.policy_id] = policy
@@ -66,14 +66,14 @@ class ExecutivePolicyRegistry:
     def all(self) -> Iterable[PolicyDescriptor]:
         return self._policies.values()
 
-    def by_scope(self, scope: PolicyScope) -> List[PolicyDescriptor]:
+    def by_scope(self, scope: PolicyScope) -> list[PolicyDescriptor]:
         return [
             policy
             for policy in self._policies.values()
             if policy.scope == scope
         ]
 
-    def by_applies_to(self, target: str) -> List[PolicyDescriptor]:
+    def by_applies_to(self, target: str) -> list[PolicyDescriptor]:
         return [
             policy
             for policy in self._policies.values()

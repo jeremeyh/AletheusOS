@@ -12,7 +12,8 @@ CommandBus preserves the stable runtime command interface while delegating:
 
 from __future__ import annotations
 
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 
 from aletheus.runtime.commands_v2.registry import (
     RuntimeCommandRegistry,

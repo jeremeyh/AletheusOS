@@ -5,13 +5,12 @@ Post-Genesis 19
 """
 
 
-from .objective_manager import ObjectiveManager
+from .adjustment_engine import AdjustmentEngine
+from .evaluation_engine import EvaluationEngine
 from .goal_decomposer import GoalDecomposer
 from .milestone_engine import MilestoneEngine
+from .objective_manager import ObjectiveManager
 from .progress_tracker import ProgressTracker
-from .evaluation_engine import EvaluationEngine
-from .adjustment_engine import AdjustmentEngine
-
 
 
 class AutonomousGoalEngine:

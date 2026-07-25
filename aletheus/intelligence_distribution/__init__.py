@@ -7,7 +7,6 @@ Post-Genesis 76
 
 from .engine import IntelligenceDistributionEngine
 
-
 __all__ = [
 
     "IntelligenceDistributionEngine"

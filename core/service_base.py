@@ -5,6 +5,7 @@ Universal Service Base
 
 from abc import ABC
 
+
 class ServiceBase(ABC):
 
     name = "Unnamed Service"

@@ -4,6 +4,7 @@ Legacy Service Adapter
 
 from core.service_base import ServiceBase
 
+
 class ServiceAdapter(ServiceBase):
 
     def __init__(self,module):

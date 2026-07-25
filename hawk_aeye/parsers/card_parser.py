@@ -1,7 +1,7 @@
 import re
 
-from hawk_aeye.models.card_fields import CardFields
 from hawk_aeye.knowledge.database import KnowledgeDatabase
+from hawk_aeye.models.card_fields import CardFields
 
 
 class CardParser:

@@ -7,7 +7,6 @@ Post-Genesis 45
 
 from .engine import AgentCollectiveReasoningEngine
 
-
 __all__ = [
 
     "AgentCollectiveReasoningEngine"

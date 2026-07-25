@@ -10,7 +10,6 @@ from .models import (
     new_case_id,
 )
 
-
 SECURITY_INCIDENT_CASE_CONTRACT = CaseContract(
     case_type="security_incident",
     purpose=(

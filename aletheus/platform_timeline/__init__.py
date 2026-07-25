@@ -1,6 +1,6 @@
-from .subscriber import timeline_subscriber
 from .core import PlatformTimeline, platform_timeline
 from .models import TimelineEntry
+from .subscriber import timeline_subscriber
 
 __all__ = [
     "PlatformTimeline",

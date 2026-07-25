@@ -10,12 +10,12 @@ manifest before changing the filesystem.
 from __future__ import annotations
 
 import argparse
-from dataclasses import asdict, dataclass
-from datetime import datetime, timezone
 import json
-from pathlib import Path
 import shutil
-from typing import Iterable
+from collections.abc import Iterable
+from dataclasses import dataclass
+from datetime import UTC, datetime
+from pathlib import Path
 
 if __package__ in {None, ""}:
     import sys
@@ -144,11 +144,11 @@ class RepositorySteward:
 
     def _write_manifest(self, operations: list[MoveOperation]) -> Path:
         self.state_directory.mkdir(parents=True, exist_ok=True)
-        timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+        timestamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
         path = self.state_directory / f"moves-{timestamp}.json"
 
         payload = {
-            "created_at": datetime.now(timezone.utc).isoformat(),
+            "created_at": datetime.now(UTC).isoformat(),
             "root": str(self.root),
             "operation_count": len(operations),
             "operations": [operation.to_dict() for operation in operations],

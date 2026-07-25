@@ -1,5 +1,6 @@
-from pathlib import Path
 import ast
+from pathlib import Path
+
 
 class DependencyGraph:
     """Builds a lightweight dependency map of Python imports."""

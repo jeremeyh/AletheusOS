@@ -7,7 +7,6 @@ Genesis 75
 
 from .engine import APIIntelligenceGatewayEngine
 
-
 __all__ = [
 
     "APIIntelligenceGatewayEngine"

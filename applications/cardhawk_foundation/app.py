@@ -1,14 +1,15 @@
 from aletheus import kernel
-from engines.hawk_aeye.engine import run as hawk_aeye
-from engines.thorx.engine import run as thorx
 from engines.def_engine.engine import run as def_engine
-from engines.nest.engine import run as nest
 from engines.falcon.engine import run as falcon
+from engines.hawk_aeye.engine import run as hawk_aeye
+from engines.nest.engine import run as nest
 from engines.perch.engine import run as perch
-from engines.talon.engine import run as talon
-from engines.strike.engine import run as strike
-from engines.soar.engine import run as soar
 from engines.roost.engine import run as roost
+from engines.soar.engine import run as soar
+from engines.strike.engine import run as strike
+from engines.talon.engine import run as talon
+from engines.thorx.engine import run as thorx
+
 CARD_HAWK_ENGINES=[("Hawk A•Eye™",hawk_aeye),("THORᵡ",thorx),("DEF",def_engine),("NEST™",nest),("FALCON™",falcon),("PERCH™",perch),("TALON™",talon),("STRIKE™",strike),("SOAR™",soar),("ROOST™",roost)]
 def register_cardhawk_foundation():
     kernel.services.register("Card Hawk Foundation™", {"status":"online","type":"reference_application"}); kernel.services.register("Asset Vault", {"status":"online"}); kernel.services.register("Portfolio Engine", {"status":"online"}); kernel.services.register("Marketplace Intelligence", {"status":"online"})

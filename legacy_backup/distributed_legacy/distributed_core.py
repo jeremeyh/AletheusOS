@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 from aletheus.distributed.models import (
     DistributedCluster,
@@ -13,10 +13,10 @@ from aletheus.distributed.models import (
 class AletheusDistributedIntelligenceFabric:
     def __init__(self) -> None:
         self.version = "2.2.0"
-        self.clusters: List[DistributedCluster] = []
-        self.events: List[DistributedEvent] = []
+        self.clusters: list[DistributedCluster] = []
+        self.events: list[DistributedEvent] = []
 
-    def emit(self, event_type: str, message: str, source: str = "distributed_fabric", payload: Dict[str, Any] | None = None) -> DistributedEvent:
+    def emit(self, event_type: str, message: str, source: str = "distributed_fabric", payload: dict[str, Any] | None = None) -> DistributedEvent:
         event = DistributedEvent(
             event_type=event_type,
             message=message,
@@ -90,10 +90,10 @@ class AletheusDistributedIntelligenceFabric:
         cluster_id: str,
         name: str,
         node_type: str = "runtime",
-        capabilities: List[str] | None = None,
+        capabilities: list[str] | None = None,
         address: str = "local",
-        metadata: Dict[str, Any] | None = None,
-    ) -> Dict[str, Any]:
+        metadata: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         cluster = self.get_cluster(cluster_id=cluster_id)
         if cluster is None:
             return {"error": f"Cluster not found: {cluster_id}"}
@@ -113,7 +113,7 @@ class AletheusDistributedIntelligenceFabric:
         self.emit("node.registered", f"Node registered: {name}", payload=node.to_dict())
         return node.to_dict()
 
-    def remove_node(self, cluster_id: str, node_id: str) -> Dict[str, Any]:
+    def remove_node(self, cluster_id: str, node_id: str) -> dict[str, Any]:
         cluster = self.get_cluster(cluster_id=cluster_id)
         if cluster is None:
             return {"error": f"Cluster not found: {cluster_id}"}
@@ -126,7 +126,7 @@ class AletheusDistributedIntelligenceFabric:
         self.emit("node.removed", f"Node removed: {node.name}", payload=node.to_dict())
         return node.to_dict()
 
-    def heartbeat(self, cluster_id: str, node_id: str) -> Dict[str, Any]:
+    def heartbeat(self, cluster_id: str, node_id: str) -> dict[str, Any]:
         cluster = self.get_cluster(cluster_id=cluster_id)
         if cluster is None:
             return {"error": f"Cluster not found: {cluster_id}"}
@@ -139,7 +139,7 @@ class AletheusDistributedIntelligenceFabric:
         self.emit("node.heartbeat", f"Heartbeat received: {node.name}", payload=node.to_dict())
         return node.to_dict()
 
-    def broadcast(self, cluster_id: str, message: str, payload: Dict[str, Any] | None = None) -> Dict[str, Any]:
+    def broadcast(self, cluster_id: str, message: str, payload: dict[str, Any] | None = None) -> dict[str, Any]:
         cluster = self.get_cluster(cluster_id=cluster_id)
         if cluster is None:
             return {"error": f"Cluster not found: {cluster_id}"}
@@ -168,7 +168,7 @@ class AletheusDistributedIntelligenceFabric:
         title: str,
         objective: str,
         capability: str = "",
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         cluster = self.get_cluster(cluster_id=cluster_id)
         if cluster is None:
             return {"error": f"Cluster not found: {cluster_id}"}
@@ -203,7 +203,7 @@ class AletheusDistributedIntelligenceFabric:
 
         return task.to_dict()
 
-    def cluster_status(self, cluster_id: str = "") -> Dict[str, Any]:
+    def cluster_status(self, cluster_id: str = "") -> dict[str, Any]:
         cluster = self.get_cluster(cluster_id=cluster_id) if cluster_id else (self.clusters[0] if self.clusters else None)
         if cluster is None:
             return {"error": "No cluster available."}
@@ -218,13 +218,13 @@ class AletheusDistributedIntelligenceFabric:
             "synchronization": 1.0 if cluster.nodes else 0.0,
         }
 
-    def list_clusters(self) -> List[Dict[str, Any]]:
+    def list_clusters(self) -> list[dict[str, Any]]:
         return [cluster.to_dict() for cluster in self.clusters]
 
-    def history(self) -> List[Dict[str, Any]]:
+    def history(self) -> list[dict[str, Any]]:
         return [event.to_dict() for event in self.events]
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         nodes = sum(len(cluster.nodes) for cluster in self.clusters)
         tasks = sum(len(cluster.tasks) for cluster in self.clusters)
 

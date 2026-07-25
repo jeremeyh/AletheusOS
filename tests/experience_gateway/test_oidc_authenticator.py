@@ -63,7 +63,7 @@ def create_authenticator():
         OIDCPrincipalAuthenticator(config)
     )
 
-    authenticator._jwk_client = (  # noqa: SLF001
+    authenticator._jwk_client = (
         FakeJWKClient(
             private_key.public_key()
         )

@@ -8,4 +8,4 @@ VERSION = __version__
 PRODUCT_NAME = "AletheusOS"
 RUNTIME_NAME = "Aletheus Runtime"
 
-__all__ = ["__version__", "VERSION", "PRODUCT_NAME", "RUNTIME_NAME"]
+__all__ = ["PRODUCT_NAME", "RUNTIME_NAME", "VERSION", "__version__"]

@@ -7,7 +7,6 @@ Genesis 41
 
 from .engine import CognitiveMemoryEngine
 
-
 __all__ = [
     "CognitiveMemoryEngine"
 ]

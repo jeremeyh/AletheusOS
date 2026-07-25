@@ -1,5 +1,3 @@
 
-from .reasoning_engine import (
-    AdvancedReasoningArchitecture
-)
+from .reasoning_engine import AdvancedReasoningArchitecture
 

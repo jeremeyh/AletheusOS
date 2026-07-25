@@ -7,21 +7,20 @@ Genesis 54.0
 
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from datetime import datetime
 import uuid
 
+from aletheus.time_utils import utc_now_iso
+
+from .boundary_analysis import boundary_analyzer
+from .hotspots import hotspot_analyzer
 from .models import (
+    FindingType,
     PlatformFinding,
     PlatformReport,
     PlatformScore,
-    FindingType,
     Severity,
 )
 from .registry import SpectrumRegistry
-from .hotspots import hotspot_analyzer
-from .boundary_analysis import boundary_analyzer
 
 
 class ArchitecturalAssessment:

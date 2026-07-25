@@ -2,6 +2,7 @@ import importlib
 import sqlite3
 from pathlib import Path
 
+
 class RollbackManager:
     """Safe rollback helper."""
 

@@ -3,9 +3,8 @@ Aletheus Cognitive Engine Base
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class CognitiveEngine:

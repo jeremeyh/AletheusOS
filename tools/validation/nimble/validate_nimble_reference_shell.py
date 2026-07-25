@@ -4,7 +4,21 @@ import json
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+def find_repo_root(start: Path) -> Path:
+    current = start.resolve()
+
+    while True:
+        if (current / "pyproject.toml").exists():
+            return current
+
+        if current.parent == current:
+            raise RuntimeError("Unable to locate repository root.")
+
+        current = current.parent
+
+
+ROOT = find_repo_root(Path(__file__).parent)
+
 SHELL = ROOT / "nimble" / "reference-shell"
 
 HTML = SHELL / "index.html"

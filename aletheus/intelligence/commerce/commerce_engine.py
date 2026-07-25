@@ -8,9 +8,8 @@ for intelligence value exchange.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class IntelligenceCommerceLayer:

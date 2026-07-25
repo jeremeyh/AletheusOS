@@ -12,9 +12,10 @@ Reflection and registration never occur in the hot dispatch path.
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from hashlib import sha256
 from types import MappingProxyType
-from typing import Any, Mapping
+from typing import Any
 
 from .models import CommandRecord, CommandResult
 

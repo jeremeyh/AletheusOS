@@ -1,6 +1,10 @@
 from __future__ import annotations
 
-from .models import FoundationCapability, FoundationExecutionPlan, FoundationExecutionStage
+from .models import (
+    FoundationCapability,
+    FoundationExecutionPlan,
+    FoundationExecutionStage,
+)
 
 
 def appraisal_plan() -> FoundationExecutionPlan:

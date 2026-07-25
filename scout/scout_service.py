@@ -1,8 +1,8 @@
-from scout.market_scanner import MarketScanner
-from scout.listing_queue import ListingQueue
-from scout.candidate_filter import CandidateFilter
-from scout.watchlist_manager import WatchlistManager
 from scout.alert_manager import AlertManager
+from scout.candidate_filter import CandidateFilter
+from scout.listing_queue import ListingQueue
+from scout.market_scanner import MarketScanner
+from scout.watchlist_manager import WatchlistManager
 
 
 class ScoutService:

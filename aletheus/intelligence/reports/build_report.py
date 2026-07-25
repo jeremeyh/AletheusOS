@@ -7,7 +7,6 @@ import json
 import os
 
 
-
 def generate():
 
     report = {

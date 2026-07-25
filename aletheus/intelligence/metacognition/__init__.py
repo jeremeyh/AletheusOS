@@ -1,5 +1,3 @@
 
-from .meta_engine import (
-    MetaCognitionExpansionEngine
-)
+from .meta_engine import MetaCognitionExpansionEngine
 

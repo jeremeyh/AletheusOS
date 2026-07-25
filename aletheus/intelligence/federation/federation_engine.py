@@ -8,9 +8,8 @@ domains into a trusted federation.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class IntelligenceFederationEngine:

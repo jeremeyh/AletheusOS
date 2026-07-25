@@ -3,8 +3,8 @@
 from .exceptions import *
 
 __all__ = [
-    "ConstitutionalMissionError",
     "ConstitutionalMissionEngineError",
+    "ConstitutionalMissionError",
     "ConstitutionalMissionSchedulerError",
     "MissionAlreadyExistsError",
     "MissionAlreadyRegisteredError",

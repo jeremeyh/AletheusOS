@@ -1,11 +1,9 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, field
-from datetime import datetime
-from typing import Dict, List, Any
 import uuid
+from dataclasses import dataclass, field
+
+from aletheus.time_utils import utc_now, utc_now_iso
 
 
 def utc_now() -> str:
@@ -37,7 +35,7 @@ class Agent:
     heartbeat_count: int = 0
     tasks_completed: int = 0
 
-    inbox: List[AgentMessage] = field(default_factory=list)
+    inbox: list[AgentMessage] = field(default_factory=list)
 
     def heartbeat(self):
         self.heartbeat_count += 1
@@ -94,7 +92,7 @@ class AletheusAutonomousAgentRuntime:
 
     def __init__(self):
 
-        self.agents: Dict[str, Agent] = {}
+        self.agents: dict[str, Agent] = {}
 
 
     def register_default_agents(self):

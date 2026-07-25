@@ -5,11 +5,10 @@ Genesis 13.38
 """
 
 
-from .momentum import MomentumAnalyzer
 from .forecasting import ForecastEngine
+from .momentum import MomentumAnalyzer
 from .scenarios import ScenarioEngine
 from .timing import TimingEngine
-
 
 
 class PredictiveCollectibleEngine:

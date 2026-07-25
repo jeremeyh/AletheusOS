@@ -1,5 +1,6 @@
 from live_data.pricing.pricing_engine import PricingEngine
 
+
 class CompEngine:
     """Comparable sales/listing engine."""
 

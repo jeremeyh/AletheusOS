@@ -5,10 +5,9 @@ Genesis 13.17
 """
 
 
-from .performance import PerformanceAnalyticsEngine
 from .allocation import AllocationAnalyticsEngine
 from .exposure import ExposureAnalyticsEngine
-
+from .performance import PerformanceAnalyticsEngine
 
 
 class CardHawkAnalyticsEngine:

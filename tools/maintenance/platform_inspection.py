@@ -20,10 +20,10 @@ REPORT_DIR.mkdir(parents=True, exist_ok=True)
 
 def main():
 
-    from aletheus.runtime import runtime_core
-    from aletheus.kernel import kernel
     from aletheus.discovery import DiscoveryEngine
     from aletheus.homeostasis import homeostasis_engine
+    from aletheus.kernel import kernel
+    from aletheus.runtime import runtime_core
     from aletheus.service_manager import service_manager
 
     runtime_core.boot()

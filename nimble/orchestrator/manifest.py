@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from .models import CapabilityDefinition
 
-
 CAPABILITIES: tuple[CapabilityDefinition, ...] = (
     CapabilityDefinition(
         capability_id="experience-constitution",

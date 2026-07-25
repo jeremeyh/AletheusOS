@@ -1,5 +1,3 @@
 
-from .collaboration_engine import (
-    IntelligenceCollaborationFramework
-)
+from .collaboration_engine import IntelligenceCollaborationFramework
 

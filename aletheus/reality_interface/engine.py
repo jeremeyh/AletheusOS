@@ -5,13 +5,12 @@ Genesis 13.55
 """
 
 
-from .vision import VisionEngine
-from .documents import DocumentEngine
 from .audio import AudioEngine
-from .video import VideoEngine
 from .condition import ConditionEngine
+from .documents import DocumentEngine
 from .fusion import FusionEngine
-
+from .video import VideoEngine
+from .vision import VisionEngine
 
 
 class RealityInterfaceEngine:

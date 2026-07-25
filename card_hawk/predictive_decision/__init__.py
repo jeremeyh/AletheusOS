@@ -7,7 +7,6 @@ Genesis 84
 
 from .engine import PredictiveDecisionEngine
 
-
 __all__ = [
 
     "PredictiveDecisionEngine"

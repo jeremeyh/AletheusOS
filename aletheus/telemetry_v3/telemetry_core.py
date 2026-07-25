@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, asdict, field
-from datetime import datetime
-from typing import Dict, List, Any
 import uuid
+from dataclasses import asdict, dataclass, field
+from typing import Any
+
+from aletheus.time_utils import utc_now, utc_now_iso
 
 
 def utc_now():
@@ -19,7 +18,7 @@ class TelemetryMetric:
     value: Any
     category: str = "runtime"
     timestamp: str = field(default_factory=utc_now)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -29,7 +28,7 @@ class TelemetryLog:
     message: str
     source: str = "runtime"
     timestamp: str = field(default_factory=utc_now)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -42,18 +41,18 @@ class TelemetryTrace:
     correlation_id: str | None = None
     started_at: str = field(default_factory=utc_now)
     ended_at: str = field(default_factory=utc_now)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 class AletheusTelemetryEngine:
     VERSION = "3.5.0"
 
     def __init__(self):
-        self.metrics: List[TelemetryMetric] = []
-        self.logs: List[TelemetryLog] = []
-        self.traces: List[TelemetryTrace] = []
-        self.health_registry: Dict[str, str] = {}
-        self.timeline_events: List[Dict[str, Any]] = []
+        self.metrics: list[TelemetryMetric] = []
+        self.logs: list[TelemetryLog] = []
+        self.traces: list[TelemetryTrace] = []
+        self.health_registry: dict[str, str] = {}
+        self.timeline_events: list[dict[str, Any]] = []
 
     @property
     def version(self):

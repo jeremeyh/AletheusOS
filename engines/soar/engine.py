@@ -1,4 +1,5 @@
 from aletheus.runtime.context import AletheusContext
+
 ENGINE_NAME = "SOAR™"
 ENGINE_DESCRIPTION = "Forecasting and portfolio expansion engine."
 def run(context: AletheusContext) -> AletheusContext:

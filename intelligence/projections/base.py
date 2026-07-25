@@ -5,6 +5,7 @@ Projection Base
 
 from abc import ABC, abstractmethod
 
+
 class Projection(ABC):
 
     name = "Projection"

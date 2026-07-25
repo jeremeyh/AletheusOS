@@ -7,7 +7,6 @@ Post-Genesis 142
 
 from .engine import CivilizationKnowledgeNetworkEngine
 
-
 __all__ = [
 
 "CivilizationKnowledgeNetworkEngine"

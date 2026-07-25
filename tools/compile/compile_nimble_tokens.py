@@ -5,7 +5,6 @@ import re
 from pathlib import Path
 from typing import Any
 
-
 ROOT = Path(__file__).resolve().parent
 SOURCE = ROOT / "nimble" / "design-tokens" / "source"
 GENERATED = ROOT / "nimble" / "design-tokens" / "generated"

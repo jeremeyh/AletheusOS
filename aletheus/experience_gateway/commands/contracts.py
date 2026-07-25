@@ -5,7 +5,6 @@ from dataclasses import dataclass, field
 from threading import RLock
 from typing import Any, Literal
 
-
 CommandRisk = Literal[
     "read_only",
     "low",

@@ -7,7 +7,6 @@ Post-Genesis 122
 
 from .engine import HumanAINetworkEngine
 
-
 __all__ = [
 
 "HumanAINetworkEngine"

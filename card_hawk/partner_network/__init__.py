@@ -7,7 +7,6 @@ Genesis 74
 
 from .engine import MarketplacePartnerNetworkEngine
 
-
 __all__ = [
 
     "MarketplacePartnerNetworkEngine"

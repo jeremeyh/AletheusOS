@@ -1,6 +1,8 @@
 import pytest
-from aletheus.core import Identity,Result
+from aletheus.core import Identity, Result
 from aletheus.sdk.evidence import Evidence
+
+
 def test_identity_requires_name():
     with pytest.raises(ValueError): Identity(name="",kind="mission")
 def test_result_ok(): assert Result.ok({"status":"success"}).success is True

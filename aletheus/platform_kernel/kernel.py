@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
-from typing import Any, List
+from datetime import UTC, datetime
+from typing import Any
 
 from aletheus.capabilities import (
     CapabilityHost,
@@ -13,7 +13,7 @@ from aletheus.runtime.adapter import DefaultRuntimeAdapter
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 @dataclass(slots=True)
@@ -62,7 +62,7 @@ class PlatformKernel:
         )
         self.executive_kernel = executive_kernel or ExecutiveKernel()
         self.capability_host = capability_host or CapabilityHost()
-        self.boot_events: List[dict] = []
+        self.boot_events: list[dict] = []
 
     # ---------------------------------------------------------
     # Boot / Attachment

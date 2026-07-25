@@ -1,5 +1,5 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 core = Path("aletheus/runtime/core.py")
 text = core.read_text()

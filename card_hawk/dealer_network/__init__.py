@@ -7,7 +7,6 @@ Genesis 72
 
 from .engine import DealerIntelligenceNetworkEngine
 
-
 __all__ = [
 
     "DealerIntelligenceNetworkEngine"

@@ -5,12 +5,11 @@ Genesis 13.53
 """
 
 
-from .state import StateAwarenessEngine
+from .alignment import AlignmentEngine
 from .capabilities import CapabilityAwarenessEngine
 from .missions import MissionAwarenessEngine
-from .alignment import AlignmentEngine
 from .reflection import ReflectionEngine
-
+from .state import StateAwarenessEngine
 
 
 class ConsciousnessAwarenessEngine:

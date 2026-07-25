@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 
 class ApplicationRuntime:
@@ -26,7 +26,7 @@ class ApplicationRuntime:
             "state": "registered",
             "created":
                 datetime.now(
-                    timezone.utc
+                    UTC
                 ).isoformat(),
         }
 

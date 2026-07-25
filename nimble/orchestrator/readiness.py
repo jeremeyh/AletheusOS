@@ -3,7 +3,6 @@ from __future__ import annotations
 from pathlib import Path
 
 from .discovery import discover_capabilities
-from .models import CapabilityStatus
 
 
 def analyze_readiness(

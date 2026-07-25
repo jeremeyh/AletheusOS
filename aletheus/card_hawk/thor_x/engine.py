@@ -5,9 +5,8 @@ Genesis 13.7
 """
 
 
-from .scoring import THORScoringEngine
 from .reasoning import THORReasoningEngine
-
+from .scoring import THORScoringEngine
 
 
 class THORxEngine:

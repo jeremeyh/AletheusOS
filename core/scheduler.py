@@ -3,9 +3,9 @@ CardHawk OS™
 Universal Scheduler
 """
 
+from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Callable
 
 
 @dataclass

@@ -1,5 +1,4 @@
-from statistics import mean
-from statistics import median
+from statistics import mean, median
 
 from marketplace.connectors.manager import MarketplaceManager
 

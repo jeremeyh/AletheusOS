@@ -1,6 +1,6 @@
 from aletheus.release_certification import (
-    ReleaseCertificationService,
     ReleaseCertificationReporter,
+    ReleaseCertificationService,
 )
 
 

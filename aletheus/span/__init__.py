@@ -35,10 +35,9 @@ __version__ = "11.0.0"
 
 # Genesis 11.1 provider framework exports.
 from .analyzer import Analyzer, AnalyzerContext, AnalyzerResult
-from .evidence_store import EvidenceRecord, EvidenceStore
-from .finding import Finding, FindingSet, Severity
-from .pipeline import PipelineResult, SPANPipeline, default_providers
 
+# BEGIN GENESIS 14 PUBLIC API
+from .api import SPAN
 from .bootstrap import (
     BootstrapDiagnostic,
     BootstrapReport,
@@ -46,9 +45,9 @@ from .bootstrap import (
     SPANBootstrap,
     bootstrap_span,
 )
-
-# BEGIN GENESIS 14 PUBLIC API
-from .api import SPAN
+from .evidence_store import EvidenceRecord, EvidenceStore
+from .finding import Finding, FindingSet, Severity
+from .pipeline import PipelineResult, SPANPipeline, default_providers
 from .profiles import RuleProfile, load_profile
 from .reporter import SPANReport
 # END GENESIS 14 PUBLIC API

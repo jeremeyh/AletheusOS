@@ -1,5 +1,5 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 # Locate the event bus implementation
 candidates = [
@@ -22,7 +22,7 @@ text = path.read_text()
 # Match any publish() signature that starts with def publish(self,...
 pattern = re.compile(
     r"def\s+publish\s*\(\s*self\s*,(?P<args>.*?)\)\s*:",
-    re.S,
+    re.DOTALL,
 )
 
 match = pattern.search(text)

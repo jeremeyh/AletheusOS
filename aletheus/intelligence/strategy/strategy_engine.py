@@ -8,9 +8,8 @@ strategic direction.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class IntelligenceStrategyEngine:

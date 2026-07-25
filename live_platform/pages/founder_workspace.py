@@ -1,6 +1,14 @@
 import streamlit as st
+from components.live_platform_ui import (
+    action_rows,
+    asset_rows,
+    founder_brief,
+    hero,
+    marketplace_rows,
+    panel,
+)
 from services.live_platform_service import LivePlatformService
-from components.live_platform_ui import hero, founder_brief, panel, asset_rows, marketplace_rows, action_rows
+
 
 def render(state):
     data = LivePlatformService.dashboard(state)

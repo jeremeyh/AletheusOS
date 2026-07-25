@@ -1,5 +1,7 @@
 import streamlit as st
+
 from analytics.analytics_service import PortfolioAnalyticsService
+
 
 def render(state):
     st.title("📊 Portfolio Analytics™")

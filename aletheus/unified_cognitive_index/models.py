@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 class UCINodeType(str, Enum):
@@ -58,13 +58,13 @@ class UCINode:
     description: str = ""
     source_system: str = "unknown"
 
-    intent_id: Optional[str] = None
-    steward: Optional[str] = None
+    intent_id: str | None = None
+    steward: str | None = None
     confidence: float = 1.0
-    health: Optional[float] = None
+    health: float | None = None
 
-    tags: List[str] = field(default_factory=list)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    tags: list[str] = field(default_factory=list)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     created_at: str = field(default_factory=utc_now)
     updated_at: str = field(default_factory=utc_now)
@@ -84,8 +84,8 @@ class UCIRelationship:
     weight: float = 1.0
     confidence: float = 1.0
 
-    evidence_ids: List[str] = field(default_factory=list)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    evidence_ids: list[str] = field(default_factory=list)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     created_at: str = field(default_factory=utc_now)
     updated_at: str = field(default_factory=utc_now)
@@ -99,8 +99,8 @@ class UCITrace:
 
     origin_node_id: str
     terminal_node_id: str
-    path: List[str]
-    relationships: List[str] = field(default_factory=list)
+    path: list[str]
+    relationships: list[str] = field(default_factory=list)
     confidence: float = 1.0
     generated_at: str = field(default_factory=utc_now)
 
@@ -111,8 +111,8 @@ class UCIQueryResult:
     Standard query response from the Unified Cognitive Index.
     """
 
-    nodes: List[UCINode] = field(default_factory=list)
-    relationships: List[UCIRelationship] = field(default_factory=list)
+    nodes: list[UCINode] = field(default_factory=list)
+    relationships: list[UCIRelationship] = field(default_factory=list)
     total_nodes: int = 0
     total_relationships: int = 0
     generated_at: str = field(default_factory=utc_now)

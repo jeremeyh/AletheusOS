@@ -8,9 +8,8 @@ semantic understanding, and context mapping.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class UniversalLanguageIntelligenceInterface:

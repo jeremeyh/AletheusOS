@@ -5,11 +5,10 @@ Genesis 13.43
 """
 
 
+from .audit import AuditEngine
 from .auth import GatewayAuthentication
 from .permissions import PermissionEngine
-from .audit import AuditEngine
 from .registry import APICapabilityRegistry
-
 
 
 class IntelligenceGateway:

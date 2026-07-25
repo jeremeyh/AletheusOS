@@ -1,4 +1,6 @@
 from .forecasting_engine import ForecastingEngine
+
+
 class OracleService:
     authority='Oracle™'
     family='Platform Intelligence'

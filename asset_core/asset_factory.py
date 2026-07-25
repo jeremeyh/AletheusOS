@@ -1,6 +1,7 @@
-from models.asset import Asset
-from asset_core.asset_validator import AssetValidator
 from asset_core.asset_tags import AssetTags
+from asset_core.asset_validator import AssetValidator
+from models.asset import Asset
+
 
 class AssetFactory:
     """

@@ -1,5 +1,3 @@
 
-from .strategy_engine import (
-    IntelligenceStrategyEngine
-)
+from .strategy_engine import IntelligenceStrategyEngine
 

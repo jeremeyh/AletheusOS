@@ -9,9 +9,8 @@ and optimizes ecosystem growth.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class IntelligenceEconomyEngine:

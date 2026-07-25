@@ -1,6 +1,7 @@
-from live_data.providers.demo_provider import DemoLiveProvider
 from live_data.comps.comp_engine import CompEngine
+from live_data.providers.demo_provider import DemoLiveProvider
 from live_data.watchlist.live_watchlist import LiveWatchlist
+
 
 class LiveDataService:
     """CardHawk OS™ 8.0 — Live Data Activation."""

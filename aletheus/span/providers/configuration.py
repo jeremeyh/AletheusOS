@@ -9,7 +9,6 @@ from typing import Any
 from ..evidence_store import EvidenceRecord
 from .base import Provider, ProviderContext
 
-
 CONFIG_SUFFIXES = {".json", ".toml", ".yaml", ".yml"}
 ARCHITECTURE_NAMES = {
     "architecture.json",

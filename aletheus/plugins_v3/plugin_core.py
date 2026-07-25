@@ -1,11 +1,9 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, asdict
-from datetime import datetime
-from typing import Dict
 import uuid
+from dataclasses import asdict, dataclass
+
+from aletheus.time_utils import utc_now, utc_now_iso
 
 
 def utc_now():
@@ -33,7 +31,7 @@ class AletheusPluginManager:
 
     def __init__(self):
 
-        self.plugins: Dict[str, Plugin] = {}
+        self.plugins: dict[str, Plugin] = {}
 
     @property
     def version(self):

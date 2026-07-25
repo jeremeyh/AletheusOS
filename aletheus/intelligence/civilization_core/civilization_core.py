@@ -8,9 +8,8 @@ intelligence operation.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class AutonomousIntelligenceCivilizationCore:

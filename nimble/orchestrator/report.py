@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import asdict
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from .drift import detect_drift
@@ -21,7 +21,7 @@ def generate_report(
     payload = {
         "schema_version": "1.0",
         "generated_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
         "overall_readiness_percent":
             readiness[

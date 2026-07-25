@@ -9,7 +9,6 @@ from .context import IntelligenceContext
 from .reports import IntelligenceReportBuilder
 
 
-
 class CardHawkIntelligenceOrchestrator:
 
 

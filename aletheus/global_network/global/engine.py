@@ -5,13 +5,12 @@ Post-Genesis 10
 """
 
 
-from .federation import FederationEngine
-from .network import GlobalNetworkEngine
-from .intelligence_exchange import IntelligenceExchangeEngine
-from .distributed_agents import DistributedAgentEngine
 from .collective_learning import CollectiveLearningEngine
+from .distributed_agents import DistributedAgentEngine
 from .ecosystem_graph import EcosystemGraphEngine
-
+from .federation import FederationEngine
+from .intelligence_exchange import IntelligenceExchangeEngine
+from .network import GlobalNetworkEngine
 
 
 class GlobalIntelligenceNetworkEngine:

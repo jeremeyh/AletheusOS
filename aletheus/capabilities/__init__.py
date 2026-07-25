@@ -6,15 +6,14 @@ from aletheus.capabilities.contract import (
     CapabilityStatus,
     RuntimeCapability,
 )
-
 from aletheus.capabilities.host import CapabilityHost
 
 __all__ = [
     "CapabilityHealthReport",
+    "CapabilityHost",
     "CapabilityMetadata",
     "CapabilityRequest",
     "CapabilityResult",
     "CapabilityStatus",
     "RuntimeCapability",
-    "CapabilityHost",
 ]

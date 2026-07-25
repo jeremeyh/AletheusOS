@@ -8,7 +8,6 @@ Genesis 13.21
 import hashlib
 
 
-
 class AssetFingerprintGenerator:
 
 

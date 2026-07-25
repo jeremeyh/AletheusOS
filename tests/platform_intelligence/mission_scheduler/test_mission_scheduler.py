@@ -17,7 +17,6 @@ from aletheus.platform_intelligence import (
     RetryPolicy,
 )
 
-
 NOW = datetime(
     2026,
     7,

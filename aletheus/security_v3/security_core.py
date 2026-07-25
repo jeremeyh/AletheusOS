@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, asdict, field
-from datetime import datetime
-from typing import Dict, List, Any
 import uuid
+from dataclasses import asdict, dataclass, field
+from typing import Any
+
+from aletheus.time_utils import utc_now, utc_now_iso
 
 
 def utc_now():
@@ -16,7 +15,7 @@ def utc_now():
 class SecurityRole:
     role_id: str
     name: str
-    permissions: List[str] = field(default_factory=list)
+    permissions: list[str] = field(default_factory=list)
     created_at: str = field(default_factory=utc_now)
 
 
@@ -27,7 +26,7 @@ class SecurityAudit:
     actor: str
     status: str
     timestamp: str = field(default_factory=utc_now)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 class AletheusSecurityEngine:
@@ -36,10 +35,10 @@ class AletheusSecurityEngine:
 
     def __init__(self):
 
-        self.roles: Dict[str, SecurityRole] = {}
-        self.assignments: Dict[str, str] = {}
-        self.audit_log: List[SecurityAudit] = []
-        self.policies: Dict[str, Any] = {}
+        self.roles: dict[str, SecurityRole] = {}
+        self.assignments: dict[str, str] = {}
+        self.audit_log: list[SecurityAudit] = []
+        self.policies: dict[str, Any] = {}
 
     @property
     def version(self):

@@ -7,7 +7,6 @@ Post-Genesis 147
 
 from .engine import CollectiveProblemSolvingEngine
 
-
 __all__ = [
 
 "CollectiveProblemSolvingEngine"

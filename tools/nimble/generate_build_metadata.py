@@ -4,10 +4,9 @@ import hashlib
 import json
 import platform
 import subprocess
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
-
 
 ROOT = Path(__file__).resolve().parent
 
@@ -105,7 +104,7 @@ def main() -> int:
     metadata = {
         "schema_version": "1.0",
         "generated_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
         "source": {
             "commit": command_output(

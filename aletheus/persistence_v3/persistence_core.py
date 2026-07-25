@@ -1,13 +1,12 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, asdict, field
-from datetime import datetime
-from pathlib import Path
-from typing import Any, Dict
 import json
 import uuid
+from dataclasses import asdict, dataclass, field
+from pathlib import Path
+from typing import Any
+
+from aletheus.time_utils import utc_now, utc_now_iso
 
 
 def utc_now() -> str:
@@ -20,7 +19,7 @@ class RuntimeSnapshot:
     name: str
     created_at: str
     path: str
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 class AletheusPersistenceEngine:
@@ -29,7 +28,7 @@ class AletheusPersistenceEngine:
 
     def __init__(self, base_path: str = "runtime_state"):
         self.base_path = Path(base_path)
-        self.snapshots: Dict[str, RuntimeSnapshot] = {}
+        self.snapshots: dict[str, RuntimeSnapshot] = {}
         self.last_save: str | None = None
         self.last_load: str | None = None
 
@@ -169,7 +168,7 @@ class AletheusPersistenceEngine:
             "state": self.load()["state"],
         }
 
-    def import_state(self, state: Dict[str, Any]):
+    def import_state(self, state: dict[str, Any]):
         self.bootstrap()
 
         for key, value in state.items():

@@ -1,6 +1,9 @@
 from __future__ import annotations
+
 from collections import defaultdict
+
 from .metrics import Metric
+
 
 class MetricRegistry:
     def __init__(self):

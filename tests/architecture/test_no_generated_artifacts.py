@@ -1,5 +1,5 @@
-from pathlib import Path
 import warnings
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 FORBIDDEN_DIR_NAMES = {"node_modules", ".venv", "venv", "__pycache__", ".pytest_cache"}

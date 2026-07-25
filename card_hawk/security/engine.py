@@ -5,10 +5,9 @@ Genesis 14.18
 """
 
 
-from .identity import IdentityManager
 from .audit import AuditEngine
 from .fraud import FraudEngine
-
+from .identity import IdentityManager
 
 
 class SecurityEngine:

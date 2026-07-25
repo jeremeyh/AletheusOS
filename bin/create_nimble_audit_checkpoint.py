@@ -7,7 +7,7 @@ import hashlib
 import json
 import os
 import subprocess
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -221,7 +221,7 @@ def main() -> int:
         "schema_version": "1.0",
         "checkpoint_sequence": checkpoint_sequence,
         "created_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
         "ledger_entry_count": ledger_entry_count,
         "ledger_head_hash": ledger_head_hash,

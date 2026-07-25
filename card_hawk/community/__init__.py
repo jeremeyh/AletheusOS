@@ -7,7 +7,6 @@ Genesis 61
 
 from .engine import CommunityIntelligenceEngine
 
-
 __all__ = [
 
     "CommunityIntelligenceEngine"

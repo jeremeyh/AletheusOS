@@ -1,13 +1,12 @@
 from __future__ import annotations
 
 from collections import deque
-from typing import List, Set
 
-from .registry import uci
 from .models import (
-    UCITrace,
     UCIRelationship,
+    UCITrace,
 )
+from .registry import uci
 
 
 def trace_lineage(
@@ -26,7 +25,7 @@ def trace_lineage(
     and confidence thresholds.
     """
 
-    visited: Set[str] = set()
+    visited: set[str] = set()
 
     queue = deque()
 
@@ -62,7 +61,7 @@ def trace_lineage(
                 relationships=relationship_path,
             )
 
-        outgoing: List[
+        outgoing: list[
             UCIRelationship
         ] = uci.outgoing_relationships(current_node)
 
@@ -96,7 +95,7 @@ def trace_lineage(
 
 def impact_analysis(
     node_id: str,
-) -> List[str]:
+) -> list[str]:
     """
     Return every downstream node affected
     by the supplied node.
@@ -132,7 +131,7 @@ def impact_analysis(
 
 def dependency_chain(
     node_id: str,
-) -> List[str]:
+) -> list[str]:
     """
     Walk backwards through incoming relationships
     to determine dependency ancestry.

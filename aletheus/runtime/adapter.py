@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Protocol, runtime_checkable
+from typing import Any, Protocol, runtime_checkable
 
 
 @dataclass(slots=True)
@@ -14,7 +14,7 @@ class RuntimeDispatchRequest:
     """
 
     command: str
-    payload: Dict[str, Any] = field(default_factory=dict)
+    payload: dict[str, Any] = field(default_factory=dict)
     requester: str = "executive_kernel"
     intent_id: str | None = None
 
@@ -29,7 +29,7 @@ class RuntimeDispatchResult:
     success: bool
     result: Any = None
     error: str | None = None
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 @runtime_checkable
@@ -56,16 +56,16 @@ class RuntimeAdapterProtocol(Protocol):
     def boot_summary(self) -> dict:
         ...
 
-    def list_services(self) -> List[Any]:
+    def list_services(self) -> list[Any]:
         ...
 
-    def list_managers(self) -> List[Any]:
+    def list_managers(self) -> list[Any]:
         ...
 
-    def list_engines(self) -> List[Any]:
+    def list_engines(self) -> list[Any]:
         ...
 
-    def list_capabilities(self) -> List[Any]:
+    def list_capabilities(self) -> list[Any]:
         ...
 
     def dispatch(
@@ -165,7 +165,7 @@ class DefaultRuntimeAdapter:
     # Discovery
     # ---------------------------------------------------------
 
-    def list_services(self) -> List[Any]:
+    def list_services(self) -> list[Any]:
         if hasattr(self.runtime, "services"):
             services = self.runtime.services
 
@@ -180,7 +180,7 @@ class DefaultRuntimeAdapter:
 
         return []
 
-    def list_managers(self) -> List[Any]:
+    def list_managers(self) -> list[Any]:
         if hasattr(self.runtime, "managers"):
             managers = self.runtime.managers
 
@@ -195,7 +195,7 @@ class DefaultRuntimeAdapter:
 
         return []
 
-    def list_engines(self) -> List[Any]:
+    def list_engines(self) -> list[Any]:
         if hasattr(self.runtime, "engines"):
             engines = self.runtime.engines
 
@@ -210,7 +210,7 @@ class DefaultRuntimeAdapter:
 
         return []
 
-    def list_capabilities(self) -> List[Any]:
+    def list_capabilities(self) -> list[Any]:
         if hasattr(self.runtime, "capabilities"):
             capabilities = self.runtime.capabilities
 

@@ -1,7 +1,6 @@
 from aletheus.platform_intelligence.runtime_observatory import (
     RuntimeObservatory,
 )
-
 from tools.runtime_snapshot import DemoRuntime
 
 

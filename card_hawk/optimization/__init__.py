@@ -7,7 +7,6 @@ Genesis 48
 
 from .engine import SelfOptimizingNetworkEngine
 
-
 __all__ = [
     "SelfOptimizingNetworkEngine"
 ]

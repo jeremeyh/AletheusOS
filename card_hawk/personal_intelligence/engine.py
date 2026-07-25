@@ -5,10 +5,9 @@ Genesis 14.24
 """
 
 
-from .profile import ProfileEngine
 from .advisor import AdvisorEngine
+from .profile import ProfileEngine
 from .recommendations import RecommendationEngine
-
 
 
 class PersonalIntelligenceEngine:

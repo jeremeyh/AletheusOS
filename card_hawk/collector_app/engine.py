@@ -5,10 +5,9 @@ Genesis 14.9
 """
 
 
+from .assistant import CollectorAssistant
 from .dashboard import DashboardEngine
 from .discovery import DiscoveryEngine
-from .assistant import CollectorAssistant
-
 
 
 class CollectorExperienceEngine:

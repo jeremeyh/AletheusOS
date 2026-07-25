@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass, field
 from statistics import fmean
 from threading import RLock
-from typing import Iterable
 
 from .domain import DomainAnalysis, DomainContext
 from .recursive import RecursiveCycleRecord, RecursiveIntelligenceCycle

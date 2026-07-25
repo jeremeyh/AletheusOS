@@ -9,7 +9,6 @@ from __future__ import annotations
 
 from typing import Any
 
-
 SAFE_COMMAND_ALIASES: dict[str, str] = {
     # Prediction namespace evolution.
     "predict.forecast": "prediction.forecast",

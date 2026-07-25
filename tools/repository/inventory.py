@@ -3,12 +3,11 @@
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
-from pathlib import Path
-from typing import Iterable, Iterator
 import hashlib
 import json
-
+from collections.abc import Iterable, Iterator
+from dataclasses import asdict, dataclass
+from pathlib import Path
 
 DEFAULT_EXCLUDED_DIRECTORIES = {
     ".git",

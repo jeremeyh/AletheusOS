@@ -4,9 +4,9 @@ Card Hawk Asset Vault Dashboard
 Version 2.2.0
 """
 
-from cardhawk.services import AssetService
 from cardhawk.analytics import PortfolioAnalytics
 from cardhawk.portfolio import PortfolioEngine
+from cardhawk.services import AssetService
 
 
 class AssetVaultDashboard:

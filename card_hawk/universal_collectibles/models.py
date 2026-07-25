@@ -7,7 +7,6 @@ Genesis 14.12
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class Collectible:
 

@@ -7,7 +7,6 @@ Genesis 80.5
 
 from .engine import EnterpriseRuntimeIntegrationEngine
 
-
 __all__ = [
 
     "EnterpriseRuntimeIntegrationEngine"

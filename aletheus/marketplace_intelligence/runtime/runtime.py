@@ -5,10 +5,9 @@ Genesis 13.24
 """
 
 
-from .registry import ConnectorRegistry
-from .lifecycle import ConnectorLifecycleManager
 from .health import ConnectorHealthManager
-
+from .lifecycle import ConnectorLifecycleManager
+from .registry import ConnectorRegistry
 
 
 class MarketplaceConnectorRuntime:

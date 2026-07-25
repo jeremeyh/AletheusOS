@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 import inspect
-from typing import Any, Awaitable, Callable, Iterable
+from collections.abc import Iterable
+from typing import Any
 
 from .contracts import CommandContext, CommandMiddleware, NextHandler
 from .errors import (
@@ -23,7 +24,7 @@ class CommandDispatcher:
       command middleware -> handler -> result validation
     """
 
-    __slots__ = ("_registry", "_middleware", "_wrap_unhandled")
+    __slots__ = ("_middleware", "_registry", "_wrap_unhandled")
 
     def __init__(
         self,

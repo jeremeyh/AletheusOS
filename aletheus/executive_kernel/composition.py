@@ -1,8 +1,9 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any, Callable, Dict, List
+from typing import Any
 
 
 class ExecutiveComponentStatus(str, Enum):
@@ -22,10 +23,10 @@ class ExecutiveComponentDescriptor:
 
     component_id: str
     name: str
-    factory: Callable[[Dict[str, Any]], Any]
-    dependencies: List[str] = field(default_factory=list)
+    factory: Callable[[dict[str, Any]], Any]
+    dependencies: list[str] = field(default_factory=list)
     status: ExecutiveComponentStatus = ExecutiveComponentStatus.REGISTERED
-    metadata: Dict[str, str] = field(default_factory=dict)
+    metadata: dict[str, str] = field(default_factory=dict)
 
 
 @dataclass(slots=True)
@@ -35,9 +36,9 @@ class ExecutiveCompositionResult:
     """
 
     success: bool
-    components: Dict[str, Any]
-    order: List[str]
-    errors: List[str] = field(default_factory=list)
+    components: dict[str, Any]
+    order: list[str]
+    errors: list[str] = field(default_factory=list)
 
     def summary(self) -> dict:
         return {
@@ -65,7 +66,7 @@ class ExecutiveCompositionEngine:
     """
 
     def __init__(self) -> None:
-        self._descriptors: Dict[str, ExecutiveComponentDescriptor] = {}
+        self._descriptors: dict[str, ExecutiveComponentDescriptor] = {}
 
     def register(
         self,
@@ -73,7 +74,7 @@ class ExecutiveCompositionEngine:
     ) -> None:
         self._descriptors[descriptor.component_id] = descriptor
 
-    def descriptors(self) -> List[ExecutiveComponentDescriptor]:
+    def descriptors(self) -> list[ExecutiveComponentDescriptor]:
         return list(self._descriptors.values())
 
     def descriptor(
@@ -88,8 +89,8 @@ class ExecutiveCompositionEngine:
             for component_id, descriptor in self._descriptors.items()
         }
 
-    def validate(self) -> List[str]:
-        errors: List[str] = []
+    def validate(self) -> list[str]:
+        errors: list[str] = []
 
         for descriptor in self._descriptors.values():
             for dependency in descriptor.dependencies:
@@ -101,13 +102,13 @@ class ExecutiveCompositionEngine:
 
         return errors
 
-    def resolve_order(self) -> tuple[List[str], List[str]]:
+    def resolve_order(self) -> tuple[list[str], list[str]]:
         errors = self.validate()
 
         if errors:
             return [], errors
 
-        resolved: List[str] = []
+        resolved: list[str] = []
         visiting: set[str] = set()
         visited: set[str] = set()
 
@@ -152,7 +153,7 @@ class ExecutiveCompositionEngine:
                 errors=errors,
             )
 
-        components: Dict[str, Any] = {}
+        components: dict[str, Any] = {}
 
         for component_id in order:
             descriptor = self._descriptors[component_id]

@@ -1,11 +1,11 @@
+import uuid
+from datetime import datetime
 from pathlib import Path
 from shutil import copyfile
-from datetime import datetime
-import uuid
 
+from asset_core.repository.asset_repository import AssetRepository
 from hawk_aeye.runtime.pipeline import AssetPipeline
 from hawk_aeye.vision.vision_engine import VisionEngine
-from asset_core.repository.asset_repository import AssetRepository
 
 
 class AssetIntakePipeline:

@@ -9,7 +9,6 @@ from .models import (
     new_mission_id,
 )
 
-
 SECURITY_CONTAINMENT_CONTRACT = MissionContract(
     mission_type="security_containment",
     purpose=(

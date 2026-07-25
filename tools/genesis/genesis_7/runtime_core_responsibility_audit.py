@@ -22,7 +22,6 @@ from collections import Counter
 from datetime import UTC, datetime
 from pathlib import Path
 
-
 CORE_PATH = Path("aletheus/runtime/core.py")
 REPORT_DIR = Path("reports/genesis_7_architecture_audit")
 REPORT_PATH = REPORT_DIR / "runtime_core_responsibility_audit.md"

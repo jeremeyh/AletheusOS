@@ -5,12 +5,11 @@ Genesis 160
 """
 
 
-from .opportunity_engine import OpportunityEngine
-from .priority_engine import PriorityEngine
-from .milestone_generator import MilestoneGenerator
 from .evolution_memory import EvolutionMemory
 from .intelligence_engine import EvolutionIntelligence
-
+from .milestone_generator import MilestoneGenerator
+from .opportunity_engine import OpportunityEngine
+from .priority_engine import PriorityEngine
 
 
 class AutonomousEvolutionIntelligenceEngine:

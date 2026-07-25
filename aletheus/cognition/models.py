@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, field
-from datetime import datetime
-from typing import Any, Dict, List
 import uuid
+from dataclasses import dataclass, field
+from typing import Any
+
+from aletheus.time_utils import utc_now_iso
 
 
 def now() -> str:
@@ -24,7 +23,7 @@ class Goal:
     created_at: str = field(default_factory=now)
     completed_at: str | None = None
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -32,11 +31,11 @@ class Goal:
 class Plan:
     goal_id: str
     title: str
-    steps: List[str]
+    steps: list[str]
     plan_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -45,14 +44,14 @@ class ReasoningSession:
     prompt: str
     conclusion: str
     confidence: float
-    evidence: List[str]
-    assumptions: List[str]
-    risks: List[str]
-    recommended_actions: List[str]
+    evidence: list[str]
+    assumptions: list[str]
+    risks: list[str]
+    recommended_actions: list[str]
     session_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -62,10 +61,10 @@ class Decision:
     decision: str
     rationale: str
     confidence: float
-    evidence: List[str]
+    evidence: list[str]
     outcome: str = "pending"
     decision_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__

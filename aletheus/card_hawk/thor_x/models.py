@@ -7,7 +7,6 @@ Genesis 13.7
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class THORDecision:
 

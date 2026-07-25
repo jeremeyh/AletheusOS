@@ -1,4 +1,5 @@
-from components.cardhawk_utils import row_value, safe_float, money
+from components.cardhawk_utils import money, row_value, safe_float
+
 
 class DynamicFounderBrief:
     """Founder Intelligence™ brief based on portfolio, events, and opportunities."""

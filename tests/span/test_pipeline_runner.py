@@ -1,5 +1,6 @@
 from aletheus.span.pipeline_runner import PipelineRunner
 
+
 def test_pipeline_runner():
     result = PipelineRunner().execute()
     assert result["status"] == "ok"

@@ -3,8 +3,8 @@ from .models import IntelligenceEngine
 from .registry import EngineRegistry
 
 __all__ = [
+    "EngineRegistry",
     "IntelligenceEngine",
     "IntelligenceEngineManager",
-    "EngineRegistry",
     "engine_manager",
 ]

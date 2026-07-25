@@ -1,5 +1,3 @@
 
-from .intelligence_runtime import (
-    AutonomousIntelligenceRuntime
-)
+from .intelligence_runtime import AutonomousIntelligenceRuntime
 

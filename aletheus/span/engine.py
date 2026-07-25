@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import argparse
 import logging
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Iterable
 
 from .analyzers import DependencyAnalyzer
 from .evidence import EvidenceStore
@@ -34,7 +34,7 @@ class SpanEngine:
         self.reporter = reporter or SpanReportWriter()
 
     @classmethod
-    def with_defaults(cls) -> "SpanEngine":
+    def with_defaults(cls) -> SpanEngine:
         engine = cls()
         engine.register(DependencyAnalyzer())
         return engine

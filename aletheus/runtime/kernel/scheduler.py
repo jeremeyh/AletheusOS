@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, asdict, field
-from datetime import datetime
-from typing import Any, Dict, List
 import uuid
+from dataclasses import asdict, dataclass, field
+from typing import Any
+
+from aletheus.time_utils import utc_now, utc_now_iso
 
 
 def utc_now() -> str:
@@ -25,9 +24,9 @@ class IntelligenceScheduler:
     VERSION = "4.0.0"
 
     def __init__(self) -> None:
-        self.queue: List[ScheduledTask] = []
+        self.queue: list[ScheduledTask] = []
 
-    def schedule(self, task_id: str, priority: int = 5) -> Dict[str, Any]:
+    def schedule(self, task_id: str, priority: int = 5) -> dict[str, Any]:
         item = ScheduledTask(
             scheduled_id=str(uuid.uuid4()),
             task_id=task_id,
@@ -39,7 +38,7 @@ class IntelligenceScheduler:
 
         return asdict(item)
 
-    def next(self) -> Dict[str, Any]:
+    def next(self) -> dict[str, Any]:
         if not self.queue:
             return {"task": None}
 
@@ -48,7 +47,7 @@ class IntelligenceScheduler:
 
         return asdict(item)
 
-    def statistics(self) -> Dict[str, Any]:
+    def statistics(self) -> dict[str, Any]:
         return {
             "version": self.VERSION,
             "queued": len(self.queue),

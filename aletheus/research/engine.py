@@ -5,13 +5,12 @@ Post-Genesis 12
 """
 
 
-from .knowledge_acquisition import KnowledgeAcquisitionEngine
-from .research_agents import ResearchAgentEngine
-from .hypothesis_engine import HypothesisEngine
 from .discovery_engine import DiscoveryEngine
-from .validation_engine import ValidationEngine
+from .hypothesis_engine import HypothesisEngine
+from .knowledge_acquisition import KnowledgeAcquisitionEngine
 from .opportunity_engine import OpportunityEngine
-
+from .research_agents import ResearchAgentEngine
+from .validation_engine import ValidationEngine
 
 
 class AutonomousResearchEngine:

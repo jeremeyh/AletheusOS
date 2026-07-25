@@ -9,9 +9,9 @@ returns a proposed canonical destination without modifying the filesystem.
 
 from __future__ import annotations
 
+from collections.abc import Iterable, Sequence
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Iterable, Sequence
 
 
 @dataclass(frozen=True, slots=True)

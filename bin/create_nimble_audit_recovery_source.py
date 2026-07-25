@@ -6,7 +6,7 @@ import argparse
 import hashlib
 import json
 import uuid
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -214,7 +214,7 @@ def main() -> int:
         "schema_version": "1.0",
         "source_id": str(uuid.uuid4()),
         "created_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
         "checkpoint_hash": checkpoint.get(
             "checkpoint_hash"

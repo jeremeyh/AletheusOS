@@ -1,5 +1,5 @@
-from portfolio.digital_twin.engine import PortfolioDigitalTwin
 from asset_core.runtime.enrichment import AssetEnrichmentEngine
+from portfolio.digital_twin.engine import PortfolioDigitalTwin
 
 
 class FounderCopilot:

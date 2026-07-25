@@ -3,12 +3,11 @@ CardHawk OS™
 Platform Bootstrap
 """
 
-from core.discovery import discovery
 from core.container import container
+from core.discovery import discovery
 from core.engine_registry import engine_registry
-from core.service_discovery import service_discovery
 from core.event_bus import event_bus
-from core.scheduler import scheduler
+from core.service_discovery import service_discovery
 
 
 class Bootstrap:

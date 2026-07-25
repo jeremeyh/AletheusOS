@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 from aletheus.semantic.models import SemanticAssertion, SemanticConcept
 
@@ -8,16 +8,16 @@ from aletheus.semantic.models import SemanticAssertion, SemanticConcept
 class AletheusSemanticCore:
     def __init__(self) -> None:
         self.version = "1.1.0"
-        self.concepts: List[SemanticConcept] = []
-        self.assertions: List[SemanticAssertion] = []
+        self.concepts: list[SemanticConcept] = []
+        self.assertions: list[SemanticAssertion] = []
 
     def create_concept(
         self,
         name: str,
         concept_type: str = "concept",
         description: str = "",
-        aliases: List[str] | None = None,
-        metadata: Dict[str, Any] | None = None,
+        aliases: list[str] | None = None,
+        metadata: dict[str, Any] | None = None,
     ) -> SemanticConcept:
         existing = self.find_concept_exact(name)
         if existing:
@@ -41,7 +41,7 @@ class AletheusSemanticCore:
                 return concept
         return None
 
-    def search_concepts(self, query: str = "", concept_type: str = "") -> List[Dict[str, Any]]:
+    def search_concepts(self, query: str = "", concept_type: str = "") -> list[dict[str, Any]]:
         results = self.concepts
 
         if query:
@@ -65,7 +65,7 @@ class AletheusSemanticCore:
         object_value: str,
         confidence: float = 0.75,
         source: str = "aletheus",
-        metadata: Dict[str, Any] | None = None,
+        metadata: dict[str, Any] | None = None,
     ) -> SemanticAssertion:
         assertion = SemanticAssertion(
             subject=subject,
@@ -83,7 +83,7 @@ class AletheusSemanticCore:
         subject: str = "",
         predicate: str = "",
         object_value: str = "",
-    ) -> List[Dict[str, Any]]:
+    ) -> list[dict[str, Any]]:
         results = self.assertions
 
         if subject:
@@ -97,7 +97,7 @@ class AletheusSemanticCore:
 
         return [item.to_dict() for item in results]
 
-    def explain_concept(self, name: str) -> Dict[str, Any]:
+    def explain_concept(self, name: str) -> dict[str, Any]:
         concept = self.find_concept_exact(name)
         related_assertions = [
             item.to_dict()
@@ -112,7 +112,7 @@ class AletheusSemanticCore:
             "relationship_count": len(related_assertions),
         }
 
-    def bootstrap_cardhawk_semantics(self) -> Dict[str, Any]:
+    def bootstrap_cardhawk_semantics(self) -> dict[str, Any]:
         concepts = [
             ("Card Hawk Foundation™", "application", "Flagship reference application running on Aletheus."),
             ("Aletheus™", "operating_system", "Universal Intelligence Operating System."),
@@ -140,8 +140,8 @@ class AletheusSemanticCore:
 
         return {"concepts": created, "assertions": assertions}
 
-    def stats(self) -> Dict[str, Any]:
-        by_type: Dict[str, int] = {}
+    def stats(self) -> dict[str, Any]:
+        by_type: dict[str, int] = {}
 
         for concept in self.concepts:
             by_type[concept.concept_type] = by_type.get(concept.concept_type, 0) + 1

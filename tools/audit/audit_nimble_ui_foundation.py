@@ -5,7 +5,6 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-
 ROOT = Path(__file__).resolve().parent
 REPORT_DIR = ROOT / "reports" / "nimble"
 JSON_REPORT = REPORT_DIR / "nimble_ui_foundation_audit.json"

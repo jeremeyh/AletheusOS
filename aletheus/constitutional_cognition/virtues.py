@@ -11,7 +11,6 @@ from .models import (
     VirtueFinding,
 )
 
-
 VirtueEvaluator = Callable[
     [VirtueContext],
     tuple[bool, str],

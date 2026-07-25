@@ -4,9 +4,8 @@ import argparse
 import csv
 import json
 import shutil
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-
 
 ROOT = Path(__file__).resolve().parent
 
@@ -18,7 +17,7 @@ REPORT = (
 )
 
 BATCH_ID = datetime.now(
-    timezone.utc
+    UTC
 ).strftime("%Y%m%dT%H%M%SZ")
 
 QUARANTINE_ROOT = (
@@ -140,7 +139,7 @@ def main() -> None:
         json.dumps(
             {
                 "created_at": datetime.now(
-                    timezone.utc
+                    UTC
                 ).isoformat(),
                 "moved_count": len(moved),
                 "moved": moved,

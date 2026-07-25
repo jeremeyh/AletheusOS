@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
-from typing import Any, Iterable, Mapping, Protocol, runtime_checkable
+from datetime import UTC, datetime
+from typing import Any, Protocol, runtime_checkable
 
 from .finding import Finding
 
@@ -90,7 +91,7 @@ class Analyzer(ABC):
         evidence: EvidenceReader,
         context: AnalyzerContext,
     ) -> AnalyzerResult:
-        started = datetime.now(timezone.utc)
+        started = datetime.now(UTC)
         missing = self.validate_requirements(evidence)
         if missing:
             raise RuntimeError(
@@ -98,7 +99,7 @@ class Analyzer(ABC):
             )
 
         findings = tuple(self.analyze(evidence, context))
-        completed = datetime.now(timezone.utc)
+        completed = datetime.now(UTC)
         return AnalyzerResult(
             analyzer=self.name,
             version=self.version,

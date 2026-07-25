@@ -7,10 +7,9 @@ import hashlib
 import json
 import os
 import subprocess
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
-
 
 ROOT = Path(__file__).resolve().parent
 
@@ -231,7 +230,7 @@ def main() -> int:
         "schema_version": "1.0",
         "record_id": "nimble-promotion-record-v0.1",
         "generated_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
         "application": contract["application"],
         "environment": arguments.environment,

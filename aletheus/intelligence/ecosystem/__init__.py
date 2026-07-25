@@ -1,5 +1,3 @@
 
-from .ecosystem_core import (
-    AutonomousIntelligenceEcosystemCore
-)
+from .ecosystem_core import AutonomousIntelligenceEcosystemCore
 

@@ -5,12 +5,11 @@ Genesis 13.36
 """
 
 
-from .recognition import ObjectRecognitionEngine
-from .ocr import CollectibleOCREngine
-from .matching import VisualMatchingEngine
 from .condition import ConditionAnalyzer
+from .matching import VisualMatchingEngine
+from .ocr import CollectibleOCREngine
+from .recognition import ObjectRecognitionEngine
 from .signatures import SignatureAnalyzer
-
 
 
 class HawkAEyeEngine:

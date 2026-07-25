@@ -8,9 +8,8 @@ readiness and transition state.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class Genesis12PreparationEngine:

@@ -1,12 +1,12 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 core = Path("aletheus/runtime/core.py")
 text = core.read_text()
 
 pattern = re.compile(
     r"def _register_compatibility_services\(self\):.*?def _apply_compatibility_aliases",
-    re.S,
+    re.DOTALL,
 )
 
 replacement = '''

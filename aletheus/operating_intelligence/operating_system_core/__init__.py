@@ -7,7 +7,6 @@ Post-Genesis 171
 
 from .engine import UniversalIntelligenceOperatingSystemEngine
 
-
 __all__ = [
 
 "UniversalIntelligenceOperatingSystemEngine"

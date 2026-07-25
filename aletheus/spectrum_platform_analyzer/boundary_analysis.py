@@ -7,8 +7,6 @@ Genesis 54.0
 
 from __future__ import annotations
 
-from pathlib import Path
-
 from .dependency import dependency_analyzer
 
 

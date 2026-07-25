@@ -1,12 +1,13 @@
-from hawk_aeye.ocr_runtime import OCRRuntime
-from hawk_aeye.card_classifier import CardClassifier
-from hawk_aeye.player_detector import PlayerDetector
-from hawk_aeye.brand_detector import BrandDetector
-from hawk_aeye.year_detector import YearDetector
-from hawk_aeye.parallel_detector import ParallelDetector
-from hawk_aeye.serial_detector import SerialDetector
-from hawk_aeye.condition_estimator import ConditionEstimator
 from hawk_aeye.asset_dna_builder import AssetDNABuilder
+from hawk_aeye.brand_detector import BrandDetector
+from hawk_aeye.card_classifier import CardClassifier
+from hawk_aeye.condition_estimator import ConditionEstimator
+from hawk_aeye.ocr_runtime import OCRRuntime
+from hawk_aeye.parallel_detector import ParallelDetector
+from hawk_aeye.player_detector import PlayerDetector
+from hawk_aeye.serial_detector import SerialDetector
+from hawk_aeye.year_detector import YearDetector
+
 
 class VisionPipeline:
     """

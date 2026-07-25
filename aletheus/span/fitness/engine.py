@@ -1,6 +1,7 @@
 from .function import FitnessFunction
 from .result import FitnessResult
 
+
 class FitnessEngine:
     def __init__(self):
         self.functions=[]

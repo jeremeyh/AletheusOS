@@ -6,9 +6,8 @@ Genesis 60.8
 
 
 from .confidence_calculator import ConfidenceCalculator
-from .intelligence_formatter import IntelligenceFormatter
 from .insight_builder import InsightBuilder
-
+from .intelligence_formatter import IntelligenceFormatter
 
 
 class ResponseOrchestrator:

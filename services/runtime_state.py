@@ -2,16 +2,16 @@ from __future__ import annotations
 
 import json
 import os
-from typing import Any, Dict
+from typing import Any
 
 
 class RuntimeState:
     def __init__(self, path: str = "data/runtime_state.json") -> None:
         self.path = path
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        self.state: Dict[str, Any] = self._load()
+        self.state: dict[str, Any] = self._load()
 
-    def _load(self) -> Dict[str, Any]:
+    def _load(self) -> dict[str, Any]:
         if not os.path.exists(self.path):
             return {"runtime_version": "v3", "snapshots": []}
         with open(self.path, "r", encoding="utf-8") as f:
@@ -28,7 +28,7 @@ class RuntimeState:
     def get(self, key: str, default: Any = None) -> Any:
         return self.state.get(key, default)
 
-    def snapshot(self, name: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+    def snapshot(self, name: str, payload: dict[str, Any]) -> dict[str, Any]:
         from services.context import utc_now_iso
         snap = {"name": name, "timestamp": utc_now_iso(), "payload": payload}
         self.state.setdefault("snapshots", []).append(snap)

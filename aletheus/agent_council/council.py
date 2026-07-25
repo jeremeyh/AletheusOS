@@ -5,11 +5,10 @@ Genesis 13.29
 """
 
 
-from .registry import CouncilRegistry
-from .deliberation import DeliberationEngine
 from .consensus import ConsensusEngine
+from .deliberation import DeliberationEngine
 from .governance import CouncilGovernance
-
+from .registry import CouncilRegistry
 
 
 class AgentCouncil:

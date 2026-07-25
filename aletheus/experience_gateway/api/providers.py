@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import asdict, is_dataclass
 from enum import Enum
-from typing import Any, Mapping, Protocol
+from typing import Any, Protocol
 
 from ..providers import create_default_provider_registry
 from ..service import ExperienceGatewayService

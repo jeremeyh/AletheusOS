@@ -1,10 +1,9 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, asdict
-from datetime import datetime
+from dataclasses import asdict, dataclass
 from typing import Any
+
+from aletheus.time_utils import utc_now_iso
 
 
 @dataclass

@@ -30,7 +30,6 @@ class EngineBase(ABC):
         """
         Override in concrete engines if they react to events.
         """
-        pass
 
     @abstractmethod
     def execute(self, payload):

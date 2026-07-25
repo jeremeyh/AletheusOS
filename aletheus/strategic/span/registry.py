@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from threading import RLock
-from typing import Any, Iterable
+from typing import Any
 
 
 class SPANRegistry:

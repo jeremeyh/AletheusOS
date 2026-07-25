@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 class CTFRouteStatus(str, Enum):
@@ -35,12 +35,12 @@ class CTFRouteRequest:
     """
 
     request_id: str
-    intent_id: Optional[str]
+    intent_id: str | None
     route_key: str
-    payload: Dict[str, Any] = field(default_factory=dict)
+    payload: dict[str, Any] = field(default_factory=dict)
 
     source: str = "runtime"
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     created_at: str = field(default_factory=utc_now)
 
@@ -53,14 +53,14 @@ class CTFRouteResult:
 
     request_id: str
     route_key: str
-    destination: Optional[str]
+    destination: str | None
 
     status: CTFRouteStatus
     result: Any = None
-    error: Optional[str] = None
+    error: str | None = None
 
-    pathway_id: Optional[str] = None
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    pathway_id: str | None = None
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     completed_at: str = field(default_factory=utc_now)
 
@@ -77,14 +77,14 @@ class CTFPathway:
 
     pathway_id: str
     route_key: str
-    nodes: List[str]
+    nodes: list[str]
 
     status: CTFPathwayStatus = CTFPathwayStatus.NORMAL
     success_count: int = 0
     failure_count: int = 0
 
     average_latency_ms: float = 0.0
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     created_at: str = field(default_factory=utc_now)
     updated_at: str = field(default_factory=utc_now)

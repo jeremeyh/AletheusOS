@@ -4,11 +4,12 @@ from __future__ import annotations
 
 import json
 from collections import Counter
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 from .graph import ArchitecturalGraph
-from .models import AnalyzerResult, FindingSeverity, utc_now_iso
+from .models import AnalyzerResult, utc_now_iso
 
 
 class SpanReportWriter:

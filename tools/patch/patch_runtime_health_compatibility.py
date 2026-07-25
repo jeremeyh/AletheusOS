@@ -1,6 +1,5 @@
-from pathlib import Path
 import re
-
+from pathlib import Path
 
 PATH = Path(
     "aletheus/runtime/commands/runtime_commands.py"

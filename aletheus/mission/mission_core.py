@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 from aletheus.mission.models import Mission, MissionRun, MissionTask
 
@@ -8,8 +8,8 @@ from aletheus.mission.models import Mission, MissionRun, MissionTask
 class AletheusMissionCore:
     def __init__(self) -> None:
         self.version = "0.7.0-genesis"
-        self.missions: List[Mission] = []
-        self.runs: List[MissionRun] = []
+        self.missions: list[Mission] = []
+        self.runs: list[MissionRun] = []
 
     def create_mission(
         self,
@@ -17,7 +17,7 @@ class AletheusMissionCore:
         objective: str,
         application: str = "system",
         priority: str = "medium",
-        tasks: List[Dict[str, Any]] | None = None,
+        tasks: list[dict[str, Any]] | None = None,
     ) -> Mission:
         mission_tasks = [
             MissionTask(
@@ -37,7 +37,7 @@ class AletheusMissionCore:
         self.missions.append(mission)
         return mission
 
-    def list_missions(self, status: str | None = None) -> List[Dict[str, Any]]:
+    def list_missions(self, status: str | None = None) -> list[dict[str, Any]]:
         results = self.missions
         if status:
             results = [mission for mission in results if mission.status == status]
@@ -46,14 +46,14 @@ class AletheusMissionCore:
     def get_mission(self, mission_id: str) -> Mission | None:
         return next((mission for mission in self.missions if mission.mission_id == mission_id), None)
 
-    def complete_mission(self, mission_id: str) -> Dict[str, Any]:
+    def complete_mission(self, mission_id: str) -> dict[str, Any]:
         mission = self.get_mission(mission_id)
         if mission is None:
             return {"error": f"Mission not found: {mission_id}"}
         mission.complete()
         return mission.to_dict()
 
-    def complete_task(self, mission_id: str, task_id: str) -> Dict[str, Any]:
+    def complete_task(self, mission_id: str, task_id: str) -> dict[str, Any]:
         mission = self.get_mission(mission_id)
         if mission is None:
             return {"error": f"Mission not found: {mission_id}"}
@@ -101,7 +101,7 @@ class AletheusMissionCore:
 
     def run_mission(self, mission_id: str) -> MissionRun:
         mission = self.get_mission(mission_id)
-        actions: List[Dict[str, Any]] = []
+        actions: list[dict[str, Any]] = []
 
         if mission is None:
             run = MissionRun(
@@ -135,10 +135,10 @@ class AletheusMissionCore:
         self.runs.append(run)
         return run
 
-    def history(self) -> List[Dict[str, Any]]:
+    def history(self) -> list[dict[str, Any]]:
         return [run.to_dict() for run in self.runs]
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "missions": len(self.missions),

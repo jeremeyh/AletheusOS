@@ -7,7 +7,6 @@ Post-Genesis 69
 
 from .engine import EcosystemIntelligencePlatformEngine
 
-
 __all__ = [
 
     "EcosystemIntelligencePlatformEngine"

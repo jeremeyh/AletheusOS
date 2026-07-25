@@ -7,9 +7,9 @@ Certifies federation health before runtime acceptance.
 """
 
 
-from pathlib import Path
 import json
 import time
+from pathlib import Path
 
 
 class RegistryFederationCertification:

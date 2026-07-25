@@ -1,5 +1,6 @@
 import streamlit as st
 
+
 def apply_cardhawk_theme():
     st.markdown("""
     <style>

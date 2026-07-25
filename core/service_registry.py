@@ -5,6 +5,7 @@ Service Registry
 
 from core.container import container
 
+
 class ServiceRegistry:
 
     def __init__(self):

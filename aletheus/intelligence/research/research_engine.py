@@ -9,9 +9,8 @@ and integrates discoveries.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class AutonomousResearchIntelligence:

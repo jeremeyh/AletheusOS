@@ -1,5 +1,6 @@
 from timeline.storage.store import store
 
+
 def summary():
 
     timeline=store.load()

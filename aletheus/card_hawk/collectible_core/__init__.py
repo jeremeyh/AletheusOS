@@ -1,6 +1,5 @@
-from .models import CollectibleAsset
 from .intelligence import CollectibleIntelligenceEngine
-
+from .models import CollectibleAsset
 
 __all__ = [
 

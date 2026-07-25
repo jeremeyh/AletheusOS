@@ -5,10 +5,9 @@ Genesis 14.1
 """
 
 
-from .search import AssetSearchEngine
-from .intelligence import AssetIntelligence
 from .events import AssetEventLog
-
+from .intelligence import AssetIntelligence
+from .search import AssetSearchEngine
 
 
 class AssetVaultEngine:

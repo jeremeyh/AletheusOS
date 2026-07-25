@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 class RuntimeLayer(str, Enum):
@@ -55,15 +55,15 @@ class RuntimeComponent:
     version: str = "0.1"
     health: ComponentHealth = ComponentHealth.UNKNOWN
 
-    dependencies: List[str] = field(default_factory=list)
-    provides: List[str] = field(default_factory=list)
+    dependencies: list[str] = field(default_factory=list)
+    provides: list[str] = field(default_factory=list)
 
-    runtime_characteristics: List[RuntimeCharacteristic] = field(
+    runtime_characteristics: list[RuntimeCharacteristic] = field(
         default_factory=list
     )
 
     owner: str = "AletheusOS"
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     created_at: str = field(default_factory=utc_now)
     updated_at: str = field(default_factory=utc_now)

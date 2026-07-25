@@ -7,7 +7,6 @@ Genesis 14.19
 from dataclasses import dataclass
 
 
-
 @dataclass
 class Metric:
 

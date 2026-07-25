@@ -1,5 +1,6 @@
 import streamlit as st
 
+
 def render_listing_cards(listings):
     if not listings:
         st.info("No listings found.")

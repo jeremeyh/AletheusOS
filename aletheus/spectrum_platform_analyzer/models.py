@@ -6,12 +6,10 @@ Genesis 54.0
 
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
 from dataclasses import dataclass, field
-from datetime import datetime
 from enum import Enum
-from typing import Dict, List
+
+from aletheus.time_utils import utc_now_iso
 
 
 class Severity(str, Enum):
@@ -50,7 +48,7 @@ class PlatformFinding:
 
     recommendation: str
 
-    evidence: List[str] = field(default_factory=list)
+    evidence: list[str] = field(default_factory=list)
 
     created_at: str = field(
         default_factory=lambda: utc_now_iso()
@@ -125,9 +123,9 @@ class PlatformReport:
 
     score: PlatformScore
 
-    findings: List[PlatformFinding] = field(default_factory=list)
+    findings: list[PlatformFinding] = field(default_factory=list)
 
-    metadata: Dict = field(default_factory=dict)
+    metadata: dict = field(default_factory=dict)
 
     def to_dict(self):
 

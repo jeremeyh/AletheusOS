@@ -7,7 +7,6 @@ Post-Genesis 144
 
 from .engine import GlobalResourceIntelligenceEngine
 
-
 __all__ = [
 
 "GlobalResourceIntelligenceEngine"

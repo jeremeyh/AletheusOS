@@ -1,5 +1,3 @@
 
-from .genesis12_preparation import (
-    Genesis12PreparationEngine
-)
+from .genesis12_preparation import Genesis12PreparationEngine
 

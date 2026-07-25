@@ -8,7 +8,6 @@ from typing import Any
 
 from aletheus.runtime import runtime_core
 
-
 ROOT = Path(__file__).resolve().parent
 REPORT_DIR = ROOT / "reports/genesis_8_command_dispatch"
 REPORT_DIR.mkdir(parents=True, exist_ok=True)

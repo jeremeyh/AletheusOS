@@ -1,0 +1,36 @@
+1591	N999   	invalid-module-name
+ 933	F401   	unused-import
+ 156	BLE001 	blind-except
+  90	RUF012 	mutable-class-default
+  68	DTZ003 	call-datetime-utcnow
+  56	EXE001 	shebang-not-executable
+  49	F821   	undefined-name
+  40	F811   	redefined-while-unused
+  16	DTZ005 	call-datetime-now-without-tzinfo
+  15	TRY004 	type-check-without-type-error
+  13	EXE002 	shebang-missing-executable-file
+  13	S110   	try-except-pass
+  13	SIM102 	collapsible-if
+  11	PLW1510	subprocess-run-without-check
+  11	S112   	try-except-continue
+   8	F841   	unused-variable
+   6	FURB162	fromisoformat-replace-z
+   5	SIM103 	needless-bool
+   4	PIE810 	multiple-starts-ends-with
+   3	PERF402	manual-list-copy
+   2	C401   	unnecessary-generator-set
+   2	FURB177	implicit-cwd
+   2	RUF022 	unsorted-dunder-all
+   2	RUF059 	unused-unpacked-variable
+   1	B006   	mutable-argument-default
+   1	C405   	unnecessary-literal-set
+   1	FLY002 	static-join-to-f-string
+   1	ISC004 	implicit-string-concatenation-in-collection-literal
+   1	PERF102	incorrect-dict-iterator
+   1	PLE0604	invalid-all-object
+   1	RUF009 	function-call-in-dataclass-default-argument
+   1	RUF015 	unnecessary-iterable-allocation-for-first-element
+   1	UP022  	replace-stdout-stderr
+   1	UP035  	deprecated-import
+Found 3119 errors.
+No fixes available (46 hidden fixes can be enabled with the `--unsafe-fixes` option).

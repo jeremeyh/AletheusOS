@@ -8,7 +8,6 @@ EpisodicMemoryEngine
 from ..engines.base_engine import CognitiveEngine
 
 
-
 class EpisodicMemoryEngine(
     CognitiveEngine
 ):

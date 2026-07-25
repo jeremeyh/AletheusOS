@@ -8,7 +8,6 @@ IntelligenceSynthesisEngine
 from ..engines.base_engine import CognitiveEngine
 
 
-
 class IntelligenceSynthesisEngine(
     CognitiveEngine
 ):

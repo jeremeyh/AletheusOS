@@ -1,5 +1,4 @@
 from pathlib import Path
-import sys
 
 CORE = Path("aletheus/runtime/core.py")
 REG_INIT = Path("aletheus/runtime/registrations/__init__.py")

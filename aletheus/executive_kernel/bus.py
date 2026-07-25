@@ -1,13 +1,14 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
-from typing import Any, Callable, Dict, List
+from typing import Any
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 class ExecutiveBusEventType(str, Enum):
@@ -25,7 +26,7 @@ class ExecutiveBusEventType(str, Enum):
 class ExecutiveBusEvent:
     event_type: ExecutiveBusEventType
     source: str
-    payload: Dict[str, Any] = field(default_factory=dict)
+    payload: dict[str, Any] = field(default_factory=dict)
     event_id: str | None = None
     timestamp: str = field(default_factory=utc_now)
 
@@ -38,11 +39,11 @@ class ExecutiveBus:
     """
 
     def __init__(self) -> None:
-        self._subscribers: Dict[
+        self._subscribers: dict[
             ExecutiveBusEventType,
-            List[Callable[[ExecutiveBusEvent], None]],
+            list[Callable[[ExecutiveBusEvent], None]],
         ] = {}
-        self._history: List[ExecutiveBusEvent] = []
+        self._history: list[ExecutiveBusEvent] = []
 
     def subscribe(
         self,
@@ -60,10 +61,10 @@ class ExecutiveBus:
         for handler in self._subscribers.get(ExecutiveBusEventType.CUSTOM, []):
             handler(event)
 
-    def history(self) -> List[ExecutiveBusEvent]:
+    def history(self) -> list[ExecutiveBusEvent]:
         return list(self._history)
 
-    def recent(self, limit: int = 25) -> List[ExecutiveBusEvent]:
+    def recent(self, limit: int = 25) -> list[ExecutiveBusEvent]:
         return self._history[-limit:]
 
     def clear_history(self) -> None:

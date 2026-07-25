@@ -5,7 +5,6 @@ import sys
 
 from fastapi.testclient import TestClient
 
-
 MODULE = "aletheus.experience_gateway.fastapi_app"
 
 OIDC_ENVIRONMENT = {

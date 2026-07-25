@@ -1,14 +1,14 @@
-from thorx.scarcity import ScarcityScorer
-from thorx.liquidity import LiquidityScorer
-from thorx.population import PopulationScorer
-from thorx.momentum import MomentumScorer
-from thorx.risk import RiskScorer
-from thorx.market_strength import MarketStrengthScorer
-from thorx.player_thesis import PlayerThesisScorer
-from thorx.visual_appeal import VisualAppealScorer
-from thorx.portfolio_fit import PortfolioFitScorer
 from thorx.def_engine import DEFEngine
 from thorx.dex_engine import DEXEngine
+from thorx.liquidity import LiquidityScorer
+from thorx.market_strength import MarketStrengthScorer
+from thorx.momentum import MomentumScorer
+from thorx.player_thesis import PlayerThesisScorer
+from thorx.population import PopulationScorer
+from thorx.portfolio_fit import PortfolioFitScorer
+from thorx.risk import RiskScorer
+from thorx.scarcity import ScarcityScorer
+from thorx.visual_appeal import VisualAppealScorer
 
 
 class ThorxScore:

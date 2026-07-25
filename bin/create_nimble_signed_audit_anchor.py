@@ -5,7 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -165,7 +165,7 @@ def main() -> int:
         "schema_version": "1.0",
         "anchor_id": "nimble-signed-audit-anchor-v0.1",
         "created_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
         "subject": {
             "checkpoint_path": (

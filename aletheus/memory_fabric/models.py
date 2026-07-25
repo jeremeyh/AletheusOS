@@ -7,7 +7,6 @@ Genesis 13.47
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class MemoryRecord:
 

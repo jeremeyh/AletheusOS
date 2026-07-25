@@ -1,5 +1,6 @@
 from pathlib import Path
 
+
 class ImportMigrator:
     """
     Conservative import migration helper.

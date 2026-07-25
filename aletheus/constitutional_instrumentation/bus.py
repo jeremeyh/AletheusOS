@@ -15,7 +15,6 @@ from .registry import (
     ConstitutionalInstrumentRegistry,
 )
 
-
 InstrumentSubscriber = Callable[
     [InstrumentSignal],
     None,

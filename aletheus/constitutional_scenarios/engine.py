@@ -29,7 +29,6 @@ from .registry import (
     ConstitutionalScenarioRegistry,
 )
 
-
 MetricProjector = Callable[
     [
         ScenarioDefinition,

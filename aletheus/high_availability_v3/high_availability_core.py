@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, asdict, field
-from datetime import datetime
-from typing import Dict, List, Any
 import uuid
+from dataclasses import asdict, dataclass, field
+from typing import Any
+
+from aletheus.time_utils import utc_now, utc_now_iso
 
 
 def utc_now():
@@ -21,7 +20,7 @@ class HANode:
     health: str = "healthy"
     last_heartbeat: str = field(default_factory=utc_now)
     replication_lag: int = 0
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -29,7 +28,7 @@ class ReplicationEvent:
     event_id: str
     source_node: str
     target_node: str
-    payload: Dict[str, Any]
+    payload: dict[str, Any]
     status: str = "replicated"
     created_at: str = field(default_factory=utc_now)
 
@@ -38,10 +37,10 @@ class AletheusHighAvailabilityEngine:
     VERSION = "3.6.0"
 
     def __init__(self):
-        self.nodes: Dict[str, HANode] = {}
-        self.replication_events: List[ReplicationEvent] = []
-        self.failover_events: List[Dict[str, Any]] = []
-        self.recovery_events: List[Dict[str, Any]] = []
+        self.nodes: dict[str, HANode] = {}
+        self.replication_events: list[ReplicationEvent] = []
+        self.failover_events: list[dict[str, Any]] = []
+        self.recovery_events: list[dict[str, Any]] = []
         self.leader_id: str | None = None
 
     @property

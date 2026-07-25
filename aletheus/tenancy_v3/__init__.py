@@ -1,15 +1,15 @@
 from .tenancy_core import (
+    AletheusTenancyEngine,
     Organization,
     Tenant,
     Workspace,
-    AletheusTenancyEngine,
     tenancy_core,
 )
 
 __all__ = [
+    "AletheusTenancyEngine",
     "Organization",
     "Tenant",
     "Workspace",
-    "AletheusTenancyEngine",
     "tenancy_core",
 ]

@@ -5,12 +5,11 @@ Genesis 13.52
 """
 
 
-from .intent import IntentEngine
 from .context import ContextEngine
+from .explanation import ExplanationEngine
+from .intent import IntentEngine
 from .reasoning import ReasoningEngine
 from .synthesis import SynthesisEngine
-from .explanation import ExplanationEngine
-
 
 
 class CognitiveReasoningEngine:

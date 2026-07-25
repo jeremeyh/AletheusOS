@@ -10,7 +10,6 @@ Analyzes evolution trajectory.
 import time
 
 
-
 class AnchorEvolutionAnalyticsEngine:
 
 

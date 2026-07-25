@@ -7,7 +7,6 @@ Post-Genesis 42
 
 from .engine import AgentGovernanceEngine
 
-
 __all__ = [
 
     "AgentGovernanceEngine"

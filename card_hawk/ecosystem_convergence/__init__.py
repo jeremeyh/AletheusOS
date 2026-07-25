@@ -7,7 +7,6 @@ Post-Genesis 70
 
 from .engine import CardHawkEcosystemConvergenceEngine
 
-
 __all__ = [
 
     "CardHawkEcosystemConvergenceEngine"

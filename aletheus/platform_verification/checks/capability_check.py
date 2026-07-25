@@ -8,7 +8,6 @@ from aletheus.platform_verification.models import (
     VerificationStatus,
 )
 
-
 CORE_CAPABILITIES = {
     "Atlas": "aletheus.atlas",
     "Repository DNA": "aletheus.repository_dna",
@@ -29,7 +28,7 @@ def capability_check() -> VerificationResult:
         try:
             importlib.import_module(module_path)
         except Exception as exc:
-            missing.append(f"{name}: {repr(exc)}")
+            missing.append(f"{name}: {exc!r}")
 
     duration = time.perf_counter() - start
 

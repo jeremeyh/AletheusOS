@@ -7,7 +7,6 @@ Genesis 13.53
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class AwarenessState:
 

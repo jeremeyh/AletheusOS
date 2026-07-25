@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Dict, List
 
 from aletheus.executive_kernel.capabilities import (
     CapabilityHealth,
@@ -27,7 +26,7 @@ class ExecutiveDecisionRequest:
     capability_id: str
     requester: str = "unknown"
     intent_id: str | None = None
-    context: Dict[str, str] = field(default_factory=dict)
+    context: dict[str, str] = field(default_factory=dict)
 
 
 @dataclass(slots=True)
@@ -38,8 +37,8 @@ class ExecutiveDecision:
     requester: str = "unknown"
     owner_kernel: str | None = None
     provider: str | None = None
-    policy_ids: List[str] = field(default_factory=list)
-    constraints: List[str] = field(default_factory=list)
+    policy_ids: list[str] = field(default_factory=list)
+    constraints: list[str] = field(default_factory=list)
 
 
 class ExecutiveDecisionEngine:
@@ -105,7 +104,7 @@ class ExecutiveDecisionEngine:
             )
 
         policy_ids = [policy.policy_id for policy in policies]
-        constraints: List[str] = []
+        constraints: list[str] = []
         for policy in policies:
             constraints.extend(policy.constraints)
 

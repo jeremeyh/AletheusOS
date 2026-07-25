@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 from collections import Counter, deque
+from collections.abc import Iterable
 from threading import RLock
 from types import MappingProxyType
-from typing import Iterable
 from uuid import UUID
 
 from aletheus.platform_intelligence.events import (

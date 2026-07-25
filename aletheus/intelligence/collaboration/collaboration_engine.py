@@ -8,9 +8,8 @@ capabilities into shared workflows.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class IntelligenceCollaborationFramework:

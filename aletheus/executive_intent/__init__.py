@@ -4,7 +4,7 @@ from .queue import IntentQueue
 
 __all__ = [
     "ExecutiveIntent",
-    "IntentQueue",
     "ExecutiveIntentEngine",
+    "IntentQueue",
     "executive_intent_engine",
 ]

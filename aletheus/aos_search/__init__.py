@@ -7,8 +7,8 @@ Adaptive Orchestration System search, intent, planning,
 provider resolution, routing, consensus, and search memory.
 """
 
-from .core import aos_search
 from .consensus import search_consensus
+from .core import aos_search
 from .health import search_health
 from .history import search_history
 from .intent import intent_engine
@@ -21,12 +21,12 @@ from .statistics import search_statistics
 __all__ = [
     "aos_search",
     "intent_engine",
-    "search_planner",
     "provider_registry",
+    "search_consensus",
+    "search_health",
+    "search_history",
+    "search_planner",
     "search_resolver",
     "search_router",
-    "search_consensus",
-    "search_history",
-    "search_health",
     "search_statistics",
 ]

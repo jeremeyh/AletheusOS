@@ -10,7 +10,6 @@ Evaluates runtime capability quality.
 import time
 
 
-
 class AnchorIntelligenceScorer:
 
 
@@ -206,7 +205,6 @@ class AnchorIntelligenceScorer:
 # =====================================================
 
 from .base import RuntimeAnchorCircuit
-
 
 
 class IntelligenceAnchorCircuit(RuntimeAnchorCircuit):

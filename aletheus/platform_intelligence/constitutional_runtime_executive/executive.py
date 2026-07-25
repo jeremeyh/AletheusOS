@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
-from typing import Iterable
+from collections.abc import Iterable
 
 from aletheus.platform_intelligence.constitutional_policy_engine import (
     ConstitutionalPolicyEngine,
@@ -29,7 +29,6 @@ from .policies import (
     ExecutivePolicy,
     default_executive_policies,
 )
-
 
 _DECISION_PRECEDENCE = {
     ExecutiveDecision.NO_ACTION: 0,

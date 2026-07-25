@@ -7,7 +7,6 @@ Mounts the bounded UIL composition adapter and exposes its command surface.
 from __future__ import annotations
 
 
-
 def register_uil_commands(runtime):
     commands = runtime.commands
 

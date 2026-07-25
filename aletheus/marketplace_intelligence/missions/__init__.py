@@ -1,7 +1,6 @@
-from .models import DiscoveryMission
 from .builder import DiscoveryMissionBuilder
 from .executor import DiscoveryMissionExecutor
-
+from .models import DiscoveryMission
 
 __all__ = [
 

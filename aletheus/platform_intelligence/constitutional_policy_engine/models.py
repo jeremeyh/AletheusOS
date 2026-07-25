@@ -47,7 +47,7 @@ class PolicyEvaluation:
         affected_services: tuple[str, ...],
         matched_policy_id: str | None,
         results: tuple[ExecutivePolicyResult, ...],
-    ) -> "PolicyEvaluation":
+    ) -> PolicyEvaluation:
         return cls(
             evaluation_id=uuid4(),
             generated_at=datetime.now(UTC),

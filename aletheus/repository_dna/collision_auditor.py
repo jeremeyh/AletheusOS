@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-from collections import defaultdict
-from typing import Iterable, List
+from collections.abc import Iterable
 
 from .audit_models import CollisionCandidate, SubsystemRecord
 
@@ -19,9 +18,9 @@ class RepositoryDNACollisionAuditor:
         "agents": ["agents", "agents_v2"],
     }
 
-    def audit(self, records: Iterable[SubsystemRecord]) -> List[CollisionCandidate]:
+    def audit(self, records: Iterable[SubsystemRecord]) -> list[CollisionCandidate]:
         names = {r.name for r in records}
-        findings: List[CollisionCandidate] = []
+        findings: list[CollisionCandidate] = []
 
         for cluster, expected in self.KNOWN_CLUSTERS.items():
             members = [n for n in expected if n in names]

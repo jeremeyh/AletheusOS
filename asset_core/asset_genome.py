@@ -1,6 +1,5 @@
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import List
 
 
 @dataclass
@@ -25,7 +24,7 @@ class AssetGenome:
 
     asset_uuid: str
 
-    timeline: List[GenomeEvent] = field(default_factory=list)
+    timeline: list[GenomeEvent] = field(default_factory=list)
 
     def add_event(
         self,

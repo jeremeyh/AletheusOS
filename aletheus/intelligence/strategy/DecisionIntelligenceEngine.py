@@ -8,7 +8,6 @@ DecisionIntelligenceEngine
 from ..engines.base_engine import CognitiveEngine
 
 
-
 class DecisionIntelligenceEngine(
     CognitiveEngine
 ):

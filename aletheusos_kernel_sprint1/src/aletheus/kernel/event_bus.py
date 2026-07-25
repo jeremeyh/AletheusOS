@@ -1,5 +1,7 @@
 from collections import defaultdict
 from threading import RLock
+
+
 class EventBus:
     def __init__(self):
         self._handlers=defaultdict(list); self._history=[]; self._lock=RLock()

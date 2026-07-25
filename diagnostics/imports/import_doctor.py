@@ -12,7 +12,6 @@ Validates:
 from __future__ import annotations
 
 import importlib
-import pkgutil
 import sys
 import time
 from pathlib import Path

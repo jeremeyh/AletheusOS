@@ -5,13 +5,12 @@ Genesis 154
 """
 
 
-from .history import EvolutionHistory
-from .pattern_detector import PatternDetector
-from .trend_analyzer import TrendAnalyzer
 from .debt_predictor import DebtPredictor
 from .evolution_score import EvolutionScoreEngine
+from .history import EvolutionHistory
+from .pattern_detector import PatternDetector
 from .recommendation_engine import EvolutionRecommendationEngine
-
+from .trend_analyzer import TrendAnalyzer
 
 
 class EvolutionIntelligenceEngine:

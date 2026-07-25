@@ -9,7 +9,6 @@ from .models import (
 )
 from .registry import OntologyRegistry, ontology_registry
 
-
 CANONICAL_AUTHORITIES = [
     (
         "AUTH-ATLAS",

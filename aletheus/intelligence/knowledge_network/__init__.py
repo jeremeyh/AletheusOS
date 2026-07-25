@@ -1,5 +1,3 @@
 
-from .knowledge_network import (
-    UniversalKnowledgeNetwork
-)
+from .knowledge_network import UniversalKnowledgeNetwork
 

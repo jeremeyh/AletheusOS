@@ -1,5 +1,3 @@
 
-from .research_engine import (
-    AutonomousResearchIntelligence
-)
+from .research_engine import AutonomousResearchIntelligence
 

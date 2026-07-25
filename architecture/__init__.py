@@ -1,3 +1,3 @@
-from architecture.project_auditor import ProjectAuditor
-from architecture.import_migrator import ImportMigrator
 from architecture.dependency_graph import DependencyGraph
+from architecture.import_migrator import ImportMigrator
+from architecture.project_auditor import ProjectAuditor

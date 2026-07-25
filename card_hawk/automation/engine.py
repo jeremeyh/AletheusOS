@@ -5,12 +5,11 @@ Genesis 14.7
 """
 
 
-from .scheduler import Scheduler
-from .watchers import MarketplaceWatcher
 from .alerts import AlertEngine
 from .dispatcher import AgentDispatcher
 from .learning import LearningLoop
-
+from .scheduler import Scheduler
+from .watchers import MarketplaceWatcher
 
 
 class AutomationEngine:

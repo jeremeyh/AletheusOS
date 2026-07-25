@@ -1,6 +1,6 @@
 from aletheus.runtime.composition import (
-    RuntimeCompositionRoot,
     RuntimeCompositionReporter,
+    RuntimeCompositionRoot,
 )
 
 

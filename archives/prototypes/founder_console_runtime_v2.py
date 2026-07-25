@@ -1,7 +1,5 @@
 import pandas as pd
-
 from services.runtime_v2 import runtime_v2
-
 
 st.set_page_config(
     page_title="Founder Console | CardHawkOS",

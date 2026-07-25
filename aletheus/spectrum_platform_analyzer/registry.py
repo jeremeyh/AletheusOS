@@ -6,8 +6,6 @@ Genesis 54.0
 
 from __future__ import annotations
 
-from typing import Dict, List
-
 from .models import PlatformFinding, PlatformReport
 
 
@@ -19,9 +17,9 @@ class SpectrumRegistry:
 
     def __init__(self):
 
-        self._findings: Dict[str, PlatformFinding] = {}
+        self._findings: dict[str, PlatformFinding] = {}
 
-        self._reports: Dict[str, PlatformReport] = {}
+        self._reports: dict[str, PlatformReport] = {}
 
     # --------------------------------------------------
     # Findings

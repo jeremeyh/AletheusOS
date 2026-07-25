@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from collections.abc import Mapping
+from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from enum import StrEnum
 from types import MappingProxyType
-from typing import Any, Mapping
+from typing import Any
 from uuid import UUID, uuid4
 
 
@@ -141,7 +142,7 @@ class MissionTrigger:
     def once(
         cls,
         run_at: datetime,
-    ) -> "MissionTrigger":
+    ) -> MissionTrigger:
         return cls(run_at=run_at)
 
     @classmethod
@@ -150,7 +151,7 @@ class MissionTrigger:
         *,
         interval: timedelta,
         first_run_at: datetime | None = None,
-    ) -> "MissionTrigger":
+    ) -> MissionTrigger:
         return cls(
             run_at=first_run_at,
             interval=interval,
@@ -190,7 +191,7 @@ class MissionDefinition:
         cooldown: timedelta = timedelta(0),
         enabled: bool = True,
         metadata: Mapping[str, Any] | None = None,
-    ) -> "MissionDefinition":
+    ) -> MissionDefinition:
         normalized_id = mission_id.strip().lower()
 
         if not normalized_id:
@@ -285,7 +286,7 @@ class ScheduledMission:
         *,
         record: MissionRecord,
         scheduled_for: datetime,
-    ) -> "ScheduledMission":
+    ) -> ScheduledMission:
         return cls(
             execution_id=uuid4(),
             mission_id=record.definition.mission_id,

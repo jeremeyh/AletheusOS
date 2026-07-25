@@ -7,7 +7,6 @@ Genesis 13.36
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class VisionAnalysis:
 

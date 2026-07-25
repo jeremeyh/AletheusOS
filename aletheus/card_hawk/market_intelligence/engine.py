@@ -5,10 +5,9 @@ Genesis 13.9
 """
 
 
-from .pricing import PricingIntelligenceEngine
 from .demand import DemandIntelligenceEngine
+from .pricing import PricingIntelligenceEngine
 from .saturation import MarketSaturationIndex
-
 
 
 class CardHawkMarketEngine:

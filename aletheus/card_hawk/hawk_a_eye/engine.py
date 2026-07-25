@@ -5,10 +5,9 @@ Genesis 13.8
 """
 
 
-from .recognition import CardRecognitionEngine
-from .extraction import MetadataExtractionEngine
 from .condition import ConditionAssessmentEngine
-
+from .extraction import MetadataExtractionEngine
+from .recognition import CardRecognitionEngine
 
 
 class HawkAEyeEngine:

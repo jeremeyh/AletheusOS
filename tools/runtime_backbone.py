@@ -1,7 +1,10 @@
 from aletheus.runtime.boot_pipeline import RuntimeBootPipelineReporter
 from aletheus.runtime.catalyst import CatalystReporter
 from aletheus.runtime.circuits import RuntimeCircuitReporter
-from aletheus.runtime.composition import RuntimeCompositionRoot, RuntimeCompositionReporter
+from aletheus.runtime.composition import (
+    RuntimeCompositionReporter,
+    RuntimeCompositionRoot,
+)
 from aletheus.runtime.executive import ExecutiveKernelReporter
 from aletheus.runtime.relay import RelayNetworkReporter
 from aletheus.runtime.service_mesh import RuntimeServiceMeshReporter

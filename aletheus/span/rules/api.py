@@ -1,7 +1,6 @@
 from ..finding import Severity
 from ..rule_engine import Rule
 
-
 SPAN_API_001 = Rule(
     id="SPAN-API-001",
     title='Mutable default argument',

@@ -7,7 +7,6 @@ Genesis 13.43
 from dataclasses import dataclass
 
 
-
 @dataclass
 class APIRequest:
 

@@ -1,5 +1,6 @@
 from .policy import Policy
 
+
 class PolicyRegistry:
     def __init__(self):
         self._policies=[]

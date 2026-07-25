@@ -7,7 +7,6 @@ Genesis 86
 
 from .engine import IntelligenceAPIPlatformEngine
 
-
 __all__ = [
 
     "IntelligenceAPIPlatformEngine"

@@ -8,8 +8,6 @@ Discovers candidate runtime capabilities.
 
 
 import time
-import inspect
-
 
 
 class AnchorDiscoveryEngine:

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """AletheusOS repository hygiene and structure diagnostics."""
 from __future__ import annotations
+
 import argparse
 import json
 from collections import Counter

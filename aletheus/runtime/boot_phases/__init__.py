@@ -11,7 +11,7 @@ __all__ = [
     "RuntimeApplicationBootPhase",
     "RuntimeCommandBootstrapPhase",
     "RuntimeMemoryInitializationPhase",
-    "RuntimeStateBootPhase",
     "RuntimeSchedulerBootPhase",
     "RuntimeServiceRegistrationPhase",
+    "RuntimeStateBootPhase",
 ]

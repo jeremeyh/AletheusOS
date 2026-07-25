@@ -1,7 +1,5 @@
-from .runtime_registry import runtime_registry
 from .heartbeat import heartbeat_service
-from .protocol import mesh_protocol
-from .events import mesh_events
+from .runtime_registry import runtime_registry
 
 
 class MeshCore:

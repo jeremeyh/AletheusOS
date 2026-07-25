@@ -1,10 +1,9 @@
 from __future__ import annotations
 
-from .planner import search_planner
-from .router import search_router
+from .consensus import search_consensus
 from .providers import provider_registry
 from .resolver import search_resolver
-from .consensus import search_consensus
+from .router import search_router
 
 
 class SearchHealth:

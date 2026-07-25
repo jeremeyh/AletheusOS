@@ -10,7 +10,6 @@ Capability attachment contract.
 from abc import ABC, abstractmethod
 
 
-
 class RuntimeAnchorCircuit(ABC):
 
 

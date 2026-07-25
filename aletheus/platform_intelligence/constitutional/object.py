@@ -4,10 +4,11 @@ from __future__ import annotations
 
 import hashlib
 import json
+from collections.abc import Mapping
 from dataclasses import dataclass, field, replace
 from datetime import UTC, datetime
 from types import MappingProxyType
-from typing import Any, Mapping
+from typing import Any
 
 from .enums import (
     ConstitutionalHealth,
@@ -118,7 +119,7 @@ class ConstitutionalObject:
         health: ConstitutionalHealth = ConstitutionalHealth.UNKNOWN,
         attributes: Mapping[str, Any] | None = None,
         metrics: Mapping[str, Any] | None = None,
-    ) -> "ConstitutionalObject":
+    ) -> ConstitutionalObject:
         return cls(
             identity=ConstitutionalIdentity.create(
                 address=address,
@@ -151,7 +152,7 @@ class ConstitutionalObject:
         policy: ConstitutionalTransitionPolicy = (
             CANONICAL_TRANSITION_POLICY
         ),
-    ) -> "ConstitutionalObject":
+    ) -> ConstitutionalObject:
         """
         Return a new representation after validating lifecycle policy.
 
@@ -172,7 +173,7 @@ class ConstitutionalObject:
         health: ConstitutionalHealth,
         *,
         metrics: Mapping[str, Any] | None = None,
-    ) -> "ConstitutionalObject":
+    ) -> ConstitutionalObject:
         """Return a new representation with updated health information."""
 
         return replace(
@@ -189,7 +190,7 @@ class ConstitutionalObject:
     def with_attributes(
         self,
         **attributes: Any,
-    ) -> "ConstitutionalObject":
+    ) -> ConstitutionalObject:
         """Return a new object with merged constitutional attributes."""
 
         merged = dict(self.attributes)

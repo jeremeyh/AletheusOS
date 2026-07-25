@@ -4,12 +4,27 @@ import json
 import os
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
 
-ROOT = Path(__file__).resolve().parent
+def find_repo_root(start: Path) -> Path:
+    current = start.resolve()
+
+    while True:
+        if (current / "pyproject.toml").exists():
+            return current
+
+        if current.parent == current:
+            raise RuntimeError(
+                "Unable to locate repository root."
+            )
+
+        current = current.parent
+
+
+ROOT = find_repo_root(Path(__file__).parent)
 
 MANIFEST = (
     ROOT
@@ -486,10 +501,10 @@ def write_markdown(
 
     if python_audit["available"]:
         lines.append(
-            (
+            
                 "- Python vulnerabilities: "
                 f"`{python_audit['vulnerability_count']}`"
-            )
+            
         )
 
     if licenses["denied"]:
@@ -602,7 +617,7 @@ def main() -> int:
     report = {
         "schema_version": "1.0",
         "generated_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
         "status": (
             "PASS"

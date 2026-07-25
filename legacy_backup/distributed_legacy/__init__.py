@@ -11,9 +11,9 @@ from aletheus.distributed.models import (
 
 __all__ = [
     "AletheusDistributedIntelligenceFabric",
-    "distributed_core",
     "DistributedCluster",
+    "DistributedEvent",
     "DistributedNode",
     "DistributedTask",
-    "DistributedEvent",
+    "distributed_core",
 ]

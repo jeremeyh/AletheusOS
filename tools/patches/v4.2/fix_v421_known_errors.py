@@ -1,5 +1,5 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 # 1. Make VERSION match runtime
 Path("VERSION").write_text("4.2.1\n")

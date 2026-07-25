@@ -5,12 +5,11 @@ Genesis 13.50
 """
 
 
+from .execution import ExecutionTracker
 from .goals import GoalAnalyzer
-from .strategies import StrategyGenerator
 from .missions import MissionGenerator
 from .resources import ResourcePlanner
-from .execution import ExecutionTracker
-
+from .strategies import StrategyGenerator
 
 
 class StrategicPlanningEngine:

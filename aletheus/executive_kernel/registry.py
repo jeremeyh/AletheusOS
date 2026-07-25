@@ -1,7 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass
-from typing import Dict, Iterable
 
 
 @dataclass(slots=True)
@@ -22,7 +22,7 @@ class ExecutiveKernelRegistry:
     """
 
     def __init__(self) -> None:
-        self._kernels: Dict[str, KernelDescriptor] = {}
+        self._kernels: dict[str, KernelDescriptor] = {}
 
     def register(self, kernel: KernelDescriptor) -> None:
         self._kernels[kernel.kernel_id] = kernel

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from services.context import PipelineContext
 from plugins.base_plugin import BasePlugin
+from services.context import PipelineContext
 
 
 class Plugin(BasePlugin):

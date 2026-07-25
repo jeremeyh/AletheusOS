@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from pathlib import Path
 import shutil
 import sys
+from pathlib import Path
 
 ROOT = Path.cwd()
 TOOLS = ROOT / "tools" / "genesis"

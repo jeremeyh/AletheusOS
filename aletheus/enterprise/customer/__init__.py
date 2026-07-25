@@ -7,7 +7,6 @@ Post-Genesis 117
 
 from .engine import CustomerIntelligencePlatformEngine
 
-
 __all__ = [
 
 "CustomerIntelligencePlatformEngine"

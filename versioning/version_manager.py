@@ -1,5 +1,6 @@
 from config.settings import settings
 
+
 class VersionManager:
     """Version Manager™ for CardHawk OS™ releases."""
 

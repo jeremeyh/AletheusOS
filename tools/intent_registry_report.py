@@ -1,4 +1,4 @@
-from aletheus.intent_registry import bootstrap_intents, IntentRegistryReporter
+from aletheus.intent_registry import IntentRegistryReporter, bootstrap_intents
 
 
 def main():

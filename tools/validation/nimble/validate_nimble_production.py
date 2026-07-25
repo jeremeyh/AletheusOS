@@ -5,12 +5,26 @@ import shutil
 import subprocess
 import sys
 import time
+from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Sequence
 
 
-ROOT = Path(__file__).resolve().parent
+def find_repo_root(start: Path) -> Path:
+    current = start.resolve()
+
+    while True:
+        if (current / "pyproject.toml").exists():
+            return current
+
+        if current.parent == current:
+            raise RuntimeError("Unable to locate repository root.")
+
+        current = current.parent
+
+
+ROOT = find_repo_root(Path(__file__).parent)
+
 NIMBLE_ROOT = ROOT / "nimble"
 SHELL_ROOT = NIMBLE_ROOT / "apps" / "platform-shell"
 DIST_ROOT = SHELL_ROOT / "dist"

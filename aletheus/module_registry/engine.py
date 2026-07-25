@@ -5,12 +5,11 @@ Post-Genesis 80.5
 """
 
 
-from .discovery import ModuleDiscoveryEngine
-from .registry import ModuleRegistry
 from .dependency_graph import DependencyGraph
-from .health import ModuleHealthEngine
+from .discovery import ModuleDiscoveryEngine
 from .genesis_index import GenesisIndex
-
+from .health import ModuleHealthEngine
+from .registry import ModuleRegistry
 
 
 class UniversalModuleRegistryEngine:

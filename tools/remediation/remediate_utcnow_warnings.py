@@ -5,7 +5,6 @@ import ast
 import json
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parent
 ALETHEUS = ROOT / "aletheus"
 UTILITY = ALETHEUS / "time_utils.py"

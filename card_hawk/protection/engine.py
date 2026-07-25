@@ -5,10 +5,9 @@ Genesis 14.26
 """
 
 
-from .registry import AssetRegistry
 from .appraisal import AppraisalEngine
 from .insurance import InsuranceEngine
-
+from .registry import AssetRegistry
 
 
 class ProtectionEngine:

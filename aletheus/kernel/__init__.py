@@ -13,9 +13,9 @@ kernel = kernel_core
 
 __all__ = [
     "AletheusAutonomousKernel",
-    "kernel_core",
-    "kernel",
     "KernelEvent",
     "KernelRegistryItem",
     "KernelState",
+    "kernel",
+    "kernel_core",
 ]

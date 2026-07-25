@@ -7,7 +7,6 @@ Genesis 14.16
 from dataclasses import dataclass
 
 
-
 @dataclass
 class AcquisitionDecision:
 

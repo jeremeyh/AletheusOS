@@ -7,10 +7,9 @@ import argparse
 import json
 import shutil
 from dataclasses import asdict, dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
-
 
 ROOT = Path(__file__).resolve().parents[2]
 POLICY_PATH = ROOT / "config" / "repository_policy.json"
@@ -129,11 +128,11 @@ def ensure_unique_destination(destination: Path) -> Path:
 
 def save_manifest(operations: list[Operation]) -> Path:
     STATE_DIRECTORY.mkdir(parents=True, exist_ok=True)
-    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     path = STATE_DIRECTORY / f"hardening-{stamp}.json"
 
     payload = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "operations": [asdict(operation) for operation in operations],
     }
 

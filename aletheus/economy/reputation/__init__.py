@@ -7,7 +7,6 @@ Post-Genesis 137
 
 from .engine import IntelligenceReputationEconomyEngine
 
-
 __all__ = [
 
 "IntelligenceReputationEconomyEngine"

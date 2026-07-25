@@ -1,7 +1,7 @@
-from continuous_scout.scan_job import ScanJob
 from continuous_scout.candidate_queue import CandidateQueue
-from marketplace_normalizer.normalizer import MarketplaceNormalizer
+from continuous_scout.scan_job import ScanJob
 from marketplace_normalizer.listing_deduper import ListingDeduper
+from marketplace_normalizer.normalizer import MarketplaceNormalizer
 
 
 class ContinuousScoutService:

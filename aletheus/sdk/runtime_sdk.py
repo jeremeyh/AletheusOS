@@ -1,6 +1,11 @@
 from __future__ import annotations
-from typing import Any, Callable
-from aletheus.runtime import runtime_core, Pipeline, WorkflowGraph
+
+from collections.abc import Callable
+from typing import Any
+
+from aletheus.runtime import Pipeline, WorkflowGraph, runtime_core
+
+
 class AletheusRuntimeSDK:
     def register_engine(self, name: str, handler: Callable[..., Any]) -> None: runtime_core.register_engine(name, handler)
     def register_service(self, name: str, service: Any) -> None: runtime_core.register_service(name, service)

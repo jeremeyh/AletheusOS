@@ -1,9 +1,8 @@
 from __future__ import annotations
 
 import importlib.util
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -75,7 +74,7 @@ def test_valid_exception_contract():
             2026,
             7,
             11,
-            tzinfo=timezone.utc,
+            tzinfo=UTC,
         ),
     )
 
@@ -99,7 +98,7 @@ def test_expired_active_exception_fails():
             2026,
             7,
             11,
-            tzinfo=timezone.utc,
+            tzinfo=UTC,
         ),
     )
 

@@ -1,8 +1,6 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from datetime import datetime
+from aletheus.time_utils import utc_now_iso
 
 
 class RuntimeReadinessSnapshot:

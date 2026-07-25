@@ -46,7 +46,7 @@ class TwinSnapshotDiff:
         cls,
         previous: TwinSnapshot,
         current: TwinSnapshot,
-    ) -> "TwinSnapshotDiff":
+    ) -> TwinSnapshotDiff:
         previous_services = _addresses(
             previous.services
         )

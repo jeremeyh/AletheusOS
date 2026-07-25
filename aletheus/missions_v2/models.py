@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, field
-from datetime import datetime
-from typing import Any, Dict, List
 import uuid
+from dataclasses import dataclass, field
+from typing import Any
+
+from aletheus.time_utils import utc_now_iso
 
 
 def now() -> str:
@@ -23,18 +22,18 @@ class MissionTaskV2:
     created_at: str = field(default_factory=now)
     started_at: str | None = None
     completed_at: str | None = None
-    result: Dict[str, Any] = field(default_factory=dict)
+    result: dict[str, Any] = field(default_factory=dict)
 
     def start(self) -> None:
         self.status = "running"
         self.started_at = now()
 
-    def complete(self, result: Dict[str, Any] | None = None) -> None:
+    def complete(self, result: dict[str, Any] | None = None) -> None:
         self.status = "completed"
         self.completed_at = now()
         self.result = result or {}
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -45,7 +44,7 @@ class AutonomousMissionV2:
     application: str = "AletheusOS"
     priority: str = "high"
     status: str = "created"
-    tasks: List[MissionTaskV2] = field(default_factory=list)
+    tasks: list[MissionTaskV2] = field(default_factory=list)
     mission_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
     started_at: str | None = None
@@ -66,7 +65,7 @@ class AutonomousMissionV2:
             self.status = "completed"
             self.completed_at = now()
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         data = self.__dict__.copy()
         data["tasks"] = [task.to_dict() for task in self.tasks]
         data["progress"] = self.progress()
@@ -78,9 +77,9 @@ class MissionTelemetryV2:
     mission_id: str
     event_type: str
     message: str
-    payload: Dict[str, Any] = field(default_factory=dict)
+    payload: dict[str, Any] = field(default_factory=dict)
     telemetry_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__

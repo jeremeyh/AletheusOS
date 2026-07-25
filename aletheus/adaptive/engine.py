@@ -5,13 +5,12 @@ Post-Genesis 11
 """
 
 
+from .capability_optimizer import CapabilityOptimizerEngine
 from .experience import ExperienceEngine
+from .improvement_engine import ImprovementEngine
+from .knowledge_evolution import KnowledgeEvolutionEngine
 from .pattern_engine import PatternRecognitionEngine
 from .performance import PerformanceEngine
-from .knowledge_evolution import KnowledgeEvolutionEngine
-from .capability_optimizer import CapabilityOptimizerEngine
-from .improvement_engine import ImprovementEngine
-
 
 
 class AdaptiveIntelligenceEngine:

@@ -17,7 +17,7 @@ class AssetValidator:
         if not getattr(asset, "category", ""):
             errors.append("Category is required.")
 
-        if getattr(asset, "year", 0) and int(getattr(asset, "year")) < 1800:
+        if getattr(asset, "year", 0) and int(asset.year) < 1800:
             errors.append("Year appears invalid.")
 
         if float(getattr(asset, "purchase_price", 0) or 0) < 0:

@@ -1,5 +1,6 @@
 from .metric_registry import MetricRegistry
 
+
 def markdown(registry: MetricRegistry)->str:
     lines=["# SPAN Metrics",""]
     for m in registry.all():

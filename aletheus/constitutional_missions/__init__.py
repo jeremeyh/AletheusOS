@@ -32,6 +32,7 @@ from .validation import (
 )
 
 __all__ = [
+    "SECURITY_CONTAINMENT_CONTRACT",
     "ConstitutionalMission",
     "ConstitutionalMissionEngine",
     "ConstitutionalMissionRegistry",
@@ -43,7 +44,6 @@ __all__ = [
     "MissionStatus",
     "MissionValidationError",
     "MissionValidationIssue",
-    "SECURITY_CONTAINMENT_CONTRACT",
     "canonical_mission_event_definitions",
     "create_security_containment_mission",
     "new_mission_id",

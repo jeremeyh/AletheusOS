@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from datetime import UTC, datetime
 from enum import Enum
-from datetime import datetime, timezone
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 
 class AtlasNodeType(str, Enum):
@@ -42,10 +42,10 @@ class AtlasNode:
     id: str
     name: str
     type: AtlasNodeType = AtlasNodeType.UNKNOWN
-    authority: Optional[str] = None
-    family: Optional[str] = None
-    path: Optional[str] = None
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    authority: str | None = None
+    family: str | None = None
+    path: str | None = None
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -54,14 +54,14 @@ class AtlasEdge:
     target_id: str
     type: AtlasEdgeType
     confidence: float = 1.0
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
 class ArchitectureGraph:
-    nodes: Dict[str, AtlasNode] = field(default_factory=dict)
-    edges: List[AtlasEdge] = field(default_factory=list)
-    created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    nodes: dict[str, AtlasNode] = field(default_factory=dict)
+    edges: list[AtlasEdge] = field(default_factory=list)
+    created_at: str = field(default_factory=lambda: datetime.now(UTC).isoformat())
 
     def add_node(self, node: AtlasNode) -> None:
         self.nodes[node.id] = node
@@ -82,12 +82,12 @@ class TopologySnapshot:
     subsystem_count: int
     authority_count: int
     family_count: int
-    created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    created_at: str = field(default_factory=lambda: datetime.now(UTC).isoformat())
 
 
 @dataclass
 class AtlasReport:
     snapshot: TopologySnapshot
-    findings: List[str] = field(default_factory=list)
-    warnings: List[str] = field(default_factory=list)
-    created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    findings: list[str] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
+    created_at: str = field(default_factory=lambda: datetime.now(UTC).isoformat())

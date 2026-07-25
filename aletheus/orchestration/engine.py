@@ -5,13 +5,12 @@ Post-Genesis 20
 """
 
 
-from .workflow_engine import WorkflowEngine
 from .agent_router import AgentRouter
 from .capability_scheduler import CapabilityScheduler
-from .task_manager import TaskManager
 from .execution_coordinator import ExecutionCoordinator
 from .intelligence_coordinator import IntelligenceCoordinator
-
+from .task_manager import TaskManager
+from .workflow_engine import WorkflowEngine
 
 
 class AutonomousOrchestrationEngine:

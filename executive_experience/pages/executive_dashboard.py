@@ -1,9 +1,16 @@
 import streamlit as st
-from services.executive_experience_service import ExecutiveExperienceService
 from components.executive_ui import (
-    hero, metric_cards, founder_brief_card, panel,
-    asset_rows, marketplace_rows, task_rows, activity_rows,
+    activity_rows,
+    asset_rows,
+    founder_brief_card,
+    hero,
+    marketplace_rows,
+    metric_cards,
+    panel,
+    task_rows,
 )
+from services.executive_experience_service import ExecutiveExperienceService
+
 
 def render(state):
     data = ExecutiveExperienceService.build_dashboard(state)

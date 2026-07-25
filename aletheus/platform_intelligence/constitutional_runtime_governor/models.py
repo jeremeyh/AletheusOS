@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from enum import StrEnum
 from types import MappingProxyType
-from typing import Any, Mapping
+from typing import Any
 from uuid import UUID, uuid4
 
 from aletheus.platform_intelligence.constitutional_runtime_executive import (
@@ -85,7 +86,7 @@ class GovernorRequest:
         plan: ExecutiveRecoveryPlan,
         requested_by: str = "constitutional-runtime-executive",
         metadata: Mapping[str, Any] | None = None,
-    ) -> "GovernorRequest":
+    ) -> GovernorRequest:
         return cls(
             request_id=uuid4(),
             generated_at=datetime.now(UTC),
@@ -122,7 +123,7 @@ class GovernorDecision:
         reason: str,
         requires_manual_approval: bool,
         retry_after: datetime | None = None,
-    ) -> "GovernorDecision":
+    ) -> GovernorDecision:
         return cls(
             decision_id=uuid4(),
             generated_at=datetime.now(UTC),

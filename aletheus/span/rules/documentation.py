@@ -1,7 +1,6 @@
 from ..finding import Severity
 from ..rule_engine import Rule
 
-
 SPAN_DOC_001 = Rule(
     id="SPAN-DOC-001",
     title='Module documentation missing',

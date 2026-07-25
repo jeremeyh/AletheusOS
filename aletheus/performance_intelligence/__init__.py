@@ -7,7 +7,6 @@ Post-Genesis 56
 
 from .engine import OrganizationalPerformanceIntelligenceEngine
 
-
 __all__ = [
 
     "OrganizationalPerformanceIntelligenceEngine"

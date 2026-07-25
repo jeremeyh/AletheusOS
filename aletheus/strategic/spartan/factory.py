@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from .domains import BaselineIntelligenceDomain, DEFAULT_DOMAIN_NAMES
+from .domains import DEFAULT_DOMAIN_NAMES, BaselineIntelligenceDomain
 from .network import SPARTANNetwork
 from .recursive import RecursiveIntelligenceCycle
 from .registry import DomainRegistry

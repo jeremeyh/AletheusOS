@@ -1,6 +1,8 @@
 import streamlit as st
 from services.live_data_activation_service import LiveDataActivationService
-from components.live_data_ui import render_listing_cards, render_comp_summary
+
+from components.live_data_ui import render_comp_summary, render_listing_cards
+
 
 def render(state):
     st.title("🌐 Live Data Activation™")

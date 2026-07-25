@@ -1,5 +1,5 @@
-from .shim import RuntimeCoreShim
 from .reporter import RuntimeCoreShimReporter
+from .shim import RuntimeCoreShim
 
 __all__ = [
     "RuntimeCoreShim",

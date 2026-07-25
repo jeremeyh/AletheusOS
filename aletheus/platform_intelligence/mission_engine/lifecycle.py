@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from .models import ConstitutionalMissionState
 
-
 _ALLOWED_TRANSITIONS = {
     ConstitutionalMissionState.CREATED: {
         ConstitutionalMissionState.BLOCKED,

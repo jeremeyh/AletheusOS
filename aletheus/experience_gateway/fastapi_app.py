@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import os
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,7 +10,6 @@ from .api.commands import install_command_routes
 from .api.missions import install_mission_routes
 from .api.providers import install_provider_routes
 from .api.runtime import install_runtime_routes
-
 from .commands.config import (
     command_database_path,
 )
@@ -23,18 +22,15 @@ from .commands.service import (
 from .commands.sqlite_store import (
     SQLiteCommandAuditStore,
 )
-
 from .providers import (
     create_default_provider_registry,
 )
-
 from .security import (
     PrincipalResolver,
     create_default_authorization_policy,
     create_principal_authenticator,
     load_authentication_config,
 )
-
 from .service import ExperienceGatewayService
 
 
@@ -83,7 +79,7 @@ def evaluate_readiness(
         "auth_mode": auth_mode,
         "checks": checks,
         "timestamp": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
     }
 
@@ -157,7 +153,7 @@ def create_app(
                 "nimble-experience-gateway"
             ),
             "timestamp": datetime.now(
-                timezone.utc
+                UTC
             ).isoformat(),
         }
 

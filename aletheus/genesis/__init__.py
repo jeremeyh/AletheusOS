@@ -4,24 +4,24 @@ AletheusOS Genesis™ Platform Constructor
 Builds constitutionally conformant Genesis Packages.
 """
 
+from .constructor import GenesisConstructor
 from .models import (
     GenesisClassification,
-    GenesisRisk,
-    GenesisPackageSpec,
     GenesisPackagePlan,
     GenesisPackageResult,
+    GenesisPackageSpec,
+    GenesisRisk,
 )
 from .planner import GenesisPlanner
-from .constructor import GenesisConstructor
 from .service import GenesisService
 
 __all__ = [
     "GenesisClassification",
-    "GenesisRisk",
-    "GenesisPackageSpec",
+    "GenesisConstructor",
     "GenesisPackagePlan",
     "GenesisPackageResult",
+    "GenesisPackageSpec",
     "GenesisPlanner",
-    "GenesisConstructor",
+    "GenesisRisk",
     "GenesisService",
 ]

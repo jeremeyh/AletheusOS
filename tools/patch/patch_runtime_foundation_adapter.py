@@ -1,6 +1,5 @@
-from pathlib import Path
 import re
-
+from pathlib import Path
 
 PATH = Path(
     "aletheus/runtime/adapters/runtime_adapter.py"

@@ -1,6 +1,7 @@
-from startup.startup_verifier import StartupVerifier
 from qa.smoke_tests import SmokeTests
 from release.build_manager import BuildManager
+from startup.startup_verifier import StartupVerifier
+
 
 class EnterpriseDiagnostics:
     """Enterprise Diagnostics™."""

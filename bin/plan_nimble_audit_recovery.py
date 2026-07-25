@@ -6,7 +6,7 @@ import argparse
 import hashlib
 import json
 import subprocess
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -405,7 +405,7 @@ def main() -> int:
         "schema_version": "1.0",
         "contract_id": contract["contract_id"],
         "generated_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
         "mode": "plan_only",
         "classification": classification,
@@ -504,7 +504,7 @@ def main() -> int:
         "Checkpoint entries:",
         checkpoint_entry_count,
     )
-    print(f"Mutation performed: False")
+    print("Mutation performed: False")
     print(f"Plan hash: {plan_hash}")
     print(
         "Plan:",

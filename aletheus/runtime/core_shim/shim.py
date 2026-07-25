@@ -1,6 +1,6 @@
-from .models import RuntimeShimReport
-
 from aletheus.runtime.composition import RuntimeCompositionRoot
+
+from .models import RuntimeShimReport
 
 
 class RuntimeCoreShim:

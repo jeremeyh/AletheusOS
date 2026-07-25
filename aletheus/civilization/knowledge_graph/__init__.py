@@ -7,7 +7,6 @@ Post-Genesis 124
 
 from .engine import KnowledgeCivilizationGraphEngine
 
-
 __all__ = [
 
 "KnowledgeCivilizationGraphEngine"

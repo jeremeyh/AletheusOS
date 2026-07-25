@@ -5,10 +5,9 @@ Genesis 13.5
 """
 
 
-from .valuation import PortfolioValuationEngine
 from .allocation import AllocationEngine
 from .risk import PortfolioRiskEngine
-
+from .valuation import PortfolioValuationEngine
 
 
 class CardHawkPortfolioEngine:

@@ -5,8 +5,8 @@ from pathlib import Path
 from typing import Any
 
 from .bootstrap import SPANBootstrap
-from .rule_engine import RuleEngine
 from .finding import FindingSet
+from .rule_engine import RuleEngine
 
 
 @dataclass(slots=True)

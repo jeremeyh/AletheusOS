@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any
 
 from services.context import PipelineContext, utc_now_iso
 from services.founder_state import FounderState
@@ -95,7 +95,7 @@ class RuntimeV3:
         context.add_result("snapshot", snap)
         return context
 
-    def _job_daily_vault_pulse(self) -> Dict[str, Any]:
+    def _job_daily_vault_pulse(self) -> dict[str, Any]:
         health = self.command_bus.dispatch("runtime.health").results.get("health", {})
         snapshot = self.state.snapshot("daily_vault_pulse", health)
         return {"status": "completed", "health": health, "snapshot": snapshot}

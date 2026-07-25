@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import List
 
 from .audit_models import SubsystemRecord, SubsystemStatus
 
@@ -9,8 +8,8 @@ from .audit_models import SubsystemRecord, SubsystemStatus
 class RepositoryDNAScanner:
     """Scans the AletheusOS repository for top-level subsystem records."""
 
-    def scan_subsystems(self, aletheus_root: Path) -> List[SubsystemRecord]:
-        records: List[SubsystemRecord] = []
+    def scan_subsystems(self, aletheus_root: Path) -> list[SubsystemRecord]:
+        records: list[SubsystemRecord] = []
 
         for child in sorted(aletheus_root.iterdir()):
             if not child.is_dir() or child.name.startswith("__"):

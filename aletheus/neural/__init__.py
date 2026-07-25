@@ -5,16 +5,16 @@ from .state import BrainState, BrainStateManager, brain_state_manager
 from .synapses import Synapse, SynapseRegistry
 
 __all__ = [
-    "NeuralEnvelope",
-    "brain",
-    "neural_envelope",
+    "BrainState",
+    "BrainStateManager",
     "Cortex",
     "CortexRegistry",
+    "NeuralEnvelope",
     "Neuron",
     "NeuronRegistry",
     "Synapse",
     "SynapseRegistry",
-    "BrainState",
-    "BrainStateManager",
+    "brain",
     "brain_state_manager",
+    "neural_envelope",
 ]

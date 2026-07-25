@@ -7,7 +7,6 @@ Post-Genesis 61
 
 from .engine import CollectorIdentityNetworkEngine
 
-
 __all__ = [
 
     "CollectorIdentityNetworkEngine"

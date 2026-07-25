@@ -1,7 +1,6 @@
 from ..finding import Severity
 from ..rule_engine import Rule
 
-
 SPAN_ARC_001 = Rule(
     id="SPAN-ARC-001",
     title='Parallel namespace ownership',

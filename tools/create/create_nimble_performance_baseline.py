@@ -1,10 +1,9 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
-
 
 ROOT = Path(__file__).resolve().parent
 LATEST_REPORT = (
@@ -52,7 +51,7 @@ def main() -> int:
     baseline = {
         "schema_version": "1.0",
         "created_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
         "source": {
             "commit": git["commit"],

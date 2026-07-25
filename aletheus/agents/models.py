@@ -8,7 +8,6 @@ Extended Genesis 81 Agent Foundation
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class AgentCapability:
     """

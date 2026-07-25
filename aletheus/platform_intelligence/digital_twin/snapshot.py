@@ -4,10 +4,11 @@ from __future__ import annotations
 
 import hashlib
 import json
+from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from types import MappingProxyType
-from typing import Any, Mapping
+from typing import Any
 from uuid import UUID, uuid4
 
 
@@ -109,7 +110,7 @@ class TwinSnapshot:
         last_event: Mapping[str, Any] | None = None,
         snapshot_id: UUID | None = None,
         created_at: datetime | None = None,
-    ) -> "TwinSnapshot":
+    ) -> TwinSnapshot:
         return cls(
             snapshot_id=snapshot_id or uuid4(),
             revision=revision,

@@ -7,7 +7,6 @@ Genesis 13.45
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class SubscriptionPlan:
 

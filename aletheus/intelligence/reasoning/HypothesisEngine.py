@@ -8,7 +8,6 @@ HypothesisEngine
 from ..engines.base_engine import CognitiveEngine
 
 
-
 class HypothesisEngine(
     CognitiveEngine
 ):

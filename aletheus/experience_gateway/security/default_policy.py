@@ -8,7 +8,6 @@ from .contracts import (
     PrincipalRole,
 )
 
-
 ROLE_RANK: dict[PrincipalRole, int] = {
     "viewer": 10,
     "operator": 20,

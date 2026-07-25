@@ -5,6 +5,7 @@ Universal Event Bus
 
 from collections import defaultdict
 
+
 class EventBus:
 
     def __init__(self):

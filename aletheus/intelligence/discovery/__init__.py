@@ -1,5 +1,3 @@
 
-from .discovery_network import (
-    AutonomousDiscoveryNetwork
-)
+from .discovery_network import AutonomousDiscoveryNetwork
 

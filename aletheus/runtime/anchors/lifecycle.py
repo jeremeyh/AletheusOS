@@ -10,7 +10,6 @@ Controls bounded capability lifecycle.
 import time
 
 
-
 class AnchorLifecycleController:
 
 

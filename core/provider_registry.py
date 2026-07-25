@@ -5,6 +5,7 @@ Provider Registry
 
 from core.container import container
 
+
 class ProviderRegistry:
 
     def __init__(self):

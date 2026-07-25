@@ -1,5 +1,3 @@
 
-from .reflection_engine import (
-    IntelligenceReflectionEngine
-)
+from .reflection_engine import IntelligenceReflectionEngine
 

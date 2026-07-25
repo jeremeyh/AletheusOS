@@ -9,7 +9,6 @@ from .scoring import AcquisitionScoringEngine
 from .targets import AcquisitionTargetLibrary
 
 
-
 class CardHawkAcquisitionEngine:
 
 

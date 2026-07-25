@@ -7,7 +7,6 @@ Post-Genesis 72
 
 from .engine import IntelligenceServiceFabricEngine
 
-
 __all__ = [
 
     "IntelligenceServiceFabricEngine"

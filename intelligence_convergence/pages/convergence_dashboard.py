@@ -1,6 +1,11 @@
 import streamlit as st
+from components.convergence_ui import (
+    commercial_checklist,
+    convergence_hero,
+    decision_panel,
+)
 from services.intelligence_convergence_service import IntelligenceConvergenceService
-from components.convergence_ui import convergence_hero, decision_panel, commercial_checklist
+
 
 def render(state):
     convergence_hero()

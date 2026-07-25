@@ -1,11 +1,9 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, field
-from datetime import datetime
-from typing import Dict, List, Any
 import uuid
+from dataclasses import dataclass, field
+
+from aletheus.time_utils import utc_now, utc_now_iso
 
 
 def utc_now() -> str:
@@ -43,13 +41,13 @@ class Plan:
 
     goal: str
 
-    objectives: List[str] = field(default_factory=list)
+    objectives: list[str] = field(default_factory=list)
 
-    milestones: List[PlanMilestone] = field(default_factory=list)
+    milestones: list[PlanMilestone] = field(default_factory=list)
 
-    tasks: List[PlanTask] = field(default_factory=list)
+    tasks: list[PlanTask] = field(default_factory=list)
 
-    dependencies: List[str] = field(default_factory=list)
+    dependencies: list[str] = field(default_factory=list)
 
     priority: int = 5
 
@@ -129,7 +127,7 @@ class AletheusPlanningEngine:
 
     def __init__(self):
 
-        self.plans: Dict[str, Plan] = {}
+        self.plans: dict[str, Plan] = {}
 
         self.strategies = []
 

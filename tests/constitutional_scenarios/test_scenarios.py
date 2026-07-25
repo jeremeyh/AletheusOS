@@ -12,16 +12,15 @@ from aletheus.constitutional_instrumentation import (
     build_cognition_instrumentation,
 )
 from aletheus.constitutional_scenarios import (
-    ConstitutionalScenarioEngine,
-    DuplicateScenarioError,
     SCENARIO_ACTIVITY_ID,
     SCENARIO_CONFIDENCE_ID,
     SCENARIO_VIRTUE_ID,
+    ConstitutionalScenarioEngine,
+    DuplicateScenarioError,
     ScenarioInstrumentPublisher,
     ScenarioStatus,
     create_scenario,
 )
-
 
 ASSERTION = "card.future_value.increases"
 

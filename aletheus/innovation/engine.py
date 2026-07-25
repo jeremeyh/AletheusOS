@@ -5,13 +5,12 @@ Post-Genesis 23
 """
 
 
-from .opportunity_detector import OpportunityDetector
-from .idea_generator import IdeaGenerator
-from .experiment_engine import ExperimentEngine
-from .prototype_engine import PrototypeEngine
-from .innovation_validator import InnovationValidator
 from .capability_integrator import CapabilityIntegrator
-
+from .experiment_engine import ExperimentEngine
+from .idea_generator import IdeaGenerator
+from .innovation_validator import InnovationValidator
+from .opportunity_detector import OpportunityDetector
+from .prototype_engine import PrototypeEngine
 
 
 class AutonomousInnovationEngine:

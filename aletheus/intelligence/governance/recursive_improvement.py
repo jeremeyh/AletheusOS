@@ -7,9 +7,8 @@ Controls continuous intelligence improvement.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class RecursiveImprovementGovernanceEngine:

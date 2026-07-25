@@ -7,7 +7,6 @@ Post-Genesis 75
 
 from .engine import DeveloperIntelligencePlatformEngine
 
-
 __all__ = [
 
     "DeveloperIntelligencePlatformEngine"

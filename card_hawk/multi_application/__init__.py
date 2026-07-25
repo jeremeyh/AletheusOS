@@ -7,7 +7,6 @@ Genesis 88
 
 from .engine import MultiApplicationIntelligenceEngine
 
-
 __all__ = [
 
     "MultiApplicationIntelligenceEngine"

@@ -7,7 +7,6 @@ Post-Genesis 63
 
 from .engine import ReputationTrustEngine
 
-
 __all__ = [
 
     "ReputationTrustEngine"

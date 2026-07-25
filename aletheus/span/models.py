@@ -6,11 +6,12 @@ providers, analyzers, the knowledge graph, orchestration, and reporting.
 
 from __future__ import annotations
 
+from collections.abc import Iterable, Mapping
 from dataclasses import asdict, dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
 from pathlib import Path
-from typing import Any, Iterable, Mapping
+from typing import Any
 from uuid import uuid4
 
 DEFAULT_EXCLUDE_NAMES = frozenset(
@@ -20,7 +21,7 @@ DEFAULT_EXCLUDE_NAMES = frozenset(
 
 def utc_now_iso() -> str:
     """Return a timezone-aware UTC timestamp in ISO-8601 format."""
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 class FindingSeverity(str, Enum):
@@ -50,7 +51,7 @@ class SourceLocation:
         line: int | None = None,
         column: int | None = None,
         symbol: str | None = None,
-    ) -> "SourceLocation":
+    ) -> SourceLocation:
         return cls(str(path), line=line, column=column, symbol=symbol)
 
 
@@ -166,7 +167,7 @@ class AnalyzerResult:
     def succeeded(self) -> bool:
         return self.error is None
 
-    def complete(self) -> "AnalyzerResult":
+    def complete(self) -> AnalyzerResult:
         self.completed_at = utc_now_iso()
         return self
 
@@ -201,7 +202,7 @@ class AnalysisContext:
         include_paths: Iterable[str | Path] | None = None,
         exclude_names: Iterable[str] | None = None,
         metadata: Mapping[str, Any] | None = None,
-    ) -> "AnalysisContext":
+    ) -> AnalysisContext:
         root = Path(repository_root).expanduser().resolve()
         includes = tuple(Path(item) for item in (include_paths or ()))
         excludes = DEFAULT_EXCLUDE_NAMES if exclude_names is None else frozenset(exclude_names)

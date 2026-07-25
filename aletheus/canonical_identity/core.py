@@ -16,7 +16,6 @@ from .models import (
     TrustLevel,
     new_identity_id,
 )
-
 from .registry import canonical_identity_registry
 
 

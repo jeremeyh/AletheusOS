@@ -8,7 +8,6 @@ ContextAwarenessEngine
 from ..engines.base_engine import CognitiveEngine
 
 
-
 class ContextAwarenessEngine(
     CognitiveEngine
 ):

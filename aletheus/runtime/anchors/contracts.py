@@ -10,7 +10,6 @@ Validates runtime capability contracts.
 import time
 
 
-
 class AnchorContractEngine:
 
 

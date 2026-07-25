@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from types import MappingProxyType
-from typing import Any, Mapping
+from typing import Any
 from uuid import UUID, uuid4
 
 
@@ -108,7 +109,7 @@ class ConstitutionalDependencyPlan:
         direction: str,
         levels: tuple[DependencyLevel, ...],
         dependency_edges: int,
-    ) -> "ConstitutionalDependencyPlan":
+    ) -> ConstitutionalDependencyPlan:
         if direction not in {
             "boot",
             "shutdown",

@@ -2,13 +2,12 @@
 
 from __future__ import annotations
 
-from pathlib import Path
-from typing import Iterable
 import os
+from collections.abc import Iterable
+from pathlib import Path
 
 from ..evidence_store import EvidenceRecord
 from .base import Provider, ProviderContext
-
 
 DEFAULT_EXCLUDES = {
     ".git",

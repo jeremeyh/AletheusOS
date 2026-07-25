@@ -41,7 +41,7 @@ class RepairPolicy:
     )
 
     @classmethod
-    def default(cls) -> "RepairPolicy":
+    def default(cls) -> RepairPolicy:
         return cls()
 
     def is_ignored_dir(self, name: str) -> bool:

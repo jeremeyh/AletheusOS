@@ -8,9 +8,8 @@ a shared distributed intelligence network.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class DistributedIntelligenceFabric:

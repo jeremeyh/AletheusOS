@@ -1,5 +1,3 @@
 
-from .knowledge_civilization import (
-    AdvancedKnowledgeCivilizationLayer
-)
+from .knowledge_civilization import AdvancedKnowledgeCivilizationLayer
 

@@ -1,10 +1,8 @@
 from __future__ import annotations
 
 import importlib
-from typing import Dict, List
 
 from plugins.base_plugin import BasePlugin
-
 
 DEFAULT_PLUGIN_MODULES = [
     "plugins.perch",
@@ -17,9 +15,9 @@ DEFAULT_PLUGIN_MODULES = [
 
 class PluginLoader:
     def __init__(self) -> None:
-        self.plugins: Dict[str, BasePlugin] = {}
+        self.plugins: dict[str, BasePlugin] = {}
 
-    def load_defaults(self) -> Dict[str, BasePlugin]:
+    def load_defaults(self) -> dict[str, BasePlugin]:
         for module_name in DEFAULT_PLUGIN_MODULES:
             self.load(module_name)
         return self.plugins
@@ -30,8 +28,8 @@ class PluginLoader:
         self.plugins[plugin.name] = plugin
         return plugin
 
-    def manifests(self) -> List[dict]:
+    def manifests(self) -> list[dict]:
         return [plugin.manifest() for plugin in self.plugins.values()]
 
-    def enabled_plugins(self) -> List[BasePlugin]:
+    def enabled_plugins(self) -> list[BasePlugin]:
         return [plugin for plugin in self.plugins.values() if plugin.enabled]

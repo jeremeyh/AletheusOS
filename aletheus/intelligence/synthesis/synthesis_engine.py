@@ -8,9 +8,8 @@ higher-order understanding.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class IntelligenceSynthesisEngine:

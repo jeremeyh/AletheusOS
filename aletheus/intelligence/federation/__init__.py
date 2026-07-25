@@ -1,5 +1,3 @@
 
-from .federation_engine import (
-    IntelligenceFederationEngine
-)
+from .federation_engine import IntelligenceFederationEngine
 

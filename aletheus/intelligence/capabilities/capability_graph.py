@@ -8,9 +8,8 @@ relationships, and evolution state.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class SelfAwareCapabilityGraph:

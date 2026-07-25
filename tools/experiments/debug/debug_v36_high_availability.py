@@ -1,4 +1,5 @@
 from pprint import pprint
+
 from aletheus.runtime import runtime_core
 
 commands = [

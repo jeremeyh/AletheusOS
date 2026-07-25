@@ -1,5 +1,6 @@
 from marketplace.comp_engine import CompEngine
 
+
 class PricingService:
     def summarize(self, comps):
         return {

@@ -8,7 +8,7 @@ Registers federation capability into runtime services.
 
 
 from aletheus.runtime.services.registry_federation_service import (
-    RegistryFederationService
+    RegistryFederationService,
 )
 
 

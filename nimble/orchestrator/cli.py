@@ -29,18 +29,15 @@ def main() -> int:
 
     arguments = parser.parse_args()
 
-    root = Path(
-        arguments.root
-    ).resolve()
+    root = Path(arguments.root).resolve()
 
-    report_path = Path(
-        arguments.report
-    )
+    report_path = Path(arguments.report)
 
     if not report_path.is_absolute():
         report_path = (
-            root / report_path
-        )
+            root
+            / report_path
+        ).resolve()
 
     report = generate_report(
         root,
@@ -81,9 +78,7 @@ def main() -> int:
     print()
     print("Capability state:")
 
-    for capability in report[
-        "capabilities"
-    ]:
+    for capability in report["capabilities"]:
         print(
             f"- {capability['display_name']}: "
             f"{capability['state']} "
@@ -94,9 +89,7 @@ def main() -> int:
             print(
                 "  blocked by:",
                 ", ".join(
-                    capability[
-                        "blocked_by"
-                    ]
+                    capability["blocked_by"]
                 ),
             )
 
@@ -106,9 +99,7 @@ def main() -> int:
     if not report["build_plan"]:
         print("- No remaining build work.")
     else:
-        for item in report[
-            "build_plan"
-        ]:
+        for item in report["build_plan"]:
             print(
                 f"- {item['display_name']}: "
                 f"{item['action']} "
@@ -116,9 +107,15 @@ def main() -> int:
             )
 
     print()
+
+    try:
+        display_path = report_path.relative_to(root)
+    except ValueError:
+        display_path = report_path
+
     print(
         "Report:",
-        report_path.relative_to(root),
+        display_path,
     )
 
     return 0

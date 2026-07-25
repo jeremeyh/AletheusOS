@@ -4,9 +4,8 @@ Card Hawk Notification Models
 Genesis 13.19
 """
 
-from dataclasses import dataclass, field
 import time
-
+from dataclasses import dataclass, field
 
 
 @dataclass

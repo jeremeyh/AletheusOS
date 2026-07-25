@@ -5,15 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "aletheus"
 dynamic = ["version"]
-description = "AletheusOS Constitutional Intelligence Platform"
-readme = "README.md"
 requires-python = ">=3.11"
-
-authors = [
-    { name = "6th Dimension Multimedia" }
-]
-
-license = { text = "Proprietary" }
 
 [tool.setuptools]
 include-package-data = true
@@ -22,41 +14,49 @@ include-package-data = true
 include = ["aletheus*"]
 
 [tool.setuptools.dynamic]
-version = { attr = "aletheus.version.__version__" }
+version = {attr = "aletheus.version.__version__"}
+
+[tool.black]
+line-length = 88
+target-version = ["py313"]
+
+include = '\.pyi?$'
+
+extend-exclude = '''
+(
+    ^\.git/
+  | ^\.venv/
+  | ^venv/
+  | ^node_modules/
+  | ^dist/
+  | ^build/
+  | ^__pycache__/
+  | ^\.pytest_cache/
+  | ^\.mypy_cache/
+  | ^\.ruff_cache/
+
+  | ^reports/
+  | ^coverage/
+  | ^htmlcov/
+
+  | ^archive/
+  | ^archives/
+  | ^history/
+
+  | ^Genesis10_Work_Organization/04_reports/
+  | ^Genesis10_Work_Organization/05_archives/
+
+  | .*/backup_.*
+  | .*/.*_backup_.*
+  | .*/contract_repair_backup_.*
+  | .*/result_contract_backup_.*
+  | .*/safe_alias_backup_.*
+  | .*/registration_catalog_backup_.*
+  | .*/guarded_registration_backup_.*
+)
+'''
 
 [tool.pytest.ini_options]
-minversion = "8.0"
-
-python_files = [
-    "test_*.py",
-]
-
-python_classes = [
-    "Test*",
-]
-
-python_functions = [
-    "test_*",
-]
-
-norecursedirs = [
-    ".git",
-    ".github",
-    ".venv",
-    "__pycache__",
-    ".pytest_cache",
-    ".mypy_cache",
-    ".runtime",
-    ".aletheus_restore_points",
-    "archive",
-    "build",
-    "dist",
-    "Genesis-012B-SPAN-Runtime-Integration",
-    "Genesis10_Work_Organization",
-    "Genesis14_SPAN_Constitutional_Intelligence",
-    "aletheusos_kernel_sprint1",
-]
-
-addopts = [
-    "-ra",
-]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = ["--import-mode=prepend"]

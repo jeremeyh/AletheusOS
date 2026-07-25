@@ -5,14 +5,13 @@ Post-Genesis 24
 """
 
 
-from .signal_engine import SignalEngine
-from .pattern_detector import PatternDetector
 from .anomaly_engine import AnomalyEngine
-from .relationship_discovery import RelationshipDiscovery
-from .opportunity_ranker import OpportunityRanker
 from .insight_generator import InsightGenerator
 from .knowledge_integrator import KnowledgeIntegrator
-
+from .opportunity_ranker import OpportunityRanker
+from .pattern_detector import PatternDetector
+from .relationship_discovery import RelationshipDiscovery
+from .signal_engine import SignalEngine
 
 
 class AutonomousDiscoveryEngine:

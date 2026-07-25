@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, field
-from datetime import datetime
-from typing import Any, Dict, List
 import uuid
+from dataclasses import dataclass, field
+from typing import Any
+
+from aletheus.time_utils import utc_now_iso
 
 
 def now() -> str:
@@ -17,11 +16,11 @@ class WorkflowNode:
     title: str
     node_type: str = "agent"
     command: str = ""
-    payload: Dict[str, Any] = field(default_factory=dict)
+    payload: dict[str, Any] = field(default_factory=dict)
     assigned_agent: str = "Executive Agent"
     application: str = "AletheusOS"
     status: str = "queued"
-    result: Dict[str, Any] = field(default_factory=dict)
+    result: dict[str, Any] = field(default_factory=dict)
     node_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
     started_at: str | None = None
@@ -31,17 +30,17 @@ class WorkflowNode:
         self.status = "running"
         self.started_at = now()
 
-    def complete(self, result: Dict[str, Any] | None = None) -> None:
+    def complete(self, result: dict[str, Any] | None = None) -> None:
         self.status = "completed"
         self.completed_at = now()
         self.result = result or {}
 
-    def fail(self, result: Dict[str, Any] | None = None) -> None:
+    def fail(self, result: dict[str, Any] | None = None) -> None:
         self.status = "failed"
         self.completed_at = now()
         self.result = result or {}
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -51,7 +50,7 @@ class WorkflowExecution:
     objective: str
     application: str = "AletheusOS"
     status: str = "created"
-    nodes: List[WorkflowNode] = field(default_factory=list)
+    nodes: list[WorkflowNode] = field(default_factory=list)
     workflow_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
     started_at: str | None = None
@@ -77,7 +76,7 @@ class WorkflowExecution:
             self.status = "failed"
             self.completed_at = now()
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         data = self.__dict__.copy()
         data["nodes"] = [node.to_dict() for node in self.nodes]
         data["progress"] = self.progress()
@@ -89,9 +88,9 @@ class WorkflowEvent:
     workflow_id: str
     event_type: str
     message: str
-    payload: Dict[str, Any] = field(default_factory=dict)
+    payload: dict[str, Any] = field(default_factory=dict)
     event_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__

@@ -7,7 +7,6 @@ Genesis 13.44
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class Identity:
 

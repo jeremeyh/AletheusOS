@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-from datetime import datetime, timezone
 import logging
+from collections.abc import Mapping
+from dataclasses import dataclass, field
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Iterable, Mapping
+from typing import Any
 from uuid import uuid4
 
 from .analyzer import Analyzer, AnalyzerContext, AnalyzerResult
@@ -78,7 +79,7 @@ class SPANPipeline:
         configuration: Mapping[str, Any] | None = None,
         graph: Any | None = None,
     ) -> PipelineResult:
-        started = datetime.now(timezone.utc)
+        started = datetime.now(UTC)
         run_id = f"span-{uuid4().hex}"
         resolved_root = Path(root).resolve()
         config = dict(configuration or {})
@@ -137,7 +138,7 @@ class SPANPipeline:
                 if self.fail_fast:
                     raise
 
-        completed = datetime.now(timezone.utc)
+        completed = datetime.now(UTC)
         return PipelineResult(
             run_id=run_id,
             root=str(resolved_root),

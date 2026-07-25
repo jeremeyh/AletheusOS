@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
-from typing import Any, Dict, List
+from datetime import UTC, datetime
+from typing import Any
 
 from aletheus.executive_kernel.bootstrap import ExecutiveBootstrap
 from aletheus.executive_kernel.bus import (
@@ -17,7 +17,7 @@ from aletheus.executive_kernel.registry import KernelDescriptor
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 @dataclass
@@ -42,7 +42,7 @@ class ExecutiveKernel:
     ) -> None:
         self.runtime: Any | None = None
         self.context = context or ExecutiveBootstrap().build_context()
-        self.boot_events: List[Dict[str, Any]] = []
+        self.boot_events: list[dict[str, Any]] = []
 
     @property
     def bus(self):

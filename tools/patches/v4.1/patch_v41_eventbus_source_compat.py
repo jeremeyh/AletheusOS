@@ -1,5 +1,5 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 path = Path("aletheus/event_bus_v3/event_bus_core.py")
 text = path.read_text()

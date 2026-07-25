@@ -4,6 +4,7 @@ Compatibility entry point for the Nimble attested release validator.
 """
 
 from pathlib import Path
+
 from tools.validation.nimble import validate_nimble_attested_release as _impl
 
 

@@ -1,6 +1,6 @@
-from marketplace.providers.ebay_provider import EbayProvider
-from marketplace.providers.comc_provider import COMCProvider
 from marketplace.providers.cardladder_provider import CardLadderProvider
+from marketplace.providers.comc_provider import COMCProvider
+from marketplace.providers.ebay_provider import EbayProvider
 
 
 class MarketplaceManager:

@@ -3,8 +3,8 @@ from aletheus.kernel_v2.models import KernelEvent, KernelRegistryItem, KernelSta
 
 __all__ = [
     "AletheusAutonomousKernel",
-    "kernel_core",
     "KernelEvent",
     "KernelRegistryItem",
     "KernelState",
+    "kernel_core",
 ]

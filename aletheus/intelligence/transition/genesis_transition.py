@@ -8,9 +8,8 @@ intelligence evolution phase.
 """
 
 
-import uuid
 import time
-
+import uuid
 
 
 class GenesisTransitionPreparationEngine:

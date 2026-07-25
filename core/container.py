@@ -5,6 +5,7 @@ Dependency Injection Container
 
 from core.registry import registry
 
+
 class Container:
 
     def __init__(self):

@@ -9,7 +9,6 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[3]
 
 WRITER = ROOT / "bin/append_nimble_audit_event.py"

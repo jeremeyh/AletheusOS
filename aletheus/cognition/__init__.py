@@ -1,11 +1,11 @@
 from aletheus.cognition.cognition_core import AletheusCognitionCore, cognition_core
-from aletheus.cognition.models import Goal, Plan, ReasoningSession, Decision
+from aletheus.cognition.models import Decision, Goal, Plan, ReasoningSession
 
 __all__ = [
     "AletheusCognitionCore",
-    "cognition_core",
+    "Decision",
     "Goal",
     "Plan",
     "ReasoningSession",
-    "Decision",
+    "cognition_core",
 ]

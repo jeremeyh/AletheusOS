@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 
 class PlatformCouncil:
@@ -89,7 +89,7 @@ class PlatformCouncil:
         return {
             "council": "Aletheus Platform Council",
             "timestamp": datetime.now(
-                timezone.utc
+                UTC
             ).isoformat(),
 
             "decision": decision,

@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from aletheus.time_utils import utc_now, utc_now_iso
-
-from dataclasses import dataclass, asdict, field
-from datetime import datetime
-from typing import Dict, List, Any
 import uuid
+from dataclasses import asdict, dataclass, field
+from typing import Any
+
+from aletheus.time_utils import utc_now, utc_now_iso
 
 
 def utc_now():
@@ -25,14 +24,14 @@ class FederationNode:
 
     version: str = "3.4.0"
 
-    capabilities: List[str] = field(default_factory=list)
-    services: List[str] = field(default_factory=list)
+    capabilities: list[str] = field(default_factory=list)
+    services: list[str] = field(default_factory=list)
 
     status: str = "online"
 
     last_seen: str = field(default_factory=utc_now)
 
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 # ============================================================
@@ -50,7 +49,7 @@ class Federation:
 
     local_node: FederationNode
 
-    remote_nodes: Dict[str, FederationNode] = field(default_factory=dict)
+    remote_nodes: dict[str, FederationNode] = field(default_factory=dict)
 
 
 # ============================================================

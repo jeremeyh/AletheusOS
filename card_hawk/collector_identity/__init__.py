@@ -7,7 +7,6 @@ Genesis 62
 
 from .engine import CollectorIdentityNetworkEngine
 
-
 __all__ = [
 
     "CollectorIdentityNetworkEngine"

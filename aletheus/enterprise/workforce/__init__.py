@@ -7,7 +7,6 @@ Post-Genesis 113
 
 from .engine import EnterpriseAgentWorkforceEngine
 
-
 __all__ = [
 
 "EnterpriseAgentWorkforceEngine"

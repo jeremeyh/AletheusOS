@@ -1,5 +1,3 @@
 
-from .expansion_controller import (
-    IntelligenceExpansionPreparationEngine
-)
+from .expansion_controller import IntelligenceExpansionPreparationEngine
 

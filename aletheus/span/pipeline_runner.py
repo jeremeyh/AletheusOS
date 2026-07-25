@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from aletheus.span.span_engine import SpanEngine
 
+
 class PipelineRunner:
     """Runs the complete SPAN orchestration."""
 

@@ -5,7 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -121,7 +121,7 @@ def main() -> int:
         report = {
             "schema_version": "1.0",
             "generated_at": datetime.now(
-                timezone.utc
+                UTC
             ).isoformat(),
             "status": "FAIL",
             "checks": checks,
@@ -344,7 +344,7 @@ def main() -> int:
     report = {
         "schema_version": "1.0",
         "generated_at": datetime.now(
-            timezone.utc
+            UTC
         ).isoformat(),
         "status": status,
         "checkpoint_hash": subject.get(

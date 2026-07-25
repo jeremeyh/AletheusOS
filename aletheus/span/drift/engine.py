@@ -1,5 +1,6 @@
 from .change import Change
 
+
 class DriftEngine:
     def compare(self, previous, current):
         changes=[]

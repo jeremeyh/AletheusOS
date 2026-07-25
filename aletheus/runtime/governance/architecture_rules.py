@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Dict, Any, List
+from typing import Any
 
 
 class ArchitectureGovernanceRules:
@@ -12,7 +12,7 @@ class ArchitectureGovernanceRules:
         self.version = "1.0.0"
 
 
-    def evaluate(self) -> Dict[str, Any]:
+    def evaluate(self) -> dict[str, Any]:
 
         rules = {
 

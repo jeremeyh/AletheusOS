@@ -7,7 +7,6 @@ Post-Genesis 60
 
 from .engine import CommunityIntelligenceNetworkEngine
 
-
 __all__ = [
 
     "CommunityIntelligenceNetworkEngine"

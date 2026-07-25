@@ -1,6 +1,6 @@
-from datetime import datetime, UTC
+from datetime import UTC, datetime
 
-from .models import RuntimeCircuit, CircuitActivationResult
+from .models import CircuitActivationResult, RuntimeCircuit
 
 
 class RuntimeCircuitManager:

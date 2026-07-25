@@ -1,6 +1,5 @@
 import streamlit as st
 
-
 ENGINES = [
     ("🦅", "Hawk A•Eye™", "Online"),
     ("⚡", "THORᵡ™", "Online"),

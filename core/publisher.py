@@ -1,6 +1,6 @@
 from core.event_bus import event_bus
-from intelligence.fabric.event import Event
 from intelligence.fabric.context import context
+from intelligence.fabric.event import Event
 from intelligence.journal.event_journal import journal
 
 

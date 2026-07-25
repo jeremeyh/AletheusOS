@@ -1,14 +1,12 @@
 from __future__ import annotations
 
-from typing import Optional
-
-from .registry import uci
 from .models import (
-    UCINode,
-    UCIRelationship,
-    UCIQueryResult,
     UCIHealthReport,
+    UCINode,
+    UCIQueryResult,
+    UCIRelationship,
 )
+from .registry import uci
 
 
 class UnifiedCognitiveIndexService:
@@ -56,7 +54,7 @@ class UnifiedCognitiveIndexService:
     def node(
         self,
         node_id: str,
-    ) -> Optional[UCINode]:
+    ) -> UCINode | None:
 
         return self.registry.get_node(node_id)
 

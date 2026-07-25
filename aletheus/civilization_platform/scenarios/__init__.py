@@ -7,7 +7,6 @@ Post-Genesis 146
 
 from .engine import FutureScenarioIntelligenceEngine
 
-
 __all__ = [
 
 "FutureScenarioIntelligenceEngine"

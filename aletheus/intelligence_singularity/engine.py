@@ -5,13 +5,12 @@ Post-Genesis 160
 """
 
 
-from .state import UniversalIntelligenceState
-from .intelligence_fabric import IntelligenceFabric
-from .convergence_engine import ConvergenceEngine
-from .evolution_coordinator import EvolutionCoordinator
 from .capability_synchronizer import CapabilitySynchronizer
+from .convergence_engine import ConvergenceEngine
 from .decision_fabric import DecisionFabric
-
+from .evolution_coordinator import EvolutionCoordinator
+from .intelligence_fabric import IntelligenceFabric
+from .state import UniversalIntelligenceState
 
 
 class UniversalIntelligenceSingularityEngine:

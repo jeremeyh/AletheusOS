@@ -8,7 +8,6 @@ Genesis 8
 from .base import RuntimeAnchorCircuit
 
 
-
 class MemoryAnchorCircuit(RuntimeAnchorCircuit):
 
 

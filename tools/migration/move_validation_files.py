@@ -11,9 +11,9 @@ Use:
     python tools/migration/move_validation_files.py --apply
 """
 
-from pathlib import Path
 import argparse
 import shutil
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 

@@ -6,11 +6,10 @@ Genesis 14.10
 
 
 from .listings import ListingEngine
-from .offers import OfferEngine
 from .negotiations import NegotiationEngine
+from .offers import OfferEngine
 from .trades import TradeEngine
 from .transactions import TransactionEngine
-
 
 
 class ExchangeEngine:

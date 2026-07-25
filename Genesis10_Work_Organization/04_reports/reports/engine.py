@@ -5,9 +5,8 @@ Genesis 13.18
 """
 
 
-from .templates import ReportTemplates
 from .generators import ReportGenerator
-
+from .templates import ReportTemplates
 
 
 class CardHawkReportsEngine:

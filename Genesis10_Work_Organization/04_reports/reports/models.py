@@ -7,7 +7,6 @@ Genesis 13.18
 from dataclasses import dataclass, field
 
 
-
 @dataclass
 class IntelligenceReport:
 

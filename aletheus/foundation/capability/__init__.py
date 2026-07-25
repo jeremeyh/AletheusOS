@@ -10,32 +10,24 @@ Public Package Interface
 from .base import (
     FoundationCapability,
 )
-
 from .contracts import (
     FoundationCapabilityContract,
 )
-
-from .metadata import (
-    CapabilityMetadata,
-)
-
 from .health import (
     health,
 )
-
+from .metadata import (
+    CapabilityMetadata,
+)
 from .statistics import (
     statistics,
 )
 
 __all__ = [
 
-    "FoundationCapability",
-
-    "FoundationCapabilityContract",
-
     "CapabilityMetadata",
-
+    "FoundationCapability",
+    "FoundationCapabilityContract",
     "health",
-
     "statistics",
 ]

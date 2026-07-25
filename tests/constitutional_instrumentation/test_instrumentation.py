@@ -21,7 +21,6 @@ from aletheus.constitutional_instrumentation import (
     canonical_cognition_instruments,
 )
 
-
 ASSERTION = "card.value.increases"
 
 

@@ -7,7 +7,6 @@ Post-Genesis 132
 
 from .engine import IntelligenceOwnershipFrameworkEngine
 
-
 __all__ = [
 
 "IntelligenceOwnershipFrameworkEngine"

@@ -5,11 +5,10 @@ Genesis 13.54
 """
 
 
-from .principles import PrincipleRegistry
-from .policies import PolicyEngine
 from .audit import GovernanceAudit
 from .change_control import ChangeControlEngine
-
+from .policies import PolicyEngine
+from .principles import PrincipleRegistry
 
 
 class ConstitutionalIntelligenceEngine:

@@ -6,8 +6,6 @@ Canonical registry for declarative SPAN rules.
 
 from __future__ import annotations
 
-from typing import Dict, Iterable
-
 from .rule_engine import Rule, RuleEngine
 
 
@@ -15,7 +13,7 @@ class RuleRegistry:
     """Registry for SPAN Rule objects."""
 
     def __init__(self) -> None:
-        self._rules: Dict[str, Rule] = {}
+        self._rules: dict[str, Rule] = {}
         self._enabled: set[str] = set()
 
     def register(self, rule: Rule) -> None:

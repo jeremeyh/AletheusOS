@@ -3,9 +3,8 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import asdict, dataclass
-from pathlib import Path
-from typing import Iterable
 
 from .inventory import InventoryEntry
 from .rules import PolicyViolation

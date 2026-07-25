@@ -7,7 +7,6 @@ Genesis 73
 
 from .engine import InstitutionalCollectionManagementEngine
 
-
 __all__ = [
 
     "InstitutionalCollectionManagementEngine"
