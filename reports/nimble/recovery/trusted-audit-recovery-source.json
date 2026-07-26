@@ -2,11 +2,11 @@
   "checkpoint_entry_count": 0,
   "checkpoint_hash": "da3827583cb7d48ff78f9b6cb3d8f916381db02f09c9f9d1d7e9115f554deed6",
   "checkpoint_head_hash": "GENESIS",
-  "created_at": "2026-07-25T05:26:24.296453+00:00",
+  "created_at": "2026-07-25T05:52:02.757764+00:00",
   "ledger_entries": [],
   "ledger_entry_count": 0,
   "ledger_file_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "schema_version": "1.0",
-  "source_hash": "ab86069655409bd7e06d330f971770a5762bcf33a8521305ac5646f3750404cb",
-  "source_id": "74204ea9-7738-4792-93eb-9d64a7c87f84"
+  "source_hash": "59e6f9b12b7c6e456ecf67d6e1d6869cd8b7954b037255a98df8c61605612938",
+  "source_id": "0870b327-82b5-489b-9e01-4af0013ba439"
 }

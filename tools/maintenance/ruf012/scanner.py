@@ -1,44 +1,70 @@
 """
-Scanner wrapper around the existing Genesis 11 analyzer.
+Genesis 11 Repository Scanner.
 
-This avoids maintaining two independent AST scanners.
+The scanner is responsible only for discovering Python source files.
+It performs no AST parsing and no RUF012 analysis.
 """
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 from pathlib import Path
 
-# Reuse the working analyzer
-import tools.maintenance.fix_ruf012 as analyzer
+DEFAULT_EXCLUDES = {
+    ".git",
+    ".venv",
+    "venv",
+    "__pycache__",
+    ".pytest_cache",
+    ".mypy_cache",
+    ".ruff_cache",
+    "node_modules",
+    "dist",
+    "build",
+}
+
+
+@dataclass(frozen=True, slots=True)
+class ScanSummary:
+    """Repository discovery summary."""
+
+    root: Path
+    python_files: tuple[Path, ...]
+    files_discovered: int
+
+    @property
+    def successful(self) -> bool:
+        return True
 
 
 class RepositoryScanner:
-    def __init__(self, root: Path):
+    """
+    Discover Python files beneath a repository root.
+    """
+
+    def __init__(
+        self,
+        root: Path,
+        excludes: set[str] | None = None,
+    ) -> None:
         self.root = Path(root).resolve()
+        self.excludes = excludes or DEFAULT_EXCLUDES
 
-    def scan(self):
-        """
-        Uses the existing analyzer implementation.
+    def scan(self) -> ScanSummary:
+        """Return all Python files beneath the repository."""
 
-        Requires fix_ruf012.py to expose:
+        files: list[Path] = []
 
-            scan_repository(root: Path) -> ScanSummary
+        for path in self.root.rglob("*.py"):
+            if any(part in self.excludes for part in path.parts):
+                continue
 
-        where the returned object contains:
+            files.append(path)
 
-            safe_candidates
-            shared_candidates
-            manual_candidates
-            files_discovered/files_parsed
-            syntax_failures
-        """
+        files.sort()
 
-        if not hasattr(analyzer, "scan_repository"):
-            raise RuntimeError(
-                "tools.maintenance.fix_ruf012.scan_repository() "
-                "has not been implemented yet.\n\n"
-                "Refactor the working analyzer into a reusable "
-                "function before using this package."
-            )
-
-        return analyzer.scan_repository(self.root)
+        return ScanSummary(
+            root=self.root,
+            python_files=tuple(files),
+            files_discovered=len(files),
+        )

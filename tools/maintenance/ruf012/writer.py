@@ -1,20 +1,23 @@
 """
-Read-only writer for the Genesis 11 RUF012 package.
+Read-only repository writer for the Genesis 11 RUF012 pipeline.
 
-This implementation intentionally performs NO source modifications.
-It simply validates the safe candidates produced by the scanner.
+This writer intentionally performs NO source modifications.
+Its responsibility is to summarize the execution stage and provide
+the future attachment point for repository rewrites.
 """
 
 from __future__ import annotations
 
-from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+
+from tools.maintenance.ruf012.executor.models import ExecutionSummary
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class WriteResult:
+    """Summary of the write stage."""
+
     discovered: int
     eligible: int
     modified: int
@@ -23,27 +26,38 @@ class WriteResult:
 
 
 class RepositoryWriter:
-    SAFE_CLASSIFICATION = "safe-classvar"
+    """Read-only writer for the native RUF012 pipeline."""
 
     def __init__(self, root: Path):
         self.root = Path(root)
 
-    def apply(self, candidates: Iterable[Any]) -> WriteResult:
-        candidates = list(candidates)
+    def apply(
+        self,
+        execution: ExecutionSummary,
+    ) -> WriteResult:
+        """
+        Consume the execution summary.
 
-        eligible = [
-            c
-            for c in candidates
-            if getattr(c, "classification", None)
-            == self.SAFE_CLASSIFICATION
-        ]
+        This stage intentionally performs no filesystem writes.
+        It reports what would have been eligible for rewriting.
+        """
 
         result = WriteResult(
-            discovered=len(candidates),
-            eligible=len(eligible),
+            discovered=execution.total,
+            eligible=execution.previewed,
             modified=0,
-            skipped=len(candidates) - len(eligible),
+            skipped=execution.skipped + execution.failed,
         )
+
+        self._print_summary(result)
+
+        return result
+
+    def _print_summary(
+        self,
+        result: WriteResult,
+    ) -> None:
+        """Print a deterministic repository summary."""
 
         print()
         print("=" * 72)
@@ -56,7 +70,5 @@ class RepositoryWriter:
         print(f"Skipped             : {result.skipped}")
         print(f"Files modified      : {result.modified}")
         print()
-        print("Rewrite engine not connected.")
-        print("No source files were modified.")
-
-        return result
+        print("Native execution pipeline connected.")
+        print("Repository remains unchanged (preview mode).")

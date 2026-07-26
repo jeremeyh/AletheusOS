@@ -1,10 +1,13 @@
 from pathlib import Path
 from typing import Any
+
 import pytest
+
 from tools.maintenance.ruf012.diff import create_unified_diff
 from tools.maintenance.ruf012.rewriter import CandidateRewriter, RewriteError
 from tools.maintenance.ruf012.transforms import ClassVarTransformation
 from tools.maintenance.ruf012.validator import SourceValidator
+
 
 def test_validator_accepts_valid_python() -> None:
     result = SourceValidator().validate("class Example:\n    VALUES = []\n", Path("example.py"))

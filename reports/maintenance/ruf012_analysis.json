@@ -1,0 +1,915 @@
+{
+  "summary": {
+    "repository": "/Users/master_lord_6ixth/Development/AletheusOS",
+    "files_discovered": 6478,
+    "files_parsed": 6478,
+    "syntax_failures": 0,
+    "candidates_found": 90,
+    "safe_classvar_candidates": 64,
+    "shared_state_candidates": 23,
+    "manual_review_candidates": 3
+  },
+  "candidates": [
+    {
+      "path": "core/engine_base.py",
+      "class_name": "EngineBase",
+      "attribute_name": "events",
+      "collection_type": "list",
+      "line": 15,
+      "column": 4,
+      "classification": "manual-review",
+      "recommendation": "Mutable class attribute may be shared unintentionally; inspect usage before changing."
+    },
+    {
+      "path": "intelligence/projections/base.py",
+      "class_name": "Projection",
+      "attribute_name": "events",
+      "collection_type": "list",
+      "line": 13,
+      "column": 4,
+      "classification": "manual-review",
+      "recommendation": "Mutable class attribute may be shared unintentionally; inspect usage before changing."
+    },
+    {
+      "path": "timeline/engine/timeline_projection.py",
+      "class_name": "TimelineProjection",
+      "attribute_name": "events",
+      "collection_type": "list",
+      "line": 9,
+      "column": 4,
+      "classification": "manual-review",
+      "recommendation": "Mutable class attribute may be shared unintentionally; inspect usage before changing."
+    },
+    {
+      "path": "Genesis14_SPAN_Constitutional_Intelligence/package/aletheus/span/constitutional_context.py",
+      "class_name": "ProjectInspector",
+      "attribute_name": "EXCLUDED_PARTS",
+      "collection_type": "set",
+      "line": 74,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "adaptive_intelligence/deployment/deployment_profiles.py",
+      "class_name": "DeploymentProfiles",
+      "attribute_name": "PROFILES",
+      "collection_type": "dict",
+      "line": 4,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/application_runtime/services.py",
+      "class_name": "ApplicationServiceResolver",
+      "attribute_name": "SERVICE_NAMES",
+      "collection_type": "set",
+      "line": 19,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/apps/demo/application.py",
+      "class_name": "DemoApplication",
+      "attribute_name": "PERMISSIONS",
+      "collection_type": "list",
+      "line": 11,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/apps/demo/application.py",
+      "class_name": "DemoApplication",
+      "attribute_name": "SERVICES",
+      "collection_type": "list",
+      "line": 16,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/apps/demo/application.py",
+      "class_name": "DemoApplication",
+      "attribute_name": "DEPENDENCIES",
+      "collection_type": "list",
+      "line": 20,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/civilization/adapters.py",
+      "class_name": "SecurityCivilizationAdapter",
+      "attribute_name": "EVENT_EVIDENCE_MAP",
+      "collection_type": "dict",
+      "line": 26,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/constitutional_memory/precedent.py",
+      "class_name": "ConstitutionalPrecedentEngine",
+      "attribute_name": "PRECEDENT_ORDER",
+      "collection_type": "dict",
+      "line": 8,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/neural/state/manager.py",
+      "class_name": "BrainStateManager",
+      "attribute_name": "VALID_STATES",
+      "collection_type": "set",
+      "line": 12,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/overlay_manager/validation.py",
+      "class_name": "OverlayValidator",
+      "attribute_name": "RESERVED_TERMS",
+      "collection_type": "set",
+      "line": 8,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/platform/platform_layer.py",
+      "class_name": "PlatformLayer",
+      "attribute_name": "REQUIRED_DIRS",
+      "collection_type": "list",
+      "line": 22,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/platform/platform_layer.py",
+      "class_name": "PlatformLayer",
+      "attribute_name": "REQUIRED_TOOLS",
+      "collection_type": "list",
+      "line": 30,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/platform/platform_layer.py",
+      "class_name": "PlatformLayer",
+      "attribute_name": "OPTIONAL_TOOLS",
+      "collection_type": "list",
+      "line": 34,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/platform_intelligence/engine.py",
+      "class_name": "PlatformIntelligenceEngine",
+      "attribute_name": "IGNORED_DIRS",
+      "collection_type": "set",
+      "line": 14,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/platform_intelligence/runtime_health.py",
+      "class_name": "RuntimeHealthService",
+      "attribute_name": "STAT_FIELDS",
+      "collection_type": "list",
+      "line": 11,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/platform_intelligence/runtime_snapshot.py",
+      "class_name": "RuntimeSnapshotService",
+      "attribute_name": "COMPONENTS",
+      "collection_type": "list",
+      "line": 13,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/platform_lifecycle/state.py",
+      "class_name": "PlatformStateEngine",
+      "attribute_name": "VALID_STATES",
+      "collection_type": "set-comprehension",
+      "line": 23,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/repository_dna/collision_auditor.py",
+      "class_name": "RepositoryDNACollisionAuditor",
+      "attribute_name": "KNOWN_CLUSTERS",
+      "collection_type": "dict",
+      "line": 11,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/runtime/commands_v2/dispatcher.py",
+      "class_name": "CompiledRuntimeCommandDispatcher",
+      "attribute_name": "RESULT_KEY_CONTRACTS",
+      "collection_type": "dict",
+      "line": 45,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/runtime/compatibility_layer/layer.py",
+      "class_name": "CompatibilityLayer",
+      "attribute_name": "SERVICE_REGISTRY",
+      "collection_type": "list",
+      "line": 12,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/runtime/compatibility_layer/layer.py",
+      "class_name": "CompatibilityLayer",
+      "attribute_name": "SAFE_ALIASES",
+      "collection_type": "list",
+      "line": 30,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/runtime/decomposition/responsibility.py",
+      "class_name": "ResponsibilityExtractor",
+      "attribute_name": "RESPONSIBILITIES",
+      "collection_type": "dict",
+      "line": 11,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/runtime_supervisor/core.py",
+      "class_name": "RuntimeSupervisor",
+      "attribute_name": "WATCHED_EVENTS",
+      "collection_type": "list",
+      "line": 14,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/sdk/application.py",
+      "class_name": "Application",
+      "attribute_name": "PERMISSIONS",
+      "collection_type": "list",
+      "line": 18,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/sdk/application.py",
+      "class_name": "Application",
+      "attribute_name": "SERVICES",
+      "collection_type": "list",
+      "line": 19,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/sdk/application.py",
+      "class_name": "Application",
+      "attribute_name": "DEPENDENCIES",
+      "collection_type": "list",
+      "line": 20,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/span/constitutional_context.py",
+      "class_name": "ProjectInspector",
+      "attribute_name": "EXCLUDED_PARTS",
+      "collection_type": "set",
+      "line": 74,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "aletheus/spectrum_platform_analyzer/boundary_analysis.py",
+      "class_name": "BoundaryAnalyzer",
+      "attribute_name": "ALLOWED",
+      "collection_type": "dict",
+      "line": 25,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "architecture/import_migrator.py",
+      "class_name": "ImportMigrator",
+      "attribute_name": "REPLACEMENTS",
+      "collection_type": "dict",
+      "line": 12,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "architecture/project_auditor.py",
+      "class_name": "ProjectAuditor",
+      "attribute_name": "DEPRECATED_PATTERNS",
+      "collection_type": "dict",
+      "line": 35,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "asset_core/runtime/image_service.py",
+      "class_name": "AssetImageService",
+      "attribute_name": "IMAGE_FIELDS",
+      "collection_type": "list",
+      "line": 8,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "asset_core/runtime/image_service.py",
+      "class_name": "AssetImageService",
+      "attribute_name": "EXTENSIONS",
+      "collection_type": "list",
+      "line": 14,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "asset_core/workflows/asset_pipeline.py",
+      "class_name": "AssetPipeline",
+      "attribute_name": "STAGES",
+      "collection_type": "list",
+      "line": 7,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "card_hawk/assets/categories.py",
+      "class_name": "AssetCategories",
+      "attribute_name": "TYPES",
+      "collection_type": "list",
+      "line": 11,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "card_hawk/assets/lifecycle.py",
+      "class_name": "AssetLifecycle",
+      "attribute_name": "STATES",
+      "collection_type": "list",
+      "line": 11,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "card_hawk/collector_app/subscriptions.py",
+      "class_name": "SubscriptionEngine",
+      "attribute_name": "TIERS",
+      "collection_type": "list",
+      "line": 11,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "card_hawk/founder_console/modules.py",
+      "class_name": "ConsoleModules",
+      "attribute_name": "MODULES",
+      "collection_type": "list",
+      "line": 11,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "card_hawk/universal_collectibles/categories.py",
+      "class_name": "Categories",
+      "attribute_name": "TYPES",
+      "collection_type": "list",
+      "line": 11,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "cardhawkos/config/settings.py",
+      "class_name": "Settings",
+      "attribute_name": "FEATURE_FLAGS",
+      "collection_type": "dict",
+      "line": 23,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "commercial/commercial_readiness.py",
+      "class_name": "CommercialReadiness",
+      "attribute_name": "CHECKS",
+      "collection_type": "dict",
+      "line": 4,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "commercialization/permissions.py",
+      "class_name": "Permissions",
+      "attribute_name": "ROLE_PERMISSIONS",
+      "collection_type": "dict",
+      "line": 2,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "core/config.py",
+      "class_name": "Config",
+      "attribute_name": "FEATURE_FLAGS",
+      "collection_type": "dict",
+      "line": 20,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "hawk_aeye/brand_detector.py",
+      "class_name": "BrandDetector",
+      "attribute_name": "KNOWN_BRANDS",
+      "collection_type": "list",
+      "line": 4,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "hawk_aeye/parallel_detector.py",
+      "class_name": "ParallelDetector",
+      "attribute_name": "KNOWN_PARALLELS",
+      "collection_type": "list",
+      "line": 4,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "hawk_aeye/player_detector.py",
+      "class_name": "PlayerDetector",
+      "attribute_name": "KNOWN_PLAYERS",
+      "collection_type": "list",
+      "line": 4,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "intelligence_convergence/engines/digital_twin_2.py",
+      "class_name": "DigitalTwin2",
+      "attribute_name": "SCENARIOS",
+      "collection_type": "dict",
+      "line": 7,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "marketplace/connectors/manager.py",
+      "class_name": "MarketplaceManager",
+      "attribute_name": "PROVIDERS",
+      "collection_type": "list",
+      "line": 14,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "scheduler/runtime_scheduler.py",
+      "class_name": "RuntimeScheduler",
+      "attribute_name": "DEFAULT_JOBS",
+      "collection_type": "list",
+      "line": 9,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "security/config_validator.py",
+      "class_name": "ConfigValidator",
+      "attribute_name": "REQUIRED_DIRS",
+      "collection_type": "list",
+      "line": 7,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "thorx/liquidity.py",
+      "class_name": "LiquidityScorer",
+      "attribute_name": "PREMIUM_BRANDS",
+      "collection_type": "set",
+      "line": 4,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "thorx/market_strength.py",
+      "class_name": "MarketStrengthScorer",
+      "attribute_name": "HOT_SPORTS",
+      "collection_type": "set",
+      "line": 4,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "thorx/market_strength.py",
+      "class_name": "MarketStrengthScorer",
+      "attribute_name": "CORE_TEAMS",
+      "collection_type": "set",
+      "line": 5,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "thorx/player_thesis.py",
+      "class_name": "PlayerThesisScorer",
+      "attribute_name": "HIGH_CONVICTION",
+      "collection_type": "dict",
+      "line": 4,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "thorx/portfolio_fit.py",
+      "class_name": "PortfolioFitScorer",
+      "attribute_name": "CORE_TEAMS",
+      "collection_type": "set",
+      "line": 4,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "thorx/risk.py",
+      "class_name": "RiskScorer",
+      "attribute_name": "RISKY_BRANDS",
+      "collection_type": "set",
+      "line": 4,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "thorx/score.py",
+      "class_name": "ThorxScore",
+      "attribute_name": "WEIGHTS",
+      "collection_type": "dict",
+      "line": 17,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "thorx/visual_appeal.py",
+      "class_name": "VisualAppealScorer",
+      "attribute_name": "PREMIUM_PARALLELS",
+      "collection_type": "list",
+      "line": 4,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "tools/repository/rules.py",
+      "class_name": "RepositoryPolicy",
+      "attribute_name": "DEFAULT_ALLOWED_ROOT_FILES",
+      "collection_type": "set",
+      "line": 24,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "watch_tower/runtime/engine.py",
+      "class_name": "WatchTowerEngine",
+      "attribute_name": "SAFE_DELETE_NAMES",
+      "collection_type": "set",
+      "line": 24,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "watch_tower/runtime/engine.py",
+      "class_name": "WatchTowerEngine",
+      "attribute_name": "SAFE_DELETE_DIRS",
+      "collection_type": "set",
+      "line": 28,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "watch_tower/runtime/engine.py",
+      "class_name": "WatchTowerEngine",
+      "attribute_name": "REQUIRED_ROOT_FILES",
+      "collection_type": "list",
+      "line": 35,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "watch_tower/runtime/engine.py",
+      "class_name": "WatchTowerEngine",
+      "attribute_name": "REQUIRED_ROOT_DIRS",
+      "collection_type": "list",
+      "line": 41,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "watch_tower/runtime/engine.py",
+      "class_name": "WatchTowerEngine",
+      "attribute_name": "SUSPICIOUS_NAMES",
+      "collection_type": "list",
+      "line": 49,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "workflow_automation/workflow_service.py",
+      "class_name": "WorkflowAutomationService",
+      "attribute_name": "TEMPLATES",
+      "collection_type": "dict",
+      "line": 24,
+      "column": 4,
+      "classification": "safe-classvar",
+      "recommendation": "Annotate as typing.ClassVar with an appropriate collection type."
+    },
+    {
+      "path": "adaptive_intelligence/feedback/feedback_loop.py",
+      "class_name": "IntelligenceFeedbackLoop",
+      "attribute_name": "_feedback",
+      "collection_type": "list",
+      "line": 21,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "adaptive_intelligence/plugins/plugin_framework.py",
+      "class_name": "PluginRegistry",
+      "attribute_name": "_plugins",
+      "collection_type": "dict",
+      "line": 16,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "adaptive_intelligence/research/research_workspace.py",
+      "class_name": "ResearchWorkspace",
+      "attribute_name": "_notes",
+      "collection_type": "list",
+      "line": 19,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "background/job_queue.py",
+      "class_name": "JobQueue",
+      "attribute_name": "_jobs",
+      "collection_type": "list",
+      "line": 21,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "cardhawkos/runtime/cache.py",
+      "class_name": "RuntimeCache",
+      "attribute_name": "_cache",
+      "collection_type": "dict",
+      "line": 11,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "cardhawkos/runtime/registry.py",
+      "class_name": "EngineRegistry",
+      "attribute_name": "_engines",
+      "collection_type": "dict",
+      "line": 8,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "cardhawkos/runtime/service_registry.py",
+      "class_name": "ServiceRegistry",
+      "attribute_name": "_services",
+      "collection_type": "dict",
+      "line": 18,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "datalake/intelligence_store.py",
+      "class_name": "IntelligenceStore",
+      "attribute_name": "_records",
+      "collection_type": "list",
+      "line": 16,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "event_bus/runtime/bus.py",
+      "class_name": "EventBus",
+      "attribute_name": "_subscribers",
+      "collection_type": "dict",
+      "line": 5,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "eventbus/event_bus.py",
+      "class_name": "EventBus",
+      "attribute_name": "_events",
+      "collection_type": "list",
+      "line": 17,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "eventbus/event_bus.py",
+      "class_name": "EventBus",
+      "attribute_name": "_subscribers",
+      "collection_type": "dict",
+      "line": 18,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "founder/founder_memory.py",
+      "class_name": "FounderMemory",
+      "attribute_name": "_items",
+      "collection_type": "list",
+      "line": 14,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "founder_studio/studio_service.py",
+      "class_name": "FounderStudioService",
+      "attribute_name": "_items",
+      "collection_type": "list",
+      "line": 17,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "genome/cardhawk_genome.py",
+      "class_name": "CardHawkGenome",
+      "attribute_name": "_records",
+      "collection_type": "list",
+      "line": 17,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "genome/runtime/service.py",
+      "class_name": "GenomeService",
+      "attribute_name": "_genomes",
+      "collection_type": "dict",
+      "line": 9,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "jobs/runtime/manager.py",
+      "class_name": "JobManager",
+      "attribute_name": "_history",
+      "collection_type": "list",
+      "line": 3,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "jobs/runtime/scheduler.py",
+      "class_name": "JobScheduler",
+      "attribute_name": "_jobs",
+      "collection_type": "list",
+      "line": 7,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "live_data/watchlist/live_watchlist.py",
+      "class_name": "LiveWatchlist",
+      "attribute_name": "_targets",
+      "collection_type": "list",
+      "line": 16,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "negotiation/offer_tracker.py",
+      "class_name": "OfferTracker",
+      "attribute_name": "_offers",
+      "collection_type": "list",
+      "line": 20,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "observability/telemetry.py",
+      "class_name": "Telemetry",
+      "attribute_name": "_metrics",
+      "collection_type": "list",
+      "line": 11,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "performance/cache.py",
+      "class_name": "ResultCache",
+      "attribute_name": "_cache",
+      "collection_type": "dict",
+      "line": 5,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "timeline/timeline_service.py",
+      "class_name": "IntelligenceTimelineService",
+      "attribute_name": "_events",
+      "collection_type": "list",
+      "line": 18,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    },
+    {
+      "path": "workflow_automation/workflow_service.py",
+      "class_name": "WorkflowAutomationService",
+      "attribute_name": "_runs",
+      "collection_type": "list",
+      "line": 51,
+      "column": 4,
+      "classification": "shared-class-state",
+      "recommendation": "Likely intentional shared state because the class defines classmethods; review before annotating as ClassVar."
+    }
+  ],
+  "syntax_failures": []
+}

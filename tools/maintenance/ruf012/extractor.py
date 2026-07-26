@@ -36,7 +36,7 @@ class ExtractedCandidate:
     attribute_name: str
     line_number: int
     column_offset: int
-    classification: str
+    classification: CandidateClassification
     value_kind: MutableValueKind
     reason: str
 
@@ -261,7 +261,7 @@ class RUF012CandidateExtractor:
             attribute_name=target.id,
             line_number=statement.lineno,
             column_offset=statement.col_offset,
-            classification=classification.value,
+            classification=classification,
             value_kind=value_kind,
             reason=reason,
         )

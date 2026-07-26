@@ -1,6 +1,16 @@
-#!/usr/bin/env python3
+"""
+Module entry point.
 
-from .cli import main
+Enables:
+
+    python -m tools.maintenance.ruf012
+"""
+
+from __future__ import annotations
+
+import sys
+
+from tools.maintenance.ruf012.cli import main
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    sys.exit(main())

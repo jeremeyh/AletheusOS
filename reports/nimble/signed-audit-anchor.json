@@ -1,7 +1,7 @@
 {
-  "anchor_hash": "b1c52861e17baea29a599026168e0b81b9d5df5e4efc78946211d09c68ac5803",
+  "anchor_hash": "62314ab948a0682e3df308538eaea0a67ea11756bf92583086d85ed82af222cf",
   "anchor_id": "nimble-signed-audit-anchor-v0.1",
-  "created_at": "2026-07-25T05:27:30.180587+00:00",
+  "created_at": "2026-07-25T05:53:08.028662+00:00",
   "integrity": {
     "algorithm": "sha256",
     "latest_pointer_hash": "da3827583cb7d48ff78f9b6cb3d8f916381db02f09c9f9d1d7e9115f554deed6"
