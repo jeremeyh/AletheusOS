@@ -1,11 +1,7 @@
-"""
-AletheusOS Runtime Bootstrap
-
-Version 5.0.0
-"""
-
-from .bootstrap_engine import BootstrapEngine
+from .runtime_bootstrap import RuntimeBootstrap
+from .runtime_manifest_builder import RuntimeManifestBuilder
 
 __all__ = [
-    "BootstrapEngine",
+    "RuntimeBootstrap",
+    "RuntimeManifestBuilder",
 ]

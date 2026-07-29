@@ -202,7 +202,6 @@ class RuntimeCommandAdapter:
             "result": result,
         }
 
-
     def selftest(self, context):
         health = self.runtime.runtime_facade.health()
 
@@ -227,7 +226,6 @@ class RuntimeCommandAdapter:
 
         return context
 
-
     def dashboard(self, context):
         health = self.runtime.runtime_facade.health()
 
@@ -247,7 +245,6 @@ class RuntimeCommandAdapter:
         )
 
         return context
-
 
     def snapshot(self, context):
         compatibility = {}
@@ -324,7 +321,6 @@ class RuntimeCommandAdapter:
 
         return context
 
-
     def audit(self, context):
         health = self.runtime.runtime_facade.health()
 
@@ -366,7 +362,6 @@ class RuntimeCommandAdapter:
         )
 
         return context
-
 
     def docs(self, context):
         from pathlib import Path
@@ -480,7 +475,7 @@ class RuntimeCommandAdapter:
         )
 
         if not callable(write_reports):
-            raise RuntimeError(
+            raise TypeError(
                 "Runtime health report writer does not expose "
                 "write_reports()."
             )
