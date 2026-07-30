@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-19T09:32:51.215966+00:00",
-  "health_score": 99.0,
+  "generated_at": "2026-07-30T08:30:47.027880+00:00",
+  "health_score": 100.0,
   "dimensions": {
     "organization": 100.0,
-    "policy": 96.0,
+    "policy": 100.0,
     "naming": 100.0,
     "drift": 100.0,
     "hygiene": 100.0
@@ -12,83 +12,23 @@
     "critical": 0,
     "error": 0,
     "warning": 0,
-    "policy": 8,
-    "info": 22
+    "policy": 0,
+    "info": 20
   },
-  "files": 9528,
-  "directories": 2516,
+  "files": 10083,
+  "directories": 2640,
   "drift": {
     "baseline": false,
-    "files_added": 1,
+    "files_added": 4,
     "files_removed": 0,
-    "directories_added": 2,
+    "directories_added": 0,
     "directories_removed": 0,
-    "root_entries_added": [
-      "archives"
-    ],
-    "root_entries_removed": [
-      "import"
-    ],
+    "root_entries_added": [],
+    "root_entries_removed": [],
     "manifest_changed": true
   },
-  "snapshot": "reports/repository/snapshots/repository-20260719T093251Z.json",
+  "snapshot": "reports/repository/snapshots/repository-20260730T083047Z.json",
   "findings": [
-    {
-      "severity": "policy",
-      "category": "classification",
-      "path": "__init__.py",
-      "message": "Protected artifact requires an explicit architecture decision: root-package-marker-review.",
-      "recommendation": "Keep in place until imports and entry-point ownership are verified."
-    },
-    {
-      "severity": "policy",
-      "category": "classification",
-      "path": "card_hawk_console.py",
-      "message": "Protected artifact requires an explicit architecture decision: application-console-entrypoint.",
-      "recommendation": "Keep in place until imports and entry-point ownership are verified."
-    },
-    {
-      "severity": "policy",
-      "category": "classification",
-      "path": "history.py",
-      "message": "Protected artifact requires an explicit architecture decision: repository-history-utility.",
-      "recommendation": "Keep in place until imports and entry-point ownership are verified."
-    },
-    {
-      "severity": "policy",
-      "category": "boundary",
-      "path": "event_bus ↔ eventbus",
-      "message": "Parallel namespaces may represent duplicate ownership or historical lineage.",
-      "recommendation": "Create an ADR identifying the canonical namespace and compatibility boundary."
-    },
-    {
-      "severity": "policy",
-      "category": "boundary",
-      "path": "backup ↔ backups",
-      "message": "Parallel namespaces may represent duplicate ownership or historical lineage.",
-      "recommendation": "Create an ADR identifying the canonical namespace and compatibility boundary."
-    },
-    {
-      "severity": "policy",
-      "category": "boundary",
-      "path": "card_hawk ↔ cardhawk",
-      "message": "Parallel namespaces may represent duplicate ownership or historical lineage.",
-      "recommendation": "Create an ADR identifying the canonical namespace and compatibility boundary."
-    },
-    {
-      "severity": "policy",
-      "category": "boundary",
-      "path": "workflow ↔ workflows",
-      "message": "Parallel namespaces may represent duplicate ownership or historical lineage.",
-      "recommendation": "Create an ADR identifying the canonical namespace and compatibility boundary."
-    },
-    {
-      "severity": "policy",
-      "category": "boundary",
-      "path": "engine ↔ engines",
-      "message": "Parallel namespaces may represent duplicate ownership or historical lineage.",
-      "recommendation": "Create an ADR identifying the canonical namespace and compatibility boundary."
-    },
     {
       "severity": "info",
       "category": "boundary",
@@ -148,13 +88,6 @@
     {
       "severity": "info",
       "category": "hygiene",
-      "path": "workspace",
-      "message": "Empty directory detected.",
-      "recommendation": "Remove it if it is not an intentional namespace placeholder."
-    },
-    {
-      "severity": "info",
-      "category": "hygiene",
       "path": "runtime/cache",
       "message": "Empty directory detected.",
       "recommendation": "Remove it if it is not an intentional namespace placeholder."
@@ -162,86 +95,79 @@
     {
       "severity": "info",
       "category": "hygiene",
-      "path": "tests/platform_intelligence/constitutional_runtime_observatory",
+      "path": "tests/span/repository_steward",
       "message": "Empty directory detected.",
       "recommendation": "Remove it if it is not an intentional namespace placeholder."
     },
     {
       "severity": "info",
       "category": "hygiene",
-      "path": ".runtime/certificates",
+      "path": "tests/span/architectural_twin/runtime",
       "message": "Empty directory detected.",
       "recommendation": "Remove it if it is not an intentional namespace placeholder."
     },
     {
       "severity": "info",
       "category": "hygiene",
-      "path": "docs/decisions",
+      "path": "aletheus/span/repository_steward",
       "message": "Empty directory detected.",
       "recommendation": "Remove it if it is not an intentional namespace placeholder."
     },
     {
       "severity": "info",
       "category": "hygiene",
-      "path": "docs/implementation",
+      "path": "aletheus/span/architectural_twin/runtime",
       "message": "Empty directory detected.",
       "recommendation": "Remove it if it is not an intentional namespace placeholder."
     },
     {
       "severity": "info",
       "category": "hygiene",
-      "path": "docs/governance",
+      "path": "...",
       "message": "Empty directory detected.",
       "recommendation": "Remove it if it is not an intentional namespace placeholder."
     },
     {
       "severity": "info",
       "category": "hygiene",
-      "path": "exports/csv",
+      "path": "reports/span/backups/analyzer_loader_20260719T105309Z",
       "message": "Empty directory detected.",
       "recommendation": "Remove it if it is not an intentional namespace placeholder."
     },
     {
       "severity": "info",
       "category": "hygiene",
-      "path": "exports/reports",
+      "path": "reports/span/backups/bootstrap_20260719T105436Z",
       "message": "Empty directory detected.",
       "recommendation": "Remove it if it is not an intentional namespace placeholder."
     },
     {
       "severity": "info",
       "category": "hygiene",
-      "path": "Genesis10_Work_Organization/01_repository_intelligence/docs",
+      "path": "reports/span/backups/rule_loader_20260719T114047Z",
       "message": "Empty directory detected.",
       "recommendation": "Remove it if it is not an intentional namespace placeholder."
     },
     {
       "severity": "info",
       "category": "hygiene",
-      "path": "nimble/visualization",
+      "path": "reports/span/backups/rule_engine_20260719T110403Z",
       "message": "Empty directory detected.",
       "recommendation": "Remove it if it is not an intentional namespace placeholder."
     },
     {
       "severity": "info",
       "category": "hygiene",
-      "path": "nimble/reference-shell/tests",
+      "path": "reports/span/backups/integration_20260719T110548Z",
       "message": "Empty directory detected.",
       "recommendation": "Remove it if it is not an intentional namespace placeholder."
     },
     {
       "severity": "info",
       "category": "hygiene",
-      "path": "watch_tower/reports",
+      "path": "reports/span/backups/provider_loader_20260719T104949Z",
       "message": "Empty directory detected.",
       "recommendation": "Remove it if it is not an intentional namespace placeholder."
-    },
-    {
-      "severity": "info",
-      "category": "drift",
-      "path": "repository-root",
-      "message": "New root entries detected: archives",
-      "recommendation": "Review whether each new root entry is constitutionally permitted."
     }
   ]
 }

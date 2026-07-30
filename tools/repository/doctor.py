@@ -128,6 +128,10 @@ def root_findings(root: Path, policy: dict[str, Any]) -> list[Finding]:
     )
     ignored_files = normalized_set(policy, "ignored_files")
     protected = normalized_set(policy, "protected_root_files")
+    approved_protected = normalized_set(
+        policy,
+        "approved_protected_root_files",
+    )
     classifications = policy.get("root_file_classifications", {})
     deterministic = policy.get("deterministic_moves", {})
 
@@ -177,6 +181,8 @@ def root_findings(root: Path, policy: dict[str, Any]) -> list[Finding]:
             continue
 
         if name in protected:
+            if name in approved_protected:
+                continue
             classification = classifications.get(name, "protected-root-review")
             findings.append(
                 Finding(
@@ -213,7 +219,10 @@ def root_findings(root: Path, policy: dict[str, Any]) -> list[Finding]:
     return findings
 
 
-def namespace_findings(root: Path) -> list[Finding]:
+def namespace_findings(
+    root: Path,
+    policy: dict[str, Any],
+) -> list[Finding]:
     findings: list[Finding] = []
 
     duplicate_pairs = [
@@ -224,7 +233,14 @@ def namespace_findings(root: Path) -> list[Finding]:
         ("engine", "engines"),
     ]
 
+    approved_pairs = {
+        tuple(pair)
+        for pair in policy.get("approved_namespace_pairs", [])
+    }
+
     for left, right in duplicate_pairs:
+        if (left, right) in approved_pairs:
+            continue
         if (root / left).exists() and (root / right).exists():
             findings.append(
                 Finding(
@@ -535,7 +551,7 @@ def run_doctor(
     directories = sum(1 for item in entries if item.is_dir())
 
     findings = root_findings(REPOSITORY_ROOT, policy)
-    findings.extend(namespace_findings(REPOSITORY_ROOT))
+    findings.extend(namespace_findings(REPOSITORY_ROOT, policy))
     findings.extend(empty_directory_findings(REPOSITORY_ROOT, ignored_directories))
 
     snapshot = build_snapshot(REPOSITORY_ROOT, entries, files, directories)

@@ -1,9 +1,30 @@
 #!/usr/bin/env bash
 set -euo pipefail
+
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+PYTHON="${PYTHON:-$(command -v python)}"
+
 case "${1:-doctor}" in
-  doctor) shift || true; exec python3 "$ROOT/tools/repository/doctor.py" --root "$ROOT" "$@" ;;
-  test) shift || true; cd "$ROOT"; exec python3 -m pytest "$@" ;;
-  compile) shift || true; cd "$ROOT"; exec python3 -m compileall -q aletheus "$@" ;;
-  *) echo "Usage: tools/aletheus {doctor|test|compile}" >&2; exit 2 ;;
+  doctor)
+    shift || true
+    cd "$ROOT"
+    exec "$PYTHON" "$ROOT/tools/repository/doctor.py" "$@"
+    ;;
+
+  test)
+    shift || true
+    cd "$ROOT"
+    exec "$PYTHON" -m pytest "$@"
+    ;;
+
+  compile)
+    shift || true
+    cd "$ROOT"
+    exec "$PYTHON" -m compileall -q aletheus "$@"
+    ;;
+
+  *)
+    echo "Usage: tools/aletheus {doctor|test|compile}" >&2
+    exit 2
+    ;;
 esac

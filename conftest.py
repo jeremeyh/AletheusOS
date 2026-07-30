@@ -1,17 +1,11 @@
-import os
-import sys
+"""
+Repository-wide pytest configuration.
 
-print("\n========== PYTEST IMPORT DEBUG ==========")
-print("Executable:", sys.executable)
-print("CWD:", os.getcwd())
-print("sys.path:")
-for i, p in enumerate(sys.path):
-    print(f"{i:2}: {p}")
+This file intentionally exists at the repository root because pytest
+discovers it automatically. It provides a canonical location for future
+fixtures, hooks, markers, and repository-wide pytest configuration.
 
-try:
-    import nimble
-    print("nimble:", nimble.__file__)
-except Exception as e:
-    print("nimble import failed:", repr(e))
+The previous temporary import-debug helper has been retired.
+"""
 
-print("=========================================\n")
+# Intentionally minimal.

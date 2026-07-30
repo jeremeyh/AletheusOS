@@ -1,22 +1,22 @@
 # AletheusOS Repository Health
 
-Generated: `2026-07-19T09:32:51.215966+00:00`
+Generated: `2026-07-30T08:30:47.027880+00:00`
 
 ## Summary
 
-- Overall health: **99.00%**
-- Files: **9528**
-- Directories: **2516**
+- Overall health: **100.00%**
+- Files: **10083**
+- Directories: **2640**
 - Errors: **0**
 - Warnings: **0**
-- Policy findings: **8**
+- Policy findings: **0**
 
 ## Health Dimensions
 
 | Dimension | Score |
 |---|---:|
 | Organization | 100.00% |
-| Policy | 96.00% |
+| Policy | 100.00% |
 | Naming | 100.00% |
 | Drift | 100.00% |
 | Hygiene | 100.00% |
@@ -24,60 +24,12 @@ Generated: `2026-07-19T09:32:51.215966+00:00`
 ## Repository Drift
 
 - Baseline snapshot: **False**
-- Files added: **1**
+- Files added: **4**
 - Files removed: **0**
-- Directories added: **2**
+- Directories added: **0**
 - Directories removed: **0**
 
 ## Findings
-
-### POLICY — `__init__.py`
-
-- Category: `classification`
-- Finding: Protected artifact requires an explicit architecture decision: root-package-marker-review.
-- Recommendation: Keep in place until imports and entry-point ownership are verified.
-
-### POLICY — `card_hawk_console.py`
-
-- Category: `classification`
-- Finding: Protected artifact requires an explicit architecture decision: application-console-entrypoint.
-- Recommendation: Keep in place until imports and entry-point ownership are verified.
-
-### POLICY — `history.py`
-
-- Category: `classification`
-- Finding: Protected artifact requires an explicit architecture decision: repository-history-utility.
-- Recommendation: Keep in place until imports and entry-point ownership are verified.
-
-### POLICY — `event_bus ↔ eventbus`
-
-- Category: `boundary`
-- Finding: Parallel namespaces may represent duplicate ownership or historical lineage.
-- Recommendation: Create an ADR identifying the canonical namespace and compatibility boundary.
-
-### POLICY — `backup ↔ backups`
-
-- Category: `boundary`
-- Finding: Parallel namespaces may represent duplicate ownership or historical lineage.
-- Recommendation: Create an ADR identifying the canonical namespace and compatibility boundary.
-
-### POLICY — `card_hawk ↔ cardhawk`
-
-- Category: `boundary`
-- Finding: Parallel namespaces may represent duplicate ownership or historical lineage.
-- Recommendation: Create an ADR identifying the canonical namespace and compatibility boundary.
-
-### POLICY — `workflow ↔ workflows`
-
-- Category: `boundary`
-- Finding: Parallel namespaces may represent duplicate ownership or historical lineage.
-- Recommendation: Create an ADR identifying the canonical namespace and compatibility boundary.
-
-### POLICY — `engine ↔ engines`
-
-- Category: `boundary`
-- Finding: Parallel namespaces may represent duplicate ownership or historical lineage.
-- Recommendation: Create an ADR identifying the canonical namespace and compatibility boundary.
 
 ### INFO — `architecture`
 
@@ -127,86 +79,74 @@ Generated: `2026-07-19T09:32:51.215966+00:00`
 - Finding: Empty directory detected.
 - Recommendation: Remove it if it is not an intentional namespace placeholder.
 
-### INFO — `workspace`
-
-- Category: `hygiene`
-- Finding: Empty directory detected.
-- Recommendation: Remove it if it is not an intentional namespace placeholder.
-
 ### INFO — `runtime/cache`
 
 - Category: `hygiene`
 - Finding: Empty directory detected.
 - Recommendation: Remove it if it is not an intentional namespace placeholder.
 
-### INFO — `tests/platform_intelligence/constitutional_runtime_observatory`
+### INFO — `tests/span/repository_steward`
 
 - Category: `hygiene`
 - Finding: Empty directory detected.
 - Recommendation: Remove it if it is not an intentional namespace placeholder.
 
-### INFO — `.runtime/certificates`
+### INFO — `tests/span/architectural_twin/runtime`
 
 - Category: `hygiene`
 - Finding: Empty directory detected.
 - Recommendation: Remove it if it is not an intentional namespace placeholder.
 
-### INFO — `docs/decisions`
+### INFO — `aletheus/span/repository_steward`
 
 - Category: `hygiene`
 - Finding: Empty directory detected.
 - Recommendation: Remove it if it is not an intentional namespace placeholder.
 
-### INFO — `docs/implementation`
+### INFO — `aletheus/span/architectural_twin/runtime`
 
 - Category: `hygiene`
 - Finding: Empty directory detected.
 - Recommendation: Remove it if it is not an intentional namespace placeholder.
 
-### INFO — `docs/governance`
+### INFO — `...`
 
 - Category: `hygiene`
 - Finding: Empty directory detected.
 - Recommendation: Remove it if it is not an intentional namespace placeholder.
 
-### INFO — `exports/csv`
+### INFO — `reports/span/backups/analyzer_loader_20260719T105309Z`
 
 - Category: `hygiene`
 - Finding: Empty directory detected.
 - Recommendation: Remove it if it is not an intentional namespace placeholder.
 
-### INFO — `exports/reports`
+### INFO — `reports/span/backups/bootstrap_20260719T105436Z`
 
 - Category: `hygiene`
 - Finding: Empty directory detected.
 - Recommendation: Remove it if it is not an intentional namespace placeholder.
 
-### INFO — `Genesis10_Work_Organization/01_repository_intelligence/docs`
+### INFO — `reports/span/backups/rule_loader_20260719T114047Z`
 
 - Category: `hygiene`
 - Finding: Empty directory detected.
 - Recommendation: Remove it if it is not an intentional namespace placeholder.
 
-### INFO — `nimble/visualization`
+### INFO — `reports/span/backups/rule_engine_20260719T110403Z`
 
 - Category: `hygiene`
 - Finding: Empty directory detected.
 - Recommendation: Remove it if it is not an intentional namespace placeholder.
 
-### INFO — `nimble/reference-shell/tests`
+### INFO — `reports/span/backups/integration_20260719T110548Z`
 
 - Category: `hygiene`
 - Finding: Empty directory detected.
 - Recommendation: Remove it if it is not an intentional namespace placeholder.
 
-### INFO — `watch_tower/reports`
+### INFO — `reports/span/backups/provider_loader_20260719T104949Z`
 
 - Category: `hygiene`
 - Finding: Empty directory detected.
 - Recommendation: Remove it if it is not an intentional namespace placeholder.
-
-### INFO — `repository-root`
-
-- Category: `drift`
-- Finding: New root entries detected: archives
-- Recommendation: Review whether each new root entry is constitutionally permitted.

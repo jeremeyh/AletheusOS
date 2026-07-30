@@ -1,7 +1,7 @@
 [
   {
     "application_id": "cardhawk.foundation",
-    "app_runtime_id": "decd5d7d-9e42-4b8b-a74f-f1289991c1cd",
+    "app_runtime_id": "15ab163e-a044-4d05-a816-6fe00ddd3dd5",
     "name": "Card Hawk Foundation\u2122",
     "version": "2.0.0-beta",
     "status": "running",
@@ -135,59 +135,59 @@
             ]
           }
         },
-        "event_id": "62b06735-978f-4eea-ba1a-7aa3b369af3b",
-        "created_at": "2026-07-29T23:03:48.514353+00:00"
+        "event_id": "63afd40e-2ed7-46f2-ac72-23c7f8bf160a",
+        "created_at": "2026-07-29T23:53:19.387808+00:00"
       },
       {
         "app_id": "cardhawk.foundation",
         "event_type": "application.started",
         "message": "Card Hawk Foundation\u2122 started.",
         "payload": {},
-        "event_id": "99f04761-71f0-437c-ad84-6ee7ea070420",
-        "created_at": "2026-07-29T23:03:48.514362+00:00"
+        "event_id": "f6913f92-cf88-4c0f-b0de-f46eebb6a168",
+        "created_at": "2026-07-29T23:53:19.387817+00:00"
       },
       {
         "app_id": "cardhawk.foundation",
         "event_type": "application.started",
         "message": "Card Hawk Foundation\u2122 started.",
         "payload": {},
-        "event_id": "66940cbe-2afd-4450-82a9-524fcd161602",
-        "created_at": "2026-07-29T23:05:27.732680+00:00"
+        "event_id": "f8f67919-184d-46cb-83b1-8a3060a80278",
+        "created_at": "2026-07-29T23:55:01.430945+00:00"
       },
       {
         "app_id": "cardhawk.foundation",
         "event_type": "application.heartbeat",
         "message": "Card Hawk Foundation\u2122 heartbeat recorded.",
         "payload": {},
-        "event_id": "b1058ed4-ff12-482c-a193-97653538a8c6",
-        "created_at": "2026-07-29T23:05:27.732698+00:00"
+        "event_id": "a3907db4-abba-4e59-8412-01103898a524",
+        "created_at": "2026-07-29T23:55:01.430967+00:00"
       },
       {
         "app_id": "cardhawk.foundation",
         "event_type": "application.stopped",
         "message": "Card Hawk Foundation\u2122 stopped.",
         "payload": {},
-        "event_id": "661767cd-d36f-4651-9529-a5808665ed83",
-        "created_at": "2026-07-29T23:05:27.760220+00:00"
+        "event_id": "5ed5baf1-3a67-40ce-a002-97c63a0cab9a",
+        "created_at": "2026-07-29T23:55:01.462717+00:00"
       },
       {
         "app_id": "cardhawk.foundation",
         "event_type": "application.started",
         "message": "Card Hawk Foundation\u2122 started.",
         "payload": {},
-        "event_id": "24dc6296-2a45-4967-ba8b-c79abe6caad7",
-        "created_at": "2026-07-29T23:05:27.760296+00:00"
+        "event_id": "8700c722-9c68-4d6a-a856-e660b68d1d00",
+        "created_at": "2026-07-29T23:55:01.462788+00:00"
       }
     ],
     "event_count": 6,
-    "installed_at": "2026-07-29T23:03:48.514342+00:00",
-    "started_at": "2026-07-29T23:05:27.760290+00:00",
-    "stopped_at": "2026-07-29T23:05:27.760216+00:00",
-    "last_heartbeat": "2026-07-29T23:05:27.760291+00:00"
+    "installed_at": "2026-07-29T23:53:19.387789+00:00",
+    "started_at": "2026-07-29T23:55:01.462784+00:00",
+    "stopped_at": "2026-07-29T23:55:01.462713+00:00",
+    "last_heartbeat": "2026-07-29T23:55:01.462785+00:00"
   },
   {
     "application_id": "cardhawk.asset_vault",
-    "app_runtime_id": "1417b316-cf20-4743-b035-00033704cb95",
+    "app_runtime_id": "840c5746-1ace-4ada-ac27-3e075bfdddb4",
     "name": "Asset Vault",
     "version": "2.0.0-beta",
     "status": "running",
@@ -279,27 +279,27 @@
             ]
           }
         },
-        "event_id": "49dba178-65b0-46f5-9bca-d607a5bd6195",
-        "created_at": "2026-07-29T23:05:27.759094+00:00"
+        "event_id": "08df78c7-4147-4144-b7b8-69057171d4b2",
+        "created_at": "2026-07-29T23:55:01.461403+00:00"
       },
       {
         "app_id": "cardhawk.asset_vault",
         "event_type": "application.started",
         "message": "Asset Vault started.",
         "payload": {},
-        "event_id": "b17463c2-b10d-4232-944f-d08312fab2d7",
-        "created_at": "2026-07-29T23:05:27.759100+00:00"
+        "event_id": "7267253e-686e-497e-916d-d1dde8a01dd5",
+        "created_at": "2026-07-29T23:55:01.461409+00:00"
       }
     ],
     "event_count": 2,
-    "installed_at": "2026-07-29T23:05:27.759087+00:00",
-    "started_at": "2026-07-29T23:05:27.759096+00:00",
+    "installed_at": "2026-07-29T23:55:01.461398+00:00",
+    "started_at": "2026-07-29T23:55:01.461405+00:00",
     "stopped_at": null,
-    "last_heartbeat": "2026-07-29T23:05:27.759097+00:00"
+    "last_heartbeat": "2026-07-29T23:55:01.461406+00:00"
   },
   {
     "application_id": "cardhawk.portfolio",
-    "app_runtime_id": "72a89ee3-c741-43e4-831f-d3e595390334",
+    "app_runtime_id": "db550ace-7232-4590-9011-5641f1e96e6f",
     "name": "Portfolio Engine",
     "version": "2.0.0-beta",
     "status": "running",
@@ -385,27 +385,27 @@
             ]
           }
         },
-        "event_id": "6267c32a-b3fa-4677-b4b5-32432479cc8f",
-        "created_at": "2026-07-29T23:05:27.759110+00:00"
+        "event_id": "f5b138bf-7bdf-40ec-b452-4da86cb3a6bd",
+        "created_at": "2026-07-29T23:55:01.461418+00:00"
       },
       {
         "app_id": "cardhawk.portfolio",
         "event_type": "application.started",
         "message": "Portfolio Engine started.",
         "payload": {},
-        "event_id": "23cdb335-b9e8-4fbd-a015-b6c294133814",
-        "created_at": "2026-07-29T23:05:27.759116+00:00"
+        "event_id": "e2131c44-f00b-497b-9e71-3f56e6d21283",
+        "created_at": "2026-07-29T23:55:01.461423+00:00"
       }
     ],
     "event_count": 2,
-    "installed_at": "2026-07-29T23:05:27.759106+00:00",
-    "started_at": "2026-07-29T23:05:27.759111+00:00",
+    "installed_at": "2026-07-29T23:55:01.461415+00:00",
+    "started_at": "2026-07-29T23:55:01.461419+00:00",
     "stopped_at": null,
-    "last_heartbeat": "2026-07-29T23:05:27.759112+00:00"
+    "last_heartbeat": "2026-07-29T23:55:01.461420+00:00"
   },
   {
     "application_id": "cardhawk.marketplace",
-    "app_runtime_id": "95551169-a5b9-483a-ac93-0e1ae61e86e1",
+    "app_runtime_id": "9dcb5529-a439-44f6-904d-b1a1b277acdb",
     "name": "Marketplace Intelligence",
     "version": "2.0.0-beta",
     "status": "running",
@@ -497,27 +497,27 @@
             ]
           }
         },
-        "event_id": "2b7b0d44-7197-40bc-a0b1-ebaeb943cd1f",
-        "created_at": "2026-07-29T23:05:27.759124+00:00"
+        "event_id": "045d2388-3c46-4cff-a4a2-9c3a1249b613",
+        "created_at": "2026-07-29T23:55:01.461431+00:00"
       },
       {
         "app_id": "cardhawk.marketplace",
         "event_type": "application.started",
         "message": "Marketplace Intelligence started.",
         "payload": {},
-        "event_id": "bc23ebd9-ce45-4147-84ae-3ad022b5030a",
-        "created_at": "2026-07-29T23:05:27.759129+00:00"
+        "event_id": "57380ae9-c84b-4884-aaf0-1884db663ecf",
+        "created_at": "2026-07-29T23:55:01.461436+00:00"
       }
     ],
     "event_count": 2,
-    "installed_at": "2026-07-29T23:05:27.759120+00:00",
-    "started_at": "2026-07-29T23:05:27.759125+00:00",
+    "installed_at": "2026-07-29T23:55:01.461428+00:00",
+    "started_at": "2026-07-29T23:55:01.461432+00:00",
     "stopped_at": null,
-    "last_heartbeat": "2026-07-29T23:05:27.759126+00:00"
+    "last_heartbeat": "2026-07-29T23:55:01.461433+00:00"
   },
   {
     "application_id": "cardhawk.thorx",
-    "app_runtime_id": "ba15fc5d-dced-4215-a363-8e1ae3409d37",
+    "app_runtime_id": "2f2f2647-8eed-4ef0-ac2e-cc653d8eb5f5",
     "name": "THOR\u1d61",
     "version": "2.0.0-beta",
     "status": "running",
@@ -594,27 +594,27 @@
             ]
           }
         },
-        "event_id": "f19b2a73-38a2-4c7b-b37e-4a19c7d2c118",
-        "created_at": "2026-07-29T23:05:27.759138+00:00"
+        "event_id": "41fe3433-2805-41bb-8c54-404370c2e124",
+        "created_at": "2026-07-29T23:55:01.461444+00:00"
       },
       {
         "app_id": "cardhawk.thorx",
         "event_type": "application.started",
         "message": "THOR\u1d61 started.",
         "payload": {},
-        "event_id": "aa26f738-6307-4fb3-befe-3202b5cc03c5",
-        "created_at": "2026-07-29T23:05:27.759143+00:00"
+        "event_id": "466649ad-6b2e-4f4e-8711-be53e550dbb0",
+        "created_at": "2026-07-29T23:55:01.461449+00:00"
       }
     ],
     "event_count": 2,
-    "installed_at": "2026-07-29T23:05:27.759134+00:00",
-    "started_at": "2026-07-29T23:05:27.759139+00:00",
+    "installed_at": "2026-07-29T23:55:01.461441+00:00",
+    "started_at": "2026-07-29T23:55:01.461445+00:00",
     "stopped_at": null,
-    "last_heartbeat": "2026-07-29T23:05:27.759140+00:00"
+    "last_heartbeat": "2026-07-29T23:55:01.461446+00:00"
   },
   {
     "application_id": "cardhawk.hawk_aeye",
-    "app_runtime_id": "d504fce6-55f3-44e8-8efc-6686f6780e46",
+    "app_runtime_id": "69e74ab2-de47-4d85-9522-4ab350d900b4",
     "name": "Hawk A\u2022Eye\u2122",
     "version": "2.0.0-beta",
     "status": "running",
@@ -691,22 +691,22 @@
             ]
           }
         },
-        "event_id": "bcffc14b-2a38-4afa-b233-f9da2e826343",
-        "created_at": "2026-07-29T23:05:27.759151+00:00"
+        "event_id": "28156acc-c1e6-46ee-884c-42b6778169cf",
+        "created_at": "2026-07-29T23:55:01.461456+00:00"
       },
       {
         "app_id": "cardhawk.hawk_aeye",
         "event_type": "application.started",
         "message": "Hawk A\u2022Eye\u2122 started.",
         "payload": {},
-        "event_id": "78589e75-2134-4c34-8d39-74253a329b68",
-        "created_at": "2026-07-29T23:05:27.759156+00:00"
+        "event_id": "e5acfdeb-b12d-439a-995d-880d9d8394df",
+        "created_at": "2026-07-29T23:55:01.461461+00:00"
       }
     ],
     "event_count": 2,
-    "installed_at": "2026-07-29T23:05:27.759147+00:00",
-    "started_at": "2026-07-29T23:05:27.759152+00:00",
+    "installed_at": "2026-07-29T23:55:01.461453+00:00",
+    "started_at": "2026-07-29T23:55:01.461457+00:00",
     "stopped_at": null,
-    "last_heartbeat": "2026-07-29T23:05:27.759153+00:00"
+    "last_heartbeat": "2026-07-29T23:55:01.461458+00:00"
   }
 ]

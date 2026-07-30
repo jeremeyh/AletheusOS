@@ -1,7 +1,6 @@
 {
   "schema_version": "1.0",
   "repository_name": "AletheusOS",
-
   "allowed_root_documents": [
     "README.md",
     "LICENSE",
@@ -15,7 +14,6 @@
     "MIGRATION.md",
     "RUNTIME_DOCUMENTATION.md"
   ],
-
   "allowed_root_configuration": [
     ".gitignore",
     ".dockerignore",
@@ -32,16 +30,38 @@
     "release_manifest.json",
     "VERSION"
   ],
-
   "allowed_root_entrypoints": [
     "app.py",
     "run.py",
     "manage.py",
+    "conftest.py",
     "run_aletheus_founder_console.py",
     "run_aletheus_system_test.sh",
-    "run_repository_self_repair.sh"
+    "run_repository_self_repair.sh",
+    "append_nimble_audit_event.py",
+    "collect_nimble_production_telemetry.py",
+    "generate_nimble_dependency_manifest.py",
+    "generate_nimble_release_attestation.py",
+    "plan_nimble_audit_recovery.py",
+    "promote_nimble_performance_baseline.py",
+    "reconcile_nimble_dependency_exceptions.py",
+    "scan_nimble_dependency_risk.py",
+    "test_nimble_audit_ledger_tamper.py",
+    "validate_nimble_baseline_governance.py",
+    "validate_nimble_container_contract.py",
+    "validate_nimble_credential_isolation.py",
+    "validate_nimble_credential_rotation.py",
+    "validate_nimble_dependency_exceptions.py",
+    "validate_nimble_dependency_manifest.py",
+    "validate_nimble_dependency_risk.py",
+    "validate_nimble_experience_core.py",
+    "validate_nimble_instrumentation_preview.py",
+    "validate_nimble_performance_regression.py",
+    "validate_nimble_primitive_experience.py",
+    "validate_nimble_provider_preflight.py",
+    "validate_nimble_release_attestation.py",
+    "validate_nimble_workspace_engine.py"
   ],
-
   "ignored_directories": [
     ".git",
     ".venv",
@@ -56,12 +76,10 @@
     "logs",
     "uploads"
   ],
-
   "ignored_files": [
     ".DS_Store",
     ".coverage"
   ],
-
   "deterministic_moves": {
     "AletheusOS_Repository_Self_Repair_SHA256.txt": "docs/repository/AletheusOS_Repository_Self_Repair_SHA256.txt",
     "remove_safe_empty_directories.py": "tools/cleanup/remove_safe_empty_directories.py",
@@ -69,13 +87,11 @@
     "inventory_summary.sh": "tools/reporting/inventory_summary.sh",
     "import_streamlit.py": "tools/bootstrap/import_streamlit.py"
   },
-
   "protected_root_files": [
     "__init__.py",
     "card_hawk_console.py",
     "history.py"
   ],
-
   "root_file_classifications": {
     "__init__.py": "root-package-marker-review",
     "card_hawk_console.py": "application-console-entrypoint",
@@ -84,7 +100,6 @@
     "inventory_summary.sh": "reporting-utility",
     "import_streamlit.py": "bootstrap-helper"
   },
-
   "severity_weights": {
     "critical": 20.0,
     "error": 5.0,
@@ -92,12 +107,37 @@
     "policy": 0.5,
     "info": 0.0
   },
-
   "health_dimensions": {
-    "organization": 0.30,
+    "organization": 0.3,
     "policy": 0.25,
     "naming": 0.15,
     "drift": 0.15,
     "hygiene": 0.15
-  }
+  },
+  "approved_protected_root_files": [
+    "card_hawk_console.py",
+    "history.py"
+  ],
+  "approved_namespace_pairs": [
+    [
+      "event_bus",
+      "eventbus"
+    ],
+    [
+      "backup",
+      "backups"
+    ],
+    [
+      "card_hawk",
+      "cardhawk"
+    ],
+    [
+      "workflow",
+      "workflows"
+    ],
+    [
+      "engine",
+      "engines"
+    ]
+  ]
 }
