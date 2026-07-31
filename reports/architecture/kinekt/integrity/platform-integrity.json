@@ -1,0 +1,59 @@
+{
+  "dimensions": [
+    {
+      "deductions": [],
+      "name": "syntax",
+      "score": 100.0,
+      "status": "healthy"
+    },
+    {
+      "deductions": [
+        "1 boundary violation(s)"
+      ],
+      "name": "boundaries",
+      "score": 90,
+      "status": "healthy"
+    },
+    {
+      "deductions": [
+        "199 exact structural duplicate(s)"
+      ],
+      "name": "duplication",
+      "score": 0.0,
+      "status": "critical"
+    },
+    {
+      "deductions": [
+        "3429 orphan candidate(s)"
+      ],
+      "name": "reachability",
+      "score": 0.0,
+      "status": "critical"
+    },
+    {
+      "deductions": [
+        "0 critical",
+        "1 high",
+        "199 medium"
+      ],
+      "name": "resolution",
+      "score": 0.0,
+      "status": "critical"
+    },
+    {
+      "deductions": [
+        "Average package health is 88.89"
+      ],
+      "name": "package_health",
+      "score": 88.89,
+      "status": "watch"
+    }
+  ],
+  "generated_at": "2026-07-31T23:01:28.490180+00:00",
+  "previous_score": null,
+  "source_repository_report": "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/repository-intelligence.json",
+  "source_resolution_report": "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/finding-resolution.json",
+  "status": "critical",
+  "total_score": 46.48,
+  "trend": "baseline"
+}
