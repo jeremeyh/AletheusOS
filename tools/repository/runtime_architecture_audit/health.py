@@ -7,6 +7,7 @@ MAXIMUM_DEDUCTIONS = {
     "dependency_cycles": 30,
     "legacy_references": 25,
     "ownership_errors": 20,
+    "boundary_violations": 30,
     "other_errors": 20,
     "warnings": 15,
 }
@@ -32,7 +33,9 @@ def _grade(score: int) -> str:
     return "F"
 
 
-def calculate_health(report: AuditReport) -> ArchitectureHealth:
+def calculate_health(
+    report: AuditReport,
+) -> ArchitectureHealth:
     """Calculate a transparent architecture-health score."""
 
     syntax_errors = sum(
@@ -50,22 +53,28 @@ def calculate_health(report: AuditReport) -> ArchitectureHealth:
         for finding in report.findings
     )
 
-    categorized_error_ids = {
-        id(finding)
-        for finding in report.findings
-        if finding.severity == "error"
-        and finding.category
+    boundary_errors = sum(
+        finding.category
         in {
-            "syntax",
-            "dependency_cycle",
-            "legacy_runtime",
-            "kernel_ownership",
-            "boot_pipeline_ownership",
+            "forbidden_dependency",
+            "upward_dependency",
         }
+        and finding.severity == "error"
+        for finding in report.findings
+    )
+
+    special_categories = {
+        "syntax",
+        "dependency_cycle",
+        "legacy_runtime",
+        "kernel_ownership",
+        "boot_pipeline_ownership",
+        "forbidden_dependency",
+        "upward_dependency",
     }
 
     other_errors = sum(
-        finding.severity == "error" and id(finding) not in categorized_error_ids
+        finding.severity == "error" and finding.category not in special_categories
         for finding in report.findings
     )
 
@@ -86,6 +95,10 @@ def calculate_health(report: AuditReport) -> ArchitectureHealth:
             ownership_errors * 10,
             MAXIMUM_DEDUCTIONS["ownership_errors"],
         ),
+        "boundary_violations": _bounded(
+            boundary_errors * 5,
+            MAXIMUM_DEDUCTIONS["boundary_violations"],
+        ),
         "other_errors": _bounded(
             other_errors * 5,
             MAXIMUM_DEDUCTIONS["other_errors"],
@@ -96,29 +109,31 @@ def calculate_health(report: AuditReport) -> ArchitectureHealth:
         ),
     }
 
-    score = max(0, 100 - sum(deductions.values()))
+    score = max(
+        0,
+        100 - sum(deductions.values()),
+    )
 
     internal_edges = sum(edge.internal for edge in report.imports)
-
-    metrics: dict[str, int | float | str | None] = {
-        "modules": len(report.modules),
-        "total_lines": sum(module.lines for module in report.modules),
-        "internal_import_edges": internal_edges,
-        "dependency_cycles": len(report.dependency_cycles),
-        "orphan_modules": len(report.orphan_modules),
-        "kernel_constructors": len(report.kernel_constructors),
-        "boot_pipeline_paths": len(report.boot_pipeline_calls),
-        "legacy_references": len(report.legacy_references),
-        "errors": report.errors,
-        "warnings": report.warnings,
-        "infos": report.infos,
-    }
 
     health = ArchitectureHealth(
         score=score,
         grade=_grade(score),
         deductions=deductions,
-        metrics=metrics,
+        metrics={
+            "modules": len(report.modules),
+            "total_lines": sum(module.lines for module in report.modules),
+            "internal_import_edges": internal_edges,
+            "dependency_cycles": len(report.dependency_cycles),
+            "orphan_modules": len(report.orphan_modules),
+            "boundary_violations": len(report.boundary_violations),
+            "kernel_constructors": len(report.kernel_constructors),
+            "boot_pipeline_paths": len(report.boot_pipeline_calls),
+            "legacy_references": len(report.legacy_references),
+            "errors": report.errors,
+            "warnings": report.warnings,
+            "infos": report.infos,
+        },
     )
 
     report.health = health

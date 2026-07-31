@@ -84,11 +84,17 @@ class AuditReport:
     modules: list[RuntimeModule] = field(default_factory=list)
     parsed_modules: list[ParsedRuntimeModule] = field(default_factory=list)
     imports: list[ImportEdge] = field(default_factory=list)
+
     kernel_constructors: list[CallSite] = field(default_factory=list)
     boot_pipeline_calls: list[CallSite] = field(default_factory=list)
     legacy_references: list[CallSite] = field(default_factory=list)
+
     dependency_cycles: list[list[str]] = field(default_factory=list)
     orphan_modules: list[str] = field(default_factory=list)
+
+    boundary_violations: list[Any] = field(default_factory=list)
+    coupling_metrics: list[Any] = field(default_factory=list)
+
     findings: list[AuditFinding] = field(default_factory=list)
     health: ArchitectureHealth = field(default_factory=ArchitectureHealth)
 
@@ -129,7 +135,10 @@ class AuditReport:
         return sorted(
             self.findings,
             key=lambda finding: (
-                SEVERITY_ORDER.get(finding.severity, 99),
+                SEVERITY_ORDER.get(
+                    finding.severity,
+                    99,
+                ),
                 finding.category,
                 finding.location or "",
                 finding.message,

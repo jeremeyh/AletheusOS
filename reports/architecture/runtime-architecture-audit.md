@@ -1,12 +1,12 @@
 # Runtime Architecture Audit
 
-Generated: `2026-07-31T08:05:18.418712+00:00`
+Generated: `2026-07-31T09:00:19.457613+00:00`
 
 ## Architecture Health
 
-- Score: **85/100**
-- Grade: **B+**
-- Errors: **0**
+- Score: **75/100**
+- Grade: **C**
+- Errors: **2**
 - Warnings: **8**
 - Informational findings: **1**
 
@@ -16,6 +16,7 @@ Generated: `2026-07-31T08:05:18.418712+00:00`
 - Dependency Cycles: -0
 - Legacy References: -0
 - Ownership Errors: -0
+- Boundary Violations: -10
 - Other Errors: -0
 - Warnings: -15
 
@@ -579,6 +580,8 @@ runtime
 
 ## Findings
 
+- **ERROR** `upward_dependency`: orchestration may not depend upward upon boot. aletheus.runtime.managers.command_manager imports aletheus.runtime.command_bootstrap.bootstrapper. — `aletheus.runtime.managers.command_manager:9`
+- **ERROR** `upward_dependency`: orchestration may not depend upward upon boot. aletheus.runtime.managers.registration_manager imports aletheus.runtime.command_bootstrap.bootstrapper. — `aletheus.runtime.managers.registration_manager:10`
 - **WARNING** `boot_pipeline`: Multiple runtime boot-pipeline paths remain active (2).
 - **WARNING** `empty_module`: Python module is empty. — `aletheus/runtime/boot/__init__.py`
 - **WARNING** `empty_module`: Python module is empty. — `aletheus/runtime/command_handlers/__init__.py`

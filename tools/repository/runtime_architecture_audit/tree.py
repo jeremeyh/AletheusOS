@@ -33,10 +33,7 @@ def _include_entry(entry: Path) -> bool:
     if entry.suffix in IGNORED_FILE_SUFFIXES:
         return False
 
-    if any(marker in entry.name for marker in IGNORED_FILE_MARKERS):
-        return False
-
-    return True
+    return not any(marker in entry.name for marker in IGNORED_FILE_MARKERS)
 
 
 def build_package_tree(runtime_root: Path) -> str:

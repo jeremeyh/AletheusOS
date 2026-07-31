@@ -3,11 +3,13 @@ from __future__ import annotations
 from pathlib import Path
 
 from .boot_analysis import analyze_boot_pipeline
+from .boundaries import analyze_boundaries
 from .checks import (
     check_empty_packages,
     check_module_inventory,
     check_runtime_root,
 )
+from .coupling import calculate_coupling_metrics
 from .dependency_graph import write_dependency_graph_reports
 from .discovery import discover_runtime_modules
 from .health import calculate_health
@@ -45,6 +47,13 @@ def run_runtime_architecture_audit(
     )
 
     graph = analyze_imports(report)
+
+    report.boundary_violations = analyze_boundaries(report)
+
+    report.coupling_metrics = calculate_coupling_metrics(
+        module_names={module.name for module in report.modules},
+        imports=report.imports,
+    )
 
     analyze_kernel_construction(report)
     analyze_boot_pipeline(report)

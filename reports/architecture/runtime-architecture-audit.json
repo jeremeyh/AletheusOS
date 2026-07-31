@@ -20,6 +20,28 @@
   "dependency_cycles": [],
   "findings": [
     {
+      "category": "upward_dependency",
+      "location": "aletheus.runtime.managers.command_manager:9",
+      "message": "orchestration may not depend upward upon boot. aletheus.runtime.managers.command_manager imports aletheus.runtime.command_bootstrap.bootstrapper.",
+      "metadata": {
+        "import_line": 9,
+        "source": "aletheus.runtime.managers.command_manager",
+        "target": "aletheus.runtime.command_bootstrap.bootstrapper"
+      },
+      "severity": "error"
+    },
+    {
+      "category": "upward_dependency",
+      "location": "aletheus.runtime.managers.registration_manager:10",
+      "message": "orchestration may not depend upward upon boot. aletheus.runtime.managers.registration_manager imports aletheus.runtime.command_bootstrap.bootstrapper.",
+      "metadata": {
+        "import_line": 10,
+        "source": "aletheus.runtime.managers.registration_manager",
+        "target": "aletheus.runtime.command_bootstrap.bootstrapper"
+      },
+      "severity": "error"
+    },
+    {
       "category": "boot_pipeline",
       "location": null,
       "message": "Multiple runtime boot-pipeline paths remain active (2).",
@@ -106,9 +128,10 @@
       "severity": "info"
     }
   ],
-  "generated_at": "2026-07-31T08:05:18.418712+00:00",
+  "generated_at": "2026-07-31T09:00:19.457613+00:00",
   "health": {
     "deductions": {
+      "boundary_violations": 10,
       "dependency_cycles": 0,
       "legacy_references": 0,
       "other_errors": 0,
@@ -116,11 +139,12 @@
       "syntax_errors": 0,
       "warnings": 15
     },
-    "grade": "B+",
+    "grade": "C",
     "metrics": {
       "boot_pipeline_paths": 2,
+      "boundary_violations": 2,
       "dependency_cycles": 0,
-      "errors": 0,
+      "errors": 2,
       "infos": 1,
       "internal_import_edges": 440,
       "kernel_constructors": 1,
@@ -130,7 +154,7 @@
       "total_lines": 26884,
       "warnings": 8
     },
-    "score": 85
+    "score": 75
   },
   "imports": [
     {
@@ -9471,7 +9495,7 @@
     "average_module_lines": 64.47,
     "boot_pipeline_paths": 2,
     "dependency_cycles": 0,
-    "errors": 0,
+    "errors": 2,
     "infos": 1,
     "internal_import_edges": 440,
     "kernel_constructors": 1,
