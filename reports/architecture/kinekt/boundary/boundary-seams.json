@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-07-31T23:23:30.533097+00:00",
+  "seams": [
+    {
+      "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+      "source": ".aletheus_restore_points.repository_conflicts.20260719T065403Z.aletheus.runtime.core",
+      "target": "aletheus.applications"
+    },
+    {
+      "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+      "source": ".aletheus_restore_points.repository_conflicts.20260719T070434Z.aletheus.runtime.core",
+      "target": "aletheus.applications"
+    },
+    {
+      "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.applications"
+    },
+    {
+      "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+      "source": "backups.runtime.core_v4.6.2_stable",
+      "target": "aletheus.applications"
+    },
+    {
+      "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+      "source": "components.chds.runtime_monitor",
+      "target": "cardhawkos.boot.boot_manager"
+    },
+    {
+      "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+      "source": "components.chds.runtime_status",
+      "target": "cardhawkos.config.settings"
+    },
+    {
+      "recommendation": "Route the dependency through the runtime facade or public API.",
+      "source": "aletheus.experience_gateway.api",
+      "target": "runtime"
+    },
+    {
+      "recommendation": "Route the dependency through the runtime facade or public API.",
+      "source": "aletheus.experience_gateway.api.missions",
+      "target": "runtime"
+    },
+    {
+      "recommendation": "Route the dependency through the runtime facade or public API.",
+      "source": "tools.genesis.genesis_8.build_compatibility_manifest",
+      "target": "aletheus.runtime"
+    },
+    {
+      "recommendation": "Route the dependency through the runtime facade or public API.",
+      "source": "ui.pages.aletheus_founder_workspace",
+      "target": "aletheus.runtime"
+    }
+  ]
+}
