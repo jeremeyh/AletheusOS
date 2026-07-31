@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-07-31T23:27:02.104889+00:00",
+  "readiness": "not_ready",
+  "status": "critical",
+  "top_risks": [
+    "Constitutional policy findings remain.",
+    "High-severity boundary violations remain.",
+    "Platform integrity is below healthy.",
+    "Repository remains fragmented.",
+    "Semantic dependency ownership remains incomplete.",
+    "Static topology contains substantial isolation."
+  ],
+  "total_score": 44.55
+}

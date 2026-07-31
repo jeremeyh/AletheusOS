@@ -1,0 +1,98 @@
+{
+  "dimensions": [
+    {
+      "evidence": [
+        "Platform integrity score: 46.48"
+      ],
+      "name": "integrity",
+      "risks": [
+        "Platform integrity is below healthy."
+      ],
+      "score": 46.48,
+      "status": "critical",
+      "weight": 0.25
+    },
+    {
+      "evidence": [
+        "Repository cohesion score: 62.97"
+      ],
+      "name": "cohesion",
+      "risks": [
+        "Repository remains fragmented."
+      ],
+      "score": 62.97,
+      "status": "degraded",
+      "weight": 0.2
+    },
+    {
+      "evidence": [
+        "6 high boundary finding(s)",
+        "4 medium boundary finding(s)"
+      ],
+      "name": "boundary_compliance",
+      "risks": [
+        "High-severity boundary violations remain."
+      ],
+      "score": 8.0,
+      "status": "critical",
+      "weight": 0.2
+    },
+    {
+      "evidence": [
+        "2591 unresolved module(s)",
+        "7539 dependency node(s)"
+      ],
+      "name": "dependency_resolution",
+      "risks": [
+        "Semantic dependency ownership remains incomplete."
+      ],
+      "score": 65.63,
+      "status": "degraded",
+      "weight": 0.15
+    },
+    {
+      "evidence": [
+        "3932 isolated module(s)",
+        "6694 total topology module(s)"
+      ],
+      "name": "topology_connectedness",
+      "risks": [
+        "Static topology contains substantial isolation."
+      ],
+      "score": 58.88,
+      "status": "critical",
+      "weight": 0.1
+    },
+    {
+      "evidence": [
+        "1 dependency policy finding(s)"
+      ],
+      "name": "constitutional_risk",
+      "risks": [
+        "Constitutional policy findings remain."
+      ],
+      "score": 30.0,
+      "status": "critical",
+      "weight": 0.1
+    }
+  ],
+  "generated_at": "2026-07-31T23:27:02.104889+00:00",
+  "provenance": {
+    "boundary": "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/boundary/runtime-boundaries.json",
+    "cohesion": "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/cohesion/repository-cohesion.json",
+    "dependency": "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/dependency/constitutional-dependency-graph.json",
+    "integrity": "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/integrity/platform-integrity.json",
+    "topology": "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/topology/runtime-topology.json"
+  },
+  "readiness": "not_ready",
+  "status": "critical",
+  "top_risks": [
+    "Constitutional policy findings remain.",
+    "High-severity boundary violations remain.",
+    "Platform integrity is below healthy.",
+    "Repository remains fragmented.",
+    "Semantic dependency ownership remains incomplete.",
+    "Static topology contains substantial isolation."
+  ],
+  "total_score": 44.55
+}
