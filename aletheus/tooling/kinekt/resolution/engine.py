@@ -14,8 +14,6 @@ from .scoring import resolve_finding
 
 
 class FindingResolutionEngine:
-    """Resolve raw Kinekt findings into prioritized architectural work."""
-
     def __init__(
         self,
         source: Path,
@@ -28,9 +26,7 @@ class FindingResolutionEngine:
 
     def run(self) -> ResolutionReport:
         payload: dict[str, Any] = json.loads(self.source.read_text(encoding="utf-8"))
-
         raw_findings = payload.get("findings", [])
-
         if not isinstance(raw_findings, list):
             raise TypeError(
                 "Kinekt source report must contain a list named 'findings'."
@@ -41,7 +37,6 @@ class FindingResolutionEngine:
             for finding in raw_findings
             if isinstance(finding, dict)
         ]
-
         items.sort(
             key=lambda item: (
                 item.tier,
@@ -56,7 +51,5 @@ class FindingResolutionEngine:
             generated_at=datetime.now(UTC).isoformat(),
             items=items,
         )
-
         write_reports(report, self.output)
-
         return report
