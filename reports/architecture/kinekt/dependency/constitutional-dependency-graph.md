@@ -1,0 +1,230 @@
+# Kinekt™ Constitutional Dependency Graph
+
+- Generated: `2026-07-31T23:08:56.638939+00:00`
+- Nodes: **7539**
+- Relationships: **18821**
+- Policy findings: **1**
+- Unresolved modules: **2591**
+
+## Relationship counts
+
+- `belongs_to`: **6694**
+- `depends_on`: **4103**
+- `governed_by`: **2**
+- `grounded_in`: **2**
+- `imports`: **3917**
+- `provides`: **4103**
+
+## Policy findings
+
+### [HIGH] RUNTIME_DEPENDS_ON_PRODUCT_OR_EXPERIENCE
+
+- Source: `aletheus.runtime.core`
+- Target: `aletheus.applications`
+- Runtime must remain independent of product and experience layers.
+- Evidence: aletheus/runtime/core.py, aletheus/applications/__init__.py
+
+
+## Unresolved modules
+
+- `.aletheus_backups.installers.Genesis_12_3_1_20260731_091925.aletheus.tooling`
+- `.aletheus_backups.installers.Genesis_12_3_20260731_090432.aletheus.tooling`
+- `.aletheus_backups.installers.Genesis_12_3_20260731_090724.aletheus.tooling`
+- `.aletheus_restore_points.institutional_civilization_before_framework_20260714_022551`
+- `.aletheus_restore_points.institutional_civilization_before_framework_20260714_022551.engine`
+- `.aletheus_restore_points.repository_conflicts.20260719T065403Z.aletheus`
+- `.aletheus_restore_points.repository_conflicts.20260719T065403Z.aletheus.runtime.core`
+- `.aletheus_restore_points.repository_conflicts.20260719T070434Z.aletheus`
+- `.aletheus_restore_points.repository_conflicts.20260719T070434Z.aletheus.runtime.core`
+- `.repository_backups.root_cleanup_20260730_020845.conftest`
+- `.repository_backups.root_cleanup_20260730_020845.file`
+- `.repository_backups.root_cleanup_20260730_020845.test_file`
+- `AletheusOS_Genesis10_Updates.apply_genesis10_updates`
+- `Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime`
+- `Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.bootstrap`
+- `Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.contracts`
+- `Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.models`
+- `Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.service`
+- `Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_bootstrap`
+- `Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_service`
+- `Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_no_generated_artifacts`
+- `Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_runtime_singleton`
+- `Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_top_level_allowlist`
+- `Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_version_consistency`
+- `Genesis10_Work_Organization.01_repository_intelligence.tools.doctor`
+- `Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks`
+- `Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.architecture`
+- `Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.git`
+- `Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.imports`
+- `Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.repository`
+- `Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.runtime`
+- `Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.versions`
+- `Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.doctor`
+- `Genesis10_Work_Organization.01_repository_intelligence.tools.genesis10_repository_normalization`
+- `Genesis10_Work_Organization.01_repository_intelligence.tools.repository.doctor`
+- `Genesis10_Work_Organization.03_platform_updates.AletheusOS_Genesis10_Updates.apply_genesis10_updates`
+- `Genesis10_Work_Organization.03_platform_updates.version`
+- `Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.backup_20260710_041440.registry`
+- `Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.contract_repair_backup_20260710_042036.command_bus`
+- `Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.contract_repair_backup_20260710_042036.dispatcher`
+- `Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.guarded_registration_backup_20260710_044725.bootstrapper`
+- `Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.prediction_adapter_backup_20260710_050230.core`
+- `Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.registration_catalog_backup_20260710_044531.bootstrapper`
+- `Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.result_contract_backup_20260710_042429.command_bus`
+- `Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.result_contract_backup_20260710_042429.dispatcher`
+- `Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.runtime_integrity_backup_20260710_042659.runtime_adapter`
+- `Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.runtime_integrity_backup_20260710_042659.runtime_commands`
+- `Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.safe_alias_backup_20260710_045355.bootstrapper`
+- `Genesis10_Work_Organization.04_reports.reports`
+- `Genesis10_Work_Organization.04_reports.reports.build_report`
+- `Genesis10_Work_Organization.04_reports.reports.engine`
+- `Genesis10_Work_Organization.04_reports.reports.generators`
+- `Genesis10_Work_Organization.04_reports.reports.models`
+- `Genesis10_Work_Organization.04_reports.reports.templates`
+- `Genesis14_SPAN_Constitutional_Intelligence.examples.sample_project.bad_module`
+- `Genesis14_SPAN_Constitutional_Intelligence.examples.sample_project.good_module`
+- `Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.api`
+- `Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.constitutional_context`
+- `Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.profiles`
+- `Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.reporter`
+- `Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules`
+- `Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.api`
+- `Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.architecture`
+- `Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.constitutional`
+- `Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.dependency`
+- `Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.documentation`
+- `Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.governance`
+- `Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.naming`
+- `Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.quality`
+- `Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.runtime`
+- `Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.security`
+- `Genesis14_SPAN_Constitutional_Intelligence.tests.test_genesis14`
+- `acquisition_simulator`
+- `acquisition_simulator.acquisition_simulator`
+- `actual.directory.file`
+- `adaptive_intelligence`
+- `adaptive_intelligence.adaptive_service`
+- `adaptive_intelligence.deployment.deployment_profiles`
+- `adaptive_intelligence.explainability.explainer`
+- `adaptive_intelligence.feedback.feedback_loop`
+- `adaptive_intelligence.governance.platform_governance`
+- `adaptive_intelligence.pages.adaptive_dashboard`
+- `adaptive_intelligence.plugins.plugin_framework`
+- `adaptive_intelligence.quality.quality_dashboard`
+- `adaptive_intelligence.research.research_workspace`
+- `adaptive_intelligence.simulation.simulation_lab`
+- `ai`
+- `ai.agents`
+- `ai.models`
+- `ai.rag`
+- `ai.vision`
+- `aletheus.applications`
+- `aletheus.applications.application_core`
+- `aletheus.applications.models`
+- `aletheus.tooling`
+- `aletheusos_kernel_sprint1.main`
+- `aletheusos_kernel_sprint1.src.aletheus`
+- `aletheusos_kernel_sprint1.src.aletheus.constitution`
+- `aletheusos_kernel_sprint1.src.aletheus.constitution.constitution`
+- `aletheusos_kernel_sprint1.src.aletheus.core`
+- `aletheusos_kernel_sprint1.src.aletheus.core.events`
+- `aletheusos_kernel_sprint1.src.aletheus.core.health`
+- `aletheusos_kernel_sprint1.src.aletheus.core.identity`
+- `aletheusos_kernel_sprint1.src.aletheus.core.lifecycle`
+- `aletheusos_kernel_sprint1.src.aletheus.core.result`
+- `aletheusos_kernel_sprint1.src.aletheus.core.version`
+- `aletheusos_kernel_sprint1.src.aletheus.kernel`
+- `aletheusos_kernel_sprint1.src.aletheus.kernel.event_bus`
+- `aletheusos_kernel_sprint1.src.aletheus.kernel.kernel`
+- `aletheusos_kernel_sprint1.src.aletheus.kernel.memory`
+- `aletheusos_kernel_sprint1.src.aletheus.kernel.registry`
+- `aletheusos_kernel_sprint1.src.aletheus.mission`
+- `aletheusos_kernel_sprint1.src.aletheus.mission.contracts`
+- `aletheusos_kernel_sprint1.src.aletheus.mission.enums`
+- `aletheusos_kernel_sprint1.src.aletheus.mission.exceptions`
+- `aletheusos_kernel_sprint1.src.aletheus.mission.lifecycle`
+- `aletheusos_kernel_sprint1.src.aletheus.mission.models`
+- `aletheusos_kernel_sprint1.src.aletheus.runtime`
+- `aletheusos_kernel_sprint1.src.aletheus.runtime.runtime`
+- `aletheusos_kernel_sprint1.src.aletheus.sdk`
+- `aletheusos_kernel_sprint1.src.aletheus.sdk.evidence`
+- `aletheusos_kernel_sprint1.src.aletheus.sdk.hello_mission`
+- `aletheusos_kernel_sprint1.src.aletheus.sdk.mission`
+- `aletheusos_kernel_sprint1.tests.test_core`
+- `aletheusos_kernel_sprint1.tests.test_mission_lifecycle`
+- `aletheusos_kernel_sprint1.tests.test_runtime`
+- `analytics`
+- `analytics.analytics_service`
+- `analytics.pages.portfolio_analytics`
+- `analytics.runtime.event_metrics`
+- `app`
+- `append_nimble_audit_event`
+- `applications`
+- `applications.cardhawk_foundation`
+- `applications.cardhawk_foundation.app`
+- `architecture`
+- `architecture.dependency_graph`
+- `architecture.import_migrator`
+- `architecture.project_auditor`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.aletheus.memory_mesh.memory_index`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.aletheus.memory_mesh.replication`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.aletheus.memory_mesh.semantic_cache`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.aletheus.memory_mesh.snapshot_manager`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.aletheus.memory_mesh.versioning`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.aletheus.optimization.models`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.aletheus.optimization.optimization_core`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.aletheus.runtime.boot.commands`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.aletheus.runtime.boot.services`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.aletheus.runtime.boot.version`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.aletheus.runtime.builder.build_core`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.aletheus.runtime.compat.adapters`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.aletheus.runtime.compat.aliases`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.aletheus.runtime.manifest.manifest_core`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.aletheus.sdk.runtime`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.asset_core.repository.sqlite_repository`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.cardhawk.bootstrap`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.intelligence.command`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.intelligence.founder`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.intelligence.scout`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.marketplace.connectors.base`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.marketplace.connectors.sportcardspro`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.marketplace.runtime.service`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.models.asset_dna`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.models.asset_genome`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.models.portfolio`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.portfolio.performance`
+- `archive.quarantine.archive_review_empty_modules.20260710T120731Z.portfolio.portfolio_engine`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.application_runtime.health`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.application_runtime.lifecycle`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.application_runtime.manifest`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.application_runtime.models`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.application_runtime.permissions`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.application_runtime.sandbox`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.application_runtime.statistics`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.autonomic.actions`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.autonomic.core`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.autonomic.health`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.autonomic.models`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.autonomic.policies`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.autonomic.regulator`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.autonomic.statistics`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.boot_registry.health`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.boot_registry.loader`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.boot_registry.models`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.boot_registry.registry`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.boot_registry.statistics`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.boot_registry.validator`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.boot_runtime.health`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.boot_runtime.report`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.boot_runtime.statistics`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.capability_engine.cache`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.capability_engine.enforcement`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.cognitive_mesh.attention`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.cognitive_mesh.awareness`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.cognitive_mesh.context`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.cognitive_mesh.core`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.cognitive_mesh.health`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.cognitive_mesh.models`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.cognitive_mesh.registry`
+- `archive.quarantine.empty_python_modules.20260710T120028Z.aletheus.cognitive_mesh.statistics`
+- ... 2391 more in JSON report
