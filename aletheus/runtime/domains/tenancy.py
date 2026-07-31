@@ -15,17 +15,13 @@ class TenancyDomain:
         )
 
     def delete(self, payload):
-        return self.runtime.tenancy_v3.delete_tenant(
-            payload.get("tenant_id", "")
-        )
+        return self.runtime.tenancy_v3.delete_tenant(payload.get("tenant_id", ""))
 
     def list(self, payload=None):
         return self.runtime.tenancy_v3.list_tenants()
 
     def select(self, payload):
-        return self.runtime.tenancy_v3.select_tenant(
-            payload.get("tenant_id", "")
-        )
+        return self.runtime.tenancy_v3.select_tenant(payload.get("tenant_id", ""))
 
     def workspace_create(self, payload):
         return self.runtime.tenancy_v3.create_workspace(
@@ -35,14 +31,10 @@ class TenancyDomain:
         )
 
     def workspace_delete(self, payload):
-        return self.runtime.tenancy_v3.delete_workspace(
-            payload.get("workspace_id", "")
-        )
+        return self.runtime.tenancy_v3.delete_workspace(payload.get("workspace_id", ""))
 
     def workspace_list(self, payload):
-        return self.runtime.tenancy_v3.list_workspaces(
-            payload.get("tenant_id")
-        )
+        return self.runtime.tenancy_v3.list_workspaces(payload.get("tenant_id"))
 
     def organization_create(self, payload):
         return self.runtime.tenancy_v3.create_organization(

@@ -20,8 +20,7 @@ def test_preview_generates_validated_diff(
 ) -> None:
     source_path = tmp_path / "sample.py"
     source_path.write_text(
-        "class Example:\n"
-        "    VALUES = []\n",
+        "class Example:\n    VALUES = []\n",
         encoding="utf-8",
     )
     candidate = candidate_factory(line=2)
@@ -43,10 +42,7 @@ def test_preview_does_not_modify_source_file(
     candidate_factory: Any,
 ) -> None:
     source_path = tmp_path / "sample.py"
-    original_source = (
-        "class Example:\n"
-        "    VALUES = []\n"
-    )
+    original_source = "class Example:\n    VALUES = []\n"
     source_path.write_text(original_source, encoding="utf-8")
     candidate = candidate_factory(line=2)
 
@@ -61,8 +57,7 @@ def test_preview_rejects_unsupported_classification(
 ) -> None:
     source_path = tmp_path / "sample.py"
     source_path.write_text(
-        "class Example:\n"
-        "    VALUES = []\n",
+        "class Example:\n    VALUES = []\n",
         encoding="utf-8",
     )
     candidate = candidate_factory(

@@ -97,7 +97,9 @@ class WatchTowerEngine:
             if self._should_have_init(directory):
                 init_file = directory / "__init__.py"
                 if not init_file.exists():
-                    init_file.write_text('"""AletheusOS package."""\n', encoding="utf-8")
+                    init_file.write_text(
+                        '"""AletheusOS package."""\n', encoding="utf-8"
+                    )
                     self.repairs.append(f"Created: {self._rel(init_file)}")
 
         self.scan()
@@ -277,14 +279,22 @@ class WatchTowerEngine:
             if self._is_ignored(path):
                 continue
             text = path.read_text(encoding="utf-8", errors="ignore")
-            if "Principle X" in text or "principle_x" in text or "Reciprocity Principle" in text:
+            if (
+                "Principle X" in text
+                or "principle_x" in text
+                or "Reciprocity Principle" in text
+            ):
                 hits.append(self._rel(path))
 
         for path in self.root.rglob("*.md"):
             if self._is_ignored(path):
                 continue
             text = path.read_text(encoding="utf-8", errors="ignore")
-            if "Principle X" in text or "principle_x" in text or "Reciprocity Principle" in text:
+            if (
+                "Principle X" in text
+                or "principle_x" in text
+                or "Reciprocity Principle" in text
+            ):
                 hits.append(self._rel(path))
 
         if not hits:
@@ -317,10 +327,15 @@ class WatchTowerEngine:
         }:
             return False
 
-        if any(part in {"venv", ".git", "__pycache__", "reports", "logs"} for part in directory.parts):
+        if any(
+            part in {"venv", ".git", "__pycache__", "reports", "logs"}
+            for part in directory.parts
+        ):
             return False
 
-        return any(child.suffix == ".py" for child in directory.iterdir() if child.is_file())
+        return any(
+            child.suffix == ".py" for child in directory.iterdir() if child.is_file()
+        )
 
     def _is_ignored(self, path: Path) -> bool:
         ignored_parts = {

@@ -10,19 +10,6 @@ Coordinate Card Hawk autonomous ecosystem
 
 
 class EcosystemEngine:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "24.0"
-
-        }
-
+        return {"status": "ready", "genesis": "24.0"}

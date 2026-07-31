@@ -52,51 +52,31 @@ class RetryPolicy:
 
     def __post_init__(self) -> None:
         if self.max_attempts < 1:
-            raise ValueError(
-                "max_attempts must be at least one."
-            )
+            raise ValueError("max_attempts must be at least one.")
 
         if self.initial_delay < timedelta(0):
-            raise ValueError(
-                "initial_delay cannot be negative."
-            )
+            raise ValueError("initial_delay cannot be negative.")
 
         if self.backoff_multiplier < 1.0:
-            raise ValueError(
-                "backoff_multiplier cannot be below one."
-            )
+            raise ValueError("backoff_multiplier cannot be below one.")
 
-        if (
-            self.maximum_delay is not None
-            and self.maximum_delay < timedelta(0)
-        ):
-            raise ValueError(
-                "maximum_delay cannot be negative."
-            )
+        if self.maximum_delay is not None and self.maximum_delay < timedelta(0):
+            raise ValueError("maximum_delay cannot be negative.")
 
     def delay_for_attempt(
         self,
         attempt: int,
     ) -> timedelta:
         if attempt < 1:
-            raise ValueError(
-                "attempt must be at least one."
-            )
+            raise ValueError("attempt must be at least one.")
 
-        seconds = (
-            self.initial_delay.total_seconds()
-            * (
-                self.backoff_multiplier
-                ** max(0, attempt - 1)
-            )
+        seconds = self.initial_delay.total_seconds() * (
+            self.backoff_multiplier ** max(0, attempt - 1)
         )
 
         delay = timedelta(seconds=seconds)
 
-        if (
-            self.maximum_delay is not None
-            and delay > self.maximum_delay
-        ):
+        if self.maximum_delay is not None and delay > self.maximum_delay:
             return self.maximum_delay
 
         return delay
@@ -111,25 +91,13 @@ class MissionTrigger:
 
     def __post_init__(self) -> None:
         if self.run_at is None and self.interval is None:
-            raise ValueError(
-                "A mission trigger requires run_at or interval."
-            )
+            raise ValueError("A mission trigger requires run_at or interval.")
 
-        if (
-            self.run_at is not None
-            and self.run_at.tzinfo is None
-        ):
-            raise ValueError(
-                "run_at must include timezone information."
-            )
+        if self.run_at is not None and self.run_at.tzinfo is None:
+            raise ValueError("run_at must include timezone information.")
 
-        if (
-            self.interval is not None
-            and self.interval <= timedelta(0)
-        ):
-            raise ValueError(
-                "interval must be positive."
-            )
+        if self.interval is not None and self.interval <= timedelta(0):
+            raise ValueError("interval must be positive.")
 
         if self.run_at is not None:
             object.__setattr__(
@@ -181,11 +149,7 @@ class MissionDefinition:
         trigger: MissionTrigger,
         priority: MissionPriority = MissionPriority.NORMAL,
         dependencies: (
-            set[str]
-            | frozenset[str]
-            | tuple[str, ...]
-            | list[str]
-            | None
+            set[str] | frozenset[str] | tuple[str, ...] | list[str] | None
         ) = None,
         retry_policy: RetryPolicy | None = None,
         cooldown: timedelta = timedelta(0),
@@ -195,24 +159,17 @@ class MissionDefinition:
         normalized_id = mission_id.strip().lower()
 
         if not normalized_id:
-            raise ValueError(
-                "mission_id cannot be empty."
-            )
+            raise ValueError("mission_id cannot be empty.")
 
         if cooldown < timedelta(0):
-            raise ValueError(
-                "cooldown cannot be negative."
-            )
+            raise ValueError("cooldown cannot be negative.")
 
         dependency_set = frozenset(
-            dependency.strip().lower()
-            for dependency in (dependencies or ())
+            dependency.strip().lower() for dependency in (dependencies or ())
         )
 
         if normalized_id in dependency_set:
-            raise ValueError(
-                "A mission cannot depend on itself."
-            )
+            raise ValueError("A mission cannot depend on itself.")
 
         return cls(
             mission_id=normalized_id,
@@ -220,14 +177,10 @@ class MissionDefinition:
             priority=priority,
             trigger=trigger,
             dependencies=dependency_set,
-            retry_policy=(
-                retry_policy or RetryPolicy()
-            ),
+            retry_policy=(retry_policy or RetryPolicy()),
             cooldown=cooldown,
             enabled=enabled,
-            metadata=MappingProxyType(
-                dict(metadata or {})
-            ),
+            metadata=MappingProxyType(dict(metadata or {})),
         )
 
     @property
@@ -257,9 +210,7 @@ class MissionRecord:
 
             if value is not None:
                 if value.tzinfo is None:
-                    raise ValueError(
-                        f"{attribute} must include timezone."
-                    )
+                    raise ValueError(f"{attribute} must include timezone.")
 
                 object.__setattr__(
                     self,

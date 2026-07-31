@@ -46,7 +46,6 @@ class ExecutionGraphTraversal:
         nodes: list[GraphNode] = []
 
         for neighbor_id in execution_graph_registry.neighbors(node_id):
-
             node = execution_graph_registry.get_node(neighbor_id)
 
             if node:

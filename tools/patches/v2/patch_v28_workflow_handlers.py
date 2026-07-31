@@ -7,7 +7,7 @@ if "def _cmd_workflow_bootstrap" in text:
     print("Workflow handlers already exist.")
     raise SystemExit(0)
 
-methods = '''
+methods = """
     def _cmd_workflow_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("workflow", self.workflow_v3.bootstrap())
         return context
@@ -57,7 +57,7 @@ methods = '''
         context.add_result("workflow_stats", self.workflow_v3.statistics())
         return context
 
-'''
+"""
 
 anchor = "    def _job_runtime_pulse(self) -> dict:"
 

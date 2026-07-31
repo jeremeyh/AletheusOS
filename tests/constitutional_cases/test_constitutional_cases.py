@@ -24,17 +24,13 @@ def build_engine():
         subscriber_name="constitutional_ledger",
     )
 
-    engine = ConstitutionalCaseEngine(
-        fabric=fabric
-    )
+    engine = ConstitutionalCaseEngine(fabric=fabric)
 
     return engine, fabric, ledger
 
 
 def attach_required_evidence(engine, case):
-    for evidence_type in (
-        case.contract.required_evidence_types
-    ):
+    for evidence_type in case.contract.required_evidence_types:
         engine.attach_evidence(
             case.case_id,
             evidence_type=evidence_type,
@@ -140,9 +136,7 @@ def test_complete_case_lifecycle():
     assert history[0].event_type.value == "CaseDetected"
     assert history[-1].event_type.value == "CaseClosed"
 
-    replay = ledger.replay_events(
-        correlation_id=case.correlation_id
-    )
+    replay = ledger.replay_events(correlation_id=case.correlation_id)
 
     assert len(replay) == len(history)
 
@@ -164,9 +158,7 @@ def test_transtemporal_lineage_reconstructs_case():
     engine.verify(case.case_id)
     engine.close(case.case_id)
 
-    lineage = ledger.temporal_lineage(
-        case.event_ids[-1]
-    )
+    lineage = ledger.temporal_lineage(case.event_ids[-1])
 
     assert lineage[0].event_type == "CaseDetected"
     assert lineage[-1].event_type == "CaseClosed"

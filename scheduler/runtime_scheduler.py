@@ -17,5 +17,9 @@ class RuntimeScheduler:
     def schedule_defaults():
         jobs = []
         for name, job_type in RuntimeScheduler.DEFAULT_JOBS:
-            jobs.append(JobQueue.enqueue(name, job_type, {"scheduled_at": datetime.utcnow().isoformat()}))
+            jobs.append(
+                JobQueue.enqueue(
+                    name, job_type, {"scheduled_at": datetime.utcnow().isoformat()}
+                )
+            )
         return jobs

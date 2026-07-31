@@ -5,13 +5,10 @@ from aletheus.platform_intelligence.runtime_snapshot import (
 
 class DemoDiagnostics:
     def report(self):
-        return {
-            "status": "healthy"
-        }
+        return {"status": "healthy"}
 
 
 class DemoComponent:
-
     def __init__(self, name):
         self.name = name
 
@@ -23,7 +20,6 @@ class DemoComponent:
 
 
 class DemoRuntime:
-
     diagnostics = DemoDiagnostics()
 
     memory = DemoComponent("memory")

@@ -6,52 +6,26 @@ Post-Genesis 1001-1025
 
 
 class IndustrializationEngine:
-
-
     def __init__(self):
 
         self.deployments = []
 
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_industrialization",
-
-            "range":
-            "1001-1025",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_industrialization",
+            "range": "1001-1025",
+            "status": "operational",
         }
-
 
     def deploy(self, civilization):
 
-        deployment = {
+        deployment = {"civilization": civilization, "status": "production_ready"}
 
-            "civilization":
-            civilization,
-
-            "status":
-            "production_ready"
-
-        }
-
-
-        self.deployments.append(
-            deployment
-        )
-
+        self.deployments.append(deployment)
 
         return deployment
-
-
 
     def list_deployments(self):
 
         return self.deployments
-

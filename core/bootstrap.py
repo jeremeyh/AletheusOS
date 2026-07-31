@@ -11,7 +11,6 @@ from core.service_discovery import service_discovery
 
 
 class Bootstrap:
-
     def __init__(self):
         self.initialized = False
 
@@ -46,7 +45,6 @@ class Bootstrap:
         # ---------------------------------------------------
 
         for engine in engine_registry.all().values():
-
             try:
                 engine.initialize()
             except Exception as exc:
@@ -57,7 +55,6 @@ class Bootstrap:
         # ---------------------------------------------------
 
         for engine in engine_registry.all().values():
-
             try:
                 engine.subscribe(event_bus)
             except Exception as exc:

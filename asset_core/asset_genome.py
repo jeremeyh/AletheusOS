@@ -34,19 +34,12 @@ class AssetGenome:
     ):
 
         self.timeline.append(
-
             GenomeEvent(
-
                 timestamp=datetime.utcnow().isoformat(),
-
                 event=event,
-
                 source=source,
-
                 details=details,
-
             )
-
         )
 
     def history(self):

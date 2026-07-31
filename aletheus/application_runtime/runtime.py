@@ -29,20 +29,12 @@ class ConstitutionalApplicationRuntime:
         self,
         *,
         platform,
-        registry: (
-            ConstitutionalApplicationRegistry
-            | None
-        ) = None,
+        registry: (ConstitutionalApplicationRegistry | None) = None,
     ) -> None:
         self.platform = platform
-        self.registry = (
-            registry
-            or ConstitutionalApplicationRegistry()
-        )
+        self.registry = registry or ConstitutionalApplicationRegistry()
 
-        self.services = ApplicationServiceResolver(
-            platform=platform
-        )
+        self.services = ApplicationServiceResolver(platform=platform)
 
         self._starts = 0
         self._stops = 0
@@ -52,17 +44,13 @@ class ConstitutionalApplicationRuntime:
         self,
         application,
     ):
-        return self.registry.install(
-            application
-        )
+        return self.registry.install(application)
 
     def initialize(
         self,
         application_id: str,
     ):
-        record = self.registry.require(
-            application_id
-        )
+        record = self.registry.require(application_id)
 
         if record.status not in {
             ApplicationStatus.INSTALLED,
@@ -74,16 +62,12 @@ class ConstitutionalApplicationRuntime:
                 f"{record.status.value!r}."
             )
 
-        resolved_services = (
-            self.services.resolve_many(
-                record.manifest.required_services
-            )
+        resolved_services = self.services.resolve_many(
+            record.manifest.required_services
         )
 
         try:
-            record.application.initialize(
-                resolved_services
-            )
+            record.application.initialize(resolved_services)
 
         except Exception as exc:
             record.status = ApplicationStatus.FAILED
@@ -100,13 +84,9 @@ class ConstitutionalApplicationRuntime:
         self,
         application_id: str,
     ):
-        record = self.registry.require(
-            application_id
-        )
+        record = self.registry.require(application_id)
 
-        if record.status != (
-            ApplicationStatus.INITIALIZED
-        ):
+        if record.status != (ApplicationStatus.INITIALIZED):
             raise InvalidApplicationTransitionError(
                 f"Application {application_id!r} "
                 f"cannot start from "
@@ -132,9 +112,7 @@ class ConstitutionalApplicationRuntime:
         self,
         application_id: str,
     ):
-        record = self.registry.require(
-            application_id
-        )
+        record = self.registry.require(application_id)
 
         if record.status not in {
             ApplicationStatus.RUNNING,
@@ -165,19 +143,14 @@ class ConstitutionalApplicationRuntime:
         self,
         application_id: str,
     ):
-        record = self.registry.require(
-            application_id
-        )
+        record = self.registry.require(application_id)
 
         if record.status == ApplicationStatus.RUNNING:
             raise InvalidApplicationTransitionError(
-                "Running applications must be stopped "
-                "before uninstall."
+                "Running applications must be stopped before uninstall."
             )
 
-        removed = self.registry.remove(
-            application_id
-        )
+        removed = self.registry.remove(application_id)
 
         removed.status = ApplicationStatus.UNINSTALLED
         return removed
@@ -186,21 +159,13 @@ class ConstitutionalApplicationRuntime:
         self,
         application_id: str,
     ) -> dict[str, Any]:
-        record = self.registry.require(
-            application_id
-        )
+        record = self.registry.require(application_id)
 
-        application_health = (
-            record.application.health()
-        )
+        application_health = record.application.health()
 
         return {
-            "application_id": (
-                record.manifest.application_id
-            ),
-            "canonical_name": (
-                record.manifest.canonical_name
-            ),
+            "application_id": (record.manifest.application_id),
+            "canonical_name": (record.manifest.canonical_name),
             "status": record.status.value,
             "runtime_status": (
                 application_health.get(
@@ -218,20 +183,12 @@ class ConstitutionalApplicationRuntime:
 
     def health(self) -> dict[str, Any]:
         return {
-            "name": (
-                "Constitutional Application Runtime™"
-            ),
+            "name": ("Constitutional Application Runtime™"),
             "version": self.VERSION,
-            "status": (
-                "degraded"
-                if self._failures
-                else "online"
-            ),
+            "status": ("degraded" if self._failures else "online"),
             "starts": self._starts,
             "stops": self._stops,
             "failures": self._failures,
             "registry": self.registry.health(),
-            "available_services": (
-                self.services.available()
-            ),
+            "available_services": (self.services.available()),
         }

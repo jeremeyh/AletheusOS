@@ -6,27 +6,6 @@ Genesis 13.38
 
 
 class ScenarioEngine:
+    def simulate(self, asset):
 
-
-    def simulate(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "base":
-
-                "stable",
-
-            "upside":
-
-                "growth",
-
-            "downside":
-
-                "decline"
-
-        }
-
+        return {"base": "stable", "upside": "growth", "downside": "decline"}

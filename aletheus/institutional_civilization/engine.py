@@ -42,9 +42,7 @@ class InstitutionalCivilizationEngine:
         if isinstance(institution, InstitutionRecord):
             return self._registry.register(institution)
 
-        raise TypeError(
-            f"Unsupported institution type: {type(institution)!r}"
-        )
+        raise TypeError(f"Unsupported institution type: {type(institution)!r}")
 
     def get_institution(self, institution_id):
         return self._registry.get(institution_id)

@@ -6,23 +6,6 @@ Genesis 13.23
 
 
 class OpportunityScoringEngine:
+    def score(self, opportunity):
 
-
-    def score(
-        self,
-        opportunity
-    ):
-
-
-        return {
-
-            "opportunity":
-
-                opportunity,
-
-            "confidence":
-
-                0
-
-        }
-
+        return {"opportunity": opportunity, "confidence": 0}

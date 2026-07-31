@@ -31,7 +31,6 @@ from .retrieval import (
 )
 
 __all__ = [
-
     "DoubleHedron",
     "DoubleHedronConsolidation",
     "DoubleHedronRegistry",

@@ -10,7 +10,7 @@
     },
     {
       "column": 8,
-      "line": 282,
+      "line": 311,
       "module": "aletheus.runtime.core",
       "qualified_symbol": "build_runtime_boot_pipeline",
       "relative_path": "aletheus/runtime/core.py",
@@ -19,28 +19,6 @@
   ],
   "dependency_cycles": [],
   "findings": [
-    {
-      "category": "upward_dependency",
-      "location": "aletheus.runtime.managers.command_manager:9",
-      "message": "orchestration may not depend upward upon boot. aletheus.runtime.managers.command_manager imports aletheus.runtime.command_bootstrap.bootstrapper.",
-      "metadata": {
-        "import_line": 9,
-        "source": "aletheus.runtime.managers.command_manager",
-        "target": "aletheus.runtime.command_bootstrap.bootstrapper"
-      },
-      "severity": "error"
-    },
-    {
-      "category": "upward_dependency",
-      "location": "aletheus.runtime.managers.registration_manager:10",
-      "message": "orchestration may not depend upward upon boot. aletheus.runtime.managers.registration_manager imports aletheus.runtime.command_bootstrap.bootstrapper.",
-      "metadata": {
-        "import_line": 10,
-        "source": "aletheus.runtime.managers.registration_manager",
-        "target": "aletheus.runtime.command_bootstrap.bootstrapper"
-      },
-      "severity": "error"
-    },
     {
       "category": "boot_pipeline",
       "location": null,
@@ -110,9 +88,9 @@
     {
       "category": "module_size",
       "location": "aletheus/runtime/core.py",
-      "message": "Module contains 1027 lines and exceeds the recommended threshold of 750.",
+      "message": "Module contains 1014 lines and exceeds the recommended threshold of 750.",
       "metadata": {
-        "lines": 1027,
+        "lines": 1014,
         "module": "aletheus.runtime.core",
         "threshold": 750
       },
@@ -121,17 +99,17 @@
     {
       "category": "orphan_modules",
       "location": null,
-      "message": "32 runtime modules have no internal inbound or outbound imports.",
+      "message": "35 runtime modules have no internal inbound or outbound imports.",
       "metadata": {
-        "count": 32
+        "count": 35
       },
       "severity": "info"
     }
   ],
-  "generated_at": "2026-07-31T09:00:19.457613+00:00",
+  "generated_at": "2026-07-31T12:50:23.238562+00:00",
   "health": {
     "deductions": {
-      "boundary_violations": 10,
+      "boundary_violations": 0,
       "dependency_cycles": 0,
       "legacy_references": 0,
       "other_errors": 0,
@@ -139,22 +117,22 @@
       "syntax_errors": 0,
       "warnings": 15
     },
-    "grade": "C",
+    "grade": "B+",
     "metrics": {
       "boot_pipeline_paths": 2,
-      "boundary_violations": 2,
+      "boundary_violations": 0,
       "dependency_cycles": 0,
-      "errors": 2,
+      "errors": 0,
       "infos": 1,
-      "internal_import_edges": 440,
+      "internal_import_edges": 434,
       "kernel_constructors": 1,
       "legacy_references": 0,
-      "modules": 417,
-      "orphan_modules": 32,
-      "total_lines": 26884,
+      "modules": 415,
+      "orphan_modules": 35,
+      "total_lines": 26709,
       "warnings": 8
     },
-    "score": 75
+    "score": 85
   },
   "imports": [
     {
@@ -1838,27 +1816,6 @@
       "target": "time"
     },
     {
-      "imported_name": "RuntimeBootstrap",
-      "internal": true,
-      "line": 1,
-      "source": "aletheus.runtime.bootstrap",
-      "target": "aletheus.runtime.bootstrap.runtime_bootstrap"
-    },
-    {
-      "imported_name": "RuntimeManifestBuilder",
-      "internal": true,
-      "line": 2,
-      "source": "aletheus.runtime.bootstrap",
-      "target": "aletheus.runtime.bootstrap.runtime_manifest_builder"
-    },
-    {
-      "imported_name": "RegistrationManager",
-      "internal": true,
-      "line": 7,
-      "source": "aletheus.runtime.bootstrap.bootstrap_engine",
-      "target": "aletheus.runtime.managers"
-    },
-    {
       "imported_name": "annotations",
       "internal": false,
       "line": 1,
@@ -3478,21 +3435,21 @@
     {
       "imported_name": "application_runtime",
       "internal": false,
-      "line": 239,
+      "line": 235,
       "source": "aletheus.runtime.core",
       "target": "aletheus.platform.application_runtime"
     },
     {
       "imported_name": "service_registry",
       "internal": false,
-      "line": 235,
+      "line": 231,
       "source": "aletheus.runtime.core",
       "target": "aletheus.platform.service_registry"
     },
     {
       "imported_name": "RuntimeObservatory",
       "internal": false,
-      "line": 712,
+      "line": 756,
       "source": "aletheus.runtime.core",
       "target": "aletheus.platform_intelligence.runtime_observatory"
     },
@@ -3597,7 +3554,7 @@
     {
       "imported_name": "build_runtime_boot_pipeline",
       "internal": true,
-      "line": 278,
+      "line": 307,
       "source": "aletheus.runtime.core",
       "target": "aletheus.runtime.boot_pipeline"
     },
@@ -3632,21 +3589,21 @@
     {
       "imported_name": "CompatibilityLayer",
       "internal": true,
-      "line": 561,
+      "line": 581,
       "source": "aletheus.runtime.core",
       "target": "aletheus.runtime.compatibility_layer"
     },
     {
       "imported_name": "CompatibilityLayer",
       "internal": true,
-      "line": 567,
+      "line": 587,
       "source": "aletheus.runtime.core",
       "target": "aletheus.runtime.compatibility_layer"
     },
     {
       "imported_name": "CompatibilityLayer",
       "internal": true,
-      "line": 572,
+      "line": 592,
       "source": "aletheus.runtime.core",
       "target": "aletheus.runtime.compatibility_layer"
     },
@@ -3765,7 +3722,7 @@
     {
       "imported_name": "RuntimeServiceProvider",
       "internal": true,
-      "line": 270,
+      "line": 300,
       "source": "aletheus.runtime.core",
       "target": "aletheus.runtime.providers"
     },
@@ -5039,72 +4996,58 @@
     {
       "imported_name": "CertificationManager",
       "internal": true,
-      "line": 7,
+      "line": 13,
       "source": "aletheus.runtime.managers",
       "target": "aletheus.runtime.managers.certification_manager"
     },
     {
       "imported_name": "CommandManager",
       "internal": true,
-      "line": 8,
+      "line": 14,
       "source": "aletheus.runtime.managers",
       "target": "aletheus.runtime.managers.command_manager"
     },
     {
       "imported_name": "GovernanceManager",
       "internal": true,
-      "line": 9,
+      "line": 15,
       "source": "aletheus.runtime.managers",
       "target": "aletheus.runtime.managers.governance_manager"
     },
     {
       "imported_name": "HealthManager",
       "internal": true,
-      "line": 10,
+      "line": 16,
       "source": "aletheus.runtime.managers",
       "target": "aletheus.runtime.managers.health_manager"
     },
     {
       "imported_name": "InvariantManager",
       "internal": true,
-      "line": 11,
+      "line": 17,
       "source": "aletheus.runtime.managers",
       "target": "aletheus.runtime.managers.invariant_manager"
     },
     {
-      "imported_name": "RegistrationManager",
-      "internal": true,
-      "line": 12,
-      "source": "aletheus.runtime.managers",
-      "target": "aletheus.runtime.managers.registration_manager"
-    },
-    {
       "imported_name": "RegistryManager",
       "internal": true,
-      "line": 13,
+      "line": 18,
       "source": "aletheus.runtime.managers",
       "target": "aletheus.runtime.managers.registry_manager"
     },
     {
       "imported_name": "SnapshotManager",
       "internal": true,
-      "line": 14,
+      "line": 19,
       "source": "aletheus.runtime.managers",
       "target": "aletheus.runtime.managers.snapshot_manager"
     },
     {
       "imported_name": "ValidationManager",
       "internal": true,
-      "line": 15,
+      "line": 20,
       "source": "aletheus.runtime.managers",
       "target": "aletheus.runtime.managers.validation_manager"
-    },
-    {
-      "imported_name": "RuntimeCommandBootstrapper",
-      "internal": true,
-      "line": 9,
-      "source": "aletheus.runtime.managers.command_manager",
-      "target": "aletheus.runtime.command_bootstrap.bootstrapper"
     },
     {
       "imported_name": "annotations",
@@ -5121,16 +5064,9 @@
       "target": "aletheus.runtime.lifecycle.resolver"
     },
     {
-      "imported_name": "RuntimeCommandBootstrapper",
-      "internal": true,
-      "line": 10,
-      "source": "aletheus.runtime.managers.registration_manager",
-      "target": "aletheus.runtime.command_bootstrap.bootstrapper"
-    },
-    {
       "imported_name": "RegistryFederationBootstrap",
       "internal": true,
-      "line": 10,
+      "line": 9,
       "source": "aletheus.runtime.managers.registry_federation_manager",
       "target": "aletheus.runtime.services.registry_federation_bootstrap"
     },
@@ -7257,20 +7193,12 @@
       "size_bytes": 424
     },
     {
-      "lines": 7,
+      "lines": 6,
       "name": "aletheus.runtime.bootstrap",
       "package": "aletheus.runtime.bootstrap",
       "path": "aletheus/runtime/bootstrap/__init__.py",
       "relative_path": "aletheus/runtime/bootstrap/__init__.py",
-      "size_bytes": 178
-    },
-    {
-      "lines": 22,
-      "name": "aletheus.runtime.bootstrap.bootstrap_engine",
-      "package": "aletheus.runtime.bootstrap",
-      "path": "aletheus/runtime/bootstrap/bootstrap_engine.py",
-      "relative_path": "aletheus/runtime/bootstrap/bootstrap_engine.py",
-      "size_bytes": 332
+      "size_bytes": 138
     },
     {
       "lines": 34,
@@ -7849,12 +7777,12 @@
       "size_bytes": 288
     },
     {
-      "lines": 1027,
+      "lines": 1014,
       "name": "aletheus.runtime.core",
       "package": "aletheus.runtime",
       "path": "aletheus/runtime/core.py",
       "relative_path": "aletheus/runtime/core.py",
-      "size_bytes": 33571
+      "size_bytes": 35903
     },
     {
       "lines": 112,
@@ -8585,36 +8513,36 @@
       "size_bytes": 380
     },
     {
-      "lines": 27,
+      "lines": 31,
       "name": "aletheus.runtime.managers",
       "package": "aletheus.runtime.managers",
       "path": "aletheus/runtime/managers/__init__.py",
       "relative_path": "aletheus/runtime/managers/__init__.py",
-      "size_bytes": 750
+      "size_bytes": 867
     },
     {
-      "lines": 40,
+      "lines": 26,
       "name": "aletheus.runtime.managers.certification_manager",
       "package": "aletheus.runtime.managers",
       "path": "aletheus/runtime/managers/certification_manager.py",
       "relative_path": "aletheus/runtime/managers/certification_manager.py",
-      "size_bytes": 679
+      "size_bytes": 534
     },
     {
-      "lines": 51,
+      "lines": 29,
       "name": "aletheus.runtime.managers.command_manager",
       "package": "aletheus.runtime.managers",
       "path": "aletheus/runtime/managers/command_manager.py",
       "relative_path": "aletheus/runtime/managers/command_manager.py",
-      "size_bytes": 821
+      "size_bytes": 644
     },
     {
-      "lines": 19,
+      "lines": 15,
       "name": "aletheus.runtime.managers.governance_manager",
       "package": "aletheus.runtime.managers",
       "path": "aletheus/runtime/managers/governance_manager.py",
       "relative_path": "aletheus/runtime/managers/governance_manager.py",
-      "size_bytes": 244
+      "size_bytes": 209
     },
     {
       "lines": 48,
@@ -8625,12 +8553,12 @@
       "size_bytes": 1067
     },
     {
-      "lines": 24,
+      "lines": 15,
       "name": "aletheus.runtime.managers.invariant_manager",
       "package": "aletheus.runtime.managers",
       "path": "aletheus/runtime/managers/invariant_manager.py",
       "relative_path": "aletheus/runtime/managers/invariant_manager.py",
-      "size_bytes": 274
+      "size_bytes": 204
     },
     {
       "lines": 31,
@@ -8641,44 +8569,36 @@
       "size_bytes": 550
     },
     {
-      "lines": 89,
+      "lines": 69,
       "name": "aletheus.runtime.managers.observability_manager",
       "package": "aletheus.runtime.managers",
       "path": "aletheus/runtime/managers/observability_manager.py",
       "relative_path": "aletheus/runtime/managers/observability_manager.py",
-      "size_bytes": 1641
+      "size_bytes": 1462
     },
     {
-      "lines": 30,
-      "name": "aletheus.runtime.managers.registration_manager",
-      "package": "aletheus.runtime.managers",
-      "path": "aletheus/runtime/managers/registration_manager.py",
-      "relative_path": "aletheus/runtime/managers/registration_manager.py",
-      "size_bytes": 593
-    },
-    {
-      "lines": 47,
+      "lines": 34,
       "name": "aletheus.runtime.managers.registry_federation_manager",
       "package": "aletheus.runtime.managers",
       "path": "aletheus/runtime/managers/registry_federation_manager.py",
       "relative_path": "aletheus/runtime/managers/registry_federation_manager.py",
-      "size_bytes": 697
+      "size_bytes": 612
     },
     {
-      "lines": 26,
+      "lines": 21,
       "name": "aletheus.runtime.managers.registry_manager",
       "package": "aletheus.runtime.managers",
       "path": "aletheus/runtime/managers/registry_manager.py",
       "relative_path": "aletheus/runtime/managers/registry_manager.py",
-      "size_bytes": 357
+      "size_bytes": 321
     },
     {
-      "lines": 149,
+      "lines": 137,
       "name": "aletheus.runtime.managers.runtime_facade",
       "package": "aletheus.runtime.managers",
       "path": "aletheus/runtime/managers/runtime_facade.py",
       "relative_path": "aletheus/runtime/managers/runtime_facade.py",
-      "size_bytes": 3041
+      "size_bytes": 2981
     },
     {
       "lines": 34,
@@ -8689,20 +8609,20 @@
       "size_bytes": 620
     },
     {
-      "lines": 29,
+      "lines": 21,
       "name": "aletheus.runtime.managers.snapshot_manager",
       "package": "aletheus.runtime.managers",
       "path": "aletheus/runtime/managers/snapshot_manager.py",
       "relative_path": "aletheus/runtime/managers/snapshot_manager.py",
-      "size_bytes": 417
+      "size_bytes": 364
     },
     {
-      "lines": 33,
+      "lines": 27,
       "name": "aletheus.runtime.managers.validation_manager",
       "package": "aletheus.runtime.managers",
       "path": "aletheus/runtime/managers/validation_manager.py",
       "relative_path": "aletheus/runtime/managers/validation_manager.py",
-      "size_bytes": 559
+      "size_bytes": 508
     },
     {
       "lines": 0,
@@ -9468,6 +9388,9 @@
     "aletheus.runtime.boot_pipeline.manifest",
     "aletheus.runtime.boot_pipeline.models",
     "aletheus.runtime.boot_pipeline.reporter",
+    "aletheus.runtime.bootstrap",
+    "aletheus.runtime.bootstrap.runtime_bootstrap",
+    "aletheus.runtime.bootstrap.runtime_manifest_builder",
     "aletheus.runtime.certification.certifier",
     "aletheus.runtime.certification.federation_certifier",
     "aletheus.runtime.command_handlers",
@@ -9492,19 +9415,19 @@
     "aletheus.runtime.release.manifest"
   ],
   "summary": {
-    "average_module_lines": 64.47,
+    "average_module_lines": 64.36,
     "boot_pipeline_paths": 2,
     "dependency_cycles": 0,
-    "errors": 2,
+    "errors": 0,
     "infos": 1,
-    "internal_import_edges": 440,
+    "internal_import_edges": 434,
     "kernel_constructors": 1,
     "largest_module": "aletheus.runtime.core",
-    "largest_module_lines": 1027,
+    "largest_module_lines": 1014,
     "legacy_references": 0,
-    "module_count": 417,
-    "orphan_modules": 32,
-    "total_lines": 26884,
+    "module_count": 415,
+    "orphan_modules": 35,
+    "total_lines": 26709,
     "warnings": 8
   }
 }

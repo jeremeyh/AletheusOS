@@ -9,8 +9,6 @@ from dataclasses import dataclass, field
 
 @dataclass
 class GuardianAlert:
-
-
     asset_id: str
 
     alert_type: str
@@ -20,18 +18,10 @@ class GuardianAlert:
     message: str
 
 
-
 @dataclass
 class CollectionHealth:
-
-
     score: int
 
-    risks: list = field(
-        default_factory=list
-    )
+    risks: list = field(default_factory=list)
 
-    recommendations: list = field(
-        default_factory=list
-    )
-
+    recommendations: list = field(default_factory=list)

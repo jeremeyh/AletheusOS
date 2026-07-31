@@ -17,7 +17,6 @@ class RuntimeExtractionPlanner:
     def build(self):
 
         candidates = [
-
             ExtractionCandidate(
                 name="Lifecycle",
                 source="runtime/core.py",
@@ -27,7 +26,6 @@ class RuntimeExtractionPlanner:
                 confidence=0.99,
                 rationale="Already has a dedicated subsystem.",
             ),
-
             ExtractionCandidate(
                 name="Registration",
                 source="runtime/core.py",
@@ -37,7 +35,6 @@ class RuntimeExtractionPlanner:
                 confidence=0.99,
                 rationale="Large responsibility cluster.",
             ),
-
             ExtractionCandidate(
                 name="Command Dispatch",
                 source="runtime/core.py",
@@ -47,7 +44,6 @@ class RuntimeExtractionPlanner:
                 confidence=0.99,
                 rationale="Natural registry ownership.",
             ),
-
             ExtractionCandidate(
                 name="Compatibility",
                 source="runtime/core.py",
@@ -57,7 +53,6 @@ class RuntimeExtractionPlanner:
                 confidence=0.95,
                 rationale="Low-risk extraction.",
             ),
-
             ExtractionCandidate(
                 name="Diagnostics",
                 source="runtime/core.py",
@@ -67,7 +62,6 @@ class RuntimeExtractionPlanner:
                 confidence=0.95,
                 rationale="Reporting belongs outside runtime.",
             ),
-
             ExtractionCandidate(
                 name="Metrics",
                 source="runtime/core.py",
@@ -77,7 +71,6 @@ class RuntimeExtractionPlanner:
                 confidence=0.94,
                 rationale="Observability concern.",
             ),
-
             ExtractionCandidate(
                 name="Applications",
                 source="runtime/core.py",
@@ -87,7 +80,6 @@ class RuntimeExtractionPlanner:
                 confidence=0.98,
                 rationale="Application ownership.",
             ),
-
             ExtractionCandidate(
                 name="Workflow",
                 source="runtime/core.py",
@@ -99,10 +91,6 @@ class RuntimeExtractionPlanner:
             ),
         ]
 
-        candidates.sort(
-            key=lambda item: item.priority
-        )
+        candidates.sort(key=lambda item: item.priority)
 
-        return ExtractionPlan(
-            candidates=candidates
-        )
+        return ExtractionPlan(candidates=candidates)

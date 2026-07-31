@@ -1,8 +1,3 @@
 from .gateway import IntelligenceGateway
 
-__all__=[
-
-"IntelligenceGateway"
-
-]
-
+__all__ = ["IntelligenceGateway"]

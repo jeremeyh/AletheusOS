@@ -9,11 +9,15 @@ class CardHawkEvent:
     message: str
     source: str = "CardHawk OS™"
     payload: dict = field(default_factory=dict)
-    event_id: str = field(default_factory=lambda: f"EVT-{uuid.uuid4().hex[:10].upper()}")
+    event_id: str = field(
+        default_factory=lambda: f"EVT-{uuid.uuid4().hex[:10].upper()}"
+    )
     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+
 
 class EventBus:
     """Universal Event Bus™ for Alpha 1.0."""
+
     _events = []
     _subscribers = {}
 

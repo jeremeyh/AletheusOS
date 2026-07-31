@@ -26,20 +26,9 @@ DOCKERFILE = ROOT / "Dockerfile.nimble"
 DOCKERIGNORE = ROOT / ".dockerignore"
 COMPOSE = ROOT / "compose.nimble.yml"
 
-CONTRACT = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "deployment"
-    / "container-contract.json"
-)
+CONTRACT = ROOT / "nimble" / "governance" / "deployment" / "container-contract.json"
 
-REPORT = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "container-contract-latest.json"
-)
+REPORT = ROOT / "reports" / "nimble" / "container-contract-latest.json"
 
 REQUIRED_DOCKERFILE_MARKERS = (
     "FROM node:24-alpine AS frontend-builder",
@@ -73,20 +62,14 @@ REQUIRED_COMPOSE_MARKERS = (
 
 
 def load_json(path: Path) -> dict[str, Any]:
-    return json.loads(
-        path.read_text(encoding="utf-8")
-    )
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def missing_markers(
     text: str,
     markers: tuple[str, ...],
 ) -> list[str]:
-    return [
-        marker
-        for marker in markers
-        if marker not in text
-    ]
+    return [marker for marker in markers if marker not in text]
 
 
 def main() -> int:
@@ -99,51 +82,36 @@ def main() -> int:
         CONTRACT,
     ):
         if not path.exists():
-            failures.append(
-                f"Missing container artifact: "
-                f"{path.relative_to(ROOT)}"
-            )
+            failures.append(f"Missing container artifact: {path.relative_to(ROOT)}")
 
     if failures:
         for failure in failures:
             print("FAIL:", failure)
         return 1
 
-    dockerfile_text = DOCKERFILE.read_text(
-        encoding="utf-8"
-    )
+    dockerfile_text = DOCKERFILE.read_text(encoding="utf-8")
 
-    dockerignore_text = DOCKERIGNORE.read_text(
-        encoding="utf-8"
-    )
+    dockerignore_text = DOCKERIGNORE.read_text(encoding="utf-8")
 
-    compose_text = COMPOSE.read_text(
-        encoding="utf-8"
-    )
+    compose_text = COMPOSE.read_text(encoding="utf-8")
 
     for marker in missing_markers(
         dockerfile_text,
         REQUIRED_DOCKERFILE_MARKERS,
     ):
-        failures.append(
-            f"Dockerfile marker missing: {marker}"
-        )
+        failures.append(f"Dockerfile marker missing: {marker}")
 
     for marker in missing_markers(
         dockerignore_text,
         REQUIRED_DOCKERIGNORE_MARKERS,
     ):
-        failures.append(
-            f".dockerignore marker missing: {marker}"
-        )
+        failures.append(f".dockerignore marker missing: {marker}")
 
     for marker in missing_markers(
         compose_text,
         REQUIRED_COMPOSE_MARKERS,
     ):
-        failures.append(
-            f"Compose marker missing: {marker}"
-        )
+        failures.append(f"Compose marker missing: {marker}")
 
     contract = load_json(CONTRACT)
 
@@ -152,43 +120,22 @@ def main() -> int:
     health = contract.get("health", {})
 
     if runtime.get("user") == "root":
-        failures.append(
-            "Container runtime user must not be root."
-        )
+        failures.append("Container runtime user must not be root.")
 
     if runtime.get("port") != 8000:
-        failures.append(
-            "Container runtime port must be 8000."
-        )
+        failures.append("Container runtime port must be 8000.")
 
-    if not runtime.get(
-        "read_only_root_filesystem"
-    ):
-        failures.append(
-            "Read-only root filesystem is required."
-        )
+    if not runtime.get("read_only_root_filesystem"):
+        failures.append("Read-only root filesystem is required.")
 
-    if not runtime.get(
-        "drop_all_capabilities"
-    ):
-        failures.append(
-            "All Linux capabilities must be dropped."
-        )
+    if not runtime.get("drop_all_capabilities"):
+        failures.append("All Linux capabilities must be dropped.")
 
-    if not runtime.get(
-        "no_new_privileges"
-    ):
-        failures.append(
-            "no-new-privileges is required."
-        )
+    if not runtime.get("no_new_privileges"):
+        failures.append("no-new-privileges is required.")
 
-    if startup.get("module") != (
-        "aletheus.experience_gateway."
-        "fastapi_app:app"
-    ):
-        failures.append(
-            "Container startup module is incorrect."
-        )
+    if startup.get("module") != ("aletheus.experience_gateway.fastapi_app:app"):
+        failures.append("Container startup module is incorrect.")
 
     for key in (
         "liveness_path",
@@ -200,23 +147,13 @@ def main() -> int:
             r"/[A-Za-z0-9/_-]+",
             value,
         ):
-            failures.append(
-                f"Invalid health path: {key}={value}"
-            )
+            failures.append(f"Invalid health path: {key}={value}")
 
     report = {
         "schema_version": "1.0",
-        "status": (
-            "PASS"
-            if not failures
-            else "FAIL"
-        ),
-        "dockerfile": str(
-            DOCKERFILE.relative_to(ROOT)
-        ),
-        "compose": str(
-            COMPOSE.relative_to(ROOT)
-        ),
+        "status": ("PASS" if not failures else "FAIL"),
+        "dockerfile": str(DOCKERFILE.relative_to(ROOT)),
+        "compose": str(COMPOSE.relative_to(ROOT)),
         "runtime_user": runtime.get("user"),
         "port": runtime.get("port"),
         "failures": failures,

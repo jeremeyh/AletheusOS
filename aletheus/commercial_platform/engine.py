@@ -4,7 +4,6 @@ Commercial Intelligence Engine
 Genesis 13.45
 """
 
-
 from .analytics import CommercialAnalytics
 from .billing import BillingEngine
 from .entitlements import EntitlementEngine
@@ -13,8 +12,6 @@ from .usage import UsageMeter
 
 
 class CommercialPlatformEngine:
-
-
     def __init__(self):
 
         self.subscriptions = SubscriptionEngine()
@@ -27,20 +24,6 @@ class CommercialPlatformEngine:
 
         self.analytics = CommercialAnalytics()
 
+    def authorize(self, subscription, capability):
 
-
-    def authorize(
-        self,
-        subscription,
-        capability
-    ):
-
-
-        return self.entitlements.check(
-
-            subscription,
-
-            capability
-
-        )
-
+        return self.entitlements.check(subscription, capability)

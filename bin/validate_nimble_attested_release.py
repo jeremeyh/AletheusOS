@@ -20,12 +20,7 @@ def _find_repo_root() -> Path:
 
 ROOT = _find_repo_root()
 
-WORKFLOW = (
-    ROOT
-    / ".github"
-    / "workflows"
-    / "nimble-attested-release.yml"
-)
+WORKFLOW = ROOT / ".github" / "workflows" / "nimble-attested-release.yml"
 
 REQUIRED_MARKERS = tuple(
     dict.fromkeys(

@@ -73,13 +73,7 @@ def test_transformation_creates_classvar_import_after_future_import(
 def test_transformation_reuses_existing_classvar_import(
     candidate_factory: Any,
 ) -> None:
-    source = (
-        "from typing import ClassVar\n"
-        "\n"
-        "\n"
-        "class Example:\n"
-        "    VALUES = set()\n"
-    )
+    source = "from typing import ClassVar\n\n\nclass Example:\n    VALUES = set()\n"
     candidate = candidate_factory(line=5)
 
     rewritten, notes = ClassVarTransformation().transform(
@@ -104,10 +98,7 @@ def test_transformation_rejects_non_safe_candidate(
 def test_transformation_rejects_wrong_assignment_line(
     candidate_factory: Any,
 ) -> None:
-    source = (
-        "class Example:\n"
-        "    VALUES = []\n"
-    )
+    source = "class Example:\n    VALUES = []\n"
     candidate = candidate_factory(line=1)
 
     with pytest.raises(
@@ -125,9 +116,7 @@ def test_transformation_rejects_nested_instance_assignment(
     candidate_factory: Any,
 ) -> None:
     source = (
-        "class Example:\n"
-        "    def __init__(self) -> None:\n"
-        "        self.VALUES = []\n"
+        "class Example:\n    def __init__(self) -> None:\n        self.VALUES = []\n"
     )
     candidate = candidate_factory(line=3)
 
@@ -145,10 +134,7 @@ def test_transformation_rejects_nested_instance_assignment(
 def test_transformation_preserves_inline_comment(
     candidate_factory: Any,
 ) -> None:
-    source = (
-        "class Example:\n"
-        "    VALUES = []  # maintained as a constant\n"
-    )
+    source = "class Example:\n    VALUES = []  # maintained as a constant\n"
     candidate = candidate_factory(line=2)
 
     rewritten, _ = ClassVarTransformation().transform(
@@ -157,7 +143,4 @@ def test_transformation_preserves_inline_comment(
         source=source,
     )
 
-    assert (
-        "    VALUES: ClassVar = []  # maintained as a constant\n"
-        in rewritten
-    )
+    assert "    VALUES: ClassVar = []  # maintained as a constant\n" in rewritten

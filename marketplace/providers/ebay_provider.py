@@ -2,7 +2,6 @@ from marketplace.providers.base_provider import MarketplaceProvider
 
 
 class EbayProvider(MarketplaceProvider):
-
     @property
     def name(self):
         return "eBay"
@@ -20,6 +19,4 @@ class EbayProvider(MarketplaceProvider):
         return []
 
     def health_check(self):
-        return {
-            "status": "ONLINE"
-        }
+        return {"status": "ONLINE"}

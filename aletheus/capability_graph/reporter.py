@@ -1,5 +1,4 @@
 class CapabilityGraphReporter:
-
     def render(self, graph):
 
         lines = [
@@ -13,7 +12,6 @@ class CapabilityGraphReporter:
         ]
 
         for node in graph.nodes.values():
-
             lines.append(node.name)
 
             deps = graph.dependencies(node.id)
@@ -23,9 +21,7 @@ class CapabilityGraphReporter:
                     target = graph.nodes.get(dep)
 
                     if target:
-                        lines.append(
-                            f"   -> {target.name}"
-                        )
+                        lines.append(f"   -> {target.name}")
 
             lines.append("")
 

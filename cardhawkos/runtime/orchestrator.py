@@ -51,9 +51,7 @@ class RuntimeOrchestrator:
                 },
             )
 
-            CardHawkLogger.info(
-                f"{name} completed in {duration}s"
-            )
+            CardHawkLogger.info(f"{name} completed in {duration}s")
 
             return {
                 "step": name,
@@ -88,9 +86,7 @@ class RuntimeOrchestrator:
                 },
             )
 
-            CardHawkLogger.error(
-                f"{name} failed: {error}"
-            )
+            CardHawkLogger.error(f"{name} failed: {error}")
 
             return {
                 "step": name,

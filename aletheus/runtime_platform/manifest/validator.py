@@ -38,18 +38,13 @@ class RuntimeManifestValidator:
         names = manifest.names()
 
         if len(names) != len(set(names)):
-            errors.append(
-                "Manifest contains duplicate entry names."
-            )
+            errors.append("Manifest contains duplicate entry names.")
 
         graph = DependencyGraph()
 
         for entry in manifest.entries:
-
             if entry.kind not in self._SUPPORTED_KINDS:
-                errors.append(
-                    f"Unsupported manifest kind: {entry.kind}"
-                )
+                errors.append(f"Unsupported manifest kind: {entry.kind}")
 
             graph.add(
                 entry.name,
@@ -72,7 +67,4 @@ class RuntimeManifestValidator:
         errors = self.validate(manifest)
 
         if errors:
-            raise ValueError(
-                "Invalid runtime manifest: "
-                + "; ".join(errors)
-            )
+            raise ValueError("Invalid runtime manifest: " + "; ".join(errors))

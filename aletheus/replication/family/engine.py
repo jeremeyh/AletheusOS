@@ -6,34 +6,14 @@ Post-Genesis 685
 
 
 class CivilizationFamilyTreeEngine:
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_civilization_family_tree",
-
-            "post_genesis":
-            "685",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_civilization_family_tree",
+            "post_genesis": "685",
+            "status": "operational",
         }
-
-
 
     def execute(self, request=None):
 
-        return {
-
-            "request":
-            request,
-
-            "status":
-            "completed"
-
-        }
-
+        return {"request": request, "status": "completed"}

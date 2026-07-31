@@ -5,11 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
-CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/release/"
-    "release-integrity-contract.json"
-)
+CONTRACT_PATH = ROOT / "nimble/governance/release/release-integrity-contract.json"
 
 
 def load_contract() -> dict:
@@ -34,8 +30,7 @@ def test_release_manifest_has_checksum_sidecar() -> None:
     contract = load_contract()
 
     assert (
-        contract["manifest"]["checksum_path"]
-        == "reports/nimble/"
+        contract["manifest"]["checksum_path"] == "reports/nimble/"
         "nimble-release-manifest.sha256"
     )
 
@@ -51,17 +46,8 @@ def test_required_subjects_are_repository_relative() -> None:
 def test_attestation_is_sigstore_backed() -> None:
     contract = load_contract()
 
-    assert (
-        contract["attestation"]["provider"]
-        == "github-artifact-attestations"
-    )
+    assert contract["attestation"]["provider"] == "github-artifact-attestations"
 
-    assert (
-        contract["attestation"]["action"]
-        == "actions/attest@v4"
-    )
+    assert contract["attestation"]["action"] == "actions/attest@v4"
 
-    assert (
-        contract["attestation"]["sigstore_backed"]
-        is True
-    )
+    assert contract["attestation"]["sigstore_backed"] is True

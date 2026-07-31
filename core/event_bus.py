@@ -7,7 +7,6 @@ from collections import defaultdict
 
 
 class EventBus:
-
     def __init__(self):
 
         self._listeners = defaultdict(list)
@@ -25,9 +24,7 @@ class EventBus:
 
     def listeners(self):
 
-        return {
-            k: len(v)
-            for k, v in self._listeners.items()
-        }
+        return {k: len(v) for k, v in self._listeners.items()}
+
 
 event_bus = EventBus()

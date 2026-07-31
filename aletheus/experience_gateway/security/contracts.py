@@ -24,25 +24,17 @@ class Principal:
     entitlements: tuple[str, ...] = ()
     authentication_method: str = "local"
     authenticated: bool = True
-    attributes: dict[str, str] = field(
-        default_factory=dict
-    )
+    attributes: dict[str, str] = field(default_factory=dict)
 
     def __post_init__(self) -> None:
         if not self.subject_id.strip():
-            raise ValueError(
-                "Principal subject_id cannot be empty."
-            )
+            raise ValueError("Principal subject_id cannot be empty.")
 
         if not self.display_name.strip():
-            raise ValueError(
-                "Principal display_name cannot be empty."
-            )
+            raise ValueError("Principal display_name cannot be empty.")
 
         if not self.roles:
-            raise ValueError(
-                "Principal must have at least one role."
-            )
+            raise ValueError("Principal must have at least one role.")
 
 
 @dataclass(frozen=True, slots=True)
@@ -68,5 +60,4 @@ class AuthorizationPolicy(Protocol):
         command_id: str,
         command_risk: str,
         required_entitlements: tuple[str, ...],
-    ) -> AuthorizationDecision:
-        ...
+    ) -> AuthorizationDecision: ...

@@ -31,9 +31,7 @@ class ConstitutionalLedger:
         # Institutional Event Ledger
         #
         self.institutional_events = InstitutionalEventStore()
-        self.transtemporal = TranstemporalEngine(
-            self.institutional_events
-        )
+        self.transtemporal = TranstemporalEngine(self.institutional_events)
 
         #
         # Legacy compatibility alias
@@ -58,9 +56,7 @@ class ConstitutionalLedger:
         return self.retrieval.by_trace(decision_trace_id)
 
     def by_certification(self, certification_id: str):
-        return self.retrieval.by_certification(
-            certification_id
-        )
+        return self.retrieval.by_certification(certification_id)
 
     def by_application(self, application: str):
         return self.retrieval.by_application(application)
@@ -73,9 +69,7 @@ class ConstitutionalLedger:
 
         return {
             "decision_trace_id": decision_trace_id,
-            "entries": self.by_trace(
-                decision_trace_id
-            ),
+            "entries": self.by_trace(decision_trace_id),
         }
 
     #
@@ -93,9 +87,8 @@ class ConstitutionalLedger:
             or "unknown"
         )
 
-        effective_at = (
-            normalized.pop("effective_at", None)
-            or normalized.pop("timestamp", None)
+        effective_at = normalized.pop("effective_at", None) or normalized.pop(
+            "timestamp", None
         )
 
         ledger_event = InstitutionalLedgerEvent(
@@ -151,9 +144,7 @@ class ConstitutionalLedger:
             ),
         )
 
-        return self.institutional_events.append(
-            ledger_event
-        )
+        return self.institutional_events.append(ledger_event)
 
     def institutional_event(
         self,
@@ -162,9 +153,7 @@ class ConstitutionalLedger:
         """
         Return a single institutional event.
         """
-        return self.institutional_events.get(
-            event_id
-        )
+        return self.institutional_events.get(event_id)
 
     def institutional_history(
         self,
@@ -187,19 +176,13 @@ class ConstitutionalLedger:
         """
 
         if correlation_id is not None:
-            return self.institutional_events.by_correlation(
-                correlation_id
-            )
+            return self.institutional_events.by_correlation(correlation_id)
 
         if source_identity is not None:
-            return self.institutional_events.by_source(
-                source_identity
-            )
+            return self.institutional_events.by_source(source_identity)
 
         if event_type is not None:
-            return self.institutional_events.by_type(
-                event_type
-            )
+            return self.institutional_events.by_type(event_type)
 
         return self.institutional_events.all()
 
@@ -233,17 +216,13 @@ class ConstitutionalLedger:
         self,
         event_id: str,
     ):
-        return self.transtemporal.lineage(
-            event_id
-        )
+        return self.transtemporal.lineage(event_id)
 
     def temporal_provenance(
         self,
         event_id: str,
     ):
-        return self.transtemporal.provenance(
-            event_id
-        )
+        return self.transtemporal.provenance(event_id)
 
     def as_of(
         self,
@@ -289,9 +268,7 @@ class ConstitutionalLedger:
             "status": "online",
             "entries": stats["entries"],
             "certifications": stats["certifications"],
-            "institutional_events": len(
-                self.institutional_events.all()
-            ),
+            "institutional_events": len(self.institutional_events.all()),
             "replays": self._replays,
         }
 

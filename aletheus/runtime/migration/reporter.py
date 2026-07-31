@@ -1,5 +1,4 @@
 class RuntimeMigrationReporter:
-
     def render(self, tracker):
 
         report = tracker.report()
@@ -16,14 +15,13 @@ class RuntimeMigrationReporter:
         ]
 
         for item in report.items:
-            lines.append(
-                f"  [{item.status.upper()}] "
-                f"{item.name} -> {item.destination}"
-            )
+            lines.append(f"  [{item.status.upper()}] {item.name} -> {item.destination}")
 
-        lines.extend([
-            "",
-            "========================================================",
-        ])
+        lines.extend(
+            [
+                "",
+                "========================================================",
+            ]
+        )
 
         return "\n".join(lines)

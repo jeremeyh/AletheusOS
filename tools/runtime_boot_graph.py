@@ -9,7 +9,6 @@ def main():
     print()
 
     for phase, deps in BOOT_DEPENDENCIES.items():
-
         if deps:
             print(f"{phase}")
             for dep in deps:

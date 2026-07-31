@@ -22,8 +22,7 @@ class EvidenceReader(Protocol):
         provider: str | None = None,
         source: str | None = None,
         tags: Iterable[str] | None = None,
-    ) -> tuple[Any, ...]:
-        ...
+    ) -> tuple[Any, ...]: ...
 
 
 @dataclass(frozen=True, slots=True)

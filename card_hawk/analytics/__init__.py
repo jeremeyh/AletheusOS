@@ -1,8 +1,3 @@
 from .engine import AnalyticsEngine
 
-__all__=[
-
-"AnalyticsEngine"
-
-]
-
+__all__ = ["AnalyticsEngine"]

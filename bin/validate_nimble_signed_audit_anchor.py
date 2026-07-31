@@ -22,9 +22,7 @@ def _find_repo_root() -> Path:
             return current
 
         if current.parent == current:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         current = current.parent
 
@@ -32,48 +30,22 @@ def _find_repo_root() -> Path:
 ROOT = _find_repo_root()
 
 CONTRACT_PATH = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "audit"
-    / "signed-audit-anchor-contract.json"
+    ROOT / "nimble" / "governance" / "audit" / "signed-audit-anchor-contract.json"
 )
 
 LATEST_POINTER = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "audit"
-    / "checkpoints"
-    / "latest.json"
+    ROOT / "nimble" / "governance" / "audit" / "checkpoints" / "latest.json"
 )
 
-ANCHOR_PATH = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "signed-audit-anchor.json"
-)
+ANCHOR_PATH = ROOT / "reports" / "nimble" / "signed-audit-anchor.json"
 
-CHECKSUM_PATH = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "signed-audit-anchor.sha256"
-)
+CHECKSUM_PATH = ROOT / "reports" / "nimble" / "signed-audit-anchor.sha256"
 
-REPORT_PATH = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "signed-audit-anchor-validation-latest.json"
-)
+REPORT_PATH = ROOT / "reports" / "nimble" / "signed-audit-anchor-validation-latest.json"
 
 
 def load_json(path: Path) -> dict[str, Any]:
-    return json.loads(
-        path.read_text(encoding="utf-8")
-    )
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def canonical_bytes(
@@ -116,17 +88,12 @@ def main() -> int:
 
     for path in required_paths:
         if not path.is_file():
-            failures.append(
-                f"Missing signed-anchor file: "
-                f"{path.relative_to(ROOT)}"
-            )
+            failures.append(f"Missing signed-anchor file: {path.relative_to(ROOT)}")
 
     if failures:
         report = {
             "schema_version": "1.0",
-            "generated_at": datetime.now(
-                UTC
-            ).isoformat(),
+            "generated_at": datetime.now(UTC).isoformat(),
             "status": "FAIL",
             "checks": checks,
             "failures": failures,
@@ -157,131 +124,60 @@ def main() -> int:
     anchor = load_json(ANCHOR_PATH)
 
     subject = anchor.get("subject", {})
-    checkpoint_value = subject.get(
-        "checkpoint_path"
-    )
+    checkpoint_value = subject.get("checkpoint_path")
 
     if not isinstance(checkpoint_value, str):
-        failures.append(
-            "Anchor checkpoint path is invalid."
-        )
+        failures.append("Anchor checkpoint path is invalid.")
         checkpoint_path = None
     else:
         relative_path = Path(checkpoint_value)
 
-        if (
-            relative_path.is_absolute()
-            or ".." in relative_path.parts
-        ):
-            failures.append(
-                "Anchor checkpoint path violates policy."
-            )
+        if relative_path.is_absolute() or ".." in relative_path.parts:
+            failures.append("Anchor checkpoint path violates policy.")
             checkpoint_path = None
         else:
             checkpoint_path = ROOT / relative_path
 
     if checkpoint_path is not None:
         if not checkpoint_path.is_file():
-            failures.append(
-                "Signed-anchor checkpoint subject "
-                "is missing."
-            )
+            failures.append("Signed-anchor checkpoint subject is missing.")
         else:
-            checkpoint = load_json(
-                checkpoint_path
-            )
+            checkpoint = load_json(checkpoint_path)
 
             bindings = {
-                "checkpoint_sequence": (
-                    checkpoint.get(
-                        "checkpoint_sequence"
-                    )
-                ),
-                "checkpoint_hash": (
-                    checkpoint.get(
-                        "checkpoint_hash"
-                    )
-                ),
-                "ledger_entry_count": (
-                    checkpoint.get(
-                        "ledger_entry_count"
-                    )
-                ),
-                "ledger_head_hash": (
-                    checkpoint.get(
-                        "ledger_head_hash"
-                    )
-                ),
-                "git_revision": (
-                    checkpoint.get(
-                        "git_revision"
-                    )
-                ),
-                "release_identity": (
-                    checkpoint.get(
-                        "release_identity"
-                    )
-                ),
+                "checkpoint_sequence": (checkpoint.get("checkpoint_sequence")),
+                "checkpoint_hash": (checkpoint.get("checkpoint_hash")),
+                "ledger_entry_count": (checkpoint.get("ledger_entry_count")),
+                "ledger_head_hash": (checkpoint.get("ledger_head_hash")),
+                "git_revision": (checkpoint.get("git_revision")),
+                "release_identity": (checkpoint.get("release_identity")),
             }
 
-            for key, expected_value in (
-                bindings.items()
-            ):
-                passed = (
-                    subject.get(key)
-                    == expected_value
-                )
+            for key, expected_value in bindings.items():
+                passed = subject.get(key) == expected_value
 
                 checks.append(
                     {
-                        "check": (
-                            f"checkpoint-binding:{key}"
-                        ),
-                        "status": (
-                            "PASS"
-                            if passed
-                            else "FAIL"
-                        ),
+                        "check": (f"checkpoint-binding:{key}"),
+                        "status": ("PASS" if passed else "FAIL"),
                     }
                 )
 
                 if not passed:
-                    failures.append(
-                        f"Checkpoint binding mismatch: "
-                        f"{key}"
-                    )
+                    failures.append(f"Checkpoint binding mismatch: {key}")
 
-            checkpoint_digest = sha256_file(
-                checkpoint_path
-            )
+            checkpoint_digest = sha256_file(checkpoint_path)
 
-            if (
-                subject.get(
-                    "checkpoint_file_sha256"
-                )
-                != checkpoint_digest
-            ):
-                failures.append(
-                    "Checkpoint file digest mismatch."
-                )
+            if subject.get("checkpoint_file_sha256") != checkpoint_digest:
+                failures.append("Checkpoint file digest mismatch.")
 
-    if (
-        subject.get("checkpoint_hash")
-        != pointer.get("checkpoint_hash")
-    ):
-        failures.append(
-            "Anchor does not bind the latest "
-            "checkpoint pointer."
-        )
+    if subject.get("checkpoint_hash") != pointer.get("checkpoint_hash"):
+        failures.append("Anchor does not bind the latest checkpoint pointer.")
 
-    recorded_anchor_hash = anchor.get(
-        "anchor_hash"
-    )
+    recorded_anchor_hash = anchor.get("anchor_hash")
 
     payload_without_hash = {
-        key: value
-        for key, value in anchor.items()
-        if key != "anchor_hash"
+        key: value for key, value in anchor.items() if key != "anchor_hash"
     }
 
     calculated_anchor_hash = hashlib.sha256(
@@ -289,9 +185,7 @@ def main() -> int:
     ).hexdigest()
 
     if recorded_anchor_hash != calculated_anchor_hash:
-        failures.append(
-            "Signed-anchor internal hash mismatch."
-        )
+        failures.append("Signed-anchor internal hash mismatch.")
 
     checksum_line = CHECKSUM_PATH.read_text(
         encoding="utf-8",
@@ -303,57 +197,34 @@ def main() -> int:
         checksum_line,
     )
 
-    expected_file_digest = (
-        checksum_match.group(1)
-        if checksum_match
-        else ""
-    )
+    expected_file_digest = checksum_match.group(1) if checksum_match else ""
 
-    actual_file_digest = sha256_file(
-        ANCHOR_PATH
-    )
+    actual_file_digest = sha256_file(ANCHOR_PATH)
 
     if expected_file_digest != actual_file_digest:
-        failures.append(
-            "Signed-anchor checksum mismatch."
-        )
+        failures.append("Signed-anchor checksum mismatch.")
 
     signing_identity = anchor.get(
         "signing_identity",
         {},
     )
 
-    if (
-        signing_identity.get("provider")
-        != contract["signing"]["provider"]
-    ):
-        failures.append(
-            "Unexpected signing provider identity."
-        )
+    if signing_identity.get("provider") != contract["signing"]["provider"]:
+        failures.append("Unexpected signing provider identity.")
 
     if (
-        signing_identity.get(
-            "expected_workflow"
-        )
-        != contract["signing"][
-            "expected_workflow"
-        ]
+        signing_identity.get("expected_workflow")
+        != contract["signing"]["expected_workflow"]
     ):
-        failures.append(
-            "Unexpected signing workflow identity."
-        )
+        failures.append("Unexpected signing workflow identity.")
 
     status = "PASS" if not failures else "FAIL"
 
     report = {
         "schema_version": "1.0",
-        "generated_at": datetime.now(
-            UTC
-        ).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "status": status,
-        "checkpoint_hash": subject.get(
-            "checkpoint_hash"
-        ),
+        "checkpoint_hash": subject.get("checkpoint_hash"),
         "anchor_hash": recorded_anchor_hash,
         "anchor_file_sha256": actual_file_digest,
         "checks": checks,

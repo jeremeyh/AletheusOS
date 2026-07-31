@@ -44,7 +44,9 @@ class OntologyValidator:
             OntologyStatus.HISTORICAL,
             OntologyStatus.SUPERSEDED,
         }:
-            errors.append("Aletheum naming is retired and must remain archived unless explicitly revived")
+            errors.append(
+                "Aletheum naming is retired and must remain archived unless explicitly revived"
+            )
 
         return OntologyValidationResult(
             valid=not errors,

@@ -24,23 +24,11 @@ def find_repo_root(start: Path) -> Path:
 ROOT = find_repo_root(Path(__file__).parent)
 
 
-WORKFLOW_PATH = (
-    ROOT
-    / ".github/workflows/"
-    "nimble-audit-anchor.yml"
-)
+WORKFLOW_PATH = ROOT / ".github/workflows/nimble-audit-anchor.yml"
 
-CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/audit/"
-    "signed-audit-anchor-contract.json"
-)
+CONTRACT_PATH = ROOT / "nimble/governance/audit/signed-audit-anchor-contract.json"
 
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "signed-audit-anchor-workflow-latest.json"
-)
+REPORT_PATH = ROOT / "reports/nimble/signed-audit-anchor-workflow-latest.json"
 
 
 def main() -> int:
@@ -48,47 +36,24 @@ def main() -> int:
     checks: list[dict[str, Any]] = []
 
     if not WORKFLOW_PATH.is_file():
-        failures.append(
-            "Signed-anchor workflow is missing."
-        )
+        failures.append("Signed-anchor workflow is missing.")
         workflow = ""
     else:
-        workflow = WORKFLOW_PATH.read_text(
-            encoding="utf-8"
-        )
+        workflow = WORKFLOW_PATH.read_text(encoding="utf-8")
 
-    contract = json.loads(
-        CONTRACT_PATH.read_text(
-            encoding="utf-8"
-        )
-    )
+    contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
 
     required_tokens = {
         "attest-action": "uses: actions/attest@v4",
-        "subject-path": (
-            "subject-path: "
-            "reports/nimble/signed-audit-anchor.json"
-        ),
+        "subject-path": ("subject-path: reports/nimble/signed-audit-anchor.json"),
         "id-token-permission": "id-token: write",
         "attestations-permission": "attestations: write",
-        "artifact-metadata-permission": (
-            "artifact-metadata: write"
-        ),
-        "repository-verification": (
-            '--repo "${GITHUB_REPOSITORY}"'
-        ),
-        "signer-workflow-verification": (
-            '--signer-workflow "${SIGNER_WORKFLOW}"'
-        ),
-        "attestation-variable-guard": (
-            "NIMBLE_ENABLE_ATTESTATIONS"
-        ),
-        "bundle-retention": (
-            "signed-audit-anchor-attestation.json"
-        ),
-        "verification-retention": (
-            "signed-audit-anchor-verification.json"
-        ),
+        "artifact-metadata-permission": ("artifact-metadata: write"),
+        "repository-verification": ('--repo "${GITHUB_REPOSITORY}"'),
+        "signer-workflow-verification": ('--signer-workflow "${SIGNER_WORKFLOW}"'),
+        "attestation-variable-guard": ("NIMBLE_ENABLE_ATTESTATIONS"),
+        "bundle-retention": ("signed-audit-anchor-attestation.json"),
+        "verification-retention": ("signed-audit-anchor-verification.json"),
     }
 
     for name, token in required_tokens.items():
@@ -97,29 +62,20 @@ def main() -> int:
         checks.append(
             {
                 "check": name,
-                "status": (
-                    "PASS" if passed else "FAIL"
-                ),
+                "status": ("PASS" if passed else "FAIL"),
             }
         )
 
         if not passed:
-            failures.append(
-                f"Signed-anchor workflow missing: {name}"
-            )
+            failures.append(f"Signed-anchor workflow missing: {name}")
 
-    expected_workflow = contract[
-        "signing"
-    ]["expected_workflow"]
+    expected_workflow = contract["signing"]["expected_workflow"]
 
-    actual_workflow = (
-        WORKFLOW_PATH.relative_to(ROOT).as_posix()
-    )
+    actual_workflow = WORKFLOW_PATH.relative_to(ROOT).as_posix()
 
     if expected_workflow != actual_workflow:
         failures.append(
-            "Contract workflow identity does not match "
-            "the actual workflow path."
+            "Contract workflow identity does not match the actual workflow path."
         )
 
     status = "PASS" if not failures else "FAIL"
@@ -133,9 +89,7 @@ def main() -> int:
         json.dumps(
             {
                 "schema_version": "1.0",
-                "generated_at": datetime.now(
-                    UTC
-                ).isoformat(),
+                "generated_at": datetime.now(UTC).isoformat(),
                 "status": status,
                 "checks": checks,
                 "failures": failures,

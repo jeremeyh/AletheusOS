@@ -23,7 +23,6 @@ class RuntimeSnapshot:
 
 
 class AletheusPersistenceEngine:
-
     VERSION = "3.2.0"
 
     def __init__(self, base_path: str = "runtime_state"):
@@ -189,7 +188,11 @@ class AletheusPersistenceEngine:
 
     def _statistics_no_bootstrap(self):
         json_files = list(self.base_path.glob("*.json"))
-        snapshot_dirs = list((self.base_path / "snapshots").glob("*")) if (self.base_path / "snapshots").exists() else []
+        snapshot_dirs = (
+            list((self.base_path / "snapshots").glob("*"))
+            if (self.base_path / "snapshots").exists()
+            else []
+        )
 
         size = sum(file.stat().st_size for file in json_files if file.is_file())
 

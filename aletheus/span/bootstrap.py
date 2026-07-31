@@ -116,10 +116,7 @@ class BootstrapReport:
             "summary": self.summary(),
             "started_at": self.started_at,
             "completed_at": self.completed_at,
-            "diagnostics": [
-                diagnostic.to_dict()
-                for diagnostic in self.diagnostics
-            ],
+            "diagnostics": [diagnostic.to_dict() for diagnostic in self.diagnostics],
             "loader_reports": dict(self.loader_reports),
         }
 
@@ -319,9 +316,7 @@ class SPANBootstrap:
         )
 
         try:
-            load_report: RuleLoadReport = self.rule_loader.load_all(
-                strict=self.strict
-            )
+            load_report: RuleLoadReport = self.rule_loader.load_all(strict=self.strict)
         except Exception as exc:
             self._report.rule_loader = "failed"
             self._report.add(
@@ -334,9 +329,7 @@ class SPANBootstrap:
                 raise
         else:
             self._report.loader_reports["rules"] = load_report.to_dict()
-            self._report.rule_loader = (
-                "ready" if load_report.ok else "degraded"
-            )
+            self._report.rule_loader = "ready" if load_report.ok else "degraded"
 
             for diagnostic in load_report.diagnostics:
                 if diagnostic.level in {"warning", "error"}:
@@ -397,9 +390,7 @@ class SPANBootstrap:
 
         if self._report.errors:
             self.state = (
-                BootstrapState.FAILED
-                if not required_ready
-                else BootstrapState.DEGRADED
+                BootstrapState.FAILED if not required_ready else BootstrapState.DEGRADED
             )
         elif self._report.warnings:
             self.state = BootstrapState.DEGRADED
@@ -413,8 +404,7 @@ class SPANBootstrap:
 
         if self.strict and self.state is not BootstrapState.READY:
             raise RuntimeError(
-                "Strict SPAN bootstrap did not reach READY: "
-                f"{self._report.summary()}"
+                f"Strict SPAN bootstrap did not reach READY: {self._report.summary()}"
             )
 
     @classmethod
@@ -511,18 +501,12 @@ class SPANBootstrap:
         for name, parameter in signature.parameters.items():
             if name == "strict":
                 kwargs[name] = False
-            elif (
-                parameter.default is inspect.Parameter.empty
-                and parameter.kind
-                in {
-                    inspect.Parameter.POSITIONAL_ONLY,
-                    inspect.Parameter.POSITIONAL_OR_KEYWORD,
-                    inspect.Parameter.KEYWORD_ONLY,
-                }
-            ):
-                raise TypeError(
-                    f"Unsupported required loader parameter: {name}"
-                )
+            elif parameter.default is inspect.Parameter.empty and parameter.kind in {
+                inspect.Parameter.POSITIONAL_ONLY,
+                inspect.Parameter.POSITIONAL_OR_KEYWORD,
+                inspect.Parameter.KEYWORD_ONLY,
+            }:
+                raise TypeError(f"Unsupported required loader parameter: {name}")
 
         return method(**kwargs)
 

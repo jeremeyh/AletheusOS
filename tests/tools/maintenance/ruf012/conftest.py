@@ -23,4 +23,5 @@ def candidate_factory() -> Any:
             line=line,
             classification=classification,
         )
+
     return create

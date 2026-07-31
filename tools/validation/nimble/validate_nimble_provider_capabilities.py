@@ -26,112 +26,64 @@ ROOT = find_repo_root(Path(__file__).parent)
 
 
 REGISTRY_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "deployment-provider-registry.json"
+    ROOT / "nimble/governance/environments/deployment-provider-registry.json"
 )
 
 CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "provider-capability-contract.json"
+    ROOT / "nimble/governance/environments/provider-capability-contract.json"
 )
 
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "provider-capability-validation-latest.json"
-)
+REPORT_PATH = ROOT / "reports/nimble/provider-capability-validation-latest.json"
 
-SECRET_NAME_PATTERN = re.compile(
-    r"^[A-Z][A-Z0-9_]*$"
-)
+SECRET_NAME_PATTERN = re.compile(r"^[A-Z][A-Z0-9_]*$")
 
 
 def main() -> int:
     failures: list[str] = []
     checks: list[dict[str, Any]] = []
 
-    registry = json.loads(
-        REGISTRY_PATH.read_text(
-            encoding="utf-8"
-        )
-    )
+    registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
 
-    contract = json.loads(
-        CONTRACT_PATH.read_text(
-            encoding="utf-8"
-        )
-    )
+    contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
 
-    known_capabilities = set(
-        contract["capabilities"]
-    )
+    known_capabilities = set(contract["capabilities"])
 
-    for provider_name, provider in (
-        registry.get("providers", {}).items()
-    ):
-        capabilities = provider.get(
-            "capabilities"
-        )
+    for provider_name, provider in registry.get("providers", {}).items():
+        capabilities = provider.get("capabilities")
 
-        valid_capability_list = (
-            isinstance(capabilities, list)
-            and bool(capabilities)
-        )
+        valid_capability_list = isinstance(capabilities, list) and bool(capabilities)
 
         checks.append(
             {
-                "check": (
-                    f"capability-list:{provider_name}"
-                ),
-                "status": (
-                    "PASS"
-                    if valid_capability_list
-                    else "FAIL"
-                ),
+                "check": (f"capability-list:{provider_name}"),
+                "status": ("PASS" if valid_capability_list else "FAIL"),
             }
         )
 
         if not valid_capability_list:
-            failures.append(
-                f"Provider has no declared capabilities: "
-                f"{provider_name}"
-            )
+            failures.append(f"Provider has no declared capabilities: {provider_name}")
             continue
 
-        unknown = sorted(
-            set(capabilities)
-            - known_capabilities
-        )
+        unknown = sorted(set(capabilities) - known_capabilities)
 
         if unknown:
             failures.append(
                 f"Provider {provider_name} declares "
-                "unknown capabilities: "
-                + ", ".join(unknown)
+                "unknown capabilities: " + ", ".join(unknown)
             )
 
-        actions = set(
-            provider.get("supports", [])
-        )
+        actions = set(provider.get("supports", []))
 
-        missing_action_capabilities = sorted(
-            actions - set(capabilities)
-        )
+        missing_action_capabilities = sorted(actions - set(capabilities))
 
         if missing_action_capabilities:
             failures.append(
                 f"Provider {provider_name} lacks "
                 "capabilities matching supported actions: "
-                + ", ".join(
-                    missing_action_capabilities
-                )
+                + ", ".join(missing_action_capabilities)
             )
 
-        secret_map = provider.get(
-            "required_secrets"
-        )
+        secret_map = provider.get("required_secrets")
 
         if not isinstance(secret_map, dict):
             failures.append(
@@ -144,9 +96,7 @@ def main() -> int:
             "environments",
             [],
         ):
-            declared = secret_map.get(
-                environment
-            )
+            declared = secret_map.get(environment)
 
             if not isinstance(declared, list):
                 failures.append(
@@ -156,16 +106,11 @@ def main() -> int:
                 continue
 
             for secret_name in declared:
-                if (
-                    not isinstance(secret_name, str)
-                    or not SECRET_NAME_PATTERN.fullmatch(
-                        secret_name
-                    )
-                ):
+                if not isinstance(
+                    secret_name, str
+                ) or not SECRET_NAME_PATTERN.fullmatch(secret_name):
                     failures.append(
-                        f"Invalid secret name for "
-                        f"{provider_name}: "
-                        f"{secret_name!r}"
+                        f"Invalid secret name for {provider_name}: {secret_name!r}"
                     )
 
         serialized = json.dumps(provider)
@@ -186,11 +131,7 @@ def main() -> int:
                     f"{provider_name}:{token}"
                 )
 
-    status = (
-        "PASS"
-        if not failures
-        else "FAIL"
-    )
+    status = "PASS" if not failures else "FAIL"
 
     REPORT_PATH.parent.mkdir(
         parents=True,
@@ -201,9 +142,7 @@ def main() -> int:
         json.dumps(
             {
                 "schema_version": "1.0",
-                "generated_at": datetime.now(
-                    UTC
-                ).isoformat(),
+                "generated_at": datetime.now(UTC).isoformat(),
                 "status": status,
                 "checks": checks,
                 "failures": failures,

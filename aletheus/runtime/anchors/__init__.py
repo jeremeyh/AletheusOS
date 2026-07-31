@@ -4,7 +4,6 @@ Runtime Anchor Circuit Package
 Genesis 8
 """
 
-
 from .application import ApplicationAnchorCircuit
 from .base import RuntimeAnchorCircuit
 from .intelligence import IntelligenceAnchorCircuit
@@ -12,13 +11,11 @@ from .knowledge import KnowledgeAnchorCircuit
 from .memory import MemoryAnchorCircuit
 
 __all__ = [
-
     "ApplicationAnchorCircuit",
     "IntelligenceAnchorCircuit",
     "KnowledgeAnchorCircuit",
     "MemoryAnchorCircuit",
-    "RuntimeAnchorCircuit"
-
+    "RuntimeAnchorCircuit",
 ]
 
 
@@ -119,4 +116,3 @@ from .strategic_intelligence import StrategicIntelligenceEngine
 from .strategic_planning import AnchorStrategicPlanningEngine
 from .verification import AnchorEvolutionVerificationEngine
 from .wisdom_accumulation import WisdomAccumulationEngine
-

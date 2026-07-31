@@ -26,12 +26,8 @@ def definition(
     )
 
 
-def build_manager() -> (
-    ConstitutionalDependencyManager
-):
-    registry = PlatformServiceRegistry(
-        event_bus=ConstitutionalEventBus()
-    )
+def build_manager() -> ConstitutionalDependencyManager:
+    registry = PlatformServiceRegistry(event_bus=ConstitutionalEventBus())
 
     registry.register_many(
         [
@@ -42,15 +38,11 @@ def build_manager() -> (
             ),
             definition(
                 "service.registry",
-                dependencies=(
-                    "service.event-bus",
-                ),
+                dependencies=("service.event-bus",),
             ),
             definition(
                 "service.graph",
-                dependencies=(
-                    "service.event-bus",
-                ),
+                dependencies=("service.event-bus",),
             ),
             definition(
                 "service.twin",
@@ -66,9 +58,7 @@ def build_manager() -> (
         ]
     )
 
-    return ConstitutionalDependencyManager(
-        service_registry=registry
-    )
+    return ConstitutionalDependencyManager(service_registry=registry)
 
 
 def test_validation_passes() -> None:
@@ -87,10 +77,7 @@ def test_boot_plan_is_dependency_ordered() -> None:
 
     plan = manager.build_boot_plan()
 
-    assert [
-        level.services
-        for level in plan.levels
-    ] == [
+    assert [level.services for level in plan.levels] == [
         ("service.runtime",),
         ("service.event-bus",),
         (
@@ -107,10 +94,7 @@ def test_shutdown_plan_reverses_levels() -> None:
 
     plan = manager.build_shutdown_plan()
 
-    assert [
-        level.services
-        for level in plan.levels
-    ] == [
+    assert [level.services for level in plan.levels] == [
         ("service.explorer",),
         ("service.twin",),
         (
@@ -128,17 +112,13 @@ def test_boot_plan_contains_all_services() -> None:
     plan = manager.build_boot_plan()
 
     assert len(plan.ordered_services) == 6
-    assert len(
-        set(plan.ordered_services)
-    ) == 6
+    assert len(set(plan.ordered_services)) == 6
 
 
 def test_direct_dependencies() -> None:
     manager = build_manager()
 
-    assert manager.dependencies_of(
-        "service.twin"
-    ) == (
+    assert manager.dependencies_of("service.twin") == (
         "service.graph",
         "service.registry",
     )
@@ -162,9 +142,7 @@ def test_transitive_dependencies() -> None:
 def test_direct_dependents() -> None:
     manager = build_manager()
 
-    assert manager.dependents_of(
-        "service.event-bus"
-    ) == (
+    assert manager.dependents_of("service.event-bus") == (
         "service.graph",
         "service.registry",
     )
@@ -188,9 +166,7 @@ def test_transitive_dependents() -> None:
 def test_restart_plan_includes_dependents() -> None:
     manager = build_manager()
 
-    plan = manager.build_restart_plan(
-        "service.registry"
-    )
+    plan = manager.build_restart_plan("service.registry")
 
     assert plan.direction == "restart"
     assert plan.ordered_services == (
@@ -203,24 +179,16 @@ def test_restart_plan_includes_dependents() -> None:
 def test_restart_leaf_contains_only_leaf() -> None:
     manager = build_manager()
 
-    plan = manager.build_restart_plan(
-        "service.explorer"
-    )
+    plan = manager.build_restart_plan("service.explorer")
 
-    assert plan.ordered_services == (
-        "service.explorer",
-    )
+    assert plan.ordered_services == ("service.explorer",)
 
 
 def test_unknown_service_is_rejected() -> None:
     manager = build_manager()
 
-    with pytest.raises(
-        DependencyNodeNotFoundError
-    ):
-        manager.dependencies_of(
-            "service.missing"
-        )
+    with pytest.raises(DependencyNodeNotFoundError):
+        manager.dependencies_of("service.missing")
 
 
 def test_statistics_are_consistent() -> None:
@@ -242,9 +210,7 @@ def test_export_contains_plans() -> None:
 
     payload = manager.export()
 
-    assert payload[
-        "validation"
-    ]["valid"] is True
+    assert payload["validation"]["valid"] is True
     assert "boot_plan" in payload
     assert "shutdown_plan" in payload
     assert "statistics" in payload
@@ -265,6 +231,4 @@ def test_manager_is_read_only() -> None:
         "connect",
     }
 
-    assert forbidden.isdisjoint(
-        set(dir(manager))
-    )
+    assert forbidden.isdisjoint(set(dir(manager)))

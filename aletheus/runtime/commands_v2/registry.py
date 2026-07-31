@@ -28,11 +28,9 @@ class RuntimeCommandRegistry:
     def __init__(self) -> None:
         self.commands: dict[str, CommandRecord] = {}
         self._generation = 0
-        self._dispatcher = (
-            CompiledRuntimeCommandDispatcher(
-                self.commands,
-                generation=self._generation,
-            )
+        self._dispatcher = CompiledRuntimeCommandDispatcher(
+            self.commands,
+            generation=self._generation,
         )
 
     @property
@@ -54,11 +52,9 @@ class RuntimeCommandRegistry:
         """
 
         self._generation += 1
-        self._dispatcher = (
-            CompiledRuntimeCommandDispatcher(
-                self.commands,
-                generation=self._generation,
-            )
+        self._dispatcher = CompiledRuntimeCommandDispatcher(
+            self.commands,
+            generation=self._generation,
         )
 
     def register(
@@ -130,12 +126,7 @@ class RuntimeCommandRegistry:
         return sorted(self.commands)
 
     def categories(self) -> list[str]:
-        return sorted(
-            {
-                record.category
-                for record in self.commands.values()
-            }
-        )
+        return sorted({record.category for record in self.commands.values()})
 
     def health(self) -> dict[str, Any]:
         return {

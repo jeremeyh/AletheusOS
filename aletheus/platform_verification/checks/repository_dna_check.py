@@ -25,11 +25,7 @@ def repository_dna_check() -> VerificationResult:
 
     root = Path("aletheus")
 
-    discovered = {
-        p.name
-        for p in root.iterdir()
-        if p.is_dir()
-    }
+    discovered = {p.name for p in root.iterdir() if p.is_dir()}
 
     missing = sorted(EXPECTED_SUBSYSTEMS - discovered)
 

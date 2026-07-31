@@ -67,9 +67,7 @@ class ClassVarTransformation(Transformation):
             line_number=line_number,
         )
 
-        rewritten, import_note = self._ensure_classvar_import(
-            rewritten
-        )
+        rewritten, import_note = self._ensure_classvar_import(rewritten)
 
         return (
             rewritten,
@@ -93,9 +91,7 @@ class ClassVarTransformation(Transformation):
         try:
             tree = ast.parse(source, filename=str(path))
         except SyntaxError as exc:
-            raise TransformationError(
-                f"Original source is invalid: {exc}"
-            ) from exc
+            raise TransformationError(f"Original source is invalid: {exc}") from exc
 
         matches: list[ast.Assign] = []
 
@@ -118,10 +114,7 @@ class ClassVarTransformation(Transformation):
 
                 target = statement.targets[0]
 
-                if (
-                    isinstance(target, ast.Name)
-                    and target.id == attribute_name
-                ):
+                if isinstance(target, ast.Name) and target.id == attribute_name:
                     matches.append(statement)
 
         if len(matches) != 1:
@@ -169,13 +162,11 @@ class ClassVarTransformation(Transformation):
             f"{match.group('indent')}"
             f"{match.group('name')}: ClassVar"
             f"{match.group('spacing')}="
-            f"{original_line[match.end():]}"
+            f"{original_line[match.end() :]}"
         )
 
         if replacement == original_line:
-            raise TransformationError(
-                "Transformation produced no assignment change."
-            )
+            raise TransformationError("Transformation produced no assignment change.")
 
         lines[index] = replacement
 
@@ -194,10 +185,7 @@ class ClassVarTransformation(Transformation):
             if (
                 isinstance(statement, ast.ImportFrom)
                 and statement.module == "typing"
-                and any(
-                    alias.name == "ClassVar"
-                    for alias in statement.names
-                )
+                and any(alias.name == "ClassVar" for alias in statement.names)
             ):
                 return (
                     source,
@@ -214,10 +202,7 @@ class ClassVarTransformation(Transformation):
             if statement.lineno != statement.end_lineno:
                 continue
 
-            if any(
-                alias.name == "*"
-                for alias in statement.names
-            ):
+            if any(alias.name == "*" for alias in statement.names):
                 continue
 
             index = statement.lineno - 1
@@ -242,9 +227,7 @@ class ClassVarTransformation(Transformation):
                 "Added ClassVar to existing typing import.",
             )
 
-        insertion_index = (
-            ClassVarTransformation._import_insertion_index(tree)
-        )
+        insertion_index = ClassVarTransformation._import_insertion_index(tree)
 
         newline = "\r\n" if "\r\n" in source else "\n"
 
@@ -272,10 +255,7 @@ class ClassVarTransformation(Transformation):
             and isinstance(tree.body[0].value, ast.Constant)
             and isinstance(tree.body[0].value.value, str)
         ):
-            insertion_index = (
-                tree.body[0].end_lineno
-                or tree.body[0].lineno
-            )
+            insertion_index = tree.body[0].end_lineno or tree.body[0].lineno
 
         for statement in tree.body:
             if (
@@ -284,8 +264,7 @@ class ClassVarTransformation(Transformation):
             ):
                 insertion_index = max(
                     insertion_index,
-                    statement.end_lineno
-                    or statement.lineno,
+                    statement.end_lineno or statement.lineno,
                 )
 
         return insertion_index

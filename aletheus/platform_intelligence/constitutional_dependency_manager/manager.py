@@ -39,10 +39,7 @@ class ConstitutionalDependencyManager:
 
     def validate(self) -> DependencyValidation:
         services = self._service_registry.all()
-        addresses = {
-            service.address
-            for service in services
-        }
+        addresses = {service.address for service in services}
 
         missing: dict[
             str,
@@ -52,46 +49,28 @@ class ConstitutionalDependencyManager:
         edges = 0
 
         for service in services:
-            dependencies = tuple(
-                sorted(
-                    self._service_dependencies(
-                        service
-                    )
-                )
-            )
+            dependencies = tuple(sorted(self._service_dependencies(service)))
             edges += len(dependencies)
 
             unresolved = tuple(
-                dependency
-                for dependency in dependencies
-                if dependency not in addresses
+                dependency for dependency in dependencies if dependency not in addresses
             )
 
             if unresolved:
-                missing[service.address] = (
-                    unresolved
-                )
+                missing[service.address] = unresolved
 
             if service.address in dependencies:
-                self_dependencies.append(
-                    service.address
-                )
+                self_dependencies.append(service.address)
 
         cycles = self._find_cycles()
 
         return DependencyValidation(
-            valid=(
-                not missing
-                and not self_dependencies
-                and not cycles
-            ),
+            valid=(not missing and not self_dependencies and not cycles),
             registered_services=len(services),
             dependency_edges=edges,
             missing_dependencies=missing,
             cycles=cycles,
-            self_dependencies=tuple(
-                sorted(self_dependencies)
-            ),
+            self_dependencies=tuple(sorted(self_dependencies)),
         )
 
     def build_boot_plan(
@@ -101,38 +80,24 @@ class ConstitutionalDependencyManager:
 
         if validation.missing_dependencies:
             raise MissingDependencyError(
-                "Cannot build boot plan with "
-                "missing dependencies."
+                "Cannot build boot plan with missing dependencies."
             )
 
         if validation.self_dependencies:
-            raise DependencyCycleError(
-                "Cannot build boot plan with "
-                "self-dependencies."
-            )
+            raise DependencyCycleError("Cannot build boot plan with self-dependencies.")
 
         if validation.cycles:
-            raise DependencyCycleError(
-                "Cannot build boot plan with "
-                "dependency cycles."
-            )
+            raise DependencyCycleError("Cannot build boot plan with dependency cycles.")
 
         dependencies = self._dependency_map()
-        dependents = self._dependent_map(
-            dependencies
-        )
+        dependents = self._dependent_map(dependencies)
 
         unresolved_count = {
-            address: len(values)
-            for address, values
-            in dependencies.items()
+            address: len(values) for address, values in dependencies.items()
         }
 
         ready = sorted(
-            address
-            for address, count
-            in unresolved_count.items()
-            if count == 0
+            address for address, count in unresolved_count.items() if count == 0
         )
 
         levels: list[DependencyLevel] = []
@@ -154,38 +119,24 @@ class ConstitutionalDependencyManager:
             for address in current:
                 processed.add(address)
 
-                for dependent in sorted(
-                    dependents[address]
-                ):
-                    unresolved_count[
-                        dependent
-                    ] -= 1
+                for dependent in sorted(dependents[address]):
+                    unresolved_count[dependent] -= 1
 
-                    if (
-                        unresolved_count[
-                            dependent
-                        ]
-                        == 0
-                    ):
-                        next_ready.append(
-                            dependent
-                        )
+                    if unresolved_count[dependent] == 0:
+                        next_ready.append(dependent)
 
             ready = sorted(set(next_ready))
             level_index += 1
 
         if len(processed) != len(dependencies):
             raise DependencyCycleError(
-                "Dependency graph could not be "
-                "topologically resolved."
+                "Dependency graph could not be topologically resolved."
             )
 
         return ConstitutionalDependencyPlan.create(
             direction="boot",
             levels=tuple(levels),
-            dependency_edges=(
-                validation.dependency_edges
-            ),
+            dependency_edges=(validation.dependency_edges),
         )
 
     def build_shutdown_plan(
@@ -198,17 +149,13 @@ class ConstitutionalDependencyManager:
                 index=index,
                 services=level.services,
             )
-            for index, level in enumerate(
-                reversed(boot.levels)
-            )
+            for index, level in enumerate(reversed(boot.levels))
         )
 
         return ConstitutionalDependencyPlan.create(
             direction="shutdown",
             levels=reversed_levels,
-            dependency_edges=(
-                boot.dependency_edges
-            ),
+            dependency_edges=(boot.dependency_edges),
         )
 
     def build_restart_plan(
@@ -219,13 +166,9 @@ class ConstitutionalDependencyManager:
         dependencies = self._dependency_map()
 
         if resolved not in dependencies:
-            raise DependencyNodeNotFoundError(
-                f"Service not found: {resolved}"
-            )
+            raise DependencyNodeNotFoundError(f"Service not found: {resolved}")
 
-        dependents = self._dependent_map(
-            dependencies
-        )
+        dependents = self._dependent_map(dependencies)
 
         affected = self._collect_dependents(
             resolved,
@@ -239,27 +182,20 @@ class ConstitutionalDependencyManager:
             DependencyLevel(
                 index=index,
                 services=tuple(
-                    service
-                    for service in level.services
-                    if service in affected
+                    service for service in level.services if service in affected
                 ),
             )
             for index, level in enumerate(
                 level
                 for level in boot.levels
-                if any(
-                    service in affected
-                    for service
-                    in level.services
-                )
+                if any(service in affected for service in level.services)
             )
         )
 
         edge_count = sum(
             1
             for service in affected
-            for dependency
-            in dependencies[service]
+            for dependency in dependencies[service]
             if dependency in affected
         )
 
@@ -279,14 +215,10 @@ class ConstitutionalDependencyManager:
         dependencies = self._dependency_map()
 
         if resolved not in dependencies:
-            raise DependencyNodeNotFoundError(
-                f"Service not found: {resolved}"
-            )
+            raise DependencyNodeNotFoundError(f"Service not found: {resolved}")
 
         if not transitive:
-            return tuple(
-                sorted(dependencies[resolved])
-            )
+            return tuple(sorted(dependencies[resolved]))
 
         return tuple(
             sorted(
@@ -307,18 +239,12 @@ class ConstitutionalDependencyManager:
         dependencies = self._dependency_map()
 
         if resolved not in dependencies:
-            raise DependencyNodeNotFoundError(
-                f"Service not found: {resolved}"
-            )
+            raise DependencyNodeNotFoundError(f"Service not found: {resolved}")
 
-        dependents = self._dependent_map(
-            dependencies
-        )
+        dependents = self._dependent_map(dependencies)
 
         if not transitive:
-            return tuple(
-                sorted(dependents[resolved])
-            )
+            return tuple(sorted(dependents[resolved]))
 
         return tuple(
             sorted(
@@ -334,28 +260,16 @@ class ConstitutionalDependencyManager:
     ) -> DependencyManagerStatistics:
         plan = self.build_boot_plan()
         dependencies = self._dependency_map()
-        dependents = self._dependent_map(
-            dependencies
-        )
+        dependents = self._dependent_map(dependencies)
 
         return DependencyManagerStatistics(
             services=len(dependencies),
-            dependency_edges=(
-                plan.dependency_edges
-            ),
+            dependency_edges=(plan.dependency_edges),
             boot_levels=len(plan.levels),
             maximum_depth=plan.maximum_depth,
-            parallel_groups=(
-                plan.parallel_groups
-            ),
-            root_services=sum(
-                not values
-                for values in dependencies.values()
-            ),
-            leaf_services=sum(
-                not values
-                for values in dependents.values()
-            ),
+            parallel_groups=(plan.parallel_groups),
+            root_services=sum(not values for values in dependencies.values()),
+            leaf_services=sum(not values for values in dependents.values()),
         )
 
     def export(self) -> dict[str, object]:
@@ -366,15 +280,9 @@ class ConstitutionalDependencyManager:
         }
 
         if validation.valid:
-            payload["boot_plan"] = (
-                self.build_boot_plan().to_dict()
-            )
-            payload["shutdown_plan"] = (
-                self.build_shutdown_plan().to_dict()
-            )
-            payload["statistics"] = (
-                self.statistics().to_dict()
-            )
+            payload["boot_plan"] = self.build_boot_plan().to_dict()
+            payload["shutdown_plan"] = self.build_shutdown_plan().to_dict()
+            payload["statistics"] = self.statistics().to_dict()
 
         return payload
 
@@ -382,24 +290,17 @@ class ConstitutionalDependencyManager:
         self,
     ) -> dict[str, set[str]]:
         return {
-            service.address: set(
-                self._service_dependencies(
-                    service
-                )
-            )
-            for service
-            in self._service_registry.all()
+            service.address: set(self._service_dependencies(service))
+            for service in self._service_registry.all()
         }
 
     @staticmethod
     def _service_dependencies(
         service,
     ) -> tuple[str, ...]:
-        raw_dependencies = (
-            service.attributes.get(
-                "dependencies",
-                (),
-            )
+        raw_dependencies = service.attributes.get(
+            "dependencies",
+            (),
         )
 
         if raw_dependencies is None:
@@ -409,21 +310,14 @@ class ConstitutionalDependencyManager:
             raw_dependencies,
             str,
         ):
-            normalized = (
-                raw_dependencies.strip().lower()
-            )
+            normalized = raw_dependencies.strip().lower()
 
-            return (
-                (normalized,)
-                if normalized
-                else ()
-            )
+            return (normalized,) if normalized else ()
 
         try:
             values = tuple(
                 dependency.strip().lower()
-                for dependency
-                in raw_dependencies
+                for dependency in raw_dependencies
                 if isinstance(
                     dependency,
                     str,
@@ -432,31 +326,21 @@ class ConstitutionalDependencyManager:
             )
         except TypeError as error:
             raise TypeError(
-                "Service dependency attributes must "
-                "be a string or iterable of strings."
+                "Service dependency attributes must be a string or iterable of strings."
             ) from error
 
-        return tuple(
-            sorted(set(values))
-        )
+        return tuple(sorted(set(values)))
 
     @staticmethod
     def _dependent_map(
         dependencies: dict[str, set[str]],
     ) -> dict[str, set[str]]:
-        dependents = {
-            address: set()
-            for address in dependencies
-        }
+        dependents = {address: set() for address in dependencies}
 
-        for address, values in (
-            dependencies.items()
-        ):
+        for address, values in dependencies.items():
             for dependency in values:
                 if dependency in dependents:
-                    dependents[
-                        dependency
-                    ].add(address)
+                    dependents[dependency].add(address)
 
         return dependents
 
@@ -475,20 +359,14 @@ class ConstitutionalDependencyManager:
 
             if address in visiting:
                 start = stack.index(address)
-                cycle = tuple(
-                    stack[start:] + [address]
-                )
-                cycles.add(
-                    self._normalize_cycle(cycle)
-                )
+                cycle = tuple(stack[start:] + [address])
+                cycles.add(self._normalize_cycle(cycle))
                 return
 
             visiting.add(address)
             stack.append(address)
 
-            for dependency in sorted(
-                graph.get(address, ())
-            ):
+            for dependency in sorted(graph.get(address, ())):
                 if dependency in graph:
                     visit(dependency)
 
@@ -511,11 +389,7 @@ class ConstitutionalDependencyManager:
             return cycle
 
         rotations = [
-            tuple(
-                values[index:]
-                + values[:index]
-            )
-            for index in range(len(values))
+            tuple(values[index:] + values[:index]) for index in range(len(values))
         ]
 
         normalized = min(rotations)
@@ -528,9 +402,7 @@ class ConstitutionalDependencyManager:
         dependencies: dict[str, set[str]],
     ) -> set[str]:
         collected: set[str] = set()
-        queue = deque(
-            dependencies[address]
-        )
+        queue = deque(dependencies[address])
 
         while queue:
             current = queue.popleft()
@@ -540,9 +412,7 @@ class ConstitutionalDependencyManager:
 
             collected.add(current)
 
-            queue.extend(
-                dependencies.get(current, ())
-            )
+            queue.extend(dependencies.get(current, ()))
 
         return collected
 
@@ -552,9 +422,7 @@ class ConstitutionalDependencyManager:
         dependents: dict[str, set[str]],
     ) -> set[str]:
         collected: set[str] = set()
-        queue = deque(
-            dependents[address]
-        )
+        queue = deque(dependents[address])
 
         while queue:
             current = queue.popleft()
@@ -564,8 +432,6 @@ class ConstitutionalDependencyManager:
 
             collected.add(current)
 
-            queue.extend(
-                dependents.get(current, ())
-            )
+            queue.extend(dependents.get(current, ()))
 
         return collected

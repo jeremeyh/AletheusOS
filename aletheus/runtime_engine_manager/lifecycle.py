@@ -57,10 +57,7 @@ class RuntimeEngineLifecycle:
         return self._states.get(engine_id)
 
     def list(self):
-        return [
-            state.to_dict()
-            for state in self._states.values()
-        ]
+        return [state.to_dict() for state in self._states.values()]
 
     def count(self):
         return len(self._states)

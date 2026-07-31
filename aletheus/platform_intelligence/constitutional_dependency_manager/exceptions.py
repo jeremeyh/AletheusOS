@@ -7,25 +7,17 @@ class ConstitutionalDependencyManagerError(Exception):
     """Base exception for CDM failures."""
 
 
-class DependencyPlanError(
-    ConstitutionalDependencyManagerError
-):
+class DependencyPlanError(ConstitutionalDependencyManagerError):
     """Raised when a dependency plan cannot be created."""
 
 
-class MissingDependencyError(
-    DependencyPlanError
-):
+class MissingDependencyError(DependencyPlanError):
     """Raised when a declared dependency is not registered."""
 
 
-class DependencyCycleError(
-    DependencyPlanError
-):
+class DependencyCycleError(DependencyPlanError):
     """Raised when the service dependency graph contains a cycle."""
 
 
-class DependencyNodeNotFoundError(
-    ConstitutionalDependencyManagerError
-):
+class DependencyNodeNotFoundError(ConstitutionalDependencyManagerError):
     """Raised when a requested service is not registered."""

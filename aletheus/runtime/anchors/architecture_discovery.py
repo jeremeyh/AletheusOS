@@ -5,39 +5,22 @@ Architecture Discovery Engine
 
 
 class ArchitectureDiscoveryEngine:
-
-
     def __init__(self):
 
-        self.discoveries=[]
-
-
+        self.discoveries = []
 
     def discover(self, environment):
 
-        result={
-
-            "environment":
-                environment,
-
-            "architectural_elements":
-                [],
-
-            "discovered":
-                True
-
+        result = {
+            "environment": environment,
+            "architectural_elements": [],
+            "discovered": True,
         }
-
 
         self.discoveries.append(result)
 
         return result
 
-
-
     def snapshot(self):
 
-        return {
-            "discoveries":
-                len(self.discoveries)
-        }
+        return {"discoveries": len(self.discoveries)}

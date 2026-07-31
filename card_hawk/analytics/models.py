@@ -9,19 +9,13 @@ from dataclasses import dataclass
 
 @dataclass
 class Metric:
-
-
     name: str
 
     value: float
 
 
-
 @dataclass
 class Report:
-
-
     title: str
 
     data: dict
-

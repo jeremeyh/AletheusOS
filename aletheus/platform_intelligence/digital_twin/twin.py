@@ -52,9 +52,7 @@ class PlatformDigitalTwin:
         snapshot_limit: int = 100,
     ) -> None:
         if snapshot_limit < 0:
-            raise ValueError(
-                "snapshot_limit cannot be negative."
-            )
+            raise ValueError("snapshot_limit cannot be negative.")
 
         self._service_registry = service_registry
         self._graph = graph
@@ -66,20 +64,14 @@ class PlatformDigitalTwin:
         self._last_event: ConstitutionalEvent | None = None
 
         self._snapshots: deque[TwinSnapshot] = deque(
-            maxlen=(
-                snapshot_limit
-                if snapshot_limit > 0
-                else None
-            )
+            maxlen=(snapshot_limit if snapshot_limit > 0 else None)
         )
 
         self._subscription_id: UUID | None = None
         self._lock = RLock()
 
         if event_bus is not None:
-            self._subscription_id = (
-                event_bus.subscribe(self.handle)
-            )
+            self._subscription_id = event_bus.subscribe(self.handle)
 
     @property
     def revision(self) -> int:
@@ -113,9 +105,7 @@ class PlatformDigitalTwin:
         if self._service_registry.contains(resolved):
             return self._service_registry.get(resolved)
 
-        raise TwinObjectNotFoundError(
-            f"Twin object not found: {resolved}"
-        )
+        raise TwinObjectNotFoundError(f"Twin object not found: {resolved}")
 
     def service(
         self,
@@ -135,16 +125,9 @@ class PlatformDigitalTwin:
         if self._graph.contains(address):
             return self._graph.dependencies(address)
 
-        dependency_addresses = (
-            self._service_registry.dependencies_of(
-                address
-            )
-        )
+        dependency_addresses = self._service_registry.dependencies_of(address)
 
-        return tuple(
-            self.object(item)
-            for item in dependency_addresses
-        )
+        return tuple(self.object(item) for item in dependency_addresses)
 
     def dependents(
         self,
@@ -153,16 +136,9 @@ class PlatformDigitalTwin:
         if self._graph.contains(address):
             return self._graph.dependents(address)
 
-        dependent_addresses = (
-            self._service_registry.dependents_of(
-                address
-            )
-        )
+        dependent_addresses = self._service_registry.dependents_of(address)
 
-        return tuple(
-            self.object(item)
-            for item in dependent_addresses
-        )
+        return tuple(self.object(item) for item in dependent_addresses)
 
     def impact(
         self,
@@ -180,10 +156,7 @@ class PlatformDigitalTwin:
 
         services = self._service_registry.all()
 
-        health_counts = Counter(
-            service.health.value
-            for service in services
-        )
+        health_counts = Counter(service.health.value for service in services)
 
         unhealthy = tuple(
             service.address
@@ -200,13 +173,11 @@ class PlatformDigitalTwin:
         if health_counts["critical"] > 0:
             state = "critical"
         elif health_counts["offline"] > 0 or (
-            health_counts["degraded"] > 0
-            or health_counts["warning"] > 0
+            health_counts["degraded"] > 0 or health_counts["warning"] > 0
         ):
             state = "degraded"
         elif services and all(
-            service.health.value == "healthy"
-            for service in services
+            service.health.value == "healthy" for service in services
         ):
             state = "healthy"
         else:
@@ -224,9 +195,7 @@ class PlatformDigitalTwin:
         *,
         retain: bool = True,
     ) -> TwinSnapshot:
-        registry_snapshot = (
-            self._service_registry.snapshot()
-        )
+        registry_snapshot = self._service_registry.snapshot()
         graph_snapshot = self._graph.snapshot()
 
         with self._lock:
@@ -237,23 +206,13 @@ class PlatformDigitalTwin:
 
         snapshot = TwinSnapshot.create(
             revision=revision,
-            services=tuple(
-                registry_snapshot["services"]
-            ),
-            nodes=tuple(
-                graph_snapshot["nodes"]
-            ),
-            relationships=tuple(
-                graph_snapshot["relationships"]
-            ),
+            services=tuple(registry_snapshot["services"]),
+            nodes=tuple(graph_snapshot["nodes"]),
+            relationships=tuple(graph_snapshot["relationships"]),
             health=self.health(),
             topology=graph_snapshot["topology"],
             statistics=statistics,
-            last_event=(
-                last_event.to_envelope()
-                if last_event is not None
-                else None
-            ),
+            last_event=(last_event.to_envelope() if last_event is not None else None),
         )
 
         if retain and self._snapshot_limit > 0:
@@ -277,9 +236,7 @@ class PlatformDigitalTwin:
                 if snapshot.snapshot_id == snapshot_id:
                     return snapshot
 
-        raise TwinSnapshotNotFoundError(
-            f"Twin snapshot not found: {snapshot_id}"
-        )
+        raise TwinSnapshotNotFoundError(f"Twin snapshot not found: {snapshot_id}")
 
     def diff(
         self,
@@ -294,29 +251,21 @@ class PlatformDigitalTwin:
     def statistics(
         self,
     ) -> PlatformDigitalTwinStatistics:
-        registry_stats = (
-            self._service_registry.statistics()
-        )
+        registry_stats = self._service_registry.statistics()
         graph_stats = self._graph.statistics()
 
         health_counts = Counter(
-            service.health.value
-            for service
-            in self._service_registry.all()
+            service.health.value for service in self._service_registry.all()
         )
 
         with self._lock:
             revision = self._revision
             events_observed = self._events_observed
-            snapshots_retained = len(
-                self._snapshots
-            )
+            snapshots_retained = len(self._snapshots)
 
         return PlatformDigitalTwinStatistics(
             revision=revision,
-            snapshots_retained=(
-                snapshots_retained
-            ),
+            snapshots_retained=(snapshots_retained),
             events_observed=events_observed,
             services=registry_stats.registered,
             nodes=graph_stats.nodes,
@@ -336,31 +285,20 @@ class PlatformDigitalTwin:
             "revision": self.revision,
             "health": self.health(),
             "services": [
-                service.to_snapshot()
-                for service
-                in self._service_registry.all()
+                service.to_snapshot() for service in self._service_registry.all()
             ],
             "graph": self._graph.snapshot(),
-            "statistics": (
-                self.statistics().to_dict()
-            ),
+            "statistics": (self.statistics().to_dict()),
             "last_event": (
-                self._last_event.to_envelope()
-                if self._last_event is not None
-                else None
+                self._last_event.to_envelope() if self._last_event is not None else None
             ),
         }
 
     def close(self) -> None:
         """Detach the Twin from its Event Bus."""
 
-        if (
-            self._event_bus is not None
-            and self._subscription_id is not None
-        ):
-            self._event_bus.unsubscribe(
-                self._subscription_id
-            )
+        if self._event_bus is not None and self._subscription_id is not None:
+            self._event_bus.unsubscribe(self._subscription_id)
             self._subscription_id = None
 
     @staticmethod

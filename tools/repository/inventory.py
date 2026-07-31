@@ -74,9 +74,7 @@ class RepositoryInventory:
 
     def root_files(self) -> list[InventoryEntry]:
         return [
-            entry
-            for entry in self.iter_files()
-            if len(entry.relative_path.parts) == 1
+            entry for entry in self.iter_files() if len(entry.relative_path.parts) == 1
         ]
 
     def write_json(

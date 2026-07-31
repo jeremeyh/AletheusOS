@@ -42,9 +42,7 @@ class GovernorConstraints:
     maximum_restarts_per_target: int = 3
     maximum_concurrent_targets: int = 8
     restart_cooldown: timedelta = timedelta(0)
-    manual_approval_for: frozenset[
-        ExecutiveDecision
-    ] = frozenset(
+    manual_approval_for: frozenset[ExecutiveDecision] = frozenset(
         {
             ExecutiveDecision.STOP_RUNTIME,
             ExecutiveDecision.ESCALATE,
@@ -54,19 +52,13 @@ class GovernorConstraints:
 
     def __post_init__(self) -> None:
         if self.maximum_restarts_per_target < 0:
-            raise ValueError(
-                "maximum_restarts_per_target cannot be negative."
-            )
+            raise ValueError("maximum_restarts_per_target cannot be negative.")
 
         if self.maximum_concurrent_targets < 1:
-            raise ValueError(
-                "maximum_concurrent_targets must be positive."
-            )
+            raise ValueError("maximum_concurrent_targets must be positive.")
 
         if self.restart_cooldown < timedelta(0):
-            raise ValueError(
-                "restart_cooldown cannot be negative."
-            )
+            raise ValueError("restart_cooldown cannot be negative.")
 
 
 @dataclass(frozen=True, slots=True)
@@ -92,9 +84,7 @@ class GovernorRequest:
             generated_at=datetime.now(UTC),
             plan=plan,
             requested_by=requested_by,
-            metadata=MappingProxyType(
-                dict(metadata or {})
-            ),
+            metadata=MappingProxyType(dict(metadata or {})),
         )
 
 
@@ -132,39 +122,23 @@ class GovernorDecision:
             approved=approved,
             reason=reason,
             governed_action=request.plan.decision,
-            target_services=tuple(
-                sorted(request.plan.target_services)
-            ),
-            requires_manual_approval=(
-                requires_manual_approval
-            ),
+            target_services=tuple(sorted(request.plan.target_services)),
+            requires_manual_approval=(requires_manual_approval),
             retry_after=retry_after,
         )
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "decision_id": str(self.decision_id),
-            "generated_at": (
-                self.generated_at.isoformat()
-            ),
+            "generated_at": (self.generated_at.isoformat()),
             "request_id": str(self.request_id),
             "outcome": self.outcome.value,
             "approved": self.approved,
             "reason": self.reason,
-            "governed_action": (
-                self.governed_action.value
-            ),
-            "target_services": list(
-                self.target_services
-            ),
-            "requires_manual_approval": (
-                self.requires_manual_approval
-            ),
-            "retry_after": (
-                self.retry_after.isoformat()
-                if self.retry_after
-                else None
-            ),
+            "governed_action": (self.governed_action.value),
+            "target_services": list(self.target_services),
+            "requires_manual_approval": (self.requires_manual_approval),
+            "retry_after": (self.retry_after.isoformat() if self.retry_after else None),
         }
 
 
@@ -190,7 +164,5 @@ class GovernorStatistics:
             "throttles": self.throttles,
             "escalations": self.escalations,
             "frozen": self.frozen,
-            "quarantined_services": (
-                self.quarantined_services
-            ),
+            "quarantined_services": (self.quarantined_services),
         }

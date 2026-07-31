@@ -6,17 +6,6 @@ Genesis 157
 
 
 class AdaptiveControlLoop:
-
-
     def execute(self):
 
-        return {
-
-            "loop":
-            "continuous",
-
-            "adaptation":
-            "enabled"
-
-        }
-
+        return {"loop": "continuous", "adaptation": "enabled"}

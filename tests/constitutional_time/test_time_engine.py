@@ -27,21 +27,15 @@ def build_time():
         subscriber_name="constitutional_ledger",
     )
 
-    time = TetraInstitutionalMissionEngine(
-        fabric=fabric
-    )
+    time = TetraInstitutionalMissionEngine(fabric=fabric)
 
     return time, fabric, ledger
 
 
 def join_phase(time, mission_id, phase_id):
-    contract = time.graph(mission_id).require(
-        phase_id
-    )
+    contract = time.graph(mission_id).require(phase_id)
 
-    for institution_id in (
-        contract.participating_institutions
-    ):
+    for institution_id in contract.participating_institutions:
         time.join(
             mission_id,
             phase_id=phase_id,
@@ -54,9 +48,7 @@ def complete_phase(
     mission_id,
     phase_id,
 ):
-    contract = time.graph(mission_id).require(
-        phase_id
-    )
+    contract = time.graph(mission_id).require(phase_id)
 
     join_phase(time, mission_id, phase_id)
 
@@ -65,9 +57,7 @@ def complete_phase(
         phase_id,
     )
 
-    for evidence_type in (
-        contract.required_evidence_types
-    ):
+    for evidence_type in contract.required_evidence_types:
         time.attach_evidence(
             mission_id,
             phase_id=phase_id,
@@ -76,9 +66,7 @@ def complete_phase(
                 "status": "verified",
                 "phase_id": phase_id,
             },
-            source_identity=(
-                contract.participating_institutions[0]
-            ),
+            source_identity=(contract.participating_institutions[0]),
         )
 
     time.complete_phase(
@@ -97,9 +85,7 @@ def test_attaches_security_phase_graph():
     )
 
     assert len(state.phases) == 5
-    assert time.eligible_phases(
-        "MISSION-TIME-001"
-    ) == ("detect",)
+    assert time.eligible_phases("MISSION-TIME-001") == ("detect",)
 
 
 def test_phase_cannot_start_before_dependency():
@@ -117,9 +103,7 @@ def test_phase_cannot_start_before_dependency():
         "classify",
     )
 
-    with pytest.raises(
-        InvalidPhaseTransitionError
-    ):
+    with pytest.raises(InvalidPhaseTransitionError):
         time.start_phase(
             "MISSION-TIME-002",
             "classify",
@@ -141,9 +125,7 @@ def test_completing_phase_unlocks_next_phase():
         "detect",
     )
 
-    assert time.eligible_phases(
-        "MISSION-TIME-003"
-    ) == ("classify",)
+    assert time.eligible_phases("MISSION-TIME-003") == ("classify",)
 
 
 def test_executes_complete_relative_sequence():
@@ -173,9 +155,7 @@ def test_executes_complete_relative_sequence():
 
     state = time.state(mission_id)
 
-    assert time.sequence_completed(
-        mission_id
-    )
+    assert time.sequence_completed(mission_id)
     assert state.completed_order == [
         "detect",
         "classify",
@@ -184,14 +164,10 @@ def test_executes_complete_relative_sequence():
         "stabilize",
     ]
 
-    replay = ledger.replay_events(
-        correlation_id=correlation_id
-    )
+    replay = ledger.replay_events(correlation_id=correlation_id)
 
     assert any(
-        event.event_type
-        == "MissionTemporalSequenceCompleted"
-        for event in replay
+        event.event_type == "MissionTemporalSequenceCompleted" for event in replay
     )
 
 
@@ -253,12 +229,8 @@ def test_failed_dependency_blocks_downstream_phase():
 
     state = time.state(mission_id)
 
-    assert state.phases["detect"].status == (
-        PhaseStatus.FAILED
-    )
-    assert state.phases["classify"].status == (
-        PhaseStatus.BLOCKED
-    )
+    assert state.phases["detect"].status == (PhaseStatus.FAILED)
+    assert state.phases["classify"].status == (PhaseStatus.BLOCKED)
 
 
 def test_graph_rejects_cycles():

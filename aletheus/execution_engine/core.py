@@ -13,7 +13,6 @@ from .models import (
 
 
 class AletheusExecutionEngine:
-
     GENESIS = "25.1"
     VERSION = "1.1.0"
 
@@ -53,7 +52,6 @@ class AletheusExecutionEngine:
         resolved = identity_resolver.resolve(identity)
 
         if resolved:
-
             record.metadata["identity"] = resolved.to_dict()
 
             runtime_core.events.publish(
@@ -83,9 +81,7 @@ class AletheusExecutionEngine:
         # Foundation Health
         #
 
-        record.metadata["foundation"] = (
-            aletheus_foundation.health()
-        )
+        record.metadata["foundation"] = aletheus_foundation.health()
 
         #
         # Search Planning

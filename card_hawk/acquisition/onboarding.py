@@ -6,13 +6,6 @@ Genesis 14.16
 
 
 class AssetOnboarding:
-
-
-    def onboard(
-        self,
-        asset
-    ):
-
+    def onboard(self, asset):
 
         return True
-

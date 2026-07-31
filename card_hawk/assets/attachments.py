@@ -6,14 +6,6 @@ Genesis 14.1
 
 
 class AttachmentManager:
-
-
-    def attach(
-        self,
-        asset,
-        media
-    ):
-
+    def attach(self, asset, media):
 
         return True
-

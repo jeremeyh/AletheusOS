@@ -5,7 +5,6 @@ from datetime import datetime
 
 @dataclass
 class Event:
-
     name: str
 
     payload: dict
@@ -18,6 +17,4 @@ class Event:
 
     causation_id: str = ""
 
-    timestamp: str = field(
-        default_factory=lambda: datetime.utcnow().isoformat()
-    )
+    timestamp: str = field(default_factory=lambda: datetime.utcnow().isoformat())

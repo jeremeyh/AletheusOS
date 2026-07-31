@@ -21,9 +21,7 @@ class SQLiteCommandAuditStore:
         self,
         database_path: str | Path,
     ) -> None:
-        self._database_path = Path(
-            database_path
-        ).expanduser().resolve()
+        self._database_path = Path(database_path).expanduser().resolve()
 
         self._database_path.parent.mkdir(
             parents=True,
@@ -89,14 +87,9 @@ class SQLiteCommandAuditStore:
         )
 
         if row is None:
-            raise KeyError(
-                "Unknown command preview: "
-                f"{preview_id}"
-            )
+            raise KeyError(f"Unknown command preview: {preview_id}")
 
-        return CommandPreview(
-            **json.loads(row["payload_json"])
-        )
+        return CommandPreview(**json.loads(row["payload_json"]))
 
     def save_authorization(
         self,
@@ -150,14 +143,9 @@ class SQLiteCommandAuditStore:
         )
 
         if row is None:
-            raise KeyError(
-                "Unknown command authorization: "
-                f"{authorization_id}"
-            )
+            raise KeyError(f"Unknown command authorization: {authorization_id}")
 
-        return CommandAuthorization(
-            **json.loads(row["payload_json"])
-        )
+        return CommandAuthorization(**json.loads(row["payload_json"]))
 
     def save_execution(
         self,
@@ -241,14 +229,9 @@ class SQLiteCommandAuditStore:
         )
 
         if row is None:
-            raise KeyError(
-                "Unknown command execution: "
-                f"{execution_id}"
-            )
+            raise KeyError(f"Unknown command execution: {execution_id}")
 
-        return CommandExecution(
-            **json.loads(row["payload_json"])
-        )
+        return CommandExecution(**json.loads(row["payload_json"]))
 
     def execution_for_idempotency_key(
         self,
@@ -266,9 +249,7 @@ class SQLiteCommandAuditStore:
         if row is None:
             return None
 
-        return self.execution(
-            row["execution_id"]
-        )
+        return self.execution(row["execution_id"])
 
     def executions(
         self,
@@ -283,10 +264,7 @@ class SQLiteCommandAuditStore:
             ).fetchall()
 
         return tuple(
-            CommandExecution(
-                **json.loads(row["payload_json"])
-            )
-            for row in rows
+            CommandExecution(**json.loads(row["payload_json"])) for row in rows
         )
 
     def counts(self) -> dict[str, int]:
@@ -387,9 +365,7 @@ class SQLiteCommandAuditStore:
         )
 
         connection.row_factory = sqlite3.Row
-        connection.execute(
-            "PRAGMA foreign_keys = ON"
-        )
+        connection.execute("PRAGMA foreign_keys = ON")
 
         return connection
 
@@ -417,13 +393,9 @@ class SQLiteCommandAuditStore:
         }
 
         if table not in allowed_tables:
-            raise ValueError(
-                f"Unsupported audit table: {table}"
-            )
+            raise ValueError(f"Unsupported audit table: {table}")
 
-        row = connection.execute(
-            f"SELECT COUNT(*) AS count FROM {table}"
-        ).fetchone()
+        row = connection.execute(f"SELECT COUNT(*) AS count FROM {table}").fetchone()
 
         return int(row["count"])
 

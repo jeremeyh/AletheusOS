@@ -7,7 +7,6 @@ from .registry import EngineRegistry
 
 
 class IntelligenceEngineManager:
-
     GENESIS = "16.3"
     VERSION = "0.1.0"
 
@@ -25,9 +24,7 @@ class IntelligenceEngineManager:
         aletheus_foundation.bootstrap_defaults()
 
         for engine in aletheus_foundation.list_engines():
-
             self.registry.register(
-
                 IntelligenceEngine(
                     engine_id=engine["engine_id"],
                     name=engine["name"],
@@ -38,7 +35,6 @@ class IntelligenceEngineManager:
                         "aliases": engine["aliases"],
                     },
                 )
-
             )
 
         self._bootstrapped = True

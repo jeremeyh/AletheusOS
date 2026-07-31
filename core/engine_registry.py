@@ -7,7 +7,6 @@ from core.container import container
 
 
 class EngineRegistry:
-
     def __init__(self):
         self._engines = {}
 
@@ -24,5 +23,6 @@ class EngineRegistry:
     def all(self):
 
         return self._engines
+
 
 engine_registry = EngineRegistry()

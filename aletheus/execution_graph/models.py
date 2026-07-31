@@ -29,7 +29,6 @@ def new_edge_id() -> str:
 
 
 class NodeType(StrEnum):
-
     INTENT = "INTENT"
 
     IDENTITY = "IDENTITY"
@@ -50,7 +49,6 @@ class NodeType(StrEnum):
 
 
 class EdgeType(StrEnum):
-
     GENERATED = "GENERATED"
 
     USED = "USED"
@@ -74,7 +72,6 @@ class EdgeType(StrEnum):
 
 @dataclass(slots=True)
 class GraphNode:
-
     node_id: str
 
     node_type: NodeType
@@ -94,7 +91,6 @@ class GraphNode:
 
 @dataclass(slots=True)
 class GraphEdge:
-
     edge_id: str
 
     source: str

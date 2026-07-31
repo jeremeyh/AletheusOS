@@ -19,7 +19,11 @@ class CandidateFilter:
         seen = set()
         unique = []
         for candidate in candidates:
-            key = (candidate.title.lower().strip(), candidate.marketplace.lower().strip(), candidate.url)
+            key = (
+                candidate.title.lower().strip(),
+                candidate.marketplace.lower().strip(),
+                candidate.url,
+            )
             if key not in seen:
                 seen.add(key)
                 unique.append(candidate)
@@ -29,7 +33,8 @@ class CandidateFilter:
     def apply_watch_target(candidates, target):
         terms = target.query.split()
         filtered = [
-            candidate for candidate in candidates
+            candidate
+            for candidate in candidates
             if CandidateFilter.title_contains(candidate, terms)
             and CandidateFilter.price_under(candidate, target.max_price)
         ]

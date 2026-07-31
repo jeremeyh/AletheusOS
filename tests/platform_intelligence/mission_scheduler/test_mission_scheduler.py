@@ -31,9 +31,7 @@ def mission(
     mission_id: str,
     *,
     run_at: datetime = NOW,
-    priority: MissionPriority = (
-        MissionPriority.NORMAL
-    ),
+    priority: MissionPriority = (MissionPriority.NORMAL),
     dependencies: tuple[str, ...] = (),
     retry_policy: RetryPolicy | None = None,
     cooldown: timedelta = timedelta(0),
@@ -62,13 +60,9 @@ def mission(
 def test_register_mission() -> None:
     scheduler = ConstitutionalMissionScheduler()
 
-    record = scheduler.register(
-        mission("mission.health")
-    )
+    record = scheduler.register(mission("mission.health"))
 
-    assert record.definition.mission_id == (
-        "mission.health"
-    )
+    assert record.definition.mission_id == ("mission.health")
     assert record.state is MissionState.WAITING
 
 
@@ -78,9 +72,7 @@ def test_duplicate_mission_is_rejected() -> None:
 
     scheduler.register(definition)
 
-    with pytest.raises(
-        MissionAlreadyRegisteredError
-    ):
+    with pytest.raises(MissionAlreadyRegisteredError):
         scheduler.register(definition)
 
 
@@ -116,10 +108,7 @@ def test_register_many_resolves_dependencies() -> None:
         ]
     )
 
-    assert [
-        record.definition.mission_id
-        for record in records
-    ] == [
+    assert [record.definition.mission_id for record in records] == [
         "mission.health",
         "mission.explorer",
     ]
@@ -137,14 +126,9 @@ def test_ready_respects_schedule() -> None:
 
     assert scheduler.ready(NOW) == ()
 
-    ready = scheduler.ready(
-        NOW + timedelta(hours=1)
-    )
+    ready = scheduler.ready(NOW + timedelta(hours=1))
 
-    assert [
-        record.definition.mission_id
-        for record in ready
-    ] == ["mission.future"]
+    assert [record.definition.mission_id for record in ready] == ["mission.future"]
 
 
 def test_priority_orders_ready_missions() -> None:
@@ -165,10 +149,7 @@ def test_priority_orders_ready_missions() -> None:
 
     ready = scheduler.ready(NOW)
 
-    assert [
-        record.definition.mission_id
-        for record in ready
-    ] == [
+    assert [record.definition.mission_id for record in ready] == [
         "mission.critical",
         "mission.low",
     ]
@@ -177,9 +158,7 @@ def test_priority_orders_ready_missions() -> None:
 def test_enqueue_and_dequeue() -> None:
     scheduler = ConstitutionalMissionScheduler()
 
-    scheduler.register(
-        mission("mission.health")
-    )
+    scheduler.register(mission("mission.health"))
 
     queued = scheduler.enqueue_ready(NOW)
 
@@ -196,9 +175,7 @@ def test_enqueue_and_dequeue() -> None:
 def test_dependency_waits_for_completion() -> None:
     scheduler = ConstitutionalMissionScheduler()
 
-    scheduler.register(
-        mission("mission.health")
-    )
+    scheduler.register(mission("mission.health"))
     scheduler.register(
         mission(
             "mission.explorer",
@@ -208,18 +185,13 @@ def test_dependency_waits_for_completion() -> None:
 
     ready = scheduler.ready(NOW)
 
-    assert [
-        record.definition.mission_id
-        for record in ready
-    ] == ["mission.health"]
+    assert [record.definition.mission_id for record in ready] == ["mission.health"]
 
 
 def test_dependency_unlocks_after_success() -> None:
     scheduler = ConstitutionalMissionScheduler()
 
-    scheduler.register(
-        mission("mission.health")
-    )
+    scheduler.register(mission("mission.health"))
     scheduler.register(
         mission(
             "mission.explorer",
@@ -237,18 +209,13 @@ def test_dependency_unlocks_after_success() -> None:
 
     ready = scheduler.ready(NOW)
 
-    assert [
-        record.definition.mission_id
-        for record in ready
-    ] == ["mission.explorer"]
+    assert [record.definition.mission_id for record in ready] == ["mission.explorer"]
 
 
 def test_one_shot_success_is_terminal() -> None:
     scheduler = ConstitutionalMissionScheduler()
 
-    scheduler.register(
-        mission("mission.health")
-    )
+    scheduler.register(mission("mission.health"))
     scheduler.enqueue_ready(NOW)
     scheduler.dequeue()
 
@@ -279,9 +246,7 @@ def test_recurring_success_schedules_next_run() -> None:
     )
 
     assert record.state is MissionState.WAITING
-    assert record.next_run_at == (
-        NOW + timedelta(minutes=5)
-    )
+    assert record.next_run_at == (NOW + timedelta(minutes=5))
 
 
 def test_retry_is_scheduled_after_failure() -> None:
@@ -308,9 +273,7 @@ def test_retry_is_scheduled_after_failure() -> None:
 
     assert record.state is MissionState.WAITING
     assert record.attempt == 2
-    assert record.next_run_at == (
-        NOW + timedelta(minutes=2)
-    )
+    assert record.next_run_at == (NOW + timedelta(minutes=2))
 
 
 def test_retry_exhaustion_is_terminal() -> None:
@@ -340,14 +303,10 @@ def test_retry_exhaustion_is_terminal() -> None:
 def test_cancel_removes_queued_mission() -> None:
     scheduler = ConstitutionalMissionScheduler()
 
-    scheduler.register(
-        mission("mission.health")
-    )
+    scheduler.register(mission("mission.health"))
     scheduler.enqueue_ready(NOW)
 
-    record = scheduler.cancel(
-        "mission.health"
-    )
+    record = scheduler.cancel("mission.health")
 
     assert record.state is MissionState.CANCELLED
     assert scheduler.statistics().queue_depth == 0
@@ -356,9 +315,7 @@ def test_cancel_removes_queued_mission() -> None:
 def test_invalid_success_transition_is_rejected() -> None:
     scheduler = ConstitutionalMissionScheduler()
 
-    scheduler.register(
-        mission("mission.health")
-    )
+    scheduler.register(mission("mission.health"))
 
     with pytest.raises(MissionStateError):
         scheduler.mark_succeeded(
@@ -370,9 +327,7 @@ def test_invalid_success_transition_is_rejected() -> None:
 def test_dependent_mission_prevents_unregister() -> None:
     scheduler = ConstitutionalMissionScheduler()
 
-    scheduler.register(
-        mission("mission.health")
-    )
+    scheduler.register(mission("mission.health"))
     scheduler.register(
         mission(
             "mission.explorer",
@@ -381,17 +336,13 @@ def test_dependent_mission_prevents_unregister() -> None:
     )
 
     with pytest.raises(MissionDependencyError):
-        scheduler.unregister(
-            "mission.health"
-        )
+        scheduler.unregister("mission.health")
 
 
 def test_statistics_are_consistent() -> None:
     scheduler = ConstitutionalMissionScheduler()
 
-    scheduler.register(
-        mission("mission.health")
-    )
+    scheduler.register(mission("mission.health"))
     scheduler.register(
         mission(
             "mission.future",
@@ -421,6 +372,4 @@ def test_scheduler_does_not_execute_or_publish() -> None:
         "analyze",
     }
 
-    assert forbidden.isdisjoint(
-        set(dir(scheduler))
-    )
+    assert forbidden.isdisjoint(set(dir(scheduler)))

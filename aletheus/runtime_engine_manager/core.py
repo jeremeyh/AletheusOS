@@ -82,9 +82,7 @@ class RuntimeEngineManager:
 
     def health(self):
         online = sum(
-            1
-            for state in self.lifecycle.list()
-            if state["status"] == "online"
+            1 for state in self.lifecycle.list() if state["status"] == "online"
         )
 
         return {

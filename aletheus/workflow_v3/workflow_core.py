@@ -19,7 +19,6 @@ class WorkflowStep:
 
 @dataclass
 class Workflow:
-
     title: str
     description: str
 
@@ -74,7 +73,6 @@ class Workflow:
 
 
 class AletheusWorkflowEngine:
-
     VERSION = "2.8.0"
 
     def __init__(self):
@@ -146,12 +144,7 @@ class AletheusWorkflowEngine:
 
     def status(self):
 
-        return {
-            "workflows": [
-                w.to_dict()
-                for w in self.workflows.values()
-            ]
-        }
+        return {"workflows": [w.to_dict() for w in self.workflows.values()]}
 
     def statistics(self):
 

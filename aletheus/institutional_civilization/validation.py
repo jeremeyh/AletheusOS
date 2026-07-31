@@ -24,10 +24,7 @@ class InstitutionValidationError(ValueError):
 
     def __init__(self, issues: list[InstitutionValidationIssue]):
         self.issues = tuple(issues)
-        detail = "; ".join(
-            f"{issue.field}: {issue.message}"
-            for issue in self.issues
-        )
+        detail = "; ".join(f"{issue.field}: {issue.message}" for issue in self.issues)
         super().__init__(f"Invalid institution record: {detail}")
 
 
@@ -129,9 +126,7 @@ def validate_institution(record: InstitutionRecord) -> InstitutionRecord:
             )
         )
 
-    overlap = set(record.responsibilities).intersection(
-        record.non_responsibilities
-    )
+    overlap = set(record.responsibilities).intersection(record.non_responsibilities)
     if overlap:
         issues.append(
             InstitutionValidationIssue(

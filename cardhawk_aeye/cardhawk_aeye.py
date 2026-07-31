@@ -8,6 +8,7 @@ class CardHawkAEye:
     def analyze(self, image_path="", context_text=""):
         try:
             from hawk_aeye.vision_pipeline import VisionPipeline
+
             return VisionPipeline().analyze(image_path, context_text)
         except Exception:
             return {
@@ -15,5 +16,5 @@ class CardHawkAEye:
                 "context_text": context_text,
                 "asset_dna": {},
                 "confidence": 0.0,
-                "status": "Hawk A⦿Eye™ pipeline unavailable"
+                "status": "Hawk A⦿Eye™ pipeline unavailable",
             }

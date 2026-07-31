@@ -121,7 +121,6 @@ def archive_directory(dirname: str, apply: bool):
 
 def cleanup(remove_apply: bool):
     for path in ROOT.rglob("*"):
-
         if ".git" in path.parts:
             continue
 
@@ -130,7 +129,6 @@ def cleanup(remove_apply: bool):
             continue
 
         if path.is_file():
-
             if path.name in REMOVE_FILES:
                 delete_path(path, remove_apply)
                 continue

@@ -10,9 +10,7 @@ class ClusterDomain:
         )
 
     def leave(self, payload):
-        return self.runtime.distributed.leave(
-            payload.get("node_id", "")
-        )
+        return self.runtime.distributed.leave(payload.get("node_id", ""))
 
     def nodes(self, payload=None):
         return self.runtime.distributed.nodes()

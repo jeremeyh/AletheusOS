@@ -19,19 +19,13 @@ from aletheus.platform_intelligence import (
 def build_context():
     kernel = ConstitutionalRuntimeKernel()
 
-    supervisor = (
-        ConstitutionalRuntimeSupervisor(
-            kernel=kernel
-        )
-    )
+    supervisor = ConstitutionalRuntimeSupervisor(kernel=kernel)
 
     supervisor.start_platform()
 
-    executive = (
-        ConstitutionalRuntimeExecutive(
-            kernel=kernel,
-            supervisor=supervisor,
-        )
+    executive = ConstitutionalRuntimeExecutive(
+        kernel=kernel,
+        supervisor=supervisor,
     )
 
     return (
@@ -42,15 +36,9 @@ def build_context():
 
 
 def test_policy_engine_registers_defaults() -> None:
-    engine = ConstitutionalPolicyEngine(
-        default_executive_policies()
-    )
+    engine = ConstitutionalPolicyEngine(default_executive_policies())
 
-    assert (
-        engine.statistics()
-        .registered_policies
-        == 4
-    )
+    assert engine.statistics().registered_policies == 4
 
 
 def test_duplicate_policy_is_rejected() -> None:
@@ -59,9 +47,7 @@ def test_duplicate_policy_is_rejected() -> None:
 
     engine.register(policies[0])
 
-    with pytest.raises(
-        PolicyAlreadyRegisteredError
-    ):
+    with pytest.raises(PolicyAlreadyRegisteredError):
         engine.register(policies[0])
 
 
@@ -73,9 +59,7 @@ def test_frozen_registry_rejects_mutation() -> None:
         freeze=True,
     )
 
-    with pytest.raises(
-        PolicyRegistryFrozenError
-    ):
+    with pytest.raises(PolicyRegistryFrozenError):
         engine.register(policies[0])
 
 
@@ -89,93 +73,56 @@ def test_healthy_context_requires_no_action() -> None:
 
     evaluation = engine.evaluate(context)
 
-    assert evaluation.selected_decision is (
-        ExecutiveDecision.NO_ACTION
-    )
-    assert evaluation.selected_risk is (
-        ExecutiveRisk.LOW
-    )
-    assert evaluation.matched_policy_id == (
-        "runtime.healthy"
-    )
+    assert evaluation.selected_decision is (ExecutiveDecision.NO_ACTION)
+    assert evaluation.selected_risk is (ExecutiveRisk.LOW)
+    assert evaluation.matched_policy_id == ("runtime.healthy")
 
 
 def test_degraded_context_selects_recovery() -> None:
     kernel, supervisor, _ = build_context()
 
-    address = (
-        "service.platform-intelligence."
-        "service-registry"
-    )
+    address = "service.platform-intelligence.service-registry"
 
-    service = (
-        kernel.service_registry
-        .report_health(
-            address,
-            ConstitutionalHealth.DEGRADED,
-        )
+    service = kernel.service_registry.report_health(
+        address,
+        ConstitutionalHealth.DEGRADED,
     )
 
     kernel.graph.update_node(service)
 
-    executive = (
-        ConstitutionalRuntimeExecutive(
-            kernel=kernel,
-            supervisor=supervisor,
-        )
+    executive = ConstitutionalRuntimeExecutive(
+        kernel=kernel,
+        supervisor=supervisor,
     )
 
     engine = executive.policy_engine
-    evaluation = engine.evaluate(
-        executive.context()
-    )
+    evaluation = engine.evaluate(executive.context())
 
-    assert evaluation.selected_decision is (
-        ExecutiveDecision
-        .RESTART_DEPENDENCY_CHAIN
-    )
-    assert evaluation.matched_policy_id == (
-        "runtime.degraded"
-    )
+    assert evaluation.selected_decision is (ExecutiveDecision.RESTART_DEPENDENCY_CHAIN)
+    assert evaluation.matched_policy_id == ("runtime.degraded")
 
 
 def test_critical_policy_has_precedence() -> None:
     kernel, supervisor, _ = build_context()
 
-    address = (
-        "service.platform-intelligence."
-        "runtime-explorer"
-    )
+    address = "service.platform-intelligence.runtime-explorer"
 
-    service = (
-        kernel.service_registry
-        .report_health(
-            address,
-            ConstitutionalHealth.CRITICAL,
-        )
+    service = kernel.service_registry.report_health(
+        address,
+        ConstitutionalHealth.CRITICAL,
     )
 
     kernel.graph.update_node(service)
 
-    executive = (
-        ConstitutionalRuntimeExecutive(
-            kernel=kernel,
-            supervisor=supervisor,
-        )
+    executive = ConstitutionalRuntimeExecutive(
+        kernel=kernel,
+        supervisor=supervisor,
     )
 
-    evaluation = (
-        executive.policy_engine.evaluate(
-            executive.context()
-        )
-    )
+    evaluation = executive.policy_engine.evaluate(executive.context())
 
-    assert evaluation.selected_decision is (
-        ExecutiveDecision.ESCALATE
-    )
-    assert evaluation.selected_risk is (
-        ExecutiveRisk.CRITICAL
-    )
+    assert evaluation.selected_decision is (ExecutiveDecision.ESCALATE)
+    assert evaluation.selected_risk is (ExecutiveRisk.CRITICAL)
 
 
 def test_statistics_track_evaluations() -> None:
@@ -211,10 +158,7 @@ def test_snapshot_is_auditable() -> None:
     assert snapshot["version"] == "9.16.0"
     assert snapshot["state"] == "frozen"
     assert len(snapshot["policies"]) == 4
-    assert (
-        snapshot["last_evaluation"]
-        is not None
-    )
+    assert snapshot["last_evaluation"] is not None
 
 
 def test_policy_engine_is_read_only_at_runtime() -> None:
@@ -234,6 +178,4 @@ def test_policy_engine_is_read_only_at_runtime() -> None:
         "publish",
     }
 
-    assert forbidden.isdisjoint(
-        set(dir(engine))
-    )
+    assert forbidden.isdisjoint(set(dir(engine)))

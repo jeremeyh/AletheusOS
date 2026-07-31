@@ -10,19 +10,6 @@ Connect intelligence evolution
 
 
 class LearningBridge:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.10"
-
-        }
-
+        return {"status": "ready", "genesis": "23.10"}

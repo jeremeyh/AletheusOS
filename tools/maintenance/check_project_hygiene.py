@@ -6,12 +6,14 @@ from pathlib import Path
 ROOT = Path(".")
 failures = []
 
+
 def check(name, condition, detail=""):
     if condition:
         print(f"✓ {name}")
     else:
         print(f"✗ {name} {detail}")
         failures.append(name)
+
 
 print("=" * 70)
 print("AletheusOS Project Hygiene")
@@ -96,7 +98,11 @@ for patch in Path("tools/patches").rglob("patch_*.py"):
         duplicate_patch_names.append(patch.name)
     patch_names[patch.name] = patch
 
-check("No duplicate patch filenames", not duplicate_patch_names, str(duplicate_patch_names))
+check(
+    "No duplicate patch filenames",
+    not duplicate_patch_names,
+    str(duplicate_patch_names),
+)
 
 if failures:
     print("\nFAILED:")

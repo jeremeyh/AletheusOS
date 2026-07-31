@@ -10,19 +10,6 @@ Manage intelligence tasks
 
 
 class TaskManager:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.2"
-
-        }
-
+        return {"status": "ready", "genesis": "23.2"}

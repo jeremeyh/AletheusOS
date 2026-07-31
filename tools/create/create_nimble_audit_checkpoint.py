@@ -13,22 +13,11 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[3]
 
-CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/audit/"
-    "audit-checkpoint-contract.json"
-)
+CONTRACT_PATH = ROOT / "nimble/governance/audit/audit-checkpoint-contract.json"
 
-LEDGER_PATH = (
-    ROOT
-    / "nimble/governance/audit/"
-    "deployment-audit-ledger.jsonl"
-)
+LEDGER_PATH = ROOT / "nimble/governance/audit/deployment-audit-ledger.jsonl"
 
-CHECKPOINT_DIRECTORY = (
-    ROOT
-    / "nimble/governance/audit/checkpoints"
-)
+CHECKPOINT_DIRECTORY = ROOT / "nimble/governance/audit/checkpoints"
 
 LATEST_POINTER = CHECKPOINT_DIRECTORY / "latest.json"
 
@@ -59,9 +48,7 @@ def canonical_bytes(
 def calculate_hash(
     payload: dict[str, Any],
 ) -> str:
-    return hashlib.sha256(
-        canonical_bytes(payload)
-    ).hexdigest()
+    return hashlib.sha256(canonical_bytes(payload)).hexdigest()
 
 
 def read_ledger() -> list[dict[str, Any]]:
@@ -71,9 +58,7 @@ def read_ledger() -> list[dict[str, Any]]:
     entries: list[dict[str, Any]] = []
 
     for line_number, line in enumerate(
-        LEDGER_PATH.read_text(
-            encoding="utf-8"
-        ).splitlines(),
+        LEDGER_PATH.read_text(encoding="utf-8").splitlines(),
         start=1,
     ):
         if not line.strip():
@@ -82,9 +67,7 @@ def read_ledger() -> list[dict[str, Any]]:
         try:
             entries.append(json.loads(line))
         except json.JSONDecodeError as error:
-            raise RuntimeError(
-                f"Ledger line {line_number} is invalid JSON."
-            ) from error
+            raise RuntimeError(f"Ledger line {line_number} is invalid JSON.") from error
 
     return entries
 
@@ -93,31 +76,19 @@ def load_previous_checkpoint() -> dict[str, Any] | None:
     if not LATEST_POINTER.is_file():
         return None
 
-    pointer = json.loads(
-        LATEST_POINTER.read_text(
-            encoding="utf-8"
-        )
-    )
+    pointer = json.loads(LATEST_POINTER.read_text(encoding="utf-8"))
 
     relative_path = pointer.get("checkpoint_path")
 
     if not isinstance(relative_path, str):
-        raise RuntimeError(
-            "Latest checkpoint pointer is invalid."
-        )
+        raise RuntimeError("Latest checkpoint pointer is invalid.")
 
     checkpoint_path = ROOT / relative_path
 
     if not checkpoint_path.is_file():
-        raise RuntimeError(
-            "Latest checkpoint target is missing."
-        )
+        raise RuntimeError("Latest checkpoint target is missing.")
 
-    return json.loads(
-        checkpoint_path.read_text(
-            encoding="utf-8"
-        )
-    )
+    return json.loads(checkpoint_path.read_text(encoding="utf-8"))
 
 
 def main() -> int:
@@ -141,42 +112,29 @@ def main() -> int:
         or git("describe", "--tags", "--always")
     )
 
-    contract = json.loads(
-        CONTRACT_PATH.read_text(
-            encoding="utf-8"
-        )
-    )
+    contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
 
     worktree = git("status", "--porcelain")
 
     if arguments.require_clean and worktree:
-        raise RuntimeError(
-            "Checkpoint creation requires a clean worktree."
-        )
+        raise RuntimeError("Checkpoint creation requires a clean worktree.")
 
     ledger = read_ledger()
 
     ledger_entry_count = len(ledger)
 
-    ledger_head_hash = (
-        ledger[-1]["event_hash"]
-        if ledger
-        else "GENESIS"
-    )
+    ledger_head_hash = ledger[-1]["event_hash"] if ledger else "GENESIS"
 
     previous_checkpoint = load_previous_checkpoint()
 
     previous_checkpoint_hash = (
         previous_checkpoint["checkpoint_hash"]
         if previous_checkpoint
-        else contract["checkpoint"][
-            "genesis_previous_checkpoint_hash"
-        ]
+        else contract["checkpoint"]["genesis_previous_checkpoint_hash"]
     )
 
     checkpoint_sequence = (
-        int(previous_checkpoint["checkpoint_sequence"])
-        + 1
+        int(previous_checkpoint["checkpoint_sequence"]) + 1
         if previous_checkpoint
         else 1
     )
@@ -196,29 +154,21 @@ def main() -> int:
     checkpoint_without_hash: dict[str, Any] = {
         "schema_version": "1.0",
         "checkpoint_sequence": checkpoint_sequence,
-        "created_at": datetime.now(
-            UTC
-        ).isoformat(),
+        "created_at": datetime.now(UTC).isoformat(),
         "ledger_entry_count": ledger_entry_count,
         "ledger_head_hash": ledger_head_hash,
         "git_revision": revision,
         "release_identity": release_identity,
         "git_tags": tags,
-        "previous_checkpoint_hash": (
-            previous_checkpoint_hash
-        ),
+        "previous_checkpoint_hash": (previous_checkpoint_hash),
         "repository": os.environ.get(
             "GITHUB_REPOSITORY",
             "local",
         ),
-        "workflow_run_id": os.environ.get(
-            "GITHUB_RUN_ID"
-        ),
+        "workflow_run_id": os.environ.get("GITHUB_RUN_ID"),
     }
 
-    checkpoint_hash = calculate_hash(
-        checkpoint_without_hash
-    )
+    checkpoint_hash = calculate_hash(checkpoint_without_hash)
 
     checkpoint = {
         **checkpoint_without_hash,
@@ -231,19 +181,13 @@ def main() -> int:
     )
 
     checkpoint_filename = (
-        f"checkpoint-{checkpoint_sequence:06d}-"
-        f"{checkpoint_hash[:16]}.json"
+        f"checkpoint-{checkpoint_sequence:06d}-{checkpoint_hash[:16]}.json"
     )
 
-    checkpoint_path = (
-        CHECKPOINT_DIRECTORY
-        / checkpoint_filename
-    )
+    checkpoint_path = CHECKPOINT_DIRECTORY / checkpoint_filename
 
     if checkpoint_path.exists():
-        raise RuntimeError(
-            "Checkpoint already exists; rewriting is forbidden."
-        )
+        raise RuntimeError("Checkpoint already exists; rewriting is forbidden.")
 
     checkpoint_path.write_text(
         json.dumps(
@@ -259,9 +203,7 @@ def main() -> int:
         "schema_version": "1.0",
         "checkpoint_sequence": checkpoint_sequence,
         "checkpoint_hash": checkpoint_hash,
-        "checkpoint_path": checkpoint_path.relative_to(
-            ROOT
-        ).as_posix(),
+        "checkpoint_path": checkpoint_path.relative_to(ROOT).as_posix(),
     }
 
     LATEST_POINTER.write_text(

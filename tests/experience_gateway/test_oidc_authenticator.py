@@ -35,9 +35,7 @@ class FakeJWKClient:
         token: str,
     ) -> FakeSigningKey:
         del token
-        return FakeSigningKey(
-            self._public_key
-        )
+        return FakeSigningKey(self._public_key)
 
 
 def create_authenticator():
@@ -48,26 +46,16 @@ def create_authenticator():
 
     config = AuthenticationConfig(
         mode="oidc",
-        issuer=(
-            "https://issuer.example/oauth2/default"
-        ),
+        issuer=("https://issuer.example/oauth2/default"),
         audience="api://aletheus",
-        jwks_url=(
-            "https://issuer.example/oauth2/default/v1/keys"
-        ),
+        jwks_url=("https://issuer.example/oauth2/default/v1/keys"),
         roles_claim="groups",
         entitlements_claim="scp",
     )
 
-    authenticator = (
-        OIDCPrincipalAuthenticator(config)
-    )
+    authenticator = OIDCPrincipalAuthenticator(config)
 
-    authenticator._jwk_client = (
-        FakeJWKClient(
-            private_key.public_key()
-        )
-    )
+    authenticator._jwk_client = FakeJWKClient(private_key.public_key())
 
     return authenticator, private_key
 
@@ -79,9 +67,7 @@ def test_oidc_authenticator_maps_valid_claims() -> None:
         timedelta,
     )
 
-    authenticator, private_key = (
-        create_authenticator()
-    )
+    authenticator, private_key = create_authenticator()
 
     now = datetime.now(UTC)
 
@@ -89,9 +75,7 @@ def test_oidc_authenticator_maps_valid_claims() -> None:
         {
             "sub": "user-1",
             "name": "User One",
-            "iss": (
-                "https://issuer.example/oauth2/default"
-            ),
+            "iss": ("https://issuer.example/oauth2/default"),
             "aud": "api://aletheus",
             "iat": now,
             "exp": now + timedelta(minutes=5),
@@ -108,15 +92,11 @@ def test_oidc_authenticator_maps_valid_claims() -> None:
         algorithm="RS256",
     )
 
-    principal = authenticator.authenticate(
-        token
-    )
+    principal = authenticator.authenticate(token)
 
     assert principal.subject_id == "user-1"
     assert principal.roles == ("operator",)
-    assert "runtime.read" in (
-        principal.entitlements
-    )
+    assert "runtime.read" in (principal.entitlements)
 
 
 def test_oidc_authenticator_rejects_wrong_audience() -> None:
@@ -126,18 +106,14 @@ def test_oidc_authenticator_rejects_wrong_audience() -> None:
         timedelta,
     )
 
-    authenticator, private_key = (
-        create_authenticator()
-    )
+    authenticator, private_key = create_authenticator()
 
     now = datetime.now(UTC)
 
     token = jwt.encode(
         {
             "sub": "user-1",
-            "iss": (
-                "https://issuer.example/oauth2/default"
-            ),
+            "iss": ("https://issuer.example/oauth2/default"),
             "aud": "api://wrong",
             "iat": now,
             "exp": now + timedelta(minutes=5),

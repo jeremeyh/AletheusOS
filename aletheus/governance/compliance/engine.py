@@ -6,34 +6,14 @@ Post-Genesis 759
 
 
 class CivilizationComplianceEngine:
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_civilization_compliance",
-
-            "post_genesis":
-            "759",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_civilization_compliance",
+            "post_genesis": "759",
+            "status": "operational",
         }
-
-
 
     def execute(self, request=None):
 
-        return {
-
-            "request":
-            request,
-
-            "status":
-            "completed"
-
-        }
-
+        return {"request": request, "status": "completed"}

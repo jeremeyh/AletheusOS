@@ -43,9 +43,7 @@ class ConstitutionalVirtuesFramework:
         replace: bool = False,
     ) -> None:
         if virtue in self._evaluators and not replace:
-            raise ValueError(
-                f"Evaluator for {virtue.value!r} is already registered."
-            )
+            raise ValueError(f"Evaluator for {virtue.value!r} is already registered.")
 
         self._evaluators[virtue] = evaluator
 
@@ -68,35 +66,23 @@ class ConstitutionalVirtuesFramework:
                 )
             )
 
-        score = (
-            sum(item.score for item in findings)
-            / len(findings)
-        )
+        score = sum(item.score for item in findings) / len(findings)
 
         return VirtueAssessment(
             findings=tuple(findings),
             score=round(score, 4),
-            passed=all(
-                finding.passed
-                for finding in findings
-            ),
+            passed=all(finding.passed for finding in findings),
         )
 
     def _install_canonical_evaluators(self) -> None:
         self.register(
             ConstitutionalVirtue.TRUTH,
             lambda context: (
-                (
-                    context.evidence_supported
-                    and not context.fabrication_detected
-                ),
+                (context.evidence_supported and not context.fabrication_detected),
                 (
                     "The result is evidence-supported and contains "
                     "no detected fabrication."
-                    if (
-                        context.evidence_supported
-                        and not context.fabrication_detected
-                    )
+                    if (context.evidence_supported and not context.fabrication_detected)
                     else (
                         "Truth requirement failed: unsupported evidence "
                         "or fabrication was detected."
@@ -195,8 +181,5 @@ class ConstitutionalVirtuesFramework:
             "version": self.VERSION,
             "status": "online",
             "virtues": len(self._evaluators),
-            "registered": [
-                virtue.value
-                for virtue in self._evaluators
-            ],
+            "registered": [virtue.value for virtue in self._evaluators],
         }

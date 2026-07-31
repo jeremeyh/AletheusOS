@@ -19,7 +19,7 @@ if "self.workflow_v2 = workflow_v2_core" not in text:
 
 if 'self.commands.register("workflow.v2.create"' not in text:
     anchor = '        self.commands.register("mission.v2.stats", self._cmd_mission_v2_stats)\n'
-    insert = '''        self.commands.register("workflow.v2.create", self._cmd_workflow_v2_create)
+    insert = """        self.commands.register("workflow.v2.create", self._cmd_workflow_v2_create)
         self.commands.register("workflow.v2.execute_next", self._cmd_workflow_v2_execute_next)
         self.commands.register("workflow.v2.execute", self._cmd_workflow_v2_execute)
         self.commands.register("workflow.v2.pause", self._cmd_workflow_v2_pause)
@@ -28,20 +28,20 @@ if 'self.commands.register("workflow.v2.create"' not in text:
         self.commands.register("workflow.v2.list", self._cmd_workflow_v2_list)
         self.commands.register("workflow.v2.history", self._cmd_workflow_v2_history)
         self.commands.register("workflow.v2.stats", self._cmd_workflow_v2_stats)
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find mission.v2.stats command anchor.")
     text = text.replace(anchor, anchor + insert)
 
 if '"Aletheus v2 Autonomous Workflow Fabric"' not in text:
-    anchor = '''        self.services.register(
+    anchor = """        self.services.register(
             "Aletheus v2 Autonomous Mission Engine",
             {"status": "online", "version": self.mission_v2.version},
         )
 
         self.scheduler.register(
-'''
-    replacement = '''        self.services.register(
+"""
+    replacement = """        self.services.register(
             "Aletheus v2 Autonomous Mission Engine",
             {"status": "online", "version": self.mission_v2.version},
         )
@@ -51,43 +51,43 @@ if '"Aletheus v2 Autonomous Workflow Fabric"' not in text:
         )
 
         self.scheduler.register(
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find mission service registration anchor.")
     text = text.replace(anchor, replacement)
 
 if '"v2_workflows": self.workflow_v2.stats()["workflows"]' not in text:
     text = text.replace(
-        '''                "v2_missions": self.mission_v2.stats()["missions"],
+        """                "v2_missions": self.mission_v2.stats()["missions"],
                 "v2_mission_events": self.mission_v2.stats()["telemetry_events"],
             },
         )
         return context
-''',
-        '''                "v2_missions": self.mission_v2.stats()["missions"],
+""",
+        """                "v2_missions": self.mission_v2.stats()["missions"],
                 "v2_mission_events": self.mission_v2.stats()["telemetry_events"],
                 "v2_workflows": self.workflow_v2.stats()["workflows"],
                 "v2_workflow_events": self.workflow_v2.stats()["events"],
             },
         )
         return context
-''',
+""",
     )
 
 if 'context.add_result("workflow_v2", self.workflow_v2.stats())' not in text:
     text = text.replace(
-        '''        context.add_result("mission_v2", self.mission_v2.stats())
+        """        context.add_result("mission_v2", self.mission_v2.stats())
         return context
-''',
-        '''        context.add_result("mission_v2", self.mission_v2.stats())
+""",
+        """        context.add_result("mission_v2", self.mission_v2.stats())
         context.add_result("workflow_v2", self.workflow_v2.stats())
         return context
-''',
+""",
     )
 
 if "def _cmd_workflow_v2_create" not in text:
     anchor = "    def _job_runtime_pulse(self) -> dict:\n"
-    methods = '''
+    methods = """
     def _cmd_workflow_v2_create(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
         workflow = self.workflow_v2.create_workflow(
@@ -160,7 +160,7 @@ if "def _cmd_workflow_v2_create" not in text:
         context.add_result("workflow_v2_stats", self.workflow_v2.stats())
         return context
 
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find _job_runtime_pulse anchor.")
     text = text.replace(anchor, methods + anchor)

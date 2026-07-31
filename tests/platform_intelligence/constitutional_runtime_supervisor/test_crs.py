@@ -23,9 +23,7 @@ def build_supervisor(
 
     return ConstitutionalRuntimeSupervisor(
         kernel=kernel,
-        restart_policy=RestartPolicy(
-            maximum_attempts=maximum_attempts
-        ),
+        restart_policy=RestartPolicy(maximum_attempts=maximum_attempts),
     )
 
 
@@ -34,12 +32,8 @@ def test_supervisor_starts_platform() -> None:
 
     report = supervisor.start_platform()
 
-    assert supervisor.state is (
-        ConstitutionalRuntimeSupervisorState.ACTIVE
-    )
-    assert report.state is (
-        RuntimeSupervisionState.HEALTHY
-    )
+    assert supervisor.state is (ConstitutionalRuntimeSupervisorState.ACTIVE)
+    assert report.state is (RuntimeSupervisionState.HEALTHY)
     assert report.healthy == report.service_count
 
 
@@ -49,12 +43,8 @@ def test_supervisor_stops_platform() -> None:
     supervisor.start_platform()
     report = supervisor.stop_platform()
 
-    assert supervisor.state is (
-        ConstitutionalRuntimeSupervisorState.STOPPED
-    )
-    assert report.state is (
-        RuntimeSupervisionState.STOPPED
-    )
+    assert supervisor.state is (ConstitutionalRuntimeSupervisorState.STOPPED)
+    assert report.state is (RuntimeSupervisionState.STOPPED)
 
 
 def test_duplicate_start_is_rejected() -> None:
@@ -62,18 +52,14 @@ def test_duplicate_start_is_rejected() -> None:
 
     supervisor.start_platform()
 
-    with pytest.raises(
-        SupervisorLifecycleError
-    ):
+    with pytest.raises(SupervisorLifecycleError):
         supervisor.start_platform()
 
 
 def test_supervision_requires_active_state() -> None:
     supervisor = build_supervisor()
 
-    with pytest.raises(
-        SupervisorLifecycleError
-    ):
+    with pytest.raises(SupervisorLifecycleError):
         supervisor.supervise_once()
 
 
@@ -92,60 +78,37 @@ def test_runtime_health_detects_degradation() -> None:
     supervisor = build_supervisor()
     supervisor.start_platform()
 
-    address = (
-        "service.platform-intelligence."
-        "runtime-explorer"
+    address = "service.platform-intelligence.runtime-explorer"
+
+    service = supervisor.kernel.service_registry.report_health(
+        address,
+        ConstitutionalHealth.DEGRADED,
     )
 
-    service = (
-        supervisor.kernel.service_registry
-        .report_health(
-            address,
-            ConstitutionalHealth.DEGRADED,
-        )
-    )
-
-    supervisor.kernel.graph.update_node(
-        service
-    )
+    supervisor.kernel.graph.update_node(service)
 
     report = supervisor.runtime_health()
 
-    assert report.state is (
-        RuntimeSupervisionState.DEGRADED
-    )
-    assert address in (
-        report.recoverable_services
-    )
+    assert report.state is (RuntimeSupervisionState.DEGRADED)
+    assert address in (report.recoverable_services)
 
 
 def test_restart_service_uses_dependency_plan() -> None:
     supervisor = build_supervisor()
     supervisor.start_platform()
 
-    address = (
-        "service.platform-intelligence."
-        "service-registry"
-    )
+    address = "service.platform-intelligence.service-registry"
 
     supervisor.restart_service(address)
 
     assert all(
-        service.state
-        is ConstitutionalState.RUNNING
-        for service
-        in supervisor.kernel
-        .service_registry
-        .all()
+        service.state is ConstitutionalState.RUNNING
+        for service in supervisor.kernel.service_registry.all()
     )
 
     assert all(
-        service.health
-        is ConstitutionalHealth.HEALTHY
-        for service
-        in supervisor.kernel
-        .service_registry
-        .all()
+        service.health is ConstitutionalHealth.HEALTHY
+        for service in supervisor.kernel.service_registry.all()
     )
 
 
@@ -153,35 +116,21 @@ def test_auto_recovery_repairs_degraded_service() -> None:
     supervisor = build_supervisor()
     supervisor.start_platform()
 
-    address = (
-        "service.platform-intelligence."
-        "runtime-explorer"
+    address = "service.platform-intelligence.runtime-explorer"
+
+    service = supervisor.kernel.service_registry.report_health(
+        address,
+        ConstitutionalHealth.DEGRADED,
     )
 
-    service = (
-        supervisor.kernel.service_registry
-        .report_health(
-            address,
-            ConstitutionalHealth.DEGRADED,
-        )
-    )
+    supervisor.kernel.graph.update_node(service)
 
-    supervisor.kernel.graph.update_node(
-        service
-    )
+    report = supervisor.supervise_once(auto_recover=True)
 
-    report = supervisor.supervise_once(
-        auto_recover=True
-    )
-
-    assert report.state is (
-        RuntimeSupervisionState.HEALTHY
-    )
+    assert report.state is (RuntimeSupervisionState.HEALTHY)
 
     assert (
-        supervisor.kernel.service_registry
-        .get(address)
-        .health
+        supervisor.kernel.service_registry.get(address).health
         is ConstitutionalHealth.HEALTHY
     )
 
@@ -190,12 +139,8 @@ def test_unknown_service_is_rejected() -> None:
     supervisor = build_supervisor()
     supervisor.start_platform()
 
-    with pytest.raises(
-        SupervisorServiceNotFoundError
-    ):
-        supervisor.restart_service(
-            "service.missing"
-        )
+    with pytest.raises(SupervisorServiceNotFoundError):
+        supervisor.restart_service("service.missing")
 
 
 def test_export_contains_supervision_state() -> None:
@@ -223,6 +168,4 @@ def test_supervisor_does_not_own_dependency_logic() -> None:
         "connect",
     }
 
-    assert forbidden.isdisjoint(
-        set(dir(supervisor))
-    )
+    assert forbidden.isdisjoint(set(dir(supervisor)))

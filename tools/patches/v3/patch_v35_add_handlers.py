@@ -7,7 +7,7 @@ if "def _cmd_telemetry_bootstrap" in text:
     print("Telemetry handlers already exist.")
     raise SystemExit(0)
 
-handlers = '''
+handlers = """
 
     # ==========================================================
     # v3.5 Observability & Telemetry Platform
@@ -123,7 +123,7 @@ handlers = '''
 
         return context
 
-'''
+"""
 
 anchor = "    def _job_runtime_pulse(self) -> dict:"
 

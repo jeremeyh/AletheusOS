@@ -196,10 +196,7 @@ def class_uses_classmethod(class_node: ast.ClassDef) -> bool:
         for decorator in statement.decorator_list:
             if isinstance(decorator, ast.Name) and decorator.id == "classmethod":
                 return True
-            if (
-                isinstance(decorator, ast.Attribute)
-                and decorator.attr == "classmethod"
-            ):
+            if isinstance(decorator, ast.Attribute) and decorator.attr == "classmethod":
                 return True
 
     return False
@@ -462,7 +459,6 @@ def print_candidate_group(
         print(f"... and {remaining} more")
 
 
-
 def scan_repository(
     root: Path,
     *,
@@ -508,21 +504,15 @@ def scan_repository(
     )
 
     safe_candidates = [
-        item
-        for item in candidates
-        if item.classification == "safe-classvar"
+        item for item in candidates if item.classification == "safe-classvar"
     ]
 
     shared_candidates = [
-        item
-        for item in candidates
-        if item.classification == "shared-class-state"
+        item for item in candidates if item.classification == "shared-class-state"
     ]
 
     manual_candidates = [
-        item
-        for item in candidates
-        if item.classification == "manual-review"
+        item for item in candidates if item.classification == "manual-review"
     ]
 
     summary = ScanSummary(
@@ -544,6 +534,7 @@ def scan_repository(
         shared_candidates=shared_candidates,
         manual_candidates=manual_candidates,
     )
+
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
@@ -611,9 +602,7 @@ def main() -> int:
     parsed_count = summary.files_parsed
 
     json_path = (
-        args.json_report
-        if args.json_report.is_absolute()
-        else root / args.json_report
+        args.json_report if args.json_report.is_absolute() else root / args.json_report
     )
     markdown_path = (
         args.markdown_report

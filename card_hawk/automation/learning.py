@@ -6,19 +6,6 @@ Genesis 14.7
 
 
 class LearningLoop:
+    def learn(self, outcome):
 
-
-    def learn(
-        self,
-        outcome
-    ):
-
-
-        return {
-
-            "updated":
-
-                True
-
-        }
-
+        return {"updated": True}

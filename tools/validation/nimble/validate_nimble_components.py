@@ -22,35 +22,15 @@ ROOT = find_repo_root(Path(__file__).parent)
 
 NIMBLE = ROOT / "nimble"
 
-TAXONOMY_PATH = (
-    NIMBLE
-    / "components"
-    / "component_taxonomy.json"
-)
+TAXONOMY_PATH = NIMBLE / "components" / "component_taxonomy.json"
 
-SCHEMA_PATH = (
-    NIMBLE
-    / "components"
-    / "component_contract.schema.json"
-)
+SCHEMA_PATH = NIMBLE / "components" / "component_contract.schema.json"
 
-CONTRACTS_PATH = (
-    NIMBLE
-    / "components"
-    / "core_component_contracts.json"
-)
+CONTRACTS_PATH = NIMBLE / "components" / "core_component_contracts.json"
 
-INTERACTION_PATH = (
-    NIMBLE
-    / "interaction"
-    / "interaction_contracts.json"
-)
+INTERACTION_PATH = NIMBLE / "interaction" / "interaction_contracts.json"
 
-WORKSPACE_PATH = (
-    NIMBLE
-    / "workspace"
-    / "workspace_contracts.json"
-)
+WORKSPACE_PATH = NIMBLE / "workspace" / "workspace_contracts.json"
 
 REQUIRED_FILES = [
     TAXONOMY_PATH,
@@ -98,19 +78,14 @@ REQUIRED_INTERACTIONS = {
 
 
 def load_json(path: Path) -> dict[str, Any]:
-    return json.loads(
-        path.read_text(encoding="utf-8")
-    )
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def validate_component(
     component: dict[str, Any],
     categories: set[str],
 ) -> None:
-    missing = (
-        REQUIRED_COMPONENT_FIELDS
-        - set(component)
-    )
+    missing = REQUIRED_COMPONENT_FIELDS - set(component)
 
     if missing:
         raise ValueError(
@@ -120,84 +95,55 @@ def validate_component(
 
     if component["category"] not in categories:
         raise ValueError(
-            f"{component['name']} has unknown category: "
-            f"{component['category']}"
+            f"{component['name']} has unknown category: {component['category']}"
         )
 
     accessibility = component["accessibility"]
 
-    missing_accessibility = (
-        REQUIRED_ACCESSIBILITY_FIELDS
-        - set(accessibility)
-    )
+    missing_accessibility = REQUIRED_ACCESSIBILITY_FIELDS - set(accessibility)
 
     if missing_accessibility:
         raise ValueError(
             f"{component['name']} missing accessibility fields: "
-            + ", ".join(
-                sorted(missing_accessibility)
-            )
+            + ", ".join(sorted(missing_accessibility))
         )
 
     if accessibility["keyboard"] is not True:
-        raise ValueError(
-            f"{component['name']} must support keyboard access."
-        )
+        raise ValueError(f"{component['name']} must support keyboard access.")
 
     if accessibility["focus"] is not True:
-        raise ValueError(
-            f"{component['name']} must expose focus."
-        )
+        raise ValueError(f"{component['name']} must expose focus.")
 
     if accessibility["reduced_motion"] is not True:
-        raise ValueError(
-            f"{component['name']} must support reduced motion."
-        )
+        raise ValueError(f"{component['name']} must support reduced motion.")
 
     principle_x = component["principle_x"]
 
-    missing_principle_x = (
-        REQUIRED_PRINCIPLE_X_FIELDS
-        - set(principle_x)
-    )
+    missing_principle_x = REQUIRED_PRINCIPLE_X_FIELDS - set(principle_x)
 
     if missing_principle_x:
         raise ValueError(
             f"{component['name']} missing Principle X fields: "
-            + ", ".join(
-                sorted(missing_principle_x)
-            )
+            + ", ".join(sorted(missing_principle_x))
         )
 
     if principle_x["state_visible"] is not True:
-        raise ValueError(
-            f"{component['name']} conceals state."
-        )
+        raise ValueError(f"{component['name']} conceals state.")
 
     if principle_x["failure_visible"] is not True:
-        raise ValueError(
-            f"{component['name']} conceals failure."
-        )
+        raise ValueError(f"{component['name']} conceals failure.")
 
     motion = component["motion"]
 
     if motion.get("interruptible") is not True:
-        raise ValueError(
-            f"{component['name']} motion must be interruptible."
-        )
+        raise ValueError(f"{component['name']} motion must be interruptible.")
 
     if not motion.get("reduced_motion_fallback"):
-        raise ValueError(
-            f"{component['name']} requires a reduced-motion fallback."
-        )
+        raise ValueError(f"{component['name']} requires a reduced-motion fallback.")
 
 
 def main() -> None:
-    missing_files = [
-        path
-        for path in REQUIRED_FILES
-        if not path.exists()
-    ]
+    missing_files = [path for path in REQUIRED_FILES if not path.exists()]
 
     if missing_files:
         for path in missing_files:
@@ -209,16 +155,12 @@ def main() -> None:
     interactions = load_json(INTERACTION_PATH)
     workspace = load_json(WORKSPACE_PATH)
 
-    categories = set(
-        taxonomy["categories"]
-    )
+    categories = set(taxonomy["categories"])
 
     components = contracts["components"]
 
     if not components:
-        raise ValueError(
-            "No Nimble component contracts were defined."
-        )
+        raise ValueError("No Nimble component contracts were defined.")
 
     names: set[str] = set()
 
@@ -226,9 +168,7 @@ def main() -> None:
         name = component["name"]
 
         if name in names:
-            raise ValueError(
-                f"Duplicate component contract: {name}"
-            )
+            raise ValueError(f"Duplicate component contract: {name}")
 
         names.add(name)
         validate_component(
@@ -236,28 +176,16 @@ def main() -> None:
             categories,
         )
 
-    interaction_names = set(
-        interactions["contracts"]
-    )
+    interaction_names = set(interactions["contracts"])
 
-    missing_interactions = (
-        REQUIRED_INTERACTIONS
-        - interaction_names
-    )
+    missing_interactions = REQUIRED_INTERACTIONS - interaction_names
 
     if missing_interactions:
         raise ValueError(
-            "Missing interaction contracts: "
-            + ", ".join(
-                sorted(missing_interactions)
-            )
+            "Missing interaction contracts: " + ", ".join(sorted(missing_interactions))
         )
 
-    workspace_required = set(
-        workspace["workspace"][
-            "required_capabilities"
-        ]
-    )
+    workspace_required = set(workspace["workspace"]["required_capabilities"])
 
     for capability in (
         "keyboard_navigation",
@@ -265,10 +193,7 @@ def main() -> None:
         "layout_persistence",
     ):
         if capability not in workspace_required:
-            raise ValueError(
-                f"Workspace missing required capability: "
-                f"{capability}"
-            )
+            raise ValueError(f"Workspace missing required capability: {capability}")
 
     print("=" * 72)
     print("NIMBLE™ COMPONENT FOUNDATION VALIDATION")

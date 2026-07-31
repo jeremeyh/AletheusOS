@@ -13,12 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 
-TARGET = (
-    ROOT
-    / "tools"
-    / "reconciliation"
-    / "reconcile_nimble_dependency_exceptions.py"
-)
+TARGET = ROOT / "tools" / "reconciliation" / "reconcile_nimble_dependency_exceptions.py"
 
 if not TARGET.exists():
     raise FileNotFoundError(
@@ -31,6 +26,4 @@ if __name__ == "__main__":
         run_name="__main__",
     )
 else:
-    globals().update(
-        runpy.run_path(str(TARGET))
-    )
+    globals().update(runpy.run_path(str(TARGET)))

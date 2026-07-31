@@ -43,11 +43,7 @@ def main():
         397,
     )
 
-    print(
-        RuntimeExtractionMissionReporter().render(
-            manager
-        )
-    )
+    print(RuntimeExtractionMissionReporter().render(manager))
 
 
 if __name__ == "__main__":

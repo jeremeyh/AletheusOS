@@ -4,7 +4,6 @@ from .models import Identity
 
 
 class IdentityAuthorization:
-
     GENESIS = "21.7"
     VERSION = "1.0.0"
 
@@ -20,20 +19,14 @@ class IdentityAuthorization:
                 "reason": "Identity not found.",
             }
 
-        authorized = (
-            identity.profile_id == required_profile
-        )
+        authorized = identity.profile_id == required_profile
 
         return {
             "authorized": authorized,
             "identity_id": identity.identity_id,
             "required_profile": required_profile,
             "actual_profile": identity.profile_id,
-            "reason": (
-                "Authorized."
-                if authorized
-                else "Insufficient profile."
-            ),
+            "reason": ("Authorized." if authorized else "Insufficient profile."),
         }
 
     def health(self):

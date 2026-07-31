@@ -10,10 +10,13 @@ class Plugin(BasePlugin):
     description = "Institutional memory, snapshots, and decision archive layer."
 
     def execute(self, context: PipelineContext) -> PipelineContext:
-        context.add_result("ROOST", {
-            "status": "archived",
-            "request_id": context.request_id,
-            "memory_signal": "decision-ready",
-            "notes": "ROOST prepared this runtime decision for durable event storage."
-        })
+        context.add_result(
+            "ROOST",
+            {
+                "status": "archived",
+                "request_id": context.request_id,
+                "memory_signal": "decision-ready",
+                "notes": "ROOST prepared this runtime decision for durable event storage.",
+            },
+        )
         return context

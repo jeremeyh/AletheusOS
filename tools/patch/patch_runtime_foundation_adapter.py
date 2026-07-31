@@ -1,9 +1,7 @@
 import re
 from pathlib import Path
 
-PATH = Path(
-    "aletheus/runtime/adapters/runtime_adapter.py"
-)
+PATH = Path("aletheus/runtime/adapters/runtime_adapter.py")
 
 text = PATH.read_text(encoding="utf-8")
 
@@ -23,19 +21,12 @@ def replace_method(
     match = pattern.search(source)
 
     if match is None:
-        raise RuntimeError(
-            f"RuntimeCommandAdapter.{method_name} was not found."
-        )
+        raise RuntimeError(f"RuntimeCommandAdapter.{method_name} was not found.")
 
-    return (
-        source[:match.start()]
-        + replacement.rstrip()
-        + "\n"
-        + source[match.end():]
-    )
+    return source[: match.start()] + replacement.rstrip() + "\n" + source[match.end() :]
 
 
-selftest = '''
+selftest = """
     def selftest(self, context):
         health = self.runtime.runtime_facade.health()
 
@@ -59,10 +50,10 @@ selftest = '''
         )
 
         return context
-'''
+"""
 
 
-dashboard = '''
+dashboard = """
     def dashboard(self, context):
         health = self.runtime.runtime_facade.health()
 
@@ -82,10 +73,10 @@ dashboard = '''
         )
 
         return context
-'''
+"""
 
 
-snapshot = '''
+snapshot = """
     def snapshot(self, context):
         compatibility = {}
 
@@ -160,10 +151,10 @@ snapshot = '''
         )
 
         return context
-'''
+"""
 
 
-audit = '''
+audit = """
     def audit(self, context):
         health = self.runtime.runtime_facade.health()
 
@@ -205,10 +196,10 @@ audit = '''
         )
 
         return context
-'''
+"""
 
 
-docs = '''
+docs = """
     def docs(self, context):
         from pathlib import Path
 
@@ -256,7 +247,7 @@ docs = '''
         )
 
         return context
-'''
+"""
 
 
 for method_name, replacement in (
@@ -277,6 +268,4 @@ PATH.write_text(
     encoding="utf-8",
 )
 
-print(
-    "Runtime Engineering Foundation adapter repaired."
-)
+print("Runtime Engineering Foundation adapter repaired.")

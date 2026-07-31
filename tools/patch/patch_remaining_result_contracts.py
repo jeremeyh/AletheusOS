@@ -14,9 +14,7 @@ def replace_required(
             print(f"Already patched: {label}")
             return
 
-        raise RuntimeError(
-            f"Could not locate expected block for {label}: {path}"
-        )
+        raise RuntimeError(f"Could not locate expected block for {label}: {path}")
 
     path.write_text(
         text.replace(old, new, 1),
@@ -32,14 +30,14 @@ def replace_required(
 
 replace_required(
     Path("aletheus/runtime/domains/enterprise.py"),
-    '''    def audit_history(self, context):
+    """    def audit_history(self, context):
         context.add_result(
             "audit_history",
             self.runtime.enterprise.audit_history(),
         )
         return context
-''',
-    '''    def audit_history(self, context):
+""",
+    """    def audit_history(self, context):
         history = self.runtime.enterprise.audit_history()
 
         # Canonical v2.1 result plus historical compatibility alias.
@@ -47,7 +45,7 @@ replace_required(
         context.add_result("audit_history", history)
 
         return context
-''',
+""",
     "enterprise audit envelope",
 )
 
@@ -56,51 +54,49 @@ replace_required(
 # Memory Mesh
 # ---------------------------------------------------------
 
-memory_path = Path(
-    "aletheus/runtime/domains/memory_mesh.py"
-)
+memory_path = Path("aletheus/runtime/domains/memory_mesh.py")
 
 replace_required(
     memory_path,
-    '''        context.add_result("memory", result)
+    """        context.add_result("memory", result)
         return context
 
     def retrieve(self, context):
-''',
-    '''        context.add_result("memory_object", result)
+""",
+    """        context.add_result("memory_object", result)
         context.add_result("memory", result)
         return context
 
     def retrieve(self, context):
-''',
+""",
     "memory.mesh.store envelope",
 )
 
 replace_required(
     memory_path,
-    '''        context.add_result("memory", result)
+    """        context.add_result("memory", result)
         return context
 
     def search(self, context):
-''',
-    '''        context.add_result("memory_object", result)
+""",
+    """        context.add_result("memory_object", result)
         context.add_result("memory", result)
         return context
 
     def search(self, context):
-''',
+""",
     "memory.mesh.retrieve envelope",
 )
 
 replace_required(
     memory_path,
-    '''        context.add_result("memory_search", result)
+    """        context.add_result("memory_search", result)
         return context
-''',
-    '''        context.add_result("results", result)
+""",
+    """        context.add_result("results", result)
         context.add_result("memory_search", result)
         return context
-''',
+""",
     "memory.mesh.search envelope",
 )
 
@@ -109,28 +105,26 @@ replace_required(
 # Decision history
 # ---------------------------------------------------------
 
-decision_path = Path(
-    "aletheus/runtime/domains/decision.py"
-)
+decision_path = Path("aletheus/runtime/domains/decision.py")
 
 replace_required(
     decision_path,
-    '''    def history(self, context):
+    """    def history(self, context):
         context.add_result(
             "history",
             self.runtime.decision.history(),
         )
 
         return context
-''',
-    '''    def history(self, context):
+""",
+    """    def history(self, context):
         history = self.runtime.decision.history()
 
         context.add_result("history", history)
         context.add_result("decisions", history)
 
         return context
-''',
+""",
     "decision history envelope",
 )
 
@@ -139,20 +133,18 @@ replace_required(
 # Runtime health
 # ---------------------------------------------------------
 
-runtime_path = Path(
-    "aletheus/runtime/domains/runtime.py"
-)
+runtime_path = Path("aletheus/runtime/domains/runtime.py")
 
 replace_required(
     runtime_path,
-    '''        context.add_result(
+    """        context.add_result(
             "health",
             RuntimeHealthService().collect(self.runtime),
         )
 
         return context
-''',
-    '''        health = RuntimeHealthService().collect(self.runtime)
+""",
+    """        health = RuntimeHealthService().collect(self.runtime)
 
         # Public runtime.health contract uses "healthy". Preserve the
         # original operational state separately when it reports "online".
@@ -166,7 +158,7 @@ replace_required(
         context.add_result("health", health)
 
         return context
-''',
+""",
     "runtime health status normalization",
 )
 

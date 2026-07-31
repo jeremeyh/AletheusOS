@@ -15,4 +15,3 @@ class OrchestratorJobs:
     @staticmethod
     def run_asset(asset_id):
         return IntelligenceOrchestrator.run_asset_pipeline(asset_id)
-

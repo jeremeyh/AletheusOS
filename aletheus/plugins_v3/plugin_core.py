@@ -12,7 +12,6 @@ def utc_now():
 
 @dataclass
 class Plugin:
-
     plugin_id: str
     name: str
     version: str
@@ -26,7 +25,6 @@ class Plugin:
 
 
 class AletheusPluginManager:
-
     VERSION = "3.1.0"
 
     def __init__(self):
@@ -42,7 +40,6 @@ class AletheusPluginManager:
     def bootstrap(self):
 
         if len(self.plugins) == 0:
-
             self.install(
                 name="Card Hawk Foundation",
                 version="3.1.0",
@@ -106,38 +103,23 @@ class AletheusPluginManager:
 
     def list(self):
 
-        return [
-            asdict(plugin)
-            for plugin in self.plugins.values()
-        ]
+        return [asdict(plugin) for plugin in self.plugins.values()]
 
     # ------------------------------------------------
 
     def status(self):
 
-        return {
-            "plugins": self.list()
-        }
+        return {"plugins": self.list()}
 
     # ------------------------------------------------
 
     def statistics(self):
 
         return {
-
             "version": self.VERSION,
-
             "plugins": len(self.plugins),
-
-            "enabled": sum(
-                p.enabled
-                for p in self.plugins.values()
-            ),
-
-            "disabled": sum(
-                not p.enabled
-                for p in self.plugins.values()
-            ),
+            "enabled": sum(p.enabled for p in self.plugins.values()),
+            "disabled": sum(not p.enabled for p in self.plugins.values()),
         }
 
 

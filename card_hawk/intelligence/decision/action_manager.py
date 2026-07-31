@@ -10,19 +10,6 @@ Manage intelligence actions
 
 
 class ActionManager:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.6"
-
-        }
-
+        return {"status": "ready", "genesis": "23.6"}

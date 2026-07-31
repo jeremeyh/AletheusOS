@@ -6,19 +6,6 @@ Genesis 14.10
 
 
 class ListingEngine:
+    def create(self, asset):
 
-
-    def create(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "listing":
-
-                asset
-
-        }
-
+        return {"listing": asset}

@@ -37,46 +37,30 @@ class FailingAuthenticator:
     ) -> Principal:
         del credential
 
-        raise AuthenticationFailure(
-            "Token is invalid."
-        )
+        raise AuthenticationFailure("Token is invalid.")
 
 
 def test_resolver_accepts_bearer_token() -> None:
-    resolver = PrincipalResolver(
-        SuccessfulAuthenticator()
-    )
+    resolver = PrincipalResolver(SuccessfulAuthenticator())
 
-    principal = resolver.dependency(
-        authorization=(
-            "Bearer token-value"
-        )
-    )
+    principal = resolver.dependency(authorization=("Bearer token-value"))
 
     assert principal.subject_id == "user-1"
 
 
 def test_resolver_rejects_invalid_scheme() -> None:
-    resolver = PrincipalResolver(
-        SuccessfulAuthenticator()
-    )
+    resolver = PrincipalResolver(SuccessfulAuthenticator())
 
     with pytest.raises(HTTPException) as error:
-        resolver.dependency(
-            authorization="Basic token-value"
-        )
+        resolver.dependency(authorization="Basic token-value")
 
     assert error.value.status_code == 401
 
 
 def test_resolver_maps_auth_failure_to_401() -> None:
-    resolver = PrincipalResolver(
-        FailingAuthenticator()
-    )
+    resolver = PrincipalResolver(FailingAuthenticator())
 
     with pytest.raises(HTTPException) as error:
-        resolver.dependency(
-            authorization="Bearer bad-token"
-        )
+        resolver.dependency(authorization="Bearer bad-token")
 
     assert error.value.status_code == 401

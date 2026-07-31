@@ -18,7 +18,9 @@ class RepositorySelfRepairEngine:
         self.planner = RepairPlanner(self.policy)
         self.executor = RepairExecutor()
 
-    def diagnose(self, target: Path, source: Path | None = None) -> tuple[ScanManifest, ScanManifest | None, RepairPlan]:
+    def diagnose(
+        self, target: Path, source: Path | None = None
+    ) -> tuple[ScanManifest, ScanManifest | None, RepairPlan]:
         target_manifest = self.scanner.scan(target)
         source_manifest = self.scanner.scan(source) if source else None
         plan = self.planner.plan(target_manifest, source_manifest)
@@ -45,11 +47,19 @@ class RepositorySelfRepairEngine:
             remove_source=remove_source,
             archive_root=archive_root,
         )
-        report_root = report_root or Path(target).resolve() / "reports" / "repository_self_repair"
+        report_root = (
+            report_root or Path(target).resolve() / "reports" / "repository_self_repair"
+        )
         report_path = RepairReporter(report_root).write(target_manifest, plan, result)
         return plan, result, report_path
 
-    def monitor(self, target: Path, *, interval_seconds: int = 3600, report_root: Path | None = None) -> None:
+    def monitor(
+        self,
+        target: Path,
+        *,
+        interval_seconds: int = 3600,
+        report_root: Path | None = None,
+    ) -> None:
         if interval_seconds < 60:
             raise ValueError("monitor interval must be at least 60 seconds")
         while True:

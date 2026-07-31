@@ -21,8 +21,4 @@ def handle(payload, event_name):
 
 
 for event_name in EVENTS:
-
-    event_bus.subscribe(
-        event_name,
-        lambda payload, e=event_name: handle(payload, e)
-    )
+    event_bus.subscribe(event_name, lambda payload, e=event_name: handle(payload, e))

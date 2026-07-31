@@ -6,17 +6,6 @@ Post-Genesis 160
 
 
 class EvolutionCoordinator:
-
-
     def coordinate(self):
 
-        return {
-
-            "evolution":
-            "coordinated",
-
-            "priority":
-            "optimized"
-
-        }
-
+        return {"evolution": "coordinated", "priority": "optimized"}

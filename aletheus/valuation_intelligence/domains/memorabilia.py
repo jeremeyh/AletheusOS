@@ -6,18 +6,6 @@ Genesis 13.34
 
 
 class MemorabiliaValuationEngine:
+    def evaluate(self, item):
 
-
-    def evaluate(
-        self,
-        item
-    ):
-
-
-        return {
-
-            "domain":
-                "memorabilia"
-
-        }
-
+        return {"domain": "memorabilia"}

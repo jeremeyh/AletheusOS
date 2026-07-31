@@ -6,7 +6,6 @@ from .models import BootReport, BootResult
 
 
 class BootExecutor:
-
     GENESIS = "13.9"
     VERSION = "0.1.0"
 
@@ -15,13 +14,9 @@ class BootExecutor:
         report = BootReport()
 
         for candidate in plan.ordered():
-
-            instance = platform_registry.get_instance(
-                candidate.component_id
-            )
+            instance = platform_registry.get_instance(candidate.component_id)
 
             if instance is None:
-
                 report.results.append(
                     BootResult(
                         component_id=candidate.component_id,
@@ -34,7 +29,6 @@ class BootExecutor:
                 continue
 
             try:
-
                 if hasattr(instance, "boot"):
                     instance.boot()
 
@@ -48,7 +42,6 @@ class BootExecutor:
                 )
 
             except Exception as exc:
-
                 report.results.append(
                     BootResult(
                         component_id=candidate.component_id,

@@ -6,21 +6,10 @@ Genesis 14.3
 
 
 class MarketplaceConnector:
-
-
-    def search(
-        self,
-        query
-    ):
+    def search(self, query):
 
         return []
 
-
-
-    def retrieve(
-        self,
-        listing
-    ):
+    def retrieve(self, listing):
 
         return listing
-

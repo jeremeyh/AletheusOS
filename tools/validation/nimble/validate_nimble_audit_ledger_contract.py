@@ -23,64 +23,36 @@ def find_repo_root(start: Path) -> Path:
 ROOT = find_repo_root(Path(__file__).parent)
 
 
-CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/audit/"
-    "deployment-audit-ledger-contract.json"
-)
+CONTRACT_PATH = ROOT / "nimble/governance/audit/deployment-audit-ledger-contract.json"
 
-LEDGER_PATH = (
-    ROOT
-    / "nimble/governance/audit/"
-    "deployment-audit-ledger.jsonl"
-)
+LEDGER_PATH = ROOT / "nimble/governance/audit/deployment-audit-ledger.jsonl"
 
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "deployment-audit-ledger-contract-latest.json"
-)
+REPORT_PATH = ROOT / "reports/nimble/deployment-audit-ledger-contract-latest.json"
 
 
 def main() -> int:
     failures: list[str] = []
 
     if not CONTRACT_PATH.is_file():
-        failures.append(
-            "Audit ledger contract is missing."
-        )
+        failures.append("Audit ledger contract is missing.")
 
     if not LEDGER_PATH.is_file():
-        failures.append(
-            "Audit ledger file is missing."
-        )
+        failures.append("Audit ledger file is missing.")
 
     if not failures:
-        contract = json.loads(
-            CONTRACT_PATH.read_text(
-                encoding="utf-8"
-            )
-        )
+        contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
 
         ledger = contract.get("ledger", {})
         policy = contract.get("policy", {})
 
         if ledger.get("format") != "jsonl":
-            failures.append(
-                "Audit ledger format must be jsonl."
-            )
+            failures.append("Audit ledger format must be jsonl.")
 
         if ledger.get("append_only") is not True:
-            failures.append(
-                "Audit ledger must be append-only."
-            )
+            failures.append("Audit ledger must be append-only.")
 
-        if ledger.get(
-            "hash_algorithm"
-        ) != "sha256":
-            failures.append(
-                "Audit ledger hash must be sha256."
-            )
+        if ledger.get("hash_algorithm") != "sha256":
+            failures.append("Audit ledger hash must be sha256.")
 
         required_true = [
             "sequence_must_be_contiguous",
@@ -96,9 +68,7 @@ def main() -> int:
 
         for key in required_true:
             if policy.get(key) is not True:
-                failures.append(
-                    f"Audit policy must be true: {key}"
-                )
+                failures.append(f"Audit policy must be true: {key}")
 
     status = "PASS" if not failures else "FAIL"
 
@@ -111,9 +81,7 @@ def main() -> int:
         json.dumps(
             {
                 "schema_version": "1.0",
-                "generated_at": datetime.now(
-                    UTC
-                ).isoformat(),
+                "generated_at": datetime.now(UTC).isoformat(),
                 "status": status,
                 "failures": failures,
             },

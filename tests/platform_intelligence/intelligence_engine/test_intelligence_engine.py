@@ -44,14 +44,10 @@ def build_engine(
     ConstitutionalGraph,
 ]:
     bus = ConstitutionalEventBus()
-    registry = PlatformServiceRegistry(
-        event_bus=bus
-    )
+    registry = PlatformServiceRegistry(event_bus=bus)
     graph = ConstitutionalGraph()
 
-    runtime = registry.register(
-        definition("service.runtime")
-    )
+    runtime = registry.register(definition("service.runtime"))
     workspace = registry.register(
         definition(
             "service.workspace",
@@ -94,9 +90,7 @@ def build_engine(
     engine = PlatformIntelligenceEngine(
         explorer=explorer,
         graph=graph,
-        fan_in_warning_threshold=(
-            fan_in_warning_threshold
-        ),
+        fan_in_warning_threshold=(fan_in_warning_threshold),
     )
 
     return engine, registry, graph
@@ -121,8 +115,7 @@ def test_unknown_health_reduces_health_score() -> None:
 
     assert analysis.health_score == 70.0
     assert any(
-        insight.title
-        == "Services lack health evidence"
+        insight.title == "Services lack health evidence"
         for insight in analysis.insights
     )
 
@@ -161,14 +154,11 @@ def test_warning_service_generates_insight() -> None:
     health_insights = [
         insight
         for insight in analysis.insights
-        if insight.category
-        is IntelligenceCategory.HEALTH
+        if insight.category is IntelligenceCategory.HEALTH
     ]
 
     assert any(
-        insight.severity
-        is IntelligenceSeverity.WARNING
-        for insight in health_insights
+        insight.severity is IntelligenceSeverity.WARNING for insight in health_insights
     )
 
 
@@ -184,49 +174,36 @@ def test_warning_service_generates_recommendation() -> None:
     analysis = engine.analyze()
 
     assert any(
-        recommendation.title
-        == "Investigate service.workspace"
-        for recommendation
-        in analysis.recommendations
+        recommendation.title == "Investigate service.workspace"
+        for recommendation in analysis.recommendations
     )
 
 
 def test_orphan_reduces_architecture_score() -> None:
     clean_engine, _, _ = build_engine()
-    orphan_engine, _, _ = build_engine(
-        include_orphan=True
-    )
+    orphan_engine, _, _ = build_engine(include_orphan=True)
 
     clean = clean_engine.analyze()
     orphaned = orphan_engine.analyze()
 
-    assert (
-        orphaned.architecture_score
-        < clean.architecture_score
-    )
+    assert orphaned.architecture_score < clean.architecture_score
 
 
 def test_orphan_generates_review_recommendation() -> None:
-    engine, _, _ = build_engine(
-        include_orphan=True
-    )
+    engine, _, _ = build_engine(include_orphan=True)
 
     analysis = engine.analyze()
 
     assert any(
-        recommendation.title
-        == "Review orphaned platform objects"
-        for recommendation
-        in analysis.recommendations
+        recommendation.title == "Review orphaned platform objects"
+        for recommendation in analysis.recommendations
     )
 
 
 def test_cycle_is_critical() -> None:
     engine, registry, graph = build_engine()
 
-    third = registry.register(
-        definition("service.third")
-    )
+    third = registry.register(definition("service.third"))
     graph.add_node(third)
 
     graph.connect(
@@ -242,24 +219,17 @@ def test_cycle_is_critical() -> None:
 
     analysis = engine.analyze()
 
-    assert analysis.risk_level is (
-        IntelligenceSeverity.CRITICAL
-    )
+    assert analysis.risk_level is (IntelligenceSeverity.CRITICAL)
     assert any(
-        insight.title
-        == "Constitutional dependency cycles detected"
+        insight.title == "Constitutional dependency cycles detected"
         for insight in analysis.insights
     )
 
 
 def test_high_dependency_concentration_is_detected() -> None:
-    engine, registry, graph = build_engine(
-        fan_in_warning_threshold=2
-    )
+    engine, registry, graph = build_engine(fan_in_warning_threshold=2)
 
-    second = registry.register(
-        definition("service.second")
-    )
+    second = registry.register(definition("service.second"))
     graph.add_node(second)
 
     graph.connect(
@@ -271,16 +241,13 @@ def test_high_dependency_concentration_is_detected() -> None:
     analysis = engine.analyze()
 
     assert any(
-        insight.title
-        == "High dependency concentration detected"
+        insight.title == "High dependency concentration detected"
         for insight in analysis.insights
     )
 
 
 def test_analysis_serializes() -> None:
-    engine, _, _ = build_engine(
-        include_orphan=True
-    )
+    engine, _, _ = build_engine(include_orphan=True)
 
     payload = engine.analyze().to_dict()
 
@@ -296,9 +263,7 @@ def test_analysis_serializes() -> None:
 
 def test_invalid_threshold_is_rejected() -> None:
     bus = ConstitutionalEventBus()
-    registry = PlatformServiceRegistry(
-        event_bus=bus
-    )
+    registry = PlatformServiceRegistry(event_bus=bus)
     graph = ConstitutionalGraph()
     twin = PlatformDigitalTwin(
         service_registry=registry,
@@ -331,6 +296,4 @@ def test_engine_is_read_only() -> None:
         "publish",
     }
 
-    assert forbidden.isdisjoint(
-        set(dir(engine))
-    )
+    assert forbidden.isdisjoint(set(dir(engine)))

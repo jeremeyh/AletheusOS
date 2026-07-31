@@ -11,10 +11,7 @@ from aletheus.platform_registry import PlatformRegistry
 
 def test_canonical_catalog_contains_core_institutions():
     records = canonical_institutions()
-    institution_ids = {
-        record.institution_id
-        for record in records
-    }
+    institution_ids = {record.institution_id for record in records}
 
     assert "aletheus.crk" in institution_ids
     assert "aletheus.repository_dna" in institution_ids
@@ -93,10 +90,7 @@ def test_graph_contains_governance_relationships():
     assert all("edge" in item for item in neighbors)
     assert all("node" in item for item in neighbors)
 
-    relationships = {
-        item["edge"]["relationship"]
-        for item in neighbors
-    }
+    relationships = {item["edge"]["relationship"] for item in neighbors}
 
     assert "OBSERVED_BY" in relationships
     assert "GOVERNED_BY" in relationships

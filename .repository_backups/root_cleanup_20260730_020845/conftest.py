@@ -10,6 +10,7 @@ for i, p in enumerate(sys.path):
 
 try:
     import nimble
+
     print("nimble:", nimble.__file__)
 except Exception as e:
     print("nimble import failed:", repr(e))

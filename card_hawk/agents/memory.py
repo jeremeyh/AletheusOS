@@ -6,13 +6,6 @@ Genesis 14.23
 
 
 class AgentMemory:
-
-
-    def store(
-        self,
-        memory
-    ):
-
+    def store(self, memory):
 
         return True
-

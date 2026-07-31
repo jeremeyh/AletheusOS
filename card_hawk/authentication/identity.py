@@ -6,19 +6,6 @@ Genesis 14.11
 
 
 class IdentityVerificationEngine:
+    def verify(self, asset):
 
-
-    def verify(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "verified":
-
-                True
-
-        }
-
+        return {"verified": True}

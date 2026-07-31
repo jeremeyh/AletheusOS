@@ -5,7 +5,7 @@ text = p.read_text()
 
 anchor = 'self.commands.register("plugin.statistics", self._cmd_plugin_statistics)'
 
-block = '''
+block = """
         # =====================================================
         # v3.2 Persistence Engine
         # =====================================================
@@ -17,7 +17,7 @@ block = '''
         self.commands.register("state.export", self._cmd_state_export)
         self.commands.register("state.import", self._cmd_state_import)
         self.commands.register("state.statistics", self._cmd_state_statistics)
-'''
+"""
 
 if 'self.commands.register("state.bootstrap"' not in text:
     if anchor not in text:

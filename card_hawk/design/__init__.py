@@ -6,6 +6,4 @@ Genesis 53
 
 from .engine import DesignSystemEngine
 
-__all__ = [
-    "DesignSystemEngine"
-]
+__all__ = ["DesignSystemEngine"]

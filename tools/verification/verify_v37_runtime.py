@@ -28,10 +28,7 @@ expected = [
     "security.statistics",
 ]
 
-missing = [
-    c for c in expected
-    if c not in runtime_core.commands.list()
-]
+missing = [c for c in expected if c not in runtime_core.commands.list()]
 
 print("\nMissing Commands:")
 print(missing)

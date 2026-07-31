@@ -62,25 +62,17 @@ class CapabilityHost:
         return list(self._capabilities.values())
 
     def metadata(self) -> list[CapabilityMetadata]:
-        return [
-            capability.metadata()
-            for capability in self._capabilities.values()
-        ]
+        return [capability.metadata() for capability in self._capabilities.values()]
 
     def health(self) -> list[CapabilityHealthReport]:
-        return [
-            capability.health()
-            for capability in self._capabilities.values()
-        ]
+        return [capability.health() for capability in self._capabilities.values()]
 
     def start_all(self) -> None:
         for capability in self._capabilities.values():
             capability.start()
 
     def stop_all(self) -> None:
-        for capability in reversed(
-            list(self._capabilities.values())
-        ):
+        for capability in reversed(list(self._capabilities.values())):
             capability.stop()
 
     def execute(

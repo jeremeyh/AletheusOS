@@ -6,19 +6,6 @@ Genesis 13.55
 
 
 class FusionEngine:
+    def combine(self, observations):
 
-
-    def combine(
-        self,
-        observations
-    ):
-
-
-        return {
-
-            "confidence":
-
-                0
-
-        }
-
+        return {"confidence": 0}

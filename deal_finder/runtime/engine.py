@@ -24,40 +24,27 @@ class DealFinderEngine:
         percent = 0
 
         if current_value:
-
-            percent = (
-                discount / current_value
-            ) * 100
+            percent = (discount / current_value) * 100
 
         if percent >= 25:
-
             rating = "🔥 STEAL"
 
         elif percent >= 15:
-
             rating = "✅ BUY"
 
         elif percent >= 5:
-
             rating = "👍 FAIR"
 
         else:
-
             rating = "❌ PASS"
 
         return {
-
             "player": card.get("player"),
-
             "market_value": current_value,
-
             "asking_price": asking,
-
             "discount_percent": round(
                 percent,
                 2,
             ),
-
             "rating": rating,
-
         }

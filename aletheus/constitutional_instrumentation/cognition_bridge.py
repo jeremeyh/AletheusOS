@@ -46,14 +46,10 @@ class CognitionInstrumentBridge:
         self,
         signal: CognitiveSignal,
     ) -> tuple[InstrumentSignal, ...]:
-        projected = tuple(
-            self._translate(signal)
-        )
+        projected = tuple(self._translate(signal))
 
         for instrument_signal in projected:
-            self.bus.publish(
-                instrument_signal
-            )
+            self.bus.publish(instrument_signal)
 
         self._translated += len(projected)
         return projected
@@ -64,8 +60,7 @@ class CognitionInstrumentBridge:
     ) -> list[InstrumentSignal]:
         common: dict[str, Any] = {
             "source_identity": (
-                signal.engine_id
-                or "aletheus.constitutional_cognition"
+                signal.engine_id or "aletheus.constitutional_cognition"
             ),
             "cognition_id": signal.cognition_id,
             "message": signal.message,
@@ -73,12 +68,8 @@ class CognitionInstrumentBridge:
         }
 
         timeline = InstrumentSignal(
-            instrument_id=(
-                "aletheus.instrument.timeline"
-            ),
-            signal_type=(
-                InstrumentSignalType.TIMELINE_EVENT
-            ),
+            instrument_id=("aletheus.instrument.timeline"),
+            signal_type=(InstrumentSignalType.TIMELINE_EVENT),
             value=1.0,
             status=self._status_for(signal),
             confidence=signal.magnitude,
@@ -87,36 +78,22 @@ class CognitionInstrumentBridge:
 
         projected = [timeline]
 
-        if signal.signal_type == (
-            CognitiveSignalType.MESH_STARTED
-        ):
+        if signal.signal_type == (CognitiveSignalType.MESH_STARTED):
             projected.append(
                 InstrumentSignal(
-                    instrument_id=(
-                        "aletheus.instrument.mesh_activity"
-                    ),
-                    signal_type=(
-                        InstrumentSignalType
-                        .ACTIVITY_STARTED
-                    ),
+                    instrument_id=("aletheus.instrument.mesh_activity"),
+                    signal_type=(InstrumentSignalType.ACTIVITY_STARTED),
                     value=1.0,
                     status=InstrumentStatus.ACTIVE,
                     **common,
                 )
             )
 
-        elif signal.signal_type == (
-            CognitiveSignalType.MESH_COMPLETED
-        ):
+        elif signal.signal_type == (CognitiveSignalType.MESH_COMPLETED):
             projected.append(
                 InstrumentSignal(
-                    instrument_id=(
-                        "aletheus.instrument.mesh_activity"
-                    ),
-                    signal_type=(
-                        InstrumentSignalType
-                        .ACTIVITY_COMPLETED
-                    ),
+                    instrument_id=("aletheus.instrument.mesh_activity"),
+                    signal_type=(InstrumentSignalType.ACTIVITY_COMPLETED),
                     value=0.0,
                     status=InstrumentStatus.STABLE,
                     confidence=signal.magnitude,
@@ -128,41 +105,23 @@ class CognitionInstrumentBridge:
                 )
             )
 
-        elif signal.signal_type == (
-            CognitiveSignalType.ENGINE_STARTED
-        ):
+        elif signal.signal_type == (CognitiveSignalType.ENGINE_STARTED):
             projected.append(
                 InstrumentSignal(
-                    instrument_id=(
-                        "aletheus.instrument.engine_activity"
-                    ),
-                    signal_type=(
-                        InstrumentSignalType
-                        .ACTIVITY_STARTED
-                    ),
+                    instrument_id=("aletheus.instrument.engine_activity"),
+                    signal_type=(InstrumentSignalType.ACTIVITY_STARTED),
                     value=1.0,
                     status=InstrumentStatus.ACTIVE,
                     **common,
                 )
             )
 
-        elif signal.signal_type == (
-            CognitiveSignalType.ENGINE_COMPLETED
-        ):
+        elif signal.signal_type == (CognitiveSignalType.ENGINE_COMPLETED):
             projected.append(
                 InstrumentSignal(
-                    instrument_id=(
-                        "aletheus.instrument.engine_activity"
-                    ),
-                    signal_type=(
-                        InstrumentSignalType.VALUE_CHANGED
-                    ),
-                    value=(
-                        signal.magnitude
-                        if signal.magnitude
-                        is not None
-                        else 0.0
-                    ),
+                    instrument_id=("aletheus.instrument.engine_activity"),
+                    signal_type=(InstrumentSignalType.VALUE_CHANGED),
+                    value=(signal.magnitude if signal.magnitude is not None else 0.0),
                     status=InstrumentStatus.STABLE,
                     confidence=signal.magnitude,
                     **{
@@ -173,55 +132,30 @@ class CognitionInstrumentBridge:
                 )
             )
 
-        elif signal.signal_type == (
-            CognitiveSignalType.ENGINE_FAILED
-        ):
+        elif signal.signal_type == (CognitiveSignalType.ENGINE_FAILED):
             projected.extend(
                 (
                     InstrumentSignal(
-                        instrument_id=(
-                            "aletheus.instrument.engine_activity"
-                        ),
-                        signal_type=(
-                            InstrumentSignalType
-                            .ACTIVITY_FAILED
-                        ),
+                        instrument_id=("aletheus.instrument.engine_activity"),
+                        signal_type=(InstrumentSignalType.ACTIVITY_FAILED),
                         value=0.0,
-                        status=(
-                            InstrumentStatus.DEGRADED
-                        ),
+                        status=(InstrumentStatus.DEGRADED),
                         **common,
                     ),
                     InstrumentSignal(
-                        instrument_id=(
-                            "aletheus.instrument.mesh_activity"
-                        ),
-                        signal_type=(
-                            InstrumentSignalType
-                            .HEALTH_CHANGED
-                        ),
+                        instrument_id=("aletheus.instrument.mesh_activity"),
+                        signal_type=(InstrumentSignalType.HEALTH_CHANGED),
                         value=0.5,
-                        status=(
-                            InstrumentStatus.DEGRADED
-                        ),
+                        status=(InstrumentStatus.DEGRADED),
                         **common,
                     ),
                 )
             )
 
-        elif signal.signal_type == (
-            CognitiveSignalType
-            .CONVERGENCE_COMPLETED
-        ):
-            confidence = (
-                signal.magnitude
-                if signal.magnitude is not None
-                else 0.0
-            )
+        elif signal.signal_type == (CognitiveSignalType.CONVERGENCE_COMPLETED):
+            confidence = signal.magnitude if signal.magnitude is not None else 0.0
 
-            state = signal.payload.get(
-                "state"
-            )
+            state = signal.payload.get("state")
 
             status = (
                 InstrumentStatus.CONTESTED
@@ -243,57 +177,37 @@ class CognitionInstrumentBridge:
                 )
             )
 
-            dissent_ratio = (
-                dissent_count
-                / max(1, participant_count)
-            )
+            dissent_ratio = dissent_count / max(1, participant_count)
 
             projected.extend(
                 (
                     InstrumentSignal(
-                        instrument_id=(
-                            "aletheus.instrument.confidence"
-                        ),
-                        signal_type=(
-                            InstrumentSignalType
-                            .CONFIDENCE_CHANGED
-                        ),
+                        instrument_id=("aletheus.instrument.confidence"),
+                        signal_type=(InstrumentSignalType.CONFIDENCE_CHANGED),
                         value=confidence,
                         status=status,
                         confidence=confidence,
                         **{
                             key: value
-                            for key, value
-                            in common.items()
+                            for key, value in common.items()
                             if key != "confidence"
                         },
                     ),
                     InstrumentSignal(
-                        instrument_id=(
-                            "aletheus.instrument.convergence"
-                        ),
-                        signal_type=(
-                            InstrumentSignalType
-                            .CONVERGENCE_CHANGED
-                        ),
+                        instrument_id=("aletheus.instrument.convergence"),
+                        signal_type=(InstrumentSignalType.CONVERGENCE_CHANGED),
                         value=confidence,
                         status=status,
                         confidence=confidence,
                         **{
                             key: value
-                            for key, value
-                            in common.items()
+                            for key, value in common.items()
                             if key != "confidence"
                         },
                     ),
                     InstrumentSignal(
-                        instrument_id=(
-                            "aletheus.instrument.dissent"
-                        ),
-                        signal_type=(
-                            InstrumentSignalType
-                            .DISSENT_CHANGED
-                        ),
+                        instrument_id=("aletheus.instrument.dissent"),
+                        signal_type=(InstrumentSignalType.DISSENT_CHANGED),
                         value=round(
                             dissent_ratio,
                             4,
@@ -308,15 +222,8 @@ class CognitionInstrumentBridge:
                 )
             )
 
-        elif signal.signal_type == (
-            CognitiveSignalType
-            .VIRTUES_EVALUATED
-        ):
-            score = (
-                signal.magnitude
-                if signal.magnitude is not None
-                else 0.0
-            )
+        elif signal.signal_type == (CognitiveSignalType.VIRTUES_EVALUATED):
+            score = signal.magnitude if signal.magnitude is not None else 0.0
 
             passed = bool(
                 signal.payload.get(
@@ -325,11 +232,7 @@ class CognitionInstrumentBridge:
                 )
             )
 
-            status = (
-                InstrumentStatus.STABLE
-                if passed
-                else InstrumentStatus.CAUTION
-            )
+            status = InstrumentStatus.STABLE if passed else InstrumentStatus.CAUTION
 
             violations = set(
                 signal.payload.get(
@@ -338,40 +241,25 @@ class CognitionInstrumentBridge:
                 )
             )
 
-            truth_value = (
-                0.0
-                if "truth" in violations
-                else 1.0
-            )
+            truth_value = 0.0 if "truth" in violations else 1.0
 
             projected.extend(
                 (
                     InstrumentSignal(
-                        instrument_id=(
-                            "aletheus.instrument.virtue_alignment"
-                        ),
-                        signal_type=(
-                            InstrumentSignalType
-                            .VIRTUE_STATE_CHANGED
-                        ),
+                        instrument_id=("aletheus.instrument.virtue_alignment"),
+                        signal_type=(InstrumentSignalType.VIRTUE_STATE_CHANGED),
                         value=score,
                         status=status,
                         confidence=score,
                         **{
                             key: value
-                            for key, value
-                            in common.items()
+                            for key, value in common.items()
                             if key != "confidence"
                         },
                     ),
                     InstrumentSignal(
-                        instrument_id=(
-                            "aletheus.instrument.truth"
-                        ),
-                        signal_type=(
-                            InstrumentSignalType
-                            .VIRTUE_STATE_CHANGED
-                        ),
+                        instrument_id=("aletheus.instrument.truth"),
+                        signal_type=(InstrumentSignalType.VIRTUE_STATE_CHANGED),
                         value=truth_value,
                         status=(
                             InstrumentStatus.STABLE
@@ -381,8 +269,7 @@ class CognitionInstrumentBridge:
                         confidence=score,
                         **{
                             key: value
-                            for key, value
-                            in common.items()
+                            for key, value in common.items()
                             if key != "confidence"
                         },
                     ),
@@ -402,17 +289,12 @@ class CognitionInstrumentBridge:
         }:
             return InstrumentStatus.ACTIVE
 
-        if signal.signal_type == (
-            CognitiveSignalType.ENGINE_FAILED
-        ):
+        if signal.signal_type == (CognitiveSignalType.ENGINE_FAILED):
             return InstrumentStatus.DEGRADED
 
         if (
-            signal.signal_type
-            == CognitiveSignalType
-            .CONVERGENCE_COMPLETED
-            and signal.payload.get("state")
-            == "contested"
+            signal.signal_type == CognitiveSignalType.CONVERGENCE_COMPLETED
+            and signal.payload.get("state") == "contested"
         ):
             return InstrumentStatus.CONTESTED
 
@@ -420,15 +302,9 @@ class CognitionInstrumentBridge:
 
     def health(self) -> dict:
         return {
-            "name": (
-                "Cognition Instrument Bridge™"
-            ),
+            "name": ("Cognition Instrument Bridge™"),
             "version": self.VERSION,
             "status": "online",
-            "translated_signals": (
-                self._translated
-            ),
-            "instrument_bus": (
-                self.bus.health()
-            ),
+            "translated_signals": (self._translated),
+            "instrument_bus": (self.bus.health()),
         }

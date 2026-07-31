@@ -12,9 +12,12 @@ class FoundationReadiness:
 
         try:
             from aletheus.runtime import runtime_core
+
             results["runtime"] = runtime_core.status == "online"
             results["identity_engine"] = runtime_core.services.has("identity_engine")
-            results["capability_engine"] = runtime_core.services.has("capability_engine")
+            results["capability_engine"] = runtime_core.services.has(
+                "capability_engine"
+            )
             results["aos_search"] = runtime_core.services.has("aos_search")
         except Exception:
             results["runtime"] = False
@@ -24,12 +27,16 @@ class FoundationReadiness:
 
         try:
             from aletheus.execution_engine import execution_engine
-            results["execution_engine"] = execution_engine.health()["status"] == "healthy"
+
+            results["execution_engine"] = (
+                execution_engine.health()["status"] == "healthy"
+            )
         except Exception:
             results["execution_engine"] = False
 
         try:
             from aletheus.foundation import aletheus_foundation
+
             aletheus_foundation.bootstrap_defaults()
             results["foundation_registry"] = (
                 aletheus_foundation.statistics()["engines"] >= 10

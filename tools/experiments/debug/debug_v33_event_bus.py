@@ -4,21 +4,33 @@ from aletheus.runtime import runtime_core
 
 tests = [
     ("event.bootstrap", {}),
-    ("event.publish", {
-        "topic": "runtime.test",
-        "publisher": "debug",
-        "payload": {"hello": "world"},
-    }),
-    ("event.subscribe", {
-        "topic": "runtime.test",
-        "subscriber": "Workflow Engine",
-    }),
-    ("event.history", {
-        "topic": "runtime.test",
-    }),
-    ("event.replay", {
-        "topic": "runtime.test",
-    }),
+    (
+        "event.publish",
+        {
+            "topic": "runtime.test",
+            "publisher": "debug",
+            "payload": {"hello": "world"},
+        },
+    ),
+    (
+        "event.subscribe",
+        {
+            "topic": "runtime.test",
+            "subscriber": "Workflow Engine",
+        },
+    ),
+    (
+        "event.history",
+        {
+            "topic": "runtime.test",
+        },
+    ),
+    (
+        "event.replay",
+        {
+            "topic": "runtime.test",
+        },
+    ),
     ("event.statistics", {}),
 ]
 

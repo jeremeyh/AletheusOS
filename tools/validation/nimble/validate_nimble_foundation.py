@@ -36,29 +36,17 @@ def read_json(path: Path) -> dict:
 
 
 def main() -> None:
-    missing = [
-        path
-        for path in REQUIRED_FILES
-        if not path.exists()
-    ]
+    missing = [path for path in REQUIRED_FILES if not path.exists()]
 
     if missing:
         for path in missing:
             print("MISSING:", path.relative_to(ROOT))
         raise SystemExit(1)
 
-    manifest = read_json(
-        NIMBLE / "nimble.manifest.json"
-    )
-    contracts = read_json(
-        NIMBLE / "architecture" / "engine_contracts.json"
-    )
-    inheritance = read_json(
-        NIMBLE / "applications" / "application_inheritance.json"
-    )
-    schema = read_json(
-        NIMBLE / "design-tokens" / "token.schema.json"
-    )
+    manifest = read_json(NIMBLE / "nimble.manifest.json")
+    contracts = read_json(NIMBLE / "architecture" / "engine_contracts.json")
+    inheritance = read_json(NIMBLE / "applications" / "application_inheritance.json")
+    schema = read_json(NIMBLE / "design-tokens" / "token.schema.json")
 
     required_engines = set(manifest["engines"])
     contract_engines = set(contracts)
@@ -72,14 +60,10 @@ def main() -> None:
         )
         raise SystemExit(1)
 
-    required_inheritance = inheritance[
-        "required_inheritance"
-    ]
+    required_inheritance = inheritance["required_inheritance"]
 
     disabled = [
-        name
-        for name, enabled in required_inheritance.items()
-        if enabled is not True
+        name for name, enabled in required_inheritance.items() if enabled is not True
     ]
 
     if disabled:

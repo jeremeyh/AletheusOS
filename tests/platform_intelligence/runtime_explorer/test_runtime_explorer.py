@@ -42,9 +42,7 @@ def build_explorer() -> tuple[
     PlatformDigitalTwin,
 ]:
     bus = ConstitutionalEventBus()
-    registry = PlatformServiceRegistry(
-        event_bus=bus
-    )
+    registry = PlatformServiceRegistry(event_bus=bus)
     graph = ConstitutionalGraph()
 
     runtime = registry.register(
@@ -113,30 +111,20 @@ def build_explorer() -> tuple[
 def test_object_lookup() -> None:
     explorer, _, _, _ = build_explorer()
 
-    assert (
-        explorer.object(
-            "service.runtime"
-        ).address
-        == "service.runtime"
-    )
+    assert explorer.object("service.runtime").address == "service.runtime"
 
 
 def test_unknown_object_is_rejected() -> None:
     explorer, _, _, _ = build_explorer()
 
-    with pytest.raises(
-        ExplorerObjectNotFoundError
-    ):
+    with pytest.raises(ExplorerObjectNotFoundError):
         explorer.object("service.missing")
 
 
 def test_objects_are_deduplicated() -> None:
     explorer, _, _, _ = build_explorer()
 
-    assert [
-        item.address
-        for item in explorer.objects()
-    ] == [
+    assert [item.address for item in explorer.objects()] == [
         "application.cardhawk",
         "capability.orphan",
         "service.runtime",
@@ -148,32 +136,22 @@ def test_find_by_kind() -> None:
     explorer, _, _, _ = build_explorer()
 
     assert [
-        item.address
-        for item in explorer.find_by_kind(
-            ConstitutionalKind.APPLICATION
-        )
+        item.address for item in explorer.find_by_kind(ConstitutionalKind.APPLICATION)
     ] == ["application.cardhawk"]
 
 
 def test_find_by_owner() -> None:
     explorer, _, _, _ = build_explorer()
 
-    assert [
-        item.address
-        for item in explorer.find_by_owner(
-            "workspace"
-        )
-    ] == ["service.workspace"]
+    assert [item.address for item in explorer.find_by_owner("workspace")] == [
+        "service.workspace"
+    ]
 
 
 def test_find_by_authority() -> None:
     explorer, _, _, _ = build_explorer()
 
-    assert len(
-        explorer.find_by_authority(
-            "AletheusOS"
-        )
-    ) == 4
+    assert len(explorer.find_by_authority("AletheusOS")) == 4
 
 
 def test_find_by_state() -> None:
@@ -187,9 +165,7 @@ def test_find_by_state() -> None:
 
     assert [
         item.address
-        for item in explorer.find_by_state(
-            ConstitutionalState.INITIALIZING
-        )
+        for item in explorer.find_by_state(ConstitutionalState.INITIALIZING)
     ] == ["service.runtime"]
 
 
@@ -203,10 +179,7 @@ def test_find_by_health() -> None:
     graph.update_node(warning)
 
     assert [
-        item.address
-        for item in explorer.find_by_health(
-            ConstitutionalHealth.WARNING
-        )
+        item.address for item in explorer.find_by_health(ConstitutionalHealth.WARNING)
     ] == ["service.workspace"]
 
 
@@ -219,22 +192,15 @@ def test_unhealthy_projection() -> None:
     )
     graph.update_node(warning)
 
-    assert [
-        item.address
-        for item in explorer.unhealthy()
-    ] == ["service.workspace"]
+    assert [item.address for item in explorer.unhealthy()] == ["service.workspace"]
 
 
 def test_search_ranks_exact_address_highest() -> None:
     explorer, _, _, _ = build_explorer()
 
-    results = explorer.search(
-        "service.runtime"
-    )
+    results = explorer.search("service.runtime")
 
-    assert results[0].object.address == (
-        "service.runtime"
-    )
+    assert results[0].object.address == ("service.runtime")
     assert results[0].score >= 100
 
 
@@ -243,10 +209,7 @@ def test_search_matches_partial_text() -> None:
 
     results = explorer.search("card")
 
-    assert [
-        result.object.address
-        for result in results
-    ] == ["application.cardhawk"]
+    assert [result.object.address for result in results] == ["application.cardhawk"]
 
 
 def test_empty_search_returns_empty_result() -> None:
@@ -258,23 +221,16 @@ def test_empty_search_returns_empty_result() -> None:
 def test_cql_kind_query() -> None:
     explorer, _, _, _ = build_explorer()
 
-    assert [
-        item.address
-        for item in explorer.query(
-            "kind:application"
-        )
-    ] == ["application.cardhawk"]
+    assert [item.address for item in explorer.query("kind:application")] == [
+        "application.cardhawk"
+    ]
 
 
 def test_cql_combines_terms() -> None:
     explorer, _, _, _ = build_explorer()
 
     assert [
-        item.address
-        for item in explorer.query(
-            "kind:platform_service "
-            "owner:workspace"
-        )
+        item.address for item in explorer.query("kind:platform_service owner:workspace")
     ] == ["service.workspace"]
 
 
@@ -288,12 +244,9 @@ def test_invalid_cql_field_is_rejected() -> None:
 def test_dependencies() -> None:
     explorer, _, _, _ = build_explorer()
 
-    assert [
-        item.address
-        for item in explorer.dependencies(
-            "service.workspace"
-        )
-    ] == ["service.runtime"]
+    assert [item.address for item in explorer.dependencies("service.workspace")] == [
+        "service.runtime"
+    ]
 
 
 def test_transitive_dependencies() -> None:
@@ -314,31 +267,19 @@ def test_transitive_dependencies() -> None:
 def test_dependents() -> None:
     explorer, _, _, _ = build_explorer()
 
-    assert [
-        item.address
-        for item in explorer.dependents(
-            "service.runtime"
-        )
-    ] == ["service.workspace"]
+    assert [item.address for item in explorer.dependents("service.runtime")] == [
+        "service.workspace"
+    ]
 
 
 def test_impact_analysis() -> None:
     explorer, _, _, _ = build_explorer()
 
-    impact = explorer.impact(
-        "service.runtime"
-    )
+    impact = explorer.impact("service.runtime")
 
-    assert [
-        item.address
-        for item in impact.direct_dependents
-    ] == ["service.workspace"]
+    assert [item.address for item in impact.direct_dependents] == ["service.workspace"]
 
-    assert [
-        item.address
-        for item
-        in impact.transitive_dependents
-    ] == [
+    assert [item.address for item in impact.transitive_dependents] == [
         "service.workspace",
         "application.cardhawk",
     ]
@@ -365,10 +306,7 @@ def test_shortest_path() -> None:
 def test_orphan_query() -> None:
     explorer, _, _, _ = build_explorer()
 
-    assert [
-        item.address
-        for item in explorer.orphans()
-    ] == ["capability.orphan"]
+    assert [item.address for item in explorer.orphans()] == ["capability.orphan"]
 
 
 def test_snapshot_access_and_diff() -> None:
@@ -376,9 +314,7 @@ def test_snapshot_access_and_diff() -> None:
 
     previous = explorer.snapshot()
 
-    diagnostics = registry.register(
-        definition("service.diagnostics")
-    )
+    diagnostics = registry.register(definition("service.diagnostics"))
     graph.add_node(diagnostics)
 
     current = explorer.snapshot()
@@ -387,9 +323,7 @@ def test_snapshot_access_and_diff() -> None:
         current,
     )
 
-    assert diff.added_services == (
-        "service.diagnostics",
-    )
+    assert diff.added_services == ("service.diagnostics",)
     assert len(explorer.snapshots()) == 2
 
 
@@ -410,9 +344,7 @@ def test_statistics_are_consistent() -> None:
     assert stats.unhealthy == 1
     assert stats.orphans == 1
     assert stats.cycles == 0
-    assert stats.objects_by_kind[
-        "platform_service"
-    ] == 2
+    assert stats.objects_by_kind["platform_service"] == 2
 
 
 def test_explorer_is_read_only() -> None:
@@ -427,6 +359,4 @@ def test_explorer_is_read_only() -> None:
         "publish",
     }
 
-    assert forbidden.isdisjoint(
-        set(dir(explorer))
-    )
+    assert forbidden.isdisjoint(set(dir(explorer)))

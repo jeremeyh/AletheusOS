@@ -43,7 +43,10 @@ class AletheusAgentCore:
                 "role": "executive",
                 "description": "Synthesizes system state, priorities, recommendations, and risks.",
                 "capabilities": [
-                    {"name": "executive_summary", "description": "Create executive summaries."},
+                    {
+                        "name": "executive_summary",
+                        "description": "Create executive summaries.",
+                    },
                     {"name": "risk_review", "description": "Analyze system risks."},
                 ],
             },
@@ -53,7 +56,10 @@ class AletheusAgentCore:
                 "description": "Manages memory recall, consolidation, and memory hygiene.",
                 "capabilities": [
                     {"name": "recall", "description": "Retrieve relevant memories."},
-                    {"name": "consolidate", "description": "Prepare records for long-term memory."},
+                    {
+                        "name": "consolidate",
+                        "description": "Prepare records for long-term memory.",
+                    },
                 ],
             },
             {
@@ -62,7 +68,10 @@ class AletheusAgentCore:
                 "description": "Expands graph entities, relationships, and semantic assertions.",
                 "capabilities": [
                     {"name": "graph_expand", "description": "Expand knowledge graph."},
-                    {"name": "semantic_linking", "description": "Link semantic assertions."},
+                    {
+                        "name": "semantic_linking",
+                        "description": "Link semantic assertions.",
+                    },
                 ],
             },
             {
@@ -70,8 +79,14 @@ class AletheusAgentCore:
                 "role": "scout",
                 "description": "Finds opportunities, targets, listings, and market signals.",
                 "capabilities": [
-                    {"name": "opportunity_search", "description": "Search for acquisition opportunities."},
-                    {"name": "watchlist_scan", "description": "Scan watchlists and candidate pools."},
+                    {
+                        "name": "opportunity_search",
+                        "description": "Search for acquisition opportunities.",
+                    },
+                    {
+                        "name": "watchlist_scan",
+                        "description": "Scan watchlists and candidate pools.",
+                    },
                 ],
             },
             {
@@ -88,8 +103,14 @@ class AletheusAgentCore:
                 "role": "founder",
                 "description": "Coordinates founder workflow, priorities, notes, and decisions.",
                 "capabilities": [
-                    {"name": "daily_workflow", "description": "Organize founder priorities."},
-                    {"name": "decision_capture", "description": "Capture decisions and rationale."},
+                    {
+                        "name": "daily_workflow",
+                        "description": "Organize founder priorities.",
+                    },
+                    {
+                        "name": "decision_capture",
+                        "description": "Capture decisions and rationale.",
+                    },
                 ],
             },
         ]
@@ -176,10 +197,14 @@ class AletheusAgentCore:
         return {
             "version": self.version,
             "agents": len(self.agents),
-            "online_agents": len([agent for agent in self.agents if agent.status == "online"]),
+            "online_agents": len(
+                [agent for agent in self.agents if agent.status == "online"]
+            ),
             "tasks": len(tasks),
             "queued_tasks": len([task for task in tasks if task.status == "queued"]),
-            "completed_tasks": len([task for task in tasks if task.status == "completed"]),
+            "completed_tasks": len(
+                [task for task in tasks if task.status == "completed"]
+            ),
         }
 
 

@@ -6,35 +6,14 @@ Genesis 13.29
 
 
 class CouncilRegistry:
-
-
     def __init__(self):
 
         self.members = {}
 
+    def register(self, agent):
 
+        self.members[agent] = {"status": "active"}
 
-    def register(
-        self,
-        agent
-    ):
+    def members_list(self):
 
-        self.members[
-            agent
-        ] = {
-
-            "status":
-                "active"
-
-        }
-
-
-
-    def members_list(
-        self
-    ):
-
-        return list(
-            self.members.keys()
-        )
-
+        return list(self.members.keys())

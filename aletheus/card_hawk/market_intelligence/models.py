@@ -9,13 +9,9 @@ from dataclasses import dataclass, field
 
 @dataclass
 class MarketSignal:
-
-
     asset_id: str
 
-    recent_sales: list = field(
-        default_factory=list
-    )
+    recent_sales: list = field(default_factory=list)
 
     average_price: float = 0
 
@@ -29,7 +25,4 @@ class MarketSignal:
 
     confidence: int = 0
 
-    signals: dict = field(
-        default_factory=dict
-    )
-
+    signals: dict = field(default_factory=dict)

@@ -117,9 +117,7 @@ class ExecutiveCompositionEngine:
                 return
 
             if component_id in visiting:
-                errors.append(
-                    f"Circular dependency detected at '{component_id}'."
-                )
+                errors.append(f"Circular dependency detected at '{component_id}'.")
                 return
 
             visiting.add(component_id)
@@ -164,9 +162,7 @@ class ExecutiveCompositionEngine:
 
             except Exception as exc:
                 descriptor.status = ExecutiveComponentStatus.FAILED
-                errors.append(
-                    f"Component '{component_id}' failed to compose: {exc}"
-                )
+                errors.append(f"Component '{component_id}' failed to compose: {exc}")
 
         return ExecutiveCompositionResult(
             success=not errors,

@@ -14,19 +14,12 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parent
 
-TARGET = (
-    ROOT
-    / "tools"
-    / "nimble"
-    / "generate_dependency_manifest.py"
-)
+TARGET = ROOT / "tools" / "nimble" / "generate_dependency_manifest.py"
 
 
 def _require_target() -> Path:
     if not TARGET.is_file():
-        raise FileNotFoundError(
-            f"Canonical generator not found:\n{TARGET}"
-        )
+        raise FileNotFoundError(f"Canonical generator not found:\n{TARGET}")
     return TARGET
 
 

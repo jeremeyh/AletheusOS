@@ -19,7 +19,6 @@ class FounderCopilot:
         #
 
         if "portfolio" in q:
-
             snapshot = PortfolioDigitalTwin.snapshot()
 
             return {
@@ -32,7 +31,6 @@ class FounderCopilot:
         #
 
         if "refresh" in q:
-
             count = AssetEnrichmentEngine.refresh_all()
 
             return {
@@ -45,7 +43,6 @@ class FounderCopilot:
         #
 
         if "top" in q:
-
             snapshot = PortfolioDigitalTwin.snapshot()
 
             return {

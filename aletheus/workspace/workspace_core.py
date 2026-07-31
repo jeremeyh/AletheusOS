@@ -91,20 +91,28 @@ class AletheusFounderWorkspace:
             "knowledge": diagnostics.get("knowledge", {}),
             "mission": diagnostics.get("mission", {}),
             "objectives": len(self.objectives),
-            "active_objectives": len([item for item in self.objectives if item.status == "active"]),
+            "active_objectives": len(
+                [item for item in self.objectives if item.status == "active"]
+            ),
             "journal_entries": len(self.journal),
             "notifications": len(self.notifications),
-            "unread_notifications": len([item for item in self.notifications if not item.read]),
+            "unread_notifications": len(
+                [item for item in self.notifications if not item.read]
+            ),
         }
 
     def stats(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "objectives": len(self.objectives),
-            "active_objectives": len([item for item in self.objectives if item.status == "active"]),
+            "active_objectives": len(
+                [item for item in self.objectives if item.status == "active"]
+            ),
             "journal_entries": len(self.journal),
             "notifications": len(self.notifications),
-            "unread_notifications": len([item for item in self.notifications if not item.read]),
+            "unread_notifications": len(
+                [item for item in self.notifications if not item.read]
+            ),
         }
 
 

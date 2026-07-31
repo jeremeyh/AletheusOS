@@ -10,6 +10,7 @@ DEFAULT_RULES = {
     "applications": {"forbidden": {"providers"}},
 }
 
+
 class BoundaryAnalyzer(Analyzer):
     name = "boundary"
     version = "1.0.0"
@@ -38,7 +39,7 @@ class BoundaryAnalyzer(Analyzer):
                     severity=Severity.HIGH,
                     confidence=0.95,
                     recommendation="Introduce an interface or platform service boundary.",
-                    tags=("boundary","architecture"),
+                    tags=("boundary", "architecture"),
                     metadata={
                         "source_module": rec.payload.get("source_module"),
                         "target_module": rec.payload.get("target_module"),

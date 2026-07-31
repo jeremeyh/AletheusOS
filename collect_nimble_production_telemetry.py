@@ -13,17 +13,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 
-TARGET = (
-    ROOT
-    / "tools"
-    / "collect"
-    / "collect_nimble_production_telemetry.py"
-)
+TARGET = ROOT / "tools" / "collect" / "collect_nimble_production_telemetry.py"
 
 if not TARGET.exists():
-    raise FileNotFoundError(
-        f"Canonical telemetry collector not found:\n{TARGET}"
-    )
+    raise FileNotFoundError(f"Canonical telemetry collector not found:\n{TARGET}")
 
 if __name__ == "__main__":
     runpy.run_path(
@@ -31,6 +24,4 @@ if __name__ == "__main__":
         run_name="__main__",
     )
 else:
-    globals().update(
-        runpy.run_path(str(TARGET))
-    )
+    globals().update(runpy.run_path(str(TARGET)))

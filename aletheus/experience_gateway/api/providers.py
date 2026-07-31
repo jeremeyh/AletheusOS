@@ -18,8 +18,7 @@ class RouteApplication(Protocol):
         self,
         path: str,
         **kwargs: Any,
-    ) -> Any:
-        ...
+    ) -> Any: ...
 
 
 def _serialize(value: Any) -> Any:
@@ -35,10 +34,7 @@ def _serialize(value: Any) -> Any:
         return value
 
     if isinstance(value, Mapping):
-        return {
-            str(key): _serialize(item)
-            for key, item in value.items()
-        }
+        return {str(key): _serialize(item) for key, item in value.items()}
 
     if isinstance(value, (list, tuple, set, frozenset)):
         return [_serialize(item) for item in value]
@@ -164,6 +160,4 @@ def install_provider_routes(
         tags=["experience"],
     )
     async def providers() -> dict[str, Any]:
-        return build_provider_registry_payload(
-            gateway
-        )
+        return build_provider_registry_payload(gateway)

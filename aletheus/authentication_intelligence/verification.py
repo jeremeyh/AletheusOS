@@ -6,24 +6,6 @@ Genesis 13.35
 
 
 class VerificationEngine:
+    def verify(self, asset):
 
-
-    def verify(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "verified":
-
-                True,
-
-
-            "sources":
-
-                []
-
-        }
-
+        return {"verified": True, "sources": []}

@@ -21,17 +21,14 @@ class JobScheduler:
         results = []
 
         for job in cls._jobs:
-
             status = "SUCCESS"
 
             started = datetime.now()
 
             try:
-
                 job["func"]()
 
             except Exception as e:
-
                 status = "FAILED"
 
                 error = str(e)

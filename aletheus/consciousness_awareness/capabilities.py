@@ -6,18 +6,6 @@ Genesis 13.53
 
 
 class CapabilityAwarenessEngine:
+    def discover(self):
 
-
-    def discover(
-        self
-    ):
-
-
-        return {
-
-            "capabilities":
-
-                []
-
-        }
-
+        return {"capabilities": []}

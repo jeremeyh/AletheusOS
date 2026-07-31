@@ -24,17 +24,13 @@ def build_engine():
         subscriber_name="constitutional_ledger",
     )
 
-    engine = ConstitutionalMissionEngine(
-        fabric=fabric
-    )
+    engine = ConstitutionalMissionEngine(fabric=fabric)
 
     return engine, fabric, ledger
 
 
 def join_required_institutions(engine, mission):
-    for institution_id in (
-        mission.contract.required_institutions
-    ):
+    for institution_id in mission.contract.required_institutions:
         engine.join(
             mission.mission_id,
             institution_id,
@@ -42,9 +38,7 @@ def join_required_institutions(engine, mission):
 
 
 def attach_required_evidence(engine, mission):
-    for evidence_type in (
-        mission.contract.required_evidence_types
-    ):
+    for evidence_type in mission.contract.required_evidence_types:
         engine.attach_evidence(
             mission.mission_id,
             evidence_type=evidence_type,
@@ -119,19 +113,14 @@ def test_complete_security_mission_lifecycle():
 
     history = engine.history(mission.mission_id)
 
-    event_types = [
-        event.event_type.value
-        for event in history
-    ]
+    event_types = [event.event_type.value for event in history]
 
     assert event_types[0] == "MissionCreated"
     assert "MissionAuthorized" in event_types
     assert "MissionStarted" in event_types
     assert event_types[-1] == "MissionCompleted"
 
-    replay = ledger.replay_events(
-        correlation_id=mission.correlation_id
-    )
+    replay = ledger.replay_events(correlation_id=mission.correlation_id)
 
     assert len(replay) == len(history)
 
@@ -151,9 +140,7 @@ def test_transtemporal_lineage_reconstructs_mission():
     attach_required_evidence(engine, mission)
     engine.complete(mission.mission_id)
 
-    lineage = ledger.temporal_lineage(
-        mission.event_ids[-1]
-    )
+    lineage = ledger.temporal_lineage(mission.event_ids[-1])
 
     assert lineage[0].event_type == "MissionCreated"
     assert lineage[-1].event_type == "MissionCompleted"

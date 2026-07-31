@@ -5,16 +5,6 @@ Architecture Hypothesis Engine
 
 
 class ArchitectureHypothesisEngine:
-
-
     def generate(self, observation):
 
-        return {
-
-            "observation":
-                observation,
-
-            "hypothesis":
-                "generated"
-
-        }
+        return {"observation": observation, "hypothesis": "generated"}

@@ -11,6 +11,4 @@ class ExtractionMission:
     estimated_lines: int
     status: str = "planned"
     notes: str = ""
-    created_at: str = field(
-        default_factory=lambda: datetime.now(UTC).isoformat()
-    )
+    created_at: str = field(default_factory=lambda: datetime.now(UTC).isoformat())

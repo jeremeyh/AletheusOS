@@ -6,17 +6,6 @@ Post-Genesis 11
 
 
 class ImprovementEngine:
-
-
     def improve(self, target):
 
-        return {
-
-            "target":
-            target,
-
-            "improvement":
-            "applied"
-
-        }
-
+        return {"target": target, "improvement": "applied"}

@@ -4,7 +4,7 @@ core = Path("aletheus/runtime/core.py")
 text = core.read_text()
 
 if "def _cmd_agent_bootstrap" not in text:
-    methods = '''
+    methods = """
     def _cmd_agent_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("agents", self.agents_v2.bootstrap())
         return context
@@ -60,7 +60,7 @@ if "def _cmd_agent_bootstrap" not in text:
         context.add_result("agent_stats", self.agents_v2.statistics())
         return context
 
-'''
+"""
     anchor = "    def _job_runtime_pulse(self) -> dict:"
     if anchor not in text:
         raise SystemExit("_job_runtime_pulse anchor not found.")

@@ -4,26 +4,19 @@ import importlib.util
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MODULE_PATH = (
-    ROOT
-    / "scan_nimble_dependency_risk.py"
-)
+MODULE_PATH = ROOT / "scan_nimble_dependency_risk.py"
 
 
 def load_module():
-    specification = (
-        importlib.util.spec_from_file_location(
-            "scan_nimble_dependency_risk",
-            MODULE_PATH,
-        )
+    specification = importlib.util.spec_from_file_location(
+        "scan_nimble_dependency_risk",
+        MODULE_PATH,
     )
 
     assert specification is not None
     assert specification.loader is not None
 
-    module = importlib.util.module_from_spec(
-        specification
-    )
+    module = importlib.util.module_from_spec(specification)
 
     specification.loader.exec_module(module)
 
@@ -93,11 +86,9 @@ def test_npm_vulnerability_threshold():
         }
     }
 
-    failures = (
-        module.evaluate_npm_vulnerabilities(
-            audit,
-            policy,
-        )
+    failures = module.evaluate_npm_vulnerabilities(
+        audit,
+        policy,
     )
 
     assert failures

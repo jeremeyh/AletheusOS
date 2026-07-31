@@ -1,8 +1,3 @@
 from .engine import WealthEngine
 
-__all__=[
-
-"WealthEngine"
-
-]
-
+__all__ = ["WealthEngine"]

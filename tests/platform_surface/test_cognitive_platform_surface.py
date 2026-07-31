@@ -30,9 +30,7 @@ def participant(
             evidence_count=1,
             evidence=(
                 {
-                    "source": (
-                        f"{engine_id}.evidence"
-                    ),
+                    "source": (f"{engine_id}.evidence"),
                 },
             ),
         )
@@ -91,25 +89,11 @@ def test_cognition_surface_drives_instrumentation():
         },
     )
 
-    confidence = (
-        platform
-        .instrumentation
-        .state(
-            "aletheus.instrument.confidence"
-        )
-    )
+    confidence = platform.instrumentation.state("aletheus.instrument.confidence")
 
-    truth = (
-        platform
-        .instrumentation
-        .state(
-            "aletheus.instrument.truth"
-        )
-    )
+    truth = platform.instrumentation.state("aletheus.instrument.truth")
 
-    assert confidence.current_value == (
-        report.convergence.confidence
-    )
+    assert confidence.current_value == (report.convergence.confidence)
 
     assert truth.current_value == 1.0
 
@@ -117,29 +101,19 @@ def test_cognition_surface_drives_instrumentation():
 def test_scenario_surface_runs_through_platform():
     platform = build_cognitive_platform()
 
-    scenario = (
-        platform
-        .scenarios
-        .create_and_register(
-            canonical_name=(
-                "Card PSA 10 Scenario"
-            ),
-            assertion_key=ASSERTION,
-            assumptions={
-                "grade": "PSA 10",
-                "horizon_years": 4,
-            },
-            horizon="4 years",
-        )
+    scenario = platform.scenarios.create_and_register(
+        canonical_name=("Card PSA 10 Scenario"),
+        assertion_key=ASSERTION,
+        assumptions={
+            "grade": "PSA 10",
+            "horizon_years": 4,
+        },
+        horizon="4 years",
     )
 
-    outcome = platform.scenarios.run(
-        scenario.scenario_id
-    )
+    outcome = platform.scenarios.run(scenario.scenario_id)
 
-    assert outcome.scenario_id == (
-        scenario.scenario_id
-    )
+    assert outcome.scenario_id == (scenario.scenario_id)
     assert outcome.confidence > 0
     assert outcome.virtue_score == 1.0
 
@@ -147,43 +121,21 @@ def test_scenario_surface_runs_through_platform():
 def test_scenario_execution_updates_instruments():
     platform = build_cognitive_platform()
 
-    scenario = (
-        platform
-        .scenarios
-        .create_and_register(
-            canonical_name=(
-                "Instrumented Scenario"
-            ),
-            assertion_key=ASSERTION,
-            assumptions={
-                "grade": "PSA 9",
-            },
-        )
+    scenario = platform.scenarios.create_and_register(
+        canonical_name=("Instrumented Scenario"),
+        assertion_key=ASSERTION,
+        assumptions={
+            "grade": "PSA 9",
+        },
     )
 
-    outcome = platform.scenarios.run(
-        scenario.scenario_id
-    )
+    outcome = platform.scenarios.run(scenario.scenario_id)
 
-    confidence = (
-        platform
-        .instrumentation
-        .state(
-            SCENARIO_CONFIDENCE_ID
-        )
-    )
+    confidence = platform.instrumentation.state(SCENARIO_CONFIDENCE_ID)
 
-    activity = (
-        platform
-        .instrumentation
-        .state(
-            SCENARIO_ACTIVITY_ID
-        )
-    )
+    activity = platform.instrumentation.state(SCENARIO_ACTIVITY_ID)
 
-    assert confidence.current_value == (
-        outcome.confidence
-    )
+    assert confidence.current_value == (outcome.confidence)
     assert activity.current_value == 0.0
     assert activity.status.value == "stable"
 
@@ -203,18 +155,11 @@ def test_platform_snapshot_contains_cognitive_state():
     assert "instrumentation" in snapshot.details
     assert "scenarios" in snapshot.details
 
-    assert (
-        snapshot.details[
-            "cognition"
-        ]["executions"]
-        == 1
-    )
+    assert snapshot.details["cognition"]["executions"] == 1
 
     assert (
-        snapshot.details[
-            "instrumentation"
-        ][
-            "aletheus.instrument.confidence"
-        ]["current_value"]
+        snapshot.details["instrumentation"]["aletheus.instrument.confidence"][
+            "current_value"
+        ]
         is not None
     )

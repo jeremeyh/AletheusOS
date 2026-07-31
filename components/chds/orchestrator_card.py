@@ -3,9 +3,7 @@ import streamlit as st
 
 def render_orchestrator_run(run):
     with st.container(border=True):
-        st.subheader(
-            f"Run #{run.get('id')} — Asset {run.get('asset_id')}"
-        )
+        st.subheader(f"Run #{run.get('id')} — Asset {run.get('asset_id')}")
 
         c1, c2, c3, c4 = st.columns(4)
 

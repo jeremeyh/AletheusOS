@@ -10,7 +10,6 @@ from .models import PlatformFinding, PlatformReport
 
 
 class SpectrumRegistry:
-
     VERSION = "1.0.0"
 
     GENESIS = "54.0"
@@ -72,7 +71,6 @@ class SpectrumRegistry:
         finding_types = {}
 
         for finding in self._findings.values():
-
             sev = finding.severity.value
 
             typ = finding.finding_type.value

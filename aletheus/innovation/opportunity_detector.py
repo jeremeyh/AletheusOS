@@ -6,19 +6,6 @@ Post-Genesis 23
 
 
 class OpportunityDetector:
-
-
     def detect(self, environment):
 
-        return {
-
-            "environment":
-            environment,
-
-            "opportunities":
-            [
-                "identified"
-            ]
-
-        }
-
+        return {"environment": environment, "opportunities": ["identified"]}

@@ -5,28 +5,13 @@ Constitutional Intelligence Engine
 
 
 class ConstitutionalIntelligenceEngine:
-
-
     def __init__(self):
 
-        self.assessments=[]
-
-
+        self.assessments = []
 
     def evaluate(self, action):
 
-        result={
-
-            "action":
-                action,
-
-            "constitutional_alignment":
-                100,
-
-            "approved":
-                True
-
-        }
+        result = {"action": action, "constitutional_alignment": 100, "approved": True}
 
         self.assessments.append(result)
 

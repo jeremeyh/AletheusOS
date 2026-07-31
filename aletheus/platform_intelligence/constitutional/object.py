@@ -55,12 +55,8 @@ class ConstitutionalObject:
     created_at: datetime = field(default_factory=_utc_now)
     modified_at: datetime = field(default_factory=_utc_now)
 
-    attributes: Mapping[str, Any] = field(
-        default_factory=lambda: MappingProxyType({})
-    )
-    metrics: Mapping[str, Any] = field(
-        default_factory=lambda: MappingProxyType({})
-    )
+    attributes: Mapping[str, Any] = field(default_factory=lambda: MappingProxyType({}))
+    metrics: Mapping[str, Any] = field(default_factory=lambda: MappingProxyType({}))
 
     def __post_init__(self) -> None:
         if not self.canonical_name.strip():
@@ -76,9 +72,7 @@ class ConstitutionalObject:
             raise ValueError("Constitutional owner cannot be empty.")
 
         if self.modified_at < self.created_at:
-            raise ValueError(
-                "modified_at cannot precede created_at."
-            )
+            raise ValueError("modified_at cannot precede created_at.")
 
         object.__setattr__(
             self,
@@ -149,9 +143,7 @@ class ConstitutionalObject:
         state: ConstitutionalState,
         *,
         health: ConstitutionalHealth | None = None,
-        policy: ConstitutionalTransitionPolicy = (
-            CANONICAL_TRANSITION_POLICY
-        ),
+        policy: ConstitutionalTransitionPolicy = (CANONICAL_TRANSITION_POLICY),
     ) -> ConstitutionalObject:
         """
         Return a new representation after validating lifecycle policy.
@@ -179,11 +171,7 @@ class ConstitutionalObject:
         return replace(
             self,
             health=health,
-            metrics=(
-                _freeze_mapping(metrics)
-                if metrics is not None
-                else self.metrics
-            ),
+            metrics=(_freeze_mapping(metrics) if metrics is not None else self.metrics),
             modified_at=_utc_now(),
         )
 

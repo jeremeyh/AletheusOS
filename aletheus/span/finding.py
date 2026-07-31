@@ -85,25 +85,17 @@ class Finding:
             raise ValueError("finding category must not be empty")
 
         if not self.summary and not self.description:
-            raise ValueError(
-                "finding must provide either summary or description"
-            )
+            raise ValueError("finding must provide either summary or description")
 
         confidence = float(self.confidence)
 
         if not 0.0 <= confidence <= 1.0:
-            raise ValueError(
-                "finding confidence must be between 0.0 and 1.0"
-            )
+            raise ValueError("finding confidence must be between 0.0 and 1.0")
 
         self.confidence = confidence
         self.evidence = list(self.evidence)
         self.tags = list(
-            dict.fromkeys(
-                str(tag).strip()
-                for tag in self.tags
-                if str(tag).strip()
-            )
+            dict.fromkeys(str(tag).strip() for tag in self.tags if str(tag).strip())
         )
         self.metadata = dict(self.metadata)
 
@@ -158,8 +150,7 @@ class FindingSet:
     def add(self, finding: Finding) -> None:
         if not isinstance(finding, Finding):
             raise TypeError(
-                "FindingSet accepts Finding instances, "
-                f"got {type(finding).__name__}"
+                f"FindingSet accepts Finding instances, got {type(finding).__name__}"
             )
 
         if finding.id in self._ids:
@@ -186,27 +177,17 @@ class FindingSet:
         expected = Severity.coerce(severity)
 
         return tuple(
-            finding
-            for finding in self.findings
-            if finding.severity is expected
+            finding for finding in self.findings if finding.severity is expected
         )
 
     def by_category(self, category: str) -> tuple[Finding, ...]:
         return tuple(
-            finding
-            for finding in self.findings
-            if finding.category == category
+            finding for finding in self.findings if finding.category == category
         )
 
     def summary(self) -> dict[str, Any]:
-        severity_counts = Counter(
-            finding.severity.value
-            for finding in self.findings
-        )
-        category_counts = Counter(
-            finding.category
-            for finding in self.findings
-        )
+        severity_counts = Counter(finding.severity.value for finding in self.findings)
+        category_counts = Counter(finding.category for finding in self.findings)
 
         return {
             "total": len(self.findings),
@@ -220,8 +201,5 @@ class FindingSet:
     def to_dict(self) -> dict[str, Any]:
         return {
             "summary": self.summary(),
-            "findings": [
-                finding.to_dict()
-                for finding in self.findings
-            ],
+            "findings": [finding.to_dict() for finding in self.findings],
         }

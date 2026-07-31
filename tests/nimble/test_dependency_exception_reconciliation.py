@@ -4,26 +4,19 @@ import importlib.util
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MODULE_PATH = (
-    ROOT
-    / "reconcile_nimble_dependency_exceptions.py"
-)
+MODULE_PATH = ROOT / "reconcile_nimble_dependency_exceptions.py"
 
 
 def load_module():
-    specification = (
-        importlib.util.spec_from_file_location(
-            "dependency_exception_reconciliation",
-            MODULE_PATH,
-        )
+    specification = importlib.util.spec_from_file_location(
+        "dependency_exception_reconciliation",
+        MODULE_PATH,
     )
 
     assert specification is not None
     assert specification.loader is not None
 
-    module = importlib.util.module_from_spec(
-        specification
-    )
+    module = importlib.util.module_from_spec(specification)
 
     specification.loader.exec_module(module)
 
@@ -121,9 +114,7 @@ def test_duplicate_active_exception_fails():
         risk_report(),
     )
 
-    assert len(
-        result["duplicate_exceptions"]
-    ) == 2
+    assert len(result["duplicate_exceptions"]) == 2
     assert result["failures"]
 
 
@@ -146,7 +137,5 @@ def test_unwaived_denied_license_fails():
         report,
     )
 
-    assert len(
-        result["unwaived_enforceable_risks"]
-    ) == 1
+    assert len(result["unwaived_enforceable_risks"]) == 1
     assert result["failures"]

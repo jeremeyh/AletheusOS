@@ -113,9 +113,7 @@ def relationship_search(runtime, context: RuntimeContext):
         runtime.knowledge.search_relationships(
             source_id=payload.get("source_id"),
             target_id=payload.get("target_id"),
-            relationship_type=payload.get(
-                "relationship_type"
-            ),
+            relationship_type=payload.get("relationship_type"),
         ),
     )
 

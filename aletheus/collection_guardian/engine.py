@@ -4,7 +4,6 @@ Autonomous Collection Guardian
 Genesis 13.40
 """
 
-
 from .alerts import CollectionAlertEngine
 from .insurance import InsuranceEngine
 from .monitoring import AssetMonitoringEngine
@@ -13,8 +12,6 @@ from .sell_signals import SellSignalEngine
 
 
 class CollectionGuardianEngine:
-
-
     def __init__(self):
 
         self.monitoring = AssetMonitoringEngine()
@@ -27,27 +24,9 @@ class CollectionGuardianEngine:
 
         self.sell = SellSignalEngine()
 
-
-
-    def protect(
-        self,
-        portfolio
-    ):
-
+    def protect(self, portfolio):
 
         return {
-
-            "risk":
-
-                self.risk.analyze(
-                    portfolio
-                ),
-
-            "insurance":
-
-                self.insurance.calculate(
-                    portfolio
-                )
-
+            "risk": self.risk.analyze(portfolio),
+            "insurance": self.insurance.calculate(portfolio),
         }
-

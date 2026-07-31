@@ -18,7 +18,7 @@ def render(state):
         if item["score"] < min_score:
             continue
         with st.container(border=True):
-            c1,c2,c3 = st.columns([3,1,1])
+            c1, c2, c3 = st.columns([3, 1, 1])
             c1.write(f"**{item['title']}**")
             c1.caption(item["source"])
             c2.metric("Opportunity", item["score"])

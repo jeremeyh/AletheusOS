@@ -21,9 +21,7 @@ def _find_repo_root() -> Path:
             return current
 
         if current.parent == current:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         current = current.parent
 

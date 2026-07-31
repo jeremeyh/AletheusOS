@@ -124,12 +124,7 @@ class IntelligenceOrchestrator:
         return self.execute_task(task["task_id"], runtime)
 
     def list_tasks(self) -> dict[str, Any]:
-        return {
-            "tasks": [
-                asdict(task)
-                for task in self.tasks.values()
-            ]
-        }
+        return {"tasks": [asdict(task) for task in self.tasks.values()]}
 
     def statistics(self) -> dict[str, Any]:
         return {

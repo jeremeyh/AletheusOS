@@ -26,7 +26,6 @@ _ALLOWED = {
 
 
 class MissionLifecycle:
-
     @staticmethod
     def transition(execution, target):
         current = execution.state

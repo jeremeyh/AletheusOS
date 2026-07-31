@@ -33,9 +33,7 @@ class OIDCPrincipalAuthenticator:
         config: AuthenticationConfig,
     ) -> None:
         if config.mode != "oidc":
-            raise ValueError(
-                "OIDC authenticator requires OIDC mode."
-            )
+            raise ValueError("OIDC authenticator requires OIDC mode.")
 
         assert config.jwks_url is not None
 
@@ -50,30 +48,18 @@ class OIDCPrincipalAuthenticator:
         credential: str | None,
     ) -> Principal:
         if not credential:
-            raise AuthenticationFailure(
-                "A bearer access token is required."
-            )
+            raise AuthenticationFailure("A bearer access token is required.")
 
         try:
-            signing_key = (
-                self._jwk_client
-                .get_signing_key_from_jwt(
-                    credential
-                )
-            )
+            signing_key = self._jwk_client.get_signing_key_from_jwt(credential)
 
             claims = jwt.decode(
                 credential,
                 signing_key.key,
-                algorithms=list(
-                    self._config.algorithms
-                ),
+                algorithms=list(self._config.algorithms),
                 audience=self._config.audience,
                 issuer=self._config.issuer,
-                leeway=(
-                    self._config
-                    .clock_skew_seconds
-                ),
+                leeway=(self._config.clock_skew_seconds),
                 options={
                     "require": [
                         "exp",
@@ -89,9 +75,7 @@ class OIDCPrincipalAuthenticator:
                 },
             )
         except ExpiredSignatureError as error:
-            raise AuthenticationFailure(
-                "The access token has expired."
-            ) from error
+            raise AuthenticationFailure("The access token has expired.") from error
         except InvalidAudienceError as error:
             raise AuthenticationFailure(
                 "The access token audience is invalid."
@@ -109,9 +93,7 @@ class OIDCPrincipalAuthenticator:
                 "The signing key could not be resolved."
             ) from error
 
-        return self._principal_from_claims(
-            claims
-        )
+        return self._principal_from_claims(claims)
 
     def _principal_from_claims(
         self,
@@ -122,25 +104,17 @@ class OIDCPrincipalAuthenticator:
             self._config.subject_claim,
         )
 
-        display_name = _optional_text_claim(
-            claims,
-            self._config.display_name_claim,
-        ) or subject
-
-        roles = self._map_roles(
-            _claim_values(
-                claims.get(
-                    self._config.roles_claim
-                )
+        display_name = (
+            _optional_text_claim(
+                claims,
+                self._config.display_name_claim,
             )
+            or subject
         )
 
-        entitlements = _claim_values(
-            claims.get(
-                self._config
-                .entitlements_claim
-            )
-        )
+        roles = self._map_roles(_claim_values(claims.get(self._config.roles_claim)))
+
+        entitlements = _claim_values(claims.get(self._config.entitlements_claim))
 
         return Principal(
             subject_id=subject,
@@ -150,12 +124,8 @@ class OIDCPrincipalAuthenticator:
             authentication_method="oidc_jwt",
             authenticated=True,
             attributes={
-                "issuer": str(
-                    claims.get("iss", "")
-                ),
-                "tokenId": str(
-                    claims.get("jti", "")
-                ),
+                "issuer": str(claims.get("iss", "")),
+                "tokenId": str(claims.get("jti", "")),
             },
         )
 
@@ -166,8 +136,7 @@ class OIDCPrincipalAuthenticator:
         normalized = tuple(
             value.strip().lower()
             for value in claim_values
-            if value.strip().lower()
-            in _ALLOWED_ROLES
+            if value.strip().lower() in _ALLOWED_ROLES
         )
 
         if not normalized:
@@ -186,10 +155,7 @@ def _required_text_claim(
     )
 
     if value is None:
-        raise AuthenticationFailure(
-            f"Required token claim is missing: "
-            f"{claim_name}"
-        )
+        raise AuthenticationFailure(f"Required token claim is missing: {claim_name}")
 
     return value
 
@@ -224,10 +190,6 @@ def _claim_values(
         )
 
     if isinstance(value, list):
-        return tuple(
-            str(entry).strip()
-            for entry in value
-            if str(entry).strip()
-        )
+        return tuple(str(entry).strip() for entry in value if str(entry).strip())
 
     return ()

@@ -6,7 +6,6 @@ text = diag.read_text()
 entry = '("tenancy_v3", "Aletheus Multi-Tenant Runtime"),'
 
 if entry not in text:
-
     anchors = [
         '("security_v3", "Aletheus Security & Policy Engine"),',
         '("high_availability_v3", "Aletheus High Availability Platform"),',

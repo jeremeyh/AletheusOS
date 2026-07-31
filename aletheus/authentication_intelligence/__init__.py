@@ -1,8 +1,3 @@
 from .engine import UniversalAuthenticationEngine
 
-__all__=[
-
-"UniversalAuthenticationEngine"
-
-]
-
+__all__ = ["UniversalAuthenticationEngine"]

@@ -7,7 +7,6 @@ from .core import aletheus_foundation
 
 @dataclass(slots=True)
 class ExecutionPlan:
-
     identity: str
 
     application: str
@@ -33,7 +32,6 @@ class ExecutionPlan:
 
 
 class FoundationOrchestrator:
-
     GENESIS = "22.1"
 
     VERSION = "1.0.0"
@@ -54,7 +52,6 @@ class FoundationOrchestrator:
         )
 
         if intent == "marketplace_analysis":
-
             plan.engines.extend(
                 [
                     "foundation.marketplace",
@@ -64,16 +61,10 @@ class FoundationOrchestrator:
             )
 
         elif intent == "inventory_lookup":
-
-            plan.engines.append(
-                "foundation.monitoring"
-            )
+            plan.engines.append("foundation.monitoring")
 
         else:
-
-            plan.engines.append(
-                "foundation.evaluation"
-            )
+            plan.engines.append("foundation.evaluation")
 
         return plan
 

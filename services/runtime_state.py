@@ -30,6 +30,7 @@ class RuntimeState:
 
     def snapshot(self, name: str, payload: dict[str, Any]) -> dict[str, Any]:
         from services.context import utc_now_iso
+
         snap = {"name": name, "timestamp": utc_now_iso(), "payload": payload}
         self.state.setdefault("snapshots", []).append(snap)
         self.save()

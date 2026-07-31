@@ -42,9 +42,7 @@ class CivilizationBootstrap:
         wiring: InstitutionWiring | None = None,
     ) -> None:
         self.root = Path(root).resolve()
-        self.institution_registry = (
-            institution_registry or InstitutionRegistry()
-        )
+        self.institution_registry = institution_registry or InstitutionRegistry()
         self.platform_registry = platform_registry or PlatformRegistry()
         self.constitutional_graph = (
             constitutional_graph or ConstitutionalKnowledgeGraph()
@@ -71,23 +69,18 @@ class CivilizationBootstrap:
             graph_stats = self.constitutional_graph.statistics()
 
             report.institution_count = len(records)
-            report.platform_component_count = (
-                self.platform_registry.statistics()["components"]
-            )
+            report.platform_component_count = self.platform_registry.statistics()[
+                "components"
+            ]
             report.graph_node_count = graph_stats["nodes"]
             report.graph_edge_count = graph_stats["edges"]
 
             report.checks.append(
                 ReadinessCheck(
                     name="institution_projection",
-                    institution_id=(
-                        "aletheus.institutional_civilization"
-                    ),
+                    institution_id=("aletheus.institutional_civilization"),
                     state=ReadinessState.READY,
-                    message=(
-                        f"Projected {len(projections)} canonical "
-                        "institutions."
-                    ),
+                    message=(f"Projected {len(projections)} canonical institutions."),
                     evidence={
                         "projection_count": len(projections),
                         "graph_nodes": report.graph_node_count,
@@ -99,9 +92,7 @@ class CivilizationBootstrap:
             report.checks.append(
                 ReadinessCheck(
                     name="institution_projection",
-                    institution_id=(
-                        "aletheus.institutional_civilization"
-                    ),
+                    institution_id=("aletheus.institutional_civilization"),
                     state=ReadinessState.FAILED,
                     message=str(exc),
                 )
@@ -112,19 +103,17 @@ class CivilizationBootstrap:
         watch_tower_check = self.wiring.run_watch_tower()
         spa_check = self.wiring.run_spa()
 
-        report.checks.extend([
-            watch_tower_check,
-            spa_check,
-        ])
-
-        homeostasis_check = self.wiring.update_homeostasis(
-            list(report.checks)
+        report.checks.extend(
+            [
+                watch_tower_check,
+                spa_check,
+            ]
         )
+
+        homeostasis_check = self.wiring.update_homeostasis(list(report.checks))
         report.checks.append(homeostasis_check)
 
-        council_check = self.wiring.escalate_to_council(
-            list(report.checks)
-        )
+        council_check = self.wiring.escalate_to_council(list(report.checks))
         report.checks.append(council_check)
 
         report.calculate_harmony()
@@ -134,16 +123,11 @@ class CivilizationBootstrap:
                 "bootstrap_id": report.bootstrap_id,
                 "status": report.status,
                 "institution_count": report.institution_count,
-                "platform_component_count": (
-                    report.platform_component_count
-                ),
+                "platform_component_count": (report.platform_component_count),
                 "graph_node_count": report.graph_node_count,
                 "graph_edge_count": report.graph_edge_count,
                 "synthetic_harmony": report.synthetic_harmony,
-                "checks": [
-                    check.to_dict()
-                    for check in report.checks
-                ],
+                "checks": [check.to_dict() for check in report.checks],
             }
         )
         report.checks.append(ledger_check)
@@ -156,11 +140,7 @@ class CivilizationBootstrap:
             "name": "Civilization Bootstrap",
             "version": self.VERSION,
             "status": "online",
-            "institutions": (
-                self.institution_registry.statistics()["institutions"]
-            ),
-            "platform_components": (
-                self.platform_registry.statistics()["components"]
-            ),
+            "institutions": (self.institution_registry.statistics()["institutions"]),
+            "platform_components": (self.platform_registry.statistics()["components"]),
             **self.constitutional_graph.statistics(),
         }

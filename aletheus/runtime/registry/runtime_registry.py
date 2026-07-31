@@ -4,7 +4,6 @@ from typing import Any
 
 
 class RuntimeRegistry:
-
     def __init__(self):
         self.version = "2.0.0"
 
@@ -38,30 +37,12 @@ class RuntimeRegistry:
         return {
             "version": self.version,
             "healthy": True,
-
-            "domains": list(
-                self.domains.keys()
-            ),
-
-            "services": list(
-                self.services.keys()
-            ),
-
-            "components": list(
-                self.components.keys()
-            ),
-
-            "domain_count": len(
-                self.domains
-            ),
-
-            "service_count": len(
-                self.services
-            ),
-
-            "component_count": len(
-                self.components
-            ),
+            "domains": list(self.domains.keys()),
+            "services": list(self.services.keys()),
+            "components": list(self.components.keys()),
+            "domain_count": len(self.domains),
+            "service_count": len(self.services),
+            "component_count": len(self.components),
         }
 
 

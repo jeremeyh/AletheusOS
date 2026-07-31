@@ -47,35 +47,77 @@ class AletheusCognitiveReasoningEngine:
 
     def bootstrap_rules(self) -> dict[str, Any]:
         defaults = [
-            ("Graph-supported conclusion", "Prefer conclusions supported by graph entities and relationships.", "graph", 0.90),
-            ("Memory-supported conclusion", "Increase confidence when Memory Mesh evidence exists.", "memory", 0.85),
-            ("Card Hawk strategic fit", "Card Hawk Foundation is the flagship native Aletheus application.", "cardhawk", 0.92),
-            ("Founder approval gate", "Critical external actions require founder approval.", "governance", 0.95),
+            (
+                "Graph-supported conclusion",
+                "Prefer conclusions supported by graph entities and relationships.",
+                "graph",
+                0.90,
+            ),
+            (
+                "Memory-supported conclusion",
+                "Increase confidence when Memory Mesh evidence exists.",
+                "memory",
+                0.85,
+            ),
+            (
+                "Card Hawk strategic fit",
+                "Card Hawk Foundation is the flagship native Aletheus application.",
+                "cardhawk",
+                0.92,
+            ),
+            (
+                "Founder approval gate",
+                "Critical external actions require founder approval.",
+                "governance",
+                0.95,
+            ),
         ]
         for name, description, rule_type, weight in defaults:
             if not any(rule.name == name for rule in self.rules.values()):
                 self.add_rule(name, description, rule_type, weight)
         return self.stats()
 
-    def add_rule(self, name: str, description: str, rule_type: str = "general", weight: float = 0.75) -> dict[str, Any]:
-        rule = ReasoningRule(name=name, description=description, rule_type=rule_type, weight=weight)
+    def add_rule(
+        self,
+        name: str,
+        description: str,
+        rule_type: str = "general",
+        weight: float = 0.75,
+    ) -> dict[str, Any]:
+        rule = ReasoningRule(
+            name=name, description=description, rule_type=rule_type, weight=weight
+        )
         self.rules[rule.rule_id] = rule
         return rule.to_dict()
 
-    def evaluate(self, question: str, runtime: Any, context: dict[str, Any] | None = None) -> dict[str, Any]:
+    def evaluate(
+        self, question: str, runtime: Any, context: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
         context = context or {}
 
         graph_ctx = runtime.commands.dispatch("knowledge.search", {"query": question})
-        memory_ctx = runtime.commands.dispatch("memory.mesh.search", {"query": question})
+        memory_ctx = runtime.commands.dispatch(
+            "memory.mesh.search", {"query": question}
+        )
         infer_ctx = runtime.commands.dispatch("knowledge.infer", {})
 
-        graph_results = graph_ctx.results.get("results", []) if not graph_ctx.errors else []
-        memory_results = memory_ctx.results.get("results", []) if not memory_ctx.errors else []
-        inference = infer_ctx.results.get("inference", {}) if not infer_ctx.errors else {}
+        graph_results = (
+            graph_ctx.results.get("results", []) if not graph_ctx.errors else []
+        )
+        memory_results = (
+            memory_ctx.results.get("results", []) if not memory_ctx.errors else []
+        )
+        inference = (
+            infer_ctx.results.get("inference", {}) if not infer_ctx.errors else {}
+        )
 
         facts = []
-        facts.extend([{"source": "knowledge_graph", "fact": item} for item in graph_results[:5]])
-        facts.extend([{"source": "memory_mesh", "fact": item} for item in memory_results[:5]])
+        facts.extend(
+            [{"source": "knowledge_graph", "fact": item} for item in graph_results[:5]]
+        )
+        facts.extend(
+            [{"source": "memory_mesh", "fact": item} for item in memory_results[:5]]
+        )
 
         if not self.rules:
             self.bootstrap_rules()
@@ -121,7 +163,9 @@ class AletheusCognitiveReasoningEngine:
     def explain(self, trace_id: str = "") -> dict[str, Any]:
         trace = None
         if trace_id:
-            trace = next((item for item in self.traces if item.trace_id == trace_id), None)
+            trace = next(
+                (item for item in self.traces if item.trace_id == trace_id), None
+            )
         elif self.traces:
             trace = self.traces[-1]
 
@@ -132,11 +176,15 @@ class AletheusCognitiveReasoningEngine:
 
     def trace(self, trace_id: str = "") -> dict[str, Any]:
         if trace_id:
-            item = next((trace for trace in self.traces if trace.trace_id == trace_id), None)
+            item = next(
+                (trace for trace in self.traces if trace.trace_id == trace_id), None
+            )
             return item.to_dict() if item else {"error": f"Trace not found: {trace_id}"}
         return {"traces": [item.to_dict() for item in self.traces]}
 
-    def decision(self, question: str, runtime: Any, context: dict[str, Any] | None = None) -> dict[str, Any]:
+    def decision(
+        self, question: str, runtime: Any, context: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
         evaluation = self.evaluate(question=question, runtime=runtime, context=context)
         return {
             "decision": evaluation["conclusion"],

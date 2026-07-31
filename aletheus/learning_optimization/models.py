@@ -9,7 +9,6 @@ from dataclasses import dataclass
 
 @dataclass
 class LearningEvent:
-
     event_type: str
 
     input_data: dict
@@ -19,10 +18,8 @@ class LearningEvent:
     confidence: int = 0
 
 
-
 @dataclass
 class ImprovementProposal:
-
     target: str
 
     recommendation: str
@@ -30,4 +27,3 @@ class ImprovementProposal:
     confidence: int
 
     status: str = "pending"
-

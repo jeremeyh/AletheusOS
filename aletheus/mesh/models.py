@@ -10,7 +10,6 @@ def now():
 
 @dataclass
 class MeshRuntime:
-
     runtime_name: str
     runtime_type: str
 

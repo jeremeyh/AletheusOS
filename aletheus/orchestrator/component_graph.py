@@ -31,19 +31,12 @@ class ComponentGraph:
 
     def dependencies_of(self, component_id: str):
 
-        return sorted(
-            self._edges.get(component_id, set())
-        )
+        return sorted(self._edges.get(component_id, set()))
 
     def dependents_of(self, component_id: str):
 
         return sorted(
-
-            source
-
-            for source, targets in self._edges.items()
-
-            if component_id in targets
+            source for source, targets in self._edges.items() if component_id in targets
         )
 
     def nodes(self):
@@ -53,32 +46,19 @@ class ComponentGraph:
     def statistics(self):
 
         return {
-
             "name": "Component Graph",
-
             "genesis": self.GENESIS,
-
             "version": self.VERSION,
-
             "components": len(self._edges),
-
-            "dependencies": sum(
-                len(v)
-                for v in self._edges.values()
-            ),
+            "dependencies": sum(len(v) for v in self._edges.values()),
         }
 
     def health(self):
 
         return {
-
             "name": "Component Graph",
-
             "status": "online",
-
             "genesis": self.GENESIS,
-
             "version": self.VERSION,
-
             "components": len(self._edges),
         }

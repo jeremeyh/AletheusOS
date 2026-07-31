@@ -6,19 +6,6 @@ Genesis 14.3
 
 
 class SellerIntelligence:
+    def analyze(self, seller):
 
-
-    def analyze(
-        self,
-        seller
-    ):
-
-
-        return {
-
-            "risk":
-
-                "unknown"
-
-        }
-
+        return {"risk": "unknown"}

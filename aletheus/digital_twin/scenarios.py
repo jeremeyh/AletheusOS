@@ -6,21 +6,6 @@ Genesis 13.49
 
 
 class ScenarioEngine:
+    def generate(self, entity):
 
-
-    def generate(
-        self,
-        entity
-    ):
-
-
-        return [
-
-            "base",
-
-            "bull",
-
-            "bear"
-
-        ]
-
+        return ["base", "bull", "bear"]

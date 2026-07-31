@@ -13,19 +13,14 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parent
 TARGET = (
-    ROOT
-    / "tools"
-    / "validation"
-    / "nimble"
-    / "validate_nimble_baseline_governance.py"
+    ROOT / "tools" / "validation" / "nimble" / "validate_nimble_baseline_governance.py"
 )
 
 
 def _require_target() -> Path:
     if not TARGET.is_file():
         raise FileNotFoundError(
-            "Canonical Nimble baseline-governance validator was not found: "
-            f"{TARGET}"
+            f"Canonical Nimble baseline-governance validator was not found: {TARGET}"
         )
 
     return TARGET

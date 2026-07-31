@@ -6,41 +6,13 @@ Genesis 13.33
 
 
 class AllocationEngine:
-
-
-    def analyze(
-        self,
-        assets
-    ):
-
+    def analyze(self, assets):
 
         allocation = {}
 
-
         for asset in assets:
+            category = asset.get("category", "unknown")
 
-
-            category = (
-
-                asset.get(
-                    "category",
-                    "unknown"
-                )
-
-            )
-
-
-            allocation[category] = (
-
-                allocation.get(
-                    category,
-                    0
-                )
-
-                + 1
-
-            )
-
+            allocation[category] = allocation.get(category, 0) + 1
 
         return allocation
-

@@ -28,9 +28,7 @@ class EventBusStatistics:
             "subscriber_count": self.subscriber_count,
             "history_size": self.history_size,
             "next_sequence": self.next_sequence,
-            "events_by_kind": dict(
-                self.events_by_kind
-            ),
+            "events_by_kind": dict(self.events_by_kind),
             "last_event_id": self.last_event_id,
             "last_event_kind": self.last_event_kind,
         }

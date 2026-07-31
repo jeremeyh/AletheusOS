@@ -6,13 +6,6 @@ Genesis 14.18
 
 
 class TenantManager:
-
-
-    def isolate(
-        self,
-        tenant
-    ):
-
+    def isolate(self, tenant):
 
         return True
-

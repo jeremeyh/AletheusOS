@@ -7,14 +7,11 @@ Creates a living collective intelligence
 knowledge foundation.
 """
 
-
 import time
 import uuid
 
 
 class AdvancedKnowledgeCivilizationLayer:
-
-
     def __init__(self):
 
         self.knowledge_nodes = {}
@@ -23,126 +20,53 @@ class AdvancedKnowledgeCivilizationLayer:
 
         self.lineage = []
 
-
-
-    def preserve(
-        self,
-        knowledge,
-        source=None
-    ):
+    def preserve(self, knowledge, source=None):
 
         node = {
-
-            "knowledge_id":
-                str(uuid.uuid4()),
-
-            "knowledge":
-                knowledge,
-
-            "source":
-                source,
-
-            "created":
-                time.time(),
-
-            "preserved":
-                True
-
+            "knowledge_id": str(uuid.uuid4()),
+            "knowledge": knowledge,
+            "source": source,
+            "created": time.time(),
+            "preserved": True,
         }
 
+        self.knowledge_nodes[node["knowledge_id"]] = node
 
-        self.knowledge_nodes[
-            node["knowledge_id"]
-        ] = node
-
-
-        self.lineage.append(
-            node
-        )
-
+        self.lineage.append(node)
 
         return node
 
-
-
-    def connect(
-        self,
-        source,
-        target,
-        relationship
-    ):
+    def connect(self, source, target, relationship):
 
         link = {
-
-            "source":
-                source,
-
-            "target":
-                target,
-
-            "relationship":
-                relationship,
-
-            "connected":
-                True
-
+            "source": source,
+            "target": target,
+            "relationship": relationship,
+            "connected": True,
         }
 
-
-        self.relationships.append(
-            link
-        )
-
+        self.relationships.append(link)
 
         return link
 
-
-
-    def evolve(
-        self,
-        knowledge_id,
-        improvement
-    ):
+    def evolve(self, knowledge_id, improvement):
 
         return {
-
-            "knowledge_id":
-                knowledge_id,
-
-            "improvement":
-                improvement,
-
-            "evolved":
-                True,
-
-            "timestamp":
-                time.time()
-
+            "knowledge_id": knowledge_id,
+            "improvement": improvement,
+            "evolved": True,
+            "timestamp": time.time(),
         }
-
-
 
     def civilization_state(self):
 
         return {
-
-            "knowledge_nodes":
-                len(self.knowledge_nodes),
-
-            "relationships":
-                len(self.relationships),
-
-            "lineage_records":
-                len(self.lineage),
-
-            "active":
-                True
-
+            "knowledge_nodes": len(self.knowledge_nodes),
+            "relationships": len(self.relationships),
+            "lineage_records": len(self.lineage),
+            "active": True,
         }
-
-
 
     def snapshot(self):
 
         return self.civilization_state()
-

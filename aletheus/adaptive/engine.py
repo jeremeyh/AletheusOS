@@ -4,7 +4,6 @@ Aletheus Adaptive Intelligence Engine
 Post-Genesis 11
 """
 
-
 from .capability_optimizer import CapabilityOptimizerEngine
 from .experience import ExperienceEngine
 from .improvement_engine import ImprovementEngine
@@ -14,8 +13,6 @@ from .performance import PerformanceEngine
 
 
 class AdaptiveIntelligenceEngine:
-
-
     def __init__(self):
 
         self.experience = ExperienceEngine()
@@ -30,40 +27,19 @@ class AdaptiveIntelligenceEngine:
 
         self.improvement = ImprovementEngine()
 
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_adaptive_intelligence",
-
-            "phase":
-            "post_genesis_11",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_adaptive_intelligence",
+            "phase": "post_genesis_11",
+            "status": "operational",
         }
-
-
 
     def evolve_system(self, system):
 
         return {
-
-            "system":
-            system,
-
-            "learning":
-            "enabled",
-
-            "optimization":
-            "active",
-
-            "status":
-            "evolving"
-
+            "system": system,
+            "learning": "enabled",
+            "optimization": "active",
+            "status": "evolving",
         }
-

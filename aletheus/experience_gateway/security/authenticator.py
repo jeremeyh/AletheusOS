@@ -9,5 +9,4 @@ class PrincipalAuthenticator(Protocol):
     def authenticate(
         self,
         credential: str | None,
-    ) -> Principal:
-        ...
+    ) -> Principal: ...

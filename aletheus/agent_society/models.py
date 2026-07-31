@@ -9,8 +9,6 @@ from dataclasses import dataclass
 
 @dataclass
 class Agent:
-
-
     agent_id: str
 
     name: str
@@ -20,14 +18,10 @@ class Agent:
     reputation: int = 0
 
 
-
 @dataclass
 class AgentMessage:
-
-
     sender: str
 
     receiver: str
 
     message: dict
-

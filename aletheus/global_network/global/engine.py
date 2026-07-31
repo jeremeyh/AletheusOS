@@ -4,7 +4,6 @@ Aletheus Global Intelligence Network Engine
 Post-Genesis 10
 """
 
-
 from .collective_learning import CollectiveLearningEngine
 from .distributed_agents import DistributedAgentEngine
 from .ecosystem_graph import EcosystemGraphEngine
@@ -14,8 +13,6 @@ from .network import GlobalNetworkEngine
 
 
 class GlobalIntelligenceNetworkEngine:
-
-
     def __init__(self):
 
         self.federation = FederationEngine()
@@ -30,34 +27,14 @@ class GlobalIntelligenceNetworkEngine:
 
         self.graph = EcosystemGraphEngine()
 
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_global_intelligence_network",
-
-            "phase":
-            "post_genesis_10",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_global_intelligence_network",
+            "phase": "post_genesis_10",
+            "status": "operational",
         }
-
-
 
     def connect_ecosystem(self, ecosystem):
 
-        return {
-
-            "ecosystem":
-            ecosystem,
-
-            "status":
-            "connected"
-
-        }
-
+        return {"ecosystem": ecosystem, "status": "connected"}

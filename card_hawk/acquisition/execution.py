@@ -6,13 +6,6 @@ Genesis 14.16
 
 
 class AcquisitionExecution:
-
-
-    def execute(
-        self,
-        decision
-    ):
-
+    def execute(self, decision):
 
         return True
-

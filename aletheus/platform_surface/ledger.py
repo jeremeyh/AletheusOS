@@ -20,25 +20,19 @@ class LedgerSurface:
         *,
         correlation_id: str,
     ):
-        return self._ledger.replay_events(
-            correlation_id=correlation_id
-        )
+        return self._ledger.replay_events(correlation_id=correlation_id)
 
     def lineage(
         self,
         event_id: str,
     ):
-        return self._ledger.temporal_lineage(
-            event_id
-        )
+        return self._ledger.temporal_lineage(event_id)
 
     def provenance(
         self,
         event_id: str,
     ):
-        return self._ledger.temporal_provenance(
-            event_id
-        )
+        return self._ledger.temporal_provenance(event_id)
 
     def statistics(self) -> dict:
         return self._ledger.statistics()

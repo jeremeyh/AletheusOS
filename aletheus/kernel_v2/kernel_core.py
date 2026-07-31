@@ -13,7 +13,9 @@ class AletheusAutonomousKernel:
         self.registry: list[KernelRegistryItem] = []
 
     def boot(self, runtime: Any) -> dict[str, Any]:
-        health = runtime.commands.dispatch("runtime.health", {}).results.get("health", {})
+        health = runtime.commands.dispatch("runtime.health", {}).results.get(
+            "health", {}
+        )
 
         self.state.status = "online"
         self.state.services = health.get("services", 0)
@@ -29,7 +31,9 @@ class AletheusAutonomousKernel:
 
         return self.status()
 
-    def publish(self, event_type: str, source: str, payload: dict[str, Any] | None = None) -> KernelEvent:
+    def publish(
+        self, event_type: str, source: str, payload: dict[str, Any] | None = None
+    ) -> KernelEvent:
         event = KernelEvent(
             event_type=event_type,
             source=source,
@@ -47,7 +51,11 @@ class AletheusAutonomousKernel:
         metadata: dict[str, Any] | None = None,
     ) -> KernelRegistryItem:
         existing = next(
-            (item for item in self.registry if item.name == name and item.item_type == item_type),
+            (
+                item
+                for item in self.registry
+                if item.name == name and item.item_type == item_type
+            ),
             None,
         )
         if existing:
@@ -71,7 +79,9 @@ class AletheusAutonomousKernel:
 
     def sync_runtime(self, runtime: Any) -> dict[str, Any]:
         diagnostics = runtime.commands.dispatch("runtime.diagnostics", {}).results
-        health = runtime.commands.dispatch("runtime.health", {}).results.get("health", {})
+        health = runtime.commands.dispatch("runtime.health", {}).results.get(
+            "health", {}
+        )
 
         for service_name in diagnostics.get("diagnostics", {}).get("services", []):
             self.register(
@@ -81,7 +91,9 @@ class AletheusAutonomousKernel:
                 metadata={"source": "runtime.diagnostics"},
             )
 
-        apps = runtime.commands.dispatch("application.list", {}).results.get("applications", [])
+        apps = runtime.commands.dispatch("application.list", {}).results.get(
+            "applications", []
+        )
         for app in apps:
             self.register(
                 name=app.get("name", "Unnamed Application"),
@@ -112,8 +124,12 @@ class AletheusAutonomousKernel:
 
         return self.status()
 
-    def route_event(self, event_type: str, source: str, payload: dict[str, Any] | None = None) -> dict[str, Any]:
-        event = self.publish(event_type=event_type, source=source, payload=payload or {})
+    def route_event(
+        self, event_type: str, source: str, payload: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
+        event = self.publish(
+            event_type=event_type, source=source, payload=payload or {}
+        )
 
         return {
             "event": event.to_dict(),

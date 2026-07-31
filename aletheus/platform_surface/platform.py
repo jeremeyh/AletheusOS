@@ -59,59 +59,35 @@ class AletheusPlatform:
         self._instrument_bus = instrument_bus
         self._scenario_engine = scenario_engine
 
-        self.runtime = RuntimeSurface(
-            orchestrator=orchestrator
-        )
+        self.runtime = RuntimeSurface(orchestrator=orchestrator)
 
-        self.security = SecuritySurface(
-            orchestrator=orchestrator
-        )
+        self.security = SecuritySurface(orchestrator=orchestrator)
 
-        self.cases = CaseSurface(
-            case_engine=orchestrator.case_engine
-        )
+        self.cases = CaseSurface(case_engine=orchestrator.case_engine)
 
         self.missions = MissionSurface(
             mission_engine=orchestrator.mission_engine,
             time=orchestrator.time,
         )
 
-        self.ledger = LedgerSurface(
-            ledger=orchestrator.ledger
-        )
+        self.ledger = LedgerSurface(ledger=orchestrator.ledger)
 
-        self.cognition = CognitionSurface(
-            mesh=cognition_mesh
-        )
+        self.cognition = CognitionSurface(mesh=cognition_mesh)
 
-        self.instrumentation = (
-            InstrumentationSurface(
-                bus=instrument_bus
-            )
-        )
+        self.instrumentation = InstrumentationSurface(bus=instrument_bus)
 
-        self.scenarios = ScenarioSurface(
-            engine=scenario_engine
-        )
+        self.scenarios = ScenarioSurface(engine=scenario_engine)
 
     def health(self) -> PlatformHealth:
         runtime_health = self.runtime.health()
 
-        components = dict(
-            runtime_health.components
-        )
+        components = dict(runtime_health.components)
 
         components.update(
             {
-                "cognition": (
-                    self.cognition.health()
-                ),
-                "instrumentation": (
-                    self.instrumentation.health()
-                ),
-                "scenarios": (
-                    self.scenarios.health()
-                ),
+                "cognition": (self.cognition.health()),
+                "instrumentation": (self.instrumentation.health()),
+                "scenarios": (self.scenarios.health()),
             }
         )
 
@@ -127,11 +103,7 @@ class AletheusPlatform:
         )
 
         return PlatformHealth(
-            status=(
-                "degraded"
-                if degraded
-                else "healthy"
-            ),
+            status=("degraded" if degraded else "healthy"),
             healthy=not degraded,
             components=components,
         )
@@ -139,33 +111,20 @@ class AletheusPlatform:
     def snapshot(
         self,
     ) -> PlatformRuntimeSnapshot:
-        runtime_snapshot = (
-            self.runtime.snapshot()
-        )
+        runtime_snapshot = self.runtime.snapshot()
 
-        details = dict(
-            runtime_snapshot.details
-        )
+        details = dict(runtime_snapshot.details)
 
         details.update(
             {
-                "cognition": (
-                    self.cognition.health()
-                ),
+                "cognition": (self.cognition.health()),
                 "instrumentation": {
-                    instrument_id: (
-                        state.to_dict()
-                    )
-                    for instrument_id, state
-                    in (
-                        self.instrumentation
-                        .snapshot()
-                        .items()
+                    instrument_id: (state.to_dict())
+                    for instrument_id, state in (
+                        self.instrumentation.snapshot().items()
                     )
                 },
-                "scenarios": (
-                    self.scenarios.health()
-                ),
+                "scenarios": (self.scenarios.health()),
             }
         )
 
@@ -174,27 +133,12 @@ class AletheusPlatform:
             version=runtime_snapshot.version,
             cases=runtime_snapshot.cases,
             missions=runtime_snapshot.missions,
-            time_missions=(
-                runtime_snapshot.time_missions
-            ),
-            time_phases=(
-                runtime_snapshot.time_phases
-            ),
-            mission_executions=(
-                runtime_snapshot
-                .mission_executions
-            ),
-            phase_executions=(
-                runtime_snapshot
-                .phase_executions
-            ),
-            domain_events_published=(
-                runtime_snapshot
-                .domain_events_published
-            ),
-            ledger_events=(
-                runtime_snapshot.ledger_events
-            ),
+            time_missions=(runtime_snapshot.time_missions),
+            time_phases=(runtime_snapshot.time_phases),
+            mission_executions=(runtime_snapshot.mission_executions),
+            phase_executions=(runtime_snapshot.phase_executions),
+            domain_events_published=(runtime_snapshot.domain_events_published),
+            ledger_events=(runtime_snapshot.ledger_events),
             failures=runtime_snapshot.failures,
             details=details,
         )
@@ -212,26 +156,11 @@ def build_aletheus_platform(
     sentinel: Any | None = None,
     fabric=None,
     ledger=None,
-    cognition_mesh: (
-        MultiplicitousIntelligenceMesh
-        | None
-    ) = None,
-    instrument_bus: (
-        ConstitutionalInstrumentBus
-        | None
-    ) = None,
-    cognition_bridge: (
-        CognitionInstrumentBridge
-        | None
-    ) = None,
-    scenario_engine: (
-        ConstitutionalScenarioEngine
-        | None
-    ) = None,
-    scenario_registry: (
-        ConstitutionalScenarioRegistry
-        | None
-    ) = None,
+    cognition_mesh: (MultiplicitousIntelligenceMesh | None) = None,
+    instrument_bus: (ConstitutionalInstrumentBus | None) = None,
+    cognition_bridge: (CognitionInstrumentBridge | None) = None,
+    scenario_engine: (ConstitutionalScenarioEngine | None) = None,
+    scenario_registry: (ConstitutionalScenarioRegistry | None) = None,
 ) -> AletheusPlatform:
     """
     Construct one connected AletheusOS Platform Surface.
@@ -240,96 +169,56 @@ def build_aletheus_platform(
     here and exposed through stable public surfaces.
     """
 
-    orchestrator = (
-        build_civilization_orchestrator(
-            watch_tower=watch_tower,
-            guardian=guardian,
-            conclave=conclave,
-            containment_vault=(
-                containment_vault
-            ),
-            sentinel=sentinel,
-            fabric=fabric,
-            ledger=ledger,
-        )
+    orchestrator = build_civilization_orchestrator(
+        watch_tower=watch_tower,
+        guardian=guardian,
+        conclave=conclave,
+        containment_vault=(containment_vault),
+        sentinel=sentinel,
+        fabric=fabric,
+        ledger=ledger,
     )
 
     resolved_bus = instrument_bus
     resolved_bridge = cognition_bridge
 
-    if (
-        resolved_bus is None
-        and resolved_bridge is None
-    ):
+    if resolved_bus is None and resolved_bridge is None:
         (
             resolved_bus,
             resolved_bridge,
         ) = build_cognition_instrumentation()
 
-    elif (
-        resolved_bus is not None
-        and resolved_bridge is None
-    ):
-        resolved_bridge = (
-            CognitionInstrumentBridge(
-                bus=resolved_bus
-            )
-        )
+    elif resolved_bus is not None and resolved_bridge is None:
+        resolved_bridge = CognitionInstrumentBridge(bus=resolved_bus)
 
-    elif (
-        resolved_bus is None
-        and resolved_bridge is not None
-    ):
+    elif resolved_bus is None and resolved_bridge is not None:
         resolved_bus = resolved_bridge.bus
 
     if resolved_bus is None:
-        raise RuntimeError(
-            "Instrument bus resolution failed."
-        )
+        raise RuntimeError("Instrument bus resolution failed.")
 
     if resolved_bridge is None:
-        raise RuntimeError(
-            "Cognition bridge resolution failed."
-        )
+        raise RuntimeError("Cognition bridge resolution failed.")
 
     if cognition_mesh is None:
-        resolved_mesh = (
-            MultiplicitousIntelligenceMesh(
-                observer=resolved_bridge
-            )
-        )
+        resolved_mesh = MultiplicitousIntelligenceMesh(observer=resolved_bridge)
     else:
         resolved_mesh = cognition_mesh
 
     if scenario_engine is None:
-        scenario_instruments = (
-            ScenarioInstrumentPublisher(
-                bus=resolved_bus
-            )
-        )
+        scenario_instruments = ScenarioInstrumentPublisher(bus=resolved_bus)
 
-        resolved_scenario_engine = (
-            ConstitutionalScenarioEngine(
-                mesh=resolved_mesh,
-                registry=(
-                    scenario_registry
-                    or ConstitutionalScenarioRegistry()
-                ),
-                instruments=(
-                    scenario_instruments
-                ),
-            )
+        resolved_scenario_engine = ConstitutionalScenarioEngine(
+            mesh=resolved_mesh,
+            registry=(scenario_registry or ConstitutionalScenarioRegistry()),
+            instruments=(scenario_instruments),
         )
     else:
-        resolved_scenario_engine = (
-            scenario_engine
-        )
+        resolved_scenario_engine = scenario_engine
 
     return AletheusPlatform(
         orchestrator=orchestrator,
         cognition_mesh=resolved_mesh,
         instrument_bus=resolved_bus,
-        scenario_engine=(
-            resolved_scenario_engine
-        ),
+        scenario_engine=(resolved_scenario_engine),
     )

@@ -9,7 +9,14 @@ def main() -> None:
     print("FOUNDATION SERVICE BUS v1.0 PROOF")
     print("=" * 50)
 
-    for requested in ["appraisal", "appraiserx", "valuation", "thorx", "marketplace", "unknown"]:
+    for requested in [
+        "appraisal",
+        "appraiserx",
+        "valuation",
+        "thorx",
+        "marketplace",
+        "unknown",
+    ]:
         resolution = foundation_service_bus.resolve(requested)
         print()
         print(f"REQUEST: {requested}")

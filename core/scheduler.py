@@ -18,7 +18,6 @@ class ScheduledJob:
 
 
 class Scheduler:
-
     def __init__(self):
         self.jobs = {}
 

@@ -6,17 +6,6 @@ Post-Genesis 16
 
 
 class MemoryOptimizer:
-
-
     def optimize(self):
 
-        return {
-
-            "memory":
-            "optimized",
-
-            "status":
-            "healthy"
-
-        }
-
+        return {"memory": "optimized", "status": "healthy"}

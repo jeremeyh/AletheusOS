@@ -69,8 +69,7 @@ class ConstitutionalMissionScheduler:
 
             if missing:
                 raise MissionDependencyError(
-                    "Mission dependencies are not registered: "
-                    + ", ".join(missing)
+                    "Mission dependencies are not registered: " + ", ".join(missing)
                 )
 
             next_run_at = self._initial_run_at(
@@ -94,8 +93,7 @@ class ConstitutionalMissionScheduler:
 
     def register_many(
         self,
-        definitions: list[MissionDefinition]
-        | tuple[MissionDefinition, ...],
+        definitions: list[MissionDefinition] | tuple[MissionDefinition, ...],
     ) -> tuple[MissionRecord, ...]:
         pending = list(definitions)
         registered: list[MissionRecord] = []
@@ -106,12 +104,9 @@ class ConstitutionalMissionScheduler:
             for definition in tuple(pending):
                 if all(
                     dependency in self._records
-                    for dependency
-                    in definition.dependencies
+                    for dependency in definition.dependencies
                 ):
-                    registered.append(
-                        self.register(definition)
-                    )
+                    registered.append(self.register(definition))
                     pending.remove(definition)
                     progressed = True
 
@@ -121,16 +116,14 @@ class ConstitutionalMissionScheduler:
             unresolved = {
                 definition.mission_id: sorted(
                     dependency
-                    for dependency
-                    in definition.dependencies
+                    for dependency in definition.dependencies
                     if dependency not in self._records
                 )
                 for definition in pending
             }
 
             raise MissionDependencyError(
-                "Unable to resolve mission dependency order: "
-                f"{unresolved}"
+                f"Unable to resolve mission dependency order: {unresolved}"
             )
 
         return tuple(registered)
@@ -139,9 +132,7 @@ class ConstitutionalMissionScheduler:
         self,
         mission_id: str,
     ) -> MissionRecord:
-        resolved = self._normalize_id(
-            mission_id
-        )
+        resolved = self._normalize_id(mission_id)
 
         with self._lock:
             record = self._require_record(resolved)
@@ -149,22 +140,18 @@ class ConstitutionalMissionScheduler:
             dependents = sorted(
                 item.definition.mission_id
                 for item in self._records.values()
-                if resolved
-                in item.definition.dependencies
+                if resolved in item.definition.dependencies
             )
 
             if dependents:
                 raise MissionDependencyError(
-                    f"Mission {resolved} has dependents: "
-                    + ", ".join(dependents)
+                    f"Mission {resolved} has dependents: " + ", ".join(dependents)
                 )
 
             del self._records[resolved]
 
             self._queue = [
-                item
-                for item in self._queue
-                if item[3].mission_id != resolved
+                item for item in self._queue if item[3].mission_id != resolved
             ]
             heapq.heapify(self._queue)
 
@@ -174,9 +161,7 @@ class ConstitutionalMissionScheduler:
         self,
         mission_id: str,
     ) -> MissionRecord:
-        resolved = self._normalize_id(
-            mission_id
-        )
+        resolved = self._normalize_id(mission_id)
 
         with self._lock:
             return self._require_record(resolved)
@@ -186,31 +171,20 @@ class ConstitutionalMissionScheduler:
     ) -> tuple[MissionRecord, ...]:
         with self._lock:
             return tuple(
-                self._records[mission_id]
-                for mission_id in sorted(
-                    self._records
-                )
+                self._records[mission_id] for mission_id in sorted(self._records)
             )
 
     def ready(
         self,
         now: datetime | None = None,
     ) -> tuple[MissionRecord, ...]:
-        current = self._normalize_time(
-            now or datetime.now(UTC)
-        )
+        current = self._normalize_time(now or datetime.now(UTC))
 
         with self._lock:
-            ready_records: list[
-                MissionRecord
-            ] = []
+            ready_records: list[MissionRecord] = []
 
-            for mission_id in sorted(
-                self._records
-            ):
-                record = self._records[
-                    mission_id
-                ]
+            for mission_id in sorted(self._records):
+                record = self._records[mission_id]
 
                 if not self._is_ready(
                     record,
@@ -223,9 +197,7 @@ class ConstitutionalMissionScheduler:
                     state=MissionState.READY,
                 )
 
-                self._records[
-                    mission_id
-                ] = updated
+                self._records[mission_id] = updated
                 ready_records.append(updated)
 
             return tuple(
@@ -233,8 +205,7 @@ class ConstitutionalMissionScheduler:
                     ready_records,
                     key=lambda item: (
                         -item.definition.priority_weight,
-                        item.next_run_at
-                        or current,
+                        item.next_run_at or current,
                         item.definition.mission_id,
                     ),
                 )
@@ -244,9 +215,7 @@ class ConstitutionalMissionScheduler:
         self,
         now: datetime | None = None,
     ) -> tuple[ScheduledMission, ...]:
-        current = self._normalize_time(
-            now or datetime.now(UTC)
-        )
+        current = self._normalize_time(now or datetime.now(UTC))
 
         ready_records = self.ready(current)
         scheduled: list[ScheduledMission] = []
@@ -255,10 +224,7 @@ class ConstitutionalMissionScheduler:
             for record in ready_records:
                 item = ScheduledMission.create(
                     record=record,
-                    scheduled_for=(
-                        record.next_run_at
-                        or current
-                    ),
+                    scheduled_for=(record.next_run_at or current),
                 )
 
                 self._queue_counter += 1
@@ -273,9 +239,7 @@ class ConstitutionalMissionScheduler:
                     ),
                 )
 
-                self._records[
-                    record.definition.mission_id
-                ] = replace(
+                self._records[record.definition.mission_id] = replace(
                     record,
                     state=MissionState.QUEUED,
                 )
@@ -291,17 +255,11 @@ class ConstitutionalMissionScheduler:
             if not self._queue:
                 return None
 
-            _, _, _, item = heapq.heappop(
-                self._queue
-            )
+            _, _, _, item = heapq.heappop(self._queue)
 
-            record = self._require_record(
-                item.mission_id
-            )
+            record = self._require_record(item.mission_id)
 
-            self._records[
-                item.mission_id
-            ] = replace(
+            self._records[item.mission_id] = replace(
                 record,
                 last_started_at=datetime.now(UTC),
             )
@@ -314,12 +272,8 @@ class ConstitutionalMissionScheduler:
         *,
         completed_at: datetime | None = None,
     ) -> MissionRecord:
-        resolved = self._normalize_id(
-            mission_id
-        )
-        completed = self._normalize_time(
-            completed_at or datetime.now(UTC)
-        )
+        resolved = self._normalize_id(mission_id)
+        completed = self._normalize_time(completed_at or datetime.now(UTC))
 
         with self._lock:
             record = self._require_record(resolved)
@@ -329,8 +283,7 @@ class ConstitutionalMissionScheduler:
                 MissionState.READY,
             }:
                 raise MissionStateError(
-                    "Only queued or ready missions "
-                    "can be marked succeeded."
+                    "Only queued or ready missions can be marked succeeded."
                 )
 
             next_run_at = self._next_recurring_run(
@@ -362,12 +315,8 @@ class ConstitutionalMissionScheduler:
         error: str,
         failed_at: datetime | None = None,
     ) -> MissionRecord:
-        resolved = self._normalize_id(
-            mission_id
-        )
-        failed = self._normalize_time(
-            failed_at or datetime.now(UTC)
-        )
+        resolved = self._normalize_id(mission_id)
+        failed = self._normalize_time(failed_at or datetime.now(UTC))
 
         with self._lock:
             record = self._require_record(resolved)
@@ -377,13 +326,10 @@ class ConstitutionalMissionScheduler:
                 MissionState.READY,
             }:
                 raise MissionStateError(
-                    "Only queued or ready missions "
-                    "can be marked failed."
+                    "Only queued or ready missions can be marked failed."
                 )
 
-            policy = (
-                record.definition.retry_policy
-            )
+            policy = record.definition.retry_policy
 
             if record.attempt >= policy.max_attempts:
                 updated = replace(
@@ -416,9 +362,7 @@ class ConstitutionalMissionScheduler:
         self,
         mission_id: str,
     ) -> MissionRecord:
-        resolved = self._normalize_id(
-            mission_id
-        )
+        resolved = self._normalize_id(mission_id)
 
         with self._lock:
             record = self._require_record(resolved)
@@ -431,9 +375,7 @@ class ConstitutionalMissionScheduler:
 
             self._records[resolved] = updated
             self._queue = [
-                item
-                for item in self._queue
-                if item[3].mission_id != resolved
+                item for item in self._queue if item[3].mission_id != resolved
             ]
             heapq.heapify(self._queue)
 
@@ -443,40 +385,20 @@ class ConstitutionalMissionScheduler:
         self,
     ) -> MissionSchedulerStatistics:
         with self._lock:
-            records = tuple(
-                self._records.values()
-            )
+            records = tuple(self._records.values())
             queue_depth = len(self._queue)
 
-        state_counts = Counter(
-            record.state.value
-            for record in records
-        )
+        state_counts = Counter(record.state.value for record in records)
 
         return MissionSchedulerStatistics(
             registered=len(records),
-            enabled=sum(
-                record.definition.enabled
-                for record in records
-            ),
-            ready=state_counts[
-                MissionState.READY.value
-            ],
-            queued=state_counts[
-                MissionState.QUEUED.value
-            ],
-            succeeded=state_counts[
-                MissionState.SUCCEEDED.value
-            ],
-            failed=state_counts[
-                MissionState.FAILED.value
-            ],
-            cancelled=state_counts[
-                MissionState.CANCELLED.value
-            ],
-            exhausted=state_counts[
-                MissionState.EXHAUSTED.value
-            ],
+            enabled=sum(record.definition.enabled for record in records),
+            ready=state_counts[MissionState.READY.value],
+            queued=state_counts[MissionState.QUEUED.value],
+            succeeded=state_counts[MissionState.SUCCEEDED.value],
+            failed=state_counts[MissionState.FAILED.value],
+            cancelled=state_counts[MissionState.CANCELLED.value],
+            exhausted=state_counts[MissionState.EXHAUSTED.value],
             queue_depth=queue_depth,
         )
 
@@ -496,18 +418,11 @@ class ConstitutionalMissionScheduler:
         }:
             return False
 
-        if (
-            record.next_run_at is not None
-            and now < record.next_run_at
-        ):
+        if record.next_run_at is not None and now < record.next_run_at:
             return False
 
-        for dependency_id in (
-            record.definition.dependencies
-        ):
-            dependency = self._records[
-                dependency_id
-            ]
+        for dependency_id in record.definition.dependencies:
+            dependency = self._records[dependency_id]
 
             if dependency.state not in {
                 MissionState.SUCCEEDED,
@@ -515,16 +430,12 @@ class ConstitutionalMissionScheduler:
             }:
                 return False
 
-            if (
-                dependency.last_completed_at
-                is None
-            ):
+            if dependency.last_completed_at is None:
                 return False
 
         if (
             record.last_completed_at is not None
-            and record.definition.cooldown
-            > now - record.last_completed_at
+            and record.definition.cooldown > now - record.last_completed_at
         ):
             return False
 
@@ -546,9 +457,7 @@ class ConstitutionalMissionScheduler:
         record: MissionRecord,
         completed_at: datetime,
     ) -> datetime | None:
-        interval = (
-            record.definition.trigger.interval
-        )
+        interval = record.definition.trigger.interval
 
         if interval is None:
             return None
@@ -567,9 +476,7 @@ class ConstitutionalMissionScheduler:
         record = self._records.get(mission_id)
 
         if record is None:
-            raise MissionNotFoundError(
-                f"Mission not found: {mission_id}"
-            )
+            raise MissionNotFoundError(f"Mission not found: {mission_id}")
 
         return record
 
@@ -584,8 +491,6 @@ class ConstitutionalMissionScheduler:
         value: datetime,
     ) -> datetime:
         if value.tzinfo is None:
-            raise ValueError(
-                "Scheduler timestamps require timezone."
-            )
+            raise ValueError("Scheduler timestamps require timezone.")
 
         return value.astimezone(UTC)

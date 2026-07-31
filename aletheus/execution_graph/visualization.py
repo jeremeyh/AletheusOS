@@ -40,27 +40,16 @@ class ExecutionGraphVisualization:
         #
 
         for node in execution_graph_registry.all_nodes():
+            label = node.display_name.replace('"', "").replace("[", "").replace("]", "")
 
-            label = (
-                node.display_name
-                .replace('"', "")
-                .replace("[", "")
-                .replace("]", "")
-            )
-
-            lines.append(
-                f'    {node.node_id}["{label}"]'
-            )
+            lines.append(f'    {node.node_id}["{label}"]')
 
         #
         # Edges
         #
 
         for edge in execution_graph_registry.all_edges():
-
-            lines.append(
-                f"    {edge.source} -->|{edge.edge_type.value}| {edge.target}"
-            )
+            lines.append(f"    {edge.source} -->|{edge.edge_type.value}| {edge.target}")
 
         return "\n".join(lines)
 
@@ -72,10 +61,8 @@ class ExecutionGraphVisualization:
         graph: dict[str, list[str]] = {}
 
         for node in execution_graph_registry.all_nodes():
-
             graph[node.node_id] = [
-                edge.target
-                for edge in execution_graph_registry.outgoing(node.node_id)
+                edge.target for edge in execution_graph_registry.outgoing(node.node_id)
             ]
 
         return graph
@@ -83,32 +70,19 @@ class ExecutionGraphVisualization:
     def summary(self) -> dict:
 
         return {
-
-            "nodes": len(
-                execution_graph_registry.all_nodes()
-            ),
-
-            "edges": len(
-                execution_graph_registry.all_edges()
-            ),
-
+            "nodes": len(execution_graph_registry.all_nodes()),
+            "edges": len(execution_graph_registry.all_edges()),
             "graph_type": "Directed Constitutional Graph",
         }
 
     def health(self) -> dict:
 
         return {
-
             "name": "Foundation Execution Graph Visualization",
-
             "genesis": self.GENESIS,
-
             "version": self.VERSION,
-
             "status": "healthy",
         }
 
 
-execution_graph_visualization = (
-    ExecutionGraphVisualization()
-)
+execution_graph_visualization = ExecutionGraphVisualization()

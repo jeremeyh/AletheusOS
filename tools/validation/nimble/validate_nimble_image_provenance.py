@@ -24,16 +24,8 @@ def find_repo_root(start: Path) -> Path:
 
 ROOT = find_repo_root(Path(__file__).parent)
 
-CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/deployment/"
-    "image-provenance-contract.json"
-)
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "image-provenance-contract-latest.json"
-)
+CONTRACT_PATH = ROOT / "nimble/governance/deployment/image-provenance-contract.json"
+REPORT_PATH = ROOT / "reports/nimble/image-provenance-contract-latest.json"
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -45,9 +37,7 @@ def main() -> int:
     checks: list[dict[str, Any]] = []
 
     if not CONTRACT_PATH.exists():
-        failures.append(
-            f"Missing provenance contract: {CONTRACT_PATH}"
-        )
+        failures.append(f"Missing provenance contract: {CONTRACT_PATH}")
         contract: dict[str, Any] = {}
     else:
         contract = load_json(CONTRACT_PATH)
@@ -60,9 +50,7 @@ def main() -> int:
     )
 
     dockerfile_text = (
-        dockerfile_path.read_text(encoding="utf-8")
-        if dockerfile_path.exists()
-        else ""
+        dockerfile_path.read_text(encoding="utf-8") if dockerfile_path.exists() else ""
     )
 
     required_labels = contract.get(
@@ -81,9 +69,7 @@ def main() -> int:
         )
 
         if not present:
-            failures.append(
-                f"Missing OCI label in Dockerfile: {label}"
-            )
+            failures.append(f"Missing OCI label in Dockerfile: {label}")
 
     required_arguments = [
         "ALETHEUS_BUILD_VERSION",
@@ -110,16 +96,13 @@ def main() -> int:
         )
 
         if not present:
-            failures.append(
-                f"Missing Docker build argument: {argument}"
-            )
+            failures.append(f"Missing Docker build argument: {argument}")
 
     evidence = contract.get("evidence", {})
 
     for name, relative_path in evidence.items():
-        valid = (
-            isinstance(relative_path, str)
-            and relative_path.startswith("reports/nimble/")
+        valid = isinstance(relative_path, str) and relative_path.startswith(
+            "reports/nimble/"
         )
 
         checks.append(
@@ -131,36 +114,23 @@ def main() -> int:
         )
 
         if not valid:
-            failures.append(
-                f"Invalid evidence path for {name}: "
-                f"{relative_path!r}"
-            )
+            failures.append(f"Invalid evidence path for {name}: {relative_path!r}")
 
     sbom = contract.get("sbom", {})
 
     if sbom.get("format") != "spdx-json":
-        failures.append(
-            "SBOM format must be spdx-json."
-        )
+        failures.append("SBOM format must be spdx-json.")
 
     if sbom.get("generator") != "syft":
-        failures.append(
-            "SBOM generator must be syft."
-        )
+        failures.append("SBOM generator must be syft.")
 
     status = "PASS" if not failures else "FAIL"
 
     report = {
         "schema_version": "1.0",
-        "generated_at": datetime.now(
-            UTC
-        ).isoformat(),
-        "contract": str(
-            CONTRACT_PATH.relative_to(ROOT)
-        ),
-        "dockerfile": str(
-            dockerfile_path.relative_to(ROOT)
-        ),
+        "generated_at": datetime.now(UTC).isoformat(),
+        "contract": str(CONTRACT_PATH.relative_to(ROOT)),
+        "dockerfile": str(dockerfile_path.relative_to(ROOT)),
         "status": status,
         "checks": checks,
         "failures": failures,

@@ -184,10 +184,9 @@ class OntologyRegistry:
         orphan_count = 0
 
         for entity in self._entities.values():
-            if (
-                not self.incoming_relationships(entity.entity_id)
-                and not self.outgoing_relationships(entity.entity_id)
-            ):
+            if not self.incoming_relationships(
+                entity.entity_id
+            ) and not self.outgoing_relationships(entity.entity_id):
                 orphan_count += 1
 
         canonical_count = len(self.canonical_entities())

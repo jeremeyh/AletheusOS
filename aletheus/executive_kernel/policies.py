@@ -67,17 +67,11 @@ class ExecutivePolicyRegistry:
         return self._policies.values()
 
     def by_scope(self, scope: PolicyScope) -> list[PolicyDescriptor]:
-        return [
-            policy
-            for policy in self._policies.values()
-            if policy.scope == scope
-        ]
+        return [policy for policy in self._policies.values() if policy.scope == scope]
 
     def by_applies_to(self, target: str) -> list[PolicyDescriptor]:
         return [
-            policy
-            for policy in self._policies.values()
-            if policy.applies_to == target
+            policy for policy in self._policies.values() if policy.applies_to == target
         ]
 
     def count(self) -> int:

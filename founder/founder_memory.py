@@ -9,8 +9,10 @@ class MemoryItem:
     category: str = "General"
     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
 
+
 class FounderMemory:
     """Founder Memory™ remembers preferences and decision patterns."""
+
     _items = []
 
     @classmethod
@@ -28,7 +30,19 @@ class FounderMemory:
     @classmethod
     def default_profile(cls):
         if not cls._items:
-            cls.remember("core_strategy", "Prefer scarce, premium, high-upside assets.", "Strategy")
-            cls.remember("brand_bias", "Avoid weak brands unless price is exceptional.", "Strategy")
-            cls.remember("team_bias", "High conviction around Bears/Bulls/Rockets/Texans theses.", "Portfolio")
+            cls.remember(
+                "core_strategy",
+                "Prefer scarce, premium, high-upside assets.",
+                "Strategy",
+            )
+            cls.remember(
+                "brand_bias",
+                "Avoid weak brands unless price is exceptional.",
+                "Strategy",
+            )
+            cls.remember(
+                "team_bias",
+                "High conviction around Bears/Bulls/Rockets/Texans theses.",
+                "Portfolio",
+            )
         return cls._items

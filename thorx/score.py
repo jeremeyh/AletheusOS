@@ -45,7 +45,9 @@ class ThorxScore:
         ni = ThorxScore.nuclear_index(parts, asset)
         classification = DEFEngine.classification(score)
         recommendation = DEFEngine.recommendation(score, ni, parts["risk"])
-        strike_zone = DEFEngine.strike_zone(score, ni, parts["market_strength"], parts["scarcity"])
+        strike_zone = DEFEngine.strike_zone(
+            score, ni, parts["market_strength"], parts["scarcity"]
+        )
         price_targets = DEXEngine.price_targets(asset, score)
 
         try:
@@ -66,7 +68,9 @@ class ThorxScore:
             "components": parts,
             "price_targets": price_targets,
             "capital_strategy": DEXEngine.capital_size(score),
-            "commentary": ThorxScore.commentary(score, ni, classification, recommendation),
+            "commentary": ThorxScore.commentary(
+                score, ni, classification, recommendation
+            ),
         }
 
     @staticmethod

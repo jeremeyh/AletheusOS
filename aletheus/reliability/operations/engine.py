@@ -4,33 +4,16 @@ aletheus_operations_layer
 Post-Genesis 824
 """
 
-class CivilizationOperationsLayerEngine:
 
+class CivilizationOperationsLayerEngine:
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_operations_layer",
-
-            "post_genesis":
-            "824",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_operations_layer",
+            "post_genesis": "824",
+            "status": "operational",
         }
-
 
     def execute(self, request=None):
 
-        return {
-
-            "request":
-            request,
-
-            "status":
-            "completed"
-
-        }
-
+        return {"request": request, "status": "completed"}

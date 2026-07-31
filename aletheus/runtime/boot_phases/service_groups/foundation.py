@@ -1,5 +1,4 @@
 class FoundationServiceRegistrar:
-
     def register(self, runtime):
         runtime.services.register(
             "Aletheus Autonomous Mission Engine",

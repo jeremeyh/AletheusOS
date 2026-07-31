@@ -4,7 +4,6 @@ from .executor import BootExecutor
 
 
 class BootRuntime:
-
     GENESIS = "13.9"
     VERSION = "0.1.0"
 

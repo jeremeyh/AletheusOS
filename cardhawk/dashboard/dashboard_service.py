@@ -10,7 +10,6 @@ from cardhawk.services import AssetService
 
 
 class DashboardService:
-
     def __init__(self):
 
         self.assets = AssetService()
@@ -24,9 +23,6 @@ class DashboardService:
         analytics = PortfolioAnalytics(assets)
 
         return {
-
             "portfolio": portfolio.summary(),
-
             "analytics": analytics.summary(),
-
         }

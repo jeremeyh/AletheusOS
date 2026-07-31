@@ -10,7 +10,14 @@ class ResponsibilityExtractor:
 
     RESPONSIBILITIES = {
         "lifecycle": {
-            "keywords": ["boot", "start", "stop", "shutdown", "initialize", "lifecycle"],
+            "keywords": [
+                "boot",
+                "start",
+                "stop",
+                "shutdown",
+                "initialize",
+                "lifecycle",
+            ],
             "destination": "Executive Kernel",
         },
         "registration": {

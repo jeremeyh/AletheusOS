@@ -285,9 +285,7 @@ def render_report(
         lines.append("")
 
         for reference in result["references"]:
-            lines.append(
-                f"- L{reference['line']}: `{reference['text']}`"
-            )
+            lines.append(f"- L{reference['line']}: `{reference['text']}`")
 
         lines.append("")
 
@@ -295,10 +293,7 @@ def render_report(
 
 
 def main() -> None:
-    analyses = {
-        name: analyze_file(path)
-        for name, path in TARGETS.items()
-    }
+    analyses = {name: analyze_file(path) for name, path in TARGETS.items()}
     references = find_command_references()
 
     payload = {

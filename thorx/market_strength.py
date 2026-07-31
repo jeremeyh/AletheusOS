@@ -3,8 +3,16 @@ class MarketStrengthScorer:
 
     HOT_SPORTS = {"Football", "Basketball", "Baseball"}
     CORE_TEAMS = {
-        "Bears", "Chicago Bears", "Bulls", "Chicago Bulls", "Rockets", "Houston Rockets",
-        "Texans", "Houston Texans", "Lakers", "Los Angeles Lakers"
+        "Bears",
+        "Chicago Bears",
+        "Bulls",
+        "Chicago Bulls",
+        "Rockets",
+        "Houston Rockets",
+        "Texans",
+        "Houston Texans",
+        "Lakers",
+        "Los Angeles Lakers",
     }
 
     @staticmethod

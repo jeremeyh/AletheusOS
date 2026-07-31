@@ -19,7 +19,7 @@ if "self.reasoning = reasoning_core" not in text:
 
 if 'self.commands.register("reason.evaluate"' not in text:
     anchor = '        self.commands.register("knowledge.statistics", self._cmd_kg_statistics)\n'
-    insert = '''        self.commands.register("reason.bootstrap", self._cmd_reason_bootstrap)
+    insert = """        self.commands.register("reason.bootstrap", self._cmd_reason_bootstrap)
         self.commands.register("reason.rule.add", self._cmd_reason_rule_add)
         self.commands.register("reason.evaluate", self._cmd_reason_evaluate)
         self.commands.register("reason.explain", self._cmd_reason_explain)
@@ -27,20 +27,20 @@ if 'self.commands.register("reason.evaluate"' not in text:
         self.commands.register("reason.decision", self._cmd_reason_decision)
         self.commands.register("reason.confidence", self._cmd_reason_confidence)
         self.commands.register("reason.statistics", self._cmd_reason_statistics)
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find knowledge.statistics command anchor.")
     text = text.replace(anchor, anchor + insert)
 
 if '"Aletheus Cognitive Reasoning Engine"' not in text:
-    anchor = '''        self.services.register(
+    anchor = """        self.services.register(
             "Aletheus Knowledge Graph Engine",
             {"status": "online", "version": self.knowledge_graph.version},
         )
 
         self.scheduler.register(
-'''
-    replacement = '''        self.services.register(
+"""
+    replacement = """        self.services.register(
             "Aletheus Knowledge Graph Engine",
             {"status": "online", "version": self.knowledge_graph.version},
         )
@@ -50,21 +50,21 @@ if '"Aletheus Cognitive Reasoning Engine"' not in text:
         )
 
         self.scheduler.register(
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find knowledge graph service anchor.")
     text = text.replace(anchor, replacement)
 
 if '"reasoning_traces": self.reasoning.stats()["traces"]' not in text:
     text = text.replace(
-        '''                "graph_nodes": self.knowledge_graph.stats()["nodes"],
+        """                "graph_nodes": self.knowledge_graph.stats()["nodes"],
                 "graph_relationships": self.knowledge_graph.stats()["relationships"],
                 "inference_rules": self.knowledge_graph.stats()["inference_rules"],
             },
         )
         return context
-''',
-        '''                "graph_nodes": self.knowledge_graph.stats()["nodes"],
+""",
+        """                "graph_nodes": self.knowledge_graph.stats()["nodes"],
                 "graph_relationships": self.knowledge_graph.stats()["relationships"],
                 "inference_rules": self.knowledge_graph.stats()["inference_rules"],
                 "reasoning_traces": self.reasoning.stats()["traces"],
@@ -73,23 +73,23 @@ if '"reasoning_traces": self.reasoning.stats()["traces"]' not in text:
             },
         )
         return context
-''',
+""",
     )
 
 if 'context.add_result("reasoning", self.reasoning.stats())' not in text:
     text = text.replace(
-        '''        context.add_result("knowledge_graph", self.knowledge_graph.stats())
+        """        context.add_result("knowledge_graph", self.knowledge_graph.stats())
         return context
-''',
-        '''        context.add_result("knowledge_graph", self.knowledge_graph.stats())
+""",
+        """        context.add_result("knowledge_graph", self.knowledge_graph.stats())
         context.add_result("reasoning", self.reasoning.stats())
         return context
-''',
+""",
     )
 
 if "def _cmd_reason_evaluate" not in text:
     anchor = "    def _job_runtime_pulse(self) -> dict:\n"
-    methods = '''
+    methods = """
     def _cmd_reason_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("reasoning", self.reasoning.bootstrap_rules())
         return context
@@ -143,7 +143,7 @@ if "def _cmd_reason_evaluate" not in text:
         context.add_result("reasoning_stats", self.reasoning.stats())
         return context
 
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find _job_runtime_pulse anchor.")
     text = text.replace(anchor, methods + anchor)

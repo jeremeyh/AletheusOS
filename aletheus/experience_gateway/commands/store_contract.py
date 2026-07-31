@@ -13,48 +13,40 @@ class CommandStore(Protocol):
     def save_preview(
         self,
         preview: CommandPreview,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     def preview(
         self,
         preview_id: str,
-    ) -> CommandPreview:
-        ...
+    ) -> CommandPreview: ...
 
     def save_authorization(
         self,
         authorization: CommandAuthorization,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     def authorization(
         self,
         authorization_id: str,
-    ) -> CommandAuthorization:
-        ...
+    ) -> CommandAuthorization: ...
 
     def save_execution(
         self,
         execution: CommandExecution,
         *,
         idempotency_key: str | None = None,
-    ) -> None:
-        ...
+    ) -> None: ...
 
     def execution(
         self,
         execution_id: str,
-    ) -> CommandExecution:
-        ...
+    ) -> CommandExecution: ...
 
     def execution_for_idempotency_key(
         self,
         idempotency_key: str,
-    ) -> CommandExecution | None:
-        ...
+    ) -> CommandExecution | None: ...
 
     def executions(
         self,
-    ) -> tuple[CommandExecution, ...]:
-        ...
+    ) -> tuple[CommandExecution, ...]: ...

@@ -97,9 +97,7 @@ def main() -> None:
         )
 
     overlapping_families = {
-        family: members
-        for family, members in families.items()
-        if len(members) > 1
+        family: members for family, members in families.items() if len(members) > 1
     }
 
     lines = [
@@ -114,9 +112,7 @@ def main() -> None:
     ]
 
     for role in sorted(roles):
-        lines.append(
-            f"{role:18} {len(roles[role]):3}"
-        )
+        lines.append(f"{role:18} {len(roles[role]):3}")
 
     lines.extend(
         [
@@ -131,9 +127,7 @@ def main() -> None:
         lines.append(f"[{role.upper()}]")
 
         for name, type_name in roles[role]:
-            lines.append(
-                f"{name:34} {type_name}"
-            )
+            lines.append(f"{name:34} {type_name}")
 
     lines.extend(
         [
@@ -146,18 +140,14 @@ def main() -> None:
     if not overlapping_families:
         lines.append("No naming-based overlaps detected.")
     else:
-        for family, members in sorted(
-            overlapping_families.items()
-        ):
+        for family, members in sorted(overlapping_families.items()):
             lines.append("")
             lines.append(f"{family}:")
 
             for name, generation, type_name in members:
                 generation_label = generation or "base"
                 lines.append(
-                    f"  {name:30} "
-                    f"generation={generation_label:5} "
-                    f"type={type_name}"
+                    f"  {name:30} generation={generation_label:5} type={type_name}"
                 )
 
     lines.extend(
@@ -165,12 +155,8 @@ def main() -> None:
             "",
             "Initial Structural Signals",
             "-" * 78,
-            (
-                "PASS: Runtime imports and boots."
-            ),
-            (
-                "PASS: Command surface is operational."
-            ),
+            ("PASS: Runtime imports and boots."),
+            ("PASS: Command surface is operational."),
             (
                 "REVIEW: Public attachment density should be assessed "
                 "against composition-root boundaries."
@@ -202,9 +188,7 @@ def main() -> None:
 
     print(f"Runtime: {type(runtime_core).__name__}")
     print(f"Public attachments: {len(public_attributes)}")
-    print(
-        f"Generation overlaps: {len(overlapping_families)}"
-    )
+    print(f"Generation overlaps: {len(overlapping_families)}")
     print(f"Report: {REPORT_PATH}")
 
 

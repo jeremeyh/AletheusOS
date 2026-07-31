@@ -34,5 +34,6 @@ class Settings:
         self.upload_dir.mkdir(parents=True, exist_ok=True)
         self.log_dir.mkdir(parents=True, exist_ok=True)
 
+
 settings = Settings()
 settings.ensure_directories()

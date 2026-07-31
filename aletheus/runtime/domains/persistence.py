@@ -18,17 +18,13 @@ class PersistenceDomain:
         )
 
     def restore(self, payload):
-        return self.runtime.persistence_v3.restore(
-            payload.get("snapshot_id", "")
-        )
+        return self.runtime.persistence_v3.restore(payload.get("snapshot_id", ""))
 
     def export(self, payload=None):
         return self.runtime.persistence_v3.export()
 
     def import_state(self, payload):
-        return self.runtime.persistence_v3.import_state(
-            payload.get("state", {})
-        )
+        return self.runtime.persistence_v3.import_state(payload.get("state", {}))
 
     def statistics(self, payload=None):
         return self.runtime.persistence_v3.statistics()

@@ -54,9 +54,7 @@ def create_security_incident_case(
     case_id = new_case_id()
 
     resolved_severity = (
-        severity
-        if isinstance(severity, CaseSeverity)
-        else CaseSeverity(severity)
+        severity if isinstance(severity, CaseSeverity) else CaseSeverity(severity)
     )
 
     return ConstitutionalCase(

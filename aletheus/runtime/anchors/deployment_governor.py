@@ -6,20 +6,12 @@ Genesis 8.33
 Controls architecture transition.
 """
 
-
 import time
 import uuid
 
 
 class AnchorArchitectureDeploymentGovernor:
-
-
-    def __init__(
-        self,
-        selector,
-        verification,
-        governance
-    ):
+    def __init__(self, selector, verification, governance):
 
         self.selector = selector
         self.verification = verification
@@ -27,130 +19,49 @@ class AnchorArchitectureDeploymentGovernor:
 
         self.deployments = []
 
+    def prepare(self, anchor):
 
+        selection = self.selector.select(anchor)
 
-    def prepare(
-        self,
-        anchor
-    ):
-
-        selection = (
-            self.selector
-            .select(anchor)
-        )
-
-
-        readiness = (
-            self.check_readiness(
-                selection
-            )
-        )
-
+        readiness = self.check_readiness(selection)
 
         deployment = {
-
-            "deployment_id":
-                str(uuid.uuid4()),
-
-            "anchor":
-                anchor,
-
-            "selection":
-                selection,
-
-            "readiness":
-                readiness,
-
-            "status":
-                "ready"
-                if readiness["approved"]
-                else "blocked",
-
-            "rollback":
-            {
-                "available":
-                    True
-            },
-
-            "timestamp":
-                time.time()
-
+            "deployment_id": str(uuid.uuid4()),
+            "anchor": anchor,
+            "selection": selection,
+            "readiness": readiness,
+            "status": "ready" if readiness["approved"] else "blocked",
+            "rollback": {"available": True},
+            "timestamp": time.time(),
         }
 
-
-        self.deployments.append(
-            deployment
-        )
-
+        self.deployments.append(deployment)
 
         return deployment
 
+    def check_readiness(self, selection):
 
-
-    def check_readiness(
-        self,
-        selection
-    ):
-
-        confidence = (
-            selection["confidence"]
-        )
-
+        confidence = selection["confidence"]
 
         return {
-
-            "approved":
-                confidence >= 70,
-
-            "confidence":
-                confidence,
-
-            "checks":
-            {
-
-                "architecture":
-                    True,
-
-                "governance":
-                    True,
-
-                "rollback":
-                    True
-
-            }
-
+            "approved": confidence >= 70,
+            "confidence": confidence,
+            "checks": {"architecture": True, "governance": True, "rollback": True},
         }
 
-
-
-    def activate(
-        self,
-        deployment
-    ):
+    def activate(self, deployment):
 
         if not deployment["readiness"]["approved"]:
-
             deployment["status"] = "blocked"
 
             return deployment
 
-
         deployment["status"] = "activated"
 
-        deployment["activated_at"] = (
-            time.time()
-        )
-
+        deployment["activated_at"] = time.time()
 
         return deployment
 
-
-
     def snapshot(self):
 
-        return {
-
-            "deployment_count":
-                len(self.deployments)
-
-        }
+        return {"deployment_count": len(self.deployments)}

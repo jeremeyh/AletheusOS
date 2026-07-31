@@ -2,7 +2,6 @@ from .models import CapabilityEdge, CapabilityNode
 
 
 class CapabilityGraph:
-
     def __init__(self):
         self.nodes = {}
         self.edges = []
@@ -31,15 +30,7 @@ class CapabilityGraph:
         return len(self.edges)
 
     def dependencies(self, node_id):
-        return [
-            edge.target
-            for edge in self.edges
-            if edge.source == node_id
-        ]
+        return [edge.target for edge in self.edges if edge.source == node_id]
 
     def reverse_dependencies(self, node_id):
-        return [
-            edge.source
-            for edge in self.edges
-            if edge.target == node_id
-        ]
+        return [edge.source for edge in self.edges if edge.target == node_id]

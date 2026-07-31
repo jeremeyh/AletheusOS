@@ -5,18 +5,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 
-INPUT_REPORT = (
-    ROOT
-    / "reports"
-    / "repository_hygiene"
-    / "empty_python_files.csv"
-)
+INPUT_REPORT = ROOT / "reports" / "repository_hygiene" / "empty_python_files.csv"
 
 OUTPUT_REPORT = (
-    ROOT
-    / "reports"
-    / "repository_hygiene"
-    / "empty_module_text_references.csv"
+    ROOT / "reports" / "repository_hygiene" / "empty_module_text_references.csv"
 )
 
 SEARCH_SUFFIXES = {
@@ -52,7 +44,6 @@ EXCLUDED_ROOT_SCRIPT_PREFIXES = {
 }
 
 
-
 def active_search_files() -> list[Path]:
     files = []
 
@@ -65,18 +56,14 @@ def active_search_files() -> list[Path]:
 
         relative = path.relative_to(ROOT)
 
-        if any(
-            part in EXCLUDED_PARTS
-            for part in relative.parts
-        ):
+        if any(part in EXCLUDED_PARTS for part in relative.parts):
             continue
 
         if (
             len(relative.parts) == 1
             and path.suffix == ".sh"
             and any(
-                path.name.startswith(prefix)
-                for prefix in EXCLUDED_ROOT_SCRIPT_PREFIXES
+                path.name.startswith(prefix) for prefix in EXCLUDED_ROOT_SCRIPT_PREFIXES
             )
         ):
             continue
@@ -95,10 +82,7 @@ def load_targets() -> dict[str, str]:
         newline="",
     ) as handle:
         for row in csv.DictReader(handle):
-            if (
-                row["classification"]
-                == "REVIEW_TEXT_REFERENCED_MODULE"
-            ):
+            if row["classification"] == "REVIEW_TEXT_REFERENCED_MODULE":
                 targets[row["module"]] = row["path"]
 
     return targets
@@ -106,10 +90,7 @@ def load_targets() -> dict[str, str]:
 
 def main() -> None:
     targets = load_targets()
-    references = {
-        module: []
-        for module in targets
-    }
+    references = {module: [] for module in targets}
 
     for path in active_search_files():
         try:
@@ -167,10 +148,7 @@ def main() -> None:
         writer.writerows(rows)
 
     no_reference = sum(
-        1
-        for row in rows
-        if row["classification"]
-        == "NO_ACTIVE_REFERENCE"
+        1 for row in rows if row["classification"] == "NO_ACTIVE_REFERENCE"
     )
 
     print(f"Modules mapped: {len(rows)}")

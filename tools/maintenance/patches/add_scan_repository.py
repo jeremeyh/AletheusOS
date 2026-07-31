@@ -139,7 +139,7 @@ def scan_repository(
 '''
 
 
-OLD_MAIN_SCAN_BLOCK = '''    root = find_repo_root(args.root)
+OLD_MAIN_SCAN_BLOCK = """    root = find_repo_root(args.root)
     python_files = sorted(iter_python_files(root))
 
     candidates: list[Candidate] = []
@@ -196,10 +196,10 @@ OLD_MAIN_SCAN_BLOCK = '''    root = find_repo_root(args.root)
         shared_state_candidates=len(shared_candidates),
         manual_review_candidates=len(manual_candidates),
     )
-'''
+"""
 
 
-NEW_MAIN_SCAN_BLOCK = '''    root = find_repo_root(args.root)
+NEW_MAIN_SCAN_BLOCK = """    root = find_repo_root(args.root)
     python_files = sorted(iter_python_files(root))
 
     print("=" * 72)
@@ -223,14 +223,14 @@ NEW_MAIN_SCAN_BLOCK = '''    root = find_repo_root(args.root)
     shared_candidates = result.shared_candidates
     manual_candidates = result.manual_candidates
     parsed_count = summary.files_parsed
-'''
+"""
 
 
 def insert_after_scan_summary(source: str) -> str:
     if SCAN_RESULT_MARKER.strip() in source:
         return source
 
-    anchor = '''class ScanSummary:
+    anchor = """class ScanSummary:
     repository: str
     files_discovered: int
     files_parsed: int
@@ -239,7 +239,7 @@ def insert_after_scan_summary(source: str) -> str:
     safe_classvar_candidates: int
     shared_state_candidates: int
     manual_review_candidates: int
-'''
+"""
 
     if anchor not in source:
         raise RuntimeError(
@@ -262,8 +262,7 @@ def insert_scan_repository(source: str) -> str:
 
     if anchor not in source:
         raise RuntimeError(
-            "Could not locate build_parser(). "
-            "The target file may have changed."
+            "Could not locate build_parser(). The target file may have changed."
         )
 
     return source.replace(
@@ -292,9 +291,7 @@ def replace_main_scan_logic(source: str) -> str:
 
 def main() -> int:
     if not TARGET.is_file():
-        raise FileNotFoundError(
-            f"Target file does not exist: {TARGET}"
-        )
+        raise FileNotFoundError(f"Target file does not exist: {TARGET}")
 
     original = TARGET.read_text(encoding="utf-8")
 

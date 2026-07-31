@@ -11,7 +11,6 @@ class CommandSurfaceAuditor:
     def __init__(self, runtime):
         self.runtime = runtime
 
-
     def audit(self):
         commands = getattr(
             self.runtime,
@@ -25,18 +24,15 @@ class CommandSurfaceAuditor:
                 "reason": "Command registry unavailable",
             }
 
-
         registry = getattr(
             commands,
             "commands",
             {},
         )
 
-
         results = []
 
         for name, handler in registry.items():
-
             valid = callable(handler)
 
             results.append(
@@ -51,13 +47,7 @@ class CommandSurfaceAuditor:
                 }
             )
 
-
-        failures = [
-            item
-            for item in results
-            if not item["valid"]
-        ]
-
+        failures = [item for item in results if not item["valid"]]
 
         return {
             "healthy": len(failures) == 0,

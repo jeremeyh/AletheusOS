@@ -100,9 +100,7 @@ class RuntimeHealthService:
 
         for attr, output_key, stat_key in self.STAT_FIELDS:
             if attr not in stats_cache:
-                stats_cache[attr] = self._stats(
-                    getattr(runtime, attr, None)
-                )
+                stats_cache[attr] = self._stats(getattr(runtime, attr, None))
 
             health[output_key] = stats_cache[attr].get(
                 stat_key,

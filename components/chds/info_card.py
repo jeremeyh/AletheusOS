@@ -13,9 +13,6 @@ def render_info_card(
     """
 
     with st.container(border=True):
-
-        st.subheader(
-            f"{icon} {title}"
-        )
+        st.subheader(f"{icon} {title}")
 
         st.write(body)

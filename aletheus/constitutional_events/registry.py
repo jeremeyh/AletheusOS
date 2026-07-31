@@ -42,13 +42,9 @@ class ConstitutionalEventRegistry:
         *,
         replace: bool = False,
     ) -> EventTypeDefinition:
-        if (
-            definition.event_type in self._definitions
-            and not replace
-        ):
+        if definition.event_type in self._definitions and not replace:
             raise DuplicateEventTypeError(
-                f"Event type {definition.event_type.value!r} "
-                "is already registered."
+                f"Event type {definition.event_type.value!r} is already registered."
             )
 
         self._definitions[definition.event_type] = definition
@@ -68,8 +64,7 @@ class ConstitutionalEventRegistry:
 
         if definition is None:
             raise KeyError(
-                f"Unregistered constitutional event type: "
-                f"{event_type.value}"
+                f"Unregistered constitutional event type: {event_type.value}"
             )
 
         return definition
@@ -89,10 +84,12 @@ class ConstitutionalEventRegistry:
                 definition.requires_certification
                 for definition in self._definitions.values()
             ),
-            "domains": sorted({
-                definition.constitutional_domain
-                for definition in self._definitions.values()
-            }),
+            "domains": sorted(
+                {
+                    definition.constitutional_domain
+                    for definition in self._definitions.values()
+                }
+            ),
         }
 
 

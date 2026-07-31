@@ -10,19 +10,6 @@ Track intelligence events
 
 
 class EventHistory:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.9"
-
-        }
-
+        return {"status": "ready", "genesis": "23.9"}

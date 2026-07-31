@@ -6,6 +6,4 @@ Post-Genesis 351-375
 
 from .engine import SingularityEngine
 
-__all__ = [
-"SingularityEngine"
-]
+__all__ = ["SingularityEngine"]

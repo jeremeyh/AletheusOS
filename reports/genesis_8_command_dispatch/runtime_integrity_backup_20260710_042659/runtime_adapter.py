@@ -10,10 +10,8 @@ Owns runtime inspection and operational commands.
 
 
 class RuntimeCommandAdapter:
-
     def __init__(self, runtime):
         self.runtime = runtime
-
 
     def selftest(self, context):
 
@@ -23,7 +21,6 @@ class RuntimeCommandAdapter:
         )
 
         return context
-
 
     def dashboard(self, context):
 
@@ -38,7 +35,6 @@ class RuntimeCommandAdapter:
 
         return context
 
-
     def snapshot(self, context):
 
         context.add_result(
@@ -47,7 +43,6 @@ class RuntimeCommandAdapter:
         )
 
         return context
-
 
     def audit(self, context):
 
@@ -62,7 +57,6 @@ class RuntimeCommandAdapter:
 
         return context
 
-
     def docs(self, context):
 
         context.add_result(
@@ -71,7 +65,6 @@ class RuntimeCommandAdapter:
         )
 
         return context
-
 
     def doctor(self, context):
 
@@ -82,7 +75,6 @@ class RuntimeCommandAdapter:
 
         return context
 
-
     def invariants(self, context):
 
         context.add_result(
@@ -92,7 +84,6 @@ class RuntimeCommandAdapter:
 
         return context
 
-
     def boot_validate(self, context):
 
         context.add_result(
@@ -101,7 +92,6 @@ class RuntimeCommandAdapter:
         )
 
         return context
-
 
     def health_report(self, context):
 

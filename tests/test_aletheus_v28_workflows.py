@@ -69,7 +69,6 @@ def test_statistics():
 
 
 if __name__ == "__main__":
-
     test_workflow_service_registered()
     test_workflow_bootstrap()
     test_create_start_pause_resume_cancel()

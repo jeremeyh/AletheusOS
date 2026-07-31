@@ -4,7 +4,6 @@ Autonomous Strategic Planning Engine
 Genesis 13.50
 """
 
-
 from .execution import ExecutionTracker
 from .goals import GoalAnalyzer
 from .missions import MissionGenerator
@@ -13,8 +12,6 @@ from .strategies import StrategyGenerator
 
 
 class StrategicPlanningEngine:
-
-
     def __init__(self):
 
         self.goals = GoalAnalyzer()
@@ -27,28 +24,8 @@ class StrategicPlanningEngine:
 
         self.execution = ExecutionTracker()
 
+    def plan(self, goal):
 
+        strategies = self.strategies.generate(goal)
 
-    def plan(
-        self,
-        goal
-    ):
-
-
-        strategies = (
-
-            self.strategies.generate(
-                goal
-            )
-
-        )
-
-
-        return {
-
-            "strategies":
-
-                strategies
-
-        }
-
+        return {"strategies": strategies}

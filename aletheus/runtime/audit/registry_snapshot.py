@@ -21,13 +21,11 @@ def registry_snapshot(runtime):
             "reason": "Runtime registry unavailable",
         }
 
-
     data = {}
 
     for key, value in vars(registry).items():
         if not key.startswith("_"):
             data[key] = value
-
 
     return {
         "available": True,

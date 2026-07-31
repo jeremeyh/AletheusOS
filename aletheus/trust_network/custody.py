@@ -6,19 +6,6 @@ Genesis 13.56
 
 
 class CustodyEngine:
+    def track(self, asset):
 
-
-    def track(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "history":
-
-                []
-
-        }
-
+        return {"history": []}

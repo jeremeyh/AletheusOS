@@ -19,7 +19,7 @@ if "self.mission_v2 = mission_v2_core" not in text:
 
 if 'self.commands.register("mission.v2.create"' not in text:
     anchor = '        self.commands.register("kernel.stats", self._cmd_kernel_stats)\n'
-    insert = '''        self.commands.register("mission.v2.create", self._cmd_mission_v2_create)
+    insert = """        self.commands.register("mission.v2.create", self._cmd_mission_v2_create)
         self.commands.register("mission.v2.plan", self._cmd_mission_v2_plan)
         self.commands.register("mission.v2.execute_next", self._cmd_mission_v2_execute_next)
         self.commands.register("mission.v2.execute", self._cmd_mission_v2_execute)
@@ -29,20 +29,20 @@ if 'self.commands.register("mission.v2.create"' not in text:
         self.commands.register("mission.v2.list", self._cmd_mission_v2_list)
         self.commands.register("mission.v2.telemetry", self._cmd_mission_v2_telemetry)
         self.commands.register("mission.v2.stats", self._cmd_mission_v2_stats)
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find kernel.stats command anchor.")
     text = text.replace(anchor, anchor + insert)
 
 if '"Aletheus v2 Autonomous Mission Engine"' not in text:
-    anchor = '''        self.services.register(
+    anchor = """        self.services.register(
             "Aletheus v2 Autonomous Kernel",
             {"status": "online", "version": self.kernel_v2.version},
         )
 
         self.scheduler.register(
-'''
-    replacement = '''        self.services.register(
+"""
+    replacement = """        self.services.register(
             "Aletheus v2 Autonomous Kernel",
             {"status": "online", "version": self.kernel_v2.version},
         )
@@ -52,43 +52,43 @@ if '"Aletheus v2 Autonomous Mission Engine"' not in text:
         )
 
         self.scheduler.register(
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find kernel service registration anchor.")
     text = text.replace(anchor, replacement)
 
 if '"v2_missions": self.mission_v2.stats()["missions"]' not in text:
     text = text.replace(
-        '''                "kernel_events": self.kernel_v2.stats()["events"],
+        """                "kernel_events": self.kernel_v2.stats()["events"],
                 "kernel_registry_items": self.kernel_v2.stats()["registry_items"],
             },
         )
         return context
-''',
-        '''                "kernel_events": self.kernel_v2.stats()["events"],
+""",
+        """                "kernel_events": self.kernel_v2.stats()["events"],
                 "kernel_registry_items": self.kernel_v2.stats()["registry_items"],
                 "v2_missions": self.mission_v2.stats()["missions"],
                 "v2_mission_events": self.mission_v2.stats()["telemetry_events"],
             },
         )
         return context
-''',
+""",
     )
 
 if 'context.add_result("mission_v2", self.mission_v2.stats())' not in text:
     text = text.replace(
-        '''        context.add_result("kernel_v2", self.kernel_v2.stats())
+        """        context.add_result("kernel_v2", self.kernel_v2.stats())
         return context
-''',
-        '''        context.add_result("kernel_v2", self.kernel_v2.stats())
+""",
+        """        context.add_result("kernel_v2", self.kernel_v2.stats())
         context.add_result("mission_v2", self.mission_v2.stats())
         return context
-''',
+""",
     )
 
 if "def _cmd_mission_v2_create" not in text:
     anchor = "    def _job_runtime_pulse(self) -> dict:\n"
-    methods = '''
+    methods = """
     def _cmd_mission_v2_create(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
         mission = self.mission_v2.create_mission(
@@ -175,7 +175,7 @@ if "def _cmd_mission_v2_create" not in text:
         context.add_result("mission_v2_stats", self.mission_v2.stats())
         return context
 
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find _job_runtime_pulse anchor.")
     text = text.replace(anchor, methods + anchor)

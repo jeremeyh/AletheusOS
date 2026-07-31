@@ -19,7 +19,6 @@ class PlatformState(str, Enum):
 
 
 class PlatformStateEngine:
-
     VALID_STATES = {state.value for state in PlatformState}
 
     def __init__(self):
@@ -68,10 +67,7 @@ class PlatformStateEngine:
 
         return {
             "current": self.current,
-            "history": [
-                item.to_dict()
-                for item in self.history
-            ],
+            "history": [item.to_dict() for item in self.history],
         }
 
 

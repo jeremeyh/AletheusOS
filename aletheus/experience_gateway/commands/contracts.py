@@ -35,9 +35,7 @@ CommandReversalHandler = Callable[
 @dataclass(frozen=True, slots=True)
 class CommandRequest:
     command_id: str
-    arguments: dict[str, Any] = field(
-        default_factory=dict
-    )
+    arguments: dict[str, Any] = field(default_factory=dict)
     requested_by: str = "local-user"
     idempotency_key: str | None = None
 
@@ -58,23 +56,13 @@ class CommandDefinition:
 
     def __post_init__(self) -> None:
         if not self.id.strip():
-            raise ValueError(
-                "Command id cannot be empty."
-            )
+            raise ValueError("Command id cannot be empty.")
 
         if not self.name.strip():
-            raise ValueError(
-                "Command name cannot be empty."
-            )
+            raise ValueError("Command name cannot be empty.")
 
-        if (
-            self.reversible
-            and self.reversal_handler is None
-        ):
-            raise ValueError(
-                "Reversible commands require a "
-                "reversal handler."
-            )
+        if self.reversible and self.reversal_handler is None:
+            raise ValueError("Reversible commands require a reversal handler.")
 
 
 @dataclass(frozen=True, slots=True)
@@ -136,18 +124,10 @@ class CommandRegistry:
         replace: bool = False,
     ) -> None:
         with self._lock:
-            if (
-                definition.id in self._definitions
-                and not replace
-            ):
-                raise ValueError(
-                    "Command already registered: "
-                    f"{definition.id}"
-                )
+            if definition.id in self._definitions and not replace:
+                raise ValueError(f"Command already registered: {definition.id}")
 
-            self._definitions[
-                definition.id
-            ] = definition
+            self._definitions[definition.id] = definition
 
     def get(
         self,
@@ -155,19 +135,12 @@ class CommandRegistry:
     ) -> CommandDefinition:
         with self._lock:
             try:
-                return self._definitions[
-                    command_id
-                ]
+                return self._definitions[command_id]
             except KeyError as error:
-                raise KeyError(
-                    "Unknown command: "
-                    f"{command_id}"
-                ) from error
+                raise KeyError(f"Unknown command: {command_id}") from error
 
     def list_definitions(
         self,
     ) -> tuple[CommandDefinition, ...]:
         with self._lock:
-            return tuple(
-                self._definitions.values()
-            )
+            return tuple(self._definitions.values())

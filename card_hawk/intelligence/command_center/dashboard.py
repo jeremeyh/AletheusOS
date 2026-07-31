@@ -10,19 +10,6 @@ Provide intelligence operations visibility
 
 
 class CommandDashboard:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.3"
-
-        }
-
+        return {"status": "ready", "genesis": "23.3"}

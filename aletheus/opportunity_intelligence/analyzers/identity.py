@@ -6,20 +6,6 @@ Genesis 13.26
 
 
 class IdentityAnalyzer:
+    def evaluate(self, asset):
 
-
-    def evaluate(
-        self,
-        asset
-    ):
-
-        return {
-
-            "confidence":
-                asset.get(
-                    "identity_confidence",
-                    0
-                )
-
-        }
-
+        return {"confidence": asset.get("identity_confidence", 0)}

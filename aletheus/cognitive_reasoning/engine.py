@@ -4,7 +4,6 @@ Unified Cognitive Reasoning Engine
 Genesis 13.52
 """
 
-
 from .context import ContextEngine
 from .explanation import ExplanationEngine
 from .intent import IntentEngine
@@ -13,8 +12,6 @@ from .synthesis import SynthesisEngine
 
 
 class CognitiveReasoningEngine:
-
-
     def __init__(self):
 
         self.intent = IntentEngine()
@@ -27,24 +24,8 @@ class CognitiveReasoningEngine:
 
         self.explanation = ExplanationEngine()
 
+    def process(self, request):
 
+        intent = self.intent.analyze(request)
 
-    def process(
-        self,
-        request
-    ):
-
-
-        intent = self.intent.analyze(
-            request
-        )
-
-
-        return {
-
-            "intent":
-
-                intent
-
-        }
-
+        return {"intent": intent}

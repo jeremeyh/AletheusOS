@@ -24,28 +24,14 @@ ROOT = find_repo_root(Path(__file__).parent)
 
 
 CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "credential-rotation-contract.json"
+    ROOT / "nimble/governance/environments/credential-rotation-contract.json"
 )
 
-METADATA_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "credential-metadata.json"
-)
+METADATA_PATH = ROOT / "nimble/governance/environments/credential-metadata.json"
 
-REVOCATION_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "credential-revocations.json"
-)
+REVOCATION_PATH = ROOT / "nimble/governance/environments/credential-revocations.json"
 
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "credential-rotation-contract-latest.json"
-)
+REPORT_PATH = ROOT / "reports/nimble/credential-rotation-contract-latest.json"
 
 
 def main() -> int:
@@ -58,18 +44,13 @@ def main() -> int:
     ]:
         if not path.is_file():
             failures.append(
-                f"Missing credential governance file: "
-                f"{path.relative_to(ROOT)}"
+                f"Missing credential governance file: {path.relative_to(ROOT)}"
             )
 
     if failures:
         status = "FAIL"
     else:
-        contract = json.loads(
-            CONTRACT_PATH.read_text(
-                encoding="utf-8"
-            )
-        )
+        contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
 
         policy = contract.get("policy", {})
 
@@ -88,52 +69,27 @@ def main() -> int:
 
         for name in required_true:
             if policy.get(name) is not True:
-                failures.append(
-                    f"Rotation policy must be true: {name}"
-                )
+                failures.append(f"Rotation policy must be true: {name}")
 
         thresholds = contract.get(
             "thresholds",
             {},
         )
 
-        max_age = thresholds.get(
-            "default_max_age_days"
-        )
+        max_age = thresholds.get("default_max_age_days")
 
-        warning = thresholds.get(
-            "warning_before_expiry_days"
-        )
+        warning = thresholds.get("warning_before_expiry_days")
 
-        critical = thresholds.get(
-            "critical_before_expiry_days"
-        )
+        critical = thresholds.get("critical_before_expiry_days")
 
-        if (
-            not isinstance(max_age, int)
-            or max_age <= 0
-        ):
-            failures.append(
-                "default_max_age_days must be positive."
-            )
+        if not isinstance(max_age, int) or max_age <= 0:
+            failures.append("default_max_age_days must be positive.")
 
-        if (
-            not isinstance(warning, int)
-            or warning <= 0
-        ):
-            failures.append(
-                "warning_before_expiry_days "
-                "must be positive."
-            )
+        if not isinstance(warning, int) or warning <= 0:
+            failures.append("warning_before_expiry_days must be positive.")
 
-        if (
-            not isinstance(critical, int)
-            or critical <= 0
-        ):
-            failures.append(
-                "critical_before_expiry_days "
-                "must be positive."
-            )
+        if not isinstance(critical, int) or critical <= 0:
+            failures.append("critical_before_expiry_days must be positive.")
 
         if (
             isinstance(warning, int)
@@ -141,15 +97,10 @@ def main() -> int:
             and critical >= warning
         ):
             failures.append(
-                "Critical expiry threshold must be "
-                "less than warning threshold."
+                "Critical expiry threshold must be less than warning threshold."
             )
 
-        status = (
-            "PASS"
-            if not failures
-            else "FAIL"
-        )
+        status = "PASS" if not failures else "FAIL"
 
     REPORT_PATH.parent.mkdir(
         parents=True,
@@ -160,9 +111,7 @@ def main() -> int:
         json.dumps(
             {
                 "schema_version": "1.0",
-                "generated_at": datetime.now(
-                    UTC
-                ).isoformat(),
+                "generated_at": datetime.now(UTC).isoformat(),
                 "status": status,
                 "failures": failures,
             },

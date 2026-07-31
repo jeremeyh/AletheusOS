@@ -1,8 +1,3 @@
 from .engine import PortfolioEngine
 
-__all__=[
-
-"PortfolioEngine"
-
-]
-
+__all__ = ["PortfolioEngine"]

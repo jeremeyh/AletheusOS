@@ -1,8 +1,3 @@
 from .engine import RealityInterfaceEngine
 
-__all__=[
-
-"RealityInterfaceEngine"
-
-]
-
+__all__ = ["RealityInterfaceEngine"]

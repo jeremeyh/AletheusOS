@@ -7,19 +7,13 @@ class ConstitutionalEventBusError(Exception):
     """Base exception for event bus failures."""
 
 
-class DuplicateSubscriptionError(
-    ConstitutionalEventBusError
-):
+class DuplicateSubscriptionError(ConstitutionalEventBusError):
     """Raised when an identical subscription already exists."""
 
 
-class SubscriptionNotFoundError(
-    ConstitutionalEventBusError
-):
+class SubscriptionNotFoundError(ConstitutionalEventBusError):
     """Raised when a requested subscription does not exist."""
 
 
-class EventPublicationError(
-    ConstitutionalEventBusError
-):
+class EventPublicationError(ConstitutionalEventBusError):
     """Raised when publication fails under strict dispatch policy."""

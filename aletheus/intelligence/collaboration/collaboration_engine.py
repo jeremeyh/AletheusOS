@@ -7,14 +7,11 @@ Coordinates multiple intelligence
 capabilities into shared workflows.
 """
 
-
 import time
 import uuid
 
 
 class IntelligenceCollaborationFramework:
-
-
     def __init__(self):
 
         self.agents = {}
@@ -23,114 +20,49 @@ class IntelligenceCollaborationFramework:
 
         self.messages = []
 
-
-
-    def register_capability(
-        self,
-        name,
-        capability_type
-    ):
+    def register_capability(self, name, capability_type):
 
         capability = {
-
-            "id":
-                str(uuid.uuid4()),
-
-            "name":
-                name,
-
-            "type":
-                capability_type,
-
-            "available":
-                True
-
+            "id": str(uuid.uuid4()),
+            "name": name,
+            "type": capability_type,
+            "available": True,
         }
-
 
         self.agents[name] = capability
 
-
         return capability
 
-
-
-    def create_session(
-        self,
-        objective
-    ):
+    def create_session(self, objective):
 
         session = {
-
-            "session_id":
-                str(uuid.uuid4()),
-
-            "objective":
-                objective,
-
-            "participants":
-                [],
-
-            "created":
-                time.time()
-
+            "session_id": str(uuid.uuid4()),
+            "objective": objective,
+            "participants": [],
+            "created": time.time(),
         }
 
-
-        self.sessions.append(
-            session
-        )
-
+        self.sessions.append(session)
 
         return session
 
-
-
-    def collaborate(
-        self,
-        session,
-        capability,
-        context
-    ):
+    def collaborate(self, session, capability, context):
 
         message = {
-
-            "session":
-                session,
-
-            "capability":
-                capability,
-
-            "context":
-                context,
-
-            "shared":
-                True
-
+            "session": session,
+            "capability": capability,
+            "context": context,
+            "shared": True,
         }
 
-
-        self.messages.append(
-            message
-        )
-
+        self.messages.append(message)
 
         return message
-
-
 
     def snapshot(self):
 
         return {
-
-            "capabilities":
-                len(self.agents),
-
-            "sessions":
-                len(self.sessions),
-
-            "messages":
-                len(self.messages)
-
+            "capabilities": len(self.agents),
+            "sessions": len(self.sessions),
+            "messages": len(self.messages),
         }
-

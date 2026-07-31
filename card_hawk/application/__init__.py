@@ -6,6 +6,4 @@ Genesis 54
 
 from .engine import ApplicationShellEngine
 
-__all__ = [
-    "ApplicationShellEngine"
-]
+__all__ = ["ApplicationShellEngine"]

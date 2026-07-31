@@ -8,7 +8,6 @@ from .sessions import session_manager
 
 
 class IdentityHealth:
-
     GENESIS = "21.7"
     VERSION = "1.0.0"
 

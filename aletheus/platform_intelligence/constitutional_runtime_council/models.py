@@ -73,22 +73,16 @@ class ConstitutionalCouncilMember:
     authority: str
     voting_weight: int = 1
     active: bool = True
-    metadata: Mapping[str, Any] = field(
-        default_factory=dict
-    )
+    metadata: Mapping[str, Any] = field(default_factory=dict)
 
     def __post_init__(self) -> None:
         resolved = self.member_id.strip().lower()
 
         if not resolved:
-            raise ValueError(
-                "member_id cannot be empty."
-            )
+            raise ValueError("member_id cannot be empty.")
 
         if self.voting_weight < 1:
-            raise ValueError(
-                "voting_weight must be positive."
-            )
+            raise ValueError("voting_weight must be positive.")
 
         object.__setattr__(
             self,
@@ -98,9 +92,7 @@ class ConstitutionalCouncilMember:
         object.__setattr__(
             self,
             "metadata",
-            MappingProxyType(
-                dict(self.metadata)
-            ),
+            MappingProxyType(dict(self.metadata)),
         )
 
     def to_dict(self) -> dict[str, Any]:
@@ -149,9 +141,7 @@ class CouncilVote:
     def to_dict(self) -> dict[str, Any]:
         return {
             "vote_id": str(self.vote_id),
-            "proposal_id": str(
-                self.proposal_id
-            ),
+            "proposal_id": str(self.proposal_id),
             "member_id": self.member_id,
             "choice": self.choice.value,
             "weight": self.weight,
@@ -190,14 +180,10 @@ class CouncilProposal:
         resolved_proposer = proposer.strip().lower()
 
         if not resolved_title:
-            raise ValueError(
-                "Proposal title cannot be empty."
-            )
+            raise ValueError("Proposal title cannot be empty.")
 
         if not resolved_proposer:
-            raise ValueError(
-                "Proposal proposer cannot be empty."
-            )
+            raise ValueError("Proposal proposer cannot be empty.")
 
         return cls(
             proposal_id=uuid4(),
@@ -208,9 +194,7 @@ class CouncilProposal:
             strategy=strategy,
             proposer=resolved_proposer,
             state=CouncilProposalState.OPEN,
-            payload=MappingProxyType(
-                dict(payload or {})
-            ),
+            payload=MappingProxyType(dict(payload or {})),
             votes=(),
         )
 
@@ -219,14 +203,10 @@ class CouncilProposal:
         vote: CouncilVote,
     ) -> CouncilProposal:
         if self.state is not CouncilProposalState.OPEN:
-            raise ValueError(
-                "Votes may only be cast on open proposals."
-            )
+            raise ValueError("Votes may only be cast on open proposals.")
 
         retained = tuple(
-            existing
-            for existing in self.votes
-            if existing.member_id != vote.member_id
+            existing for existing in self.votes if existing.member_id != vote.member_id
         )
 
         return replace(
@@ -242,12 +222,8 @@ class CouncilProposal:
 
     def to_dict(self) -> dict[str, Any]:
         return {
-            "proposal_id": str(
-                self.proposal_id
-            ),
-            "created_at": (
-                self.created_at.isoformat()
-            ),
+            "proposal_id": str(self.proposal_id),
+            "created_at": (self.created_at.isoformat()),
             "title": self.title,
             "description": self.description,
             "kind": self.kind.value,
@@ -255,10 +231,7 @@ class CouncilProposal:
             "proposer": self.proposer,
             "state": self.state.value,
             "payload": dict(self.payload),
-            "votes": [
-                vote.to_dict()
-                for vote in self.votes
-            ],
+            "votes": [vote.to_dict() for vote in self.votes],
         }
 
 
@@ -305,23 +278,15 @@ class CouncilDecision:
             reject_weight=reject_weight,
             abstain_weight=abstain_weight,
             eligible_weight=eligible_weight,
-            participating_weight=(
-                participating_weight
-            ),
+            participating_weight=(participating_weight),
             quorum_met=quorum_met,
         )
 
     def to_dict(self) -> dict[str, Any]:
         return {
-            "decision_id": str(
-                self.decision_id
-            ),
-            "proposal_id": str(
-                self.proposal_id
-            ),
-            "decided_at": (
-                self.decided_at.isoformat()
-            ),
+            "decision_id": str(self.decision_id),
+            "proposal_id": str(self.proposal_id),
+            "decided_at": (self.decided_at.isoformat()),
             "outcome": self.outcome.value,
             "approved": self.approved,
             "rationale": self.rationale,
@@ -329,9 +294,7 @@ class CouncilDecision:
             "reject_weight": self.reject_weight,
             "abstain_weight": self.abstain_weight,
             "eligible_weight": self.eligible_weight,
-            "participating_weight": (
-                self.participating_weight
-            ),
+            "participating_weight": (self.participating_weight),
             "quorum_met": self.quorum_met,
         }
 
@@ -352,19 +315,11 @@ class CouncilStatistics:
     def to_dict(self) -> dict[str, int]:
         return {
             "members": self.members,
-            "active_members": (
-                self.active_members
-            ),
+            "active_members": (self.active_members),
             "proposals": self.proposals,
-            "open_proposals": (
-                self.open_proposals
-            ),
-            "approved_proposals": (
-                self.approved_proposals
-            ),
-            "rejected_proposals": (
-                self.rejected_proposals
-            ),
+            "open_proposals": (self.open_proposals),
+            "approved_proposals": (self.approved_proposals),
+            "rejected_proposals": (self.rejected_proposals),
             "decisions": self.decisions,
             "votes": self.votes,
         }

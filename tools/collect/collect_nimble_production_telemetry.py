@@ -19,9 +19,7 @@ def find_repo_root(start: Path) -> Path:
             return current
 
         if current.parent == current:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         current = current.parent
 
@@ -33,14 +31,7 @@ LATEST_MARKDOWN = REPORT_DIRECTORY / "production-gate-latest.md"
 HISTORY_JSONL = REPORT_DIRECTORY / "production-gate-history.jsonl"
 LOG_FILE = REPORT_DIRECTORY / "production-gate-latest.log"
 
-ASSET_DIRECTORY = (
-    ROOT
-    / "nimble"
-    / "apps"
-    / "platform-shell"
-    / "dist"
-    / "assets"
-)
+ASSET_DIRECTORY = ROOT / "nimble" / "apps" / "platform-shell" / "dist" / "assets"
 
 PRIMARY_BUNDLE_LIMIT_BYTES = 500_000
 
@@ -64,10 +55,7 @@ def run(
         return subprocess.CompletedProcess(
             args=command,
             returncode=127,
-            stdout=(
-                f"Command unavailable: {command[0]} "
-                f"({error})"
-            ),
+            stdout=(f"Command unavailable: {command[0]} ({error})"),
             stderr=None,
         )
 
@@ -137,14 +125,14 @@ def collect_runtime_metadata() -> dict[str, str]:
         'export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"; '
         '[ -s "$NVM_DIR/nvm.sh" ] '
         '&& . "$NVM_DIR/nvm.sh"; '
-        'node --version'
+        "node --version"
     )
 
     npm_command = (
         'export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"; '
         '[ -s "$NVM_DIR/nvm.sh" ] '
         '&& . "$NVM_DIR/nvm.sh"; '
-        'npm --version'
+        "npm --version"
     )
 
     return {
@@ -170,23 +158,15 @@ def collect_bundle_metadata() -> dict[str, Any]:
             chunks.append(
                 {
                     "name": path.name,
-                    "path": str(
-                        path.relative_to(ROOT)
-                    ),
+                    "path": str(path.relative_to(ROOT)),
                     "bytes": path.stat().st_size,
                     "kind": (
-                        "primary"
-                        if path.name.startswith("index-")
-                        else "secondary"
+                        "primary" if path.name.startswith("index-") else "secondary"
                     ),
                 }
             )
 
-    primary_candidates = [
-        chunk
-        for chunk in chunks
-        if chunk["kind"] == "primary"
-    ]
+    primary_candidates = [chunk for chunk in chunks if chunk["kind"] == "primary"]
 
     primary = (
         max(
@@ -198,20 +178,13 @@ def collect_bundle_metadata() -> dict[str, Any]:
     )
 
     return {
-        "primary_limit_bytes":
-            PRIMARY_BUNDLE_LIMIT_BYTES,
+        "primary_limit_bytes": PRIMARY_BUNDLE_LIMIT_BYTES,
         "primary": primary,
         "primary_within_budget": (
-            primary is not None
-            and primary["bytes"]
-            <= PRIMARY_BUNDLE_LIMIT_BYTES
+            primary is not None and primary["bytes"] <= PRIMARY_BUNDLE_LIMIT_BYTES
         ),
         "secondary_chunk_count": len(
-            [
-                chunk
-                for chunk in chunks
-                if chunk["kind"] == "secondary"
-            ]
+            [chunk for chunk in chunks if chunk["kind"] == "secondary"]
         ),
         "chunks": chunks,
     }
@@ -257,27 +230,16 @@ def write_markdown(
             [
                 f"- Primary: `{primary['name']}`",
                 f"- Primary bytes: `{primary['bytes']:,}`",
-                (
-                    "- Primary budget: "
-                    f"`{bundle['primary_limit_bytes']:,}`"
-                ),
-                (
-                    "- Within budget: "
-                    f"**{bundle['primary_within_budget']}**"
-                ),
+                (f"- Primary budget: `{bundle['primary_limit_bytes']:,}`"),
+                (f"- Within budget: **{bundle['primary_within_budget']}**"),
             ]
         )
     else:
-        lines.append(
-            "- Primary bundle: **not found**"
-        )
+        lines.append("- Primary bundle: **not found**")
 
     lines.extend(
         [
-            (
-                "- Secondary chunks: "
-                f"`{bundle['secondary_chunk_count']}`"
-            ),
+            (f"- Secondary chunks: `{bundle['secondary_chunk_count']}`"),
             "",
             "### JavaScript chunks",
             "",
@@ -287,11 +249,7 @@ def write_markdown(
     )
 
     for chunk in bundle["chunks"]:
-        lines.append(
-            f"| `{chunk['name']}` "
-            f"| {chunk['kind']} "
-            f"| {chunk['bytes']:,} |"
-        )
+        lines.append(f"| `{chunk['name']}` | {chunk['kind']} | {chunk['bytes']:,} |")
 
     lines.extend(
         [
@@ -337,11 +295,7 @@ def main() -> int:
         "schema_version": "1.0",
         "generated_at": started_at.isoformat(),
         "gate": {
-            "status": (
-                "PASS"
-                if completed.returncode == 0
-                else "FAIL"
-            ),
+            "status": ("PASS" if completed.returncode == 0 else "FAIL"),
             "exit_code": completed.returncode,
             "duration_seconds": round(
                 duration,
@@ -354,12 +308,8 @@ def main() -> int:
         "bundle": collect_bundle_metadata(),
         "environment": {
             "ci": os.environ.get("CI"),
-            "github_actions": os.environ.get(
-                "GITHUB_ACTIONS"
-            ),
-            "github_run_id": os.environ.get(
-                "GITHUB_RUN_ID"
-            ),
+            "github_actions": os.environ.get("GITHUB_ACTIONS"),
+            "github_run_id": os.environ.get("GITHUB_RUN_ID"),
         },
     }
 
@@ -381,10 +331,7 @@ def main() -> int:
         history_record = {
             **report,
             "gate": {
-                key: value
-                for key, value
-                in report["gate"].items()
-                if key != "output"
+                key: value for key, value in report["gate"].items() if key != "output"
             },
         }
 

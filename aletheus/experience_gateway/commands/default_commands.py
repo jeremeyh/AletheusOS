@@ -18,10 +18,7 @@ def _describe_runtime(
     arguments: dict[str, Any],
 ) -> dict[str, Any]:
     return {
-        "summary": (
-            "AletheusOS is available through "
-            "bounded experience providers."
-        ),
+        "summary": ("AletheusOS is available through bounded experience providers."),
         "scope": arguments.get(
             "scope",
             "platform",
@@ -34,19 +31,11 @@ def _describe_runtime(
 def _set_inspector_state(
     arguments: dict[str, Any],
 ) -> dict[str, Any]:
-    previous = bool(
-        _shell_preferences[
-            "inspectorOpen"
-        ]
-    )
+    previous = bool(_shell_preferences["inspectorOpen"])
 
-    next_value = bool(
-        arguments["open"]
-    )
+    next_value = bool(arguments["open"])
 
-    _shell_preferences[
-        "inspectorOpen"
-    ] = next_value
+    _shell_preferences["inspectorOpen"] = next_value
 
     return {
         "previous": previous,
@@ -58,17 +47,11 @@ def _set_inspector_state(
 def _reverse_inspector_state(
     context: dict[str, Any],
 ) -> dict[str, Any]:
-    execution_result = context[
-        "executionResult"
-    ]
+    execution_result = context["executionResult"]
 
-    previous = bool(
-        execution_result["previous"]
-    )
+    previous = bool(execution_result["previous"])
 
-    _shell_preferences[
-        "inspectorOpen"
-    ] = previous
+    _shell_preferences["inspectorOpen"] = previous
 
     return {
         "restored": previous,
@@ -90,18 +73,14 @@ def _refresh_provider_state(
     }
 
 
-def create_default_command_registry(
-) -> CommandRegistry:
+def create_default_command_registry() -> CommandRegistry:
     registry = CommandRegistry()
 
     registry.register(
         CommandDefinition(
             id="runtime.describe",
             name="Describe runtime state",
-            description=(
-                "Return a bounded explanation of "
-                "current runtime state."
-            ),
+            description=("Return a bounded explanation of current runtime state."),
             risk="read_only",
             handler=_describe_runtime,
             reversible=False,
@@ -111,9 +90,7 @@ def create_default_command_registry(
                 "Does not mutate runtime state",
             ),
             authorization_required=False,
-            required_entitlements=(
-                "runtime.read",
-            ),
+            required_entitlements=("runtime.read",),
         )
     )
 
@@ -121,25 +98,18 @@ def create_default_command_registry(
         CommandDefinition(
             id="experience.inspector.set",
             name="Set truth inspector state",
-            description=(
-                "Change the persisted Nimble truth "
-                "inspector preference."
-            ),
+            description=("Change the persisted Nimble truth inspector preference."),
             risk="low",
             handler=_set_inspector_state,
             reversible=True,
-            reversal_handler=(
-                _reverse_inspector_state
-            ),
+            reversal_handler=(_reverse_inspector_state),
             required_arguments=("open",),
             effects=(
                 "Changes one experience preference",
                 "Does not modify runtime services",
             ),
             authorization_required=True,
-            required_entitlements=(
-                "experience.preferences.write",
-            ),
+            required_entitlements=("experience.preferences.write",),
         )
     )
 
@@ -147,10 +117,7 @@ def create_default_command_registry(
         CommandDefinition(
             id="providers.refresh",
             name="Refresh provider state",
-            description=(
-                "Request a fresh bounded provider "
-                "observation."
-            ),
+            description=("Request a fresh bounded provider observation."),
             risk="read_only",
             handler=_refresh_provider_state,
             reversible=False,
@@ -160,9 +127,7 @@ def create_default_command_registry(
                 "Does not modify runtime state",
             ),
             authorization_required=False,
-            required_entitlements=(
-                "providers.refresh",
-            ),
+            required_entitlements=("providers.refresh",),
         )
     )
 

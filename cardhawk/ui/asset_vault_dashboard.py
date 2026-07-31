@@ -10,7 +10,6 @@ from cardhawk.services import AssetService
 
 
 class AssetVaultDashboard:
-
     def __init__(self):
 
         self.service = AssetService()
@@ -24,29 +23,16 @@ class AssetVaultDashboard:
         analytics = PortfolioAnalytics(assets)
 
         return {
-
             "title": "Asset Vault",
-
             "asset_count": len(assets),
-
             "portfolio": portfolio.summary(),
-
             "analytics": analytics.summary(),
-
             "actions": [
-
                 "Add Asset",
-
                 "Edit Asset",
-
                 "Delete Asset",
-
                 "Search",
-
                 "Import",
-
                 "Export",
-
             ],
-
         }

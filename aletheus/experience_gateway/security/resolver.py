@@ -22,23 +22,15 @@ class PrincipalResolver:
 
     def dependency(
         self,
-        authorization: str | None = Header(
-            default=None
-        ),
+        authorization: str | None = Header(default=None),
     ) -> Principal:
-        credential = _bearer_token(
-            authorization
-        )
+        credential = _bearer_token(authorization)
 
         try:
-            return self._authenticator.authenticate(
-                credential
-            )
+            return self._authenticator.authenticate(credential)
         except AuthenticationFailure as error:
             raise HTTPException(
-                status_code=(
-                    status.HTTP_401_UNAUTHORIZED
-                ),
+                status_code=(status.HTTP_401_UNAUTHORIZED),
                 detail=str(error),
                 headers={
                     "WWW-Authenticate": "Bearer",
@@ -46,13 +38,8 @@ class PrincipalResolver:
             ) from error
         except ValueError as error:
             raise HTTPException(
-                status_code=(
-                    status.HTTP_500_INTERNAL_SERVER_ERROR
-                ),
-                detail=(
-                    "Authentication configuration "
-                    f"is invalid: {error}"
-                ),
+                status_code=(status.HTTP_500_INTERNAL_SERVER_ERROR),
+                detail=(f"Authentication configuration is invalid: {error}"),
             ) from error
 
 
@@ -62,21 +49,12 @@ def _bearer_token(
     if authorization is None:
         return None
 
-    scheme, separator, credential = (
-        authorization.partition(" ")
-    )
+    scheme, separator, credential = authorization.partition(" ")
 
-    if (
-        not separator
-        or scheme.lower() != "bearer"
-        or not credential.strip()
-    ):
+    if not separator or scheme.lower() != "bearer" or not credential.strip():
         raise HTTPException(
             status_code=401,
-            detail=(
-                "Authorization must use the "
-                "Bearer scheme."
-            ),
+            detail=("Authorization must use the Bearer scheme."),
             headers={
                 "WWW-Authenticate": "Bearer",
             },

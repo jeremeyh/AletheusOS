@@ -6,6 +6,4 @@ Genesis 31
 
 from .engine import AutonomousAcquisitionEngine
 
-__all__ = [
-    "AutonomousAcquisitionEngine"
-]
+__all__ = ["AutonomousAcquisitionEngine"]

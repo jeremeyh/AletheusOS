@@ -1,5 +1,4 @@
 class RuntimeCommandRegistryReporter:
-
     def render(self, registry):
 
         health = registry.health()
@@ -31,9 +30,11 @@ class RuntimeCommandRegistryReporter:
         else:
             lines.append("  None")
 
-        lines.extend([
-            "",
-            "========================================================",
-        ])
+        lines.extend(
+            [
+                "",
+                "========================================================",
+            ]
+        )
 
         return "\n".join(lines)

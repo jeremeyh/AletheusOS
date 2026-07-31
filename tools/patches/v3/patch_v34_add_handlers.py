@@ -7,7 +7,7 @@ if "def _cmd_federation_bootstrap" in text:
     print("Federation handlers already exist.")
     raise SystemExit(0)
 
-handlers = '''
+handlers = """
 
     # ==========================================================
     # v3.4 Federated Knowledge Fabric
@@ -85,7 +85,7 @@ handlers = '''
 
         return context
 
-'''
+"""
 
 anchor = "    def _job_runtime_pulse(self) -> dict:"
 

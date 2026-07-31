@@ -9,8 +9,6 @@ from dataclasses import dataclass
 
 @dataclass
 class THORResult:
-
-
     qdef: int
 
     ddef: int
@@ -24,4 +22,3 @@ class THORResult:
     score: int = 0
 
     recommendation: str = ""
-

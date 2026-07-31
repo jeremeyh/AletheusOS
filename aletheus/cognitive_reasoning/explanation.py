@@ -6,19 +6,6 @@ Genesis 13.52
 
 
 class ExplanationEngine:
+    def explain(self, decision):
 
-
-    def explain(
-        self,
-        decision
-    ):
-
-
-        return {
-
-            "explanation":
-
-                decision
-
-        }
-
+        return {"explanation": decision}

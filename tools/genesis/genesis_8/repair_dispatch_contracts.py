@@ -9,11 +9,7 @@ DISPATCHER = ROOT / "aletheus/runtime/commands_v2/dispatcher.py"
 COMMAND_BUS = ROOT / "aletheus/runtime/commands/command_bus.py"
 
 stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-backup = (
-    ROOT
-    / "reports/genesis_8_command_dispatch"
-    / f"contract_repair_backup_{stamp}"
-)
+backup = ROOT / "reports/genesis_8_command_dispatch" / f"contract_repair_backup_{stamp}"
 backup.mkdir(parents=True, exist_ok=True)
 
 shutil.copy2(DISPATCHER, backup / "dispatcher.py")
@@ -365,16 +361,16 @@ DISPATCHER.write_text(
 registry_path = ROOT / "aletheus/runtime/commands_v2/registry.py"
 registry_text = registry_path.read_text(encoding="utf-8")
 
-old_registry_dispatch = '''\
+old_registry_dispatch = """\
     def dispatch(
         self,
         name: str,
         payload: dict[str, Any] | None = None,
     ) -> CommandResult:
         return self._dispatcher.dispatch(name, payload)
-'''
+"""
 
-new_registry_dispatch = '''\
+new_registry_dispatch = """\
     def dispatch(
         self,
         name: str,
@@ -387,12 +383,10 @@ new_registry_dispatch = '''\
             payload,
             application=application,
         )
-'''
+"""
 
 if old_registry_dispatch not in registry_text:
-    raise RuntimeError(
-        "Registry dispatch method did not match expected source."
-    )
+    raise RuntimeError("Registry dispatch method did not match expected source.")
 
 registry_path.write_text(
     registry_text.replace(
@@ -405,57 +399,53 @@ registry_path.write_text(
 
 bus_text = COMMAND_BUS.read_text(encoding="utf-8")
 
-old_context_creation = '''\
+old_context_creation = """\
         context = RuntimeContext(
             command=command,
             application=application,
         )
-'''
+"""
 
-new_context_creation = '''\
+new_context_creation = """\
         context = RuntimeContext(
             command=command,
             payload=normalized_payload,
             application=application,
         )
-'''
+"""
 
 if old_context_creation not in bus_text:
-    raise RuntimeError(
-        "CommandBus context creation did not match expected source."
-    )
+    raise RuntimeError("CommandBus context creation did not match expected source.")
 
 bus_text = bus_text.replace(
     old_context_creation,
     new_context_creation,
 )
 
-old_registry_call = '''\
+old_registry_call = """\
         result = self.registry.dispatch(
             command,
             normalized_payload,
         )
-'''
+"""
 
-new_registry_call = '''\
+new_registry_call = """\
         result = self.registry.dispatch(
             command,
             normalized_payload,
             application=application,
         )
-'''
+"""
 
 if old_registry_call not in bus_text:
-    raise RuntimeError(
-        "CommandBus registry call did not match expected source."
-    )
+    raise RuntimeError("CommandBus registry call did not match expected source.")
 
 bus_text = bus_text.replace(
     old_registry_call,
     new_registry_call,
 )
 
-old_completed_block = '''\
+old_completed_block = """\
         if status == "completed":
             context.add_result(
                 command,
@@ -463,9 +453,9 @@ old_completed_block = '''\
             )
 
         elif status == "missing":
-'''
+"""
 
-new_completed_block = '''\
+new_completed_block = """\
         if status == "completed":
             if isinstance(response, RuntimeContext):
                 if hasattr(response, "add_trace"):
@@ -492,7 +482,7 @@ new_completed_block = '''\
                 )
 
         elif status == "missing":
-'''
+"""
 
 if old_completed_block not in bus_text:
     raise RuntimeError(

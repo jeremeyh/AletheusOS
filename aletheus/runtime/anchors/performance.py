@@ -6,20 +6,12 @@ Genesis 8.28
 Measures return from architectural evolution.
 """
 
-
 import time
 import uuid
 
 
 class AnchorPerformanceOptimizationEngine:
-
-
-    def __init__(
-        self,
-        resources,
-        analytics,
-        intelligence
-    ):
+    def __init__(self, resources, analytics, intelligence):
 
         self.resources = resources
         self.analytics = analytics
@@ -27,115 +19,45 @@ class AnchorPerformanceOptimizationEngine:
 
         self.performance = []
 
+    def evaluate(self, anchor, evolution_cost=10):
 
+        score = self.intelligence.score_anchor(anchor)
 
-    def evaluate(
-        self,
-        anchor,
-        evolution_cost=10
-    ):
+        value = score["intelligence_score"]
 
-        score = (
-            self.intelligence
-            .score_anchor(anchor)
-        )
-
-
-        value = (
-            score["intelligence_score"]
-        )
-
-
-        efficiency = (
-            self.calculate_efficiency(
-                value,
-                evolution_cost
-            )
-        )
-
+        efficiency = self.calculate_efficiency(value, evolution_cost)
 
         result = {
-
-            "evaluation_id":
-                str(uuid.uuid4()),
-
-            "anchor":
-                anchor,
-
-            "architectural_value":
-                value,
-
-            "evolution_cost":
-                evolution_cost,
-
-            "efficiency_score":
-                efficiency,
-
-            "recommendation":
-                self.recommend(
-                    efficiency
-                ),
-
-            "timestamp":
-                time.time()
-
+            "evaluation_id": str(uuid.uuid4()),
+            "anchor": anchor,
+            "architectural_value": value,
+            "evolution_cost": evolution_cost,
+            "efficiency_score": efficiency,
+            "recommendation": self.recommend(efficiency),
+            "timestamp": time.time(),
         }
 
-
-        self.performance.append(
-            result
-        )
-
+        self.performance.append(result)
 
         return result
 
-
-
-    def calculate_efficiency(
-        self,
-        value,
-        cost
-    ):
+    def calculate_efficiency(self, value, cost):
 
         if cost <= 0:
-
             return 100
 
+        return min(int(value / cost), 100)
 
-        return min(
-
-            int(
-                value / cost
-            ),
-
-            100
-
-        )
-
-
-
-    def recommend(
-        self,
-        efficiency
-    ):
+    def recommend(self, efficiency):
 
         if efficiency >= 90:
-
             return "scale"
 
         if efficiency >= 60:
-
             return "continue"
 
         return "optimize"
 
-
-
     def snapshot(self):
 
-        return {
-
-            "performance_count":
-                len(self.performance)
-
-        }
+        return {"performance_count": len(self.performance)}

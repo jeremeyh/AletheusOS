@@ -8,18 +8,12 @@ conducts research planning,
 and integrates discoveries.
 """
 
-
 import time
 import uuid
 
 
 class AutonomousResearchIntelligence:
-
-
-    def __init__(
-        self,
-        capability_graph=None
-    ):
+    def __init__(self, capability_graph=None):
 
         self.capability_graph = capability_graph
 
@@ -27,96 +21,40 @@ class AutonomousResearchIntelligence:
 
         self.knowledge = []
 
-
-
-    def identify_gap(
-        self,
-        capability,
-        missing_information
-    ):
+    def identify_gap(self, capability, missing_information):
 
         gap = {
-
-            "gap_id":
-                str(uuid.uuid4()),
-
-            "capability":
-                capability,
-
-            "missing_information":
-                missing_information,
-
-            "identified":
-                True
-
+            "gap_id": str(uuid.uuid4()),
+            "capability": capability,
+            "missing_information": missing_information,
+            "identified": True,
         }
-
 
         self.research_tasks.append(gap)
 
-
         return gap
 
-
-
-    def research(
-        self,
-        topic
-    ):
+    def research(self, topic):
 
         result = {
-
-            "research_id":
-                str(uuid.uuid4()),
-
-            "topic":
-                topic,
-
-            "sources_evaluated":
-                True,
-
-            "validated":
-                True,
-
-            "timestamp":
-                time.time()
-
+            "research_id": str(uuid.uuid4()),
+            "topic": topic,
+            "sources_evaluated": True,
+            "validated": True,
+            "timestamp": time.time(),
         }
-
 
         self.knowledge.append(result)
 
-
         return result
 
+    def integrate(self, discovery):
 
-
-    def integrate(
-        self,
-        discovery
-    ):
-
-        return {
-
-            "discovery":
-                discovery,
-
-            "integrated":
-                True
-
-        }
-
-
+        return {"discovery": discovery, "integrated": True}
 
     def snapshot(self):
 
         return {
-
-            "research_tasks":
-                len(self.research_tasks),
-
-            "knowledge_records":
-                len(self.knowledge)
-
+            "research_tasks": len(self.research_tasks),
+            "knowledge_records": len(self.knowledge),
         }
-

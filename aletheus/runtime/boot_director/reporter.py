@@ -1,5 +1,4 @@
 class RuntimeBootDirectorReporter:
-
     def render(self, report):
         lines = [
             "========================================================",
@@ -13,13 +12,13 @@ class RuntimeBootDirectorReporter:
         ]
 
         for phase in report["phases"]:
-            lines.append(
-                f"  - [{phase['status'].upper()}] {phase['phase']}"
-            )
+            lines.append(f"  - [{phase['status'].upper()}] {phase['phase']}")
 
-        lines.extend([
-            "",
-            "========================================================",
-        ])
+        lines.extend(
+            [
+                "",
+                "========================================================",
+            ]
+        )
 
         return "\n".join(lines)

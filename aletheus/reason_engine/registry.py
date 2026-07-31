@@ -69,9 +69,7 @@ class ReasonRegistry:
     ) -> list[ReasonObject]:
 
         return [
-            reason
-            for reason in self._reasons.values()
-            if reason.identity == identity
+            reason for reason in self._reasons.values() if reason.identity == identity
         ]
 
     def by_intent(
@@ -79,22 +77,14 @@ class ReasonRegistry:
         intent: str,
     ) -> list[ReasonObject]:
 
-        return [
-            reason
-            for reason in self._reasons.values()
-            if reason.intent == intent
-        ]
+        return [reason for reason in self._reasons.values() if reason.intent == intent]
 
     def by_status(
         self,
         status: ReasonStatus,
     ) -> list[ReasonObject]:
 
-        return [
-            reason
-            for reason in self._reasons.values()
-            if reason.status == status
-        ]
+        return [reason for reason in self._reasons.values() if reason.status == status]
 
     def health(self) -> dict:
 
@@ -111,7 +101,6 @@ class ReasonRegistry:
         statuses: dict[str, int] = {}
 
         for reason in self._reasons.values():
-
             key = reason.status.value
 
             statuses.setdefault(key, 0)

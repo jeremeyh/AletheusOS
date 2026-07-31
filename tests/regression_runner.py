@@ -11,6 +11,7 @@ TESTS = [
     ("v4.1 Compatibility", "tests/test_aletheus_v41_compatibility.py"),
 ]
 
+
 def main():
     print("=" * 70)
     print("AletheusOS Regression Suite")
@@ -36,6 +37,7 @@ def main():
     print(f"Result: {passed}/{len(TESTS)} Passed")
     print("Runtime Healthy")
     print("=" * 70)
+
 
 if __name__ == "__main__":
     main()

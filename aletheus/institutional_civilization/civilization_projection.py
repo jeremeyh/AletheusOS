@@ -23,9 +23,7 @@ class CivilizationProjectionResult:
             "civilization_id": self.civilization_id,
             "graph_node_id": self.graph_node_id,
             "resolved_institutions": self.resolved_institutions,
-            "unresolved_institutions": list(
-                self.unresolved_institutions
-            ),
+            "unresolved_institutions": list(self.unresolved_institutions),
         }
 
 
@@ -62,9 +60,7 @@ class CivilizationProjector:
         self,
         record: CivilizationRecord,
     ) -> CivilizationProjectionResult:
-        existing = self.civilization_registry.get(
-            record.civilization_id
-        )
+        existing = self.civilization_registry.get(record.civilization_id)
 
         if existing is None:
             self.civilization_registry.register(record)
@@ -74,9 +70,7 @@ class CivilizationProjector:
                 "exists with a different definition."
             )
 
-        civilization_node_id = self._civilization_nodes.get(
-            record.civilization_id
-        )
+        civilization_node_id = self._civilization_nodes.get(record.civilization_id)
 
         if civilization_node_id is None:
             node = self.constitutional_graph.add_node(
@@ -85,25 +79,16 @@ class CivilizationProjector:
                 data=record.to_dict(),
             )
             civilization_node_id = node["node_id"]
-            self._civilization_nodes[
-                record.civilization_id
-            ] = civilization_node_id
+            self._civilization_nodes[record.civilization_id] = civilization_node_id
 
         unresolved = []
         resolved = 0
 
         for institution_id in record.institution_ids:
-            institution = self.institution_registry.get(
-                institution_id
-            )
-            institution_node_id = self._institution_nodes.get(
-                institution_id
-            )
+            institution = self.institution_registry.get(institution_id)
+            institution_node_id = self._institution_nodes.get(institution_id)
 
-            if (
-                institution is None
-                or institution_node_id is None
-            ):
+            if institution is None or institution_node_id is None:
                 unresolved.append(institution_id)
                 continue
 
@@ -129,7 +114,4 @@ class CivilizationProjector:
         self,
         records: tuple[CivilizationRecord, ...],
     ) -> tuple[CivilizationProjectionResult, ...]:
-        return tuple(
-            self.project(record)
-            for record in records
-        )
+        return tuple(self.project(record) for record in records)

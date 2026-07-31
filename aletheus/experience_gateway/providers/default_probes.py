@@ -16,21 +16,14 @@ def repository_probe(
         repository_root / "tests",
     )
 
-    missing = tuple(
-        str(path)
-        for path in required_paths
-        if not path.exists()
-    )
+    missing = tuple(str(path) for path in required_paths if not path.exists())
 
     if missing:
         return HealthProbeResult(
             id="repository-structure",
             name="Repository structure",
             state="degraded",
-            detail=(
-                "Required repository paths are missing: "
-                + ", ".join(missing)
-            ),
+            detail=("Required repository paths are missing: " + ", ".join(missing)),
             metadata={
                 "missingPaths": missing,
             },
@@ -40,14 +33,9 @@ def repository_probe(
         id="repository-structure",
         name="Repository structure",
         state="healthy",
-        detail=(
-            "Core AletheusOS, Nimble, and test "
-            "boundaries are present."
-        ),
+        detail=("Core AletheusOS, Nimble, and test boundaries are present."),
         metadata={
-            "repositoryRoot": str(
-                repository_root
-            ),
+            "repositoryRoot": str(repository_root),
         },
     )
 
@@ -55,18 +43,14 @@ def repository_probe(
 def runtime_import_probe() -> HealthProbeResult:
     module_name = "aletheus.runtime.core"
 
-    specification = importlib.util.find_spec(
-        module_name
-    )
+    specification = importlib.util.find_spec(module_name)
 
     if specification is None:
         return HealthProbeResult(
             id="runtime-import",
             name="Runtime import boundary",
             state="unavailable",
-            detail=(
-                f"Python could not resolve {module_name}."
-            ),
+            detail=(f"Python could not resolve {module_name}."),
         )
 
     return HealthProbeResult(
@@ -74,8 +58,7 @@ def runtime_import_probe() -> HealthProbeResult:
         name="Runtime import boundary",
         state="healthy",
         detail=(
-            f"{module_name} is import-resolvable "
-            "without instantiating the runtime."
+            f"{module_name} is import-resolvable without instantiating the runtime."
         ),
         metadata={
             "origin": specification.origin,
@@ -84,62 +67,41 @@ def runtime_import_probe() -> HealthProbeResult:
 
 
 def gateway_import_probe() -> HealthProbeResult:
-    module_name = (
-        "aletheus.experience_gateway.fastapi_app"
-    )
+    module_name = "aletheus.experience_gateway.fastapi_app"
 
-    specification = importlib.util.find_spec(
-        module_name
-    )
+    specification = importlib.util.find_spec(module_name)
 
     if specification is None:
         return HealthProbeResult(
             id="experience-gateway-import",
             name="Experience Gateway import",
             state="unavailable",
-            detail=(
-                f"Python could not resolve {module_name}."
-            ),
+            detail=(f"Python could not resolve {module_name}."),
         )
 
     return HealthProbeResult(
         id="experience-gateway-import",
         name="Experience Gateway import",
         state="healthy",
-        detail=(
-            "The bounded Experience Gateway adapter "
-            "is import-resolvable."
-        ),
+        detail=("The bounded Experience Gateway adapter is import-resolvable."),
     )
 
 
 def nimble_build_probe(
     repository_root: Path,
 ) -> HealthProbeResult:
-    application_root = (
-        repository_root
-        / "nimble"
-        / "apps"
-        / "platform-shell"
-    )
+    application_root = repository_root / "nimble" / "apps" / "platform-shell"
 
-    package_manifest = (
-        application_root / "package.json"
-    )
+    package_manifest = application_root / "package.json"
 
-    output_index = (
-        application_root / "dist" / "index.html"
-    )
+    output_index = application_root / "dist" / "index.html"
 
     if not package_manifest.exists():
         return HealthProbeResult(
             id="nimble-production-build",
             name="Nimble production build",
             state="unavailable",
-            detail=(
-                "The Nimble platform-shell package "
-                "manifest is missing."
-            ),
+            detail=("The Nimble platform-shell package manifest is missing."),
         )
 
     if not output_index.exists():
@@ -148,13 +110,10 @@ def nimble_build_probe(
             name="Nimble production build",
             state="degraded",
             detail=(
-                "The shell exists, but no current "
-                "production build output was found."
+                "The shell exists, but no current production build output was found."
             ),
             metadata={
-                "buildOutput": str(
-                    output_index
-                ),
+                "buildOutput": str(output_index),
             },
         )
 
@@ -162,9 +121,7 @@ def nimble_build_probe(
         id="nimble-production-build",
         name="Nimble production build",
         state="healthy",
-        detail=(
-            "A Nimble production build artifact is present."
-        ),
+        detail=("A Nimble production build artifact is present."),
         metadata={
             "buildOutput": str(output_index),
             "sizeBytes": output_index.stat().st_size,
@@ -200,8 +157,7 @@ def gateway_missions() -> list[dict[str, Any]]:
             "id": "command-gateway",
             "name": "Command Gateway",
             "description": (
-                "Introduce preview, authorization, "
-                "execution, and reversal contracts."
+                "Introduce preview, authorization, execution, and reversal contracts."
             ),
             "state": "planned",
             "progress": 10,

@@ -6,19 +6,6 @@ Genesis 13.41
 
 
 class MarketSaturationEngine:
+    def analyze(self, asset):
 
-
-    def analyze(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "msi":
-
-                0
-
-        }
-
+        return {"msi": 0}

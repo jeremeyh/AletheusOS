@@ -6,17 +6,6 @@ Genesis 155
 
 
 class ProposalEngine:
-
-
     def create(self, title):
 
-        return {
-
-            "proposal":
-            title,
-
-            "status":
-            "submitted"
-
-        }
-
+        return {"proposal": title, "status": "submitted"}

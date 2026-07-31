@@ -1,5 +1,4 @@
 class SlabDetector:
-
     @staticmethod
     def detect(image):
 

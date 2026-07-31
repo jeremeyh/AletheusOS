@@ -2,13 +2,11 @@ from aletheus.runtime.providers import RuntimeServiceProvider
 
 
 class DummyRegistry(dict):
-
     def register(self, name, service):
         self[name] = service
 
 
 class DummyRuntime:
-
     def __init__(self):
 
         self.services = DummyRegistry()

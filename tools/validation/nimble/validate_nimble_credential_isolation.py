@@ -30,32 +30,20 @@ ROOT = find_repo_root(Path(__file__).parent)
 
 
 REGISTRY_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "deployment-provider-registry.json"
+    ROOT / "nimble/governance/environments/deployment-provider-registry.json"
 )
 
 CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "credential-isolation-contract.json"
+    ROOT / "nimble/governance/environments/credential-isolation-contract.json"
 )
 
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "credential-isolation-latest.json"
-)
+REPORT_PATH = ROOT / "reports/nimble/credential-isolation-latest.json"
 
-SECRET_PATTERN = re.compile(
-    r"^[A-Z][A-Z0-9_]*$"
-)
+SECRET_PATTERN = re.compile(r"^[A-Z][A-Z0-9_]*$")
 
 
 def load_json(path: Path) -> dict[str, Any]:
-    return json.loads(
-        path.read_text(encoding="utf-8")
-    )
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def fingerprint(
@@ -65,12 +53,7 @@ def fingerprint(
     secret_value: str,
     length: int,
 ) -> str:
-    payload = (
-        f"{provider}\0"
-        f"{environment}\0"
-        f"{secret_name}\0"
-        f"{secret_value}"
-    ).encode()
+    payload = (f"{provider}\0{environment}\0{secret_name}\0{secret_value}").encode()
 
     return hashlib.sha256(payload).hexdigest()[:length]
 
@@ -111,9 +94,7 @@ def main() -> int:
     ).get(arguments.provider)
 
     if provider is None:
-        failures.append(
-            f"Unregistered provider: {arguments.provider}"
-        )
+        failures.append(f"Unregistered provider: {arguments.provider}")
 
         required_for_environment: list[str] = []
         all_environment_secrets: dict[str, list[str]] = {}
@@ -125,8 +106,7 @@ def main() -> int:
 
         if not isinstance(secret_map, dict):
             failures.append(
-                "Provider required_secrets must be "
-                "an environment-scoped mapping."
+                "Provider required_secrets must be an environment-scoped mapping."
             )
 
             secret_map = {}
@@ -156,22 +136,17 @@ def main() -> int:
     valid_required_names: list[str] = []
 
     for secret_name in required_for_environment:
-        if (
-            not isinstance(secret_name, str)
-            or not SECRET_PATTERN.fullmatch(secret_name)
+        if not isinstance(secret_name, str) or not SECRET_PATTERN.fullmatch(
+            secret_name
         ):
-            failures.append(
-                "Invalid credential declaration."
-            )
+            failures.append("Invalid credential declaration.")
             continue
 
         valid_required_names.append(secret_name)
 
     foreign_environment_names: set[str] = set()
 
-    for environment, secret_names in (
-        all_environment_secrets.items()
-    ):
+    for environment, secret_names in all_environment_secrets.items():
         if environment == arguments.environment:
             continue
 
@@ -186,10 +161,7 @@ def main() -> int:
     )
 
     if leaked_foreign_credentials:
-        failures.append(
-            "Credentials scoped to another environment "
-            "are present."
-        )
+        failures.append("Credentials scoped to another environment are present.")
 
     missing_required_credentials = sorted(
         secret_name
@@ -197,19 +169,10 @@ def main() -> int:
         if not os.environ.get(secret_name)
     )
 
-    if (
-        arguments.mode == "execute"
-        and missing_required_credentials
-    ):
-        failures.append(
-            "Required environment credentials are missing."
-        )
+    if arguments.mode == "execute" and missing_required_credentials:
+        failures.append("Required environment credentials are missing.")
 
-    truncation = int(
-        contract["policy"][
-            "fingerprint_truncation"
-        ]
-    )
+    truncation = int(contract["policy"]["fingerprint_truncation"])
 
     fingerprints = sorted(
         fingerprint(
@@ -223,22 +186,13 @@ def main() -> int:
         if os.environ.get(secret_name)
     )
 
-    if (
-        arguments.mode == "execute"
-        and len(fingerprints)
-        != len(valid_required_names)
-    ):
-        failures.append(
-            "Credential fingerprint set is incomplete."
-        )
+    if arguments.mode == "execute" and len(fingerprints) != len(valid_required_names):
+        failures.append("Credential fingerprint set is incomplete.")
 
     rotation_validation = subprocess.run(
         [
             "python",
-            str(
-                ROOT
-                / "validate_nimble_credential_rotation.py"
-            ),
+            str(ROOT / "validate_nimble_credential_rotation.py"),
             "--provider",
             arguments.provider,
             "--environment",
@@ -252,48 +206,39 @@ def main() -> int:
     )
 
     if rotation_validation.returncode != 0:
-        failures.append(
-            "Credential rotation validation failed."
-        )
+        failures.append("Credential rotation validation failed.")
 
     status = "PASS" if not failures else "FAIL"
 
     report = {
         "schema_version": "1.0",
-        "generated_at": datetime.now(
-            UTC
-        ).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "provider": arguments.provider,
         "environment": arguments.environment,
         "mode": arguments.mode,
-        "credential_count": len(
-            valid_required_names
-        ),
+        "credential_count": len(valid_required_names),
         "credential_fingerprints": fingerprints,
         "status": status,
         "failures": failures,
     }
 
-    serialized_report = json.dumps(
-        report,
-        indent=2,
-        sort_keys=True,
-    ) + "\n"
+    serialized_report = (
+        json.dumps(
+            report,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n"
+    )
 
     for secret_name in valid_required_names:
         if secret_name in serialized_report:
-            raise RuntimeError(
-                "Credential evidence leaked a raw "
-                "secret name."
-            )
+            raise RuntimeError("Credential evidence leaked a raw secret name.")
 
         secret_value = os.environ.get(secret_name)
 
         if secret_value and secret_value in serialized_report:
-            raise RuntimeError(
-                "Credential evidence leaked a raw "
-                "secret value."
-            )
+            raise RuntimeError("Credential evidence leaked a raw secret value.")
 
     REPORT_PATH.parent.mkdir(
         parents=True,

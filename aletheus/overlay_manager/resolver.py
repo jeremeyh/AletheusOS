@@ -27,8 +27,12 @@ class OverlayResolver:
 
         definition = app_overlays.get(foundation_engine)
 
-        return definition.to_dict() if definition else {
-            "foundation_engine": foundation_engine,
-            "display_name": foundation_engine,
-            "visible": True,
-        }
+        return (
+            definition.to_dict()
+            if definition
+            else {
+                "foundation_engine": foundation_engine,
+                "display_name": foundation_engine,
+                "visible": True,
+            }
+        )

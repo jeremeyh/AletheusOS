@@ -42,8 +42,7 @@ class InstitutionRegistry:
 
         if validated.institution_id in self._records and not replace:
             raise DuplicateInstitutionError(
-                f"Institution {validated.institution_id!r} is already "
-                "registered."
+                f"Institution {validated.institution_id!r} is already registered."
             )
 
         previous = self._records.get(validated.institution_id)
@@ -60,10 +59,7 @@ class InstitutionRegistry:
         *,
         replace: bool = False,
     ) -> tuple[InstitutionRecord, ...]:
-        return tuple(
-            self.register(record, replace=replace)
-            for record in records
-        )
+        return tuple(self.register(record, replace=replace) for record in records)
 
     def unregister(self, institution_id: str) -> InstitutionRecord | None:
         record = self._records.pop(institution_id, None)
@@ -96,31 +92,21 @@ class InstitutionRegistry:
         self,
         pillar: ConstitutionalPillar,
     ) -> tuple[InstitutionRecord, ...]:
-        return tuple(
-            record
-            for record in self.list()
-            if record.pillar == pillar
-        )
+        return tuple(record for record in self.list() if record.pillar == pillar)
 
     def by_layer(
         self,
         layer: ConstitutionalLayer,
     ) -> tuple[InstitutionRecord, ...]:
         return tuple(
-            record
-            for record in self.list()
-            if record.constitutional_layer == layer
+            record for record in self.list() if record.constitutional_layer == layer
         )
 
     def by_status(
         self,
         status: InstitutionStatus,
     ) -> tuple[InstitutionRecord, ...]:
-        return tuple(
-            record
-            for record in self.list()
-            if record.status == status
-        )
+        return tuple(record for record in self.list() if record.status == status)
 
     def statistics(self) -> dict:
         return {
@@ -130,8 +116,7 @@ class InstitutionRegistry:
                 for pillar in ConstitutionalPillar
             },
             "by_layer": {
-                layer.value: len(self.by_layer(layer))
-                for layer in ConstitutionalLayer
+                layer.value: len(self.by_layer(layer)) for layer in ConstitutionalLayer
             },
             "by_status": {
                 status.value: len(self.by_status(status))

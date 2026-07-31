@@ -6,19 +6,6 @@ Genesis 13.40
 
 
 class InsuranceEngine:
+    def calculate(self, portfolio):
 
-
-    def calculate(
-        self,
-        portfolio
-    ):
-
-
-        return {
-
-            "coverage":
-
-                "recommended"
-
-        }
-
+        return {"coverage": "recommended"}

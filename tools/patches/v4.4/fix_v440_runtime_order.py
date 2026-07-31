@@ -39,7 +39,6 @@ gov_import = """from aletheus.runtime.governance import (
 )"""
 
 if gov_import not in text:
-
     text = text.replace(
         "from aletheus.runtime.services import ServiceRegistry",
         gov_import + "\nfrom aletheus.runtime.services import ServiceRegistry",
@@ -51,8 +50,8 @@ if gov_import not in text:
 # -------------------------------------------------------
 
 text = re.sub(
-    r'(?:^[ \t]*self\.services\.register\([^\n]+\)\n?)+',
-    '',
+    r"(?:^[ \t]*self\.services\.register\([^\n]+\)\n?)+",
+    "",
     text,
     flags=re.MULTILINE,
 )
@@ -62,7 +61,6 @@ text = re.sub(
 # -------------------------------------------------------
 
 if "self.services = ServiceRegistry()" not in text:
-
     anchor = "self.governance = GovernanceEngine(self)"
 
     if anchor not in text:

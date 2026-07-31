@@ -6,18 +6,8 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parent
-LATEST_REPORT = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "production-gate-latest.json"
-)
-BASELINE_PATH = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "performance-baseline.json"
-)
+LATEST_REPORT = ROOT / "reports" / "nimble" / "production-gate-latest.json"
+BASELINE_PATH = ROOT / "nimble" / "governance" / "performance-baseline.json"
 
 
 def main() -> int:
@@ -28,9 +18,7 @@ def main() -> int:
         )
         return 1
 
-    report: dict[str, Any] = json.loads(
-        LATEST_REPORT.read_text(encoding="utf-8")
-    )
+    report: dict[str, Any] = json.loads(LATEST_REPORT.read_text(encoding="utf-8"))
 
     gate = report["gate"]
     bundle = report["bundle"]
@@ -43,43 +31,27 @@ def main() -> int:
         return 1
 
     secondary_chunks = [
-        chunk
-        for chunk in bundle["chunks"]
-        if chunk["kind"] == "secondary"
+        chunk for chunk in bundle["chunks"] if chunk["kind"] == "secondary"
     ]
 
     baseline = {
         "schema_version": "1.0",
-        "created_at": datetime.now(
-            UTC
-        ).isoformat(),
+        "created_at": datetime.now(UTC).isoformat(),
         "source": {
             "commit": git["commit"],
             "short_commit": git["short_commit"],
             "branch": git["branch"],
-            "telemetry_generated_at": report[
-                "generated_at"
-            ],
+            "telemetry_generated_at": report["generated_at"],
         },
         "metrics": {
             "primary_bundle_bytes": primary["bytes"],
-            "secondary_chunk_count": bundle[
-                "secondary_chunk_count"
-            ],
-            "total_javascript_bytes": sum(
-                chunk["bytes"]
-                for chunk in bundle["chunks"]
-            ),
+            "secondary_chunk_count": bundle["secondary_chunk_count"],
+            "total_javascript_bytes": sum(chunk["bytes"] for chunk in bundle["chunks"]),
             "largest_secondary_chunk_bytes": max(
-                (
-                    chunk["bytes"]
-                    for chunk in secondary_chunks
-                ),
+                (chunk["bytes"] for chunk in secondary_chunks),
                 default=0,
             ),
-            "gate_duration_seconds": gate[
-                "duration_seconds"
-            ],
+            "gate_duration_seconds": gate["duration_seconds"],
         },
         "thresholds": {
             "primary_bundle_growth_percent": 5.0,
@@ -89,7 +61,7 @@ def main() -> int:
             "secondary_chunk_count_decrease_allowed": 1,
             "secondary_chunk_count_increase_allowed": 4,
             "gate_duration_growth_percent": 35.0,
-            "gate_duration_absolute_limit_seconds": 120.0
+            "gate_duration_absolute_limit_seconds": 120.0,
         },
     }
 

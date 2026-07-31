@@ -6,19 +6,6 @@ Genesis 14.7
 
 
 class ReportGenerator:
+    def generate(self, data):
 
-
-    def generate(
-        self,
-        data
-    ):
-
-
-        return {
-
-            "report":
-
-                {}
-
-        }
-
+        return {"report": {}}

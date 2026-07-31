@@ -56,11 +56,7 @@ def main():
         "planned",
     )
 
-    print(
-        RuntimeMigrationReporter().render(
-            tracker
-        )
-    )
+    print(RuntimeMigrationReporter().render(tracker))
 
 
 if __name__ == "__main__":

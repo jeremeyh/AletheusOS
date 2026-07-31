@@ -29,26 +29,16 @@ def _find_repo_root() -> Path:
             return current
 
         if current.parent == current:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         current = current.parent
 
 
 ROOT = _find_repo_root()
 
-CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/audit/"
-    "deployment-audit-ledger-contract.json"
-)
+CONTRACT_PATH = ROOT / "nimble/governance/audit/deployment-audit-ledger-contract.json"
 
-LEDGER_PATH = (
-    ROOT
-    / "nimble/governance/audit/"
-    "deployment-audit-ledger.jsonl"
-)
+LEDGER_PATH = ROOT / "nimble/governance/audit/deployment-audit-ledger.jsonl"
 
 FORBIDDEN_KEY_PATTERN = re.compile(
     r"(secret|password|token|credential)",
@@ -57,9 +47,7 @@ FORBIDDEN_KEY_PATTERN = re.compile(
 
 
 def load_contract() -> dict[str, Any]:
-    return json.loads(
-        CONTRACT_PATH.read_text(encoding="utf-8")
-    )
+    return json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
 
 
 def read_entries() -> list[dict[str, Any]]:
@@ -69,9 +57,7 @@ def read_entries() -> list[dict[str, Any]]:
     entries: list[dict[str, Any]] = []
 
     for line_number, line in enumerate(
-        LEDGER_PATH.read_text(
-            encoding="utf-8"
-        ).splitlines(),
+        LEDGER_PATH.read_text(encoding="utf-8").splitlines(),
         start=1,
     ):
         if not line.strip():
@@ -101,9 +87,7 @@ def canonical_payload(
 def event_hash(
     payload: dict[str, Any],
 ) -> str:
-    return hashlib.sha256(
-        canonical_payload(payload)
-    ).hexdigest()
+    return hashlib.sha256(canonical_payload(payload)).hexdigest()
 
 
 def validate_metadata(
@@ -111,15 +95,11 @@ def validate_metadata(
 ) -> None:
     for key, value in metadata.items():
         if FORBIDDEN_KEY_PATTERN.search(key):
-            raise RuntimeError(
-                f"Sensitive metadata key is forbidden: {key}"
-            )
+            raise RuntimeError(f"Sensitive metadata key is forbidden: {key}")
 
         if isinstance(value, str):
             if value.startswith("/"):
-                raise RuntimeError(
-                    f"Absolute path forbidden in metadata: {key}"
-                )
+                raise RuntimeError(f"Absolute path forbidden in metadata: {key}")
 
         if isinstance(value, dict):
             validate_metadata(value)
@@ -150,11 +130,7 @@ def main() -> int:
 
     parser.add_argument(
         "--actor",
-        default=(
-            os.environ.get("GITHUB_ACTOR")
-            or os.environ.get("USER")
-            or "unknown"
-        ),
+        default=(os.environ.get("GITHUB_ACTOR") or os.environ.get("USER") or "unknown"),
     )
 
     parser.add_argument(
@@ -166,22 +142,13 @@ def main() -> int:
 
     contract = load_contract()
 
-    if arguments.event_type not in contract[
-        "event_types"
-    ]:
-        raise RuntimeError(
-            f"Unsupported audit event type: "
-            f"{arguments.event_type}"
-        )
+    if arguments.event_type not in contract["event_types"]:
+        raise RuntimeError(f"Unsupported audit event type: {arguments.event_type}")
 
-    metadata = json.loads(
-        arguments.metadata_json
-    )
+    metadata = json.loads(arguments.metadata_json)
 
     if not isinstance(metadata, dict):
-        raise RuntimeError(
-            "Audit metadata must be a JSON object."
-        )
+        raise RuntimeError("Audit metadata must be a JSON object.")
 
     validate_metadata(metadata)
 
@@ -192,18 +159,14 @@ def main() -> int:
     previous_hash = (
         entries[-1]["event_hash"]
         if entries
-        else contract["ledger"][
-            "genesis_previous_hash"
-        ]
+        else contract["ledger"]["genesis_previous_hash"]
     )
 
     event_without_hash: dict[str, Any] = {
         "sequence": sequence,
         "event_id": str(uuid.uuid4()),
         "event_type": arguments.event_type,
-        "occurred_at": datetime.now(
-            UTC
-        ).isoformat(),
+        "occurred_at": datetime.now(UTC).isoformat(),
         "actor": arguments.actor,
         "environment": arguments.environment,
         "release": arguments.release,
@@ -212,9 +175,7 @@ def main() -> int:
         "metadata": metadata,
     }
 
-    digest = event_hash(
-        event_without_hash
-    )
+    digest = event_hash(event_without_hash)
 
     event = {
         **event_without_hash,

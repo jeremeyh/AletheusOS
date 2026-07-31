@@ -24,16 +24,9 @@ def find_repo_root(start: Path) -> Path:
 ROOT = find_repo_root(Path(__file__).parent)
 
 
-EXPERIENCE_ROOT = (
-    ROOT
-    / "nimble/packages/core/src/experience"
-)
+EXPERIENCE_ROOT = ROOT / "nimble/packages/core/src/experience"
 
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/experience/"
-    "experience-core-validation-latest.json"
-)
+REPORT_PATH = ROOT / "reports/nimble/experience/experience-core-validation-latest.json"
 
 
 def main() -> int:
@@ -58,13 +51,10 @@ def main() -> int:
         path = EXPERIENCE_ROOT / relative
 
         if not path.is_file():
-            failures.append(
-                f"Missing Experience Core file: {relative}"
-            )
+            failures.append(f"Missing Experience Core file: {relative}")
 
     combined = "\n".join(
-        path.read_text(encoding="utf-8")
-        for path in EXPERIENCE_ROOT.rglob("*.ts")
+        path.read_text(encoding="utf-8") for path in EXPERIENCE_ROOT.rglob("*.ts")
     )
 
     required_concepts = [
@@ -82,9 +72,7 @@ def main() -> int:
 
     for concept in required_concepts:
         if concept not in combined:
-            failures.append(
-                f"Missing Experience Core concept: {concept}"
-            )
+            failures.append(f"Missing Experience Core concept: {concept}")
 
     typecheck = subprocess.run(
         [
@@ -102,9 +90,7 @@ def main() -> int:
     )
 
     if typecheck.returncode != 0:
-        failures.append(
-            "Nimble Core TypeScript typecheck failed."
-        )
+        failures.append("Nimble Core TypeScript typecheck failed.")
 
     status = "PASS" if not failures else "FAIL"
 
@@ -117,17 +103,11 @@ def main() -> int:
         json.dumps(
             {
                 "schema_version": "1.0",
-                "generated_at": datetime.now(
-                    UTC
-                ).isoformat(),
+                "generated_at": datetime.now(UTC).isoformat(),
                 "status": status,
                 "failures": failures,
-                "typecheck_stdout": (
-                    typecheck.stdout.strip()
-                ),
-                "typecheck_stderr": (
-                    typecheck.stderr.strip()
-                ),
+                "typecheck_stdout": (typecheck.stdout.strip()),
+                "typecheck_stderr": (typecheck.stderr.strip()),
             },
             indent=2,
             sort_keys=True,

@@ -6,7 +6,6 @@ from typing import Any
 
 @dataclass
 class RuntimeService:
-
     alias: str
     implementation: Any
     version: str
@@ -14,7 +13,6 @@ class RuntimeService:
 
 
 class CompatibilityRegistry:
-
     VERSION = "4.1.0"
 
     def __init__(self):
@@ -56,10 +54,7 @@ class CompatibilityRegistry:
 
     def list(self):
 
-        return [
-            asdict(service)
-            for service in self.services.values()
-        ]
+        return [asdict(service) for service in self.services.values()]
 
     def statistics(self):
 

@@ -6,53 +6,26 @@ Post-Genesis 2751-2850
 
 
 class CulturalCivilizationEngine:
-
-
     def __init__(self):
 
         self.communities = []
 
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_cultural_civilization",
-
-            "range":
-            "2751-2850",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_cultural_civilization",
+            "range": "2751-2850",
+            "status": "operational",
         }
-
-
 
     def create_community(self, community):
 
-        record = {
+        record = {"community": community, "status": "active"}
 
-            "community":
-            community,
-
-            "status":
-            "active"
-
-        }
-
-
-        self.communities.append(
-            record
-        )
-
+        self.communities.append(record)
 
         return record
-
-
 
     def list_communities(self):
 
         return self.communities
-

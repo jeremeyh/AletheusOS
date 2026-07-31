@@ -106,10 +106,7 @@ def main() -> None:
             ]
         )
 
-    report = Path(
-        "reports/genesis_8_command_dispatch/"
-        "command_contract_probe.md"
-    )
+    report = Path("reports/genesis_8_command_dispatch/command_contract_probe.md")
     report.parent.mkdir(parents=True, exist_ok=True)
     report.write_text("\n".join(lines), encoding="utf-8")
 

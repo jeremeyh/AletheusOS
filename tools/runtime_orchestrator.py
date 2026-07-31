@@ -8,11 +8,9 @@ from aletheus.runtime.recovery import RuntimeRecoveryManager
 
 
 class DummyRuntime:
-
     def __init__(self):
 
         class Services(dict):
-
             def register(self, name, service):
                 self[name] = service
 

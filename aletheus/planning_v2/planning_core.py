@@ -38,7 +38,6 @@ class PlanMilestone:
 
 @dataclass
 class Plan:
-
     goal: str
 
     objectives: list[str] = field(default_factory=list)
@@ -85,10 +84,7 @@ class Plan:
             self.progress = 100.0
             return
 
-        completed = sum(
-            task.status == "completed"
-            for task in self.tasks
-        )
+        completed = sum(task.status == "completed" for task in self.tasks)
 
         self.progress = round(
             completed / len(self.tasks) * 100,
@@ -103,14 +99,8 @@ class Plan:
             "plan_id": self.plan_id,
             "goal": self.goal,
             "objectives": self.objectives,
-            "milestones": [
-                m.to_dict()
-                for m in self.milestones
-            ],
-            "tasks": [
-                t.to_dict()
-                for t in self.tasks
-            ],
+            "milestones": [m.to_dict() for m in self.milestones],
+            "tasks": [t.to_dict() for t in self.tasks],
             "dependencies": self.dependencies,
             "priority": self.priority,
             "status": self.status,
@@ -122,7 +112,6 @@ class Plan:
 
 
 class AletheusPlanningEngine:
-
     VERSION = "2.9.0"
 
     def __init__(self):
@@ -148,26 +137,32 @@ class AletheusPlanningEngine:
 
         plan = Plan(goal=goal)
 
-        plan.objectives.extend([
-            "Research",
-            "Analyze",
-            "Decide",
-            "Execute",
-        ])
+        plan.objectives.extend(
+            [
+                "Research",
+                "Analyze",
+                "Decide",
+                "Execute",
+            ]
+        )
 
-        plan.milestones.extend([
-            PlanMilestone("Research Complete"),
-            PlanMilestone("Decision Complete"),
-            PlanMilestone("Execution Complete"),
-        ])
+        plan.milestones.extend(
+            [
+                PlanMilestone("Research Complete"),
+                PlanMilestone("Decision Complete"),
+                PlanMilestone("Execution Complete"),
+            ]
+        )
 
-        plan.tasks.extend([
-            PlanTask("Research"),
-            PlanTask("Marketplace Scan"),
-            PlanTask("Portfolio Review"),
-            PlanTask("Decision Engine"),
-            PlanTask("Founder Approval"),
-        ])
+        plan.tasks.extend(
+            [
+                PlanTask("Research"),
+                PlanTask("Marketplace Scan"),
+                PlanTask("Portfolio Review"),
+                PlanTask("Decision Engine"),
+                PlanTask("Founder Approval"),
+            ]
+        )
 
         self.plans[plan.plan_id] = plan
 
@@ -214,14 +209,7 @@ class AletheusPlanningEngine:
 
     def status(self):
 
-        return {
-            "plans": [
-                p.to_dict()
-                for p in self.plans.values()
-            ]
-        }
-
-
+        return {"plans": [p.to_dict() for p in self.plans.values()]}
 
     # ----------------------------------------------------
     # Runtime Compatibility API
@@ -234,41 +222,26 @@ class AletheusPlanningEngine:
         return self.VERSION
 
     def list_plans(self):
-        return [
-            plan.to_dict()
-            for plan in self.plans.values()
-        ]
-
+        return [plan.to_dict() for plan in self.plans.values()]
 
     def statistics(self):
 
         plans = len(self.plans)
 
-        running = sum(
-            p.status == "running"
-            for p in self.plans.values()
-        )
+        running = sum(p.status == "running" for p in self.plans.values())
 
-        completed = sum(
-            p.status == "completed"
-            for p in self.plans.values()
-        )
+        completed = sum(p.status == "completed" for p in self.plans.values())
 
-        replanned = sum(
-            p.status == "replanned"
-            for p in self.plans.values()
-        )
+        replanned = sum(p.status == "replanned" for p in self.plans.values())
 
         return {
             "version": self.VERSION,
-
             # Native v2 statistics
             "strategies": len(self.strategies),
             "plans": plans,
             "running": running,
             "completed": completed,
             "replanned": replanned,
-
             # Genesis 7.10 Contract Convergence™
             "active_plans": running,
         }

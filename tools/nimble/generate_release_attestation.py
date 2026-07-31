@@ -20,57 +20,24 @@ def find_repo_root(start: Path) -> Path:
             return current
 
         if current.parent == current:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         current = current.parent
 
 
 ROOT = find_repo_root(Path(__file__).parent)
 
-PRODUCTION_EVIDENCE = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "production-gate-latest.json"
-)
+PRODUCTION_EVIDENCE = ROOT / "reports" / "nimble" / "production-gate-latest.json"
 
-PERFORMANCE_REPORT = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "performance-regression-latest.json"
-)
+PERFORMANCE_REPORT = ROOT / "reports" / "nimble" / "performance-regression-latest.json"
 
-PERFORMANCE_BASELINE = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "performance-baseline.json"
-)
+PERFORMANCE_BASELINE = ROOT / "nimble" / "governance" / "performance-baseline.json"
 
-LATEST_ATTESTATION = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "release-attestation-latest.json"
-)
+LATEST_ATTESTATION = ROOT / "reports" / "nimble" / "release-attestation-latest.json"
 
-ATTESTATION_ARCHIVE = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "attestations"
-)
+ATTESTATION_ARCHIVE = ROOT / "nimble" / "governance" / "attestations"
 
-DIST_DIRECTORY = (
-    ROOT
-    / "nimble"
-    / "apps"
-    / "platform-shell"
-    / "dist"
-)
+DIST_DIRECTORY = ROOT / "nimble" / "apps" / "platform-shell" / "dist"
 
 REQUIRED_VALIDATORS = (
     "validate_nimble_foundation.py",
@@ -126,13 +93,10 @@ def load_json(
 ) -> dict[str, Any]:
     if not path.exists():
         raise FileNotFoundError(
-            f"Required evidence is missing: "
-            f"{path.relative_to(ROOT)}"
+            f"Required evidence is missing: {path.relative_to(ROOT)}"
         )
 
-    return json.loads(
-        path.read_text(encoding="utf-8")
-    )
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def sha256_file(
@@ -157,9 +121,7 @@ def hash_directory(
 
     if not directory.exists():
         return {
-            "path": str(
-                directory.relative_to(ROOT)
-            ),
+            "path": str(directory.relative_to(ROOT)),
             "files": [],
             "file_count": 0,
             "aggregate_sha256": None,
@@ -167,17 +129,11 @@ def hash_directory(
 
     aggregate = hashlib.sha256()
 
-    for path in sorted(
-        item
-        for item in directory.rglob("*")
-        if item.is_file()
-    ):
+    for path in sorted(item for item in directory.rglob("*") if item.is_file()):
         relative = path.relative_to(ROOT)
         digest = sha256_file(path)
 
-        aggregate.update(
-            str(relative).encode("utf-8")
-        )
+        aggregate.update(str(relative).encode("utf-8"))
         aggregate.update(digest.encode("ascii"))
 
         files.append(
@@ -189,13 +145,10 @@ def hash_directory(
         )
 
     return {
-        "path": str(
-            directory.relative_to(ROOT)
-        ),
+        "path": str(directory.relative_to(ROOT)),
         "files": files,
         "file_count": len(files),
-        "aggregate_sha256":
-            aggregate.hexdigest(),
+        "aggregate_sha256": aggregate.hexdigest(),
     }
 
 
@@ -226,15 +179,9 @@ def run_validators() -> list[dict[str, Any]]:
         results.append(
             {
                 "validator": filename,
-                "status": (
-                    "PASS"
-                    if completed.returncode == 0
-                    else "FAIL"
-                ),
-                "exit_code":
-                    completed.returncode,
-                "output":
-                    completed.stdout,
+                "status": ("PASS" if completed.returncode == 0 else "FAIL"),
+                "exit_code": completed.returncode,
+                "output": completed.stdout,
             }
         )
 
@@ -250,76 +197,52 @@ def canonical_digest(
         separators=(",", ":"),
     ).encode("utf-8")
 
-    return hashlib.sha256(
-        payload
-    ).hexdigest()
+    return hashlib.sha256(payload).hexdigest()
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description=(
-            "Generate a durable Nimble release attestation."
-        )
+        description=("Generate a durable Nimble release attestation.")
     )
 
     parser.add_argument(
         "--release",
         required=True,
-        help=(
-            "Release identifier, for example "
-            "nimble-v0.1.0 or Genesis-8-Nimble-1."
-        ),
+        help=("Release identifier, for example nimble-v0.1.0 or Genesis-8-Nimble-1."),
     )
 
     parser.add_argument(
         "--approved-by",
         required=True,
-        help=(
-            "Approving person or governance body."
-        ),
+        help=("Approving person or governance body."),
     )
 
     parser.add_argument(
         "--notes",
         default="",
-        help=(
-            "Optional release notes or decision context."
-        ),
+        help=("Optional release notes or decision context."),
     )
 
     arguments = parser.parse_args()
 
-    production = load_json(
-        PRODUCTION_EVIDENCE
-    )
+    production = load_json(PRODUCTION_EVIDENCE)
 
-    performance = load_json(
-        PERFORMANCE_REPORT
-    )
+    performance = load_json(PERFORMANCE_REPORT)
 
-    baseline = load_json(
-        PERFORMANCE_BASELINE
-    )
+    baseline = load_json(PERFORMANCE_BASELINE)
 
     validator_results = run_validators()
 
     validator_failures = [
-        result
-        for result in validator_results
-        if result["status"] != "PASS"
+        result for result in validator_results if result["status"] != "PASS"
     ]
 
     if production["gate"]["status"] != "PASS":
-        print(
-            "FAIL: Production gate evidence is not PASS."
-        )
+        print("FAIL: Production gate evidence is not PASS.")
         return 1
 
     if performance["status"] != "PASS":
-        print(
-            "FAIL: Performance regression evidence "
-            "is not PASS."
-        )
+        print("FAIL: Performance regression evidence is not PASS.")
         return 1
 
     if validator_failures:
@@ -366,30 +289,21 @@ def main() -> int:
     )
 
     if dirty_output:
-        print(
-            "FAIL: Release attestation requires "
-            "a clean working tree."
-        )
+        print("FAIL: Release attestation requires a clean working tree.")
         return 1
 
     release = arguments.release.strip()
     approved_by = arguments.approved_by.strip()
 
     if not release:
-        print(
-            "FAIL: Release identifier is required."
-        )
+        print("FAIL: Release identifier is required.")
         return 1
 
     if not approved_by:
-        print(
-            "FAIL: Release approval is required."
-        )
+        print("FAIL: Release approval is required.")
         return 1
 
-    generated_at = datetime.now(
-        UTC
-    ).isoformat()
+    generated_at = datetime.now(UTC).isoformat()
 
     attestation: dict[str, Any] = {
         "schema_version": "1.0",
@@ -419,72 +333,36 @@ def main() -> int:
             "working_tree_clean": True,
         },
         "runtime": {
-            "python":
-                platform.python_version(),
-            "python_executable":
-                sys.executable,
-            "platform":
-                platform.platform(),
-            "node":
-                production["runtime"]["node"],
-            "npm":
-                production["runtime"]["npm"],
+            "python": platform.python_version(),
+            "python_executable": sys.executable,
+            "platform": platform.platform(),
+            "node": production["runtime"]["node"],
+            "npm": production["runtime"]["npm"],
         },
         "evidence": {
             "production_gate": {
-                "path": str(
-                    PRODUCTION_EVIDENCE.relative_to(
-                        ROOT
-                    )
-                ),
-                "sha256":
-                    sha256_file(
-                        PRODUCTION_EVIDENCE
-                    ),
-                "status":
-                    production["gate"]["status"],
+                "path": str(PRODUCTION_EVIDENCE.relative_to(ROOT)),
+                "sha256": sha256_file(PRODUCTION_EVIDENCE),
+                "status": production["gate"]["status"],
             },
             "performance_regression": {
-                "path": str(
-                    PERFORMANCE_REPORT.relative_to(
-                        ROOT
-                    )
-                ),
-                "sha256":
-                    sha256_file(
-                        PERFORMANCE_REPORT
-                    ),
-                "status":
-                    performance["status"],
+                "path": str(PERFORMANCE_REPORT.relative_to(ROOT)),
+                "sha256": sha256_file(PERFORMANCE_REPORT),
+                "status": performance["status"],
             },
             "performance_baseline": {
-                "path": str(
-                    PERFORMANCE_BASELINE.relative_to(
-                        ROOT
-                    )
-                ),
-                "sha256":
-                    sha256_file(
-                        PERFORMANCE_BASELINE
-                    ),
-                "source_commit":
-                    baseline["source"][
-                        "short_commit"
-                    ],
+                "path": str(PERFORMANCE_BASELINE.relative_to(ROOT)),
+                "sha256": sha256_file(PERFORMANCE_BASELINE),
+                "source_commit": baseline["source"]["short_commit"],
             },
         },
         "validators": validator_results,
         "artifacts": {
-            "platform_shell_dist":
-                hash_directory(
-                    DIST_DIRECTORY
-                ),
+            "platform_shell_dist": hash_directory(DIST_DIRECTORY),
         },
     }
 
-    attestation["attestation_sha256"] = (
-        canonical_digest(attestation)
-    )
+    attestation["attestation_sha256"] = canonical_digest(attestation)
 
     ATTESTATION_ARCHIVE.mkdir(
         parents=True,
@@ -492,20 +370,11 @@ def main() -> int:
     )
 
     safe_release = "".join(
-        character
-        if character.isalnum()
-        or character in {"-", "_", "."}
-        else "-"
+        character if character.isalnum() or character in {"-", "_", "."} else "-"
         for character in release
     )
 
-    archive_path = (
-        ATTESTATION_ARCHIVE
-        / (
-            f"{safe_release}-"
-            f"{short_commit}.json"
-        )
-    )
+    archive_path = ATTESTATION_ARCHIVE / (f"{safe_release}-{short_commit}.json")
 
     serialized = (
         json.dumps(
@@ -538,19 +407,11 @@ def main() -> int:
     )
     print(
         "Artifact files:",
-        attestation[
-            "artifacts"
-        ][
-            "platform_shell_dist"
-        ][
-            "file_count"
-        ],
+        attestation["artifacts"]["platform_shell_dist"]["file_count"],
     )
     print(
         "Attestation SHA-256:",
-        attestation[
-            "attestation_sha256"
-        ],
+        attestation["attestation_sha256"],
     )
     print(
         "Latest:",

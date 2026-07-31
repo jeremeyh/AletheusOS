@@ -32,11 +32,7 @@ def main():
         )
     )
 
-    print(
-        CapabilityManifestReporter().render(
-            registry
-        )
-    )
+    print(CapabilityManifestReporter().render(registry))
 
 
 if __name__ == "__main__":

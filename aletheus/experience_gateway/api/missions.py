@@ -15,8 +15,7 @@ class RouteApplication(Protocol):
         self,
         path: str,
         **kwargs: Any,
-    ) -> Any:
-        ...
+    ) -> Any: ...
 
 
 def install_mission_routes(

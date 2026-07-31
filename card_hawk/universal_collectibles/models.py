@@ -9,20 +9,12 @@ from dataclasses import dataclass, field
 
 @dataclass
 class Collectible:
-
-
     asset_id: str
 
     category: str
 
     name: str
 
-    metadata: dict = field(
-        default_factory=dict
-    )
+    metadata: dict = field(default_factory=dict)
 
-
-    intelligence: dict = field(
-        default_factory=dict
-    )
-
+    intelligence: dict = field(default_factory=dict)

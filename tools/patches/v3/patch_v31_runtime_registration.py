@@ -35,7 +35,7 @@ if '"Aletheus Plugin Manager"' not in text:
     idx = text.find(anchor)
     if idx != -1:
         end = text.find("\n", idx)
-        insertion = '''
+        insertion = """
 
         self.services.register(
             "Aletheus Plugin Manager",
@@ -44,20 +44,22 @@ if '"Aletheus Plugin Manager"' not in text:
                 "version": getattr(self.plugins_v3, "VERSION", "3.1.0"),
             },
         )
-'''
-        text = text[:end+1] + insertion + text[end+1:]
+"""
+        text = text[: end + 1] + insertion + text[end + 1 :]
 
 # ----------------------------------------------------
 # Command Registration
 # ----------------------------------------------------
 if 'self.commands.register("plugin.bootstrap"' not in text:
-
-    anchor = 'self.commands.register("cluster.statistics", self._cmd_cluster_statistics)'
+    anchor = (
+        'self.commands.register("cluster.statistics", self._cmd_cluster_statistics)'
+    )
 
     if anchor in text:
         text = text.replace(
             anchor,
-            anchor + '''
+            anchor
+            + """
 
         # v3.1 Plugin Framework
         self.commands.register("plugin.bootstrap", self._cmd_plugin_bootstrap)
@@ -69,7 +71,7 @@ if 'self.commands.register("plugin.bootstrap"' not in text:
         self.commands.register("plugin.list", self._cmd_plugin_list)
         self.commands.register("plugin.status", self._cmd_plugin_status)
         self.commands.register("plugin.statistics", self._cmd_plugin_statistics)
-''',
+""",
             1,
         )
 

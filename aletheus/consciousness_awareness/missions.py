@@ -6,18 +6,6 @@ Genesis 13.53
 
 
 class MissionAwarenessEngine:
+    def evaluate(self):
 
-
-    def evaluate(
-        self
-    ):
-
-
-        return {
-
-            "missions":
-
-                []
-
-        }
-
+        return {"missions": []}

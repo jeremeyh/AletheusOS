@@ -6,19 +6,6 @@ Genesis 14.5
 
 
 class DetectionEngine:
+    def detect(self, image):
 
-
-    def detect(
-        self,
-        image
-    ):
-
-
-        return {
-
-            "object":
-
-                "unknown"
-
-        }
-
+        return {"object": "unknown"}

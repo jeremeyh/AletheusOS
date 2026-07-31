@@ -5,18 +5,9 @@ Self Identity Engine
 
 
 class SelfIdentityEngine:
-
-
     def __init__(self):
 
-        self.identity={
-
-            "consistent":
-                True
-
-        }
-
-
+        self.identity = {"consistent": True}
 
     def validate(self):
 

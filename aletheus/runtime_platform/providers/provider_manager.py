@@ -6,7 +6,6 @@ from .provider_registry import ProviderRegistry
 
 
 class ProviderManager:
-
     def __init__(
         self,
         registry: ProviderRegistry,
@@ -29,9 +28,7 @@ class ProviderManager:
 
     def shutdown(self):
 
-        for provider in reversed(
-            self.registry.providers()
-        ):
+        for provider in reversed(self.registry.providers()):
             provider.shutdown()
 
     def snapshot(self):
@@ -41,6 +38,5 @@ class ProviderManager:
     def health(self):
 
         return {
-            provider.name: provider.health()
-            for provider in self.registry.providers()
+            provider.name: provider.health() for provider in self.registry.providers()
         }

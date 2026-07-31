@@ -33,8 +33,7 @@ class CognitiveParticipant(Protocol):
     def evaluate(
         self,
         payload: dict[str, Any],
-    ) -> EngineContribution:
-        ...
+    ) -> EngineContribution: ...
 
 
 SignalObserver = Callable[
@@ -61,26 +60,14 @@ class MultiplicitousIntelligenceMesh:
     def __init__(
         self,
         *,
-        convergence: (
-            ConstitutionalConvergenceEngine
-            | None
-        ) = None,
-        virtues: (
-            ConstitutionalVirtuesFramework
-            | None
-        ) = None,
+        convergence: (ConstitutionalConvergenceEngine | None) = None,
+        virtues: (ConstitutionalVirtuesFramework | None) = None,
         max_workers: int | None = None,
         observer: SignalObserver | None = None,
     ) -> None:
-        self.convergence = (
-            convergence
-            or ConstitutionalConvergenceEngine()
-        )
+        self.convergence = convergence or ConstitutionalConvergenceEngine()
 
-        self.virtues = (
-            virtues
-            or ConstitutionalVirtuesFramework()
-        )
+        self.virtues = virtues or ConstitutionalVirtuesFramework()
 
         self.max_workers = max_workers
         self.observer = observer
@@ -101,18 +88,12 @@ class MultiplicitousIntelligenceMesh:
     ) -> CognitiveParticipant:
         engine_id = participant.engine_id
 
-        if (
-            engine_id in self._participants
-            and not replace
-        ):
+        if engine_id in self._participants and not replace:
             raise DuplicateCognitiveParticipantError(
-                f"Cognitive participant "
-                f"{engine_id!r} is already registered."
+                f"Cognitive participant {engine_id!r} is already registered."
             )
 
-        self._participants[
-            engine_id
-        ] = participant
+        self._participants[engine_id] = participant
 
         return participant
 
@@ -120,16 +101,12 @@ class MultiplicitousIntelligenceMesh:
         self,
         engine_id: str,
     ) -> CognitiveParticipant | None:
-        return self._participants.get(
-            engine_id
-        )
+        return self._participants.get(engine_id)
 
     def list(
         self,
     ) -> tuple[CognitiveParticipant, ...]:
-        return tuple(
-            self._participants.values()
-        )
+        return tuple(self._participants.values())
 
     def execute(
         self,
@@ -144,59 +121,36 @@ class MultiplicitousIntelligenceMesh:
         self._emit(
             signals,
             CognitiveSignal(
-                signal_type=(
-                    CognitiveSignalType
-                    .MESH_STARTED
-                ),
+                signal_type=(CognitiveSignalType.MESH_STARTED),
                 cognition_id=cognition_id,
-                message=(
-                    "Multiplicitous cognition began."
-                ),
+                message=("Multiplicitous cognition began."),
                 payload={
                     "assertion_key": assertion_key,
-                    "participants": sorted(
-                        self._participants
-                    ),
+                    "participants": sorted(self._participants),
                 },
             ),
         )
 
-        contributions: list[
-            EngineContribution
-        ] = []
+        contributions: list[EngineContribution] = []
 
-        failures: list[
-            dict[str, str]
-        ] = []
+        failures: list[dict[str, str]] = []
 
-        worker_count = (
-            self.max_workers
-            or max(
-                1,
-                len(self._participants),
-            )
+        worker_count = self.max_workers or max(
+            1,
+            len(self._participants),
         )
 
-        with ThreadPoolExecutor(
-            max_workers=worker_count
-        ) as executor:
+        with ThreadPoolExecutor(max_workers=worker_count) as executor:
             futures = {}
 
             for participant in self._participants.values():
                 self._emit(
                     signals,
                     CognitiveSignal(
-                        signal_type=(
-                            CognitiveSignalType
-                            .ENGINE_STARTED
-                        ),
+                        signal_type=(CognitiveSignalType.ENGINE_STARTED),
                         cognition_id=cognition_id,
-                        engine_id=(
-                            participant.engine_id
-                        ),
-                        message=(
-                            "Cognitive participant started."
-                        ),
+                        engine_id=(participant.engine_id),
+                        message=("Cognitive participant started."),
                     ),
                 )
 
@@ -217,9 +171,7 @@ class MultiplicitousIntelligenceMesh:
                     self._participant_failures += 1
 
                     failure = {
-                        "engine_id": (
-                            participant.engine_id
-                        ),
+                        "engine_id": (participant.engine_id),
                         "error": str(exc),
                     }
 
@@ -228,16 +180,9 @@ class MultiplicitousIntelligenceMesh:
                     self._emit(
                         signals,
                         CognitiveSignal(
-                            signal_type=(
-                                CognitiveSignalType
-                                .ENGINE_FAILED
-                            ),
-                            cognition_id=(
-                                cognition_id
-                            ),
-                            engine_id=(
-                                participant.engine_id
-                            ),
+                            signal_type=(CognitiveSignalType.ENGINE_FAILED),
+                            cognition_id=(cognition_id),
+                            engine_id=(participant.engine_id),
                             message=str(exc),
                             payload=failure,
                         ),
@@ -245,46 +190,26 @@ class MultiplicitousIntelligenceMesh:
 
                     continue
 
-                if (
-                    contribution.engine_id
-                    != participant.engine_id
-                ):
+                if contribution.engine_id != participant.engine_id:
                     raise ValueError(
                         "Participant contribution engine_id "
                         "does not match the registered participant."
                     )
 
-                contributions.append(
-                    contribution
-                )
+                contributions.append(contribution)
 
                 self._emit(
                     signals,
                     CognitiveSignal(
-                        signal_type=(
-                            CognitiveSignalType
-                            .ENGINE_COMPLETED
-                        ),
+                        signal_type=(CognitiveSignalType.ENGINE_COMPLETED),
                         cognition_id=cognition_id,
-                        engine_id=(
-                            participant.engine_id
-                        ),
-                        magnitude=(
-                            contribution.confidence
-                        ),
-                        message=(
-                            "Cognitive participant completed."
-                        ),
+                        engine_id=(participant.engine_id),
+                        magnitude=(contribution.confidence),
+                        message=("Cognitive participant completed."),
                         payload={
-                            "stance": (
-                                contribution.stance.value
-                            ),
-                            "confidence": (
-                                contribution.confidence
-                            ),
-                            "evidence_count": (
-                                contribution.evidence_count
-                            ),
+                            "stance": (contribution.stance.value),
+                            "confidence": (contribution.confidence),
+                            "evidence_count": (contribution.evidence_count),
                         },
                     ),
                 )
@@ -299,14 +224,9 @@ class MultiplicitousIntelligenceMesh:
         self._emit(
             signals,
             CognitiveSignal(
-                signal_type=(
-                    CognitiveSignalType
-                    .CONVERGENCE_STARTED
-                ),
+                signal_type=(CognitiveSignalType.CONVERGENCE_STARTED),
                 cognition_id=cognition_id,
-                message=(
-                    "Constitutional convergence began."
-                ),
+                message=("Constitutional convergence began."),
             ),
         )
 
@@ -318,72 +238,41 @@ class MultiplicitousIntelligenceMesh:
         self._emit(
             signals,
             CognitiveSignal(
-                signal_type=(
-                    CognitiveSignalType
-                    .CONVERGENCE_COMPLETED
-                ),
+                signal_type=(CognitiveSignalType.CONVERGENCE_COMPLETED),
                 cognition_id=cognition_id,
                 magnitude=convergence.confidence,
                 message=convergence.explanation,
                 payload={
                     "state": convergence.state.value,
                     "dominant_stance": (
-                        convergence
-                        .dominant_stance
-                        .value
+                        convergence.dominant_stance.value
                         if convergence.dominant_stance
                         else None
                     ),
-                    "dissent_count": len(
-                        convergence.dissent
-                    ),
+                    "dissent_count": len(convergence.dissent),
                 },
             ),
         )
 
-        resolved_virtue_context = (
-            virtue_context
-            or self._derive_virtue_context(
-                contributions=(
-                    ordered_contributions
-                ),
-                failures=tuple(failures),
-                convergence_confidence=(
-                    convergence.confidence
-                ),
-            )
+        resolved_virtue_context = virtue_context or self._derive_virtue_context(
+            contributions=(ordered_contributions),
+            failures=tuple(failures),
+            convergence_confidence=(convergence.confidence),
         )
 
-        virtue_assessment = (
-            self.virtues.evaluate(
-                resolved_virtue_context
-            )
-        )
+        virtue_assessment = self.virtues.evaluate(resolved_virtue_context)
 
         self._emit(
             signals,
             CognitiveSignal(
-                signal_type=(
-                    CognitiveSignalType
-                    .VIRTUES_EVALUATED
-                ),
+                signal_type=(CognitiveSignalType.VIRTUES_EVALUATED),
                 cognition_id=cognition_id,
-                magnitude=(
-                    virtue_assessment.score
-                ),
-                message=(
-                    "Constitutional virtues evaluated."
-                ),
+                magnitude=(virtue_assessment.score),
+                message=("Constitutional virtues evaluated."),
                 payload={
-                    "passed": (
-                        virtue_assessment.passed
-                    ),
+                    "passed": (virtue_assessment.passed),
                     "violations": [
-                        item.virtue.value
-                        for item in (
-                            virtue_assessment
-                            .violations
-                        )
+                        item.virtue.value for item in (virtue_assessment.violations)
                     ],
                 },
             ),
@@ -392,17 +281,10 @@ class MultiplicitousIntelligenceMesh:
         self._emit(
             signals,
             CognitiveSignal(
-                signal_type=(
-                    CognitiveSignalType
-                    .MESH_COMPLETED
-                ),
+                signal_type=(CognitiveSignalType.MESH_COMPLETED),
                 cognition_id=cognition_id,
-                magnitude=(
-                    convergence.confidence
-                ),
-                message=(
-                    "Multiplicitous cognition completed."
-                ),
+                magnitude=(convergence.confidence),
+                message=("Multiplicitous cognition completed."),
             ),
         )
 
@@ -431,25 +313,14 @@ class MultiplicitousIntelligenceMesh:
         ],
         convergence_confidence: float,
     ) -> VirtueContext:
-        evidence_supported = (
-            bool(contributions)
-            and any(
-                contribution.evidence_count > 0
-                or contribution.evidence
-                for contribution in contributions
-            )
+        evidence_supported = bool(contributions) and any(
+            contribution.evidence_count > 0 or contribution.evidence
+            for contribution in contributions
         )
 
         provenance_complete = all(
             all(
-                bool(
-                    evidence.get(
-                        "source"
-                    )
-                    or evidence.get(
-                        "provenance"
-                    )
-                )
+                bool(evidence.get("source") or evidence.get("provenance"))
                 for evidence in contribution.evidence
             )
             for contribution in contributions
@@ -457,16 +328,9 @@ class MultiplicitousIntelligenceMesh:
         )
 
         return VirtueContext(
-            evidence_supported=(
-                evidence_supported
-            ),
-            provenance_complete=(
-                provenance_complete
-            ),
-            uncertainty_disclosed=(
-                convergence_confidence < 1.0
-                or not failures
-            ),
+            evidence_supported=(evidence_supported),
+            provenance_complete=(provenance_complete),
+            uncertainty_disclosed=(convergence_confidence < 1.0 or not failures),
             human_impact_considered=True,
             communication_respectful=True,
             enduring_good_considered=True,
@@ -475,9 +339,7 @@ class MultiplicitousIntelligenceMesh:
             fabrication_detected=False,
             metadata={
                 "derived": True,
-                "participant_failures": len(
-                    failures
-                ),
+                "participant_failures": len(failures),
             },
         )
 
@@ -493,27 +355,13 @@ class MultiplicitousIntelligenceMesh:
 
     def health(self) -> dict:
         return {
-            "name": (
-                "Multiplicitous Intelligence Mesh™"
-            ),
+            "name": ("Multiplicitous Intelligence Mesh™"),
             "version": self.VERSION,
-            "status": (
-                "degraded"
-                if self._participant_failures
-                else "online"
-            ),
-            "participants": len(
-                self._participants
-            ),
-            "participant_ids": sorted(
-                self._participants
-            ),
+            "status": ("degraded" if self._participant_failures else "online"),
+            "participants": len(self._participants),
+            "participant_ids": sorted(self._participants),
             "executions": self._executions,
-            "participant_failures": (
-                self._participant_failures
-            ),
-            "convergence": (
-                self.convergence.health()
-            ),
+            "participant_failures": (self._participant_failures),
+            "convergence": (self.convergence.health()),
             "virtues": self.virtues.health(),
         }

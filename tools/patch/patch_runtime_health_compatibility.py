@@ -1,9 +1,7 @@
 import re
 from pathlib import Path
 
-PATH = Path(
-    "aletheus/runtime/commands/runtime_commands.py"
-)
+PATH = Path("aletheus/runtime/commands/runtime_commands.py")
 
 text = PATH.read_text(encoding="utf-8")
 
@@ -47,9 +45,7 @@ if "class RuntimeHealthStatus" not in text:
     class_anchor = "class RuntimeCommands:"
 
     if class_anchor not in text:
-        raise RuntimeError(
-            "RuntimeCommands class anchor was not found."
-        )
+        raise RuntimeError("RuntimeCommands class anchor was not found.")
 
     text = text.replace(
         class_anchor,
@@ -59,21 +55,19 @@ if "class RuntimeHealthStatus" not in text:
 
 
 health_pattern = re.compile(
-    r'    def health\(self, context\):\n'
-    r'(?P<body>.*?)'
-    r'        return context\n',
+    r"    def health\(self, context\):\n"
+    r"(?P<body>.*?)"
+    r"        return context\n",
     flags=re.DOTALL,
 )
 
 match = health_pattern.search(text)
 
 if match is None:
-    raise RuntimeError(
-        "RuntimeCommands.health method was not found."
-    )
+    raise RuntimeError("RuntimeCommands.health method was not found.")
 
 
-replacement = '''    def health(self, context):
+replacement = """    def health(self, context):
         from aletheus.platform_intelligence.runtime_health import (
             RuntimeHealthService,
         )
@@ -101,20 +95,14 @@ replacement = '''    def health(self, context):
         )
 
         return context
-'''
+"""
 
 
-text = (
-    text[:match.start()]
-    + replacement
-    + text[match.end():]
-)
+text = text[: match.start()] + replacement + text[match.end() :]
 
 PATH.write_text(
     text,
     encoding="utf-8",
 )
 
-print(
-    "Runtime health compatibility status installed."
-)
+print("Runtime health compatibility status installed.")

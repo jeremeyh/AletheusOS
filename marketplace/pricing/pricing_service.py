@@ -7,5 +7,5 @@ class PricingService:
             "average": CompEngine.average(comps),
             "high": CompEngine.high(comps),
             "low": CompEngine.low(comps),
-            "count": len(comps)
+            "count": len(comps),
         }

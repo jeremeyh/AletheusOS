@@ -20,9 +20,7 @@ def find_repo_root(start: Path) -> Path:
             return current
 
         if current.parent == current:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         current = current.parent
 
@@ -33,20 +31,9 @@ NIMBLE_PACKAGE = ROOT / "nimble" / "package.json"
 NIMBLE_LOCK = ROOT / "nimble" / "package-lock.json"
 PYPROJECT = ROOT / "pyproject.toml"
 
-MANIFEST = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "supply-chain"
-    / "dependency-manifest.json"
-)
+MANIFEST = ROOT / "nimble" / "governance" / "supply-chain" / "dependency-manifest.json"
 
-REPORT = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "dependency-manifest-latest.md"
-)
+REPORT = ROOT / "reports" / "nimble" / "dependency-manifest-latest.md"
 
 
 def sha256_file(path: Path) -> str:
@@ -101,20 +88,14 @@ def collect_npm_dependencies() -> dict[str, Any]:
     packages = lock.get("packages", {})
     resolved: list[dict[str, Any]] = []
 
-    for package_path, metadata in sorted(
-        packages.items()
-    ):
-        if not package_path.startswith(
-            "node_modules/"
-        ):
+    for package_path, metadata in sorted(packages.items()):
+        if not package_path.startswith("node_modules/"):
             continue
 
         name = metadata.get("name")
 
         if not name:
-            name = package_path.removeprefix(
-                "node_modules/"
-            )
+            name = package_path.removeprefix("node_modules/")
 
         resolved.append(
             {
@@ -130,9 +111,7 @@ def collect_npm_dependencies() -> dict[str, Any]:
                 "integrity": metadata.get(
                     "integrity",
                 ),
-                "development": bool(
-                    metadata.get("dev", False)
-                ),
+                "development": bool(metadata.get("dev", False)),
                 "optional": bool(
                     metadata.get(
                         "optional",
@@ -147,9 +126,7 @@ def collect_npm_dependencies() -> dict[str, Any]:
             "name",
             "unknown",
         ),
-        "lockfile_version": lock.get(
-            "lockfileVersion"
-        ),
+        "lockfile_version": lock.get("lockfileVersion"),
         "direct_dependencies": package.get(
             "dependencies",
             {},
@@ -158,14 +135,10 @@ def collect_npm_dependencies() -> dict[str, Any]:
             "devDependencies",
             {},
         ),
-        "resolved_package_count": len(
-            resolved
-        ),
+        "resolved_package_count": len(resolved),
         "resolved_packages": resolved,
-        "package_json_sha256":
-            sha256_file(NIMBLE_PACKAGE),
-        "package_lock_sha256":
-            sha256_file(NIMBLE_LOCK),
+        "package_json_sha256": sha256_file(NIMBLE_PACKAGE),
+        "package_lock_sha256": sha256_file(NIMBLE_LOCK),
     }
 
 
@@ -181,43 +154,31 @@ def collect_python_direct_dependencies() -> list[str]:
 
     project = data.get("project", {})
 
-    dependencies = list(
-        project.get("dependencies", [])
-    )
+    dependencies = list(project.get("dependencies", []))
 
     optional = project.get(
         "optional-dependencies",
         {},
     )
 
-    for group, values in sorted(
-        optional.items()
-    ):
+    for group, values in sorted(optional.items()):
         for value in values:
-            dependencies.append(
-                f"{value} [optional:{group}]"
-            )
+            dependencies.append(f"{value} [optional:{group}]")
 
     return sorted(dependencies)
 
 
-def collect_installed_python_packages() -> list[
-    dict[str, str]
-]:
+def collect_installed_python_packages() -> list[dict[str, str]]:
     packages: list[dict[str, str]] = []
 
     for distribution in sorted(
         importlib.metadata.distributions(),
-        key=lambda item: (
-            item.metadata.get(
-                "Name",
-                "",
-            ).lower()
-        ),
+        key=lambda item: item.metadata.get(
+            "Name",
+            "",
+        ).lower(),
     ):
-        name = distribution.metadata.get(
-            "Name"
-        )
+        name = distribution.metadata.get("Name")
 
         if not name:
             continue
@@ -225,14 +186,12 @@ def collect_installed_python_packages() -> list[
         packages.append(
             {
                 "name": name,
-                "version":
-                    distribution.version,
-                "license":
-                    distribution.metadata.get(
-                        "License",
-                        "unknown",
-                    )
-                    or "unknown",
+                "version": distribution.version,
+                "license": distribution.metadata.get(
+                    "License",
+                    "unknown",
+                )
+                or "unknown",
             }
         )
 
@@ -270,14 +229,8 @@ def write_markdown(
         f"- Runtime: `{manifest['runtime']['node']}`",
         f"- npm: `{manifest['runtime']['npm']}`",
         f"- Lockfile version: `{npm['lockfile_version']}`",
-        (
-            "- Resolved packages: "
-            f"`{npm['resolved_package_count']}`"
-        ),
-        (
-            "- package-lock SHA-256: "
-            f"`{npm['package_lock_sha256']}`"
-        ),
+        (f"- Resolved packages: `{npm['resolved_package_count']}`"),
+        (f"- package-lock SHA-256: `{npm['package_lock_sha256']}`"),
         "",
         "## Python",
         "",
@@ -286,10 +239,7 @@ def write_markdown(
             "- Direct dependency declarations: "
             f"`{len(python_data['direct_dependencies'])}`"
         ),
-        (
-            "- Installed distributions: "
-            f"`{python_data['installed_package_count']}`"
-        ),
+        (f"- Installed distributions: `{python_data['installed_package_count']}`"),
         "",
         "## Direct Node dependencies",
         "",
@@ -297,19 +247,11 @@ def write_markdown(
         "|---|---|---|",
     ]
 
-    for name, constraint in sorted(
-        npm["direct_dependencies"].items()
-    ):
-        lines.append(
-            f"| `{name}` | `{constraint}` | runtime |"
-        )
+    for name, constraint in sorted(npm["direct_dependencies"].items()):
+        lines.append(f"| `{name}` | `{constraint}` | runtime |")
 
-    for name, constraint in sorted(
-        npm["direct_dev_dependencies"].items()
-    ):
-        lines.append(
-            f"| `{name}` | `{constraint}` | development |"
-        )
+    for name, constraint in sorted(npm["direct_dev_dependencies"].items()):
+        lines.append(f"| `{name}` | `{constraint}` | development |")
 
     lines.extend(
         [
@@ -320,14 +262,10 @@ def write_markdown(
     )
 
     if python_data["direct_dependencies"]:
-        for dependency in python_data[
-            "direct_dependencies"
-        ]:
+        for dependency in python_data["direct_dependencies"]:
             lines.append(f"- `{dependency}`")
     else:
-        lines.append(
-            "- No PEP 621 project dependencies found."
-        )
+        lines.append("- No PEP 621 project dependencies found.")
 
     REPORT.write_text(
         "\n".join(lines) + "\n",
@@ -341,11 +279,7 @@ def main() -> int:
         NIMBLE_LOCK,
     )
 
-    missing = [
-        path
-        for path in required
-        if not path.exists()
-    ]
+    missing = [path for path in required if not path.exists()]
 
     if missing:
         for path in missing:
@@ -355,45 +289,32 @@ def main() -> int:
             )
         return 1
 
-    python_packages = (
-        collect_installed_python_packages()
-    )
+    python_packages = collect_installed_python_packages()
 
     manifest: dict[str, Any] = {
         "schema_version": "1.0",
-        "generated_at": datetime.now(
-            UTC
-        ).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "source": git_metadata(),
         "runtime": {
-            "python":
-                platform.python_version(),
-            "python_executable":
-                sys.executable,
+            "python": platform.python_version(),
+            "python_executable": sys.executable,
             "node": command_output(
                 ["node", "--version"],
             ),
             "npm": command_output(
                 ["npm", "--version"],
             ),
-            "platform":
-                platform.platform(),
+            "platform": platform.platform(),
         },
         "npm": collect_npm_dependencies(),
         "python": {
-            "pyproject_present":
-                PYPROJECT.exists(),
+            "pyproject_present": PYPROJECT.exists(),
             "pyproject_sha256": (
-                sha256_file(PYPROJECT)
-                if PYPROJECT.exists()
-                else None
+                sha256_file(PYPROJECT) if PYPROJECT.exists() else None
             ),
-            "direct_dependencies":
-                collect_python_direct_dependencies(),
-            "installed_package_count":
-                len(python_packages),
-            "installed_packages":
-                python_packages,
+            "direct_dependencies": collect_python_direct_dependencies(),
+            "installed_package_count": len(python_packages),
+            "installed_packages": python_packages,
         },
     }
 
@@ -419,15 +340,11 @@ def main() -> int:
     print("=" * 72)
     print(
         "Node packages:",
-        manifest["npm"][
-            "resolved_package_count"
-        ],
+        manifest["npm"]["resolved_package_count"],
     )
     print(
         "Python packages:",
-        manifest["python"][
-            "installed_package_count"
-        ],
+        manifest["python"]["installed_package_count"],
     )
     print(
         "Manifest:",

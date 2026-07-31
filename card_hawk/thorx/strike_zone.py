@@ -6,13 +6,6 @@ Genesis 14.4
 
 
 class StrikeZoneEngine:
-
-
-    def evaluate(
-        self,
-        listing
-    ):
-
+    def evaluate(self, listing):
 
         return 0
-

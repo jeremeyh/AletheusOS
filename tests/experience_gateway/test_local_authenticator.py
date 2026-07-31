@@ -28,19 +28,10 @@ def test_local_authenticator_returns_environment_principal(
         "runtime.read,providers.refresh",
     )
 
-    principal = (
-        LocalPrincipalAuthenticator()
-        .authenticate(None)
-    )
+    principal = LocalPrincipalAuthenticator().authenticate(None)
 
-    assert principal.subject_id == (
-        "local:test-user"
-    )
+    assert principal.subject_id == ("local:test-user")
 
-    assert principal.roles == (
-        "operator",
-    )
+    assert principal.roles == ("operator",)
 
-    assert "runtime.read" in (
-        principal.entitlements
-    )
+    assert "runtime.read" in (principal.entitlements)

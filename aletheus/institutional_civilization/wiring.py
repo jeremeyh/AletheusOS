@@ -25,9 +25,13 @@ def _as_mapping(value: Any) -> dict[str, Any]:
 
     if hasattr(value, "to_dict"):
         converted = value.to_dict()
-        return converted if isinstance(converted, dict) else {
-            "value": converted,
-        }
+        return (
+            converted
+            if isinstance(converted, dict)
+            else {
+                "value": converted,
+            }
+        )
 
     return {"value": value}
 
@@ -189,8 +193,7 @@ class InstitutionWiring:
                     institution_id="aletheus.homeostasis",
                     state=ReadinessState.DEGRADED,
                     message=(
-                        "Homeostasis exists but exposes no compatible "
-                        "record method."
+                        "Homeostasis exists but exposes no compatible record method."
                     ),
                 )
 
@@ -248,7 +251,8 @@ class InstitutionWiring:
         actionable = [
             check
             for check in checks
-            if check.state in {
+            if check.state
+            in {
                 ReadinessState.DEGRADED,
                 ReadinessState.FAILED,
             }
@@ -272,19 +276,13 @@ class InstitutionWiring:
                     "but no Council implementation was supplied."
                 ),
                 evidence={
-                    "actionable_findings": [
-                        check.to_dict()
-                        for check in actionable
-                    ],
+                    "actionable_findings": [check.to_dict() for check in actionable],
                 },
             )
 
         proposal = {
             "proposal": "Civilization bootstrap remediation",
-            "findings": [
-                check.to_dict()
-                for check in actionable
-            ],
+            "findings": [check.to_dict() for check in actionable],
         }
 
         try:
@@ -348,8 +346,7 @@ class InstitutionWiring:
                 institution_id="aletheus.ledger",
                 state=ReadinessState.DEGRADED,
                 message=(
-                    "Bootstrap event was emitted, but no Ledger adapter "
-                    "was supplied."
+                    "Bootstrap event was emitted, but no Ledger adapter was supplied."
                 ),
                 evidence=event.to_dict(),
             )

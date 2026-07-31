@@ -7,53 +7,26 @@ Application boundary between Card Hawk
 and AletheusOS intelligence services.
 """
 
-
 from .models import IntelligenceRequest, IntelligenceResponse
 from .routing import IntelligenceRouter
 
 
 class CardHawkIntelligenceGateway:
-
-
-    def __init__(
-        self,
-        runtime=None
-    ):
+    def __init__(self, runtime=None):
 
         self.runtime = runtime
 
         self.router = IntelligenceRouter()
 
+    def evaluate(self, request: IntelligenceRequest):
 
-
-    def evaluate(
-        self,
-        request: IntelligenceRequest
-    ):
-
-        capabilities = (
-            self.router.resolve(
-                request.operation
-            )
-        )
-
+        capabilities = self.router.resolve(request.operation)
 
         return IntelligenceResponse(
-
             decision="ANALYSIS_READY",
-
             confidence=0,
-
             reasoning={
-
-                "asset":
-                    request.asset_id,
-
-                "required_capabilities":
-                    capabilities
-
-            }
-
+                "asset": request.asset_id,
+                "required_capabilities": capabilities,
+            },
         )
-
-

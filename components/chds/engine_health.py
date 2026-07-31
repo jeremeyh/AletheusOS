@@ -20,7 +20,6 @@ def render_engine_health():
     st.subheader("⚙ Engine Health")
 
     for icon, name, status in ENGINES:
-
         left, right = st.columns([4, 1])
 
         with left:

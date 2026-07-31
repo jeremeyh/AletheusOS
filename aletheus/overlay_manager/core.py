@@ -20,9 +20,7 @@ class OverlayManager:
         self._bootstrapped = False
 
     def register(self, definition: OverlayDefinition):
-        existing = self.registry.list_application(
-            definition.application
-        )
+        existing = self.registry.list_application(definition.application)
 
         validation = overlay_validator.validate(
             definition,

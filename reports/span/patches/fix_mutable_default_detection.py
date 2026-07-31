@@ -18,7 +18,7 @@ end = None
 
 # Locate the unreachable mutable-default block
 for i, line in enumerate(lines):
-    if 'elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):' in line:
+    if "elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):" in line:
         start = i
         break
 
@@ -39,7 +39,10 @@ del lines[start:end]
 # Locate the first Function/Class handler
 insert_after = None
 for i, line in enumerate(lines):
-    if "elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):" in line:
+    if (
+        "elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):"
+        in line
+    ):
         insert_after = i
         break
 
@@ -62,16 +65,16 @@ while j < len(lines) and ")" not in lines[j]:
     j += 1
 
 insertion = [
-"                if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):",
-"                    for default in (*node.args.defaults, *node.args.kw_defaults):",
-"                        if default is not None and isinstance(default, (ast.List, ast.Dict, ast.Set)):",
-"                            context.mutable_default_candidates.append(",
-"                                f\"{rel}:{node.lineno}:{node.name}\"",
-"                            )",
-"",
+    "                if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):",
+    "                    for default in (*node.args.defaults, *node.args.kw_defaults):",
+    "                        if default is not None and isinstance(default, (ast.List, ast.Dict, ast.Set)):",
+    "                            context.mutable_default_candidates.append(",
+    '                                f"{rel}:{node.lineno}:{node.name}"',
+    "                            )",
+    "",
 ]
 
-lines[j + 1:j + 1] = insertion
+lines[j + 1 : j + 1] = insertion
 
 FILE.write_text("\n".join(lines) + "\n", encoding="utf-8")
 

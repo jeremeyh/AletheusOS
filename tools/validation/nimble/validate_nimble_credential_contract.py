@@ -24,36 +24,20 @@ ROOT = find_repo_root(Path(__file__).parent)
 
 
 CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "credential-isolation-contract.json"
+    ROOT / "nimble/governance/environments/credential-isolation-contract.json"
 )
 
 REGISTRY_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "deployment-provider-registry.json"
+    ROOT / "nimble/governance/environments/deployment-provider-registry.json"
 )
 
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "credential-contract-validation-latest.json"
-)
+REPORT_PATH = ROOT / "reports/nimble/credential-contract-validation-latest.json"
 
 
 def main() -> int:
-    contract = json.loads(
-        CONTRACT_PATH.read_text(
-            encoding="utf-8"
-        )
-    )
+    contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
 
-    registry = json.loads(
-        REGISTRY_PATH.read_text(
-            encoding="utf-8"
-        )
-    )
+    registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
 
     failures: list[str] = []
 
@@ -71,39 +55,24 @@ def main() -> int:
 
     for name in required_true_policies:
         if policy.get(name) is not True:
-            failures.append(
-                f"Credential policy must be true: {name}"
-            )
+            failures.append(f"Credential policy must be true: {name}")
 
     if policy.get("fingerprint_algorithm") != "sha256":
+        failures.append("Credential fingerprint algorithm must be sha256.")
+
+    truncation = policy.get("fingerprint_truncation")
+
+    if not isinstance(truncation, int) or truncation < 12:
         failures.append(
-            "Credential fingerprint algorithm must be sha256."
+            "Credential fingerprint truncation must be at least 12 characters."
         )
 
-    truncation = policy.get(
-        "fingerprint_truncation"
-    )
-
-    if (
-        not isinstance(truncation, int)
-        or truncation < 12
-    ):
-        failures.append(
-            "Credential fingerprint truncation must "
-            "be at least 12 characters."
-        )
-
-    for provider_name, provider in (
-        registry.get("providers", {}).items()
-    ):
-        secret_map = provider.get(
-            "required_secrets"
-        )
+    for provider_name, provider in registry.get("providers", {}).items():
+        secret_map = provider.get("required_secrets")
 
         if not isinstance(secret_map, dict):
             failures.append(
-                f"Provider lacks environment-scoped "
-                f"credentials: {provider_name}"
+                f"Provider lacks environment-scoped credentials: {provider_name}"
             )
             continue
 
@@ -128,9 +97,7 @@ def main() -> int:
         json.dumps(
             {
                 "schema_version": "1.0",
-                "generated_at": datetime.now(
-                    UTC
-                ).isoformat(),
+                "generated_at": datetime.now(UTC).isoformat(),
                 "status": status,
                 "failures": failures,
             },

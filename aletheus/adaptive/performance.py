@@ -6,17 +6,6 @@ Post-Genesis 11
 
 
 class PerformanceEngine:
-
-
     def evaluate(self, system):
 
-        return {
-
-            "system":
-            system,
-
-            "performance":
-            "analyzed"
-
-        }
-
+        return {"system": system, "performance": "analyzed"}

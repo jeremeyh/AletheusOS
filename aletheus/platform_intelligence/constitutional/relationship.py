@@ -51,9 +51,7 @@ class ConstitutionalRelationship:
         )
 
         if source_address == target_address:
-            raise ValueError(
-                "A constitutional relationship cannot target itself."
-            )
+            raise ValueError("A constitutional relationship cannot target itself.")
 
         return cls(
             source=source_address,

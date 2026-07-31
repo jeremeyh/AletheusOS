@@ -7,17 +7,19 @@ text = core.read_text()
 # Register commands
 # ---------------------------------------------------------
 
-anchor = '        self.commands.register("kernel.statistics", self._cmd_kernel_statistics)\n'
+anchor = (
+    '        self.commands.register("kernel.statistics", self._cmd_kernel_statistics)\n'
+)
 
 if anchor not in text:
     raise SystemExit("Kernel command registration anchor not found.")
 
-registration = '''
+registration = """
         self.commands.register("compat.list", self._cmd_compat_list)
         self.commands.register("compat.resolve", self._cmd_compat_resolve)
         self.commands.register("compat.statistics", self._cmd_compat_statistics)
         self.commands.register("compat.contract", self._cmd_compat_contract)
-'''
+"""
 
 if 'self.commands.register("compat.statistics"' not in text:
     text = text.replace(anchor, anchor + registration, 1)
@@ -26,7 +28,7 @@ if 'self.commands.register("compat.statistics"' not in text:
 # Command handlers
 # ---------------------------------------------------------
 
-handlers = '''
+handlers = """
 
     # ==========================================================
     # Runtime Compatibility Commands
@@ -91,10 +93,9 @@ handlers = '''
 
         return context
 
-'''
+"""
 
 if "def _cmd_compat_statistics" not in text:
-
     marker = "\n\nruntime_core = AletheusRuntime()"
 
     if marker not in text:

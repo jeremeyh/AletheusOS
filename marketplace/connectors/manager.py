@@ -23,18 +23,13 @@ class MarketplaceManager:
         comps = []
 
         for provider in cls.PROVIDERS:
-
             try:
-
                 provider_results = provider.search(card)
 
                 if provider_results:
                     comps.extend(provider_results)
 
             except Exception as exc:
-
-                print(
-                    f"[Marketplace] {provider.__class__.__name__} failed: {exc}"
-                )
+                print(f"[Marketplace] {provider.__class__.__name__} failed: {exc}")
 
         return comps

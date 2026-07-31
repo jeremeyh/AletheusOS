@@ -5,8 +5,10 @@ from pathlib import Path
 
 ALLOWED_IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp"}
 
+
 def image_to_base64(path: Path) -> str:
     return base64.b64encode(path.read_bytes()).decode("utf-8")
+
 
 def image_tag(path: Path | None, css_class: str, fallback: str = "🦅") -> str:
     if path and path.exists():
@@ -15,7 +17,10 @@ def image_tag(path: Path | None, css_class: str, fallback: str = "🦅") -> str:
         return f'<img class="{css_class}" src="data:image/{mime};base64,{image_to_base64(path)}" />'
     return f'<div class="{css_class}" style="font-size:6rem;">{fallback}</div>'
 
-def save_uploaded_image(uploaded_file, destination_dir: Path, prefix: str = "asset") -> str:
+
+def save_uploaded_image(
+    uploaded_file, destination_dir: Path, prefix: str = "asset"
+) -> str:
     if uploaded_file is None:
         return ""
     suffix = Path(uploaded_file.name).suffix.lower()

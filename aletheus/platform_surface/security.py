@@ -29,62 +29,41 @@ class SecuritySurface:
         severity: str,
         finding: dict[str, Any],
     ):
-        return (
-            self._orchestrator
-            .respond_to_integrity_finding(
-                entity_id=entity_id,
-                severity=severity,
-                finding=finding,
-            )
+        return self._orchestrator.respond_to_integrity_finding(
+            entity_id=entity_id,
+            severity=severity,
+            finding=finding,
         )
 
     def case(
         self,
         case_id: str,
     ):
-        return (
-            self._orchestrator
-            .case_engine
-            .registry
-            .require(case_id)
-        )
+        return self._orchestrator.case_engine.registry.require(case_id)
 
     def mission(
         self,
         mission_id: str,
     ):
-        return (
-            self._orchestrator
-            .mission_engine
-            .registry
-            .require(mission_id)
-        )
+        return self._orchestrator.mission_engine.registry.require(mission_id)
 
     def history(
         self,
         correlation_id: str,
     ):
-        return self._orchestrator.history(
-            correlation_id
-        )
+        return self._orchestrator.history(correlation_id)
 
     def provenance(
         self,
         event_id: str,
     ):
-        return self._orchestrator.provenance(
-            event_id
-        )
+        return self._orchestrator.provenance(event_id)
 
     def health(self) -> dict[str, Any]:
-        orchestrator_health = (
-            self._orchestrator.health()
-        )
+        orchestrator_health = self._orchestrator.health()
 
         return {
-            "name": (
-                "AletheusOS Security Surface™"
-            ),
+            "name": ("AletheusOS Security Surface™"),
             "version": self.VERSION,
             "status": (
                 orchestrator_health.get(

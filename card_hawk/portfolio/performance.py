@@ -4,19 +4,6 @@ Performance Tracking
 
 
 class PerformanceEngine:
+    def calculate(self, asset):
 
-
-    def calculate(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "gain":
-
-                0
-
-        }
-
+        return {"gain": 0}

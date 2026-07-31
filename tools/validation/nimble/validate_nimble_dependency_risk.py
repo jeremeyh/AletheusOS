@@ -21,20 +21,9 @@ def find_repo_root(start: Path) -> Path:
 ROOT = find_repo_root(Path(__file__).parent)
 
 
-REPORT = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "dependency-risk-latest.json"
-)
+REPORT = ROOT / "reports" / "nimble" / "dependency-risk-latest.json"
 
-POLICY = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "supply-chain"
-    / "dependency-policy.json"
-)
+POLICY = ROOT / "nimble" / "governance" / "supply-chain" / "dependency-policy.json"
 
 REQUIRED_KEYS = {
     "schema_version",
@@ -51,20 +40,14 @@ REQUIRED_KEYS = {
 
 def main() -> int:
     if not POLICY.exists():
-        print(
-            "FAIL: Dependency policy is missing."
-        )
+        print("FAIL: Dependency policy is missing.")
         return 1
 
     if not REPORT.exists():
-        print(
-            "FAIL: Dependency risk report is missing."
-        )
+        print("FAIL: Dependency risk report is missing.")
         return 1
 
-    report: dict[str, Any] = json.loads(
-        REPORT.read_text(encoding="utf-8")
-    )
+    report: dict[str, Any] = json.loads(REPORT.read_text(encoding="utf-8"))
 
     missing = REQUIRED_KEYS - set(report)
 
@@ -79,23 +62,17 @@ def main() -> int:
         "PASS",
         "FAIL",
     }:
-        print(
-            "FAIL: Invalid dependency risk status."
-        )
+        print("FAIL: Invalid dependency risk status.")
         return 1
 
     denied = report["licenses"]["denied"]
 
     if denied and report["status"] != "FAIL":
-        print(
-            "FAIL: Denied licenses did not fail governance."
-        )
+        print("FAIL: Denied licenses did not fail governance.")
         return 1
 
     if report["failures"] and report["status"] != "FAIL":
-        print(
-            "FAIL: Risk failures exist but status is not FAIL."
-        )
+        print("FAIL: Risk failures exist but status is not FAIL.")
         return 1
 
     print("=" * 72)
@@ -111,9 +88,7 @@ def main() -> int:
     )
     print(
         "Review required:",
-        len(
-            report["licenses"]["review_required"]
-        ),
+        len(report["licenses"]["review_required"]),
     )
     print(
         "Denied licenses:",
@@ -128,11 +103,7 @@ def main() -> int:
         report["python_audit"]["available"],
     )
 
-    return (
-        0
-        if report["status"] == "PASS"
-        else 1
-    )
+    return 0 if report["status"] == "PASS" else 1
 
 
 if __name__ == "__main__":

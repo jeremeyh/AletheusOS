@@ -47,11 +47,7 @@ class NeuronRegistry:
         return list(self._neurons.values())
 
     def by_cortex(self, cortex: str) -> list[Neuron]:
-        return [
-            neuron
-            for neuron in self._neurons.values()
-            if neuron.cortex == cortex
-        ]
+        return [neuron for neuron in self._neurons.values() if neuron.cortex == cortex]
 
     def count(self) -> int:
         return len(self._neurons)

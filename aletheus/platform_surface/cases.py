@@ -21,17 +21,13 @@ class CaseSurface:
         self,
         case_id: str,
     ):
-        return self._engine.registry.get(
-            case_id
-        )
+        return self._engine.registry.get(case_id)
 
     def require(
         self,
         case_id: str,
     ):
-        return self._engine.registry.require(
-            case_id
-        )
+        return self._engine.registry.require(case_id)
 
     def list(self):
         return self._engine.registry.list()
@@ -40,23 +36,15 @@ class CaseSurface:
         self,
         status: CaseStatus | str,
     ):
-        resolved = (
-            status
-            if isinstance(status, CaseStatus)
-            else CaseStatus(status)
-        )
+        resolved = status if isinstance(status, CaseStatus) else CaseStatus(status)
 
-        return self._engine.registry.by_status(
-            resolved
-        )
+        return self._engine.registry.by_status(resolved)
 
     def history(
         self,
         case_id: str,
     ):
-        return self._engine.history(
-            case_id
-        )
+        return self._engine.history(case_id)
 
     def statistics(self) -> dict:
         return self._engine.registry.statistics()

@@ -14,9 +14,7 @@ def find_repo_root(start: Path) -> Path:
             return current
 
         if current.parent == current:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         current = current.parent
 
@@ -24,44 +22,25 @@ def find_repo_root(start: Path) -> Path:
 ROOT = find_repo_root(Path(__file__).parent)
 
 REGISTRY = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "supply-chain"
-    / "dependency-exceptions.json"
+    ROOT / "nimble" / "governance" / "supply-chain" / "dependency-exceptions.json"
 )
 
-RISK_REPORT = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "dependency-risk-latest.json"
-)
+RISK_REPORT = ROOT / "reports" / "nimble" / "dependency-risk-latest.json"
 
 REPORT_JSON = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "dependency-exception-reconciliation-latest.json"
+    ROOT / "reports" / "nimble" / "dependency-exception-reconciliation-latest.json"
 )
 
 REPORT_MARKDOWN = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "dependency-exception-reconciliation-latest.md"
+    ROOT / "reports" / "nimble" / "dependency-exception-reconciliation-latest.md"
 )
 
 
 def load_json(path: Path) -> dict[str, Any]:
     if not path.exists():
-        raise FileNotFoundError(
-            f"Required file is missing: {path.relative_to(ROOT)}"
-        )
+        raise FileNotFoundError(f"Required file is missing: {path.relative_to(ROOT)}")
 
-    return json.loads(
-        path.read_text(encoding="utf-8")
-    )
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def normalize_subject(value: Any) -> str:
@@ -156,9 +135,7 @@ def collect_current_risks(
         )
     else:
         for item in npm_audit.get("vulnerabilities", []):
-            severity = str(
-                item.get("severity", "unknown")
-            ).lower()
+            severity = str(item.get("severity", "unknown")).lower()
 
             if severity not in {"critical", "high"}:
                 continue
@@ -167,9 +144,7 @@ def collect_current_risks(
                 {
                     "ecosystem": "npm",
                     "package": item["name"],
-                    "version": str(
-                        item.get("range") or "unknown"
-                    ),
+                    "version": str(item.get("range") or "unknown"),
                     "exception_type": "vulnerability",
                     "subject": severity,
                     "severity": severity,
@@ -196,20 +171,14 @@ def collect_current_risks(
             "dependencies",
             [],
         ):
-            package = str(
-                dependency.get("name", "unknown")
-            )
-            version = str(
-                dependency.get("version", "unknown")
-            )
+            package = str(dependency.get("name", "unknown"))
+            version = str(dependency.get("version", "unknown"))
 
             for vulnerability in dependency.get(
                 "vulns",
                 [],
             ):
-                vulnerability_id = str(
-                    vulnerability.get("id", "unknown")
-                )
+                vulnerability_id = str(vulnerability.get("id", "unknown"))
 
                 risks.append(
                     {
@@ -236,9 +205,7 @@ def reconcile(
         if item.get("status") == "active"
     ]
 
-    current_risks = collect_current_risks(
-        risk_report
-    )
+    current_risks = collect_current_risks(risk_report)
 
     exception_map: dict[
         tuple[str, str, str, str, str],
@@ -278,17 +245,9 @@ def reconcile(
         if len(exceptions) > 1:
             duplicate_exceptions.extend(exceptions)
 
-            identifiers = ", ".join(
-                sorted(
-                    str(item.get("id"))
-                    for item in exceptions
-                )
-            )
+            identifiers = ", ".join(sorted(str(item.get("id")) for item in exceptions))
 
-            failures.append(
-                f"Duplicate active exceptions for {key}: "
-                f"{identifiers}"
-            )
+            failures.append(f"Duplicate active exceptions for {key}: {identifiers}")
 
         if not risks:
             orphaned.extend(exceptions)
@@ -354,10 +313,7 @@ def write_markdown(
         f"- Current risks: `{report['current_risk_count']}`",
         f"- Matched exceptions: `{len(report['matched'])}`",
         f"- Orphaned exceptions: `{len(report['orphaned'])}`",
-        (
-            "- Duplicate exceptions: "
-            f"`{len(report['duplicate_exceptions'])}`"
-        ),
+        (f"- Duplicate exceptions: `{len(report['duplicate_exceptions'])}`"),
         (
             "- Unwaived enforceable risks: "
             f"`{len(report['unwaived_enforceable_risks'])}`"
@@ -426,11 +382,7 @@ def main() -> int:
     report = {
         "schema_version": "1.0",
         "generated_at": now.isoformat(),
-        "status": (
-            "PASS"
-            if not result["failures"]
-            else "FAIL"
-        ),
+        "status": ("PASS" if not result["failures"] else "FAIL"),
         **result,
     }
 

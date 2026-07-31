@@ -6,6 +6,4 @@ Post-Genesis 3251-3350
 
 from .engine import ConsciousnessModelingCivilizationEngine
 
-__all__ = [
-"ConsciousnessModelingCivilizationEngine"
-]
+__all__ = ["ConsciousnessModelingCivilizationEngine"]

@@ -42,11 +42,7 @@ def normalize_command(name: str) -> str:
 
 
 def command_tokens(name: str) -> set[str]:
-    return {
-        token
-        for token in normalize_command(name).split(".")
-        if token
-    }
+    return {token for token in normalize_command(name).split(".") if token}
 
 
 def similarity(left: str, right: str) -> float:
@@ -60,11 +56,7 @@ def similarity(left: str, right: str) -> float:
     right_tokens = command_tokens(right)
 
     union = left_tokens | right_tokens
-    token_score = (
-        len(left_tokens & right_tokens) / len(union)
-        if union
-        else 0.0
-    )
+    token_score = len(left_tokens & right_tokens) / len(union) if union else 0.0
 
     return round((sequence * 0.65) + (token_score * 0.35), 4)
 
@@ -96,10 +88,7 @@ def extract_dispatch_commands(path: Path) -> list[dict[str, Any]]:
 
         first = node.args[0]
 
-        if not (
-            isinstance(first, ast.Constant)
-            and isinstance(first.value, str)
-        ):
+        if not (isinstance(first, ast.Constant) and isinstance(first.value, str)):
             continue
 
         commands.append(
@@ -131,9 +120,7 @@ def build_source_index() -> dict[str, list[tuple[int, str]]]:
             continue
 
         try:
-            lines = source_path.read_text(
-                encoding="utf-8"
-            ).splitlines()
+            lines = source_path.read_text(encoding="utf-8").splitlines()
         except (OSError, UnicodeDecodeError):
             continue
 
@@ -157,9 +144,7 @@ def find_source_references(
     for relative_path, lines in source_index.items():
         for line_number, line in lines:
             if command in line:
-                references.append(
-                    f"{relative_path}:{line_number}"
-                )
+                references.append(f"{relative_path}:{line_number}")
 
                 if len(references) >= 20:
                     return references
@@ -189,9 +174,7 @@ print(f"Indexed {len(source_index)} Python files.")
 test_occurrences: list[dict[str, Any]] = []
 
 for test_file in sorted(TESTS.rglob("test_*.py")):
-    test_occurrences.extend(
-        extract_dispatch_commands(test_file)
-    )
+    test_occurrences.extend(extract_dispatch_commands(test_file))
 
 requirements: dict[str, list[dict[str, Any]]] = defaultdict(list)
 
@@ -217,11 +200,7 @@ for command in sorted(requirements):
         reverse=True,
     )[:5]
 
-    strong_candidates = [
-        item
-        for item in candidates
-        if item["score"] >= 0.55
-    ]
+    strong_candidates = [item for item in candidates if item["score"] >= 0.55]
 
     source_references = find_source_references(
         command,
@@ -243,13 +222,9 @@ for command in sorted(requirements):
             "classification": classification,
             "registered": is_registered,
             "handler": handler_identity(record),
-            "category": (
-                record.category if record is not None else None
-            ),
+            "category": (record.category if record is not None else None),
             "invocation_mode": (
-                registry.dispatcher.invocation_mode(command)
-                if is_registered
-                else None
+                registry.dispatcher.invocation_mode(command) if is_registered else None
             ),
             "tests": requirements[command],
             "candidate_aliases": strong_candidates,
@@ -260,24 +235,15 @@ for command in sorted(requirements):
 
 summary = {
     "test_command_requirements": len(manifest),
-    "registered_requirements": sum(
-        1 for item in manifest if item["registered"]
-    ),
+    "registered_requirements": sum(1 for item in manifest if item["registered"]),
     "probable_aliases": sum(
-        1
-        for item in manifest
-        if item["classification"] == "probable_alias"
+        1 for item in manifest if item["classification"] == "probable_alias"
     ),
     "defined_but_not_registered": sum(
-        1
-        for item in manifest
-        if item["classification"]
-        == "defined_but_not_registered"
+        1 for item in manifest if item["classification"] == "defined_but_not_registered"
     ),
     "missing_capabilities": sum(
-        1
-        for item in manifest
-        if item["classification"] == "missing_capability"
+        1 for item in manifest if item["classification"] == "missing_capability"
     ),
     "live_registry_commands": registry.count(),
     "generation": registry.generation,
@@ -315,11 +281,7 @@ groups = (
 )
 
 for group in groups:
-    items = [
-        item
-        for item in manifest
-        if item["classification"] == group
-    ]
+    items = [item for item in manifest if item["classification"] == group]
 
     lines.extend(
         [
@@ -345,25 +307,20 @@ for group in groups:
         )
 
         test_locations = ", ".join(
-            f"`{entry['file']}:{entry['line']}`"
-            for entry in item["tests"]
+            f"`{entry['file']}:{entry['line']}`" for entry in item["tests"]
         )
         lines.append(f"- Tests: {test_locations}")
 
         if item["candidate_aliases"]:
             candidates = ", ".join(
-                (
-                    f"`{candidate['command']}` "
-                    f"({candidate['score']:.2f})"
-                )
+                (f"`{candidate['command']}` ({candidate['score']:.2f})")
                 for candidate in item["candidate_aliases"]
             )
             lines.append(f"- Alias candidates: {candidates}")
 
         if item["source_references"]:
             references = ", ".join(
-                f"`{reference}`"
-                for reference in item["source_references"]
+                f"`{reference}`" for reference in item["source_references"]
             )
             lines.append(f"- Source references: {references}")
 

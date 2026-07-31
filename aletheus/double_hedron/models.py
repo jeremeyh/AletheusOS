@@ -25,7 +25,6 @@ def new_memory_id() -> str:
 
 
 class MemoryType(StrEnum):
-
     SESSION = "SESSION"
 
     WORKING = "WORKING"
@@ -50,7 +49,6 @@ class MemoryType(StrEnum):
 
 
 class MemoryLifecycle(StrEnum):
-
     CREATED = "CREATED"
 
     OBSERVED = "OBSERVED"
@@ -66,7 +64,6 @@ class MemoryLifecycle(StrEnum):
 
 @dataclass(slots=True)
 class MemoryReference:
-
     memory_id: str
 
     relationship: str
@@ -82,7 +79,6 @@ class MemoryReference:
 
 @dataclass(slots=True)
 class MemoryObject:
-
     memory_id: str
 
     identity: str
@@ -155,10 +151,7 @@ class MemoryObject:
             "evidence": self.evidence,
             "reasoning": self.reasoning,
             "confidence": self.confidence,
-            "references": [
-                reference.to_dict()
-                for reference in self.references
-            ],
+            "references": [reference.to_dict() for reference in self.references],
             "provenance": self.provenance,
             "metadata": self.metadata,
             "created_at": self.created_at,

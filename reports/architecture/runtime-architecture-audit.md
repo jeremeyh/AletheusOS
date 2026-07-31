@@ -1,12 +1,12 @@
 # Runtime Architecture Audit
 
-Generated: `2026-07-31T09:00:19.457613+00:00`
+Generated: `2026-07-31T12:50:23.238562+00:00`
 
 ## Architecture Health
 
-- Score: **75/100**
-- Grade: **C**
-- Errors: **2**
+- Score: **85/100**
+- Grade: **B+**
+- Errors: **0**
 - Warnings: **8**
 - Informational findings: **1**
 
@@ -16,19 +16,19 @@ Generated: `2026-07-31T09:00:19.457613+00:00`
 - Dependency Cycles: -0
 - Legacy References: -0
 - Ownership Errors: -0
-- Boundary Violations: -10
+- Boundary Violations: -0
 - Other Errors: -0
 - Warnings: -15
 
 ## Runtime Module Inventory
 
-- Modules: **417**
-- Total lines: **26884**
-- Average module size: **64.47 lines**
-- Largest module: **aletheus.runtime.core** (1027 lines)
-- Internal import edges: **440**
+- Modules: **415**
+- Total lines: **26709**
+- Average module size: **64.36 lines**
+- Largest module: **aletheus.runtime.core** (1014 lines)
+- Internal import edges: **434**
 - Dependency cycles: **0**
-- Orphan modules: **32**
+- Orphan modules: **35**
 - Kernel constructors: **1**
 - Boot pipeline paths: **2**
 - Legacy references: **0**
@@ -189,7 +189,6 @@ runtime
 │   └── timing.py
 ├── bootstrap
 │   ├── __init__.py
-│   ├── bootstrap_engine.py
 │   ├── runtime_bootstrap.py
 │   └── runtime_manifest_builder.py
 ├── builder
@@ -394,7 +393,6 @@ runtime
 │   ├── invariant_manager.py
 │   ├── lifecycle_manager.py
 │   ├── observability_manager.py
-│   ├── registration_manager.py
 │   ├── registry_federation_manager.py
 │   ├── registry_manager.py
 │   ├── runtime_facade.py
@@ -509,6 +507,7 @@ runtime
 │   ├── capability_registry.py
 │   ├── engine.py
 │   └── runtime_topology.py
+├── .DS_Store
 ├── __init__.py
 ├── adapter.py
 ├── context.py
@@ -533,7 +532,7 @@ runtime
 ## Boot Pipeline Construction
 
 - `aletheus/runtime/composition/root.py:50` — `build_runtime_boot_pipeline`
-- `aletheus/runtime/core.py:282` — `build_runtime_boot_pipeline`
+- `aletheus/runtime/core.py:311` — `build_runtime_boot_pipeline`
 
 ## Legacy Runtime References
 
@@ -555,6 +554,9 @@ runtime
 - `aletheus.runtime.boot_pipeline.manifest`
 - `aletheus.runtime.boot_pipeline.models`
 - `aletheus.runtime.boot_pipeline.reporter`
+- `aletheus.runtime.bootstrap`
+- `aletheus.runtime.bootstrap.runtime_bootstrap`
+- `aletheus.runtime.bootstrap.runtime_manifest_builder`
 - `aletheus.runtime.certification.certifier`
 - `aletheus.runtime.certification.federation_certifier`
 - `aletheus.runtime.command_handlers`
@@ -580,8 +582,6 @@ runtime
 
 ## Findings
 
-- **ERROR** `upward_dependency`: orchestration may not depend upward upon boot. aletheus.runtime.managers.command_manager imports aletheus.runtime.command_bootstrap.bootstrapper. — `aletheus.runtime.managers.command_manager:9`
-- **ERROR** `upward_dependency`: orchestration may not depend upward upon boot. aletheus.runtime.managers.registration_manager imports aletheus.runtime.command_bootstrap.bootstrapper. — `aletheus.runtime.managers.registration_manager:10`
 - **WARNING** `boot_pipeline`: Multiple runtime boot-pipeline paths remain active (2).
 - **WARNING** `empty_module`: Python module is empty. — `aletheus/runtime/boot/__init__.py`
 - **WARNING** `empty_module`: Python module is empty. — `aletheus/runtime/command_handlers/__init__.py`
@@ -589,5 +589,5 @@ runtime
 - **WARNING** `empty_module`: Python module is empty. — `aletheus/runtime/contracts/components/__init__.py`
 - **WARNING** `empty_module`: Python module is empty. — `aletheus/runtime/contracts/managers/__init__.py`
 - **WARNING** `empty_module`: Python module is empty. — `aletheus/runtime/manifest/__init__.py`
-- **WARNING** `module_size`: Module contains 1027 lines and exceeds the recommended threshold of 750. — `aletheus/runtime/core.py`
-- **INFO** `orphan_modules`: 32 runtime modules have no internal inbound or outbound imports.
+- **WARNING** `module_size`: Module contains 1014 lines and exceeds the recommended threshold of 750. — `aletheus/runtime/core.py`
+- **INFO** `orphan_modules`: 35 runtime modules have no internal inbound or outbound imports.

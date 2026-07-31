@@ -22,13 +22,17 @@ class CatalystReporter:
 
         if report.recommendations:
             for rec in report.recommendations:
-                lines.append(f"  - [{rec.impact.upper()}] {rec.target}: {rec.recommendation}")
+                lines.append(
+                    f"  - [{rec.impact.upper()}] {rec.target}: {rec.recommendation}"
+                )
         else:
             lines.append("  None")
 
-        lines.extend([
-            "",
-            "========================================================",
-        ])
+        lines.extend(
+            [
+                "",
+                "========================================================",
+            ]
+        )
 
         return "\n".join(lines)

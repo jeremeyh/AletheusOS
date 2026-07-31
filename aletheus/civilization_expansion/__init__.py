@@ -6,6 +6,4 @@ Post-Genesis 276-300
 
 from .engine import CivilizationExpansionEngine
 
-__all__ = [
-"CivilizationExpansionEngine"
-]
+__all__ = ["CivilizationExpansionEngine"]

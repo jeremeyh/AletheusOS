@@ -9,23 +9,15 @@ from dataclasses import dataclass, field
 
 @dataclass
 class ConsoleWidget:
-
-
     name: str
 
-    data: dict = field(
-        default_factory=dict
-    )
-
+    data: dict = field(default_factory=dict)
 
 
 @dataclass
 class DecisionItem:
-
-
     action: str
 
     recommendation: str
 
     confidence: int
-

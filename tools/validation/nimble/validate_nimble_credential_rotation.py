@@ -28,45 +28,25 @@ ROOT = find_repo_root(Path(__file__).parent)
 
 
 CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "credential-rotation-contract.json"
+    ROOT / "nimble/governance/environments/credential-rotation-contract.json"
 )
 
-METADATA_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "credential-metadata.json"
-)
+METADATA_PATH = ROOT / "nimble/governance/environments/credential-metadata.json"
 
-REVOCATION_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "credential-revocations.json"
-)
+REVOCATION_PATH = ROOT / "nimble/governance/environments/credential-revocations.json"
 
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "credential-rotation-latest.json"
-)
+REPORT_PATH = ROOT / "reports/nimble/credential-rotation-latest.json"
 
 
 def load_json(path: Path) -> dict[str, Any]:
-    return json.loads(
-        path.read_text(encoding="utf-8")
-    )
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def parse_timestamp(value: str) -> datetime:
-    parsed = datetime.fromisoformat(
-        value.replace("Z", "+00:00")
-    )
+    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
 
     if parsed.tzinfo is None:
-        raise ValueError(
-            "Credential timestamp must include timezone."
-        )
+        raise ValueError("Credential timestamp must include timezone.")
 
     return parsed.astimezone(UTC)
 
@@ -98,28 +78,18 @@ def main() -> int:
     now = datetime.now(UTC)
 
     tolerance = timedelta(
-        seconds=contract["thresholds"][
-            "clock_skew_tolerance_seconds"
-        ]
+        seconds=contract["thresholds"]["clock_skew_tolerance_seconds"]
     )
 
     warning_window = timedelta(
-        days=contract["thresholds"][
-            "warning_before_expiry_days"
-        ]
+        days=contract["thresholds"]["warning_before_expiry_days"]
     )
 
     critical_window = timedelta(
-        days=contract["thresholds"][
-            "critical_before_expiry_days"
-        ]
+        days=contract["thresholds"]["critical_before_expiry_days"]
     )
 
-    default_max_age = timedelta(
-        days=contract["thresholds"][
-            "default_max_age_days"
-        ]
-    )
+    default_max_age = timedelta(days=contract["thresholds"]["default_max_age_days"])
 
     revoked_fingerprints = {
         record.get("fingerprint")
@@ -137,10 +107,8 @@ def main() -> int:
             [],
         )
         if (
-            record.get("provider")
-            == arguments.provider
-            and record.get("environment")
-            == arguments.environment
+            record.get("provider") == arguments.provider
+            and record.get("environment") == arguments.environment
         )
     ]
 
@@ -155,108 +123,68 @@ def main() -> int:
         expires_at_value = record.get("expires_at")
 
         if not fingerprint:
-            failures.append(
-                f"{credential_id}: fingerprint is missing."
-            )
+            failures.append(f"{credential_id}: fingerprint is missing.")
             continue
 
         if not issued_at_value:
-            failures.append(
-                f"{credential_id}: issued_at is missing."
-            )
+            failures.append(f"{credential_id}: issued_at is missing.")
             continue
 
         if not expires_at_value:
-            failures.append(
-                f"{credential_id}: expires_at is missing."
-            )
+            failures.append(f"{credential_id}: expires_at is missing.")
             continue
 
         try:
-            issued_at = parse_timestamp(
-                issued_at_value
-            )
-            expires_at = parse_timestamp(
-                expires_at_value
-            )
+            issued_at = parse_timestamp(issued_at_value)
+            expires_at = parse_timestamp(expires_at_value)
         except (TypeError, ValueError) as error:
-            failures.append(
-                f"{credential_id}: invalid timestamp: "
-                f"{error}"
-            )
+            failures.append(f"{credential_id}: invalid timestamp: {error}")
             continue
 
         if issued_at > now + tolerance:
-            failures.append(
-                f"{credential_id}: issued_at is in "
-                "the future."
-            )
+            failures.append(f"{credential_id}: issued_at is in the future.")
 
         if expires_at <= issued_at:
             failures.append(
-                f"{credential_id}: expires_at must be "
-                "later than issued_at."
+                f"{credential_id}: expires_at must be later than issued_at."
             )
 
         if now >= expires_at:
-            failures.append(
-                f"{credential_id}: credential is expired."
-            )
+            failures.append(f"{credential_id}: credential is expired.")
 
         age = now - issued_at
 
         max_age_days = record.get(
             "max_age_days",
-            contract["thresholds"][
-                "default_max_age_days"
-            ],
+            contract["thresholds"]["default_max_age_days"],
         )
 
         try:
-            max_age = timedelta(
-                days=int(max_age_days)
-            )
+            max_age = timedelta(days=int(max_age_days))
         except (TypeError, ValueError):
-            failures.append(
-                f"{credential_id}: invalid max_age_days."
-            )
+            failures.append(f"{credential_id}: invalid max_age_days.")
             max_age = default_max_age
 
         if age > max_age:
             failures.append(
-                f"{credential_id}: credential exceeded "
-                "its maximum rotation age."
+                f"{credential_id}: credential exceeded its maximum rotation age."
             )
 
         remaining = expires_at - now
 
-        if (
-            timedelta(0)
-            < remaining
-            <= critical_window
-        ):
+        if timedelta(0) < remaining <= critical_window:
             failures.append(
-                f"{credential_id}: credential expires "
-                "inside the critical window."
+                f"{credential_id}: credential expires inside the critical window."
             )
-        elif (
-            timedelta(0)
-            < remaining
-            <= warning_window
-        ):
+        elif timedelta(0) < remaining <= warning_window:
             warnings.append(
-                f"{credential_id}: credential expires "
-                "inside the warning window."
+                f"{credential_id}: credential expires inside the warning window."
             )
 
         if fingerprint in revoked_fingerprints:
-            failures.append(
-                f"{credential_id}: credential is revoked."
-            )
+            failures.append(f"{credential_id}: credential is revoked.")
 
-        previous_fingerprint = record.get(
-            "previous_fingerprint"
-        )
+        previous_fingerprint = record.get("previous_fingerprint")
 
         rotation_number = record.get(
             "rotation_number",
@@ -269,8 +197,7 @@ def main() -> int:
             and not previous_fingerprint
         ):
             failures.append(
-                f"{credential_id}: rotated credential "
-                "lacks fingerprint lineage."
+                f"{credential_id}: rotated credential lacks fingerprint lineage."
             )
 
         checks.append(
@@ -282,20 +209,14 @@ def main() -> int:
             }
         )
 
-    status = (
-        "PASS"
-        if not failures
-        else "FAIL"
-    )
+    status = "PASS" if not failures else "FAIL"
 
     report = {
         "schema_version": "1.0",
         "generated_at": now.isoformat(),
         "provider": arguments.provider,
         "environment": arguments.environment,
-        "credential_count": len(
-            scoped_credentials
-        ),
+        "credential_count": len(scoped_credentials),
         "status": status,
         "checks": checks,
         "warnings": warnings,
@@ -352,9 +273,7 @@ def main() -> int:
                 json.dumps(
                     {
                         "provider": arguments.provider,
-                        "credential_count": len(
-                            scoped_credentials
-                        ),
+                        "credential_count": len(scoped_credentials),
                     }
                 ),
             ],

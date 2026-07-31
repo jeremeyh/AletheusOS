@@ -4,17 +4,6 @@ Observability Engine
 
 
 class ObservabilityEngine:
+    def health(self):
 
-
-    def health(
-        self
-    ):
-
-        return {
-
-            "status":
-
-                "healthy"
-
-        }
-
+        return {"status": "healthy"}

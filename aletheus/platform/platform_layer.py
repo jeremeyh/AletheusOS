@@ -153,11 +153,13 @@ class PlatformLayer:
 
         for directory in self.REQUIRED_DIRS:
             path = self.root / directory
-            checks.append({
-                "name": directory,
-                "exists": path.exists(),
-                "is_dir": path.is_dir(),
-            })
+            checks.append(
+                {
+                    "name": directory,
+                    "exists": path.exists(),
+                    "is_dir": path.is_dir(),
+                }
+            )
 
         return checks
 
@@ -202,11 +204,13 @@ class PlatformLayer:
         findings = []
 
         if not checks["python"]["virtualenv_active"]:
-            findings.append({
-                "severity": "medium",
-                "code": "VENV_NOT_ACTIVE",
-                "message": "Python virtual environment does not appear to be active.",
-            })
+            findings.append(
+                {
+                    "severity": "medium",
+                    "code": "VENV_NOT_ACTIVE",
+                    "message": "Python virtual environment does not appear to be active.",
+                }
+            )
 
         return findings
 
@@ -217,19 +221,21 @@ class PlatformLayer:
         json_path.write_text(json.dumps(result, indent=2), encoding="utf-8")
 
         md_path.write_text(
-            "\n".join([
-                "# AletheusOS Platform Layer Report",
-                "",
-                f"Generated: {result['platform']['timestamp']}",
-                f"Status: **{result['platform']['status']}**",
-                f"Score: **{result['platform']['score']}**",
-                f"Root: `{result['platform']['root']}`",
-                "",
-                "## Python",
-                "",
-                f"- executable: `{result['platform']['checks']['python']['executable']}`",
-                f"- virtualenv_active: `{result['platform']['checks']['python']['virtualenv_active']}`",
-                f"- virtual_env: `{result['platform']['checks']['python']['virtual_env']}`",
-            ]),
+            "\n".join(
+                [
+                    "# AletheusOS Platform Layer Report",
+                    "",
+                    f"Generated: {result['platform']['timestamp']}",
+                    f"Status: **{result['platform']['status']}**",
+                    f"Score: **{result['platform']['score']}**",
+                    f"Root: `{result['platform']['root']}`",
+                    "",
+                    "## Python",
+                    "",
+                    f"- executable: `{result['platform']['checks']['python']['executable']}`",
+                    f"- virtualenv_active: `{result['platform']['checks']['python']['virtualenv_active']}`",
+                    f"- virtual_env: `{result['platform']['checks']['python']['virtual_env']}`",
+                ]
+            ),
             encoding="utf-8",
         )

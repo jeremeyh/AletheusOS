@@ -19,9 +19,7 @@ class TesseractEngine:
             config="--oem 3 --psm 6",
         )
 
-        processed_image = ImageProcessor.preprocess(
-            image_path
-        )
+        processed_image = ImageProcessor.preprocess(image_path)
 
         processed_text = pytesseract.image_to_string(
             processed_image,

@@ -6,19 +6,6 @@ Genesis 14.3
 
 
 class AcquisitionEngine:
+    def recommend(self, opportunity):
 
-
-    def recommend(
-        self,
-        opportunity
-    ):
-
-
-        return {
-
-            "decision":
-
-                "review"
-
-        }
-
+        return {"decision": "review"}

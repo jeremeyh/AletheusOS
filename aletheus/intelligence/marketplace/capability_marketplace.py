@@ -7,14 +7,11 @@ Discovers, evaluates, and composes
 intelligence capabilities.
 """
 
-
 import time
 import uuid
 
 
 class UniversalCapabilityMarketplace:
-
-
     def __init__(self):
 
         self.capabilities = {}
@@ -23,144 +20,57 @@ class UniversalCapabilityMarketplace:
 
         self.evaluations = []
 
-
-
-    def register(
-        self,
-        name,
-        capability_type,
-        metadata=None
-    ):
+    def register(self, name, capability_type, metadata=None):
 
         capability = {
-
-            "capability_id":
-                str(uuid.uuid4()),
-
-            "name":
-                name,
-
-            "type":
-                capability_type,
-
-            "metadata":
-                metadata or {},
-
-            "status":
-                "available",
-
-            "created":
-                time.time()
-
+            "capability_id": str(uuid.uuid4()),
+            "name": name,
+            "type": capability_type,
+            "metadata": metadata or {},
+            "status": "available",
+            "created": time.time(),
         }
-
 
         self.capabilities[name] = capability
 
-
         return capability
 
-
-
-    def discover(
-        self,
-        capability_type=None
-    ):
+    def discover(self, capability_type=None):
 
         results = []
 
-
         for capability in self.capabilities.values():
-
-            if (
-                capability_type is None
-                or capability["type"] == capability_type
-            ):
-
-                results.append(
-                    capability
-                )
-
+            if capability_type is None or capability["type"] == capability_type:
+                results.append(capability)
 
         return results
 
+    def evaluate(self, capability):
 
+        evaluation = {"capability": capability, "quality_score": 100, "trusted": True}
 
-    def evaluate(
-        self,
-        capability
-    ):
-
-        evaluation = {
-
-            "capability":
-                capability,
-
-            "quality_score":
-                100,
-
-            "trusted":
-                True
-
-        }
-
-
-        self.evaluations.append(
-            evaluation
-        )
-
+        self.evaluations.append(evaluation)
 
         return evaluation
 
-
-
-    def compose(
-        self,
-        capabilities,
-        objective
-    ):
+    def compose(self, capabilities, objective):
 
         composition = {
-
-            "composition_id":
-                str(uuid.uuid4()),
-
-            "capabilities":
-                capabilities,
-
-            "objective":
-                objective,
-
-            "composed":
-                True,
-
-            "timestamp":
-                time.time()
-
+            "composition_id": str(uuid.uuid4()),
+            "capabilities": capabilities,
+            "objective": objective,
+            "composed": True,
+            "timestamp": time.time(),
         }
 
-
-        self.compositions.append(
-            composition
-        )
-
+        self.compositions.append(composition)
 
         return composition
-
-
 
     def snapshot(self):
 
         return {
-
-            "capabilities":
-                len(self.capabilities),
-
-            "evaluations":
-                len(self.evaluations),
-
-            "compositions":
-                len(self.compositions)
-
+            "capabilities": len(self.capabilities),
+            "evaluations": len(self.evaluations),
+            "compositions": len(self.compositions),
         }
-

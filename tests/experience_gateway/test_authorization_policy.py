@@ -20,9 +20,7 @@ def test_viewer_can_run_entitled_read_only_command() -> None:
         ),
         command_id="runtime.describe",
         command_risk="read_only",
-        required_entitlements=(
-            "runtime.read",
-        ),
+        required_entitlements=("runtime.read",),
     )
 
     assert decision.allowed is True
@@ -36,15 +34,11 @@ def test_viewer_cannot_run_low_risk_write_command() -> None:
             subject_id="viewer-1",
             display_name="Viewer",
             roles=("viewer",),
-            entitlements=(
-                "experience.preferences.write",
-            ),
+            entitlements=("experience.preferences.write",),
         ),
         command_id="experience.inspector.set",
         command_risk="low",
-        required_entitlements=(
-            "experience.preferences.write",
-        ),
+        required_entitlements=("experience.preferences.write",),
     )
 
     assert decision.allowed is False
@@ -63,9 +57,7 @@ def test_missing_entitlement_is_denied() -> None:
         ),
         command_id="providers.refresh",
         command_risk="read_only",
-        required_entitlements=(
-            "providers.refresh",
-        ),
+        required_entitlements=("providers.refresh",),
     )
 
     assert decision.allowed is False
@@ -84,9 +76,7 @@ def test_platform_architect_can_run_high_risk_command() -> None:
         ),
         command_id="platform.control",
         command_risk="high",
-        required_entitlements=(
-            "platform.control",
-        ),
+        required_entitlements=("platform.control",),
     )
 
     assert decision.allowed is True

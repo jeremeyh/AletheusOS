@@ -40,9 +40,7 @@ class RuntimeHealthSummary:
             "critical": self.critical,
             "offline": self.offline,
             "unknown": self.unknown,
-            "unhealthy_services": list(
-                self.unhealthy_services
-            ),
+            "unhealthy_services": list(self.unhealthy_services),
         }
 
 
@@ -69,12 +67,8 @@ class RuntimeConstitutionalState:
             "satisfied": self.satisfied,
             "cycles": self.cycles,
             "orphans": self.orphans,
-            "connected_components": (
-                self.connected_components
-            ),
-            "broken_dependencies": (
-                self.broken_dependencies
-            ),
+            "connected_components": (self.connected_components),
+            "broken_dependencies": (self.broken_dependencies),
             "checks": dict(self.checks),
         }
 
@@ -150,19 +144,13 @@ class RuntimeIntelligenceOverview:
     def to_dict(self) -> dict[str, Any]:
         return {
             "overview_id": str(self.overview_id),
-            "generated_at": (
-                self.generated_at.isoformat()
-            ),
+            "generated_at": (self.generated_at.isoformat()),
             "twin_revision": self.twin_revision,
             "runtime": dict(self.runtime),
             "services": dict(self.services),
             "graph": dict(self.graph),
             "events": dict(self.events),
             "health": self.health.to_dict(),
-            "constitution": (
-                self.constitution.to_dict()
-            ),
-            "intelligence": dict(
-                self.intelligence
-            ),
+            "constitution": (self.constitution.to_dict()),
+            "intelligence": dict(self.intelligence),
         }

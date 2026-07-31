@@ -28,9 +28,7 @@ class RelayNetwork:
                 packet_id=packet.packet_id,
                 status="unroutable",
                 target=packet.target,
-                response={
-                    "error": f"No relay route registered for '{packet.target}'."
-                },
+                response={"error": f"No relay route registered for '{packet.target}'."},
             )
             self.history.append(result)
             return result
@@ -41,7 +39,9 @@ class RelayNetwork:
                 packet_id=packet.packet_id,
                 status="delivered",
                 target=packet.target,
-                response=response if isinstance(response, dict) else {"result": response},
+                response=response
+                if isinstance(response, dict)
+                else {"result": response},
             )
 
         except Exception as exc:

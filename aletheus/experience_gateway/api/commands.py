@@ -20,8 +20,7 @@ class RouteApplication(Protocol):
         self,
         path: str,
         **kwargs: Any,
-    ) -> Any:
-        ...
+    ) -> Any: ...
 
 
 _MUTATING_COMMANDS = frozenset(
@@ -42,10 +41,7 @@ def _serialize(value: Any) -> Any:
         return value
 
     if isinstance(value, Mapping):
-        return {
-            str(key): _serialize(item)
-            for key, item in value.items()
-        }
+        return {str(key): _serialize(item) for key, item in value.items()}
 
     if isinstance(value, (list, tuple, set, frozenset)):
         return [_serialize(item) for item in value]
@@ -151,9 +147,7 @@ def install_command_routes(
     async def preview_command(
         payload: dict[str, Any],
     ) -> dict[str, Any]:
-        command_id = str(
-            payload.get("command_id", "")
-        ).strip()
+        command_id = str(payload.get("command_id", "")).strip()
 
         arguments = payload.get("arguments", {})
 
@@ -192,9 +186,7 @@ def install_command_routes(
     async def execute_command(
         payload: dict[str, Any],
     ) -> dict[str, Any]:
-        preview_id = str(
-            payload.get("preview_id", "")
-        ).strip()
+        preview_id = str(payload.get("preview_id", "")).strip()
 
         if not preview_id:
             raise HTTPException(
@@ -210,25 +202,17 @@ def install_command_routes(
                 detail="Command preview was not found.",
             )
 
-        authorization_id = payload.get(
-            "authorization_id"
-        )
+        authorization_id = payload.get("authorization_id")
 
-        if (
-            preview["requires_authorization"]
-            and not authorization_id
-        ):
+        if preview["requires_authorization"] and not authorization_id:
             raise HTTPException(
                 status_code=403,
                 detail=(
-                    "Constitutional authorization is required "
-                    "for mutating commands."
+                    "Constitutional authorization is required for mutating commands."
                 ),
             )
 
-        idempotency_key_value = payload.get(
-            "idempotency_key"
-        )
+        idempotency_key_value = payload.get("idempotency_key")
 
         idempotency_key = (
             str(idempotency_key_value).strip()
@@ -236,14 +220,8 @@ def install_command_routes(
             else ""
         )
 
-        if (
-            idempotency_key
-            and idempotency_key
-            in executions_by_idempotency_key
-        ):
-            return executions_by_idempotency_key[
-                idempotency_key
-            ]
+        if idempotency_key and idempotency_key in executions_by_idempotency_key:
+            return executions_by_idempotency_key[idempotency_key]
 
         command_id = preview["command_id"]
 
@@ -251,9 +229,7 @@ def install_command_routes(
             result = _runtime_description()
         else:
             result = {
-                "mutated": bool(
-                    preview["mutating"]
-                ),
+                "mutated": bool(preview["mutating"]),
                 "command_id": command_id,
                 "arguments": preview["arguments"],
             }
@@ -263,14 +239,10 @@ def install_command_routes(
             "preview_id": preview_id,
             "state": "executed",
             "result": result,
-            "idempotency_key": (
-                idempotency_key or None
-            ),
+            "idempotency_key": (idempotency_key or None),
         }
 
         if idempotency_key:
-            executions_by_idempotency_key[
-                idempotency_key
-            ] = execution
+            executions_by_idempotency_key[idempotency_key] = execution
 
         return execution

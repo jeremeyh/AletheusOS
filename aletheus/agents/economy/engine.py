@@ -4,7 +4,6 @@ Aletheus Agent Economy Engine
 Post-Genesis 8
 """
 
-
 from .analytics import AgentAnalyticsEngine
 from .collaboration import AgentCollaborationEngine
 from .identity import AgentIdentityEngine
@@ -14,8 +13,6 @@ from .services import AgentServiceEngine
 
 
 class AgentEconomyEngine:
-
-
     def __init__(self):
 
         self.identity = AgentIdentityEngine()
@@ -30,37 +27,18 @@ class AgentEconomyEngine:
 
         self.analytics = AgentAnalyticsEngine()
 
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_agent_economy",
-
-            "phase":
-            "post_genesis_8",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_agent_economy",
+            "phase": "post_genesis_8",
+            "status": "operational",
         }
-
-
 
     def onboard_agent(self, agent):
 
         return {
-
-            "identity":
-            self.identity.register(agent),
-
-            "reputation":
-            self.reputation.evaluate(agent),
-
-            "marketplace":
-            self.marketplace.publish(agent)
-
+            "identity": self.identity.register(agent),
+            "reputation": self.reputation.evaluate(agent),
+            "marketplace": self.marketplace.publish(agent),
         }
-

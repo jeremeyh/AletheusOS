@@ -5,19 +5,6 @@ Cognitive Conflict Resolution Engine
 
 
 class CognitiveConflictResolver:
+    def resolve(self, conflicts):
 
-
-    def resolve(
-        self,
-        conflicts
-    ):
-
-        return {
-
-            "resolved":
-                True,
-
-            "conflicts":
-                conflicts
-
-        }
+        return {"resolved": True, "conflicts": conflicts}

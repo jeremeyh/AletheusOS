@@ -47,9 +47,7 @@ def resolve_value(value: Any, primitives: dict[str, Any]) -> Any:
     resolved = get_path(primitives, match.group(1))
 
     if isinstance(resolved, dict):
-        raise TypeError(
-            f"Token reference must resolve to a scalar: {value}"
-        )
+        raise TypeError(f"Token reference must resolve to a scalar: {value}")
 
     return resolved
 
@@ -59,16 +57,10 @@ def resolve_tree(
     primitives: dict[str, Any],
 ) -> Any:
     if isinstance(value, dict):
-        return {
-            key: resolve_tree(child, primitives)
-            for key, child in value.items()
-        }
+        return {key: resolve_tree(child, primitives) for key, child in value.items()}
 
     if isinstance(value, list):
-        return [
-            resolve_tree(child, primitives)
-            for child in value
-        ]
+        return [resolve_tree(child, primitives) for child in value]
 
     return resolve_value(value, primitives)
 
@@ -116,14 +108,10 @@ def render_css(
     ]
 
     for name, value in sorted(primitive_flat.items()):
-        lines.append(
-            f"  --nimble-{css_name(name)}: {value};"
-        )
+        lines.append(f"  --nimble-{css_name(name)}: {value};")
 
     for name, value in sorted(motion_flat.items()):
-        lines.append(
-            f"  --nimble-{css_name(name)}: {value};"
-        )
+        lines.append(f"  --nimble-{css_name(name)}: {value};")
 
     lines.append("}")
     lines.append("")
@@ -138,9 +126,7 @@ def render_css(
         lines.append(f"{selector} {{")
 
         for name, value in sorted(flatten(theme_values).items()):
-            lines.append(
-                f"  --nimble-semantic-{css_name(name)}: {value};"
-            )
+            lines.append(f"  --nimble-semantic-{css_name(name)}: {value};")
 
         lines.append("}")
         lines.append("")
@@ -195,28 +181,25 @@ def main() -> None:
     motion_document = load_json(MOTION_PATH)
 
     primitives = {
-        key: value
-        for key, value in primitive_document.items()
-        if key != "meta"
+        key: value for key, value in primitive_document.items() if key != "meta"
     }
 
     raw_themes = theme_document["themes"]
     raw_motion = motion_document["motion"]
 
     themes = {
-        name: resolve_tree(values, primitives)
-        for name, values in raw_themes.items()
+        name: resolve_tree(values, primitives) for name, values in raw_themes.items()
     }
 
     compiled = {
         "meta": {
             "name": "Nimble Compiled Tokens",
             "version": "0.1.0",
-            "generated": True
+            "generated": True,
         },
         "primitives": primitives,
         "themes": themes,
-        "motion": raw_motion
+        "motion": raw_motion,
     }
 
     CSS_PATH.write_text(

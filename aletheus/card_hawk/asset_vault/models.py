@@ -9,7 +9,6 @@ from dataclasses import dataclass, field
 
 @dataclass
 class CollectibleAsset:
-
     asset_id: str
 
     player: str
@@ -30,7 +29,4 @@ class CollectibleAsset:
 
     classification: str = "Unclassified"
 
-    intelligence: dict = field(
-        default_factory=dict
-    )
-
+    intelligence: dict = field(default_factory=dict)

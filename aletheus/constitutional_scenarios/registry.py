@@ -34,18 +34,12 @@ class ConstitutionalScenarioRegistry:
     ) -> ScenarioDefinition:
         scenario_id = definition.scenario_id
 
-        if (
-            scenario_id in self._definitions
-            and not replace
-        ):
+        if scenario_id in self._definitions and not replace:
             raise DuplicateScenarioError(
-                f"Scenario {scenario_id!r} "
-                "is already registered."
+                f"Scenario {scenario_id!r} is already registered."
             )
 
-        self._definitions[
-            scenario_id
-        ] = definition
+        self._definitions[scenario_id] = definition
 
         return definition
 
@@ -53,9 +47,7 @@ class ConstitutionalScenarioRegistry:
         self,
         scenario_id: str,
     ) -> ScenarioDefinition | None:
-        return self._definitions.get(
-            scenario_id
-        )
+        return self._definitions.get(scenario_id)
 
     def require(
         self,
@@ -64,19 +56,14 @@ class ConstitutionalScenarioRegistry:
         scenario = self.get(scenario_id)
 
         if scenario is None:
-            raise KeyError(
-                f"Unknown scenario: "
-                f"{scenario_id!r}."
-            )
+            raise KeyError(f"Unknown scenario: {scenario_id!r}.")
 
         return scenario
 
     def list(
         self,
     ) -> tuple[ScenarioDefinition, ...]:
-        return tuple(
-            self._definitions.values()
-        )
+        return tuple(self._definitions.values())
 
     def record_outcome(
         self,
@@ -108,36 +95,20 @@ class ConstitutionalScenarioRegistry:
         self,
         scenario_id: str,
     ) -> ScenarioOutcome | None:
-        outcomes = self.outcomes(
-            scenario_id
-        )
+        outcomes = self.outcomes(scenario_id)
 
-        return (
-            outcomes[-1]
-            if outcomes
-            else None
-        )
+        return outcomes[-1] if outcomes else None
 
     def statistics(self) -> dict:
         return {
-            "scenarios": len(
-                self._definitions
-            ),
-            "outcomes": sum(
-                len(items)
-                for items
-                in self._outcomes.values()
-            ),
-            "scenario_ids": sorted(
-                self._definitions
-            ),
+            "scenarios": len(self._definitions),
+            "outcomes": sum(len(items) for items in self._outcomes.values()),
+            "scenario_ids": sorted(self._definitions),
         }
 
     def health(self) -> dict:
         return {
-            "name": (
-                "Constitutional Scenario Registry™"
-            ),
+            "name": ("Constitutional Scenario Registry™"),
             "version": self.VERSION,
             "status": "online",
             **self.statistics(),

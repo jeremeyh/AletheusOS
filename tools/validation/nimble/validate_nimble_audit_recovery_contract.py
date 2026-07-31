@@ -24,9 +24,7 @@ def _find_repo_root() -> Path:
             return current
 
         if current.parent == current:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         current = current.parent
 
@@ -55,21 +53,13 @@ def main() -> int:
     failures: list[str] = []
 
     if not CONTRACT_PATH.is_file():
-        failures.append(
-            "Audit recovery contract is missing."
-        )
+        failures.append("Audit recovery contract is missing.")
         contract = {}
     else:
-        contract = json.loads(
-            CONTRACT_PATH.read_text(
-                encoding="utf-8"
-            )
-        )
+        contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
 
     if contract.get("mode") != "plan_only":
-        failures.append(
-            "Recovery must default to plan_only mode."
-        )
+        failures.append("Recovery must default to plan_only mode.")
 
     policy = contract.get("policy", {})
 
@@ -92,19 +82,12 @@ def main() -> int:
 
     for key in required_policy:
         if policy.get(key) is not True:
-            failures.append(
-                f"Recovery policy must be true: {key}"
-            )
+            failures.append(f"Recovery policy must be true: {key}")
 
     apply_policy = contract.get("apply", {})
 
-    if (
-        apply_policy.get("confirmation_token")
-        != "APPLY-AUDIT-RECOVERY"
-    ):
-        failures.append(
-            "Recovery confirmation token is invalid."
-        )
+    if apply_policy.get("confirmation_token") != "APPLY-AUDIT-RECOVERY":
+        failures.append("Recovery confirmation token is invalid.")
 
     required_apply_policy = [
         "atomic_replacement_required",
@@ -117,9 +100,7 @@ def main() -> int:
 
     for key in required_apply_policy:
         if apply_policy.get(key) is not True:
-            failures.append(
-                f"Recovery apply policy must be true: {key}"
-            )
+            failures.append(f"Recovery apply policy must be true: {key}")
 
     status = "PASS" if not failures else "FAIL"
 
@@ -132,9 +113,7 @@ def main() -> int:
         json.dumps(
             {
                 "schema_version": "1.0",
-                "generated_at": datetime.now(
-                    UTC
-                ).isoformat(),
+                "generated_at": datetime.now(UTC).isoformat(),
                 "status": status,
                 "failures": failures,
             },

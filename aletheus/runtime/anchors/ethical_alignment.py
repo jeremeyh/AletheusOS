@@ -5,16 +5,6 @@ Ethical Alignment Engine
 
 
 class EthicalAlignmentEngine:
-
-
     def align(self, decision):
 
-        return {
-
-            "decision":
-                decision,
-
-            "ethical_alignment":
-                True
-
-        }
+        return {"decision": decision, "ethical_alignment": True}

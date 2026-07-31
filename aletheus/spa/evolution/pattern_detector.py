@@ -6,24 +6,9 @@ Genesis 154
 
 
 class PatternDetector:
-
-
     def analyze(self, history):
 
         return {
-
-            "patterns":
-
-            [
-
-                "dependency_growth",
-
-                "interface_drift"
-
-            ],
-
-            "status":
-            "analyzed"
-
+            "patterns": ["dependency_growth", "interface_drift"],
+            "status": "analyzed",
         }
-

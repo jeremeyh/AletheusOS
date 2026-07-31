@@ -3,5 +3,6 @@ MIGRATIONS = [
     "schema_v2_4",
 ]
 
+
 def registered_migrations():
     return MIGRATIONS

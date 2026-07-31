@@ -5,16 +5,6 @@ Architecture Evolution Engine
 
 
 class ArchitectureEvolutionEngine:
-
-
     def evolve(self, architecture):
 
-        return {
-
-            "previous":
-                architecture,
-
-            "evolved":
-                True
-
-        }
+        return {"previous": architecture, "evolved": True}

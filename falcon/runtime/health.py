@@ -54,7 +54,12 @@ class FalconHealth:
 
             scarcity_values.append(
                 float(asset.get("scarcity_score") or 0)
-                or (90 if asset.get("print_run") and int(asset.get("print_run") or 999) <= 25 else 65)
+                or (
+                    90
+                    if asset.get("print_run")
+                    and int(asset.get("print_run") or 999) <= 25
+                    else 65
+                )
             )
 
             visual_values.append(

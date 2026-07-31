@@ -29,9 +29,7 @@ def print_header(title: str) -> None:
 
 def main() -> None:
 
-    print_header(
-        "CANONICAL IDENTITY FRAMEWORK v1.0 PROOF"
-    )
+    print_header("CANONICAL IDENTITY FRAMEWORK v1.0 PROOF")
 
     founder = canonical_identity_framework.create_identity(
         canonical_name="identity.founder.master_lord_6ixth",
@@ -82,22 +80,16 @@ def main() -> None:
     print_header("ALL IDENTITIES")
 
     for identity in canonical_identity_framework.identities():
-
         pprint(identity.to_dict())
 
     print_header("HEALTH")
 
-    pprint(
-        canonical_identity_framework.health()
-    )
+    pprint(canonical_identity_framework.health())
 
     print_header("STATISTICS")
 
-    pprint(
-        canonical_identity_framework.statistics()
-    )
+    pprint(canonical_identity_framework.statistics())
 
 
 if __name__ == "__main__":
-
     main()

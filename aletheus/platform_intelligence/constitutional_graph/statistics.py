@@ -31,20 +31,10 @@ class ConstitutionalGraphStatistics:
             "leaves": self.leaves,
             "orphans": self.orphans,
             "cycles": self.cycles,
-            "connected_components": (
-                self.connected_components
-            ),
+            "connected_components": (self.connected_components),
             "maximum_depth": self.maximum_depth,
-            "average_out_degree": (
-                self.average_out_degree
-            ),
-            "average_in_degree": (
-                self.average_in_degree
-            ),
-            "nodes_by_kind": dict(
-                self.nodes_by_kind
-            ),
-            "relationships_by_kind": dict(
-                self.relationships_by_kind
-            ),
+            "average_out_degree": (self.average_out_degree),
+            "average_in_degree": (self.average_in_degree),
+            "nodes_by_kind": dict(self.nodes_by_kind),
+            "relationships_by_kind": dict(self.relationships_by_kind),
         }

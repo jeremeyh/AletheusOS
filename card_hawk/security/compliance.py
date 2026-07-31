@@ -6,13 +6,6 @@ Genesis 14.18
 
 
 class ComplianceEngine:
-
-
-    def validate(
-        self,
-        operation
-    ):
-
+    def validate(self, operation):
 
         return True
-

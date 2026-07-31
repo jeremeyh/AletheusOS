@@ -76,7 +76,9 @@ class FoundationCapability:
             "description": self.description,
             "aliases": self.aliases,
             "constitutional_articles": self.constitutional_articles,
-            "execution_plan": self.execution_plan.to_dict() if self.execution_plan else None,
+            "execution_plan": self.execution_plan.to_dict()
+            if self.execution_plan
+            else None,
             "enabled": self.enabled,
             "metadata": self.metadata,
         }
@@ -104,7 +106,9 @@ class CapabilityResolution:
             "capability_id": self.capability_id,
             "name": self.name,
             "engine_id": self.engine_id,
-            "execution_plan": self.execution_plan.to_dict() if self.execution_plan else None,
+            "execution_plan": self.execution_plan.to_dict()
+            if self.execution_plan
+            else None,
             "reason": self.reason,
             "confidence": self.confidence,
             "alternatives": self.alternatives,

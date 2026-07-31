@@ -9,7 +9,6 @@ from dataclasses import dataclass
 
 @dataclass
 class PortfolioSnapshot:
-
     asset_count: int
 
     cost_basis: float
@@ -23,4 +22,3 @@ class PortfolioSnapshot:
     allocation: dict
 
     risk_profile: dict
-

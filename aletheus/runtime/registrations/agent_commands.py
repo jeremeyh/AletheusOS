@@ -50,10 +50,7 @@ def register_agent_commands(runtime):
             "Research Agent": "Research",
         }
 
-        existing = {
-            agent.name
-            for agent in agents.agents.values()
-        }
+        existing = {agent.name for agent in agents.agents.values()}
 
         for name, role in required.items():
             if name not in existing:
@@ -75,9 +72,7 @@ def register_agent_commands(runtime):
         agent = find_agent_by_name(agent_name)
 
         if agent is None:
-            raise KeyError(
-                f"Agent not found: {agent_name}"
-            )
+            raise KeyError(f"Agent not found: {agent_name}")
 
         title = payload.get(
             "title",
@@ -92,10 +87,7 @@ def register_agent_commands(runtime):
         agent.assign(title)
 
         task = {
-            "task_id": (
-                f"{agent.agent_id}:"
-                f"{agent.tasks_completed + 1}"
-            ),
+            "task_id": (f"{agent.agent_id}:{agent.tasks_completed + 1}"),
             "agent_id": agent.agent_id,
             "agent_name": agent.name,
             "title": title,
@@ -118,9 +110,7 @@ def register_agent_commands(runtime):
         agent = find_agent_by_name(agent_name)
 
         if agent is None:
-            raise KeyError(
-                f"Agent not found: {agent_name}"
-            )
+            raise KeyError(f"Agent not found: {agent_name}")
 
         mission = agent.mission
 
@@ -134,10 +124,7 @@ def register_agent_commands(runtime):
             "mission": mission,
             "status": "completed",
             "result": {
-                "summary": (
-                    f"{agent.name} completed: "
-                    f"{mission}"
-                ),
+                "summary": (f"{agent.name} completed: {mission}"),
                 "confidence": 0.85,
             },
         }
@@ -156,20 +143,14 @@ def register_agent_commands(runtime):
             "",
         )
 
-        requested = payload.get(
-            "participating_agents"
-        )
+        requested = payload.get("participating_agents")
 
         if requested:
             selected = [
-                agent
-                for agent in agents.agents.values()
-                if agent.name in requested
+                agent for agent in agents.agents.values() if agent.name in requested
             ]
         else:
-            selected = list(
-                agents.agents.values()
-            )
+            selected = list(agents.agents.values())
 
         results = []
 

@@ -33,9 +33,7 @@ class MissionPhaseGraph:
         contract: MissionPhaseContract,
     ) -> MissionPhaseContract:
         if contract.phase_id in self._contracts:
-            raise DuplicatePhaseError(
-                f"Phase {contract.phase_id!r} already exists."
-            )
+            raise DuplicatePhaseError(f"Phase {contract.phase_id!r} already exists.")
 
         self._contracts[contract.phase_id] = contract
         return contract
@@ -53,9 +51,7 @@ class MissionPhaseGraph:
         contract = self.get(phase_id)
 
         if contract is None:
-            raise KeyError(
-                f"Unknown mission phase: {phase_id}"
-            )
+            raise KeyError(f"Unknown mission phase: {phase_id}")
 
         return contract
 
@@ -73,14 +69,11 @@ class MissionPhaseGraph:
             if missing:
                 raise PhaseDependencyError(
                     f"Phase {contract.phase_id!r} references "
-                    "unknown dependencies: "
-                    + ", ".join(sorted(missing))
+                    "unknown dependencies: " + ", ".join(sorted(missing))
                 )
 
             if contract.phase_id in contract.dependencies:
-                raise PhaseCycleError(
-                    f"Phase {contract.phase_id!r} depends on itself."
-                )
+                raise PhaseCycleError(f"Phase {contract.phase_id!r} depends on itself.")
 
         self.ordered()
 
@@ -102,16 +95,10 @@ class MissionPhaseGraph:
 
         for contract in self._contracts.values():
             for dependency in contract.dependencies:
-                dependents[dependency].append(
-                    contract.phase_id
-                )
+                dependents[dependency].append(contract.phase_id)
 
         ready = deque(
-            sorted(
-                phase_id
-                for phase_id, count in inbound.items()
-                if count == 0
-            )
+            sorted(phase_id for phase_id, count in inbound.items() if count == 0)
         )
 
         ordered_ids = []
@@ -120,39 +107,29 @@ class MissionPhaseGraph:
             phase_id = ready.popleft()
             ordered_ids.append(phase_id)
 
-            for dependent in sorted(
-                dependents.get(phase_id, ())
-            ):
+            for dependent in sorted(dependents.get(phase_id, ())):
                 inbound[dependent] -= 1
 
                 if inbound[dependent] == 0:
                     ready.append(dependent)
 
         if len(ordered_ids) != len(self._contracts):
-            raise PhaseCycleError(
-                "Mission phase graph contains a cycle."
-            )
+            raise PhaseCycleError("Mission phase graph contains a cycle.")
 
-        return tuple(
-            self._contracts[phase_id]
-            for phase_id in ordered_ids
-        )
+        return tuple(self._contracts[phase_id] for phase_id in ordered_ids)
 
     def root_phases(
         self,
     ) -> tuple[MissionPhaseContract, ...]:
         return tuple(
-            contract
-            for contract in self.ordered()
-            if not contract.dependencies
+            contract for contract in self.ordered() if not contract.dependencies
         )
 
     def statistics(self) -> dict:
         return {
             "phases": len(self._contracts),
             "dependencies": sum(
-                len(contract.dependencies)
-                for contract in self._contracts.values()
+                len(contract.dependencies) for contract in self._contracts.values()
             ),
             "roots": len(self.root_phases()),
         }

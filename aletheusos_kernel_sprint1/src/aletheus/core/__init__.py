@@ -5,4 +5,4 @@ from .lifecycle import LifecycleState
 from .result import Result
 from .version import VERSION
 
-__all__=["VERSION", "Event", "HealthStatus", "Identity", "LifecycleState", "Result"]
+__all__ = ["VERSION", "Event", "HealthStatus", "Identity", "LifecycleState", "Result"]

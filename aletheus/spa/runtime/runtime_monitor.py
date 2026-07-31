@@ -6,17 +6,6 @@ Genesis 152
 
 
 class RuntimeMonitor:
-
-
     def inspect(self, runtime):
 
-        return {
-
-            "runtime":
-            runtime,
-
-            "health":
-            "healthy"
-
-        }
-
+        return {"runtime": runtime, "health": "healthy"}

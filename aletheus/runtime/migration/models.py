@@ -19,6 +19,4 @@ class MigrationReport:
     """
 
     migrated: list[MigrationItem] = field(default_factory=list)
-    created_at: str = field(
-        default_factory=lambda: datetime.now(UTC).isoformat()
-    )
+    created_at: str = field(default_factory=lambda: datetime.now(UTC).isoformat())

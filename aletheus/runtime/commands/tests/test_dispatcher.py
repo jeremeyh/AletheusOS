@@ -60,9 +60,7 @@ def build_command(*, middleware=()):
 
 @pytest.mark.asyncio
 async def test_dispatches_registered_command():
-    dispatcher = CommandDispatcher(
-        CompiledCommandRegistry([build_command()])
-    )
+    dispatcher = CommandDispatcher(CompiledCommandRegistry([build_command()]))
 
     result = await dispatcher.dispatch("math.add", AddRequest(2, 3))
 
@@ -71,9 +69,7 @@ async def test_dispatches_registered_command():
 
 @pytest.mark.asyncio
 async def test_alias_uses_same_compiled_command():
-    dispatcher = CommandDispatcher(
-        CompiledCommandRegistry([build_command()])
-    )
+    dispatcher = CommandDispatcher(CompiledCommandRegistry([build_command()]))
 
     result = await dispatcher.dispatch("math.sum", AddRequest(4, 6))
 
@@ -83,9 +79,7 @@ async def test_alias_uses_same_compiled_command():
 @pytest.mark.asyncio
 async def test_global_middleware_wraps_command_middleware():
     events: list[str] = []
-    command = build_command(
-        middleware=(TraceMiddleware(events, "command"),)
-    )
+    command = build_command(middleware=(TraceMiddleware(events, "command"),))
     dispatcher = CommandDispatcher(
         CompiledCommandRegistry([command]),
         middleware=(TraceMiddleware(events, "global"),),
@@ -103,9 +97,7 @@ async def test_global_middleware_wraps_command_middleware():
 
 @pytest.mark.asyncio
 async def test_rejects_invalid_request_type():
-    dispatcher = CommandDispatcher(
-        CompiledCommandRegistry([build_command()])
-    )
+    dispatcher = CommandDispatcher(CompiledCommandRegistry([build_command()]))
 
     with pytest.raises(CommandValidationError):
         await dispatcher.dispatch("math.add", object())

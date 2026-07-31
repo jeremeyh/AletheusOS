@@ -23,9 +23,7 @@ class ExplorerSearchResult:
         return {
             "object": self.object.to_snapshot(),
             "score": self.score,
-            "matched_fields": list(
-                self.matched_fields
-            ),
+            "matched_fields": list(self.matched_fields),
         }
 
 
@@ -48,13 +46,10 @@ class ExplorerImpactResult:
         return {
             "subject": self.subject.to_snapshot(),
             "direct_dependents": [
-                item.to_snapshot()
-                for item in self.direct_dependents
+                item.to_snapshot() for item in self.direct_dependents
             ],
             "transitive_dependents": [
-                item.to_snapshot()
-                for item
-                in self.transitive_dependents
+                item.to_snapshot() for item in self.transitive_dependents
             ],
             "affected_count": self.affected_count,
         }
@@ -84,17 +79,9 @@ class RuntimeExplorerStatistics:
             "unhealthy": self.unhealthy,
             "orphans": self.orphans,
             "cycles": self.cycles,
-            "retained_snapshots": (
-                self.retained_snapshots
-            ),
+            "retained_snapshots": (self.retained_snapshots),
             "twin_revision": self.twin_revision,
-            "objects_by_kind": dict(
-                self.objects_by_kind
-            ),
-            "objects_by_state": dict(
-                self.objects_by_state
-            ),
-            "objects_by_health": dict(
-                self.objects_by_health
-            ),
+            "objects_by_kind": dict(self.objects_by_kind),
+            "objects_by_state": dict(self.objects_by_state),
+            "objects_by_health": dict(self.objects_by_health),
         }

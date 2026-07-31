@@ -13,15 +13,14 @@ class RuntimeBootValidator:
         checks = {
             "status_online": getattr(self.runtime, "status", None) == "online",
             "commands_registered": len(self.runtime.commands.list()) > 0,
-            "compat_registered": self.runtime.compat.statistics().get("registered", 0) >= 10,
+            "compat_registered": self.runtime.compat.statistics().get("registered", 0)
+            >= 10,
             "kernel_available": hasattr(self.runtime, "kernel"),
-            "diagnostics_available": "runtime.diagnostics" in self.runtime.commands.list(),
+            "diagnostics_available": "runtime.diagnostics"
+            in self.runtime.commands.list(),
         }
 
-        failed = [
-            name for name, passed in checks.items()
-            if not passed
-        ]
+        failed = [name for name, passed in checks.items() if not passed]
 
         return {
             "version": self.VERSION,

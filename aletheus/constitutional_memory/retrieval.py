@@ -24,8 +24,7 @@ class ConstitutionalMemoryRetrieval:
 
     def by_application(self, application: str):
         return [
-            record.to_dict()
-            for record in self.registry.by_application(application)
+            record.to_dict() for record in self.registry.by_application(application)
         ]
 
     def all(self):

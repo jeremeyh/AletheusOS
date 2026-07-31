@@ -6,18 +6,6 @@ Genesis 13.45
 
 
 class EntitlementEngine:
+    def check(self, subscription, capability):
 
-
-    def check(
-        self,
-        subscription,
-        capability
-    ):
-
-
-        return capability in (
-
-            subscription.capabilities
-
-        )
-
+        return capability in (subscription.capabilities)

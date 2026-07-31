@@ -13,29 +13,17 @@ def discover_capabilities(
 
     for definition in CAPABILITIES:
         existing = tuple(
-            path
-            for path in definition.required_paths
-            if (root / path).exists()
+            path for path in definition.required_paths if (root / path).exists()
         )
 
         missing = tuple(
-            path
-            for path in definition.required_paths
-            if not (root / path).exists()
+            path for path in definition.required_paths if not (root / path).exists()
         )
 
-        required_count = len(
-            definition.required_paths
-        )
+        required_count = len(definition.required_paths)
 
         readiness = (
-            round(
-                len(existing)
-                / required_count
-                * 100
-            )
-            if required_count
-            else 100
+            round(len(existing) / required_count * 100) if required_count else 100
         )
 
         if readiness == 100:
@@ -45,9 +33,7 @@ def discover_capabilities(
         else:
             state = "partial"
 
-        provisional[
-            definition.capability_id
-        ] = CapabilityStatus(
+        provisional[definition.capability_id] = CapabilityStatus(
             capability_id=definition.capability_id,
             display_name=definition.display_name,
             state=state,
@@ -62,24 +48,17 @@ def discover_capabilities(
     resolved: list[CapabilityStatus] = []
 
     for definition in CAPABILITIES:
-        status = provisional[
-            definition.capability_id
-        ]
+        status = provisional[definition.capability_id]
 
         blocked_by = tuple(
             dependency
             for dependency in definition.dependencies
-            if provisional[
-                dependency
-            ].state != "implemented"
+            if provisional[dependency].state != "implemented"
         )
 
         state = status.state
 
-        if (
-            state != "implemented"
-            and blocked_by
-        ):
+        if state != "implemented" and blocked_by:
             state = "blocked"
 
         resolved.append(

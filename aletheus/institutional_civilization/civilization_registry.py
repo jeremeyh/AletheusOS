@@ -33,28 +33,19 @@ class CivilizationRegistry:
 
         existing_id = self._names.get(normalized_name)
 
-        if (
-            existing_id is not None
-            and existing_id != validated.civilization_id
-        ):
+        if existing_id is not None and existing_id != validated.civilization_id:
             raise DuplicateCivilizationError(
                 f"Civilization name "
                 f"{validated.canonical_name!r} is already registered "
                 f"as {existing_id!r}."
             )
 
-        if (
-            validated.civilization_id in self._records
-            and not replace
-        ):
+        if validated.civilization_id in self._records and not replace:
             raise DuplicateCivilizationError(
-                f"Civilization "
-                f"{validated.civilization_id!r} is already registered."
+                f"Civilization {validated.civilization_id!r} is already registered."
             )
 
-        previous = self._records.get(
-            validated.civilization_id
-        )
+        previous = self._records.get(validated.civilization_id)
 
         if previous is not None:
             self._names.pop(
@@ -72,10 +63,7 @@ class CivilizationRegistry:
         *,
         replace: bool = False,
     ) -> tuple[CivilizationRecord, ...]:
-        return tuple(
-            self.register(record, replace=replace)
-            for record in records
-        )
+        return tuple(self.register(record, replace=replace) for record in records)
 
     def get(
         self,
@@ -90,9 +78,7 @@ class CivilizationRegistry:
         record = self.get(civilization_id)
 
         if record is None:
-            raise KeyError(
-                f"Unknown civilization: {civilization_id}"
-            )
+            raise KeyError(f"Unknown civilization: {civilization_id}")
 
         return record
 
@@ -100,15 +86,9 @@ class CivilizationRegistry:
         self,
         canonical_name: str,
     ) -> CivilizationRecord | None:
-        civilization_id = self._names.get(
-            canonical_name.strip().casefold()
-        )
+        civilization_id = self._names.get(canonical_name.strip().casefold())
 
-        return (
-            self.get(civilization_id)
-            if civilization_id is not None
-            else None
-        )
+        return self.get(civilization_id) if civilization_id is not None else None
 
     def list(self) -> tuple[CivilizationRecord, ...]:
         return tuple(
@@ -123,25 +103,18 @@ class CivilizationRegistry:
         institution_id: str,
     ) -> tuple[CivilizationRecord, ...]:
         return tuple(
-            record
-            for record in self.list()
-            if institution_id in record.institution_ids
+            record for record in self.list() if institution_id in record.institution_ids
         )
 
     def by_status(
         self,
         status: CivilizationStatus,
     ) -> tuple[CivilizationRecord, ...]:
-        return tuple(
-            record
-            for record in self.list()
-            if record.status == status
-        )
+        return tuple(record for record in self.list() if record.status == status)
 
     def statistics(self) -> dict:
         institution_memberships = sum(
-            len(record.institution_ids)
-            for record in self._records.values()
+            len(record.institution_ids) for record in self._records.values()
         )
 
         return {

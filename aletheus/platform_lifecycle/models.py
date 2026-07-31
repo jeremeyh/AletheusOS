@@ -10,9 +10,7 @@ class StateTransition:
     previous: str
     current: str
     reason: str = ""
-    timestamp: str = field(
-        default_factory=lambda: datetime.now(UTC).isoformat()
-    )
+    timestamp: str = field(default_factory=lambda: datetime.now(UTC).isoformat())
 
     def to_dict(self):
         return {

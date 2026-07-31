@@ -6,19 +6,6 @@ Genesis 14.7
 
 
 class TaskManager:
+    def execute(self, task):
 
-
-    def execute(
-        self,
-        task
-    ):
-
-
-        return {
-
-            "completed":
-
-                True
-
-        }
-
+        return {"completed": True}

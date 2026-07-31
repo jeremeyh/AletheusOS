@@ -6,19 +6,6 @@ Genesis 14.5
 
 
 class RecognitionEngine:
+    def identify(self, data):
 
-
-    def identify(
-        self,
-        data
-    ):
-
-
-        return {
-
-            "identified":
-
-                True
-
-        }
-
+        return {"identified": True}

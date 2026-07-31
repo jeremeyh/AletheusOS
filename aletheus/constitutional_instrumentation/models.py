@@ -14,10 +14,7 @@ def utc_now() -> str:
 
 
 def new_instrument_signal_id() -> str:
-    return (
-        "INSTRUMENT-SIGNAL-"
-        f"{uuid4().hex[:12].upper()}"
-    )
+    return f"INSTRUMENT-SIGNAL-{uuid4().hex[:12].upper()}"
 
 
 class InstrumentKind(StrEnum):
@@ -81,26 +78,17 @@ class InstrumentDefinition:
     description: str = ""
     constitutional_meaning: str = ""
 
-    metadata: dict[str, Any] = field(
-        default_factory=dict
-    )
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     def __post_init__(self) -> None:
         if not self.instrument_id.strip():
-            raise ValueError(
-                "instrument_id may not be blank."
-            )
+            raise ValueError("instrument_id may not be blank.")
 
         if not self.canonical_name.strip():
-            raise ValueError(
-                "canonical_name may not be blank."
-            )
+            raise ValueError("canonical_name may not be blank.")
 
         if self.maximum <= self.minimum:
-            raise ValueError(
-                "Instrument maximum must be greater "
-                "than minimum."
-            )
+            raise ValueError("Instrument maximum must be greater than minimum.")
 
     def to_dict(self) -> dict[str, Any]:
         value = asdict(self)
@@ -124,47 +112,25 @@ class InstrumentSignal:
     correlation_id: str | None = None
 
     message: str = ""
-    payload: dict[str, Any] = field(
-        default_factory=dict
-    )
+    payload: dict[str, Any] = field(default_factory=dict)
 
-    signal_id: str = field(
-        default_factory=new_instrument_signal_id
-    )
-    emitted_at: str = field(
-        default_factory=utc_now
-    )
+    signal_id: str = field(default_factory=new_instrument_signal_id)
+    emitted_at: str = field(default_factory=utc_now)
 
     def __post_init__(self) -> None:
         if not self.instrument_id.strip():
-            raise ValueError(
-                "instrument_id may not be blank."
-            )
+            raise ValueError("instrument_id may not be blank.")
 
         if not self.source_identity.strip():
-            raise ValueError(
-                "source_identity may not be blank."
-            )
+            raise ValueError("source_identity may not be blank.")
 
-        if (
-            self.confidence is not None
-            and not 0.0 <= self.confidence <= 1.0
-        ):
-            raise ValueError(
-                "Signal confidence must be between "
-                "0.0 and 1.0."
-            )
+        if self.confidence is not None and not 0.0 <= self.confidence <= 1.0:
+            raise ValueError("Signal confidence must be between 0.0 and 1.0.")
 
     def to_dict(self) -> dict[str, Any]:
         value = asdict(self)
-        value["signal_type"] = (
-            self.signal_type.value
-        )
-        value["status"] = (
-            self.status.value
-            if self.status is not None
-            else None
-        )
+        value["signal_type"] = self.signal_type.value
+        value["status"] = self.status.value if self.status is not None else None
         return value
 
 
@@ -190,9 +156,7 @@ class InstrumentState:
     last_message: str
 
     history: tuple[InstrumentSignal, ...]
-    metadata: dict[str, Any] = field(
-        default_factory=dict
-    )
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     @property
     def normalized_value(self) -> float | None:
@@ -201,9 +165,7 @@ class InstrumentState:
 
         span = self.maximum - self.minimum
 
-        value = (
-            self.current_value - self.minimum
-        ) / span
+        value = (self.current_value - self.minimum) / span
 
         return round(
             min(1.0, max(0.0, value)),
@@ -216,9 +178,7 @@ class InstrumentState:
             "canonical_name": self.canonical_name,
             "kind": self.kind.value,
             "current_value": self.current_value,
-            "normalized_value": (
-                self.normalized_value
-            ),
+            "normalized_value": (self.normalized_value),
             "minimum": self.minimum,
             "maximum": self.maximum,
             "unit": self.unit,
@@ -228,9 +188,6 @@ class InstrumentState:
             "last_signal_id": self.last_signal_id,
             "last_updated": self.last_updated,
             "last_message": self.last_message,
-            "history": [
-                signal.to_dict()
-                for signal in self.history
-            ],
+            "history": [signal.to_dict() for signal in self.history],
             "metadata": dict(self.metadata),
         }

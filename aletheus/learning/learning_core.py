@@ -112,7 +112,9 @@ class AletheusAdaptiveLearning:
         return [item.to_dict() for item in patterns]
 
     def improve(self, runtime: Any) -> list[dict[str, Any]]:
-        health = runtime.commands.dispatch("runtime.health", {}).results.get("health", {})
+        health = runtime.commands.dispatch("runtime.health", {}).results.get(
+            "health", {}
+        )
         suggestions: list[ImprovementSuggestion] = []
 
         if health.get("memory_records", 0) < 10:

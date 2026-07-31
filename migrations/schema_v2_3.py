@@ -9,6 +9,7 @@ def upgrade(conn):
     """)
     conn.commit()
 
+
 def rollback(conn):
     # Do not drop migration history during safe rollback.
     pass

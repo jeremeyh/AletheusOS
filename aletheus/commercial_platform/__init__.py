@@ -1,8 +1,3 @@
 from .engine import CommercialPlatformEngine
 
-__all__=[
-
-"CommercialPlatformEngine"
-
-]
-
+__all__ = ["CommercialPlatformEngine"]

@@ -9,8 +9,6 @@ from dataclasses import dataclass, field
 
 @dataclass
 class THORDecision:
-
-
     asset_id: str
 
     quality_score: int = 0
@@ -29,7 +27,4 @@ class THORDecision:
 
     upside_classification: str = "UNKNOWN"
 
-    reasoning: dict = field(
-        default_factory=dict
-    )
-
+    reasoning: dict = field(default_factory=dict)

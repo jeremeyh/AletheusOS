@@ -21,18 +21,12 @@ class ApplicationValidationError(ValueError):
         self.issues = tuple(issues)
 
         super().__init__(
-            "; ".join(
-                f"{issue.field}: {issue.message}"
-                for issue in issues
-            )
+            "; ".join(f"{issue.field}: {issue.message}" for issue in issues)
         )
 
 
 def _has_duplicates(values: tuple[str, ...]) -> bool:
-    normalized = [
-        value.strip().casefold()
-        for value in values
-    ]
+    normalized = [value.strip().casefold() for value in values]
 
     return len(normalized) != len(set(normalized))
 
@@ -61,12 +55,8 @@ def validate_manifest(
 
     sequences = {
         "required_services": manifest.required_services,
-        "provided_capabilities": (
-            manifest.provided_capabilities
-        ),
-        "required_capabilities": (
-            manifest.required_capabilities
-        ),
+        "provided_capabilities": (manifest.provided_capabilities),
+        "required_capabilities": (manifest.required_capabilities),
         "permissions": manifest.permissions,
     }
 

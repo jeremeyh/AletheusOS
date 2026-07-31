@@ -1,5 +1,4 @@
 class AIPlatformServiceRegistrar:
-
     def register(self, runtime):
 
         runtime.services.register(

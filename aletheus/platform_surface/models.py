@@ -37,9 +37,7 @@ class PlatformRuntimeSnapshot:
             "time_phases": self.time_phases,
             "mission_executions": self.mission_executions,
             "phase_executions": self.phase_executions,
-            "domain_events_published": (
-                self.domain_events_published
-            ),
+            "domain_events_published": (self.domain_events_published),
             "ledger_events": self.ledger_events,
             "failures": self.failures,
             "details": dict(self.details),

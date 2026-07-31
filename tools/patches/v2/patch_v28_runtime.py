@@ -21,8 +21,7 @@ if "from aletheus.workflow_v3 import workflow_core" not in text:
 if "self.workflow_v3 = workflow_core" not in text:
     text = text.replace(
         "self.agents_v2 = agent_core",
-        "self.agents_v2 = agent_core\n"
-        "        self.workflow_v3 = workflow_core",
+        "self.agents_v2 = agent_core\n        self.workflow_v3 = workflow_core",
         1,
     )
 
@@ -44,7 +43,7 @@ if "Aletheus Workflow Intelligence Engine" not in text:
     if start != -1:
         end = text.find("\n", start)
 
-        insertion = '''
+        insertion = """
         self.services.register(
             "Aletheus Workflow Intelligence Engine",
             {
@@ -52,16 +51,15 @@ if "Aletheus Workflow Intelligence Engine" not in text:
                 "version": self.workflow_v3.VERSION,
             },
         )
-'''
+"""
 
-        text = text[:end + 1] + insertion + text[end + 1:]
+        text = text[: end + 1] + insertion + text[end + 1 :]
 
 # ----------------------------------------------------
 # Register commands
 # ----------------------------------------------------
 
 if 'self.commands.register("workflow.bootstrap"' not in text:
-
     anchor = 'self.commands.register("agent.statistics", self._cmd_agent_statistics)'
 
     if anchor not in text:
@@ -69,7 +67,8 @@ if 'self.commands.register("workflow.bootstrap"' not in text:
 
     text = text.replace(
         anchor,
-        anchor + '''
+        anchor
+        + """
 
         # v2.8 Workflow Intelligence
         self.commands.register("workflow.bootstrap", self._cmd_workflow_bootstrap)
@@ -80,7 +79,7 @@ if 'self.commands.register("workflow.bootstrap"' not in text:
         self.commands.register("workflow.cancel", self._cmd_workflow_cancel)
         self.commands.register("workflow.status", self._cmd_workflow_status)
         self.commands.register("workflow.statistics", self._cmd_workflow_statistics)
-''',
+""",
         1,
     )
 

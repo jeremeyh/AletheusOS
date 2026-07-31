@@ -24,9 +24,7 @@ class OverlayValidator:
             errors.append("Display name is required.")
 
         if definition.display_name in self.RESERVED_TERMS:
-            errors.append(
-                f"Display name is reserved: {definition.display_name}"
-            )
+            errors.append(f"Display name is reserved: {definition.display_name}")
 
         existing = existing or []
 

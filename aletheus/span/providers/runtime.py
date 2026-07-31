@@ -34,7 +34,10 @@ class RuntimeProvider(Provider):
             lowered_parts = {part.lower() for part in relative.parts}
             if not lowered_parts.intersection(RUNTIME_PATH_MARKERS):
                 continue
-            if any(part in {".git", ".venv", "venv", "__pycache__"} for part in relative.parts):
+            if any(
+                part in {".git", ".venv", "venv", "__pycache__"}
+                for part in relative.parts
+            ):
                 continue
 
             try:

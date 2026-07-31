@@ -6,18 +6,17 @@ from core.service_base import ServiceBase
 
 
 class ServiceAdapter(ServiceBase):
-
-    def __init__(self,module):
+    def __init__(self, module):
 
         self.module = module
 
-        self.name = getattr(module,"SERVICE_NAME",module.__name__.split(".")[-1])
+        self.name = getattr(module, "SERVICE_NAME", module.__name__.split(".")[-1])
 
-        self.version = getattr(module,"SERVICE_VERSION","legacy")
+        self.version = getattr(module, "SERVICE_VERSION", "legacy")
 
     def initialize(self):
 
-        fn = getattr(self.module,"initialize",None)
+        fn = getattr(self.module, "initialize", None)
 
         if callable(fn):
             fn()
@@ -26,7 +25,7 @@ class ServiceAdapter(ServiceBase):
 
     def shutdown(self):
 
-        fn = getattr(self.module,"shutdown",None)
+        fn = getattr(self.module, "shutdown", None)
 
         if callable(fn):
             fn()

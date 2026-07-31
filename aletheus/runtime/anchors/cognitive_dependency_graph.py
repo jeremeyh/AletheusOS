@@ -5,34 +5,14 @@ Cognitive Dependency Graph Engine
 
 
 class CognitiveDependencyGraph:
-
-
     def __init__(self):
 
-        self.edges=[]
+        self.edges = []
 
+    def connect(self, source, target):
 
-
-    def connect(
-        self,
-        source,
-        target
-    ):
-
-        self.edges.append(
-            (
-                source,
-                target
-            )
-        )
-
-
+        self.edges.append((source, target))
 
     def snapshot(self):
 
-        return {
-
-            "dependencies":
-                len(self.edges)
-
-        }
+        return {"dependencies": len(self.edges)}

@@ -4,7 +4,6 @@ SPA Adaptive Runtime Intelligence Engine
 Genesis 157
 """
 
-
 from .adaptation_planner import AdaptationPlanner
 from .capability_prioritizer import CapabilityPrioritizer
 from .control_loop import AdaptiveControlLoop
@@ -13,8 +12,6 @@ from .workload_analyzer import WorkloadAnalyzer
 
 
 class AdaptiveRuntimeIntelligenceEngine:
-
-
     def __init__(self):
 
         self.workload = WorkloadAnalyzer()
@@ -27,46 +24,23 @@ class AdaptiveRuntimeIntelligenceEngine:
 
         self.control = AdaptiveControlLoop()
 
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "spa_adaptive_runtime_intelligence",
-
-            "genesis":
-            "157",
-
-            "status":
-            "operational"
-
+            "system": "spa_adaptive_runtime_intelligence",
+            "genesis": "157",
+            "status": "operational",
         }
-
-
 
     def analyze_runtime(self):
 
         return {
-
-            "workload":
-            self.workload.analyze(),
-
-            "resources":
-            self.resources.optimize(),
-
-            "capabilities":
-            self.capabilities.rank(),
-
-            "adaptation":
-            self.planner.create_plan()
-
+            "workload": self.workload.analyze(),
+            "resources": self.resources.optimize(),
+            "capabilities": self.capabilities.rank(),
+            "adaptation": self.planner.create_plan(),
         }
-
-
 
     def run_control_loop(self):
 
         return self.control.execute()
-

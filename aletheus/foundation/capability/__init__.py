@@ -24,7 +24,6 @@ from .statistics import (
 )
 
 __all__ = [
-
     "CapabilityMetadata",
     "FoundationCapability",
     "FoundationCapabilityContract",

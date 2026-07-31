@@ -21,7 +21,11 @@ class GraphNode:
     created_at: str = field(default_factory=now)
     updated_at: str = field(default_factory=now)
 
-    def update(self, properties: dict[str, Any] | None = None, metadata: dict[str, Any] | None = None) -> None:
+    def update(
+        self,
+        properties: dict[str, Any] | None = None,
+        metadata: dict[str, Any] | None = None,
+    ) -> None:
         if properties:
             self.properties.update(properties)
         if metadata:
@@ -116,7 +120,9 @@ class AletheusKnowledgeGraph:
 
     def find_entity_by_name(self, name: str) -> GraphNode | None:
         lower = name.lower()
-        return next((node for node in self.nodes.values() if node.name.lower() == lower), None)
+        return next(
+            (node for node in self.nodes.values() if node.name.lower() == lower), None
+        )
 
     def create_relationship(
         self,
@@ -165,15 +171,19 @@ class AletheusKnowledgeGraph:
 
         for rel in self.relationships.values():
             if rel.source_id == node_id:
-                outgoing.append({
-                    "relationship": rel.to_dict(),
-                    "node": self.nodes[rel.target_id].to_dict(),
-                })
+                outgoing.append(
+                    {
+                        "relationship": rel.to_dict(),
+                        "node": self.nodes[rel.target_id].to_dict(),
+                    }
+                )
             if rel.target_id == node_id:
-                incoming.append({
-                    "relationship": rel.to_dict(),
-                    "node": self.nodes[rel.source_id].to_dict(),
-                })
+                incoming.append(
+                    {
+                        "relationship": rel.to_dict(),
+                        "node": self.nodes[rel.source_id].to_dict(),
+                    }
+                )
 
         if direction == "outgoing":
             incoming = []
@@ -191,7 +201,9 @@ class AletheusKnowledgeGraph:
             "version": self.version,
             "nodes": [node.to_dict() for node in self.nodes.values()],
             "relationships": [rel.to_dict() for rel in self.relationships.values()],
-            "inference_rules": [rule.to_dict() for rule in self.inference_rules.values()],
+            "inference_rules": [
+                rule.to_dict() for rule in self.inference_rules.values()
+            ],
         }
 
     def add_inference_rule(
@@ -223,18 +235,27 @@ class AletheusKnowledgeGraph:
                 if not source or not target:
                     continue
 
-                source_match = not rule.source_type or source.node_type == rule.source_type
-                rel_match = not rule.relationship_type or rel.relationship_type == rule.relationship_type
-                target_match = not rule.target_type or target.node_type == rule.target_type
+                source_match = (
+                    not rule.source_type or source.node_type == rule.source_type
+                )
+                rel_match = (
+                    not rule.relationship_type
+                    or rel.relationship_type == rule.relationship_type
+                )
+                target_match = (
+                    not rule.target_type or target.node_type == rule.target_type
+                )
 
                 if source_match and rel_match and target_match:
-                    inferences.append({
-                        "rule": rule.to_dict(),
-                        "source": source.to_dict(),
-                        "relationship": rel.to_dict(),
-                        "target": target.to_dict(),
-                        "inference": f"{source.name} {rel.relationship_type} {target.name}",
-                    })
+                    inferences.append(
+                        {
+                            "rule": rule.to_dict(),
+                            "source": source.to_dict(),
+                            "relationship": rel.to_dict(),
+                            "target": target.to_dict(),
+                            "inference": f"{source.name} {rel.relationship_type} {target.name}",
+                        }
+                    )
 
         return {
             "inferences": inferences,
@@ -242,12 +263,24 @@ class AletheusKnowledgeGraph:
         }
 
     def bootstrap_cardhawk_graph(self) -> dict[str, Any]:
-        cardhawk = self.create_entity("Card Hawk Foundation™", "application", {"domain": "collectibles"})
-        asset_vault = self.create_entity("Asset Vault", "service", {"category": "asset_management"})
-        portfolio = self.create_entity("Portfolio Engine", "service", {"category": "valuation"})
-        marketplace = self.create_entity("Marketplace Intelligence", "service", {"category": "market_data"})
-        hawk_aeye = self.create_entity("Hawk A•Eye™", "service", {"category": "visual_intelligence"})
-        thorx = self.create_entity("THORᵡ", "service", {"category": "opportunity_rating"})
+        cardhawk = self.create_entity(
+            "Card Hawk Foundation™", "application", {"domain": "collectibles"}
+        )
+        asset_vault = self.create_entity(
+            "Asset Vault", "service", {"category": "asset_management"}
+        )
+        portfolio = self.create_entity(
+            "Portfolio Engine", "service", {"category": "valuation"}
+        )
+        marketplace = self.create_entity(
+            "Marketplace Intelligence", "service", {"category": "market_data"}
+        )
+        hawk_aeye = self.create_entity(
+            "Hawk A•Eye™", "service", {"category": "visual_intelligence"}
+        )
+        thorx = self.create_entity(
+            "THORᵡ", "service", {"category": "opportunity_rating"}
+        )
 
         for target in [asset_vault, portfolio, marketplace, hawk_aeye, thorx]:
             self.create_relationship(cardhawk["node_id"], target["node_id"], "owns")

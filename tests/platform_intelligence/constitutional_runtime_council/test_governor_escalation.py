@@ -19,9 +19,7 @@ from aletheus.platform_intelligence import (
 def test_governor_escalation_can_be_decided_by_council() -> None:
     kernel = ConstitutionalRuntimeKernel()
 
-    governor = ConstitutionalRuntimeGovernor(
-        kernel=kernel
-    )
+    governor = ConstitutionalRuntimeGovernor(kernel=kernel)
 
     plan = ExecutiveRecoveryPlan.create(
         decision=ExecutiveDecision.STOP_RUNTIME,
@@ -33,9 +31,7 @@ def test_governor_escalation_can_be_decided_by_council() -> None:
 
     governed = governor.evaluate(plan)
 
-    assert governed.outcome is (
-        GovernorOutcome.ESCALATED
-    )
+    assert governed.outcome is (GovernorOutcome.ESCALATED)
 
     council = ConstitutionalRuntimeCouncil()
 
@@ -61,13 +57,8 @@ def test_governor_escalation_can_be_decided_by_council() -> None:
         CouncilProposal.create(
             title="Authorize runtime stop",
             description=governed.reason,
-            kind=(
-                CouncilProposalKind
-                .EMERGENCY_OVERRIDE
-            ),
-            strategy=(
-                CouncilVotingStrategy.MAJORITY
-            ),
+            kind=(CouncilProposalKind.EMERGENCY_OVERRIDE),
+            strategy=(CouncilVotingStrategy.MAJORITY),
             proposer="runtime-governor",
             payload=governed.to_dict(),
         )
@@ -79,8 +70,6 @@ def test_governor_escalation_can_be_decided_by_council() -> None:
         choice=CouncilVoteChoice.APPROVE,
     )
 
-    decision = council.decide(
-        proposal.proposal_id
-    )
+    decision = council.decide(proposal.proposal_id)
 
     assert decision.approved is True

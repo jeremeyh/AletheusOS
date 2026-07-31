@@ -86,7 +86,6 @@ class IntentRuntime:
         intent = self.get(intent_id)
 
         if intent:
-
             intent.status = IntentStatus.ACTIVE
 
     def complete(
@@ -97,7 +96,6 @@ class IntentRuntime:
         intent = self.get(intent_id)
 
         if intent:
-
             intent.status = IntentStatus.COMPLETED
 
     def cancel(
@@ -108,7 +106,6 @@ class IntentRuntime:
         intent = self.get(intent_id)
 
         if intent:
-
             intent.status = IntentStatus.CANCELLED
 
     # --------------------------------------------------
@@ -120,18 +117,10 @@ class IntentRuntime:
         return {
             "active_intents": len(self._active),
             "completed": len(
-                [
-                    i
-                    for i in self._active.values()
-                    if i.status == IntentStatus.COMPLETED
-                ]
+                [i for i in self._active.values() if i.status == IntentStatus.COMPLETED]
             ),
             "cancelled": len(
-                [
-                    i
-                    for i in self._active.values()
-                    if i.status == IntentStatus.CANCELLED
-                ]
+                [i for i in self._active.values() if i.status == IntentStatus.CANCELLED]
             ),
         }
 

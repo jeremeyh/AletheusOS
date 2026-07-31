@@ -54,16 +54,13 @@ class DependencyGraph:
 
     def dependencies(self, component_id: str):
 
-        return sorted(
-            self._graph.get(component_id, set())
-        )
+        return sorted(self._graph.get(component_id, set()))
 
     def dependents(self, component_id: str):
 
         results = []
 
         for component, deps in self._graph.items():
-
             if component_id in deps:
                 results.append(component)
 
@@ -89,10 +86,7 @@ class DependencyGraph:
         return {
             "verified": True,
             "components": len(self._graph),
-            "relationships": sum(
-                len(v)
-                for v in self._graph.values()
-            ),
+            "relationships": sum(len(v) for v in self._graph.values()),
         }
 
     # ----------------------------------------------------
@@ -103,8 +97,7 @@ class DependencyGraph:
 
         return {
             component: sorted(dependencies)
-            for component, dependencies
-            in self._graph.items()
+            for component, dependencies in self._graph.items()
         }
 
     # ----------------------------------------------------
@@ -125,10 +118,7 @@ class DependencyGraph:
 
         return {
             "components": len(self._graph),
-            "relationships": sum(
-                len(v)
-                for v in self._graph.values()
-            ),
+            "relationships": sum(len(v) for v in self._graph.values()),
         }
 
 

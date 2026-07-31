@@ -6,17 +6,6 @@ Post-Genesis 8
 
 
 class AgentAnalyticsEngine:
-
-
     def analyze(self):
 
-        return {
-
-            "agents":
-            "tracked",
-
-            "analytics":
-            "active"
-
-        }
-
+        return {"agents": "tracked", "analytics": "active"}

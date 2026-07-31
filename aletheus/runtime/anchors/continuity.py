@@ -6,20 +6,12 @@ Genesis 8.35
 Verifies runtime continuity after evolution.
 """
 
-
 import time
 import uuid
 
 
 class AnchorContinuityAssuranceEngine:
-
-
-    def __init__(
-        self,
-        migration,
-        memory,
-        knowledge
-    ):
+    def __init__(self, migration, memory, knowledge):
 
         self.migration = migration
         self.memory = memory
@@ -27,135 +19,48 @@ class AnchorContinuityAssuranceEngine:
 
         self.certifications = []
 
+    def certify(self, anchor):
 
-
-    def certify(
-        self,
-        anchor
-    ):
-
-        migration_state = (
-            self.migration
-            .snapshot()
-        )
-
+        migration_state = self.migration.snapshot()
 
         checks = {
-
-            "memory_integrity":
-                self.check_memory(),
-
-            "knowledge_integrity":
-                self.check_knowledge(),
-
-            "identity_preservation":
-                True,
-
-            "governance_continuity":
-                True,
-
-            "runtime_health":
-                True
-
+            "memory_integrity": self.check_memory(),
+            "knowledge_integrity": self.check_knowledge(),
+            "identity_preservation": True,
+            "governance_continuity": True,
+            "runtime_health": True,
         }
 
-
-        passed = all(
-            checks.values()
-        )
-
+        passed = all(checks.values())
 
         certification = {
-
-            "certification_id":
-                str(uuid.uuid4()),
-
-            "anchor":
-                anchor,
-
-            "checks":
-                checks,
-
-            "status":
-                "certified"
-                if passed
-                else "failed",
-
-            "confidence":
-                self.calculate_confidence(
-                    checks
-                ),
-
-            "migration_state":
-                migration_state,
-
-            "timestamp":
-                time.time()
-
+            "certification_id": str(uuid.uuid4()),
+            "anchor": anchor,
+            "checks": checks,
+            "status": "certified" if passed else "failed",
+            "confidence": self.calculate_confidence(checks),
+            "migration_state": migration_state,
+            "timestamp": time.time(),
         }
 
-
-        self.certifications.append(
-            certification
-        )
-
+        self.certifications.append(certification)
 
         return certification
 
+    def check_memory(self):
 
+        return self.memory is not None
 
-    def check_memory(
-        self
-    ):
+    def check_knowledge(self):
 
-        return (
-            self.memory
-            is not None
-        )
+        return self.knowledge is not None
 
+    def calculate_confidence(self, checks):
 
+        passed = sum(1 for value in checks.values() if value)
 
-    def check_knowledge(
-        self
-    ):
+        return int((passed / len(checks)) * 100)
 
-        return (
-            self.knowledge
-            is not None
-        )
+    def snapshot(self):
 
-
-
-    def calculate_confidence(
-        self,
-        checks
-    ):
-
-        passed = sum(
-            1
-            for value in checks.values()
-            if value
-        )
-
-
-        return int(
-            (
-                passed
-                /
-                len(checks)
-            )
-            * 100
-        )
-
-
-
-    def snapshot(
-        self
-    ):
-
-        return {
-
-            "certification_count":
-                len(self.certifications)
-
-        }
+        return {"certification_count": len(self.certifications)}

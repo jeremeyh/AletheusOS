@@ -19,9 +19,7 @@ class ImageProcessor:
 
         width, height = image.size
 
-        image = image.resize(
-            (width * 2, height * 2)
-        )
+        image = image.resize((width * 2, height * 2))
 
         image = ImageOps.grayscale(image)
 

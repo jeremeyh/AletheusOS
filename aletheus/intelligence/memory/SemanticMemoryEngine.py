@@ -4,30 +4,14 @@ Aletheus Cognitive Engine
 SemanticMemoryEngine
 """
 
-
 from ..engines.base_engine import CognitiveEngine
 
 
-class SemanticMemoryEngine(
-    CognitiveEngine
-):
-
-
+class SemanticMemoryEngine(CognitiveEngine):
     def __init__(self):
 
-        super().__init__(
-            "SemanticMemoryEngine",
-            "Memory"
-        )
+        super().__init__("SemanticMemoryEngine", "Memory")
 
+    def analyze(self, data=None):
 
-
-    def analyze(
-        self,
-        data=None
-    ):
-
-        return self.execute(
-            data
-        )
-
+        return self.execute(data)

@@ -32,9 +32,7 @@ class AnalyzerRegistry:
         )
 
         if key in self._analyzers:
-            raise ValueError(
-                f"Analyzer already registered: {key}"
-            )
+            raise ValueError(f"Analyzer already registered: {key}")
 
         self._analyzers[key] = analyzer
         self._enabled[key] = True

@@ -1,8 +1,3 @@
 from .engine import ConstitutionalIntelligenceEngine
 
-__all__=[
-
-"ConstitutionalIntelligenceEngine"
-
-]
-
+__all__ = ["ConstitutionalIntelligenceEngine"]

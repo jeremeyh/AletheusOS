@@ -6,13 +6,6 @@ Genesis 14.22
 
 
 class FederationEngine:
-
-
-    def connect(
-        self,
-        source
-    ):
-
+    def connect(self, source):
 
         return True
-

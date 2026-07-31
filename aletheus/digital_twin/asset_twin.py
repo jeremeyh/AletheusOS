@@ -6,23 +6,6 @@ Genesis 13.49
 
 
 class AssetTwinEngine:
+    def create(self, asset):
 
-
-    def create(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "asset":
-
-                asset,
-
-            "state":
-
-                "created"
-
-        }
-
+        return {"asset": asset, "state": "created"}

@@ -7,37 +7,25 @@ class ConstitutionalRuntimeCouncilError(Exception):
     """Base exception for CRC failures."""
 
 
-class CouncilMemberAlreadyExistsError(
-    ConstitutionalRuntimeCouncilError
-):
+class CouncilMemberAlreadyExistsError(ConstitutionalRuntimeCouncilError):
     """Raised when a council member already exists."""
 
 
-class CouncilMemberNotFoundError(
-    ConstitutionalRuntimeCouncilError
-):
+class CouncilMemberNotFoundError(ConstitutionalRuntimeCouncilError):
     """Raised when a council member cannot be found."""
 
 
-class CouncilProposalAlreadyExistsError(
-    ConstitutionalRuntimeCouncilError
-):
+class CouncilProposalAlreadyExistsError(ConstitutionalRuntimeCouncilError):
     """Raised when a proposal already exists."""
 
 
-class CouncilProposalNotFoundError(
-    ConstitutionalRuntimeCouncilError
-):
+class CouncilProposalNotFoundError(ConstitutionalRuntimeCouncilError):
     """Raised when a proposal cannot be found."""
 
 
-class CouncilVotingError(
-    ConstitutionalRuntimeCouncilError
-):
+class CouncilVotingError(ConstitutionalRuntimeCouncilError):
     """Raised when voting is invalid."""
 
 
-class CouncilDecisionError(
-    ConstitutionalRuntimeCouncilError
-):
+class CouncilDecisionError(ConstitutionalRuntimeCouncilError):
     """Raised when a proposal cannot be decided."""

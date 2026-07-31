@@ -9,16 +9,10 @@ from dataclasses import dataclass, field
 
 @dataclass
 class IntelligenceReport:
-
-
     report_type: str
 
     title: str
 
     summary: str
 
-    data: dict = field(
-        default_factory=dict
-    )
-
-
+    data: dict = field(default_factory=dict)

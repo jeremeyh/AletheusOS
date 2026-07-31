@@ -10,19 +10,6 @@ Optimize intelligence performance
 
 
 class OptimizationBridge:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.10"
-
-        }
-
+        return {"status": "ready", "genesis": "23.10"}

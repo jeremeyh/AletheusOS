@@ -6,13 +6,6 @@ Genesis 14.9
 
 
 class DiscoveryEngine:
-
-
-    def recommend(
-        self,
-        profile
-    ):
-
+    def recommend(self, profile):
 
         return []
-

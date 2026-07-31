@@ -65,35 +65,17 @@ class DoubleHedronRetrieval:
         memories = double_hedron_registry.all()
 
         if identity:
-
-            memories = [
-                memory
-                for memory in memories
-                if memory.identity == identity
-            ]
+            memories = [memory for memory in memories if memory.identity == identity]
 
         if session:
-
-            memories = [
-                memory
-                for memory in memories
-                if memory.session == session
-            ]
+            memories = [memory for memory in memories if memory.session == session]
 
         if execution:
-
-            memories = [
-                memory
-                for memory in memories
-                if memory.execution == execution
-            ]
+            memories = [memory for memory in memories if memory.execution == execution]
 
         if memory_type:
-
             memories = [
-                memory
-                for memory in memories
-                if memory.memory_type == memory_type
+                memory for memory in memories if memory.memory_type == memory_type
             ]
 
         return memories[:limit]

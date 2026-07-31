@@ -5,34 +5,23 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
-ENGINE_ROOT = (
-    ROOT
-    / "nimble/packages/workspace/src/engine"
-)
+ENGINE_ROOT = ROOT / "nimble/packages/workspace/src/engine"
 
 
 def read(relative: str) -> str:
-    return (
-        ENGINE_ROOT / relative
-    ).read_text(encoding="utf-8")
+    return (ENGINE_ROOT / relative).read_text(encoding="utf-8")
 
 
 def test_workspace_package_exports_engine() -> None:
-    index = (
-        ROOT
-        / "nimble/packages/workspace/src/index.ts"
-    ).read_text(encoding="utf-8")
-
-    assert (
-        'export * from "./engine";'
-        in index
+    index = (ROOT / "nimble/packages/workspace/src/index.ts").read_text(
+        encoding="utf-8"
     )
+
+    assert 'export * from "./engine";' in index
 
 
 def test_workspace_registry_exists() -> None:
-    assert "class WorkspaceRegistry" in read(
-        "registry.ts"
-    )
+    assert "class WorkspaceRegistry" in read("registry.ts")
 
 
 def test_workspace_regions_are_canonical() -> None:
@@ -90,10 +79,7 @@ def test_workspace_engine_validator_passes() -> None:
     result = subprocess.run(
         [
             "python",
-            str(
-                ROOT
-                / "validate_nimble_workspace_engine.py"
-            ),
+            str(ROOT / "validate_nimble_workspace_engine.py"),
         ],
         cwd=ROOT,
         capture_output=True,
@@ -102,8 +88,6 @@ def test_workspace_engine_validator_passes() -> None:
         timeout=240,
     )
 
-    assert result.returncode == 0, (
-        result.stdout + result.stderr
-    )
+    assert result.returncode == 0, result.stdout + result.stderr
 
     assert "Status: PASS" in result.stdout

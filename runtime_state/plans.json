@@ -1,7 +1,7 @@
 {
   "plans": [
     {
-      "plan_id": "d6a6a7a5-462b-4b92-9f72-6c8be4bc7a72",
+      "plan_id": "86127096-a0e0-4924-b665-f19f7883e00b",
       "goal": "Validate autonomous planning engine.",
       "objectives": [
         "Research",
@@ -54,12 +54,12 @@
       "priority": 5,
       "status": "planned",
       "progress": 0.0,
-      "created_at": "2026-07-29T23:55:01.444458+00:00",
-      "updated_at": "2026-07-29T23:55:01.444459+00:00",
+      "created_at": "2026-07-31T14:24:52.858249+00:00",
+      "updated_at": "2026-07-31T14:24:52.858250+00:00",
       "completed_at": null
     },
     {
-      "plan_id": "194bf357-3141-442b-a9ce-ae2a47170140",
+      "plan_id": "74138712-fbe8-44e5-a662-15f9b2e9d8eb",
       "goal": "Prepare Card Hawk Foundation for native Aletheus operation.",
       "objectives": [
         "Research",
@@ -112,12 +112,12 @@
       "priority": 5,
       "status": "planned",
       "progress": 20.0,
-      "created_at": "2026-07-29T23:55:01.445007+00:00",
-      "updated_at": "2026-07-29T23:55:01.445031+00:00",
+      "created_at": "2026-07-31T14:24:52.858889+00:00",
+      "updated_at": "2026-07-31T14:24:52.858911+00:00",
       "completed_at": null
     },
     {
-      "plan_id": "cb63eea4-fedf-4bf0-a46d-7394943efe58",
+      "plan_id": "1b34b627-98c6-4125-bc5f-e66c869f7142",
       "goal": "Validate full autonomous plan execution.",
       "objectives": [
         "Research",
@@ -170,12 +170,12 @@
       "priority": 5,
       "status": "completed",
       "progress": 100.0,
-      "created_at": "2026-07-29T23:55:01.445648+00:00",
-      "updated_at": "2026-07-29T23:55:01.445675+00:00",
-      "completed_at": "2026-07-29T23:55:01.445675+00:00"
+      "created_at": "2026-07-31T14:24:52.859510+00:00",
+      "updated_at": "2026-07-31T14:24:52.859531+00:00",
+      "completed_at": "2026-07-31T14:24:52.859530+00:00"
     },
     {
-      "plan_id": "0578a77e-7ebb-4b24-a481-f6cc7f810832",
+      "plan_id": "c18779f8-fa9f-4b3e-acc4-98186ad9fde6",
       "goal": "What should I work on next?",
       "objectives": [
         "Research",
@@ -228,12 +228,12 @@
       "priority": 5,
       "status": "planned",
       "progress": 0.0,
-      "created_at": "2026-07-29T23:55:01.447722+00:00",
-      "updated_at": "2026-07-29T23:55:01.447723+00:00",
+      "created_at": "2026-07-31T14:24:52.861774+00:00",
+      "updated_at": "2026-07-31T14:24:52.861774+00:00",
       "completed_at": null
     },
     {
-      "plan_id": "3ac24a34-81da-4412-a167-a1e072a7dfd8",
+      "plan_id": "1853def1-b444-46b1-93a6-79afa8ba0c9b",
       "goal": "Coordinate Card Hawk native applications through the v2 kernel.",
       "objectives": [
         "Research",
@@ -286,12 +286,12 @@
       "priority": 5,
       "status": "planned",
       "progress": 0.0,
-      "created_at": "2026-07-29T23:55:01.464575+00:00",
-      "updated_at": "2026-07-29T23:55:01.464576+00:00",
+      "created_at": "2026-07-31T14:24:52.881841+00:00",
+      "updated_at": "2026-07-31T14:24:52.881842+00:00",
       "completed_at": null
     },
     {
-      "plan_id": "d563b544-1cd4-43a8-92cd-1514d7a96962",
+      "plan_id": "ee7cd966-0d19-4fe6-b55c-2b537ee11294",
       "goal": "Acquire undervalued Card Hawk asset",
       "objectives": [
         "Research",
@@ -344,9 +344,9 @@
       "priority": 5,
       "status": "completed",
       "progress": 100.0,
-      "created_at": "2026-07-29T23:55:01.489239+00:00",
-      "updated_at": "2026-07-29T23:55:01.489291+00:00",
-      "completed_at": "2026-07-29T23:55:01.489290+00:00"
+      "created_at": "2026-07-31T14:24:52.909127+00:00",
+      "updated_at": "2026-07-31T14:24:52.909180+00:00",
+      "completed_at": "2026-07-31T14:24:52.909179+00:00"
     }
   ]
 }

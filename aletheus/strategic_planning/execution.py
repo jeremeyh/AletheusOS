@@ -6,19 +6,6 @@ Genesis 13.50
 
 
 class ExecutionTracker:
+    def track(self, mission):
 
-
-    def track(
-        self,
-        mission
-    ):
-
-
-        return {
-
-            "progress":
-
-                0
-
-        }
-
+        return {"progress": 0}

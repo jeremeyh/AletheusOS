@@ -6,20 +6,11 @@ Genesis 8.18
 Discovers potential improvements.
 """
 
-
 import time
 
 
 class AnchorAutonomousResearchEngine:
-
-
-    def __init__(
-        self,
-        intelligence,
-        predictive,
-        learning,
-        simulation
-    ):
+    def __init__(self, intelligence, predictive, learning, simulation):
 
         self.intelligence = intelligence
         self.predictive = predictive
@@ -28,132 +19,53 @@ class AnchorAutonomousResearchEngine:
 
         self.research = []
 
+    def analyze(self, anchor):
 
+        score = self.intelligence.score_anchor(anchor)
 
-    def analyze(
-        self,
-        anchor
-    ):
+        prediction = self.predictive.predict(anchor)
 
-        score = (
-            self.intelligence
-            .score_anchor(anchor)
-        )
-
-
-        prediction = (
-            self.predictive
-            .predict(anchor)
-        )
-
-
-        history = (
-            self.learning
-            .history(anchor)
-        )
-
+        history = self.learning.history(anchor)
 
         opportunities = []
 
-
         if score["intelligence_score"] < 90:
-
-            opportunities.append(
-                "improve_anchor_quality"
-            )
-
+            opportunities.append("improve_anchor_quality")
 
         if prediction["risk"] > 30:
-
-            opportunities.append(
-                "reduce_future_risk"
-            )
-
+            opportunities.append("reduce_future_risk")
 
         if len(history) == 0:
-
-            opportunities.append(
-                "increase_learning_data"
-            )
-
+            opportunities.append("increase_learning_data")
 
         if not opportunities:
-
-            opportunities.append(
-                "maintain_current_state"
-            )
-
+            opportunities.append("maintain_current_state")
 
         proposal = {
-
-            "anchor":
-                anchor,
-
-            "opportunities":
-                opportunities,
-
-            "priority":
-                self.priority(
-                    score,
-                    prediction
-                ),
-
-            "timestamp":
-                time.time()
-
+            "anchor": anchor,
+            "opportunities": opportunities,
+            "priority": self.priority(score, prediction),
+            "timestamp": time.time(),
         }
 
-
-        self.research.append(
-            proposal
-        )
-
+        self.research.append(proposal)
 
         return proposal
 
-
-
-    def priority(
-        self,
-        score,
-        prediction
-    ):
+    def priority(self, score, prediction):
 
         if prediction["risk"] >= 70:
-
             return "critical"
 
-
         if score["intelligence_score"] < 70:
-
             return "high"
-
 
         return "normal"
 
+    def generate_proposals(self, anchors):
 
-
-    def generate_proposals(
-        self,
-        anchors
-    ):
-
-        return [
-
-            self.analyze(anchor)
-
-            for anchor
-            in anchors
-
-        ]
-
-
+        return [self.analyze(anchor) for anchor in anchors]
 
     def snapshot(self):
 
-        return {
-
-            "research_count":
-                len(self.research)
-
-        }
+        return {"research_count": len(self.research)}

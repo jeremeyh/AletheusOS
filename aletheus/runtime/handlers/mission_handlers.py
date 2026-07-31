@@ -122,11 +122,7 @@ def mission_list(runtime, context: RuntimeContext):
 
     context.add_result(
         "missions",
-        runtime.mission.list_missions(
-            context.payload.get(
-                "status"
-            )
-        ),
+        runtime.mission.list_missions(context.payload.get("status")),
     )
 
     return context

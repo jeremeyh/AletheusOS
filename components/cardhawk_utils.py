@@ -31,7 +31,6 @@ def safe_float(value):
         return float(value)
 
     except Exception:
-
         return 0.0
 
 
@@ -58,6 +57,8 @@ def yes_no(value):
 def decimal(value, places=2):
 
     return round(Decimal(str(safe_float(value))), places)
+
+
 def roi_percent(cost, value):
     """
     Return ROI percentage.

@@ -44,14 +44,10 @@ def build_twin(
     ConstitutionalEventBus,
 ]:
     bus = ConstitutionalEventBus()
-    registry = PlatformServiceRegistry(
-        event_bus=bus
-    )
+    registry = PlatformServiceRegistry(event_bus=bus)
     graph = ConstitutionalGraph()
 
-    runtime = registry.register(
-        definition("service.runtime")
-    )
+    runtime = registry.register(definition("service.runtime"))
     workspace = registry.register(
         definition(
             "service.workspace",
@@ -59,9 +55,7 @@ def build_twin(
         )
     )
 
-    graph.add_nodes(
-        [runtime, workspace]
-    )
+    graph.add_nodes([runtime, workspace])
     graph.connect(
         source="service.workspace",
         target="service.runtime",
@@ -115,9 +109,7 @@ def test_object_query_uses_graph() -> None:
 def test_service_query_uses_registry() -> None:
     twin, _, _, _ = build_twin()
 
-    service = twin.service(
-        "service.workspace"
-    )
+    service = twin.service("service.workspace")
 
     assert service.address == "service.workspace"
 
@@ -125,39 +117,28 @@ def test_service_query_uses_registry() -> None:
 def test_unknown_object_is_rejected() -> None:
     twin, _, _, _ = build_twin()
 
-    with pytest.raises(
-        TwinObjectNotFoundError
-    ):
+    with pytest.raises(TwinObjectNotFoundError):
         twin.object("service.missing")
 
 
 def test_dependency_queries() -> None:
     twin, _, _, _ = build_twin()
 
-    assert [
-        item.address
-        for item in twin.dependencies(
-            "service.workspace"
-        )
-    ] == ["service.runtime"]
+    assert [item.address for item in twin.dependencies("service.workspace")] == [
+        "service.runtime"
+    ]
 
-    assert [
-        item.address
-        for item in twin.dependents(
-            "service.runtime"
-        )
-    ] == ["service.workspace"]
+    assert [item.address for item in twin.dependents("service.runtime")] == [
+        "service.workspace"
+    ]
 
 
 def test_impact_returns_upstream_dependents() -> None:
     twin, _, _, _ = build_twin()
 
-    assert [
-        item.address
-        for item in twin.impact(
-            "service.runtime"
-        )
-    ] == ["service.workspace"]
+    assert [item.address for item in twin.impact("service.runtime")] == [
+        "service.workspace"
+    ]
 
 
 def test_health_projection_defaults_unknown() -> None:
@@ -181,9 +162,7 @@ def test_health_projection_detects_warning() -> None:
     health = twin.health()
 
     assert health["state"] == "degraded"
-    assert health["unhealthy_services"] == [
-        "service.workspace"
-    ]
+    assert health["unhealthy_services"] == ["service.workspace"]
 
 
 def test_snapshot_is_immutable_and_hashable() -> None:
@@ -209,9 +188,7 @@ def test_snapshot_contains_registry_and_graph() -> None:
 
 
 def test_snapshot_retention_is_bounded() -> None:
-    twin, _, _, bus = build_twin(
-        snapshot_limit=2
-    )
+    twin, _, _, bus = build_twin(snapshot_limit=2)
 
     twin.snapshot()
 
@@ -244,17 +221,13 @@ def test_get_snapshot() -> None:
 
     snapshot = twin.snapshot()
 
-    assert twin.get_snapshot(
-        snapshot.snapshot_id
-    ) == snapshot
+    assert twin.get_snapshot(snapshot.snapshot_id) == snapshot
 
 
 def test_unknown_snapshot_is_rejected() -> None:
     twin, _, _, _ = build_twin()
 
-    with pytest.raises(
-        TwinSnapshotNotFoundError
-    ):
+    with pytest.raises(TwinSnapshotNotFoundError):
         twin.get_snapshot(UUID(int=0))
 
 
@@ -263,28 +236,20 @@ def test_snapshot_diff_detects_service_addition() -> None:
 
     previous = twin.snapshot()
 
-    diagnostics = registry.register(
-        definition("service.diagnostics")
-    )
+    diagnostics = registry.register(definition("service.diagnostics"))
     graph.add_node(diagnostics)
 
     current = twin.snapshot()
     diff = twin.diff(previous, current)
 
-    assert diff.added_services == (
-        "service.diagnostics",
-    )
-    assert diff.added_nodes == (
-        "service.diagnostics",
-    )
+    assert diff.added_services == ("service.diagnostics",)
+    assert diff.added_nodes == ("service.diagnostics",)
 
 
 def test_snapshot_diff_detects_relationship_delta() -> None:
     twin, registry, graph, _ = build_twin()
 
-    diagnostics = registry.register(
-        definition("service.diagnostics")
-    )
+    diagnostics = registry.register(definition("service.diagnostics"))
     graph.add_node(diagnostics)
 
     previous = twin.snapshot()
@@ -348,7 +313,4 @@ def test_close_unsubscribes_twin() -> None:
     twin.close()
 
     assert twin.subscription_id is None
-    assert (
-        bus.statistics().subscriber_count
-        == 0
-    )
+    assert bus.statistics().subscriber_count == 0

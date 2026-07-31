@@ -35,9 +35,7 @@ class RuleRegistry:
 
     def enabled(self) -> tuple[Rule, ...]:
         return tuple(
-            self._rules[rid]
-            for rid in sorted(self._enabled)
-            if rid in self._rules
+            self._rules[rid] for rid in sorted(self._enabled) if rid in self._rules
         )
 
     def enable(self, rule_id: str) -> None:

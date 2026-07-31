@@ -4,7 +4,6 @@ Hawk A•eye Engine
 Genesis 14.5
 """
 
-
 from .condition import ConditionEngine
 from .detection import DetectionEngine
 from .fraud import FraudEngine
@@ -14,8 +13,6 @@ from .recognition import RecognitionEngine
 
 
 class HawkEyeEngine:
-
-
     def __init__(self):
 
         self.detection = DetectionEngine()
@@ -30,19 +27,6 @@ class HawkEyeEngine:
 
         self.fraud = FraudEngine()
 
+    def analyze(self, image):
 
-
-    def analyze(
-        self,
-        image
-    ):
-
-
-        return {
-
-            "status":
-
-                "processed"
-
-        }
-
+        return {"status": "processed"}

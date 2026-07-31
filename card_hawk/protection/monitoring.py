@@ -6,12 +6,6 @@ Genesis 14.26
 
 
 class ProtectionMonitor:
-
-
-    def scan(
-        self
-    ):
-
+    def scan(self):
 
         return []
-

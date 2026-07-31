@@ -6,19 +6,6 @@ Genesis 13.42
 
 
 class TriggerEngine:
+    def evaluate(self, event):
 
-
-    def evaluate(
-        self,
-        event
-    ):
-
-
-        return {
-
-            "triggered":
-
-                True
-
-        }
-
+        return {"triggered": True}

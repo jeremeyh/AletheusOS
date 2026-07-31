@@ -9,8 +9,14 @@ RESTORE_ROOT = ROOT / ".aletheus_restore_points"
 LATEST = RESTORE_ROOT / "LATEST.txt"
 
 EXCLUDE_DIRS = {
-    ".git", "venv", ".venv", "__pycache__", ".pytest_cache",
-    ".mypy_cache", ".ruff_cache", "node_modules",
+    ".git",
+    "venv",
+    ".venv",
+    "__pycache__",
+    ".pytest_cache",
+    ".mypy_cache",
+    ".ruff_cache",
+    "node_modules",
     ".aletheus_restore_points",
 }
 
@@ -19,7 +25,12 @@ EXCLUDE_NAMES = {
 }
 
 EXCLUDE_SUFFIXES = {
-    ".pyc", ".pyo", ".db", ".sqlite", ".sqlite3", ".log",
+    ".pyc",
+    ".pyo",
+    ".db",
+    ".sqlite",
+    ".sqlite3",
+    ".log",
 }
 
 EXCLUDE_PATTERNS = (
@@ -35,8 +46,18 @@ EXCLUDE_PREFIXES = (
 )
 
 INCLUDE_SUFFIXES = {
-    ".py", ".json", ".toml", ".yaml", ".yml", ".md", ".txt",
-    ".csv", ".sql", ".html", ".css", ".js",
+    ".py",
+    ".json",
+    ".toml",
+    ".yaml",
+    ".yml",
+    ".md",
+    ".txt",
+    ".csv",
+    ".sql",
+    ".html",
+    ".css",
+    ".js",
 }
 
 
@@ -92,9 +113,7 @@ def main():
     baseline_raw = manifest.get("files", {})
 
     baseline = {
-        rel: meta
-        for rel, meta in baseline_raw.items()
-        if should_check(ROOT / rel)
+        rel: meta for rel, meta in baseline_raw.items() if should_check(ROOT / rel)
     }
 
     current = {}

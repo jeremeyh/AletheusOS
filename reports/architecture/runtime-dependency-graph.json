@@ -514,18 +514,6 @@
       "target": "aletheus.runtime.boot_pipeline.timing"
     },
     {
-      "source": "aletheus.runtime.bootstrap",
-      "target": "aletheus.runtime.bootstrap.runtime_bootstrap"
-    },
-    {
-      "source": "aletheus.runtime.bootstrap",
-      "target": "aletheus.runtime.bootstrap.runtime_manifest_builder"
-    },
-    {
-      "source": "aletheus.runtime.bootstrap.bootstrap_engine",
-      "target": "aletheus.runtime.managers"
-    },
-    {
       "source": "aletheus.runtime.builder",
       "target": "aletheus.runtime.builder.builder"
     },
@@ -1463,10 +1451,6 @@
     },
     {
       "source": "aletheus.runtime.managers",
-      "target": "aletheus.runtime.managers.registration_manager"
-    },
-    {
-      "source": "aletheus.runtime.managers",
       "target": "aletheus.runtime.managers.registry_manager"
     },
     {
@@ -1478,16 +1462,8 @@
       "target": "aletheus.runtime.managers.validation_manager"
     },
     {
-      "source": "aletheus.runtime.managers.command_manager",
-      "target": "aletheus.runtime.command_bootstrap.bootstrapper"
-    },
-    {
       "source": "aletheus.runtime.managers.health_manager",
       "target": "aletheus.runtime.lifecycle.resolver"
-    },
-    {
-      "source": "aletheus.runtime.managers.registration_manager",
-      "target": "aletheus.runtime.command_bootstrap.bootstrapper"
     },
     {
       "source": "aletheus.runtime.managers.registry_federation_manager",
@@ -2324,10 +2300,6 @@
       "label": "aletheus.runtime.bootstrap"
     },
     {
-      "id": "aletheus.runtime.bootstrap.bootstrap_engine",
-      "label": "aletheus.runtime.bootstrap.bootstrap_engine"
-    },
-    {
       "id": "aletheus.runtime.bootstrap.runtime_bootstrap",
       "label": "aletheus.runtime.bootstrap.runtime_bootstrap"
     },
@@ -3016,10 +2988,6 @@
       "label": "aletheus.runtime.managers.observability_manager"
     },
     {
-      "id": "aletheus.runtime.managers.registration_manager",
-      "label": "aletheus.runtime.managers.registration_manager"
-    },
-    {
       "id": "aletheus.runtime.managers.registry_federation_manager",
       "label": "aletheus.runtime.managers.registry_federation_manager"
     },
@@ -3422,7 +3390,7 @@
   ],
   "summary": {
     "cycle_count": 0,
-    "edge_count": 437,
-    "node_count": 417
+    "edge_count": 431,
+    "node_count": 415
   }
 }

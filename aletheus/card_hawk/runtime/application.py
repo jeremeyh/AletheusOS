@@ -4,73 +4,31 @@ Card Hawk Runtime Application
 Genesis 13.13
 """
 
-
 from .lifecycle import CardHawkLifecycle
 from .manifest import CARD_HAWK_MANIFEST
 
 
 class CardHawkApplication:
+    def __init__(self, intelligence=None):
 
+        self.manifest = CARD_HAWK_MANIFEST
 
-    def __init__(
-        self,
-        intelligence=None
-    ):
+        self.intelligence = intelligence
 
-        self.manifest = (
-            CARD_HAWK_MANIFEST
-        )
+        self.lifecycle = CardHawkLifecycle()
 
-        self.intelligence = (
-            intelligence
-        )
+    def start(self):
 
-        self.lifecycle = (
-            CardHawkLifecycle()
-        )
+        return self.lifecycle.start()
 
-
-
-    def start(
-        self
-    ):
-
-        return (
-            self.lifecycle.start()
-        )
-
-
-
-    def health(
-        self
-    ):
+    def health(self):
 
         return {
-
-            "application":
-                self.manifest[
-                    "application_id"
-                ],
-
-            "runtime":
-                self.lifecycle.health(),
-
-            "intelligence":
-                bool(
-                    self.intelligence
-                )
-
+            "application": self.manifest["application_id"],
+            "runtime": self.lifecycle.health(),
+            "intelligence": bool(self.intelligence),
         }
 
+    def capabilities(self):
 
-
-    def capabilities(
-        self
-    ):
-
-        return (
-            self.manifest[
-                "capabilities"
-            ]
-        )
-
+        return self.manifest["capabilities"]

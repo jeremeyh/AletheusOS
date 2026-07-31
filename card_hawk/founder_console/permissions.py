@@ -6,13 +6,6 @@ Genesis 14.8
 
 
 class ConsolePermissions:
-
-
-    def verify(
-        self,
-        user
-    ):
-
+    def verify(self, user):
 
         return True
-

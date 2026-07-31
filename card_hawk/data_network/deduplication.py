@@ -6,13 +6,6 @@ Genesis 14.22
 
 
 class DuplicateEngine:
-
-
-    def check(
-        self,
-        asset
-    ):
-
+    def check(self, asset):
 
         return False
-

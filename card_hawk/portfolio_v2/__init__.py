@@ -6,6 +6,4 @@ Genesis 60
 
 from .engine import PortfolioIntelligenceEngine
 
-__all__ = [
-    "PortfolioIntelligenceEngine"
-]
+__all__ = ["PortfolioIntelligenceEngine"]

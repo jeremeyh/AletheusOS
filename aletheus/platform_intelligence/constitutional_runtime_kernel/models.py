@@ -49,9 +49,7 @@ class ConstitutionalRuntimeKernelStatus:
             value = getattr(self, name)
 
             if value.tzinfo is None:
-                raise ValueError(
-                    f"{name} must include timezone."
-                )
+                raise ValueError(f"{name} must include timezone.")
 
             object.__setattr__(
                 self,
@@ -67,21 +65,13 @@ class ConstitutionalRuntimeKernelStatus:
             "modified_at": self.modified_at.isoformat(),
             "composed": self.composed,
             "running": self.running,
-            "registered_services": (
-                self.registered_services
-            ),
+            "registered_services": (self.registered_services),
             "graph_nodes": self.graph_nodes,
-            "graph_relationships": (
-                self.graph_relationships
-            ),
+            "graph_relationships": (self.graph_relationships),
             "twin_revision": self.twin_revision,
-            "event_subscribers": (
-                self.event_subscribers
-            ),
+            "event_subscribers": (self.event_subscribers),
             "mission_count": self.mission_count,
-            "scheduled_missions": (
-                self.scheduled_missions
-            ),
+            "scheduled_missions": (self.scheduled_missions),
             "failure_reason": self.failure_reason,
         }
 
@@ -103,9 +93,7 @@ class ConstitutionalRuntimeKernelSnapshot:
 
     def __post_init__(self) -> None:
         if self.generated_at.tzinfo is None:
-            raise ValueError(
-                "generated_at must include timezone."
-            )
+            raise ValueError("generated_at must include timezone.")
 
         object.__setattr__(
             self,
@@ -127,25 +115,19 @@ class ConstitutionalRuntimeKernelSnapshot:
             object.__setattr__(
                 self,
                 name,
-                MappingProxyType(
-                    dict(getattr(self, name))
-                ),
+                MappingProxyType(dict(getattr(self, name))),
             )
 
     def to_dict(self) -> dict[str, Any]:
         return {
-            "generated_at": (
-                self.generated_at.isoformat()
-            ),
+            "generated_at": (self.generated_at.isoformat()),
             "kernel": dict(self.kernel),
             "runtime": dict(self.runtime),
             "services": dict(self.services),
             "graph": dict(self.graph),
             "events": dict(self.events),
             "twin": dict(self.twin),
-            "intelligence": dict(
-                self.intelligence
-            ),
+            "intelligence": dict(self.intelligence),
             "missions": dict(self.missions),
             "scheduler": dict(self.scheduler),
         }

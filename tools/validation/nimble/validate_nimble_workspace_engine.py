@@ -24,16 +24,9 @@ def find_repo_root(start: Path) -> Path:
 ROOT = find_repo_root(Path(__file__).parent)
 
 
-ENGINE_ROOT = (
-    ROOT
-    / "nimble/packages/workspace/src/engine"
-)
+ENGINE_ROOT = ROOT / "nimble/packages/workspace/src/engine"
 
-REPORT = (
-    ROOT
-    / "reports/nimble/experience/"
-    "workspace-engine-validation-latest.json"
-)
+REPORT = ROOT / "reports/nimble/experience/workspace-engine-validation-latest.json"
 
 
 def main() -> int:
@@ -51,16 +44,11 @@ def main() -> int:
     ]
 
     for relative in required_files:
-        if not (
-            ENGINE_ROOT / relative
-        ).is_file():
-            failures.append(
-                f"Missing Workspace Engine file: {relative}"
-            )
+        if not (ENGINE_ROOT / relative).is_file():
+            failures.append(f"Missing Workspace Engine file: {relative}")
 
     combined = "\n".join(
-        path.read_text(encoding="utf-8")
-        for path in ENGINE_ROOT.rglob("*.ts")
+        path.read_text(encoding="utf-8") for path in ENGINE_ROOT.rglob("*.ts")
     )
 
     concepts = [
@@ -77,9 +65,7 @@ def main() -> int:
 
     for concept in concepts:
         if concept not in combined:
-            failures.append(
-                f"Missing Workspace Engine concept: {concept}"
-            )
+            failures.append(f"Missing Workspace Engine concept: {concept}")
 
     typecheck = subprocess.run(
         [
@@ -97,15 +83,9 @@ def main() -> int:
     )
 
     if typecheck.returncode != 0:
-        failures.append(
-            "Workspace Engine typecheck failed."
-        )
+        failures.append("Workspace Engine typecheck failed.")
 
-    status = (
-        "PASS"
-        if not failures
-        else "FAIL"
-    )
+    status = "PASS" if not failures else "FAIL"
 
     REPORT.parent.mkdir(
         parents=True,
@@ -116,15 +96,11 @@ def main() -> int:
         json.dumps(
             {
                 "schema_version": "1.0",
-                "generated_at": datetime.now(
-                    UTC
-                ).isoformat(),
+                "generated_at": datetime.now(UTC).isoformat(),
                 "status": status,
                 "failures": failures,
-                "typecheck_stdout":
-                    typecheck.stdout.strip(),
-                "typecheck_stderr":
-                    typecheck.stderr.strip(),
+                "typecheck_stdout": typecheck.stdout.strip(),
+                "typecheck_stderr": typecheck.stderr.strip(),
             },
             indent=2,
             sort_keys=True,

@@ -39,9 +39,7 @@ class ConstitutionalPolicyEvaluator:
                 policy_id=policy.policy_id,
                 passed=consensus,
                 reason=(
-                    "Consensus is present."
-                    if consensus
-                    else "Consensus is missing."
+                    "Consensus is present." if consensus else "Consensus is missing."
                 ),
                 evidence=evidence,
             )

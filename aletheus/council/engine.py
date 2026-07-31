@@ -31,7 +31,9 @@ class CouncilEngine:
             "platform": self._load_json("reports/platform/platform_report.json"),
             "sentinel": self._load_json("reports/sentinel/sentinel_report.json"),
             "atlas": self._load_json("reports/atlas/atlas_report.json"),
-            "watch_tower": self._load_json("reports/watch_tower/watch_tower_report.json"),
+            "watch_tower": self._load_json(
+                "reports/watch_tower/watch_tower_report.json"
+            ),
             "guardian": self._load_json("reports/guardian/guardian_report.json"),
         }
 
@@ -151,7 +153,10 @@ class CouncilEngine:
 
         proposal_lower = proposal.lower()
 
-        if any(token in proposal_lower for token in ["delete vault", "wipe", "destroy", "remove protected"]):
+        if any(
+            token in proposal_lower
+            for token in ["delete vault", "wipe", "destroy", "remove protected"]
+        ):
             blockers.append("Proposal appears destructive against protected resources.")
 
         if blockers:

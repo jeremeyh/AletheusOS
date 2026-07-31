@@ -65,9 +65,7 @@ class PlatformServiceDefinition:
         )
 
         if service_address in dependency_addresses:
-            raise ValueError(
-                "A platform service cannot depend on itself."
-            )
+            raise ValueError("A platform service cannot depend on itself.")
 
         return cls(
             address=service_address,
@@ -77,9 +75,7 @@ class PlatformServiceDefinition:
             owner=owner.strip(),
             description=description.strip(),
             dependencies=dependency_addresses,
-            attributes=MappingProxyType(
-                dict(attributes or {})
-            ),
+            attributes=MappingProxyType(dict(attributes or {})),
         )
 
     def to_constitutional_object(
@@ -89,8 +85,7 @@ class PlatformServiceDefinition:
 
         attributes = dict(self.attributes)
         attributes["dependencies"] = sorted(
-            str(dependency)
-            for dependency in self.dependencies
+            str(dependency) for dependency in self.dependencies
         )
 
         return ConstitutionalObject.create(
@@ -126,10 +121,6 @@ class PlatformServiceRegistryStatistics:
             "degraded": self.degraded,
             "unhealthy": self.unhealthy,
             "dependency_edges": self.dependency_edges,
-            "services_by_state": dict(
-                self.services_by_state
-            ),
-            "services_by_health": dict(
-                self.services_by_health
-            ),
+            "services_by_state": dict(self.services_by_state),
+            "services_by_health": dict(self.services_by_health),
         }

@@ -4,13 +4,10 @@ from aletheus.time_utils import utc_now_iso
 
 
 class GovernanceHistory:
-
     VERSION = "1.0.0"
-
 
     def __init__(self):
         self.events = []
-
 
     def record(
         self,
@@ -27,7 +24,6 @@ class GovernanceHistory:
         self.events.append(event)
 
         return event
-
 
     def history(self):
 

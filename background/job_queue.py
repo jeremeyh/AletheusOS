@@ -15,6 +15,7 @@ class Job:
     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
     updated_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
 
+
 class JobQueue:
     """In-process job queue for Alpha 2.3B."""
 

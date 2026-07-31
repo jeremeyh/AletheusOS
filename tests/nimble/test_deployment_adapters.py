@@ -6,13 +6,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
-DEPLOY_ADAPTER = (
-    ROOT / "scripts/nimble_deploy_adapter.sh"
-)
+DEPLOY_ADAPTER = ROOT / "scripts/nimble_deploy_adapter.sh"
 
-ROLLBACK_ADAPTER = (
-    ROOT / "scripts/nimble_rollback_adapter.sh"
-)
+ROLLBACK_ADAPTER = ROOT / "scripts/nimble_rollback_adapter.sh"
 
 
 def run_adapter(
@@ -67,10 +63,7 @@ def test_deploy_adapter_rejects_unregistered_provider() -> None:
     )
 
     assert result.returncode != 0
-    assert (
-        "Unregistered deployment provider"
-        in result.stderr
-    )
+    assert "Unregistered deployment provider" in result.stderr
     assert "Traceback" not in result.stderr
 
 
@@ -87,10 +80,7 @@ def test_dry_run_provider_cannot_execute_production() -> None:
     )
 
     assert result.returncode != 0
-    assert (
-        "not approved for production execution"
-        in result.stderr
-    )
+    assert "not approved for production execution" in result.stderr
     assert "Traceback" not in result.stderr
 
 
@@ -102,9 +92,7 @@ def test_rollback_adapter_supports_registered_dry_run() -> None:
             "NIMBLE_ENVIRONMENT": "production",
             "ROLLBACK_RELEASE": "release-v0",
             "ROLLBACK_REVISION": "def456",
-            "ROLLBACK_IMAGE": (
-                "example/image@sha256:rollback"
-            ),
+            "ROLLBACK_IMAGE": ("example/image@sha256:rollback"),
         },
     )
 
@@ -123,15 +111,10 @@ def test_rollback_adapter_rejects_unregistered_provider() -> None:
             "NIMBLE_ENVIRONMENT": "production",
             "ROLLBACK_RELEASE": "release-v0",
             "ROLLBACK_REVISION": "def456",
-            "ROLLBACK_IMAGE": (
-                "example/image@sha256:rollback"
-            ),
+            "ROLLBACK_IMAGE": ("example/image@sha256:rollback"),
         },
     )
 
     assert result.returncode != 0
-    assert (
-        "Unregistered deployment provider"
-        in result.stderr
-    )
+    assert "Unregistered deployment provider" in result.stderr
     assert "Traceback" not in result.stderr

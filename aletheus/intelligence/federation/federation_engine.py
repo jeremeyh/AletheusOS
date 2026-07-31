@@ -7,14 +7,11 @@ Connects independent intelligence
 domains into a trusted federation.
 """
 
-
 import time
 import uuid
 
 
 class IntelligenceFederationEngine:
-
-
     def __init__(self):
 
         self.domains = {}
@@ -23,139 +20,59 @@ class IntelligenceFederationEngine:
 
         self.trust_records = []
 
-
-
-    def register_domain(
-        self,
-        name,
-        capabilities
-    ):
+    def register_domain(self, name, capabilities):
 
         domain = {
-
-            "domain_id":
-                str(uuid.uuid4()),
-
-            "name":
-                name,
-
-            "capabilities":
-                capabilities,
-
-            "status":
-                "registered",
-
-            "created":
-                time.time()
-
+            "domain_id": str(uuid.uuid4()),
+            "name": name,
+            "capabilities": capabilities,
+            "status": "registered",
+            "created": time.time(),
         }
-
 
         self.domains[name] = domain
 
-
         return domain
 
-
-
-    def establish_trust(
-        self,
-        domain_a,
-        domain_b
-    ):
+    def establish_trust(self, domain_a, domain_b):
 
         trust = {
-
-            "trust_id":
-                str(uuid.uuid4()),
-
-            "domain_a":
-                domain_a,
-
-            "domain_b":
-                domain_b,
-
-            "trust_score":
-                100,
-
-            "established":
-                True
-
+            "trust_id": str(uuid.uuid4()),
+            "domain_a": domain_a,
+            "domain_b": domain_b,
+            "trust_score": 100,
+            "established": True,
         }
 
-
-        self.trust_records.append(
-            trust
-        )
-
+        self.trust_records.append(trust)
 
         return trust
 
-
-
-    def federate(
-        self,
-        domains
-    ):
+    def federate(self, domains):
 
         federation = {
-
-            "federation_id":
-                str(uuid.uuid4()),
-
-            "domains":
-                domains,
-
-            "active":
-                True,
-
-            "timestamp":
-                time.time()
-
+            "federation_id": str(uuid.uuid4()),
+            "domains": domains,
+            "active": True,
+            "timestamp": time.time(),
         }
 
-
-        self.federations.append(
-            federation
-        )
-
+        self.federations.append(federation)
 
         return federation
 
-
-
-    def coordinate(
-        self,
-        objective
-    ):
+    def coordinate(self, objective):
 
         return {
-
-            "objective":
-                objective,
-
-            "federated_action":
-                True,
-
-            "participants":
-                len(self.domains)
-
+            "objective": objective,
+            "federated_action": True,
+            "participants": len(self.domains),
         }
-
-
 
     def snapshot(self):
 
         return {
-
-            "domains":
-                len(self.domains),
-
-            "federations":
-                len(self.federations),
-
-            "trust_records":
-                len(self.trust_records)
-
+            "domains": len(self.domains),
+            "federations": len(self.federations),
+            "trust_records": len(self.trust_records),
         }
-

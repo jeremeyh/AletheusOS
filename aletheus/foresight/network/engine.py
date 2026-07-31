@@ -6,34 +6,14 @@ Post-Genesis 513
 
 
 class CivilizationForecastingNetworkEngine:
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_forecasting_network",
-
-            "post_genesis":
-            "513",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_forecasting_network",
+            "post_genesis": "513",
+            "status": "operational",
         }
-
-
 
     def execute(self, request=None):
 
-        return {
-
-            "request":
-            request,
-
-            "status":
-            "completed"
-
-        }
-
+        return {"request": request, "status": "completed"}

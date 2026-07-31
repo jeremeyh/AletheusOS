@@ -47,11 +47,7 @@ def main():
 
     report = director.run(DemoRuntime())
 
-    print(
-        RuntimeBootDirectorReporter().render(
-            report
-        )
-    )
+    print(RuntimeBootDirectorReporter().render(report))
 
 
 if __name__ == "__main__":

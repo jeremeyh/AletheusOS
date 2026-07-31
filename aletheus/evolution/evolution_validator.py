@@ -6,17 +6,6 @@ Post-Genesis 22
 
 
 class EvolutionValidator:
-
-
     def validate(self, capability):
 
-        return {
-
-            "capability":
-            capability,
-
-            "validation":
-            "successful"
-
-        }
-
+        return {"capability": capability, "validation": "successful"}

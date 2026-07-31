@@ -4,9 +4,7 @@ Marketplace Source Registry
 Genesis 13.23
 """
 
-
 MARKETPLACE_SOURCES = [
-
     "ebay",
     "mercari",
     "depop",
@@ -33,12 +31,10 @@ MARKETPLACE_SOURCES = [
     "dicks_sporting_goods",
     "ntwrk",
     "popshop_live",
-    "dealdash"
-
+    "dealdash",
 ]
 
 
 def sources():
 
     return MARKETPLACE_SOURCES
-

@@ -1,4 +1,5 @@
 """Candidate attribute access helpers."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -14,8 +15,11 @@ def candidate_value(candidate: Any, *names: str, required: bool = True) -> Any:
             if value is not None:
                 return value
     if required:
-        raise TransformationError("Candidate is missing a required attribute: " + ", ".join(names) + ".")
+        raise TransformationError(
+            "Candidate is missing a required attribute: " + ", ".join(names) + "."
+        )
     return None
+
 
 def candidate_path(candidate: Any) -> Path:
     value = candidate_value(candidate, "path", "file_path", "filename")
@@ -23,23 +27,31 @@ def candidate_path(candidate: Any) -> Path:
         raise TransformationError("Candidate path must be a string or pathlib.Path.")
     return Path(value)
 
+
 def candidate_class_name(candidate: Any) -> str:
     value = candidate_value(candidate, "class_name", "className")
     if not isinstance(value, str) or not value:
         raise TransformationError("Candidate class name must be a non-empty string.")
     return value
 
+
 def candidate_attribute_name(candidate: Any) -> str:
-    value = candidate_value(candidate, "attribute_name", "name", "variable_name", "target_name")
+    value = candidate_value(
+        candidate, "attribute_name", "name", "variable_name", "target_name"
+    )
     if not isinstance(value, str) or not value:
-        raise TransformationError("Candidate attribute name must be a non-empty string.")
+        raise TransformationError(
+            "Candidate attribute name must be a non-empty string."
+        )
     return value
+
 
 def candidate_line(candidate: Any) -> int:
     value = candidate_value(candidate, "line", "line_number", "lineno")
     if not isinstance(value, int) or value < 1:
         raise TransformationError("Candidate line must be a positive integer.")
     return value
+
 
 def candidate_classification(candidate: Any) -> str:
     value = candidate_value(candidate, "classification", "category", required=False)

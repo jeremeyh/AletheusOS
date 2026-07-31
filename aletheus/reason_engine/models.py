@@ -25,7 +25,6 @@ def new_reason_id() -> str:
 
 
 class ReasonStatus(StrEnum):
-
     CREATED = "CREATED"
 
     INFERRED = "INFERRED"
@@ -40,7 +39,6 @@ class ReasonStatus(StrEnum):
 
 
 class ReasonConfidence(StrEnum):
-
     LOW = "LOW"
 
     MEDIUM = "MEDIUM"
@@ -52,7 +50,6 @@ class ReasonConfidence(StrEnum):
 
 @dataclass(slots=True)
 class ReasonStep:
-
     order: int
 
     statement: str
@@ -72,7 +69,6 @@ class ReasonStep:
 
 @dataclass(slots=True)
 class ReasonObject:
-
     reason_id: str
 
     intent: str
@@ -172,10 +168,7 @@ class ReasonObject:
             "memories_used": self.memories_used,
             "alternatives_considered": self.alternatives_considered,
             "constitutional_articles": self.constitutional_articles,
-            "reason_chain": [
-                step.to_dict()
-                for step in self.reason_chain
-            ],
+            "reason_chain": [step.to_dict() for step in self.reason_chain],
             "provenance": self.provenance,
             "metadata": self.metadata,
             "created_at": self.created_at,

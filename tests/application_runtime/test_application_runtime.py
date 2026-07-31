@@ -17,9 +17,7 @@ from aletheus.platform_surface import (
 def build_runtime():
     platform = build_aletheus_platform()
 
-    runtime = ConstitutionalApplicationRuntime(
-        platform=platform
-    )
+    runtime = ConstitutionalApplicationRuntime(platform=platform)
 
     return runtime, platform
 
@@ -30,13 +28,8 @@ def test_installs_constitutional_application():
 
     record = runtime.install(application)
 
-    assert record.status == (
-        ApplicationStatus.INSTALLED
-    )
-    assert (
-        record.manifest.application_id
-        == "aletheus.proof_application"
-    )
+    assert record.status == (ApplicationStatus.INSTALLED)
+    assert record.manifest.application_id == "aletheus.proof_application"
 
 
 def test_rejects_duplicate_application():
@@ -45,12 +38,8 @@ def test_rejects_duplicate_application():
 
     runtime.install(application)
 
-    with pytest.raises(
-        DuplicateApplicationError
-    ):
-        runtime.install(
-            ConstitutionalProofApplication()
-        )
+    with pytest.raises(DuplicateApplicationError):
+        runtime.install(ConstitutionalProofApplication())
 
 
 def test_injects_platform_surface_services():
@@ -58,13 +47,9 @@ def test_injects_platform_surface_services():
     application = ConstitutionalProofApplication()
 
     runtime.install(application)
-    record = runtime.initialize(
-        application.manifest.application_id
-    )
+    record = runtime.initialize(application.manifest.application_id)
 
-    assert record.status == (
-        ApplicationStatus.INITIALIZED
-    )
+    assert record.status == (ApplicationStatus.INITIALIZED)
 
     assert set(application.services) == {
         "runtime",
@@ -78,62 +63,42 @@ def test_injects_platform_surface_services():
 def test_runs_complete_application_lifecycle():
     runtime, _ = build_runtime()
     application = ConstitutionalProofApplication()
-    application_id = (
-        application.manifest.application_id
-    )
+    application_id = application.manifest.application_id
 
     runtime.install(application)
     runtime.initialize(application_id)
     runtime.start(application_id)
 
     assert application.running
-    assert (
-        runtime.registry.require(
-            application_id
-        ).status
-        == ApplicationStatus.RUNNING
-    )
+    assert runtime.registry.require(application_id).status == ApplicationStatus.RUNNING
 
     runtime.stop(application_id)
 
     assert not application.running
-    assert (
-        runtime.registry.require(
-            application_id
-        ).status
-        == ApplicationStatus.STOPPED
-    )
+    assert runtime.registry.require(application_id).status == ApplicationStatus.STOPPED
 
 
 def test_application_cannot_start_before_initialize():
     runtime, _ = build_runtime()
     application = ConstitutionalProofApplication()
-    application_id = (
-        application.manifest.application_id
-    )
+    application_id = application.manifest.application_id
 
     runtime.install(application)
 
-    with pytest.raises(
-        InvalidApplicationTransitionError
-    ):
+    with pytest.raises(InvalidApplicationTransitionError):
         runtime.start(application_id)
 
 
 def test_application_health_is_projected():
     runtime, _ = build_runtime()
     application = ConstitutionalProofApplication()
-    application_id = (
-        application.manifest.application_id
-    )
+    application_id = application.manifest.application_id
 
     runtime.install(application)
     runtime.initialize(application_id)
     runtime.start(application_id)
 
-    health = runtime.application_health(
-        application_id
-    )
+    health = runtime.application_health(application_id)
 
     assert health["status"] == "running"
     assert health["runtime_status"] == "online"
@@ -144,22 +109,14 @@ def test_application_health_is_projected():
 def test_uninstalls_stopped_application():
     runtime, _ = build_runtime()
     application = ConstitutionalProofApplication()
-    application_id = (
-        application.manifest.application_id
-    )
+    application_id = application.manifest.application_id
 
     runtime.install(application)
     runtime.initialize(application_id)
     runtime.start(application_id)
     runtime.stop(application_id)
 
-    removed = runtime.uninstall(
-        application_id
-    )
+    removed = runtime.uninstall(application_id)
 
-    assert removed.status == (
-        ApplicationStatus.UNINSTALLED
-    )
-    assert runtime.registry.get(
-        application_id
-    ) is None
+    assert removed.status == (ApplicationStatus.UNINSTALLED)
+    assert runtime.registry.get(application_id) is None

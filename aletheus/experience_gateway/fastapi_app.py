@@ -39,20 +39,19 @@ def evaluate_readiness(
 ) -> dict[str, object]:
     """Evaluate deployment configuration without constructing the app."""
 
-    values = (
-        environment
-        if environment is not None
-        else os.environ
+    values = environment if environment is not None else os.environ
+
+    auth_mode = (
+        values.get(
+            "ALETHEUS_AUTH_MODE",
+            "local",
+        )
+        .strip()
+        .lower()
     )
 
-    auth_mode = values.get(
-        "ALETHEUS_AUTH_MODE",
-        "local",
-    ).strip().lower()
-
     checks: dict[str, bool] = {
-        "auth_mode_supported": auth_mode
-        in {"local", "oidc"},
+        "auth_mode_supported": auth_mode in {"local", "oidc"},
     }
 
     if auth_mode == "oidc":
@@ -63,24 +62,17 @@ def evaluate_readiness(
         )
 
         checks["oidc_configuration_present"] = all(
-            bool(values.get(name))
-            for name in required
+            bool(values.get(name)) for name in required
         )
 
     ready = all(checks.values())
 
     return {
-        "status": (
-            "ready"
-            if ready
-            else "not_ready"
-        ),
+        "status": ("ready" if ready else "not_ready"),
         "service": "nimble-experience-gateway",
         "auth_mode": auth_mode,
         "checks": checks,
-        "timestamp": datetime.now(
-            UTC
-        ).isoformat(),
+        "timestamp": datetime.now(UTC).isoformat(),
     }
 
 
@@ -90,46 +82,27 @@ def create_app(
 ) -> FastAPI:
 
     gateway = service or ExperienceGatewayService(
-        provider_registry=(
-            create_default_provider_registry()
-        )
+        provider_registry=(create_default_provider_registry())
     )
 
-    command_store = SQLiteCommandAuditStore(
-        command_database_path()
-    )
+    command_store = SQLiteCommandAuditStore(command_database_path())
 
-    authentication_config = (
-        load_authentication_config()
-    )
+    authentication_config = load_authentication_config()
 
-    principal_authenticator = (
-        create_principal_authenticator(
-            authentication_config
-        )
-    )
+    principal_authenticator = create_principal_authenticator(authentication_config)
 
-    PrincipalResolver(
-        principal_authenticator
-    )
+    PrincipalResolver(principal_authenticator)
 
-    command_gateway = (
-        command_service
-        or CommandGatewayService(
-            create_default_command_registry(),
-            store=command_store,
-            authorization_policy=(
-                create_default_authorization_policy()
-            ),
-        )
+    command_gateway = command_service or CommandGatewayService(
+        create_default_command_registry(),
+        store=command_store,
+        authorization_policy=(create_default_authorization_policy()),
     )
 
     app = FastAPI(
         title="AletheusOS Experience Gateway",
         description=(
-            "Bounded Principle X API for "
-            "Nimble™ and AletheusOS "
-            "applications."
+            "Bounded Principle X API for Nimble™ and AletheusOS applications."
         ),
         version="0.1.0",
     )
@@ -149,12 +122,8 @@ def create_app(
     async def healthz():
         return {
             "status": "alive",
-            "service": (
-                "nimble-experience-gateway"
-            ),
-            "timestamp": datetime.now(
-                UTC
-            ).isoformat(),
+            "service": ("nimble-experience-gateway"),
+            "timestamp": datetime.now(UTC).isoformat(),
         }
 
     @app.get(

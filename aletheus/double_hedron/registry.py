@@ -68,9 +68,7 @@ class DoubleHedronRegistry:
     ) -> list[MemoryObject]:
 
         return [
-            memory
-            for memory in self._memories.values()
-            if memory.identity == identity
+            memory for memory in self._memories.values() if memory.identity == identity
         ]
 
     def by_session(
@@ -79,9 +77,7 @@ class DoubleHedronRegistry:
     ) -> list[MemoryObject]:
 
         return [
-            memory
-            for memory in self._memories.values()
-            if memory.session == session
+            memory for memory in self._memories.values() if memory.session == session
         ]
 
     def by_execution(
@@ -133,7 +129,6 @@ class DoubleHedronRegistry:
         lifecycles: dict[str, int] = {}
 
         for memory in self._memories.values():
-
             mt = memory.memory_type.value
             lc = memory.lifecycle.value
 

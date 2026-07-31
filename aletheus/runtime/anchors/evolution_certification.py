@@ -5,16 +5,6 @@ Evolution Certification Engine
 
 
 class EvolutionCertificationEngine:
+    def certify(self, evolution):
 
-
-    def certify(self,evolution):
-
-        return {
-
-            "evolution":
-                evolution,
-
-            "certified":
-                True
-
-        }
+        return {"evolution": evolution, "certified": True}

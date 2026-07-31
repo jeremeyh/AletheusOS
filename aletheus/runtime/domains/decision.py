@@ -44,25 +44,19 @@ class DecisionDomain:
         return context
 
     def execute(self, context):
-        result = self.runtime.decision.execute(
-            context.payload.get("decision_id", "")
-        )
+        result = self.runtime.decision.execute(context.payload.get("decision_id", ""))
 
         context.add_result("decision", result)
         return context
 
     def rollback(self, context):
-        result = self.runtime.decision.rollback(
-            context.payload.get("decision_id", "")
-        )
+        result = self.runtime.decision.rollback(context.payload.get("decision_id", ""))
 
         context.add_result("decision", result)
         return context
 
     def explain(self, context):
-        result = self.runtime.decision.explain(
-            context.payload.get("decision_id", "")
-        )
+        result = self.runtime.decision.explain(context.payload.get("decision_id", ""))
 
         context.add_result("explanation", result)
         return context

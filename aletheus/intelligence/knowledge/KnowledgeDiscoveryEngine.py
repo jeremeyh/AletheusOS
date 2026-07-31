@@ -4,30 +4,14 @@ Aletheus Cognitive Engine
 KnowledgeDiscoveryEngine
 """
 
-
 from ..engines.base_engine import CognitiveEngine
 
 
-class KnowledgeDiscoveryEngine(
-    CognitiveEngine
-):
-
-
+class KnowledgeDiscoveryEngine(CognitiveEngine):
     def __init__(self):
 
-        super().__init__(
-            "KnowledgeDiscoveryEngine",
-            "Knowledge"
-        )
+        super().__init__("KnowledgeDiscoveryEngine", "Knowledge")
 
+    def analyze(self, data=None):
 
-
-    def analyze(
-        self,
-        data=None
-    ):
-
-        return self.execute(
-            data
-        )
-
+        return self.execute(data)

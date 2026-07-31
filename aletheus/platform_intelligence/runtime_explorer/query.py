@@ -33,9 +33,7 @@ class ExplorerQuery:
         normalized = expression.strip()
 
         if not normalized:
-            raise ExplorerQueryError(
-                "Explorer query cannot be empty."
-            )
+            raise ExplorerQueryError("Explorer query cannot be empty.")
 
         raw_terms = [
             item.strip()
@@ -58,14 +56,10 @@ class ExplorerQuery:
                 value = value.strip().lower()
 
                 if field not in _ALLOWED_FIELDS:
-                    raise ExplorerQueryError(
-                        f"Unsupported query field: {field}"
-                    )
+                    raise ExplorerQueryError(f"Unsupported query field: {field}")
 
                 if not value:
-                    raise ExplorerQueryError(
-                        f"Query value is missing for: {field}"
-                    )
+                    raise ExplorerQueryError(f"Query value is missing for: {field}")
             else:
                 field = "text"
                 value = term.lower()

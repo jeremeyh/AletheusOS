@@ -43,10 +43,16 @@ NAV_GROUPS = {
     ],
 }
 
+
 def render_sidebar_navigation(state):
     st.sidebar.markdown('<div class="ch-sidebar-top">', unsafe_allow_html=True)
     rendered = False
-    for logo in ["assets/cardhawk_os_transparent.png", "assets/cardhawk_transparent.png", "assets/logo_transparent.png", "assets/cardhawk_logo.png"]:
+    for logo in [
+        "assets/cardhawk_os_transparent.png",
+        "assets/cardhawk_transparent.png",
+        "assets/logo_transparent.png",
+        "assets/cardhawk_logo.png",
+    ]:
         try:
             st.sidebar.image(logo, use_container_width=True)
             rendered = True
@@ -55,13 +61,18 @@ def render_sidebar_navigation(state):
             continue
     if not rendered:
         st.sidebar.markdown("## 🦅 CardHawk OS™")
-    st.sidebar.markdown('<div class="ch-sidebar-subtitle">Luxury Collectible Intelligence</div>', unsafe_allow_html=True)
+    st.sidebar.markdown(
+        '<div class="ch-sidebar-subtitle">Luxury Collectible Intelligence</div>',
+        unsafe_allow_html=True,
+    )
     st.sidebar.markdown("</div>", unsafe_allow_html=True)
     st.sidebar.divider()
 
     flat, labels = [], []
     for group, items in NAV_GROUPS.items():
-        st.sidebar.markdown(f'<div class="ch-nav-group">{group}</div>', unsafe_allow_html=True)
+        st.sidebar.markdown(
+            f'<div class="ch-nav-group">{group}</div>', unsafe_allow_html=True
+        )
         for label, route, icon in items:
             flat.append(route)
             labels.append(f"{icon} {label}")

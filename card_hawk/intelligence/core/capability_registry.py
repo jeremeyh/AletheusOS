@@ -10,19 +10,6 @@ Register intelligence capabilities
 
 
 class CapabilityRegistry:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.1"
-
-        }
-
+        return {"status": "ready", "genesis": "23.1"}

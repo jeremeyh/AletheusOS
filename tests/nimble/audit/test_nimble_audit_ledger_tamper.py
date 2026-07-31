@@ -24,11 +24,7 @@ def find_repo_root() -> Path:
 
 ROOT = find_repo_root()
 
-CANONICAL_LEDGER = (
-    ROOT
-    / "nimble/governance/audit/"
-    "deployment-audit-ledger.jsonl"
-)
+CANONICAL_LEDGER = ROOT / "nimble/governance/audit/deployment-audit-ledger.jsonl"
 
 WRITER = ROOT / "bin/append_nimble_audit_event.py"
 VALIDATOR = ROOT / "bin/validate_nimble_audit_ledger.py"
@@ -73,9 +69,7 @@ def main() -> int:
         )
 
         temporary_ledger = (
-            temporary_root
-            / "nimble/governance/audit/"
-            "deployment-audit-ledger.jsonl"
+            temporary_root / "nimble/governance/audit/deployment-audit-ledger.jsonl"
         )
 
         temporary_ledger.write_text(
@@ -138,10 +132,7 @@ def main() -> int:
         )
 
         if valid_result.returncode != 0:
-            print(
-                "FAIL: untampered temporary ledger "
-                "did not validate."
-            )
+            print("FAIL: untampered temporary ledger did not validate.")
             print(valid_result.stdout)
             print(valid_result.stderr)
             return 1
@@ -174,15 +165,10 @@ def main() -> int:
         )
 
         if tampered_result.returncode == 0:
-            print(
-                "FAIL: tampered ledger unexpectedly passed."
-            )
+            print("FAIL: tampered ledger unexpectedly passed.")
             return 1
 
-        output = (
-            tampered_result.stdout
-            + tampered_result.stderr
-        )
+        output = tampered_result.stdout + tampered_result.stderr
 
         if "event_hash mismatch" not in output:
             print(
@@ -201,10 +187,7 @@ def main() -> int:
         )
 
         if "tamper-test-v1" in canonical_contents:
-            print(
-                "FAIL: canonical ledger was modified "
-                "during the tamper test."
-            )
+            print("FAIL: canonical ledger was modified during the tamper test.")
             return 1
 
         print("=" * 72)

@@ -17,10 +17,7 @@ from aletheus.platform_registry import PlatformRegistry
 
 def test_canonical_civilizations_include_security_domain():
     records = canonical_civilizations()
-    ids = {
-        record.civilization_id
-        for record in records
-    }
+    ids = {record.civilization_id for record in records}
 
     assert "aletheus.civilization.governance" in ids
     assert "aletheus.civilization.security" in ids
@@ -36,8 +33,7 @@ def test_security_civilization_preserves_defense_chain():
     security = next(
         record
         for record in canonical_civilizations()
-        if record.civilization_id
-        == "aletheus.civilization.security"
+        if record.civilization_id == "aletheus.civilization.security"
     )
 
     assert security.institution_ids == (
@@ -63,14 +59,9 @@ def test_finds_civilizations_containing_institution():
     registry = CivilizationRegistry()
     registry.register_many(canonical_civilizations())
 
-    memberships = registry.containing_institution(
-        "aletheus.watch_tower"
-    )
+    memberships = registry.containing_institution("aletheus.watch_tower")
 
-    membership_ids = {
-        record.civilization_id
-        for record in memberships
-    }
+    membership_ids = {record.civilization_id for record in memberships}
 
     assert "aletheus.civilization.governance" in membership_ids
     assert "aletheus.civilization.security" in membership_ids
@@ -87,9 +78,7 @@ def test_projects_civilizations_and_resolved_memberships():
         constitutional_graph=graph,
     )
 
-    institution_projector.project_all(
-        canonical_institutions()
-    )
+    institution_projector.project_all(canonical_institutions())
 
     civilization_projector = CivilizationProjector(
         civilization_registry=CivilizationRegistry(),
@@ -98,9 +87,7 @@ def test_projects_civilizations_and_resolved_memberships():
     )
 
     for institution in canonical_institutions():
-        node_id = institution_projector.graph_node_id(
-            institution.institution_id
-        )
+        node_id = institution_projector.graph_node_id(institution.institution_id)
         assert node_id is not None
 
         civilization_projector.bind_institution_node(
@@ -108,16 +95,13 @@ def test_projects_civilizations_and_resolved_memberships():
             node_id,
         )
 
-    results = civilization_projector.project_all(
-        canonical_civilizations()
-    )
+    results = civilization_projector.project_all(canonical_civilizations())
 
     assert len(results) == 8
-    assert graph.statistics()["nodes"] == len(canonical_institutions()) + len(canonical_civilizations())
-    assert any(
-        result.resolved_institutions > 0
-        for result in results
+    assert graph.statistics()["nodes"] == len(canonical_institutions()) + len(
+        canonical_civilizations()
     )
+    assert any(result.resolved_institutions > 0 for result in results)
 
 
 def test_security_civilization_members_are_resolved():
@@ -130,9 +114,7 @@ def test_security_civilization_members_are_resolved():
         platform_registry=platform_registry,
         constitutional_graph=graph,
     )
-    institution_projector.project_all(
-        canonical_institutions()
-    )
+    institution_projector.project_all(canonical_institutions())
 
     civilization_projector = CivilizationProjector(
         civilization_registry=CivilizationRegistry(),
@@ -141,9 +123,7 @@ def test_security_civilization_members_are_resolved():
     )
 
     for institution in canonical_institutions():
-        node_id = institution_projector.graph_node_id(
-            institution.institution_id
-        )
+        node_id = institution_projector.graph_node_id(institution.institution_id)
         assert node_id is not None
 
         civilization_projector.bind_institution_node(
@@ -154,12 +134,10 @@ def test_security_civilization_members_are_resolved():
     security = next(
         record
         for record in canonical_civilizations()
-        if record.civilization_id
-        == "aletheus.civilization.security"
+        if record.civilization_id == "aletheus.civilization.security"
     )
 
     result = civilization_projector.project(security)
 
     assert result.resolved_institutions == 5
     assert result.unresolved_institutions == ()
-

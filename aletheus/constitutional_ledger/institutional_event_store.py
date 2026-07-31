@@ -49,39 +49,28 @@ class InstitutionalEventStore:
         return self._events.get(event_id)
 
     def all(self) -> tuple[InstitutionalLedgerEvent, ...]:
-        return tuple(
-            self._events[event_id]
-            for event_id in self._order
-        )
+        return tuple(self._events[event_id] for event_id in self._order)
 
     def by_source(
         self,
         source_identity: str,
     ) -> tuple[InstitutionalLedgerEvent, ...]:
         return tuple(
-            event
-            for event in self.all()
-            if event.source_identity == source_identity
+            event for event in self.all() if event.source_identity == source_identity
         )
 
     def by_type(
         self,
         event_type: str,
     ) -> tuple[InstitutionalLedgerEvent, ...]:
-        return tuple(
-            event
-            for event in self.all()
-            if event.event_type == event_type
-        )
+        return tuple(event for event in self.all() if event.event_type == event_type)
 
     def by_correlation(
         self,
         correlation_id: str,
     ) -> tuple[InstitutionalLedgerEvent, ...]:
         return tuple(
-            event
-            for event in self.all()
-            if event.correlation_id == correlation_id
+            event for event in self.all() if event.correlation_id == correlation_id
         )
 
     def effective_between(
@@ -115,16 +104,11 @@ class InstitutionalEventStore:
     def statistics(self) -> dict:
         return {
             "institutional_events": len(self._events),
-            "event_types": sorted({
-                event.event_type
-                for event in self._events.values()
-            }),
-            "source_identities": sorted({
-                event.source_identity
-                for event in self._events.values()
-            }),
-            "certified": sum(
-                event.certified
-                for event in self._events.values()
+            "event_types": sorted(
+                {event.event_type for event in self._events.values()}
             ),
+            "source_identities": sorted(
+                {event.source_identity for event in self._events.values()}
+            ),
+            "certified": sum(event.certified for event in self._events.values()),
         }

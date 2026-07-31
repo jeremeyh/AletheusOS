@@ -41,11 +41,7 @@ class OpinionAggregator:
             else 0.0
         )
 
-        confidence = (
-            weighted_confidence_total / weight_sum
-            if weight_sum
-            else 0.0
-        )
+        confidence = weighted_confidence_total / weight_sum if weight_sum else 0.0
 
         return {
             "score": round(score, 2),

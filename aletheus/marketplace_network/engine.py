@@ -4,7 +4,6 @@ Universal Marketplace Intelligence Network
 Genesis 13.41
 """
 
-
 from .connectors import MarketplaceConnectorRegistry
 from .liquidity import LiquidityMappingEngine
 from .normalization import MarketNormalizationEngine
@@ -13,8 +12,6 @@ from .saturation import MarketSaturationEngine
 
 
 class MarketplaceIntelligenceNetwork:
-
-
     def __init__(self):
 
         self.registry = MarketplaceConnectorRegistry()
@@ -27,33 +24,10 @@ class MarketplaceIntelligenceNetwork:
 
         self.liquidity = LiquidityMappingEngine()
 
-
-
-    def analyze(
-        self,
-        asset
-    ):
-
+    def analyze(self, asset):
 
         return {
-
-            "pricing":
-
-                self.pricing.compare(
-                    []
-                ),
-
-            "saturation":
-
-                self.saturation.analyze(
-                    asset
-                ),
-
-            "liquidity":
-
-                self.liquidity.analyze(
-                    asset
-                )
-
+            "pricing": self.pricing.compare([]),
+            "saturation": self.saturation.analyze(asset),
+            "liquidity": self.liquidity.analyze(asset),
         }
-

@@ -25,12 +25,8 @@ class PlatformDigitalTwinStatistics:
     def to_dict(self) -> dict[str, int]:
         return {
             "revision": self.revision,
-            "snapshots_retained": (
-                self.snapshots_retained
-            ),
-            "events_observed": (
-                self.events_observed
-            ),
+            "snapshots_retained": (self.snapshots_retained),
+            "events_observed": (self.events_observed),
             "services": self.services,
             "nodes": self.nodes,
             "relationships": self.relationships,

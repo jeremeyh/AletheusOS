@@ -6,19 +6,6 @@ Genesis 14.15
 
 
 class ServiceBridge:
+    def connect(self, service):
 
-
-    def connect(
-        self,
-        service
-    ):
-
-
-        return {
-
-            "connected":
-
-                True
-
-        }
-
+        return {"connected": True}

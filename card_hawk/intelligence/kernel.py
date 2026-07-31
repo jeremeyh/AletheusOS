@@ -6,28 +6,10 @@ Genesis 14.14
 
 
 class IntelligenceKernel:
-
-
-    def __init__(
-        self,
-        registry
-    ):
+    def __init__(self, registry):
 
         self.registry = registry
 
+    def evaluate(self, request):
 
-
-    def evaluate(
-        self,
-        request
-    ):
-
-
-        return {
-
-            "status":
-
-                "processed"
-
-        }
-
+        return {"status": "processed"}

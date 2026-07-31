@@ -4,19 +4,6 @@ Sell Recommendation Engine
 
 
 class SellEngine:
+    def evaluate(self, asset):
 
-
-    def evaluate(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "recommendation":
-
-                "hold"
-
-        }
-
+        return {"recommendation": "hold"}

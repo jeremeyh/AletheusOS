@@ -1,8 +1,3 @@
 from .engine import AutonomousOrganizationFrameworkEngine
 
-__all__ = [
-
-"AutonomousOrganizationFrameworkEngine"
-
-]
-
+__all__ = ["AutonomousOrganizationFrameworkEngine"]

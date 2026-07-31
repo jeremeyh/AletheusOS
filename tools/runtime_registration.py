@@ -18,11 +18,7 @@ def main():
 
     manager.register("application", "Card Hawk")
 
-    print(
-        RuntimeRegistrationReporter().render(
-            manager
-        )
-    )
+    print(RuntimeRegistrationReporter().render(manager))
 
 
 if __name__ == "__main__":

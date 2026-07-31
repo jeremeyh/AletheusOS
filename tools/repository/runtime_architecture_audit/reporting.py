@@ -119,7 +119,7 @@ def _render_call_sites(
 
     for site in sites:
         lines.append(
-            f"- `{site.relative_path}:{site.line}` — " f"`{site.qualified_symbol}`"
+            f"- `{site.relative_path}:{site.line}` — `{site.qualified_symbol}`"
         )
 
     lines.append("")
@@ -155,7 +155,7 @@ def render_markdown(
 
     if any(deductions.values()):
         for category, deduction in deductions.items():
-            lines.append(f"- {category.replace('_', ' ').title()}: " f"-{deduction}")
+            lines.append(f"- {category.replace('_', ' ').title()}: -{deduction}")
     else:
         lines.append("- No deductions.")
 
@@ -166,13 +166,13 @@ def render_markdown(
             "",
             f"- Modules: **{summary['module_count']}**",
             f"- Total lines: **{summary['total_lines']}**",
-            ("- Average module size: " f"**{summary['average_module_lines']} lines**"),
+            (f"- Average module size: **{summary['average_module_lines']} lines**"),
             (
                 "- Largest module: "
                 f"**{summary['largest_module']}** "
                 f"({summary['largest_module_lines']} lines)"
             ),
-            ("- Internal import edges: " f"**{summary['internal_import_edges']}**"),
+            (f"- Internal import edges: **{summary['internal_import_edges']}**"),
             f"- Dependency cycles: **{summary['dependency_cycles']}**",
             f"- Orphan modules: **{summary['orphan_modules']}**",
             f"- Kernel constructors: **{summary['kernel_constructors']}**",

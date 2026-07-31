@@ -2,7 +2,6 @@ from __future__ import annotations
 
 
 class Lifecycle:
-
     VERSION = "0.1.0"
 
     def __init__(self, brain):

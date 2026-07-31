@@ -6,19 +6,6 @@ Genesis 13.49
 
 
 class SimulationEngine:
+    def run(self, scenario):
 
-
-    def run(
-        self,
-        scenario
-    ):
-
-
-        return {
-
-            "result":
-
-                "simulated"
-
-        }
-
+        return {"result": "simulated"}

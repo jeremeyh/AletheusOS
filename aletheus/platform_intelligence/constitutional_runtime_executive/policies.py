@@ -33,36 +33,22 @@ class CriticalRuntimePolicy:
         self,
         context: ExecutiveContext,
     ) -> ExecutivePolicyResult:
-        matched = bool(
-            context.critical
-            or context.offline
-        )
+        matched = bool(context.critical or context.offline)
 
         return ExecutivePolicyResult(
             policy_id=self.policy_id,
             matched=matched,
             decision=(
-                ExecutiveDecision.ESCALATE
-                if matched
-                else ExecutiveDecision.NO_ACTION
+                ExecutiveDecision.ESCALATE if matched else ExecutiveDecision.NO_ACTION
             ),
-            risk=(
-                ExecutiveRisk.CRITICAL
-                if matched
-                else ExecutiveRisk.LOW
-            ),
+            risk=(ExecutiveRisk.CRITICAL if matched else ExecutiveRisk.LOW),
             confidence=1.0,
             reason=(
-                "Critical or offline services require "
-                "executive escalation."
+                "Critical or offline services require executive escalation."
                 if matched
                 else "No critical or offline services."
             ),
-            affected_services=(
-                context.recoverable_services
-                if matched
-                else ()
-            ),
+            affected_services=(context.recoverable_services if matched else ()),
         )
 
 
@@ -81,28 +67,18 @@ class DegradedRuntimePolicy:
             policy_id=self.policy_id,
             matched=matched,
             decision=(
-                ExecutiveDecision
-                .RESTART_DEPENDENCY_CHAIN
+                ExecutiveDecision.RESTART_DEPENDENCY_CHAIN
                 if matched
                 else ExecutiveDecision.NO_ACTION
             ),
-            risk=(
-                ExecutiveRisk.HIGH
-                if matched
-                else ExecutiveRisk.LOW
-            ),
+            risk=(ExecutiveRisk.HIGH if matched else ExecutiveRisk.LOW),
             confidence=0.95,
             reason=(
-                "Degraded services require "
-                "dependency-aware recovery."
+                "Degraded services require dependency-aware recovery."
                 if matched
                 else "No degraded services."
             ),
-            affected_services=(
-                context.recoverable_services
-                if matched
-                else ()
-            ),
+            affected_services=(context.recoverable_services if matched else ()),
         )
 
 
@@ -126,27 +102,16 @@ class WarningRuntimePolicy:
             policy_id=self.policy_id,
             matched=matched,
             decision=(
-                ExecutiveDecision.OBSERVE
-                if matched
-                else ExecutiveDecision.NO_ACTION
+                ExecutiveDecision.OBSERVE if matched else ExecutiveDecision.NO_ACTION
             ),
-            risk=(
-                ExecutiveRisk.MODERATE
-                if matched
-                else ExecutiveRisk.LOW
-            ),
+            risk=(ExecutiveRisk.MODERATE if matched else ExecutiveRisk.LOW),
             confidence=0.9,
             reason=(
-                "Warning-only conditions should be "
-                "observed before intervention."
+                "Warning-only conditions should be observed before intervention."
                 if matched
                 else "No warning-only condition."
             ),
-            affected_services=(
-                context.recoverable_services
-                if matched
-                else ()
-            ),
+            affected_services=(context.recoverable_services if matched else ()),
         )
 
 
@@ -161,8 +126,7 @@ class HealthyRuntimePolicy:
     ) -> ExecutivePolicyResult:
         matched = (
             context.runtime_state == "healthy"
-            and context.healthy
-            == context.service_count
+            and context.healthy == context.service_count
         )
 
         return ExecutivePolicyResult(
@@ -172,8 +136,7 @@ class HealthyRuntimePolicy:
             risk=ExecutiveRisk.LOW,
             confidence=1.0,
             reason=(
-                "Runtime is healthy; no action "
-                "is required."
+                "Runtime is healthy; no action is required."
                 if matched
                 else "Runtime is not fully healthy."
             ),
@@ -181,8 +144,7 @@ class HealthyRuntimePolicy:
         )
 
 
-def default_executive_policies(
-) -> tuple[ExecutivePolicy, ...]:
+def default_executive_policies() -> tuple[ExecutivePolicy, ...]:
     """Return canonical policies in precedence order."""
 
     return (

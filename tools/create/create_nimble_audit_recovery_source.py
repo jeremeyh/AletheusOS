@@ -25,9 +25,7 @@ def _find_root() -> Path:
             return probe
 
         if probe.parent == probe:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         probe = probe.parent
 
@@ -35,22 +33,12 @@ def _find_root() -> Path:
 ROOT = _find_root()
 
 
-LEDGER_PATH = (
-    ROOT
-    / "nimble/governance/audit/"
-    "deployment-audit-ledger.jsonl"
-)
+LEDGER_PATH = ROOT / "nimble/governance/audit/deployment-audit-ledger.jsonl"
 
-LATEST_POINTER_PATH = (
-    ROOT
-    / "nimble/governance/audit/checkpoints/"
-    "latest.json"
-)
+LATEST_POINTER_PATH = ROOT / "nimble/governance/audit/checkpoints/latest.json"
 
 DEFAULT_OUTPUT_PATH = (
-    ROOT
-    / "reports/nimble/recovery/"
-    "trusted-audit-recovery-source.json"
+    ROOT / "reports/nimble/recovery/trusted-audit-recovery-source.json"
 )
 
 
@@ -66,23 +54,17 @@ def canonical_json_bytes(
 
 
 def calculate_hash(payload: Any) -> str:
-    return hashlib.sha256(
-        canonical_json_bytes(payload)
-    ).hexdigest()
+    return hashlib.sha256(canonical_json_bytes(payload)).hexdigest()
 
 
 def read_json(path: Path) -> dict[str, Any]:
-    return json.loads(
-        path.read_text(encoding="utf-8")
-    )
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def read_ledger() -> list[dict[str, Any]]:
     return [
         json.loads(line)
-        for line in LEDGER_PATH.read_text(
-            encoding="utf-8"
-        ).splitlines()
+        for line in LEDGER_PATH.read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
 
@@ -108,50 +90,29 @@ def ledger_jsonl_bytes(
 
 
 def resolve_checkpoint() -> dict[str, Any]:
-    pointer = read_json(
-        LATEST_POINTER_PATH
-    )
+    pointer = read_json(LATEST_POINTER_PATH)
 
     raw_path = pointer.get("checkpoint_path")
 
     if not isinstance(raw_path, str):
-        raise RuntimeError(
-            "Latest checkpoint path is invalid."
-        )
+        raise RuntimeError("Latest checkpoint path is invalid.")
 
     relative_path = Path(raw_path)
 
-    if (
-        relative_path.is_absolute()
-        or ".." in relative_path.parts
-    ):
-        raise RuntimeError(
-            "Checkpoint path violates policy."
-        )
+    if relative_path.is_absolute() or ".." in relative_path.parts:
+        raise RuntimeError("Checkpoint path violates policy.")
 
-    checkpoint_path = (
-        ROOT / relative_path
-    ).resolve()
+    checkpoint_path = (ROOT / relative_path).resolve()
 
-    governed_root = (
-        ROOT
-        / "nimble/governance/audit/checkpoints"
-    ).resolve()
+    governed_root = (ROOT / "nimble/governance/audit/checkpoints").resolve()
 
     if governed_root not in checkpoint_path.parents:
-        raise RuntimeError(
-            "Checkpoint is outside its governed directory."
-        )
+        raise RuntimeError("Checkpoint is outside its governed directory.")
 
     checkpoint = read_json(checkpoint_path)
 
-    if (
-        pointer.get("checkpoint_hash")
-        != checkpoint.get("checkpoint_hash")
-    ):
-        raise RuntimeError(
-            "Checkpoint pointer binding mismatch."
-        )
+    if pointer.get("checkpoint_hash") != checkpoint.get("checkpoint_hash"):
+        raise RuntimeError("Checkpoint pointer binding mismatch.")
 
     return checkpoint
 
@@ -174,69 +135,43 @@ def main() -> int:
     ledger = read_ledger()
     checkpoint = resolve_checkpoint()
 
-    checkpoint_entry_count = checkpoint.get(
-        "ledger_entry_count"
-    )
+    checkpoint_entry_count = checkpoint.get("ledger_entry_count")
 
     if not isinstance(
         checkpoint_entry_count,
         int,
     ):
-        raise RuntimeError(
-            "Checkpoint entry count is invalid."
-        )
+        raise RuntimeError("Checkpoint entry count is invalid.")
 
     if len(ledger) < checkpoint_entry_count:
-        raise RuntimeError(
-            "Canonical ledger is shorter than "
-            "the latest checkpoint."
-        )
+        raise RuntimeError("Canonical ledger is shorter than the latest checkpoint.")
 
     anchored_hash = (
         "GENESIS"
         if checkpoint_entry_count == 0
-        else ledger[
-            checkpoint_entry_count - 1
-        ].get("event_hash")
+        else ledger[checkpoint_entry_count - 1].get("event_hash")
     )
 
-    if anchored_hash != checkpoint.get(
-        "ledger_head_hash"
-    ):
-        raise RuntimeError(
-            "Canonical ledger does not match "
-            "the checkpoint prefix."
-        )
+    if anchored_hash != checkpoint.get("ledger_head_hash"):
+        raise RuntimeError("Canonical ledger does not match the checkpoint prefix.")
 
     ledger_bytes = ledger_jsonl_bytes(ledger)
 
     payload_without_hash: dict[str, Any] = {
         "schema_version": "1.0",
         "source_id": str(uuid.uuid4()),
-        "created_at": datetime.now(
-            UTC
-        ).isoformat(),
-        "checkpoint_hash": checkpoint.get(
-            "checkpoint_hash"
-        ),
-        "checkpoint_entry_count": (
-            checkpoint_entry_count
-        ),
-        "checkpoint_head_hash": checkpoint.get(
-            "ledger_head_hash"
-        ),
+        "created_at": datetime.now(UTC).isoformat(),
+        "checkpoint_hash": checkpoint.get("checkpoint_hash"),
+        "checkpoint_entry_count": (checkpoint_entry_count),
+        "checkpoint_head_hash": checkpoint.get("ledger_head_hash"),
         "ledger_entry_count": len(ledger),
-        "ledger_file_sha256": hashlib.sha256(
-            ledger_bytes
-        ).hexdigest(),
+        "ledger_file_sha256": hashlib.sha256(ledger_bytes).hexdigest(),
         "ledger_entries": ledger,
     }
 
     source = {
         **payload_without_hash,
-        "source_hash": calculate_hash(
-            payload_without_hash
-        ),
+        "source_hash": calculate_hash(payload_without_hash),
     }
 
     output_path.parent.mkdir(
@@ -257,9 +192,7 @@ def main() -> int:
     print("=" * 72)
     print("NIMBLE™ AUDIT RECOVERY SOURCE")
     print("=" * 72)
-    print(
-        f"Ledger entries: {len(ledger)}"
-    )
+    print(f"Ledger entries: {len(ledger)}")
     print(
         "Checkpoint entries:",
         checkpoint_entry_count,

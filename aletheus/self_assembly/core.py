@@ -49,19 +49,16 @@ class SelfAssembly:
         #
 
         self._components = [
-
             (
                 "aletheus.service_manager",
                 "Service Manager",
                 service_manager,
             ),
-
             (
                 "aletheus.application_runtime",
                 "Application Runtime",
                 application_runtime,
             ),
-
             #
             # Future platform components
             #
@@ -109,7 +106,6 @@ class SelfAssembly:
         results = []
 
         for component_id, _, instance in self._components:
-
             results.append(
                 {
                     "component": component_id,
@@ -133,7 +129,6 @@ class SelfAssembly:
         registered = 0
 
         for component_id, name, instance in discovered:
-
             if not isinstance(
                 instance,
                 PlatformComponentContract,
@@ -185,7 +180,6 @@ class SelfAssembly:
             discovered,
             start=1,
         ):
-
             plan.candidates.append(
                 BootCandidate(
                     component_id=component_id,

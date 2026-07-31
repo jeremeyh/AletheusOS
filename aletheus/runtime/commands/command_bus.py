@@ -58,9 +58,7 @@ class CommandBus:
             "runtime.metrics": self.runtime_commands.metrics,
             "runtime.events": self.runtime_commands.events,
             "runtime.queue": self.runtime_commands.queue,
-            "runtime.run_next_job": (
-                self.runtime_commands.run_next_job
-            ),
+            "runtime.run_next_job": (self.runtime_commands.run_next_job),
         }
 
         for name, handler in builtins.items():
@@ -89,14 +87,8 @@ class CommandBus:
         if not normalized_name:
             raise ValueError("Command name cannot be empty.")
 
-        if (
-            normalized_name in self._context_handlers
-            and not replace
-        ):
-            raise ValueError(
-                f"Context command already registered: "
-                f"{normalized_name}"
-            )
+        if normalized_name in self._context_handlers and not replace:
+            raise ValueError(f"Context command already registered: {normalized_name}")
 
         self._context_handlers[normalized_name] = handler
         return handler
@@ -133,9 +125,7 @@ class CommandBus:
         Unregister a command from either command surface.
         """
 
-        removed_context = (
-            self._context_handlers.pop(name, None) is not None
-        )
+        removed_context = self._context_handlers.pop(name, None) is not None
         removed_registry = self.registry.unregister(name)
 
         return removed_context or removed_registry
@@ -187,9 +177,7 @@ class CommandBus:
                 return result
 
             except Exception as exc:
-                context.add_error(
-                    f"{type(exc).__name__}: {exc}"
-                )
+                context.add_error(f"{type(exc).__name__}: {exc}")
 
                 if hasattr(context, "add_trace"):
                     context.add_trace(
@@ -236,18 +224,14 @@ class CommandBus:
         elif status == "missing":
             error = self._extract_error(
                 response,
-                fallback=(
-                    f"Command is not registered: {command}"
-                ),
+                fallback=(f"Command is not registered: {command}"),
             )
             context.add_error(error)
 
         else:
             error = self._extract_error(
                 response,
-                fallback=(
-                    f"Command failed: {command}"
-                ),
+                fallback=(f"Command failed: {command}"),
             )
             context.add_error(error)
 
@@ -300,22 +284,13 @@ class CommandBus:
     # ---------------------------------------------------------
 
     def has(self, command: str) -> bool:
-        return (
-            command in self._context_handlers
-            or self.registry.has(command)
-        )
+        return command in self._context_handlers or self.registry.has(command)
 
     def count(self) -> int:
-        return len(
-            set(self._context_handlers)
-            | set(self.registry.commands)
-        )
+        return len(set(self._context_handlers) | set(self.registry.commands))
 
     def list(self) -> list[str]:
-        return sorted(
-            set(self._context_handlers)
-            | set(self.registry.commands)
-        )
+        return sorted(set(self._context_handlers) | set(self.registry.commands))
 
     def categories(self) -> list[str]:
         categories = set(self.registry.categories())
@@ -333,9 +308,7 @@ class CommandBus:
         return {
             "status": "online",
             "commands": self.count(),
-            "context_commands": len(
-                self._context_handlers
-            ),
+            "context_commands": len(self._context_handlers),
             "registry_commands": self.registry.count(),
             "categories": self.categories(),
             "command_names": self.list(),

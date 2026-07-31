@@ -11,7 +11,6 @@ from .statistics import identity_statistics
 
 
 class IdentityEngine:
-
     GENESIS = "21.7"
     VERSION = "1.0.0"
 

@@ -6,38 +6,14 @@ Genesis 26
 
 
 class CardHawkPlatform:
-
-
     def initialize(self):
 
         return {
-
-            "system":
-
-            "card_hawk_platform",
-
-            "status":
-
-            "operational",
-
-            "genesis":
-
-            "26"
-
+            "system": "card_hawk_platform",
+            "status": "operational",
+            "genesis": "26",
         }
-
 
     def status(self):
 
-        return {
-
-            "platform":
-
-            "ready",
-
-            "services":
-
-            "available"
-
-        }
-
+        return {"platform": "ready", "services": "available"}

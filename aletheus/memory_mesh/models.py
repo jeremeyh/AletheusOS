@@ -34,7 +34,12 @@ class MemoryObject:
     updated_at: str = field(default_factory=now)
     metadata: dict[str, Any] = field(default_factory=dict)
 
-    def update(self, value: Any, tags: list[str] | None = None, metadata: dict[str, Any] | None = None) -> None:
+    def update(
+        self,
+        value: Any,
+        tags: list[str] | None = None,
+        metadata: dict[str, Any] | None = None,
+    ) -> None:
         self.value = value
         self.version += 1
         self.updated_at = now()
@@ -45,12 +50,14 @@ class MemoryObject:
 
     def to_dict(self) -> dict[str, Any]:
         data = self.__dict__.copy()
-        data["checksum"] = checksum({
-            "key": self.key,
-            "value": self.value,
-            "namespace": self.namespace,
-            "version": self.version,
-        })
+        data["checksum"] = checksum(
+            {
+                "key": self.key,
+                "value": self.value,
+                "namespace": self.namespace,
+                "version": self.version,
+            }
+        )
         return data
 
 

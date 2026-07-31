@@ -13,7 +13,6 @@ from .registry import SpectrumRegistry
 
 
 class SpectrumPlatformAnalyzer:
-
     VERSION = "1.0.0"
 
     GENESIS = "54.0"
@@ -35,26 +34,16 @@ class SpectrumPlatformAnalyzer:
         python_files = []
 
         for current, dirs, files in os.walk(root_path):
-
-            dirs[:] = [
-                d for d in dirs
-                if d != "__pycache__"
-                and not d.startswith(".")
-            ]
+            dirs[:] = [d for d in dirs if d != "__pycache__" and not d.startswith(".")]
 
             if "__init__.py" in files:
                 packages.append(current)
 
             for file in files:
-
                 if file.endswith(".py"):
-
-                    python_files.append(
-                        os.path.join(current, file)
-                    )
+                    python_files.append(os.path.join(current, file))
 
                     if file != "__init__.py":
-
                         modules.append(file)
 
         return {

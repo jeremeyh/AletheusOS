@@ -107,9 +107,5 @@ def test_filters_by_pillar_and_layer():
     registry = InstitutionRegistry()
     record = registry.register(spa_record())
 
-    assert registry.by_pillar(
-        ConstitutionalPillar.INTELLIGENCE
-    ) == (record,)
-    assert registry.by_layer(
-        ConstitutionalLayer.INTELLIGENCE
-    ) == (record,)
+    assert registry.by_pillar(ConstitutionalPillar.INTELLIGENCE) == (record,)
+    assert registry.by_layer(ConstitutionalLayer.INTELLIGENCE) == (record,)

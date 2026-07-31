@@ -16,6 +16,4 @@ def create_principal_authenticator(
     if config.mode == "local":
         return LocalPrincipalAuthenticator()
 
-    return OIDCPrincipalAuthenticator(
-        config
-    )
+    return OIDCPrincipalAuthenticator(config)

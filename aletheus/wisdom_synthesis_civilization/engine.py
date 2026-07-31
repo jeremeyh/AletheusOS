@@ -4,8 +4,8 @@ AletheusOS Universal Intelligence Wisdom Synthesis Core
 Post-Genesis 10251-10350
 """
 
-class WisdomSynthesisCivilizationEngine:
 
+class WisdomSynthesisCivilizationEngine:
     def __init__(self):
         self.judgments = []
 
@@ -13,15 +13,12 @@ class WisdomSynthesisCivilizationEngine:
         return {
             "system": "aletheus_wisdom_synthesis_civilization",
             "range": "10251-10350",
-            "status": "operational"
+            "status": "operational",
         }
 
     def synthesize(self, subject):
 
-        judgment = {
-            "subject": subject,
-            "status": "wisdom_synthesized"
-        }
+        judgment = {"subject": subject, "status": "wisdom_synthesized"}
 
         self.judgments.append(judgment)
 

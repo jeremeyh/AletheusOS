@@ -13,10 +13,14 @@ class CommandBus:
         self.runtime = runtime
         self.handlers: dict[str, Callable[[PipelineContext], PipelineContext]] = {}
 
-    def register(self, command: str, handler: Callable[[PipelineContext], PipelineContext]) -> None:
+    def register(
+        self, command: str, handler: Callable[[PipelineContext], PipelineContext]
+    ) -> None:
         self.handlers[command] = handler
 
-    def dispatch(self, command: str, payload: dict[str, Any] | None = None) -> PipelineContext:
+    def dispatch(
+        self, command: str, payload: dict[str, Any] | None = None
+    ) -> PipelineContext:
         started = time.time()
         context = PipelineContext(command=command, payload=payload or {})
         try:
@@ -31,5 +35,13 @@ class CommandBus:
             return context
         finally:
             elapsed = round(time.time() - started, 4)
-            self.runtime.metrics.record("command.elapsed_seconds", elapsed, command=command)
-            self.runtime.events.append(RuntimeEvent("command.dispatch", {"command": command, "elapsed_seconds": elapsed, "ok": context.ok}, request_id=context.request_id))
+            self.runtime.metrics.record(
+                "command.elapsed_seconds", elapsed, command=command
+            )
+            self.runtime.events.append(
+                RuntimeEvent(
+                    "command.dispatch",
+                    {"command": command, "elapsed_seconds": elapsed, "ok": context.ok},
+                    request_id=context.request_id,
+                )
+            )

@@ -30,9 +30,7 @@ class DependencyAnalyzer(Analyzer):
         reverse = defaultdict(set)
 
         known_modules = {
-            rec.payload["module"]
-            for rec in modules
-            if "module" in rec.payload
+            rec.payload["module"] for rec in modules if "module" in rec.payload
         }
 
         for rec in imports:
@@ -93,7 +91,7 @@ class DependencyAnalyzer(Analyzer):
             stack.append(node)
             for nxt in graph[node]:
                 if nxt in stack:
-                    cycle = stack[stack.index(nxt):] + [nxt]
+                    cycle = stack[stack.index(nxt) :] + [nxt]
                     yield Finding(
                         analyzer=self.name,
                         category="dependency",

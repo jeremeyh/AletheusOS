@@ -54,7 +54,4 @@ def test_kernel_boot_transitions_runtime_online(monkeypatch):
     result = kernel.boot(runtime)
 
     assert result is runtime
-    assert (
-        kernel.orchestrator.lifecycle.state
-        is RuntimeLifecycleState.ONLINE
-    )
+    assert kernel.orchestrator.lifecycle.state is RuntimeLifecycleState.ONLINE

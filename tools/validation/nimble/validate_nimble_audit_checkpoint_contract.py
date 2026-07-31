@@ -23,32 +23,18 @@ def find_repo_root(start: Path) -> Path:
 ROOT = find_repo_root(Path(__file__).parent)
 
 
-CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/audit/"
-    "audit-checkpoint-contract.json"
-)
+CONTRACT_PATH = ROOT / "nimble/governance/audit/audit-checkpoint-contract.json"
 
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "audit-checkpoint-contract-latest.json"
-)
+REPORT_PATH = ROOT / "reports/nimble/audit-checkpoint-contract-latest.json"
 
 
 def main() -> int:
     failures: list[str] = []
 
     if not CONTRACT_PATH.is_file():
-        failures.append(
-            "Audit checkpoint contract is missing."
-        )
+        failures.append("Audit checkpoint contract is missing.")
     else:
-        contract = json.loads(
-            CONTRACT_PATH.read_text(
-                encoding="utf-8"
-            )
-        )
+        contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
 
         checkpoint = contract.get(
             "checkpoint",
@@ -60,12 +46,8 @@ def main() -> int:
             {},
         )
 
-        if checkpoint.get(
-            "hash_algorithm"
-        ) != "sha256":
-            failures.append(
-                "Checkpoint hashing must use sha256."
-            )
+        if checkpoint.get("hash_algorithm") != "sha256":
+            failures.append("Checkpoint hashing must use sha256.")
 
         required_true = [
             "checkpoint_chain_required",
@@ -82,9 +64,7 @@ def main() -> int:
 
         for key in required_true:
             if policy.get(key) is not True:
-                failures.append(
-                    f"Checkpoint policy must be true: {key}"
-                )
+                failures.append(f"Checkpoint policy must be true: {key}")
 
     status = "PASS" if not failures else "FAIL"
 
@@ -97,9 +77,7 @@ def main() -> int:
         json.dumps(
             {
                 "schema_version": "1.0",
-                "generated_at": datetime.now(
-                    UTC
-                ).isoformat(),
+                "generated_at": datetime.now(UTC).isoformat(),
                 "status": status,
                 "failures": failures,
             },

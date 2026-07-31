@@ -38,7 +38,6 @@ def trace_lineage(
     )
 
     while queue:
-
         (
             current_node,
             node_path,
@@ -53,7 +52,6 @@ def trace_lineage(
         new_node_path = node_path + [current_node]
 
         if len(new_node_path) >= max_depth:
-
             return UCITrace(
                 origin_node_id=origin_node_id,
                 terminal_node_id=current_node,
@@ -61,12 +59,9 @@ def trace_lineage(
                 relationships=relationship_path,
             )
 
-        outgoing: list[
-            UCIRelationship
-        ] = uci.outgoing_relationships(current_node)
+        outgoing: list[UCIRelationship] = uci.outgoing_relationships(current_node)
 
         if not outgoing:
-
             return UCITrace(
                 origin_node_id=origin_node_id,
                 terminal_node_id=current_node,
@@ -75,13 +70,11 @@ def trace_lineage(
             )
 
         for relationship in outgoing:
-
             queue.append(
                 (
                     relationship.target_node_id,
                     new_node_path,
-                    relationship_path
-                    + [relationship.relationship_id],
+                    relationship_path + [relationship.relationship_id],
                 )
             )
 
@@ -108,7 +101,6 @@ def impact_analysis(
     visited = set()
 
     while queue:
-
         current = queue.popleft()
 
         if current in visited:
@@ -117,14 +109,9 @@ def impact_analysis(
         visited.add(current)
 
         for relationship in uci.outgoing_relationships(current):
+            impacted.append(relationship.target_node_id)
 
-            impacted.append(
-                relationship.target_node_id
-            )
-
-            queue.append(
-                relationship.target_node_id
-            )
+            queue.append(relationship.target_node_id)
 
     return impacted
 
@@ -144,7 +131,6 @@ def dependency_chain(
     visited = set()
 
     while queue:
-
         current = queue.popleft()
 
         if current in visited:
@@ -153,13 +139,8 @@ def dependency_chain(
         visited.add(current)
 
         for relationship in uci.incoming_relationships(current):
+            ancestry.append(relationship.source_node_id)
 
-            ancestry.append(
-                relationship.source_node_id
-            )
-
-            queue.append(
-                relationship.source_node_id
-            )
+            queue.append(relationship.source_node_id)
 
     return ancestry

@@ -13,7 +13,9 @@ class BootProfile:
 PROFILES = {
     "sdk": BootProfile(name="sdk"),
     "developer": BootProfile(name="developer", developer_mode=True),
-    "founder": BootProfile(name="founder", load_ui=True, load_apps=True, developer_mode=True),
+    "founder": BootProfile(
+        name="founder", load_ui=True, load_apps=True, developer_mode=True
+    ),
     "production": BootProfile(name="production", load_apps=True),
     "headless": BootProfile(name="headless"),
     "safe": BootProfile(name="safe", safe_mode=True),

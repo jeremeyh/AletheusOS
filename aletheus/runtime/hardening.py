@@ -49,7 +49,9 @@ class RuntimeHardening:
         )
 
         checks["kernel"] = "pass" if kernel_ok else "fail"
-        checks["compatibility"] = "pass" if self.runtime.compat.statistics()["registered"] >= 10 else "fail"
+        checks["compatibility"] = (
+            "pass" if self.runtime.compat.statistics()["registered"] >= 10 else "fail"
+        )
 
         status = "pass" if all(v == "pass" for v in checks.values()) else "fail"
 
@@ -96,7 +98,9 @@ class RuntimeHardening:
         duplicates = sorted({c for c in commands if commands.count(c) > 1})
 
         compat_aliases = list(self.runtime.compat.services.keys())
-        duplicate_aliases = sorted({a for a in compat_aliases if compat_aliases.count(a) > 1})
+        duplicate_aliases = sorted(
+            {a for a in compat_aliases if compat_aliases.count(a) > 1}
+        )
 
         missing_handlers = []
         for command in commands:
@@ -112,7 +116,9 @@ class RuntimeHardening:
             "compat_aliases": len(compat_aliases),
             "duplicate_aliases": duplicate_aliases,
             "missing_handlers": missing_handlers,
-            "health": "healthy" if not duplicates and not duplicate_aliases else "warning",
+            "health": "healthy"
+            if not duplicates and not duplicate_aliases
+            else "warning",
         }
 
     def documentation(self) -> str:
@@ -137,7 +143,9 @@ class RuntimeHardening:
 
         return "\n".join(lines) + "\n"
 
-    def write_documentation(self, path: str = "RUNTIME_DOCUMENTATION.md") -> dict[str, Any]:
+    def write_documentation(
+        self, path: str = "RUNTIME_DOCUMENTATION.md"
+    ) -> dict[str, Any]:
         content = self.documentation()
         Path(path).write_text(content)
         return {

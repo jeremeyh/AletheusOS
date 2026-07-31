@@ -102,9 +102,7 @@ with bottom_left:
 
     if highest:
         for asset in highest[:5]:
-            st.write(
-                f"**#{asset.get('id')} — {asset.get('player') or 'Unknown'}**"
-            )
+            st.write(f"**#{asset.get('id')} — {asset.get('player') or 'Unknown'}**")
 
             st.caption(
                 f"{asset.get('brand') or ''} {asset.get('set_name') or ''} • "

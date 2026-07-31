@@ -58,24 +58,13 @@ class MissionPhaseState:
     relative_position: int | None = None
     attempts: int = 0
 
-    participating_institutions: list[str] = field(
-        default_factory=list
-    )
-    evidence: list[dict[str, Any]] = field(
-        default_factory=list
-    )
-    failures: list[str] = field(
-        default_factory=list
-    )
-    event_ids: list[str] = field(
-        default_factory=list
-    )
+    participating_institutions: list[str] = field(default_factory=list)
+    evidence: list[dict[str, Any]] = field(default_factory=list)
+    failures: list[str] = field(default_factory=list)
+    event_ids: list[str] = field(default_factory=list)
 
     def evidence_types(self) -> set[str]:
-        return {
-            item["evidence_type"]
-            for item in self.evidence
-        }
+        return {item["evidence_type"] for item in self.evidence}
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -83,9 +72,7 @@ class MissionPhaseState:
             "status": self.status.value,
             "relative_position": self.relative_position,
             "attempts": self.attempts,
-            "participating_institutions": list(
-                self.participating_institutions
-            ),
+            "participating_institutions": list(self.participating_institutions),
             "evidence": list(self.evidence),
             "failures": list(self.failures),
             "event_ids": list(self.event_ids),
@@ -103,14 +90,10 @@ class MissionTemporalState:
     mission_id: str
     correlation_id: str
 
-    phases: dict[str, MissionPhaseState] = field(
-        default_factory=dict
-    )
+    phases: dict[str, MissionPhaseState] = field(default_factory=dict)
 
     relative_cursor: int = 0
-    completed_order: list[str] = field(
-        default_factory=list
-    )
+    completed_order: list[str] = field(default_factory=list)
     failed: bool = False
 
     def to_dict(self) -> dict[str, Any]:
@@ -121,7 +104,6 @@ class MissionTemporalState:
             "completed_order": list(self.completed_order),
             "failed": self.failed,
             "phases": {
-                phase_id: state.to_dict()
-                for phase_id, state in self.phases.items()
+                phase_id: state.to_dict() for phase_id, state in self.phases.items()
             },
         }

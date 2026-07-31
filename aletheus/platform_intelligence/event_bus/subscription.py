@@ -29,9 +29,7 @@ class ConstitutionalSubscription:
         *,
         handler: ConstitutionalEventHandler,
         kinds: (
-            set[ConstitutionalEventKind]
-            | frozenset[ConstitutionalEventKind]
-            | None
+            set[ConstitutionalEventKind] | frozenset[ConstitutionalEventKind] | None
         ) = None,
         source_prefix: str | None = None,
         subject_prefix: str | None = None,
@@ -40,16 +38,8 @@ class ConstitutionalSubscription:
             subscription_id=uuid4(),
             handler=handler,
             kinds=frozenset(kinds or ()),
-            source_prefix=(
-                source_prefix.strip().lower()
-                if source_prefix
-                else None
-            ),
-            subject_prefix=(
-                subject_prefix.strip().lower()
-                if subject_prefix
-                else None
-            ),
+            source_prefix=(source_prefix.strip().lower() if source_prefix else None),
+            subject_prefix=(subject_prefix.strip().lower() if subject_prefix else None),
         )
 
     def matches(
@@ -59,19 +49,13 @@ class ConstitutionalSubscription:
         if self.kinds and event.kind not in self.kinds:
             return False
 
-        if (
-            self.source_prefix is not None
-            and not str(event.source).startswith(
-                self.source_prefix
-            )
+        if self.source_prefix is not None and not str(event.source).startswith(
+            self.source_prefix
         ):
             return False
 
-        if (
-            self.subject_prefix is not None
-            and not str(event.subject).startswith(
-                self.subject_prefix
-            )
+        if self.subject_prefix is not None and not str(event.subject).startswith(
+            self.subject_prefix
         ):
             return False
 

@@ -6,19 +6,6 @@ Genesis 14.10
 
 
 class SellerEngine:
+    def analyze(self, seller):
 
-
-    def analyze(
-        self,
-        seller
-    ):
-
-
-        return {
-
-            "trust":
-
-                0
-
-        }
-
+        return {"trust": 0}

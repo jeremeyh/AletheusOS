@@ -20,9 +20,11 @@ class RuntimeServiceMeshReporter:
         else:
             lines.append("  None")
 
-        lines.extend([
-            "",
-            "========================================================",
-        ])
+        lines.extend(
+            [
+                "",
+                "========================================================",
+            ]
+        )
 
         return "\n".join(lines)

@@ -54,8 +54,16 @@ class ConceptCollisionEngine:
                 requires_adr=True,
             )
 
-        if source.authority and target.authority and source.authority == target.authority:
-            if source.owns and target.owns and source.owns.lower() == target.owns.lower():
+        if (
+            source.authority
+            and target.authority
+            and source.authority == target.authority
+        ):
+            if (
+                source.owns
+                and target.owns
+                and source.owns.lower() == target.owns.lower()
+            ):
                 return CollisionFinding(
                     source=source,
                     target=target,
@@ -89,7 +97,12 @@ class ConceptCollisionEngine:
                 requires_adr=True,
             )
 
-        if source.family and target.family and source.family == target.family and score >= 0.45:
+        if (
+            source.family
+            and target.family
+            and source.family == target.family
+            and score >= 0.45
+        ):
             return CollisionFinding(
                 source=source,
                 target=target,

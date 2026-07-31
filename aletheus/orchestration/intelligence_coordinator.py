@@ -6,17 +6,6 @@ Post-Genesis 20
 
 
 class IntelligenceCoordinator:
-
-
     def coordinate(self, systems):
 
-        return {
-
-            "systems":
-            systems,
-
-            "coordination":
-            "active"
-
-        }
-
+        return {"systems": systems, "coordination": "active"}

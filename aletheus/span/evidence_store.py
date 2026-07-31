@@ -127,10 +127,7 @@ class EvidenceStore:
 
     def all(self) -> tuple[EvidenceRecord, ...]:
         with self._lock:
-            return tuple(
-                self._records[key]
-                for key in sorted(self._records)
-            )
+            return tuple(self._records[key] for key in sorted(self._records))
 
     def query(
         self,
@@ -145,7 +142,9 @@ class EvidenceStore:
 
             def intersect(ids: set[str]) -> None:
                 nonlocal candidate_ids
-                candidate_ids = set(ids) if candidate_ids is None else candidate_ids & ids
+                candidate_ids = (
+                    set(ids) if candidate_ids is None else candidate_ids & ids
+                )
 
             if kind is not None:
                 intersect(self._kind_index.get(kind, set()))
@@ -160,10 +159,7 @@ class EvidenceStore:
             if candidate_ids is None:
                 candidate_ids = set(self._records)
 
-            return tuple(
-                self._records[key]
-                for key in sorted(candidate_ids)
-            )
+            return tuple(self._records[key] for key in sorted(candidate_ids))
 
     def summary(self) -> dict[str, Any]:
         with self._lock:
@@ -195,7 +191,6 @@ class EvidenceStore:
         payload = json.loads(Path(path).read_text(encoding="utf-8"))
         store = cls()
         store.extend(
-            EvidenceRecord.from_dict(item)
-            for item in payload.get("records", ())
+            EvidenceRecord.from_dict(item) for item in payload.get("records", ())
         )
         return store

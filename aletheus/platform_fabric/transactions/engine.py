@@ -4,18 +4,6 @@ Transaction Intelligence Engine
 
 
 class TransactionEngine:
+    def record(self, transaction):
 
-
-    def record(
-        self,
-        transaction
-    ):
-
-        return {
-
-            "recorded":
-
-                True
-
-        }
-
+        return {"recorded": True}

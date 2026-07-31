@@ -4,30 +4,14 @@ Aletheus Cognitive Engine
 DecisionIntelligenceEngine
 """
 
-
 from ..engines.base_engine import CognitiveEngine
 
 
-class DecisionIntelligenceEngine(
-    CognitiveEngine
-):
-
-
+class DecisionIntelligenceEngine(CognitiveEngine):
     def __init__(self):
 
-        super().__init__(
-            "DecisionIntelligenceEngine",
-            "Strategy"
-        )
+        super().__init__("DecisionIntelligenceEngine", "Strategy")
 
+    def analyze(self, data=None):
 
-
-    def analyze(
-        self,
-        data=None
-    ):
-
-        return self.execute(
-            data
-        )
-
+        return self.execute(data)

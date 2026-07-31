@@ -11,13 +11,8 @@ def command_database_path() -> Path:
     ).strip()
 
     if configured:
-        return Path(
-            configured
-        ).expanduser().resolve()
+        return Path(configured).expanduser().resolve()
 
     return (
-        Path.cwd()
-        / "var"
-        / "experience_gateway"
-        / "command_audit.sqlite3"
+        Path.cwd() / "var" / "experience_gateway" / "command_audit.sqlite3"
     ).resolve()

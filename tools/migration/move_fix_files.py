@@ -37,7 +37,6 @@ def destination(name: str):
 matched = moved = skipped = 0
 
 for item in sorted(ROOT.iterdir()):
-
     if not item.is_file():
         continue
 

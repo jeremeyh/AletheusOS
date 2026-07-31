@@ -106,7 +106,9 @@ class ProviderLoader:
 
         target_registry = registry or ProviderRegistry()
         diagnostics: list[ProviderLoadDiagnostic] = []
-        module_names = tuple(modules) if modules is not None else self.discover_modules()
+        module_names = (
+            tuple(modules) if modules is not None else self.discover_modules()
+        )
 
         for module_name in module_names:
             try:

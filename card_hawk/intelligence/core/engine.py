@@ -8,19 +8,16 @@ Central coordination layer for Card Hawk intelligence.
 
 
 class IntelligenceCoreEngine:
-
     def __init__(self):
         self.status = "initialized"
-
 
     def initialize(self):
 
         return {
             "system": "card_hawk_intelligence_core",
             "status": "operational",
-            "genesis": "23.1"
+            "genesis": "23.1",
         }
-
 
     def process_request(self, request):
 
@@ -31,7 +28,7 @@ class IntelligenceCoreEngine:
                 "capability_routing",
                 "agent_dispatch",
                 "reasoning",
-                "response"
+                "response",
             ],
-            "status": "processing"
+            "status": "processing",
         }

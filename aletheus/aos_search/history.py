@@ -27,7 +27,6 @@ class SearchHistoryEntry:
 
 
 class SearchHistory:
-
     GENESIS = "21.8.3"
     VERSION = "1.0.0"
 

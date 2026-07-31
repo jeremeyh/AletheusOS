@@ -6,20 +6,6 @@ Genesis 13.8
 
 
 class ConditionAssessmentEngine:
+    def evaluate(self, image_reference):
 
-
-    def evaluate(
-        self,
-        image_reference
-    ):
-
-        return {
-
-            "estimated_condition":
-                "unknown",
-
-            "confidence":
-                0
-
-        }
-
+        return {"estimated_condition": "unknown", "confidence": 0}

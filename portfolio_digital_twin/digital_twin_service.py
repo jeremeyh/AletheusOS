@@ -23,8 +23,12 @@ class PortfolioDigitalTwin:
         after["cost_basis"] += float(candidate_price or 0)
         after["portfolio_value"] += float(estimated_value or 0)
         after["gain_loss"] = after["portfolio_value"] - after["cost_basis"]
-        return {"before": before, "after": after, "impact": {
-            "value_change": after["portfolio_value"] - before["portfolio_value"],
-            "cost_change": after["cost_basis"] - before["cost_basis"],
-            "gain_change": after["gain_loss"] - before["gain_loss"],
-        }}
+        return {
+            "before": before,
+            "after": after,
+            "impact": {
+                "value_change": after["portfolio_value"] - before["portfolio_value"],
+                "cost_change": after["cost_basis"] - before["cost_basis"],
+                "gain_change": after["gain_loss"] - before["gain_loss"],
+            },
+        }

@@ -6,25 +6,6 @@ Genesis 13.27
 
 
 class AgentGovernance:
+    def authorize(self, agent, action):
 
-
-    def authorize(
-        self,
-        agent,
-        action
-    ):
-
-
-        return {
-
-            "approved":
-                True,
-
-            "agent":
-                agent,
-
-            "action":
-                action
-
-        }
-
+        return {"approved": True, "agent": agent, "action": action}

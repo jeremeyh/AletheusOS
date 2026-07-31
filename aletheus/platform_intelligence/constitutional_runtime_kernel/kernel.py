@@ -79,16 +79,12 @@ class ConstitutionalRuntimeKernel:
         (
             "service.platform-intelligence.service-registry",
             "Platform Service Registry",
-            (
-                "service.platform-intelligence.event-bus",
-            ),
+            ("service.platform-intelligence.event-bus",),
         ),
         (
             "service.platform-intelligence.constitutional-graph",
             "Constitutional Graph",
-            (
-                "service.platform-intelligence.service-registry",
-            ),
+            ("service.platform-intelligence.service-registry",),
         ),
         (
             "service.platform-intelligence.digital-twin",
@@ -110,23 +106,17 @@ class ConstitutionalRuntimeKernel:
         (
             "service.platform-intelligence.intelligence-engine",
             "Platform Intelligence Engine",
-            (
-                "service.platform-intelligence.runtime-explorer",
-            ),
+            ("service.platform-intelligence.runtime-explorer",),
         ),
         (
             "service.platform-intelligence.mission-engine",
             "Constitutional Mission Engine",
-            (
-                "service.platform-intelligence.event-bus",
-            ),
+            ("service.platform-intelligence.event-bus",),
         ),
         (
             "service.platform-intelligence.mission-scheduler",
             "Constitutional Mission Scheduler",
-            (
-                "service.platform-intelligence.mission-engine",
-            ),
+            ("service.platform-intelligence.mission-engine",),
         ),
         (
             "service.platform-intelligence.orchestrator",
@@ -161,42 +151,22 @@ class ConstitutionalRuntimeKernel:
     ) -> None:
         now = datetime.now(UTC)
 
-        self._state = (
-            ConstitutionalRuntimeKernelState.CREATED
-        )
+        self._state = ConstitutionalRuntimeKernelState.CREATED
         self._created_at = now
         self._modified_at = now
         self._failure_reason: str | None = None
         self._lock = RLock()
 
-        self._event_bus: (
-            ConstitutionalEventBus | None
-        ) = None
-        self._service_registry: (
-            PlatformServiceRegistry | None
-        ) = None
+        self._event_bus: ConstitutionalEventBus | None = None
+        self._service_registry: PlatformServiceRegistry | None = None
         self._graph: ConstitutionalGraph | None = None
-        self._dependency_manager: (
-            ConstitutionalDependencyManager | None
-        ) = None
-        self._digital_twin: (
-            PlatformDigitalTwin | None
-        ) = None
-        self._runtime_explorer: (
-            RuntimeExplorer | None
-        ) = None
-        self._intelligence_engine: (
-            PlatformIntelligenceEngine | None
-        ) = None
-        self._mission_engine: (
-            ConstitutionalMissionEngine | None
-        ) = None
-        self._mission_scheduler: (
-            ConstitutionalMissionScheduler | None
-        ) = None
-        self._orchestrator: (
-            RuntimeIntelligenceOrchestrator | None
-        ) = None
+        self._dependency_manager: ConstitutionalDependencyManager | None = None
+        self._digital_twin: PlatformDigitalTwin | None = None
+        self._runtime_explorer: RuntimeExplorer | None = None
+        self._intelligence_engine: PlatformIntelligenceEngine | None = None
+        self._mission_engine: ConstitutionalMissionEngine | None = None
+        self._mission_scheduler: ConstitutionalMissionScheduler | None = None
+        self._orchestrator: RuntimeIntelligenceOrchestrator | None = None
 
         if auto_compose:
             self.compose()
@@ -216,10 +186,7 @@ class ConstitutionalRuntimeKernel:
 
     @property
     def running(self) -> bool:
-        return (
-            self._state
-            is ConstitutionalRuntimeKernelState.RUNNING
-        )
+        return self._state is ConstitutionalRuntimeKernelState.RUNNING
 
     @property
     def event_bus(self) -> ConstitutionalEventBus:
@@ -307,22 +274,15 @@ class ConstitutionalRuntimeKernel:
         self,
     ) -> ConstitutionalRuntimeKernel:
         with self._lock:
-            if self._state is not (
-                ConstitutionalRuntimeKernelState.CREATED
-            ):
+            if self._state is not (ConstitutionalRuntimeKernelState.CREATED):
                 raise KernelLifecycleError(
-                    "CRK can only be composed from "
-                    "the created state."
+                    "CRK can only be composed from the created state."
                 )
 
             try:
                 event_bus = ConstitutionalEventBus()
 
-                service_registry = (
-                    PlatformServiceRegistry(
-                        event_bus=event_bus
-                    )
-                )
+                service_registry = PlatformServiceRegistry(event_bus=event_bus)
 
                 graph = ConstitutionalGraph()
 
@@ -335,95 +295,57 @@ class ConstitutionalRuntimeKernel:
                 runtime_explorer = RuntimeExplorer(
                     twin=digital_twin,
                     graph=graph,
-                    service_registry=(
-                        service_registry
-                    ),
+                    service_registry=(service_registry),
                 )
 
-                intelligence_engine = (
-                    PlatformIntelligenceEngine(
-                        explorer=runtime_explorer,
-                        graph=graph,
-                    )
+                intelligence_engine = PlatformIntelligenceEngine(
+                    explorer=runtime_explorer,
+                    graph=graph,
                 )
 
-                mission_engine = (
-                    ConstitutionalMissionEngine(
-                        event_bus=event_bus
-                    )
-                )
+                mission_engine = ConstitutionalMissionEngine(event_bus=event_bus)
 
-                mission_scheduler = (
-                    ConstitutionalMissionScheduler()
-                )
+                mission_scheduler = ConstitutionalMissionScheduler()
 
-                orchestrator = (
-                    RuntimeIntelligenceOrchestrator(
-                        service_registry=(
-                            service_registry
-                        ),
-                        graph=graph,
-                        event_bus=event_bus,
-                        digital_twin=digital_twin,
-                        explorer=runtime_explorer,
-                        intelligence_engine=(
-                            intelligence_engine
-                        ),
-                    )
+                orchestrator = RuntimeIntelligenceOrchestrator(
+                    service_registry=(service_registry),
+                    graph=graph,
+                    event_bus=event_bus,
+                    digital_twin=digital_twin,
+                    explorer=runtime_explorer,
+                    intelligence_engine=(intelligence_engine),
                 )
 
                 self._event_bus = event_bus
-                self._service_registry = (
-                    service_registry
-                )
+                self._service_registry = service_registry
                 self._graph = graph
                 self._digital_twin = digital_twin
-                self._runtime_explorer = (
-                    runtime_explorer
-                )
-                self._intelligence_engine = (
-                    intelligence_engine
-                )
-                self._mission_engine = (
-                    mission_engine
-                )
-                self._mission_scheduler = (
-                    mission_scheduler
-                )
+                self._runtime_explorer = runtime_explorer
+                self._intelligence_engine = intelligence_engine
+                self._mission_engine = mission_engine
+                self._mission_scheduler = mission_scheduler
                 self._orchestrator = orchestrator
 
                 self._register_canonical_services()
 
-                self._dependency_manager = (
-                    ConstitutionalDependencyManager(
-                        service_registry=service_registry
-                    )
+                self._dependency_manager = ConstitutionalDependencyManager(
+                    service_registry=service_registry
                 )
 
-                validation = (
-                    self._dependency_manager.validate()
-                )
+                validation = self._dependency_manager.validate()
 
                 if not validation.valid:
-                    raise KernelCompositionError(
-                        "CRK dependency topology is invalid."
-                    )
+                    raise KernelCompositionError("CRK dependency topology is invalid.")
 
-                self._state = (
-                    ConstitutionalRuntimeKernelState.COMPOSED
-                )
+                self._state = ConstitutionalRuntimeKernelState.COMPOSED
                 self._touch()
 
             except Exception as error:
-                self._state = (
-                    ConstitutionalRuntimeKernelState.FAILED
-                )
+                self._state = ConstitutionalRuntimeKernelState.FAILED
                 self._failure_reason = str(error)
                 self._touch()
 
-                raise KernelCompositionError(
-                    "CRK composition failed."
-                ) from error
+                raise KernelCompositionError("CRK composition failed.") from error
 
         return self
 
@@ -436,28 +358,18 @@ class ConstitutionalRuntimeKernel:
                 ConstitutionalRuntimeKernelState.STOPPED,
             }:
                 raise KernelLifecycleError(
-                    "CRK can only start from composed "
-                    "or stopped state."
+                    "CRK can only start from composed or stopped state."
                 )
 
-            self._state = (
-                ConstitutionalRuntimeKernelState.STARTING
-            )
+            self._state = ConstitutionalRuntimeKernelState.STARTING
             self._touch()
 
             try:
-                boot_plan = (
-                    self.dependency_manager
-                    .build_boot_plan()
-                )
+                boot_plan = self.dependency_manager.build_boot_plan()
 
                 for level in boot_plan.levels:
                     for address in level.services:
-                        service = (
-                            self.service_registry.get(
-                                address
-                            )
-                        )
+                        service = self.service_registry.get(address)
 
                         states = (
                             (
@@ -465,50 +377,34 @@ class ConstitutionalRuntimeKernel:
                                 ConstitutionalState.STARTING,
                                 ConstitutionalState.RUNNING,
                             )
-                            if service.state
-                            is ConstitutionalState.REGISTERED
+                            if service.state is ConstitutionalState.REGISTERED
                             else (
                                 ConstitutionalState.STARTING,
                                 ConstitutionalState.RUNNING,
                             )
                         )
 
-                        transitioned = (
-                            self._transition_service(
-                                address,
-                                *states,
-                            )
+                        transitioned = self._transition_service(
+                            address,
+                            *states,
                         )
 
-                        transitioned = (
-                            self.service_registry
-                            .report_health(
-                                transitioned.address,
-                                ConstitutionalHealth.HEALTHY,
-                            )
+                        transitioned = self.service_registry.report_health(
+                            transitioned.address,
+                            ConstitutionalHealth.HEALTHY,
                         )
 
-                        self.graph.update_node(
-                            transitioned
-                        )
+                        self.graph.update_node(transitioned)
 
-                self._state = (
-                    ConstitutionalRuntimeKernelState.RUNNING
-                )
+                self._state = ConstitutionalRuntimeKernelState.RUNNING
                 self._failure_reason = None
                 self._touch()
 
                 self.event_bus.publish(
                     ConstitutionalEvent.create(
-                        kind=(
-                            ConstitutionalEventKind.PLATFORM_STARTED
-                        ),
-                        source=(
-                            "service.platform-intelligence.crk"
-                        ),
-                        subject=(
-                            "service.platform-intelligence.crk"
-                        ),
+                        kind=(ConstitutionalEventKind.PLATFORM_STARTED),
+                        source=("service.platform-intelligence.crk"),
+                        subject=("service.platform-intelligence.crk"),
                         payload={
                             "version": self.VERSION,
                             "state": self._state.value,
@@ -517,9 +413,7 @@ class ConstitutionalRuntimeKernel:
                 )
 
             except Exception as error:
-                self._state = (
-                    ConstitutionalRuntimeKernelState.FAILED
-                )
+                self._state = ConstitutionalRuntimeKernelState.FAILED
                 self._failure_reason = str(error)
                 self._touch()
                 raise
@@ -530,53 +424,32 @@ class ConstitutionalRuntimeKernel:
         self,
     ) -> ConstitutionalRuntimeKernelStatus:
         with self._lock:
-            if self._state is not (
-                ConstitutionalRuntimeKernelState.RUNNING
-            ):
-                raise KernelLifecycleError(
-                    "CRK can only stop from running state."
-                )
+            if self._state is not (ConstitutionalRuntimeKernelState.RUNNING):
+                raise KernelLifecycleError("CRK can only stop from running state.")
 
-            self._state = (
-                ConstitutionalRuntimeKernelState.STOPPING
-            )
+            self._state = ConstitutionalRuntimeKernelState.STOPPING
             self._touch()
 
-            shutdown_plan = (
-                self.dependency_manager
-                .build_shutdown_plan()
-            )
+            shutdown_plan = self.dependency_manager.build_shutdown_plan()
 
             for level in shutdown_plan.levels:
                 for address in level.services:
-                    transitioned = (
-                        self._transition_service(
-                            address,
-                            ConstitutionalState.STOPPING,
-                            ConstitutionalState.STOPPED,
-                        )
+                    transitioned = self._transition_service(
+                        address,
+                        ConstitutionalState.STOPPING,
+                        ConstitutionalState.STOPPED,
                     )
 
-                    self.graph.update_node(
-                        transitioned
-                    )
+                    self.graph.update_node(transitioned)
 
-            self._state = (
-                ConstitutionalRuntimeKernelState.STOPPED
-            )
+            self._state = ConstitutionalRuntimeKernelState.STOPPED
             self._touch()
 
             self.event_bus.publish(
                 ConstitutionalEvent.create(
-                    kind=(
-                        ConstitutionalEventKind.PLATFORM_STOPPED
-                    ),
-                    source=(
-                        "service.platform-intelligence.crk"
-                    ),
-                    subject=(
-                        "service.platform-intelligence.crk"
-                    ),
+                    kind=(ConstitutionalEventKind.PLATFORM_STOPPED),
+                    source=("service.platform-intelligence.crk"),
+                    subject=("service.platform-intelligence.crk"),
                     payload={
                         "version": self.VERSION,
                         "state": self._state.value,
@@ -594,16 +467,8 @@ class ConstitutionalRuntimeKernel:
             if self._service_registry is not None
             else None
         )
-        graph_stats = (
-            self.graph.statistics()
-            if self._graph is not None
-            else None
-        )
-        bus_stats = (
-            self.event_bus.statistics()
-            if self._event_bus is not None
-            else None
-        )
+        graph_stats = self.graph.statistics() if self._graph is not None else None
+        bus_stats = self.event_bus.statistics() if self._event_bus is not None else None
 
         return ConstitutionalRuntimeKernelStatus(
             state=self._state,
@@ -613,29 +478,17 @@ class ConstitutionalRuntimeKernel:
             composed=self.composed,
             running=self.running,
             registered_services=(
-                registry_stats.registered
-                if registry_stats is not None
-                else 0
+                registry_stats.registered if registry_stats is not None else 0
             ),
-            graph_nodes=(
-                graph_stats.nodes
-                if graph_stats is not None
-                else 0
-            ),
+            graph_nodes=(graph_stats.nodes if graph_stats is not None else 0),
             graph_relationships=(
-                graph_stats.relationships
-                if graph_stats is not None
-                else 0
+                graph_stats.relationships if graph_stats is not None else 0
             ),
             twin_revision=(
-                self.digital_twin.revision
-                if self._digital_twin is not None
-                else 0
+                self.digital_twin.revision if self._digital_twin is not None else 0
             ),
             event_subscribers=(
-                bus_stats.subscriber_count
-                if bus_stats is not None
-                else 0
+                bus_stats.subscriber_count if bus_stats is not None else 0
             ),
             mission_count=(
                 self.mission_engine.statistics().total
@@ -644,8 +497,7 @@ class ConstitutionalRuntimeKernel:
             ),
             scheduled_missions=(
                 self.mission_scheduler.statistics().registered
-                if self._mission_scheduler
-                is not None
+                if self._mission_scheduler is not None
                 else 0
             ),
             failure_reason=self._failure_reason,
@@ -654,27 +506,18 @@ class ConstitutionalRuntimeKernel:
     def boot_plan(
         self,
     ) -> ConstitutionalDependencyPlan:
-        return (
-            self.dependency_manager
-            .build_boot_plan()
-        )
+        return self.dependency_manager.build_boot_plan()
 
     def shutdown_plan(
         self,
     ) -> ConstitutionalDependencyPlan:
-        return (
-            self.dependency_manager
-            .build_shutdown_plan()
-        )
+        return self.dependency_manager.build_shutdown_plan()
 
     def restart_plan(
         self,
         address: str,
     ) -> ConstitutionalDependencyPlan:
-        return (
-            self.dependency_manager
-            .build_restart_plan(address)
-        )
+        return self.dependency_manager.build_restart_plan(address)
 
     def overview(self) -> dict[str, Any]:
         return self.orchestrator.overview().to_dict()
@@ -686,25 +529,13 @@ class ConstitutionalRuntimeKernel:
             generated_at=datetime.now(UTC),
             kernel=self.status().to_dict(),
             runtime=self.orchestrator.runtime_summary(),
-            services=(
-                self.orchestrator.service_inventory()
-            ),
-            graph=(
-                self.orchestrator.dependency_summary()
-            ),
+            services=(self.orchestrator.service_inventory()),
+            graph=(self.orchestrator.dependency_summary()),
             events=self.orchestrator.event_summary(),
             twin=self.digital_twin.current_state(),
-            intelligence=(
-                self.orchestrator
-                .intelligence_summary()
-                .to_dict()
-            ),
+            intelligence=(self.orchestrator.intelligence_summary().to_dict()),
             missions=self.mission_engine.snapshot(),
-            scheduler=(
-                self.mission_scheduler
-                .statistics()
-                .to_dict()
-            ),
+            scheduler=(self.mission_scheduler.statistics().to_dict()),
         )
 
     def close(self) -> None:
@@ -722,12 +553,8 @@ class ConstitutionalRuntimeKernel:
                     address=address,
                     canonical_name=name,
                     version=self.VERSION,
-                    authority=(
-                        "AletheusOS Constitution"
-                    ),
-                    owner=(
-                        "Platform Intelligence Fabric"
-                    ),
+                    authority=("AletheusOS Constitution"),
+                    owner=("Platform Intelligence Fabric"),
                     dependencies=dependencies,
                 )
                 for (
@@ -737,30 +564,21 @@ class ConstitutionalRuntimeKernel:
                 ) in self._CANONICAL_SERVICES
             ]
 
-            registered = (
-                self.service_registry.register_many(
-                    definitions
-                )
-            )
+            registered = self.service_registry.register_many(definitions)
 
             self.graph.add_nodes(registered)
 
             for definition in definitions:
-                for dependency in (
-                    definition.dependencies
-                ):
+                for dependency in definition.dependencies:
                     self.graph.connect(
                         source=definition.address,
                         target=dependency,
-                        kind=(
-                            self._dependency_kind()
-                        ),
+                        kind=(self._dependency_kind()),
                     )
 
         except Exception as error:
             raise KernelServiceRegistrationError(
-                "Unable to register canonical "
-                "Platform Intelligence services."
+                "Unable to register canonical Platform Intelligence services."
             ) from error
 
     @staticmethod
@@ -776,16 +594,12 @@ class ConstitutionalRuntimeKernel:
         address: str,
         *states: ConstitutionalState,
     ):
-        service = self.service_registry.get(
-            address
-        )
+        service = self.service_registry.get(address)
 
         for state in states:
-            service = (
-                self.service_registry.transition(
-                    service.address,
-                    state,
-                )
+            service = self.service_registry.transition(
+                service.address,
+                state,
             )
 
         return service
@@ -799,8 +613,6 @@ class ConstitutionalRuntimeKernel:
         name: str,
     ) -> Any:
         if value is None:
-            raise KernelCompositionError(
-                f"CRK component is unavailable: {name}"
-            )
+            raise KernelCompositionError(f"CRK component is unavailable: {name}")
 
         return value

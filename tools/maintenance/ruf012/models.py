@@ -1,4 +1,5 @@
 """Shared models for the Genesis 11 RUF012 preview engine."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -18,10 +19,12 @@ class RewritePreview:
     transformation: str
     notes: tuple[str, ...] = ()
 
+
 @dataclass(frozen=True)
 class RewriteFailure:
     candidate: Any
     reason: str
+
 
 @dataclass
 class RewriteStatistics:

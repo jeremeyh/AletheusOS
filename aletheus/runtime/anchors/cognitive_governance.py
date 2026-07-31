@@ -5,41 +5,18 @@ Cognitive Evolution Governance Engine
 
 
 class CognitiveEvolutionGovernance:
-
-
     def __init__(self):
 
-        self.decisions=[]
+        self.decisions = []
 
+    def approve(self, proposal):
 
-
-    def approve(
-        self,
-        proposal
-    ):
-
-        decision={
-
-            "proposal":
-                proposal,
-
-            "approved":
-                True
-
-        }
-
+        decision = {"proposal": proposal, "approved": True}
 
         self.decisions.append(decision)
 
         return decision
 
-
-
     def snapshot(self):
 
-        return {
-
-            "decisions":
-                len(self.decisions)
-
-        }
+        return {"decisions": len(self.decisions)}

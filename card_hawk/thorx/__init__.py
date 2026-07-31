@@ -1,8 +1,3 @@
 from .engine import THORXEngine
 
-__all__=[
-
-"THORXEngine"
-
-]
-
+__all__ = ["THORXEngine"]

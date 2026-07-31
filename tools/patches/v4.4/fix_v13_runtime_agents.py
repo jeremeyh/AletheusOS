@@ -21,7 +21,9 @@ if "from aletheus.agents import agent_core\n" not in text:
 
 text = text.replace("self.agents = agent_core.agent_core", "self.agents = agent_core")
 text = text.replace("self.agents = agents.agent_core", "self.agents = agent_core")
-text = text.replace("self.agents = aletheus.agents.agent_core", "self.agents = agent_core")
+text = text.replace(
+    "self.agents = aletheus.agents.agent_core", "self.agents = agent_core"
+)
 
 if "self.agents = agent_core" not in text:
     anchor = "self.executive = executive_core\n"

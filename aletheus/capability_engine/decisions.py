@@ -5,7 +5,6 @@ from .resolver import capability_resolver
 
 
 class DecisionEngine:
-
     GENESIS = "21.6"
     VERSION = "1.0.0"
 

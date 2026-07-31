@@ -91,18 +91,41 @@ class AletheusAutonomousDecisionEngine:
         defaults = [
             ("maximize_value", "Prefer the highest expected value.", "value", 1.0),
             ("minimize_risk", "Prefer the lowest risk profile.", "risk", 1.0),
-            ("maximize_confidence", "Prefer the option with highest confidence.", "confidence", 1.0),
-            ("fastest_execution", "Prefer the fastest executable option.", "speed", 0.75),
+            (
+                "maximize_confidence",
+                "Prefer the option with highest confidence.",
+                "confidence",
+                1.0,
+            ),
+            (
+                "fastest_execution",
+                "Prefer the fastest executable option.",
+                "speed",
+                0.75,
+            ),
             ("lowest_cost", "Prefer the lowest cost option.", "cost", 0.75),
-            ("human_required", "Require founder approval before execution.", "governance", 1.0),
+            (
+                "human_required",
+                "Require founder approval before execution.",
+                "governance",
+                1.0,
+            ),
         ]
         for name, description, policy_type, weight in defaults:
             if name not in self.policies:
                 self.add_policy(name, description, policy_type, weight)
         return self.stats()
 
-    def add_policy(self, name: str, description: str, policy_type: str = "general", weight: float = 1.0) -> dict[str, Any]:
-        policy = DecisionPolicy(name=name, description=description, policy_type=policy_type, weight=weight)
+    def add_policy(
+        self,
+        name: str,
+        description: str,
+        policy_type: str = "general",
+        weight: float = 1.0,
+    ) -> dict[str, Any]:
+        policy = DecisionPolicy(
+            name=name, description=description, policy_type=policy_type, weight=weight
+        )
         self.policies[name] = policy
         return policy.to_dict()
 
@@ -157,12 +180,23 @@ class AletheusAutonomousDecisionEngine:
             },
         )
 
-        reasoning_trace = reasoning.results.get("evaluation", {}) if not reasoning.errors else {
-            "error": reasoning.errors,
-            "confidence": selected.confidence,
-        }
+        reasoning_trace = (
+            reasoning.results.get("evaluation", {})
+            if not reasoning.errors
+            else {
+                "error": reasoning.errors,
+                "confidence": selected.confidence,
+            }
+        )
 
-        confidence = round((selected.weighted_score() + float(reasoning_trace.get("confidence", selected.confidence))) / 2, 2)
+        confidence = round(
+            (
+                selected.weighted_score()
+                + float(reasoning_trace.get("confidence", selected.confidence))
+            )
+            / 2,
+            2,
+        )
 
         record = DecisionRecord(
             title=title,
@@ -230,11 +264,18 @@ class AletheusAutonomousDecisionEngine:
             "version": self.version,
             "policies": len(self.policies),
             "decisions": len(self.decisions),
-            "pending": len([d for d in self.decisions.values() if d.status == "pending"]),
-            "executed": len([d for d in self.decisions.values() if d.status == "executed"]),
-            "rolled_back": len([d for d in self.decisions.values() if d.status == "rolled_back"]),
+            "pending": len(
+                [d for d in self.decisions.values() if d.status == "pending"]
+            ),
+            "executed": len(
+                [d for d in self.decisions.values() if d.status == "executed"]
+            ),
+            "rolled_back": len(
+                [d for d in self.decisions.values() if d.status == "rolled_back"]
+            ),
             "average_confidence": round(
-                sum(d.confidence for d in self.decisions.values()) / max(len(self.decisions), 1),
+                sum(d.confidence for d in self.decisions.values())
+                / max(len(self.decisions), 1),
                 2,
             ),
         }

@@ -56,9 +56,7 @@ class PlatformInsight:
         confidence: float = 1.0,
     ) -> PlatformInsight:
         if not 0.0 <= confidence <= 1.0:
-            raise ValueError(
-                "Insight confidence must be between 0 and 1."
-            )
+            raise ValueError("Insight confidence must be between 0 and 1.")
 
         return cls(
             insight_id=uuid4(),
@@ -66,9 +64,7 @@ class PlatformInsight:
             severity=severity,
             title=title.strip(),
             description=description.strip(),
-            evidence=MappingProxyType(
-                dict(evidence or {})
-            ),
+            evidence=MappingProxyType(dict(evidence or {})),
             confidence=confidence,
         )
 
@@ -110,9 +106,7 @@ class PlatformRecommendation:
         confidence: float = 1.0,
     ) -> PlatformRecommendation:
         if not 0.0 <= confidence <= 1.0:
-            raise ValueError(
-                "Recommendation confidence must be between 0 and 1."
-            )
+            raise ValueError("Recommendation confidence must be between 0 and 1.")
 
         return cls(
             recommendation_id=uuid4(),
@@ -127,9 +121,7 @@ class PlatformRecommendation:
 
     def to_dict(self) -> dict[str, Any]:
         return {
-            "recommendation_id": str(
-                self.recommendation_id
-            ),
+            "recommendation_id": str(self.recommendation_id),
             "category": self.category.value,
             "severity": self.severity.value,
             "title": self.title,
@@ -199,26 +191,15 @@ class PlatformIntelligenceAnalysis:
     def to_dict(self) -> dict[str, Any]:
         return {
             "analysis_id": str(self.analysis_id),
-            "generated_at": (
-                self.generated_at.isoformat()
-            ),
+            "generated_at": (self.generated_at.isoformat()),
             "twin_revision": self.twin_revision,
-            "constitutional_score": (
-                self.constitutional_score
-            ),
+            "constitutional_score": (self.constitutional_score),
             "health_score": self.health_score,
-            "architecture_score": (
-                self.architecture_score
-            ),
+            "architecture_score": (self.architecture_score),
             "risk_level": self.risk_level.value,
-            "insights": [
-                insight.to_dict()
-                for insight in self.insights
-            ],
+            "insights": [insight.to_dict() for insight in self.insights],
             "recommendations": [
-                recommendation.to_dict()
-                for recommendation
-                in self.recommendations
+                recommendation.to_dict() for recommendation in self.recommendations
             ],
             "metrics": dict(self.metrics),
         }

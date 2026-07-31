@@ -40,9 +40,7 @@ class ConstitutionalLibraryRegistry:
         knowledge: KnowledgeObject,
     ) -> KnowledgeObject:
 
-        self._knowledge[
-            knowledge.knowledge_id
-        ] = knowledge
+        self._knowledge[knowledge.knowledge_id] = knowledge
 
         return knowledge
 
@@ -55,9 +53,7 @@ class ConstitutionalLibraryRegistry:
         knowledge_id: str,
     ) -> KnowledgeObject | None:
 
-        return self._knowledge.get(
-            knowledge_id
-        )
+        return self._knowledge.get(knowledge_id)
 
     def all(self) -> list[KnowledgeObject]:
 
@@ -79,13 +75,9 @@ class ConstitutionalLibraryRegistry:
     ) -> list[KnowledgeObject]:
 
         return [
-
             knowledge
-
             for knowledge in self._knowledge.values()
-
             if knowledge.status == status
-
         ]
 
     def by_type(
@@ -94,13 +86,9 @@ class ConstitutionalLibraryRegistry:
     ) -> list[KnowledgeObject]:
 
         return [
-
             knowledge
-
             for knowledge in self._knowledge.values()
-
             if knowledge.knowledge_type == knowledge_type
-
         ]
 
     #
@@ -117,16 +105,8 @@ class ConstitutionalLibraryRegistry:
         results = []
 
         for knowledge in self._knowledge.values():
-
-            if (
-                query in knowledge.title.lower()
-                or
-                query in knowledge.statement.lower()
-            ):
-
-                results.append(
-                    knowledge
-                )
+            if query in knowledge.title.lower() or query in knowledge.statement.lower():
+                results.append(knowledge)
 
         return sorted(
             results,
@@ -143,18 +123,11 @@ class ConstitutionalLibraryRegistry:
     def health(self) -> dict:
 
         return {
-
             "name": "Constitutional Library Registry",
-
             "genesis": self.GENESIS,
-
             "version": self.VERSION,
-
             "status": "healthy",
-
-            "knowledge_objects": len(
-                self._knowledge
-            ),
+            "knowledge_objects": len(self._knowledge),
         }
 
     def statistics(self) -> dict:
@@ -164,43 +137,28 @@ class ConstitutionalLibraryRegistry:
         types: dict[str, int] = {}
 
         for knowledge in self._knowledge.values():
-
             statuses.setdefault(
                 knowledge.status.value,
                 0,
             )
 
-            statuses[
-                knowledge.status.value
-            ] += 1
+            statuses[knowledge.status.value] += 1
 
             types.setdefault(
                 knowledge.knowledge_type.value,
                 0,
             )
 
-            types[
-                knowledge.knowledge_type.value
-            ] += 1
+            types[knowledge.knowledge_type.value] += 1
 
         return {
-
             "name": "Constitutional Library Registry",
-
             "genesis": self.GENESIS,
-
             "version": self.VERSION,
-
-            "knowledge_objects": len(
-                self._knowledge
-            ),
-
+            "knowledge_objects": len(self._knowledge),
             "statuses": statuses,
-
             "knowledge_types": types,
         }
 
 
-constitutional_library_registry = (
-    ConstitutionalLibraryRegistry()
-)
+constitutional_library_registry = ConstitutionalLibraryRegistry()

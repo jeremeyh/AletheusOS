@@ -15,8 +15,7 @@ class Authorizer(Protocol):
         context: CommandContext,
         command_name: str,
         permissions: tuple[str, ...],
-    ) -> None:
-        ...
+    ) -> None: ...
 
 
 @dataclass(slots=True)

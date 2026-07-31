@@ -9,9 +9,7 @@ def main():
     tree = ast.parse(text)
 
     functions = [
-        node.name
-        for node in ast.walk(tree)
-        if isinstance(node, ast.FunctionDef)
+        node.name for node in ast.walk(tree) if isinstance(node, ast.FunctionDef)
     ]
 
     print("========================================================")

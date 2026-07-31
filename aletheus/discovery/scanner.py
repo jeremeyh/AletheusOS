@@ -23,7 +23,6 @@ class DiscoveryScanner:
         packages = []
 
         for path in sorted(self.root.iterdir()):
-
             if not path.is_dir():
                 continue
 
@@ -31,7 +30,6 @@ class DiscoveryScanner:
                 continue
 
             if (path / "__init__.py").exists():
-
                 packages.append(path)
 
         return packages

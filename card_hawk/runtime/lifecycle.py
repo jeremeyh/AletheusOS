@@ -6,12 +6,6 @@ Genesis 14.15
 
 
 class LifecycleManager:
-
-
-    def initialize(
-        self
-    ):
-
+    def initialize(self):
 
         return True
-

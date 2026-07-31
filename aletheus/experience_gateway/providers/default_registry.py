@@ -16,10 +16,7 @@ from .default_probes import (
 def create_default_provider_registry(
     repository_root: Path | None = None,
 ) -> ProviderRegistry:
-    root = (
-        repository_root
-        or Path(__file__).resolve().parents[3]
-    )
+    root = repository_root or Path(__file__).resolve().parents[3]
 
     registry = ProviderRegistry()
 

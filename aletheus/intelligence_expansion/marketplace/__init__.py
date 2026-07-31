@@ -1,8 +1,3 @@
 from .engine import IntelligenceEvolutionMarketplaceEngine
 
-__all__ = [
-
-"IntelligenceEvolutionMarketplaceEngine"
-
-]
-
+__all__ = ["IntelligenceEvolutionMarketplaceEngine"]

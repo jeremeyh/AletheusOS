@@ -6,19 +6,6 @@ Genesis 13.48
 
 
 class StrategyOptimizer:
+    def optimize(self, strategy):
 
-
-    def optimize(
-        self,
-        strategy
-    ):
-
-
-        return {
-
-            "recommendation":
-
-                strategy
-
-        }
-
+        return {"recommendation": strategy}

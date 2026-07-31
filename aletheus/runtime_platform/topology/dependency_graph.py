@@ -76,9 +76,7 @@ class DependencyGraph:
                 missing[node.name] = unresolved
 
         if missing:
-            raise MissingDependencyError(
-                f"Missing dependencies: {missing}"
-            )
+            raise MissingDependencyError(f"Missing dependencies: {missing}")
 
         self.boot_order()
 
@@ -87,30 +85,20 @@ class DependencyGraph:
         Return dependencies before dependants.
         """
 
-        indegree = {
-            name: 0
-            for name in self._nodes
-        }
+        indegree = {name: 0 for name in self._nodes}
         dependants: dict[str, list[str]] = defaultdict(list)
 
         for node in self._nodes.values():
             for dependency in node.dependencies:
                 if dependency not in self._nodes:
                     raise MissingDependencyError(
-                        f"{node.name} depends on unknown node "
-                        f"{dependency}"
+                        f"{node.name} depends on unknown node {dependency}"
                     )
 
                 indegree[node.name] += 1
                 dependants[dependency].append(node.name)
 
-        queue = deque(
-            sorted(
-                name
-                for name, degree in indegree.items()
-                if degree == 0
-            )
-        )
+        queue = deque(sorted(name for name, degree in indegree.items() if degree == 0))
 
         ordered: list[str] = []
 
@@ -125,14 +113,8 @@ class DependencyGraph:
                     queue.append(dependant)
 
         if len(ordered) != len(self._nodes):
-            cyclic = sorted(
-                name
-                for name, degree in indegree.items()
-                if degree > 0
-            )
-            raise DependencyCycleError(
-                f"Dependency cycle detected: {cyclic}"
-            )
+            cyclic = sorted(name for name, degree in indegree.items() if degree > 0)
+            raise DependencyCycleError(f"Dependency cycle detected: {cyclic}")
 
         return tuple(ordered)
 
@@ -178,9 +160,7 @@ class DependencyGraph:
         recursive: bool = False,
     ) -> tuple[str, ...]:
         direct = {
-            node.name
-            for node in self._nodes.values()
-            if name in node.dependencies
+            node.name for node in self._nodes.values() if name in node.dependencies
         }
 
         if not recursive:
@@ -202,8 +182,7 @@ class DependencyGraph:
     def snapshot(self) -> dict[str, object]:
         return {
             "nodes": {
-                node.name: list(node.dependencies)
-                for node in self._nodes.values()
+                node.name: list(node.dependencies) for node in self._nodes.values()
             },
             "boot_order": list(self.boot_order()),
             "shutdown_order": list(self.shutdown_order()),

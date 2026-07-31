@@ -1,8 +1,3 @@
 from .engine import CardHawkAnalyticsEngine
 
-__all__ = [
-
-    "CardHawkAnalyticsEngine"
-
-]
-
+__all__ = ["CardHawkAnalyticsEngine"]

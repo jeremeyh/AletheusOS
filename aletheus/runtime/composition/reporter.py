@@ -1,5 +1,4 @@
 class RuntimeCompositionReporter:
-
     def render(self, composition):
 
         lines = [
@@ -15,9 +14,11 @@ class RuntimeCompositionReporter:
         for name in sorted(composition.services):
             lines.append(f"  - {name}")
 
-        lines.extend([
-            "",
-            "========================================================",
-        ])
+        lines.extend(
+            [
+                "",
+                "========================================================",
+            ]
+        )
 
         return "\n".join(lines)

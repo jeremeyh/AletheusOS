@@ -10,19 +10,6 @@ Enforce intelligence policies
 
 
 class PolicyEngine:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.8"
-
-        }
-
+        return {"status": "ready", "genesis": "23.8"}

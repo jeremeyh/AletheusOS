@@ -52,5 +52,4 @@ class CommandMiddleware(Protocol):
         context: CommandContext,
         request: Any,
         call_next: NextHandler,
-    ) -> Any:
-        ...
+    ) -> Any: ...

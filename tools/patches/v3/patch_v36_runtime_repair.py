@@ -10,7 +10,6 @@ changed = False
 # -------------------------------------------------
 
 if "from aletheus.high_availability_v3 import high_availability_core" not in text:
-
     if "from aletheus.telemetry_v3 import telemetry_core" in text:
         text = text.replace(
             "from aletheus.telemetry_v3 import telemetry_core",
@@ -26,7 +25,6 @@ if "from aletheus.high_availability_v3 import high_availability_core" not in tex
 # -------------------------------------------------
 
 if "self.high_availability_v3 = high_availability_core" not in text:
-
     if "self.telemetry_v3 = telemetry_core" in text:
         text = text.replace(
             "self.telemetry_v3 = telemetry_core",
@@ -51,12 +49,14 @@ text = text.replace(
 # -------------------------------------------------
 
 if 'self.commands.register("ha.bootstrap"' not in text:
-
-    anchor = 'self.commands.register("telemetry.statistics", self._cmd_telemetry_statistics)'
+    anchor = (
+        'self.commands.register("telemetry.statistics", self._cmd_telemetry_statistics)'
+    )
 
     if anchor in text:
-
-        replacement = anchor + '''
+        replacement = (
+            anchor
+            + """
 
         # v3.6 High Availability
 
@@ -70,7 +70,8 @@ if 'self.commands.register("ha.bootstrap"' not in text:
         self.commands.register("ha.replicate", self._cmd_ha_replicate)
         self.commands.register("ha.status", self._cmd_ha_status)
         self.commands.register("ha.statistics", self._cmd_ha_statistics)
-'''
+"""
+        )
 
         text = text.replace(anchor, replacement, 1)
         changed = True

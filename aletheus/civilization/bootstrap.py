@@ -48,21 +48,13 @@ def build_civilization_orchestrator(
         subscriber_name="constitutional_ledger",
     )
 
-    register_security_event_types(
-        resolved_fabric.registry
-    )
+    register_security_event_types(resolved_fabric.registry)
 
-    case_engine = ConstitutionalCaseEngine(
-        fabric=resolved_fabric
-    )
+    case_engine = ConstitutionalCaseEngine(fabric=resolved_fabric)
 
-    mission_engine = ConstitutionalMissionEngine(
-        fabric=resolved_fabric
-    )
+    mission_engine = ConstitutionalMissionEngine(fabric=resolved_fabric)
 
-    time = TetraInstitutionalMissionEngine(
-        fabric=resolved_fabric
-    )
+    time = TetraInstitutionalMissionEngine(fabric=resolved_fabric)
 
     executors = InstitutionExecutorRegistry()
 

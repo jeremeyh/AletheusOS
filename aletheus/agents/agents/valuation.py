@@ -6,24 +6,8 @@ Genesis 13.27
 
 
 class ValuationAgent:
-
-
     name = "valuation_agent"
 
+    def evaluate(self, asset):
 
-
-    def evaluate(
-        self,
-        asset
-    ):
-
-        return {
-
-            "asset":
-                asset,
-
-            "value":
-                "pending"
-
-        }
-
+        return {"asset": asset, "value": "pending"}

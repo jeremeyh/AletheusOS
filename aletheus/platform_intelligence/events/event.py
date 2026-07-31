@@ -47,9 +47,7 @@ class ConstitutionalEvent:
     subject: ConstitutionalAddress
     occurred_at: datetime
 
-    severity: ConstitutionalEventSeverity = (
-        ConstitutionalEventSeverity.INFO
-    )
+    severity: ConstitutionalEventSeverity = ConstitutionalEventSeverity.INFO
 
     correlation_id: UUID = field(default_factory=uuid4)
     causation_id: UUID | None = None
@@ -57,12 +55,8 @@ class ConstitutionalEvent:
     sequence: int | None = None
     schema_version: str = "1.0"
 
-    payload: Mapping[str, Any] = field(
-        default_factory=lambda: MappingProxyType({})
-    )
-    metadata: Mapping[str, Any] = field(
-        default_factory=lambda: MappingProxyType({})
-    )
+    payload: Mapping[str, Any] = field(default_factory=lambda: MappingProxyType({}))
+    metadata: Mapping[str, Any] = field(default_factory=lambda: MappingProxyType({}))
 
     def __post_init__(self) -> None:
         if self.occurred_at.tzinfo is None:
@@ -76,9 +70,7 @@ class ConstitutionalEvent:
             )
 
         if not self.schema_version.strip():
-            raise ConstitutionalEventValidationError(
-                "schema_version cannot be empty."
-            )
+            raise ConstitutionalEventValidationError("schema_version cannot be empty.")
 
         object.__setattr__(
             self,
@@ -108,9 +100,7 @@ class ConstitutionalEvent:
         kind: ConstitutionalEventKind,
         source: str | ConstitutionalAddress,
         subject: str | ConstitutionalAddress,
-        severity: ConstitutionalEventSeverity = (
-            ConstitutionalEventSeverity.INFO
-        ),
+        severity: ConstitutionalEventSeverity = (ConstitutionalEventSeverity.INFO),
         payload: Mapping[str, Any] | None = None,
         metadata: Mapping[str, Any] | None = None,
         correlation_id: UUID | None = None,
@@ -183,9 +173,7 @@ class ConstitutionalEvent:
             "severity": self.severity.value,
             "correlation_id": str(self.correlation_id),
             "causation_id": (
-                str(self.causation_id)
-                if self.causation_id is not None
-                else None
+                str(self.causation_id) if self.causation_id is not None else None
             ),
             "sequence": self.sequence,
             "schema_version": self.schema_version,
@@ -214,9 +202,7 @@ class ConstitutionalEvent:
             "severity": self.severity.value,
             "correlation_id": str(self.correlation_id),
             "causation_id": (
-                str(self.causation_id)
-                if self.causation_id is not None
-                else None
+                str(self.causation_id) if self.causation_id is not None else None
             ),
             "sequence": self.sequence,
             "schema_version": self.schema_version,

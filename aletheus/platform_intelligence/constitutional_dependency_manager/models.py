@@ -19,9 +19,7 @@ class DependencyLevel:
 
     def __post_init__(self) -> None:
         if self.index < 0:
-            raise ValueError(
-                "Dependency level index cannot be negative."
-            )
+            raise ValueError("Dependency level index cannot be negative.")
 
         object.__setattr__(
             self,
@@ -56,11 +54,8 @@ class DependencyValidation:
             "missing_dependencies",
             MappingProxyType(
                 {
-                    address: tuple(
-                        sorted(dependencies)
-                    )
-                    for address, dependencies
-                    in self.missing_dependencies.items()
+                    address: tuple(sorted(dependencies))
+                    for address, dependencies in self.missing_dependencies.items()
                 }
             ),
         )
@@ -68,24 +63,14 @@ class DependencyValidation:
     def to_dict(self) -> dict[str, Any]:
         return {
             "valid": self.valid,
-            "registered_services": (
-                self.registered_services
-            ),
-            "dependency_edges": (
-                self.dependency_edges
-            ),
+            "registered_services": (self.registered_services),
+            "dependency_edges": (self.dependency_edges),
             "missing_dependencies": {
                 address: list(dependencies)
-                for address, dependencies
-                in self.missing_dependencies.items()
+                for address, dependencies in self.missing_dependencies.items()
             },
-            "cycles": [
-                list(cycle)
-                for cycle in self.cycles
-            ],
-            "self_dependencies": list(
-                self.self_dependencies
-            ),
+            "cycles": [list(cycle) for cycle in self.cycles],
+            "self_dependencies": list(self.self_dependencies),
         }
 
 
@@ -115,68 +100,39 @@ class ConstitutionalDependencyPlan:
             "shutdown",
             "restart",
         }:
-            raise ValueError(
-                f"Unsupported dependency plan direction: "
-                f"{direction}"
-            )
+            raise ValueError(f"Unsupported dependency plan direction: {direction}")
 
         return cls(
             plan_id=uuid4(),
             generated_at=datetime.now(UTC),
             direction=direction,
             levels=levels,
-            service_count=sum(
-                len(level.services)
-                for level in levels
-            ),
+            service_count=sum(len(level.services) for level in levels),
             dependency_edges=dependency_edges,
             maximum_depth=max(
-                (
-                    level.index
-                    for level in levels
-                ),
+                (level.index for level in levels),
                 default=0,
             ),
-            parallel_groups=sum(
-                len(level.services) > 1
-                for level in levels
-            ),
+            parallel_groups=sum(len(level.services) > 1 for level in levels),
         )
 
     @property
     def ordered_services(
         self,
     ) -> tuple[str, ...]:
-        return tuple(
-            service
-            for level in self.levels
-            for service in level.services
-        )
+        return tuple(service for level in self.levels for service in level.services)
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "plan_id": str(self.plan_id),
-            "generated_at": (
-                self.generated_at.isoformat()
-            ),
+            "generated_at": (self.generated_at.isoformat()),
             "direction": self.direction,
-            "levels": [
-                level.to_dict()
-                for level in self.levels
-            ],
-            "ordered_services": list(
-                self.ordered_services
-            ),
+            "levels": [level.to_dict() for level in self.levels],
+            "ordered_services": list(self.ordered_services),
             "service_count": self.service_count,
-            "dependency_edges": (
-                self.dependency_edges
-            ),
-            "maximum_depth": (
-                self.maximum_depth
-            ),
-            "parallel_groups": (
-                self.parallel_groups
-            ),
+            "dependency_edges": (self.dependency_edges),
+            "maximum_depth": (self.maximum_depth),
+            "parallel_groups": (self.parallel_groups),
         }
 
 
@@ -195,9 +151,7 @@ class DependencyManagerStatistics:
     def to_dict(self) -> dict[str, int]:
         return {
             "services": self.services,
-            "dependency_edges": (
-                self.dependency_edges
-            ),
+            "dependency_edges": (self.dependency_edges),
             "boot_levels": self.boot_levels,
             "maximum_depth": self.maximum_depth,
             "parallel_groups": self.parallel_groups,

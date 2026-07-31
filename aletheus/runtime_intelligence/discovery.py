@@ -4,7 +4,6 @@ from aletheus.runtime_engine_manager import runtime_engine_manager
 
 
 class RuntimeEngineDiscovery:
-
     def discover(self):
 
         runtime_engine_manager.load_foundation_engines()

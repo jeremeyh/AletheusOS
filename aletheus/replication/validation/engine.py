@@ -6,34 +6,14 @@ Post-Genesis 684
 
 
 class ReplicationValidationEngine:
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_replication_validation",
-
-            "post_genesis":
-            "684",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_replication_validation",
+            "post_genesis": "684",
+            "status": "operational",
         }
-
-
 
     def execute(self, request=None):
 
-        return {
-
-            "request":
-            request,
-
-            "status":
-            "completed"
-
-        }
-
+        return {"request": request, "status": "completed"}

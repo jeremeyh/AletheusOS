@@ -57,8 +57,7 @@ class ConstitutionalMissionEngine:
         with self._lock:
             if mission.address in self._missions:
                 raise MissionAlreadyExistsError(
-                    f"Mission already exists: "
-                    f"{mission.address}"
+                    f"Mission already exists: {mission.address}"
                 )
 
             missing = sorted(
@@ -69,14 +68,10 @@ class ConstitutionalMissionEngine:
 
             if missing:
                 raise MissionDependencyError(
-                    "Mission dependencies are not "
-                    "registered: "
-                    + ", ".join(missing)
+                    "Mission dependencies are not registered: " + ", ".join(missing)
                 )
 
-            self._missions[
-                mission.address
-            ] = mission
+            self._missions[mission.address] = mission
 
         self._publish(
             ConstitutionalEventKind.OBJECT_REGISTERED,
@@ -87,33 +82,23 @@ class ConstitutionalMissionEngine:
             },
         )
 
-        return self.refresh(
-            mission.address
-        )
+        return self.refresh(mission.address)
 
     def register_many(
         self,
-        missions: Iterable[
-            ConstitutionalMission
-        ],
+        missions: Iterable[ConstitutionalMission],
     ) -> tuple[ConstitutionalMission, ...]:
         pending = list(missions)
-        registered: list[
-            ConstitutionalMission
-        ] = []
+        registered: list[ConstitutionalMission] = []
 
         while pending:
             progressed = False
 
             for mission in tuple(pending):
                 if all(
-                    dependency in self._missions
-                    for dependency
-                    in mission.dependencies
+                    dependency in self._missions for dependency in mission.dependencies
                 ):
-                    registered.append(
-                        self.register(mission)
-                    )
+                    registered.append(self.register(mission))
                     pending.remove(mission)
                     progressed = True
 
@@ -123,17 +108,14 @@ class ConstitutionalMissionEngine:
             unresolved = {
                 mission.address: sorted(
                     dependency
-                    for dependency
-                    in mission.dependencies
-                    if dependency
-                    not in self._missions
+                    for dependency in mission.dependencies
+                    if dependency not in self._missions
                 )
                 for mission in pending
             }
 
             raise MissionDependencyError(
-                "Unable to resolve mission dependency "
-                f"order: {unresolved}"
+                f"Unable to resolve mission dependency order: {unresolved}"
             )
 
         return tuple(registered)
@@ -145,14 +127,10 @@ class ConstitutionalMissionEngine:
         resolved = self._normalize(address)
 
         with self._lock:
-            mission = self._missions.get(
-                resolved
-            )
+            mission = self._missions.get(resolved)
 
         if mission is None:
-            raise MissionNotFoundError(
-                f"Mission not found: {resolved}"
-            )
+            raise MissionNotFoundError(f"Mission not found: {resolved}")
 
         return mission
 
@@ -160,12 +138,7 @@ class ConstitutionalMissionEngine:
         self,
     ) -> tuple[ConstitutionalMission, ...]:
         with self._lock:
-            return tuple(
-                self._missions[address]
-                for address in sorted(
-                    self._missions
-                )
-            )
+            return tuple(self._missions[address] for address in sorted(self._missions))
 
     def transition(
         self,
@@ -190,25 +163,16 @@ class ConstitutionalMissionEngine:
                 )
 
             if (
-                target
-                is ConstitutionalMissionState.READY
-                and not self._dependencies_complete(
-                    current
-                )
+                target is ConstitutionalMissionState.READY
+                and not self._dependencies_complete(current)
             ):
                 raise MissionDependencyError(
-                    "Mission cannot become ready until "
-                    "all dependencies are completed."
+                    "Mission cannot become ready until all dependencies are completed."
                 )
 
-            if (
-                target
-                is ConstitutionalMissionState.FAILED
-                and not failure_reason
-            ):
+            if target is ConstitutionalMissionState.FAILED and not failure_reason:
                 raise MissionTransitionError(
-                    "Failed missions require a "
-                    "failure reason."
+                    "Failed missions require a failure reason."
                 )
 
             updated = current.with_state(
@@ -223,23 +187,18 @@ class ConstitutionalMissionEngine:
             updated,
             payload={
                 "object_type": "mission",
-                "previous_state": (
-                    current.state.value
-                ),
+                "previous_state": (current.state.value),
                 "current_state": target.value,
                 "failure_reason": failure_reason,
             },
             severity=(
                 ConstitutionalEventSeverity.ERROR
-                if target
-                is ConstitutionalMissionState.FAILED
+                if target is ConstitutionalMissionState.FAILED
                 else ConstitutionalEventSeverity.INFO
             ),
         )
 
-        if target is (
-            ConstitutionalMissionState.COMPLETED
-        ):
+        if target is (ConstitutionalMissionState.COMPLETED):
             self.refresh_dependents(resolved)
 
         return updated
@@ -258,9 +217,7 @@ class ConstitutionalMissionEngine:
 
         target = (
             ConstitutionalMissionState.READY
-            if self._dependencies_complete(
-                mission
-            )
+            if self._dependencies_complete(mission)
             else ConstitutionalMissionState.BLOCKED
         )
 
@@ -275,10 +232,7 @@ class ConstitutionalMissionEngine:
     def refresh_all(
         self,
     ) -> tuple[ConstitutionalMission, ...]:
-        return tuple(
-            self.refresh(mission.address)
-            for mission in self.all()
-        )
+        return tuple(self.refresh(mission.address) for mission in self.all())
 
     def refresh_dependents(
         self,
@@ -293,37 +247,27 @@ class ConstitutionalMissionEngine:
     def ready(
         self,
     ) -> tuple[ConstitutionalMission, ...]:
-        return self._by_state(
-            ConstitutionalMissionState.READY
-        )
+        return self._by_state(ConstitutionalMissionState.READY)
 
     def blocked(
         self,
     ) -> tuple[ConstitutionalMission, ...]:
-        return self._by_state(
-            ConstitutionalMissionState.BLOCKED
-        )
+        return self._by_state(ConstitutionalMissionState.BLOCKED)
 
     def running(
         self,
     ) -> tuple[ConstitutionalMission, ...]:
-        return self._by_state(
-            ConstitutionalMissionState.RUNNING
-        )
+        return self._by_state(ConstitutionalMissionState.RUNNING)
 
     def completed(
         self,
     ) -> tuple[ConstitutionalMission, ...]:
-        return self._by_state(
-            ConstitutionalMissionState.COMPLETED
-        )
+        return self._by_state(ConstitutionalMissionState.COMPLETED)
 
     def failed(
         self,
     ) -> tuple[ConstitutionalMission, ...]:
-        return self._by_state(
-            ConstitutionalMissionState.FAILED
-        )
+        return self._by_state(ConstitutionalMissionState.FAILED)
 
     def dependencies_of(
         self,
@@ -332,9 +276,7 @@ class ConstitutionalMissionEngine:
         mission = self.get(address)
 
         return tuple(
-            self.get(dependency)
-            for dependency
-            in sorted(mission.dependencies)
+            self.get(dependency) for dependency in sorted(mission.dependencies)
         )
 
     def dependents_of(
@@ -345,9 +287,7 @@ class ConstitutionalMissionEngine:
         self.get(resolved)
 
         return tuple(
-            mission
-            for mission in self.all()
-            if resolved in mission.dependencies
+            mission for mission in self.all() if resolved in mission.dependencies
         )
 
     def remove(
@@ -358,17 +298,12 @@ class ConstitutionalMissionEngine:
     ) -> ConstitutionalMission:
         resolved = self._normalize(address)
         mission = self.get(resolved)
-        dependents = self.dependents_of(
-            resolved
-        )
+        dependents = self.dependents_of(resolved)
 
         if dependents and not force:
             raise MissionInUseError(
                 f"Mission {resolved} has dependents: "
-                + ", ".join(
-                    item.address
-                    for item in dependents
-                )
+                + ", ".join(item.address for item in dependents)
             )
 
         with self._lock:
@@ -396,10 +331,7 @@ class ConstitutionalMissionEngine:
     ) -> MissionEngineStatistics:
         missions = self.all()
 
-        counts = Counter(
-            mission.state.value
-            for mission in missions
-        )
+        counts = Counter(mission.state.value for mission in missions)
 
         return MissionEngineStatistics(
             total=len(missions),
@@ -411,23 +343,15 @@ class ConstitutionalMissionEngine:
             completed=counts["completed"],
             failed=counts["failed"],
             cancelled=counts["cancelled"],
-            dependency_edges=sum(
-                len(mission.dependencies)
-                for mission in missions
-            ),
+            dependency_edges=sum(len(mission.dependencies) for mission in missions),
         )
 
     def snapshot(
         self,
     ) -> dict[str, object]:
         return {
-            "missions": [
-                mission.to_snapshot()
-                for mission in self.all()
-            ],
-            "statistics": (
-                self.statistics().to_dict()
-            ),
+            "missions": [mission.to_snapshot() for mission in self.all()],
+            "statistics": (self.statistics().to_dict()),
         }
 
     def _dependencies_complete(
@@ -435,21 +359,15 @@ class ConstitutionalMissionEngine:
         mission: ConstitutionalMission,
     ) -> bool:
         return all(
-            self.get(dependency).state
-            is ConstitutionalMissionState.COMPLETED
-            for dependency
-            in mission.dependencies
+            self.get(dependency).state is ConstitutionalMissionState.COMPLETED
+            for dependency in mission.dependencies
         )
 
     def _by_state(
         self,
         state: ConstitutionalMissionState,
     ) -> tuple[ConstitutionalMission, ...]:
-        return tuple(
-            mission
-            for mission in self.all()
-            if mission.state is state
-        )
+        return tuple(mission for mission in self.all() if mission.state is state)
 
     def _publish(
         self,
@@ -457,9 +375,7 @@ class ConstitutionalMissionEngine:
         mission: ConstitutionalMission,
         *,
         payload: dict[str, object],
-        severity: ConstitutionalEventSeverity = (
-            ConstitutionalEventSeverity.INFO
-        ),
+        severity: ConstitutionalEventSeverity = (ConstitutionalEventSeverity.INFO),
     ) -> None:
         if self._event_bus is None:
             return

@@ -56,9 +56,7 @@ class PlatformKernel:
     ) -> None:
         self.runtime = runtime
         self.runtime_adapter = (
-            DefaultRuntimeAdapter(runtime)
-            if runtime is not None
-            else None
+            DefaultRuntimeAdapter(runtime) if runtime is not None else None
         )
         self.executive_kernel = executive_kernel or ExecutiveKernel()
         self.capability_host = capability_host or CapabilityHost()

@@ -1,8 +1,3 @@
 from .engine import CollectionGuardianEngine
 
-__all__=[
-
-"CollectionGuardianEngine"
-
-]
-
+__all__ = ["CollectionGuardianEngine"]

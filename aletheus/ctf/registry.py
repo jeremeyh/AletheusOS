@@ -36,9 +36,7 @@ class CTFRegistry:
     ) -> None:
 
         if route_key in self._routes:
-            raise ValueError(
-                f"Route '{route_key}' already exists."
-            )
+            raise ValueError(f"Route '{route_key}' already exists.")
 
         self._routes[route_key] = handler
 

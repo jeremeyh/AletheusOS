@@ -4,10 +4,5 @@ runner = JobRunner()
 
 runner.run(
     "asset.process",
-    {
-        "player":"Caleb Williams",
-        "set":"Prizm",
-        "parallel":"Gold",
-        "serial":"10"
-    }
+    {"player": "Caleb Williams", "set": "Prizm", "parallel": "Gold", "serial": "10"},
 )

@@ -129,9 +129,7 @@ class AssetRepository:
 
         for column, definition in required_columns.items():
             if column not in existing_columns:
-                cur.execute(
-                    f"ALTER TABLE assets ADD COLUMN {column} {definition}"
-                )
+                cur.execute(f"ALTER TABLE assets ADD COLUMN {column} {definition}")
 
         conn.commit()
         conn.close()
@@ -164,20 +162,15 @@ class AssetRepository:
             "patch": int(bool(card.get("patch"))),
             "serial_number": card.get("serial_number") or card.get("serial"),
             "print_run": card.get("print_run"),
-            "grading_company": card.get("grading_company")
-            or card.get("grade_company"),
+            "grading_company": card.get("grading_company") or card.get("grade_company"),
             "grade": card.get("grade"),
             "condition": card.get("condition") or "Raw",
             "purchase_price": float(card.get("purchase_price") or 0),
             "current_value": float(
-                card.get("current_value")
-                or card.get("market_value")
-                or 0
+                card.get("current_value") or card.get("market_value") or 0
             ),
             "market_value": float(
-                card.get("market_value")
-                or card.get("current_value")
-                or 0
+                card.get("market_value") or card.get("current_value") or 0
             ),
             "floor": float(card.get("floor") or 0),
             "ceiling": float(card.get("ceiling") or 0),

@@ -43,17 +43,13 @@ class ReasoningDomain:
         return context
 
     def explain(self, context):
-        result = self.runtime.reasoning.explain(
-            context.payload.get("trace_id", "")
-        )
+        result = self.runtime.reasoning.explain(context.payload.get("trace_id", ""))
 
         context.add_result("explanation", result)
         return context
 
     def trace(self, context):
-        result = self.runtime.reasoning.trace(
-            context.payload.get("trace_id", "")
-        )
+        result = self.runtime.reasoning.trace(context.payload.get("trace_id", ""))
 
         context.add_result("trace", result)
         return context

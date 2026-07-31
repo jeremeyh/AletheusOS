@@ -42,9 +42,7 @@ def _count_ledger_events(ledger: Any) -> int:
 
     if hasattr(ledger, "replay_events"):
         try:
-            return len(
-                ledger.replay_events()
-            )
+            return len(ledger.replay_events())
         except TypeError:
             pass
 
@@ -69,9 +67,7 @@ class RuntimeSurface:
         self._orchestrator = orchestrator
 
     def health(self) -> PlatformHealth:
-        orchestrator_health = (
-            self._orchestrator.health()
-        )
+        orchestrator_health = self._orchestrator.health()
 
         components = {
             "orchestrator": orchestrator_health,
@@ -110,11 +106,7 @@ class RuntimeSurface:
             for component in components.values()
         )
 
-        status = (
-            "degraded"
-            if degraded
-            else "healthy"
-        )
+        status = "degraded" if degraded else "healthy"
 
         return PlatformHealth(
             status=status,
@@ -127,33 +119,15 @@ class RuntimeSurface:
     ) -> PlatformRuntimeSnapshot:
         orchestrator = self._orchestrator
 
-        case_stats = (
-            orchestrator
-            .case_engine
-            .registry
-            .statistics()
-        )
+        case_stats = orchestrator.case_engine.registry.statistics()
 
-        mission_stats = (
-            orchestrator
-            .mission_engine
-            .registry
-            .statistics()
-        )
+        mission_stats = orchestrator.mission_engine.registry.statistics()
 
-        time_health = (
-            orchestrator.time.health()
-        )
+        time_health = orchestrator.time.health()
 
-        runtime_health = (
-            orchestrator
-            .mission_runtime
-            .health()
-        )
+        runtime_health = orchestrator.mission_runtime.health()
 
-        orchestrator_health = (
-            orchestrator.health()
-        )
+        orchestrator_health = orchestrator.health()
 
         failures = int(
             orchestrator_health.get(
@@ -167,11 +141,7 @@ class RuntimeSurface:
             )
         )
 
-        status = (
-            "degraded"
-            if failures
-            else "healthy"
-        )
+        status = "degraded" if failures else "healthy"
 
         return PlatformRuntimeSnapshot(
             status=status,
@@ -218,9 +188,7 @@ class RuntimeSurface:
                     0,
                 )
             ),
-            ledger_events=_count_ledger_events(
-                orchestrator.ledger
-            ),
+            ledger_events=_count_ledger_events(orchestrator.ledger),
             failures=failures,
             details={
                 "case_registry": case_stats,

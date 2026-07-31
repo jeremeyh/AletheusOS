@@ -21,9 +21,7 @@ class RuntimeDoctor:
         commands = self.runtime.commands.list()
         compat = self.runtime.compat.statistics()
 
-        duplicate_commands = sorted(
-            {c for c in commands if commands.count(c) > 1}
-        )
+        duplicate_commands = sorted({c for c in commands if commands.count(c) > 1})
 
         required_aliases = [
             "memory",
@@ -38,7 +36,8 @@ class RuntimeDoctor:
         ]
 
         missing_aliases = [
-            alias for alias in required_aliases
+            alias
+            for alias in required_aliases
             if alias not in compat.get("aliases", [])
         ]
 
@@ -52,10 +51,7 @@ class RuntimeDoctor:
             "hardening_available": hasattr(self.runtime, "hardening"),
         }
 
-        failed = [
-            name for name, passed in checks.items()
-            if not passed
-        ]
+        failed = [name for name, passed in checks.items() if not passed]
 
         report = {
             "version": self.VERSION,

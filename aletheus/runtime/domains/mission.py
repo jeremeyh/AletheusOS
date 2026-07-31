@@ -14,14 +14,10 @@ class MissionDomain:
         return self.runtime.missions_v2.list()
 
     def execute(self, payload):
-        return self.runtime.missions_v2.execute(
-            payload.get("mission_id", "")
-        )
+        return self.runtime.missions_v2.execute(payload.get("mission_id", ""))
 
     def complete(self, payload):
-        return self.runtime.missions_v2.complete(
-            payload.get("mission_id", "")
-        )
+        return self.runtime.missions_v2.complete(payload.get("mission_id", ""))
 
     def statistics(self, payload=None):
         return self.runtime.missions_v2.statistics()

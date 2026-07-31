@@ -6,19 +6,6 @@ Genesis 13.53
 
 
 class AlignmentEngine:
+    def evaluate(self, action):
 
-
-    def evaluate(
-        self,
-        action
-    ):
-
-
-        return {
-
-            "aligned":
-
-                True
-
-        }
-
+        return {"aligned": True}

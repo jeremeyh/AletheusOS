@@ -12,6 +12,7 @@ class DomainAssetService:
     Higher-level asset package facade.
     Uses the existing Core AssetService for persistence.
     """
+
     @staticmethod
     def create_asset(**kwargs):
         asset = AssetFactory.create(**kwargs)

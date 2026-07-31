@@ -18,12 +18,7 @@ def find_repo_root(start: Path) -> Path:
 
 ROOT = find_repo_root(Path(__file__).parent)
 
-WORKFLOW = (
-    ROOT
-    / ".github"
-    / "workflows"
-    / "nimble-production-gate.yml"
-)
+WORKFLOW = ROOT / ".github" / "workflows" / "nimble-production-gate.yml"
 
 REQUIRED_MARKERS = (
     "name: Nimble Production Gate",
@@ -49,20 +44,14 @@ REQUIRED_MARKERS = (
 
 def main() -> int:
     if not WORKFLOW.exists():
-        print(
-            "FAIL: Nimble production workflow is missing."
-        )
+        print("FAIL: Nimble production workflow is missing.")
         return 1
 
     text = WORKFLOW.read_text(
         encoding="utf-8",
     )
 
-    missing = [
-        marker
-        for marker in REQUIRED_MARKERS
-        if marker not in text
-    ]
+    missing = [marker for marker in REQUIRED_MARKERS if marker not in text]
 
     if missing:
         for marker in missing:

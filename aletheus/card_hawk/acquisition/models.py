@@ -9,7 +9,6 @@ from dataclasses import dataclass, field
 
 @dataclass
 class AcquisitionTarget:
-
     target_id: str
 
     player: str
@@ -28,7 +27,4 @@ class AcquisitionTarget:
 
     recommendation: str = "UNASSESSED"
 
-    signals: dict = field(
-        default_factory=dict
-    )
-
+    signals: dict = field(default_factory=dict)

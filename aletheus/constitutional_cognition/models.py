@@ -64,19 +64,13 @@ class EngineContribution:
 
     def __post_init__(self) -> None:
         if not 0.0 <= self.confidence <= 1.0:
-            raise ValueError(
-                "Contribution confidence must be between 0.0 and 1.0."
-            )
+            raise ValueError("Contribution confidence must be between 0.0 and 1.0.")
 
         if self.weight <= 0:
-            raise ValueError(
-                "Contribution weight must be greater than zero."
-            )
+            raise ValueError("Contribution weight must be greater than zero.")
 
         if self.evidence_count < 0:
-            raise ValueError(
-                "Evidence count may not be negative."
-            )
+            raise ValueError("Evidence count may not be negative.")
 
     def to_dict(self) -> dict[str, Any]:
         value = asdict(self)
@@ -145,24 +139,14 @@ class VirtueAssessment:
 
     @property
     def violations(self) -> tuple[VirtueFinding, ...]:
-        return tuple(
-            finding
-            for finding in self.findings
-            if not finding.passed
-        )
+        return tuple(finding for finding in self.findings if not finding.passed)
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "score": self.score,
             "passed": self.passed,
-            "violations": [
-                finding.to_dict()
-                for finding in self.violations
-            ],
-            "findings": [
-                finding.to_dict()
-                for finding in self.findings
-            ],
+            "violations": [finding.to_dict() for finding in self.violations],
+            "findings": [finding.to_dict() for finding in self.findings],
         }
 
 
@@ -188,22 +172,14 @@ class ConvergenceResult:
             "assertion_key": self.assertion_key,
             "state": self.state.value,
             "dominant_stance": (
-                self.dominant_stance.value
-                if self.dominant_stance
-                else None
+                self.dominant_stance.value if self.dominant_stance else None
             ),
             "confidence": self.confidence,
             "support_strength": self.support_strength,
             "challenge_strength": self.challenge_strength,
             "abstention_strength": self.abstention_strength,
-            "contributions": [
-                item.to_dict()
-                for item in self.contributions
-            ],
-            "dissent": [
-                item.to_dict()
-                for item in self.dissent
-            ],
+            "contributions": [item.to_dict() for item in self.contributions],
+            "dissent": [item.to_dict() for item in self.dissent],
             "explanation": self.explanation,
             "metadata": dict(self.metadata),
         }
@@ -236,15 +212,9 @@ class MeshExecutionReport:
             "cognition_id": self.cognition_id,
             "assertion_key": self.assertion_key,
             "successful": self.successful,
-            "contributions": [
-                item.to_dict()
-                for item in self.contributions
-            ],
+            "contributions": [item.to_dict() for item in self.contributions],
             "failures": list(self.failures),
             "convergence": self.convergence.to_dict(),
             "virtues": self.virtues.to_dict(),
-            "signals": [
-                signal.to_dict()
-                for signal in self.signals
-            ],
+            "signals": [signal.to_dict() for signal in self.signals],
         }

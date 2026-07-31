@@ -1,5 +1,4 @@
 class RuntimeRegistrationReporter:
-
     def render(self, manager):
 
         health = manager.health()
@@ -21,9 +20,11 @@ class RuntimeRegistrationReporter:
         else:
             lines.append("  None")
 
-        lines.extend([
-            "",
-            "========================================================",
-        ])
+        lines.extend(
+            [
+                "",
+                "========================================================",
+            ]
+        )
 
         return "\n".join(lines)

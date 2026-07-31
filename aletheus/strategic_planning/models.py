@@ -9,29 +9,19 @@ from dataclasses import dataclass, field
 
 @dataclass
 class StrategicGoal:
-
-
     goal_id: str
 
     description: str
 
-    constraints: dict = field(
-        default_factory=dict
-    )
-
+    constraints: dict = field(default_factory=dict)
 
 
 @dataclass
 class MissionPlan:
-
-
     mission_id: str
 
     objective: str
 
-    steps: list = field(
-        default_factory=list
-    )
+    steps: list = field(default_factory=list)
 
     status: str = "created"
-

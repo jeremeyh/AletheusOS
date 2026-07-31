@@ -6,6 +6,4 @@ Genesis 57
 
 from .engine import MobileIntelligenceEngine
 
-__all__ = [
-    "MobileIntelligenceEngine"
-]
+__all__ = ["MobileIntelligenceEngine"]

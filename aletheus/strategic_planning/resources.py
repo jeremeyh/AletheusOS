@@ -6,19 +6,6 @@ Genesis 13.50
 
 
 class ResourcePlanner:
+    def analyze(self, mission):
 
-
-    def analyze(
-        self,
-        mission
-    ):
-
-
-        return {
-
-            "resources":
-
-                []
-
-        }
-
+        return {"resources": []}

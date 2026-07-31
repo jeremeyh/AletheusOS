@@ -99,7 +99,9 @@ class SpanReportWriter:
                     ]
                 )
                 if finding["recommendation"]:
-                    lines.extend([f"**Recommendation:** {finding['recommendation']}", ""])
+                    lines.extend(
+                        [f"**Recommendation:** {finding['recommendation']}", ""]
+                    )
         path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
         return path
 

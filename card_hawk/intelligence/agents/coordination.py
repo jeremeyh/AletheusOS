@@ -10,19 +10,6 @@ Enable agent collaboration
 
 
 class AgentCoordination:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.5"
-
-        }
-
+        return {"status": "ready", "genesis": "23.5"}

@@ -4,6 +4,7 @@ class AssetSearch:
 
     Text and structured search helpers.
     """
+
     @staticmethod
     def matches(asset, query: str) -> bool:
         if not query:

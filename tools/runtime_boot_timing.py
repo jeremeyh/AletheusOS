@@ -14,7 +14,6 @@ def main():
     total = 0.0
 
     for phase in BOOT_PHASES:
-
         timer = BootTiming(phase)
 
         #

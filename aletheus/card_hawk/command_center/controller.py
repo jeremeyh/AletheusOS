@@ -4,63 +4,22 @@ Card Hawk Command Center Controller
 Genesis 13.14
 """
 
-
 from .dashboard import CardHawkDashboard
 
 
 class CommandCenterController:
+    def __init__(self, intelligence=None):
 
+        self.intelligence = intelligence
 
-    def __init__(
-        self,
-        intelligence=None
-    ):
+        self.dashboard = CardHawkDashboard()
 
-        self.intelligence = (
-            intelligence
-        )
+    def overview(self):
 
-        self.dashboard = (
-            CardHawkDashboard()
-        )
+        context = {"portfolio": {}, "intelligence": {}, "opportunities": []}
 
+        return self.dashboard.render(context)
 
+    def health(self):
 
-    def overview(
-        self
-    ):
-
-        context = {
-
-            "portfolio":
-                {},
-
-            "intelligence":
-                {},
-
-            "opportunities":
-                []
-
-        }
-
-
-        return self.dashboard.render(
-            context
-        )
-
-
-
-    def health(
-        self
-    ):
-
-        return {
-
-            "component":
-                "command_center",
-
-            "status":
-                "active"
-
-        }
-
+        return {"component": "command_center", "status": "active"}

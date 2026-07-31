@@ -93,10 +93,7 @@ class RuntimeExplorer:
         for item in self._graph.nodes():
             indexed[item.address] = item
 
-        return tuple(
-            indexed[address]
-            for address in sorted(indexed)
-        )
+        return tuple(indexed[address] for address in sorted(indexed))
 
     def services(
         self,
@@ -138,8 +135,7 @@ class RuntimeExplorer:
 
         return self._filter(
             self.objects(),
-            lambda item: needle
-            in item.owner.casefold(),
+            lambda item: needle in item.owner.casefold(),
         )
 
     def find_by_authority(
@@ -150,8 +146,7 @@ class RuntimeExplorer:
 
         return self._filter(
             self.objects(),
-            lambda item: needle
-            in item.authority.casefold(),
+            lambda item: needle in item.authority.casefold(),
         )
 
     def unhealthy(
@@ -198,7 +193,8 @@ class RuntimeExplorer:
                     matched.append(field)
                     score += (
                         40
-                        if field in {
+                        if field
+                        in {
                             "address",
                             "canonical_name",
                         }
@@ -210,9 +206,7 @@ class RuntimeExplorer:
                     ExplorerSearchResult(
                         object=item,
                         score=score,
-                        matched_fields=tuple(
-                            sorted(matched)
-                        ),
+                        matched_fields=tuple(sorted(matched)),
                     )
                 )
 
@@ -262,9 +256,7 @@ class RuntimeExplorer:
         if transitive:
             return self._graph.downstream(
                 address,
-                kinds={
-                    RelationshipKind.DEPENDS_ON
-                },
+                kinds={RelationshipKind.DEPENDS_ON},
             )
 
         return self._twin.dependencies(address)
@@ -280,9 +272,7 @@ class RuntimeExplorer:
         if transitive:
             return self._graph.upstream(
                 address,
-                kinds={
-                    RelationshipKind.DEPENDS_ON
-                },
+                kinds={RelationshipKind.DEPENDS_ON},
             )
 
         return self._twin.dependents(address)
@@ -356,9 +346,7 @@ class RuntimeExplorer:
         *,
         retain: bool = True,
     ) -> TwinSnapshot:
-        return self._twin.snapshot(
-            retain=retain
-        )
+        return self._twin.snapshot(retain=retain)
 
     def snapshots(
         self,
@@ -382,46 +370,22 @@ class RuntimeExplorer:
         graph_stats = self._graph.statistics()
         twin_stats = self._twin.statistics()
 
-        kind_counts = Counter(
-            item.kind.value
-            for item in objects
-        )
-        state_counts = Counter(
-            item.state.value
-            for item in objects
-        )
-        health_counts = Counter(
-            item.health.value
-            for item in objects
-        )
+        kind_counts = Counter(item.kind.value for item in objects)
+        state_counts = Counter(item.state.value for item in objects)
+        health_counts = Counter(item.health.value for item in objects)
 
         return RuntimeExplorerStatistics(
             objects=len(objects),
-            services=len(
-                self._service_registry.all()
-            ),
-            relationships=(
-                graph_stats.relationships
-            ),
-            unhealthy=sum(
-                item.health in _UNHEALTHY
-                for item in objects
-            ),
+            services=len(self._service_registry.all()),
+            relationships=(graph_stats.relationships),
+            unhealthy=sum(item.health in _UNHEALTHY for item in objects),
             orphans=graph_stats.orphans,
             cycles=graph_stats.cycles,
-            retained_snapshots=(
-                twin_stats.snapshots_retained
-            ),
+            retained_snapshots=(twin_stats.snapshots_retained),
             twin_revision=twin_stats.revision,
-            objects_by_kind=MappingProxyType(
-                dict(kind_counts)
-            ),
-            objects_by_state=MappingProxyType(
-                dict(state_counts)
-            ),
-            objects_by_health=MappingProxyType(
-                dict(health_counts)
-            ),
+            objects_by_kind=MappingProxyType(dict(kind_counts)),
+            objects_by_state=MappingProxyType(dict(state_counts)),
+            objects_by_health=MappingProxyType(dict(health_counts)),
         )
 
     @staticmethod

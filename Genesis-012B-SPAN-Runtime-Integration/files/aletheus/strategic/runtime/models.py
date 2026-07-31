@@ -25,9 +25,7 @@ class StrategicProposalEnvelope:
     evidence: tuple[Mapping[str, Any], ...] = ()
     confidence: float = 0.0
     proposal_id: str = field(default_factory=lambda: str(uuid4()))
-    created_at: str = field(
-        default_factory=lambda: datetime.now(UTC).isoformat()
-    )
+    created_at: str = field(default_factory=lambda: datetime.now(UTC).isoformat())
 
     def __post_init__(self) -> None:
         if not 0.0 <= self.confidence <= 1.0:

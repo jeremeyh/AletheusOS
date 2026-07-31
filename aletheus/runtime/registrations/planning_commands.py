@@ -77,7 +77,6 @@ def register_planning_commands(runtime):
     def list_generated_plans(payload=None):
         return cognition.list_plans()
 
-
     def record_decision(payload=None):
         payload = payload or {}
 
@@ -90,7 +89,6 @@ def register_planning_commands(runtime):
         )
 
         return _serialize(decision)
-
 
     # ---------------------------------------------------------
     # v1.4 autonomous-planning compatibility

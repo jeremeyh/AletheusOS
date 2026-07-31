@@ -6,6 +6,4 @@ Post-Genesis 626-650
 
 from .engine import GenesisEngine
 
-__all__ = [
-"GenesisEngine"
-]
+__all__ = ["GenesisEngine"]

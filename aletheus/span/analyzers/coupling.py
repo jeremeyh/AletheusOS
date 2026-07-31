@@ -72,7 +72,7 @@ class CouplingAnalyzer(Analyzer):
                     confidence=0.95,
                     recommendation="Reduce outgoing dependencies.",
                     metadata=metric.to_dict(),
-                    tags=("coupling","fan-out"),
+                    tags=("coupling", "fan-out"),
                 )
 
             if metric.fan_in >= 40:
@@ -85,7 +85,7 @@ class CouplingAnalyzer(Analyzer):
                     confidence=0.95,
                     recommendation="Review API stability and ownership.",
                     metadata=metric.to_dict(),
-                    tags=("coupling","fan-in"),
+                    tags=("coupling", "fan-in"),
                 )
 
             if metric.instability > 0.9 and metric.fan_out >= 10:

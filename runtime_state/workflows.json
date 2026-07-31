@@ -1,12 +1,12 @@
 {
   "workflows": [
     {
-      "workflow_id": "8f8ec3e8-4126-4bcc-8ece-e5134d74b05f",
+      "workflow_id": "1918cfe4-81c1-45b5-9f8e-6560bd5f80bb",
       "title": "Card Hawk Acquisition Workflow",
       "description": "Research \u2192 Marketplace \u2192 Portfolio \u2192 Decision",
       "status": "created",
       "checkpoint": 0,
-      "created_at": "2026-07-29T23:55:01.486979+00:00",
+      "created_at": "2026-07-31T14:24:52.906463+00:00",
       "started_at": null,
       "completed_at": null,
       "steps": [
@@ -33,13 +33,13 @@
       ]
     },
     {
-      "workflow_id": "8db3ef22-941b-4d87-9b0c-abdd66648cac",
+      "workflow_id": "88d882bc-746c-48a3-9dbc-e00888e7c5dc",
       "title": "Card Hawk Purchase Pipeline",
       "description": "Research \u2192 Marketplace \u2192 Decision",
       "status": "cancelled",
       "checkpoint": 0,
-      "created_at": "2026-07-29T23:55:01.487364+00:00",
-      "started_at": "2026-07-29T23:55:01.487381+00:00",
+      "created_at": "2026-07-31T14:24:52.906957+00:00",
+      "started_at": "2026-07-31T14:24:52.906972+00:00",
       "completed_at": null,
       "steps": []
     }

@@ -1,4 +1,5 @@
 """Read-only candidate transformation orchestration."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -14,6 +15,7 @@ from .validator import SourceValidator
 
 class RewriteError(RuntimeError):
     pass
+
 
 class CandidateRewriter:
     def __init__(
@@ -47,7 +49,9 @@ class CandidateRewriter:
             raise RewriteError(str(exc)) from exc
         validation = self.validator.validate(rewritten_source, path)
         if not validation.valid:
-            raise RewriteError(f"Rewritten source failed validation: {validation.error}")
+            raise RewriteError(
+                f"Rewritten source failed validation: {validation.error}"
+            )
         if rewritten_source == original_source:
             raise RewriteError("Transformation completed without changing source.")
         relative_path = path.relative_to(self.root)
@@ -72,11 +76,17 @@ class CandidateRewriter:
 
     def _resolve_candidate_path(self, candidate: Any) -> Path:
         raw_path = candidate_path(candidate)
-        resolved = raw_path.resolve() if raw_path.is_absolute() else (self.root / raw_path).resolve()
+        resolved = (
+            raw_path.resolve()
+            if raw_path.is_absolute()
+            else (self.root / raw_path).resolve()
+        )
         try:
             resolved.relative_to(self.root)
         except ValueError as exc:
-            raise RewriteError(f"Candidate path escapes repository root: {resolved}") from exc
+            raise RewriteError(
+                f"Candidate path escapes repository root: {resolved}"
+            ) from exc
         if not resolved.is_file():
             raise RewriteError(f"Candidate file does not exist: {resolved}")
         return resolved

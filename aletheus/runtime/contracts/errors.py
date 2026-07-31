@@ -19,4 +19,3 @@ class ComponentDependencyError(RuntimeErrorBase):
 
 class ComponentLifecycleError(RuntimeErrorBase):
     """Raised when a lifecycle transition fails."""
-

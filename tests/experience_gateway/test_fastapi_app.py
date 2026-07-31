@@ -27,14 +27,9 @@ def test_health_endpoint_matches_nimble_contract() -> None:
     assert 0 <= payload["passingChecks"] <= 4
     assert payload["warningCount"] >= 0
 
-    assert payload["truth"]["state"] == (
-        "live_runtime_provider"
-    )
+    assert payload["truth"]["state"] == ("live_runtime_provider")
 
-    check_ids = {
-        check["id"]
-        for check in payload["checks"]
-    }
+    check_ids = {check["id"] for check in payload["checks"]}
 
     assert check_ids == {
         "repository-structure",
@@ -70,9 +65,7 @@ def test_overview_endpoint_returns_combined_state() -> None:
 def test_provider_registry_endpoint_discloses_sources() -> None:
     client = TestClient(create_app())
 
-    response = client.get(
-        "/api/experience/providers"
-    )
+    response = client.get("/api/experience/providers")
 
     assert response.status_code == 200
 
@@ -122,9 +115,7 @@ def test_mutating_command_requires_authorization() -> None:
     preview_response = client.post(
         "/api/commands/preview",
         json={
-            "command_id": (
-                "experience.inspector.set"
-            ),
+            "command_id": ("experience.inspector.set"),
             "arguments": {
                 "open": False,
             },

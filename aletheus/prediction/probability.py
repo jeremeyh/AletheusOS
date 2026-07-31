@@ -6,17 +6,6 @@ Post-Genesis 13
 
 
 class ProbabilityEngine:
-
-
     def calculate(self, outcome):
 
-        return {
-
-            "outcome":
-            outcome,
-
-            "probability":
-            "calculated"
-
-        }
-
+        return {"outcome": outcome, "probability": "calculated"}

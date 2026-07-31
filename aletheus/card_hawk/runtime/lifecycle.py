@@ -6,44 +6,22 @@ Genesis 13.13
 
 
 class CardHawkLifecycle:
-
-
-    def __init__(
-        self
-    ):
+    def __init__(self):
 
         self.status = "created"
 
-
-
-    def start(
-        self
-    ):
+    def start(self):
 
         self.status = "running"
 
         return self.status
 
-
-
-    def stop(
-        self
-    ):
+    def stop(self):
 
         self.status = "stopped"
 
         return self.status
 
+    def health(self):
 
-
-    def health(
-        self
-    ):
-
-        return {
-
-            "status":
-                self.status
-
-        }
-
+        return {"status": self.status}

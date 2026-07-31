@@ -5,34 +5,24 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
-GENERATOR = (
-    ROOT
-    / "generate_nimble_release_attestation.py"
-)
+GENERATOR = ROOT / "generate_nimble_release_attestation.py"
 
-VALIDATOR = (
-    ROOT
-    / "validate_nimble_release_attestation.py"
-)
+VALIDATOR = ROOT / "validate_nimble_release_attestation.py"
 
 
 def load_module(
     name: str,
     path: Path,
 ):
-    specification = (
-        importlib.util.spec_from_file_location(
-            name,
-            path,
-        )
+    specification = importlib.util.spec_from_file_location(
+        name,
+        path,
     )
 
     assert specification is not None
     assert specification.loader is not None
 
-    module = importlib.util.module_from_spec(
-        specification
-    )
+    module = importlib.util.module_from_spec(specification)
 
     specification.loader.exec_module(module)
 
@@ -68,13 +58,7 @@ def test_hash_directory_contract():
         GENERATOR,
     )
 
-    result = module.hash_directory(
-        ROOT
-        / "nimble"
-        / "apps"
-        / "platform-shell"
-        / "dist"
-    )
+    result = module.hash_directory(ROOT / "nimble" / "apps" / "platform-shell" / "dist")
 
     assert "files" in result
     assert "file_count" in result
@@ -87,7 +71,4 @@ def test_validator_requires_digest():
         VALIDATOR,
     )
 
-    assert (
-        "attestation_sha256"
-        in module.REQUIRED_TOP_LEVEL_KEYS
-    )
+    assert "attestation_sha256" in module.REQUIRED_TOP_LEVEL_KEYS

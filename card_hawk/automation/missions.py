@@ -6,19 +6,6 @@ Genesis 14.7
 
 
 class MissionRunner:
+    def run(self, mission):
 
-
-    def run(
-        self,
-        mission
-    ):
-
-
-        return {
-
-            "status":
-
-                "running"
-
-        }
-
+        return {"status": "running"}

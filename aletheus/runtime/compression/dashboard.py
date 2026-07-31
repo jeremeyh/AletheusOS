@@ -6,15 +6,12 @@ CORE = Path("aletheus/runtime/core.py")
 
 
 class RuntimeCompressionDashboard:
-
     ORIGINAL_CORE_LINES = 3572
     RESPONSIBILITIES_TOTAL = 12
 
     def current_lines(self):
 
-        return len(
-            CORE.read_text().splitlines()
-        )
+        return len(CORE.read_text().splitlines())
 
     def report(
         self,

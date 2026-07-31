@@ -5,42 +5,19 @@ Institutional Memory Engine
 
 
 class InstitutionalMemoryEngine:
-
-
     def __init__(self):
 
-        self.memories=[]
-
-
+        self.memories = []
 
     def record(self, lesson):
 
         self.memories.append(lesson)
 
-
-        return {
-
-            "stored":
-                True,
-
-            "lesson":
-                lesson
-
-        }
-
-
+        return {"stored": True, "lesson": lesson}
 
     def snapshot(self):
 
-        return {
-
-            "memories":
-                len(self.memories)
-
-        }
-
-
-
+        return {"memories": len(self.memories)}
 
 
 # =====================================================
@@ -50,67 +27,20 @@ class InstitutionalMemoryEngine:
 
 
 class AnchorInstitutionalMemoryEngine:
-
-
-    def __init__(
-        self,
-        *args,
-        **kwargs
-    ):
+    def __init__(self, *args, **kwargs):
 
         self.name = "AnchorInstitutionalMemoryEngine"
 
         self.history = []
 
+    def attach(self, *args, **kwargs):
 
+        return {"component": self.name, "status": "attached"}
 
-    def attach(
-        self,
-        *args,
-        **kwargs
-    ):
+    def validate(self, *args, **kwargs):
 
-        return {
+        return {"component": self.name, "valid": True}
 
-            "component":
-                self.name,
+    def snapshot(self):
 
-            "status":
-                "attached"
-
-        }
-
-
-
-    def validate(
-        self,
-        *args,
-        **kwargs
-    ):
-
-        return {
-
-            "component":
-                self.name,
-
-            "valid":
-                True
-
-        }
-
-
-
-    def snapshot(
-        self
-    ):
-
-        return {
-
-            "component":
-                self.name,
-
-            "history":
-                self.history
-
-        }
-
+        return {"component": self.name, "history": self.history}

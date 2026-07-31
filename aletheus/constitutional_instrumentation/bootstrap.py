@@ -21,21 +21,15 @@ def build_cognition_instrumentation(
     ConstitutionalInstrumentBus,
     CognitionInstrumentBridge,
 ]:
-    registry = (
-        ConstitutionalInstrumentRegistry()
-    )
+    registry = ConstitutionalInstrumentRegistry()
 
-    register_canonical_cognition_instruments(
-        registry
-    )
+    register_canonical_cognition_instruments(registry)
 
     bus = ConstitutionalInstrumentBus(
         registry=registry,
         history_limit=history_limit,
     )
 
-    bridge = CognitionInstrumentBridge(
-        bus=bus
-    )
+    bridge = CognitionInstrumentBridge(bus=bus)
 
     return bus, bridge

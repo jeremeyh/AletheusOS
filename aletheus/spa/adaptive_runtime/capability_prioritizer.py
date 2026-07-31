@@ -6,23 +6,6 @@ Genesis 157
 
 
 class CapabilityPrioritizer:
-
-
     def rank(self):
 
-        return {
-
-            "priority":
-
-            [
-
-                "Reasoning",
-
-                "Prediction",
-
-                "Agent Fabric"
-
-            ]
-
-        }
-
+        return {"priority": ["Reasoning", "Prediction", "Agent Fabric"]}

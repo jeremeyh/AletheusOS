@@ -4,59 +4,29 @@ Marketplace Connector Runtime
 Genesis 13.24
 """
 
-
 from .health import ConnectorHealthManager
 from .lifecycle import ConnectorLifecycleManager
 from .registry import ConnectorRegistry
 
 
 class MarketplaceConnectorRuntime:
+    def __init__(self):
 
+        self.registry = ConnectorRegistry()
 
-    def __init__(
-        self
-    ):
+        self.lifecycle = ConnectorLifecycleManager()
 
-        self.registry = (
-            ConnectorRegistry()
-        )
+        self.health = ConnectorHealthManager()
 
-        self.lifecycle = (
-            ConnectorLifecycleManager()
-        )
+    def register(self, connector):
 
-        self.health = (
-            ConnectorHealthManager()
-        )
-
-
-
-    def register(
-        self,
-        connector
-    ):
-
-        self.registry.register(
-            connector
-        )
+        self.registry.register(connector)
 
         return connector
 
-
-
-    def status(
-        self
-    ):
+    def status(self):
 
         return [
-
-            self.health.inspect(
-                self.registry.get(name)
-            )
-
-            for name
-
-            in self.registry.list()
-
+            self.health.inspect(self.registry.get(name))
+            for name in self.registry.list()
         ]
-

@@ -16,16 +16,10 @@ REPORT = (
     / "empty_module_reference_classification.csv"
 )
 
-BATCH_ID = datetime.now(
-    UTC
-).strftime("%Y%m%dT%H%M%SZ")
+BATCH_ID = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
 
 QUARANTINE_ROOT = (
-    ROOT
-    / "archive"
-    / "quarantine"
-    / "archive_review_empty_modules"
-    / BATCH_ID
+    ROOT / "archive" / "quarantine" / "archive_review_empty_modules" / BATCH_ID
 )
 
 MANIFEST = QUARANTINE_ROOT / "manifest.json"
@@ -43,9 +37,7 @@ def load_candidates() -> list[Path]:
             if row["classification"] != "ARCHIVE_REVIEW":
                 continue
 
-            candidates.append(
-                ROOT / row["path"]
-            )
+            candidates.append(ROOT / row["path"])
 
     return candidates
 
@@ -66,19 +58,13 @@ def main() -> None:
             continue
 
         if path.name == "__init__.py":
-            raise RuntimeError(
-                f"Refusing package marker: {path}"
-            )
+            raise RuntimeError(f"Refusing package marker: {path}")
 
         if not path.is_file():
-            raise RuntimeError(
-                f"Not a file: {path}"
-            )
+            raise RuntimeError(f"Not a file: {path}")
 
         if path.stat().st_size != 0:
-            raise RuntimeError(
-                f"File is no longer empty: {path}"
-            )
+            raise RuntimeError(f"File is no longer empty: {path}")
 
         existing.append(path)
 
@@ -129,18 +115,14 @@ def main() -> None:
         moved.append(
             {
                 "source": str(relative),
-                "quarantine": str(
-                    destination.relative_to(ROOT)
-                ),
+                "quarantine": str(destination.relative_to(ROOT)),
             }
         )
 
     MANIFEST.write_text(
         json.dumps(
             {
-                "created_at": datetime.now(
-                    UTC
-                ).isoformat(),
+                "created_at": datetime.now(UTC).isoformat(),
                 "moved_count": len(moved),
                 "moved": moved,
             },
@@ -153,9 +135,7 @@ def main() -> None:
 
     print()
     print(f"Moved: {len(moved)}")
-    print(
-        f"Manifest: {MANIFEST.relative_to(ROOT)}"
-    )
+    print(f"Manifest: {MANIFEST.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

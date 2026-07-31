@@ -7,25 +7,17 @@ class ConstitutionalPolicyEngineError(Exception):
     """Base exception for CPE failures."""
 
 
-class PolicyAlreadyRegisteredError(
-    ConstitutionalPolicyEngineError
-):
+class PolicyAlreadyRegisteredError(ConstitutionalPolicyEngineError):
     """Raised when a policy identifier is already registered."""
 
 
-class PolicyNotFoundError(
-    ConstitutionalPolicyEngineError
-):
+class PolicyNotFoundError(ConstitutionalPolicyEngineError):
     """Raised when a requested policy does not exist."""
 
 
-class PolicyEvaluationError(
-    ConstitutionalPolicyEngineError
-):
+class PolicyEvaluationError(ConstitutionalPolicyEngineError):
     """Raised when deterministic policy evaluation fails."""
 
 
-class PolicyRegistryFrozenError(
-    ConstitutionalPolicyEngineError
-):
+class PolicyRegistryFrozenError(ConstitutionalPolicyEngineError):
     """Raised when mutation is attempted after registry freezing."""

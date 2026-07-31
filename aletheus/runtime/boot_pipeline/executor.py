@@ -17,10 +17,7 @@ class RuntimeBootExecutor:
     def run_parallel(self, runtime, phases):
 
         with ThreadPoolExecutor() as executor:
-            futures = [
-                executor.submit(phase.run, runtime)
-                for phase in phases
-            ]
+            futures = [executor.submit(phase.run, runtime) for phase in phases]
 
             for future in futures:
                 future.result()

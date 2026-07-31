@@ -4,33 +4,16 @@ aletheus_recovery_orchestration
 Post-Genesis 808
 """
 
-class RecoveryOrchestrationFrameworkEngine:
 
+class RecoveryOrchestrationFrameworkEngine:
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_recovery_orchestration",
-
-            "post_genesis":
-            "808",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_recovery_orchestration",
+            "post_genesis": "808",
+            "status": "operational",
         }
-
 
     def execute(self, request=None):
 
-        return {
-
-            "request":
-            request,
-
-            "status":
-            "completed"
-
-        }
-
+        return {"request": request, "status": "completed"}

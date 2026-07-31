@@ -87,13 +87,11 @@ class Agent:
 
 
 class AletheusAutonomousAgentRuntime:
-
     VERSION = "2.7.0"
 
     def __init__(self):
 
         self.agents: dict[str, Agent] = {}
-
 
     def register_default_agents(self):
         """
@@ -160,26 +158,18 @@ class AletheusAutonomousAgentRuntime:
     def message(self, sender: str, recipient: str, message: str):
 
         for agent in self.agents.values():
-
             if agent.name == recipient:
-
                 agent.receive(sender, message)
 
                 return agent.to_dict()
 
         return {"error": "Recipient not found"}
 
-
-
     def status(self):
-        return {
-            "agents": [a.to_dict() for a in self.agents.values()]
-        }
+        return {"agents": [a.to_dict() for a in self.agents.values()]}
 
     def list_agents(self):
         return [a.to_dict() for a in self.agents.values()]
-
-
 
     def stats(self):
         """

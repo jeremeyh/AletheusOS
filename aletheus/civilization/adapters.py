@@ -39,9 +39,7 @@ class SecurityCivilizationAdapter:
 
         for event in events:
             event_name = event.event_type.value
-            evidence_type = self.EVENT_EVIDENCE_MAP.get(
-                event_name
-            )
+            evidence_type = self.EVENT_EVIDENCE_MAP.get(event_name)
 
             if evidence_type is None:
                 continue
@@ -68,10 +66,7 @@ class SecurityCivilizationAdapter:
         projections: tuple[EvidenceProjection, ...],
         required_evidence_types: tuple[str, ...],
     ) -> None:
-        projected_types = {
-            projection.evidence_type
-            for projection in projections
-        }
+        projected_types = {projection.evidence_type for projection in projections}
 
         missing = set(required_evidence_types) - projected_types
 

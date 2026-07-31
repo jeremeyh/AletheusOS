@@ -7,7 +7,5 @@ class ConstitutionalRuntimeObservatoryError(Exception):
     """Base CRO exception."""
 
 
-class ObservatorySnapshotNotFoundError(
-    ConstitutionalRuntimeObservatoryError
-):
+class ObservatorySnapshotNotFoundError(ConstitutionalRuntimeObservatoryError):
     """Requested observatory snapshot does not exist."""

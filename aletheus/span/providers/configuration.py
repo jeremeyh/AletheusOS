@@ -53,7 +53,10 @@ class ConfigurationProvider(Provider):
             if not path.is_file():
                 continue
             relative = path.relative_to(root)
-            if any(part in {".git", ".venv", "venv", "__pycache__"} for part in relative.parts):
+            if any(
+                part in {".git", ".venv", "venv", "__pycache__"}
+                for part in relative.parts
+            ):
                 continue
             if path.suffix.lower() not in CONFIG_SUFFIXES:
                 continue

@@ -6,13 +6,6 @@ Genesis 14.27
 
 
 class TaxEngine:
-
-
-    def generate(
-        self,
-        data
-    ):
-
+    def generate(self, data):
 
         return {}
-

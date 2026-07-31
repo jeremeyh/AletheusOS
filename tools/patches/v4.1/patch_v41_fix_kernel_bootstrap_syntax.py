@@ -9,8 +9,8 @@ text = core.read_text()
 # ------------------------------------------------------------------
 
 text = re.sub(
-    r'def _cmd_kernel_bootstrap\(self,\s*context:\s*RuntimeContext\)\s*\n',
-    'def _cmd_kernel_bootstrap(self, context: RuntimeContext):\n',
+    r"def _cmd_kernel_bootstrap\(self,\s*context:\s*RuntimeContext\)\s*\n",
+    "def _cmd_kernel_bootstrap(self, context: RuntimeContext):\n",
     text,
 )
 
@@ -25,7 +25,6 @@ pattern = (
 )
 
 if pattern not in text:
-
     text = text.replace(
         "def _cmd_kernel_bootstrap(self, context: RuntimeContext):\n",
         "def _cmd_kernel_bootstrap(self, context: RuntimeContext):\n"

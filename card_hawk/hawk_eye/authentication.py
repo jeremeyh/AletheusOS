@@ -6,19 +6,6 @@ Genesis 14.5
 
 
 class AuthenticationSupport:
+    def evaluate(self, asset):
 
-
-    def evaluate(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "confidence":
-
-                0
-
-        }
-
+        return {"confidence": 0}

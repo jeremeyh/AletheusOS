@@ -6,7 +6,6 @@ from .router import search_router
 
 
 class AOSSearch:
-
     GENESIS = "21.8"
     VERSION = "1.0.0"
 
@@ -31,25 +30,17 @@ class AOSSearch:
         )
 
         return {
-
             "query": query,
-
             "execution_plan": resolved,
-
             "results": results,
-
         }
 
     def health(self):
 
         return {
-
             "status": "healthy",
-
             "genesis": self.GENESIS,
-
             "version": self.VERSION,
-
         }
 
 

@@ -4,7 +4,6 @@ SPA Evolution Intelligence Engine
 Genesis 154
 """
 
-
 from .debt_predictor import DebtPredictor
 from .evolution_score import EvolutionScoreEngine
 from .history import EvolutionHistory
@@ -14,8 +13,6 @@ from .trend_analyzer import TrendAnalyzer
 
 
 class EvolutionIntelligenceEngine:
-
-
     def __init__(self):
 
         self.history = EvolutionHistory()
@@ -30,46 +27,22 @@ class EvolutionIntelligenceEngine:
 
         self.recommendations = EvolutionRecommendationEngine()
 
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "spa_evolution_intelligence",
-
-            "genesis":
-            "154",
-
-            "status":
-            "operational"
-
+            "system": "spa_evolution_intelligence",
+            "genesis": "154",
+            "status": "operational",
         }
-
-
 
     def analyze_evolution(self):
 
         history = self.history.list()
 
-
         return {
-
-            "patterns":
-            self.patterns.analyze(history),
-
-            "trends":
-            self.trends.analyze(),
-
-            "debt":
-            self.debt.forecast(),
-
-            "score":
-            self.score.calculate(),
-
-            "recommendations":
-            self.recommendations.generate()
-
+            "patterns": self.patterns.analyze(history),
+            "trends": self.trends.analyze(),
+            "debt": self.debt.forecast(),
+            "score": self.score.calculate(),
+            "recommendations": self.recommendations.generate(),
         }
-

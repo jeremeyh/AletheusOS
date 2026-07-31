@@ -11,15 +11,12 @@ LOG = Path("logs/events.jsonl")
 def replay():
 
     if not LOG.exists():
-
         return []
 
-    rows=[]
+    rows = []
 
     with LOG.open() as fp:
-
         for line in fp:
-
             rows.append(json.loads(line))
 
     return rows

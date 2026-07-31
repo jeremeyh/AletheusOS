@@ -7,13 +7,9 @@ class PlatformDigitalTwinError(Exception):
     """Base exception for Digital Twin failures."""
 
 
-class TwinObjectNotFoundError(
-    PlatformDigitalTwinError
-):
+class TwinObjectNotFoundError(PlatformDigitalTwinError):
     """Raised when a constitutional object cannot be found."""
 
 
-class TwinSnapshotNotFoundError(
-    PlatformDigitalTwinError
-):
+class TwinSnapshotNotFoundError(PlatformDigitalTwinError):
     """Raised when a retained snapshot cannot be found."""

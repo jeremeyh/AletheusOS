@@ -1,5 +1,4 @@
 class RuntimeCompressionReporter:
-
     def render(self, report):
 
         lines = [

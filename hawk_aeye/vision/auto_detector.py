@@ -1,5 +1,4 @@
 class AutoDetector:
-
     @staticmethod
     def detect(image):
 

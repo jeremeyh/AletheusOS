@@ -23,18 +23,13 @@ class MissionEventType(StrEnum):
     MISSION_ARCHIVED = "MissionArchived"
 
 
-def canonical_mission_event_definitions(
-) -> tuple[EventTypeDefinition, ...]:
+def canonical_mission_event_definitions() -> tuple[EventTypeDefinition, ...]:
     descriptions = {
-        MissionEventType.MISSION_CREATED: (
-            "A constitutional mission was created."
-        ),
+        MissionEventType.MISSION_CREATED: ("A constitutional mission was created."),
         MissionEventType.MISSION_AUTHORIZED: (
             "A constitutional mission was authorized."
         ),
-        MissionEventType.MISSION_STARTED: (
-            "A constitutional mission began execution."
-        ),
+        MissionEventType.MISSION_STARTED: ("A constitutional mission began execution."),
         MissionEventType.MISSION_PARTICIPANT_JOINED: (
             "An institution joined a constitutional mission."
         ),
@@ -50,12 +45,8 @@ def canonical_mission_event_definitions(
         MissionEventType.MISSION_COMPLETED: (
             "A constitutional mission completed successfully."
         ),
-        MissionEventType.MISSION_FAILED: (
-            "A constitutional mission failed."
-        ),
-        MissionEventType.MISSION_ARCHIVED: (
-            "A completed mission was archived."
-        ),
+        MissionEventType.MISSION_FAILED: ("A constitutional mission failed."),
+        MissionEventType.MISSION_ARCHIVED: ("A completed mission was archived."),
     }
 
     return tuple(
@@ -86,12 +77,9 @@ def register_mission_event_types(
             continue
 
         if (
-            existing.event_type.value
-            != definition.event_type.value
-            or existing.constitutional_domain
-            != definition.constitutional_domain
-            or existing.requires_certification
-            != definition.requires_certification
+            existing.event_type.value != definition.event_type.value
+            or existing.constitutional_domain != definition.constitutional_domain
+            or existing.requires_certification != definition.requires_certification
         ):
             raise ValueError(
                 "Conflicting mission event definition for "

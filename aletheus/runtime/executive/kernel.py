@@ -60,9 +60,7 @@ class ExecutiveKernel:
             "active_services": list(self.state.active_services),
             "active_missions": list(self.state.active_missions),
             "last_decision": (
-                self.state.last_decision.__dict__
-                if self.state.last_decision
-                else None
+                self.state.last_decision.__dict__ if self.state.last_decision else None
             ),
             "updated_at": self.state.updated_at,
         }

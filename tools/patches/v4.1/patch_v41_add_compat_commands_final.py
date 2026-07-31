@@ -8,19 +8,21 @@ text = path.read_text()
 # ---------------------------------------------------------
 
 if 'self.commands.register("compat.statistics"' not in text:
-    anchor = '        self.commands.register("ha.statistics", self._cmd_ha_statistics)\n'
+    anchor = (
+        '        self.commands.register("ha.statistics", self._cmd_ha_statistics)\n'
+    )
 
     if anchor not in text:
         raise SystemExit("HA statistics registration anchor not found.")
 
-    registration = '''
+    registration = """
         # v4.1 Runtime Compatibility Layer
         self.commands.register("compat.list", self._cmd_compat_list)
         self.commands.register("compat.resolve", self._cmd_compat_resolve)
         self.commands.register("compat.statistics", self._cmd_compat_statistics)
         self.commands.register("compat.contract", self._cmd_compat_contract)
 
-'''
+"""
 
     text = text.replace(anchor, anchor + registration, 1)
 
@@ -34,7 +36,7 @@ if "def _cmd_compat_statistics" not in text:
     if marker not in text:
         raise SystemExit("_job_runtime_pulse marker not found.")
 
-    handlers = '''
+    handlers = """
     # ==========================================================
     # v4.1 Runtime Compatibility Commands
     # ==========================================================
@@ -98,7 +100,7 @@ if "def _cmd_compat_statistics" not in text:
         return context
 
 
-'''
+"""
 
     text = text.replace(marker, handlers + marker, 1)
 

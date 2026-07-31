@@ -21,17 +21,12 @@ def safe_dataframe(data):
         # Force every object column to clean strings
         if df[col].dtype == "object":
             df[col] = (
-                df[col]
-                .apply(
-                    lambda x:
-                        ""
-                        if x is None else
-                        str(x)
-                )
-                .astype("string")
+                df[col].apply(lambda x: "" if x is None else str(x)).astype("string")
             )
 
     return df
+
+
 ROOT = Path(__file__).resolve().parents[1]
 
 print("ROOT =", ROOT)
@@ -50,7 +45,9 @@ for p in sys.path:
 
 from services.runtime_v3 import runtime_v3
 
-st.set_page_config(page_title="Founder Console | CardHawkOS", page_icon="🦅", layout="wide")
+st.set_page_config(
+    page_title="Founder Console | CardHawkOS", page_icon="🦅", layout="wide"
+)
 
 st.title("🦅 Founder Console")
 st.caption("CardHawkOS Runtime v3 — Founder command center")
@@ -67,7 +64,17 @@ c5.metric("Cache Keys", health.get("cache_keys", 0))
 
 st.divider()
 
-tabs = st.tabs(["Health", "Registry", "Pipeline", "Scheduler", "Events", "Metrics", "Founder Memory"])
+tabs = st.tabs(
+    [
+        "Health",
+        "Registry",
+        "Pipeline",
+        "Scheduler",
+        "Events",
+        "Metrics",
+        "Founder Memory",
+    ]
+)
 
 with tabs[0]:
     st.subheader("Runtime Health")
@@ -80,14 +87,22 @@ with tabs[1]:
     st.markdown("### Plugins")
     st.dataframe(pd.DataFrame(registry.get("plugins", [])), use_container_width=True)
     st.markdown("### Commands")
-    st.dataframe(pd.DataFrame({"Command": registry.get("commands", [])}), use_container_width=True)
+    st.dataframe(
+        pd.DataFrame({"Command": registry.get("commands", [])}),
+        use_container_width=True,
+    )
     st.markdown("### Jobs")
     jobs = registry.get("jobs", {})
-    st.dataframe(pd.DataFrame([{"Job": k, **v} for k, v in jobs.items()]), use_container_width=True)
+    st.dataframe(
+        pd.DataFrame([{"Job": k, **v} for k, v in jobs.items()]),
+        use_container_width=True,
+    )
 
 with tabs[2]:
     st.subheader("Runtime Intelligence Pipeline")
-    asset_name = st.text_input("Asset / Opportunity", "Sample Caleb Williams Opportunity")
+    asset_name = st.text_input(
+        "Asset / Opportunity", "Sample Caleb Williams Opportunity"
+    )
     player = st.text_input("Player", "Caleb Williams")
     price = st.number_input("Price", min_value=0.0, value=150.0, step=5.0)
     serial = st.text_input("Serial", "/25")
@@ -96,15 +111,18 @@ with tabs[2]:
     patch = st.checkbox("Patch", value=False)
 
     if st.button("Run Runtime v3 Pipeline", type="primary"):
-        context = runtime_v3.command_bus.dispatch("runtime.pipeline", {
-            "asset_name": asset_name,
-            "player": player,
-            "price": price,
-            "serial": serial,
-            "rookie": rookie,
-            "auto": auto,
-            "patch": patch,
-        })
+        context = runtime_v3.command_bus.dispatch(
+            "runtime.pipeline",
+            {
+                "asset_name": asset_name,
+                "player": player,
+                "price": price,
+                "serial": serial,
+                "rookie": rookie,
+                "auto": auto,
+                "patch": patch,
+            },
+        )
         if context.errors:
             st.error("Pipeline completed with errors.")
             st.json(context.errors)
@@ -115,7 +133,10 @@ with tabs[2]:
 with tabs[3]:
     st.subheader("Runtime Scheduler")
     jobs = runtime_v3.scheduler.list_jobs()
-    st.dataframe(pd.DataFrame([{"Job": k, **v} for k, v in jobs.items()]), use_container_width=True)
+    st.dataframe(
+        pd.DataFrame([{"Job": k, **v} for k, v in jobs.items()]),
+        use_container_width=True,
+    )
     if jobs:
         selected = st.selectbox("Job", list(jobs.keys()))
         if st.button("Run Job"):
@@ -135,7 +156,10 @@ with tabs[5]:
 
 with tabs[6]:
     st.subheader("ROOST™ Founder Memory")
-    st.dataframe(pd.DataFrame(runtime_v3.founder_state.recent_decisions()), use_container_width=True)
+    st.dataframe(
+        pd.DataFrame(runtime_v3.founder_state.recent_decisions()),
+        use_container_width=True,
+    )
     if st.button("Create Runtime Snapshot"):
         snap_context = runtime_v3.command_bus.dispatch("runtime.snapshot")
         st.json(snap_context.results)

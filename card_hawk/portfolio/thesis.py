@@ -4,19 +4,6 @@ Investment Thesis Tracking
 
 
 class ThesisEngine:
+    def track(self, asset):
 
-
-    def track(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "status":
-
-                "active"
-
-        }
-
+        return {"status": "active"}

@@ -17,27 +17,18 @@ def _find_repo_root() -> Path:
             return current
 
         if current.parent == current:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         current = current.parent
 
 
 ROOT = _find_repo_root()
 
-LEDGER_RELATIVE_PATH = Path(
-    "nimble/governance/audit/"
-    "deployment-audit-ledger.jsonl"
-)
+LEDGER_RELATIVE_PATH = Path("nimble/governance/audit/deployment-audit-ledger.jsonl")
 
-SOURCE_GENERATOR = (
-    "bin/create_nimble_audit_recovery_source.py"
-)
+SOURCE_GENERATOR = "bin/create_nimble_audit_recovery_source.py"
 
-SOURCE_VALIDATOR = (
-    "bin/validate_nimble_audit_recovery_source.py"
-)
+SOURCE_VALIDATOR = "bin/validate_nimble_audit_recovery_source.py"
 
 AUDIT_WRITER = "bin/append_nimble_audit_event.py"
 
@@ -58,9 +49,7 @@ def run(
 
 
 def digest(path: Path) -> str:
-    return hashlib.sha256(
-        path.read_bytes()
-    ).hexdigest()
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def append_test_event(
@@ -86,17 +75,13 @@ def append_test_event(
     )
 
     if result.returncode != 0:
-        raise RuntimeError(
-            result.stdout + result.stderr
-        )
+        raise RuntimeError(result.stdout + result.stderr)
 
 
 def main() -> int:
     canonical_ledger = ROOT / LEDGER_RELATIVE_PATH
 
-    canonical_digest_before = digest(
-        canonical_ledger
-    )
+    canonical_digest_before = digest(canonical_ledger)
 
     with tempfile.TemporaryDirectory() as directory:
         temporary_root = Path(directory)
@@ -124,16 +109,11 @@ def main() -> int:
                 destination,
             )
 
-        temporary_ledger = (
-            temporary_root
-            / LEDGER_RELATIVE_PATH
-        )
+        temporary_ledger = temporary_root / LEDGER_RELATIVE_PATH
 
         existing_lines = [
             line
-            for line in temporary_ledger.read_text(
-                encoding="utf-8"
-            ).splitlines()
+            for line in temporary_ledger.read_text(encoding="utf-8").splitlines()
             if line.strip()
         ]
 
@@ -151,23 +131,16 @@ def main() -> int:
                 "deployment_completed",
             )
 
-        trusted_ledger_bytes = (
-            temporary_ledger.read_bytes()
-        )
+        trusted_ledger_bytes = temporary_ledger.read_bytes()
 
         trusted_lines = [
             line
-            for line in trusted_ledger_bytes.decode(
-                "utf-8"
-            ).splitlines()
+            for line in trusted_ledger_bytes.decode("utf-8").splitlines()
             if line.strip()
         ]
 
         if len(trusted_lines) < 1:
-            print(
-                "FAIL: isolated recovery source "
-                "contains no ledger events."
-            )
+            print("FAIL: isolated recovery source contains no ledger events.")
             return 1
 
         generator_result = run(
@@ -184,8 +157,7 @@ def main() -> int:
             return 1
 
         source_path = (
-            temporary_root
-            / "reports/nimble/recovery/"
+            temporary_root / "reports/nimble/recovery/"
             "trusted-audit-recovery-source.json"
         )
 
@@ -194,29 +166,18 @@ def main() -> int:
         truncated_lines = trusted_lines[:-1]
 
         temporary_ledger.write_text(
-            (
-                "\n".join(truncated_lines)
-                + ("\n" if truncated_lines else "")
-            ),
+            ("\n".join(truncated_lines) + ("\n" if truncated_lines else "")),
             encoding="utf-8",
         )
 
-        truncated_ledger_bytes = (
-            temporary_ledger.read_bytes()
-        )
+        truncated_ledger_bytes = temporary_ledger.read_bytes()
 
-        if (
-            truncated_ledger_bytes
-            == trusted_ledger_bytes
-        ):
-            print(
-                "FAIL: isolated ledger was not truncated."
-            )
+        if truncated_ledger_bytes == trusted_ledger_bytes:
+            print("FAIL: isolated ledger was not truncated.")
             return 1
 
         reconstructed_path = (
-            temporary_root
-            / "reports/nimble/recovery/"
+            temporary_root / "reports/nimble/recovery/"
             "simulation-reconstructed-ledger.jsonl"
         )
 
@@ -238,41 +199,25 @@ def main() -> int:
             return 1
 
         if not reconstructed_path.is_file():
-            print(
-                "FAIL: reconstructed ledger was not written."
-            )
+            print("FAIL: reconstructed ledger was not written.")
             return 1
 
-        if (
-            reconstructed_path.read_bytes()
-            != trusted_ledger_bytes
-        ):
+        if reconstructed_path.read_bytes() != trusted_ledger_bytes:
             print(
-                "FAIL: reconstructed ledger differs "
-                "from the trusted recovery source."
+                "FAIL: reconstructed ledger differs from the trusted recovery source."
             )
             return 1
 
         # Validation/reconstruction must not overwrite the
         # isolated canonical ledger.
-        if (
-            temporary_ledger.read_bytes()
-            != truncated_ledger_bytes
-        ):
-            print(
-                "FAIL: temporary canonical ledger "
-                "was automatically restored."
-            )
+        if temporary_ledger.read_bytes() != truncated_ledger_bytes:
+            print("FAIL: temporary canonical ledger was automatically restored.")
             return 1
 
-    canonical_digest_after = digest(
-        canonical_ledger
-    )
+    canonical_digest_after = digest(canonical_ledger)
 
     if canonical_digest_before != canonical_digest_after:
-        print(
-            "FAIL: canonical audit ledger was modified."
-        )
+        print("FAIL: canonical audit ledger was modified.")
         return 1
 
     print("=" * 72)

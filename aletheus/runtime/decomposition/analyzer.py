@@ -24,11 +24,7 @@ class RuntimeCoreAnalyzer:
             if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
         ]
 
-        classes = [
-            node
-            for node in ast.walk(tree)
-            if isinstance(node, ast.ClassDef)
-        ]
+        classes = [node for node in ast.walk(tree) if isinstance(node, ast.ClassDef)]
 
         imports = [
             node

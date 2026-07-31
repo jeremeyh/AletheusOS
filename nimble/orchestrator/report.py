@@ -20,34 +20,17 @@ def generate_report(
 
     payload = {
         "schema_version": "1.0",
-        "generated_at": datetime.now(
-            UTC
-        ).isoformat(),
-        "overall_readiness_percent":
-            readiness[
-                "overall_readiness_percent"
-            ],
+        "generated_at": datetime.now(UTC).isoformat(),
+        "overall_readiness_percent": readiness["overall_readiness_percent"],
         "summary": {
-            "implemented":
-                readiness["implemented"],
-            "partial":
-                readiness["partial"],
-            "blocked":
-                readiness["blocked"],
-            "missing":
-                readiness["missing"],
+            "implemented": readiness["implemented"],
+            "partial": readiness["partial"],
+            "blocked": readiness["blocked"],
+            "missing": readiness["missing"],
             "drift_findings": len(drift),
         },
-        "capabilities": [
-            asdict(item)
-            for item in readiness[
-                "capabilities"
-            ]
-        ],
-        "build_plan": [
-            asdict(item)
-            for item in plan
-        ],
+        "capabilities": [asdict(item) for item in readiness["capabilities"]],
+        "build_plan": [asdict(item) for item in plan],
         "drift_findings": list(drift),
     }
 

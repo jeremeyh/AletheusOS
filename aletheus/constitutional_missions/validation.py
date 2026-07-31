@@ -21,18 +21,12 @@ class MissionValidationError(ValueError):
         self.issues = tuple(issues)
 
         super().__init__(
-            "; ".join(
-                f"{issue.field}: {issue.message}"
-                for issue in issues
-            )
+            "; ".join(f"{issue.field}: {issue.message}" for issue in issues)
         )
 
 
 def _duplicates(values: tuple[str, ...]) -> bool:
-    normalized = [
-        value.strip().casefold()
-        for value in values
-    ]
+    normalized = [value.strip().casefold() for value in values]
     return len(normalized) != len(set(normalized))
 
 

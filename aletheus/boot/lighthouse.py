@@ -52,7 +52,9 @@ class LighthouseBootloader:
 
     def _check_lightweight_init(self) -> dict:
         path = self.root / "aletheus" / "__init__.py"
-        text = path.read_text(encoding="utf-8", errors="ignore") if path.exists() else ""
+        text = (
+            path.read_text(encoding="utf-8", errors="ignore") if path.exists() else ""
+        )
 
         forbidden = [
             "from aletheus.runtime import",
@@ -66,7 +68,9 @@ class LighthouseBootloader:
         return {
             "name": "lightweight_package_init",
             "passed": passed,
-            "message": "aletheus/__init__.py is lightweight." if passed else "aletheus/__init__.py may still trigger runtime boot side effects.",
+            "message": "aletheus/__init__.py is lightweight."
+            if passed
+            else "aletheus/__init__.py may still trigger runtime boot side effects.",
             "path": str(path),
         }
 

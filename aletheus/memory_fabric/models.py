@@ -9,8 +9,6 @@ from dataclasses import dataclass, field
 
 @dataclass
 class MemoryRecord:
-
-
     memory_id: str
 
     memory_type: str
@@ -19,7 +17,4 @@ class MemoryRecord:
 
     confidence: int = 0
 
-    provenance: dict = field(
-        default_factory=dict
-    )
-
+    provenance: dict = field(default_factory=dict)

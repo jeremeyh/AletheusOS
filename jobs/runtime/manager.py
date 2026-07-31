@@ -1,5 +1,4 @@
 class JobManager:
-
     _history = []
 
     @classmethod

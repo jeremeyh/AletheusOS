@@ -52,9 +52,7 @@ class PhaseExecutionResult:
             "successful": self.successful,
             "message": self.message,
             "domain_event_type": self.domain_event_type,
-            "domain_event_tags": list(
-                self.domain_event_tags
-            ),
+            "domain_event_tags": list(self.domain_event_tags),
         }
 
 
@@ -66,5 +64,4 @@ class InstitutionPhaseExecutor(Protocol):
     def execute(
         self,
         request: PhaseExecutionRequest,
-    ) -> PhaseExecutionResult:
-        ...
+    ) -> PhaseExecutionResult: ...

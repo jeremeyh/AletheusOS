@@ -8,40 +8,19 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 
-REACT_PACKAGE = (
-    ROOT
-    / "nimble/packages/react"
-)
+REACT_PACKAGE = ROOT / "nimble/packages/react"
 
-TSCONFIG = (
-    REACT_PACKAGE
-    / "tsconfig.json"
-)
+TSCONFIG = REACT_PACKAGE / "tsconfig.json"
 
-TOKENS = (
-    REACT_PACKAGE
-    / "src/primitives/tokens.ts"
-)
+TOKENS = REACT_PACKAGE / "src/primitives/tokens.ts"
 
-REACT_INDEX = (
-    REACT_PACKAGE
-    / "src/index.ts"
-)
+REACT_INDEX = REACT_PACKAGE / "src/index.ts"
 
-PRIMITIVES_INDEX = (
-    REACT_PACKAGE
-    / "src/primitives/index.ts"
-)
+PRIMITIVES_INDEX = REACT_PACKAGE / "src/primitives/index.ts"
 
-VALIDATOR = (
-    ROOT
-    / "validate_nimble_primitive_experience.py"
-)
+VALIDATOR = ROOT / "validate_nimble_primitive_experience.py"
 
-TEST_FILE = (
-    ROOT
-    / "tests/nimble/test_primitive_experience.py"
-)
+TEST_FILE = ROOT / "tests/nimble/test_primitive_experience.py"
 
 
 def run(
@@ -60,38 +39,25 @@ def run(
     )
 
     if result.returncode != 0:
-        raise SystemExit(
-            result.returncode
-        )
+        raise SystemExit(result.returncode)
 
 
 def patch_tsconfig() -> None:
     if not TSCONFIG.is_file():
         raise RuntimeError(
-            "Missing React package tsconfig: "
-            + str(TSCONFIG.relative_to(ROOT))
+            "Missing React package tsconfig: " + str(TSCONFIG.relative_to(ROOT))
         )
 
-    configuration = json.loads(
-        TSCONFIG.read_text(
-            encoding="utf-8"
-        )
+    configuration = json.loads(TSCONFIG.read_text(encoding="utf-8"))
+
+    compiler_options = configuration.setdefault(
+        "compilerOptions",
+        {},
     )
 
-    compiler_options = (
-        configuration.setdefault(
-            "compilerOptions",
-            {},
-        )
-    )
+    previous = compiler_options.get("jsx")
 
-    previous = compiler_options.get(
-        "jsx"
-    )
-
-    compiler_options["jsx"] = (
-        "react-jsx"
-    )
+    compiler_options["jsx"] = "react-jsx"
 
     TSCONFIG.write_text(
         json.dumps(
@@ -104,27 +70,18 @@ def patch_tsconfig() -> None:
     )
 
     if previous == "react-jsx":
-        print(
-            "React JSX compiler setting "
-            "already correct."
-        )
+        print("React JSX compiler setting already correct.")
     else:
-        print(
-            "Enabled compilerOptions.jsx "
-            '= "react-jsx".'
-        )
+        print('Enabled compilerOptions.jsx = "react-jsx".')
 
 
 def patch_tokens() -> None:
     if not TOKENS.is_file():
         raise RuntimeError(
-            "Missing primitive token helper: "
-            + str(TOKENS.relative_to(ROOT))
+            "Missing primitive token helper: " + str(TOKENS.relative_to(ROOT))
         )
 
-    text = TOKENS.read_text(
-        encoding="utf-8"
-    )
+    text = TOKENS.read_text(encoding="utf-8")
 
     old = """export function token(
   name: ExperienceTokenName,
@@ -157,41 +114,29 @@ def patch_tokens() -> None:
             encoding="utf-8",
         )
 
-        print(
-            "Patched strict-safe token accessor."
-        )
+        print("Patched strict-safe token accessor.")
         return
 
     if (
-        "const value = experienceTokens[name];"
-        in text
-        and "Unknown experience token:"
-        in text
+        "const value = experienceTokens[name];" in text
+        and "Unknown experience token:" in text
     ):
-        print(
-            "Token accessor already strict-safe."
-        )
+        print("Token accessor already strict-safe.")
         return
 
     raise RuntimeError(
         "Could not safely identify the token() "
-        "implementation in "
-        + str(TOKENS.relative_to(ROOT))
+        "implementation in " + str(TOKENS.relative_to(ROOT))
     )
 
 
 def patch_validator() -> None:
     if not VALIDATOR.is_file():
         raise RuntimeError(
-            "Missing primitive validator: "
-            + str(
-                VALIDATOR.relative_to(ROOT)
-            )
+            "Missing primitive validator: " + str(VALIDATOR.relative_to(ROOT))
         )
 
-    text = VALIDATOR.read_text(
-        encoding="utf-8"
-    )
+    text = VALIDATOR.read_text(encoding="utf-8")
 
     # The validator scans only the React primitive
     # package. Engine color mappings belong to
@@ -214,25 +159,17 @@ def patch_validator() -> None:
 
     for marker in required_markers:
         if marker not in text:
-            insertion_marker = (
-                '        "THORᵡ",\n'
-            )
+            insertion_marker = '        "THORᵡ",\n'
 
             if insertion_marker not in text:
                 raise RuntimeError(
                     "Could not locate the "
-                    "required_concepts list in "
-                    + str(
-                        VALIDATOR.relative_to(
-                            ROOT
-                        )
-                    )
+                    "required_concepts list in " + str(VALIDATOR.relative_to(ROOT))
                 )
 
             text = text.replace(
                 insertion_marker,
-                insertion_marker
-                + f"        {marker},\n",
+                insertion_marker + f"        {marker},\n",
                 1,
             )
 
@@ -241,9 +178,7 @@ def patch_validator() -> None:
         encoding="utf-8",
     )
 
-    print(
-        "Corrected primitive validator concepts."
-    )
+    print("Corrected primitive validator concepts.")
 
 
 def ensure_export(
@@ -251,14 +186,9 @@ def ensure_export(
     export_line: str,
 ) -> None:
     if not path.is_file():
-        raise RuntimeError(
-            "Missing export file: "
-            + str(path.relative_to(ROOT))
-        )
+        raise RuntimeError("Missing export file: " + str(path.relative_to(ROOT)))
 
-    text = path.read_text(
-        encoding="utf-8"
-    )
+    text = path.read_text(encoding="utf-8")
 
     if export_line in text:
         print(
@@ -268,10 +198,7 @@ def ensure_export(
         return
 
     path.write_text(
-        text.rstrip()
-        + "\n\n"
-        + export_line
-        + "\n",
+        text.rstrip() + "\n\n" + export_line + "\n",
         encoding="utf-8",
     )
 
@@ -285,11 +212,7 @@ def validate_primitive_index() -> None:
     if not PRIMITIVES_INDEX.is_file():
         raise RuntimeError(
             "Missing primitive package index: "
-            + str(
-                PRIMITIVES_INDEX.relative_to(
-                    ROOT
-                )
-            )
+            + str(PRIMITIVES_INDEX.relative_to(ROOT))
         )
 
     required_exports = [
@@ -308,29 +231,20 @@ def validate_primitive_index() -> None:
         'export * from "./types";',
     ]
 
-    text = PRIMITIVES_INDEX.read_text(
-        encoding="utf-8"
-    )
+    text = PRIMITIVES_INDEX.read_text(encoding="utf-8")
 
     missing = [
-        export_line
-        for export_line in required_exports
-        if export_line not in text
+        export_line for export_line in required_exports if export_line not in text
     ]
 
     if not missing:
-        print(
-            "Primitive index exports complete."
-        )
+        print("Primitive index exports complete.")
         return
 
     updated = text.rstrip()
 
     for export_line in missing:
-        updated += (
-            "\n"
-            + export_line
-        )
+        updated += "\n" + export_line
 
     PRIMITIVES_INDEX.write_text(
         updated + "\n",
@@ -345,9 +259,7 @@ def validate_primitive_index() -> None:
 
 def main() -> int:
     print("=" * 72)
-    print(
-        "NIMBLE™ PRIMITIVE EXPERIENCE REPAIR"
-    )
+    print("NIMBLE™ PRIMITIVE EXPERIENCE REPAIR")
     print("=" * 72)
 
     patch_tsconfig()
@@ -399,9 +311,7 @@ def main() -> int:
 
     print()
     print("=" * 72)
-    print(
-        "PRIMITIVE EXPERIENCE REPAIR COMPLETE"
-    )
+    print("PRIMITIVE EXPERIENCE REPAIR COMPLETE")
     print("=" * 72)
 
     return 0

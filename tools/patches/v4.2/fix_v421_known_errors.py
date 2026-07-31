@@ -28,7 +28,9 @@ if foundation.exists():
 gitignore = Path(".gitignore")
 existing = gitignore.read_text() if gitignore.exists() else ""
 if "reports/" not in existing:
-    gitignore.write_text(existing.rstrip() + "\n\n# Generated runtime health reports\nreports/\n")
+    gitignore.write_text(
+        existing.rstrip() + "\n\n# Generated runtime health reports\nreports/\n"
+    )
 
 # 4. Remove committed report artifacts from tracking if present
 for report in [

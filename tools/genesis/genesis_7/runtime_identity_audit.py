@@ -150,7 +150,7 @@ def main() -> None:
             lines.append("  Insufficient members for comparison.")
         else:
             for index, (left_name, left) in enumerate(available):
-                for right_name, right in available[index + 1:]:
+                for right_name, right in available[index + 1 :]:
                     result = relationship(
                         left_name,
                         left,
@@ -165,10 +165,7 @@ def main() -> None:
                     else:
                         summary["distinct_implementations"] += 1
 
-                    lines.append(
-                        f"  {left_name:24} <-> "
-                        f"{right_name:24} {result}"
-                    )
+                    lines.append(f"  {left_name:24} <-> {right_name:24} {result}")
 
         lines.append("")
 
@@ -177,18 +174,9 @@ def main() -> None:
             "=" * 78,
             "Summary",
             "-" * 78,
-            (
-                "Same-object alias relationships: "
-                f"{summary['same_object_aliases']}"
-            ),
-            (
-                "Distinct instances of same type: "
-                f"{summary['distinct_same_type']}"
-            ),
-            (
-                "Distinct implementations: "
-                f"{summary['distinct_implementations']}"
-            ),
+            (f"Same-object alias relationships: {summary['same_object_aliases']}"),
+            (f"Distinct instances of same type: {summary['distinct_same_type']}"),
+            (f"Distinct implementations: {summary['distinct_implementations']}"),
             f"Missing attachments: {summary['missing']}",
             "",
             "Interpretation",

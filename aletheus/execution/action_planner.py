@@ -6,17 +6,6 @@ Post-Genesis 15
 
 
 class ActionPlanner:
-
-
     def plan(self, decision):
 
-        return {
-
-            "decision":
-            decision,
-
-            "action_plan":
-            "created"
-
-        }
-
+        return {"decision": decision, "action_plan": "created"}

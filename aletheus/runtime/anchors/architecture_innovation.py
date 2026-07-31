@@ -5,16 +5,6 @@ Architecture Innovation Engine
 
 
 class ArchitectureInnovationEngine:
-
-
     def innovate(self, constraint):
 
-        return {
-
-            "constraint":
-                constraint,
-
-            "innovation":
-                "generated"
-
-        }
+        return {"constraint": constraint, "innovation": "generated"}

@@ -38,15 +38,10 @@ def analyze_health(
     if not services:
         return 100.0, (), ()
 
-    score = sum(
-        _HEALTH_WEIGHTS[service.health]
-        for service in services
-    ) / len(services)
+    score = sum(_HEALTH_WEIGHTS[service.health] for service in services) / len(services)
 
     insights: list[PlatformInsight] = []
-    recommendations: list[
-        PlatformRecommendation
-    ] = []
+    recommendations: list[PlatformRecommendation] = []
 
     unhealthy = tuple(
         service
@@ -77,20 +72,12 @@ def analyze_health(
             PlatformInsight.create(
                 category=IntelligenceCategory.HEALTH,
                 severity=severity,
-                title=(
-                    f"{service.canonical_name} health "
-                    f"is {service.health.value}"
-                ),
-                description=(
-                    "The service is outside its healthy "
-                    "operational state."
-                ),
+                title=(f"{service.canonical_name} health is {service.health.value}"),
+                description=("The service is outside its healthy operational state."),
                 evidence={
                     "address": service.address,
                     "health": service.health.value,
-                    "affected_count": (
-                        impact.affected_count
-                    ),
+                    "affected_count": (impact.affected_count),
                 },
                 confidence=1.0,
             )
@@ -100,9 +87,7 @@ def analyze_health(
             PlatformRecommendation.create(
                 category=IntelligenceCategory.HEALTH,
                 severity=severity,
-                title=(
-                    f"Investigate {service.canonical_name}"
-                ),
+                title=(f"Investigate {service.canonical_name}"),
                 action=(
                     "Inspect service metrics, dependencies, "
                     "and recent constitutional events."
@@ -121,8 +106,7 @@ def analyze_health(
     unknown = tuple(
         service
         for service in services
-        if service.health
-        is ConstitutionalHealth.UNKNOWN
+        if service.health is ConstitutionalHealth.UNKNOWN
     )
 
     if unknown:
@@ -136,10 +120,7 @@ def analyze_health(
                     "not reported constitutional health."
                 ),
                 evidence={
-                    "services": [
-                        service.address
-                        for service in unknown
-                    ],
+                    "services": [service.address for service in unknown],
                     "count": len(unknown),
                 },
                 confidence=1.0,

@@ -60,9 +60,7 @@ class CognitiveKernel:
             priority=priority,
         )
 
-        resolution = foundation_service_bus.resolve(
-            intent.capability_request
-        )
+        resolution = foundation_service_bus.resolve(intent.capability_request)
 
         record = CognitiveKernelRecord(
             kernel_record_id=new_kernel_record_id(),
@@ -139,10 +137,7 @@ class CognitiveKernel:
         return record
 
     def records(self) -> list[dict]:
-        return [
-            record.to_dict()
-            for record in self._records
-        ]
+        return [record.to_dict() for record in self._records]
 
     def health(self) -> dict:
         return {

@@ -30,9 +30,7 @@ class UniversalIntelligenceAdapter:
             "runtime": {
                 "version": getattr(runtime, "version", "unknown"),
                 "status": (
-                    "online"
-                    if getattr(runtime, "booted", False)
-                    else "offline"
+                    "online" if getattr(runtime, "booted", False) else "offline"
                 ),
             },
             "reasoning": runtime.reasoning.stats(),

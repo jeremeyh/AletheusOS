@@ -9,50 +9,25 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 
-PRIMITIVE_TYPES = (
-    ROOT
-    / "nimble/packages/react/src/primitives/types.ts"
-)
+PRIMITIVE_TYPES = ROOT / "nimble/packages/react/src/primitives/types.ts"
 
-PRIMITIVE_INSTRUMENT = (
-    ROOT
-    / "nimble/packages/react/src/primitives/Instrument.tsx"
-)
+PRIMITIVE_INSTRUMENT = ROOT / "nimble/packages/react/src/primitives/Instrument.tsx"
 
 INSTRUMENTATION_CONTRACTS = (
-    ROOT
-    / "nimble/packages/react/src/instrumentation/contracts.ts"
+    ROOT / "nimble/packages/react/src/instrumentation/contracts.ts"
 )
 
-REACT_INDEX = (
-    ROOT
-    / "nimble/packages/react/src/index.ts"
-)
+REACT_INDEX = ROOT / "nimble/packages/react/src/index.ts"
 
-PRIMITIVES_INDEX = (
-    ROOT
-    / "nimble/packages/react/src/primitives/index.ts"
-)
+PRIMITIVES_INDEX = ROOT / "nimble/packages/react/src/primitives/index.ts"
 
-INSTRUMENTATION_INDEX = (
-    ROOT
-    / "nimble/packages/react/src/instrumentation/index.ts"
-)
+INSTRUMENTATION_INDEX = ROOT / "nimble/packages/react/src/instrumentation/index.ts"
 
-VALIDATOR = (
-    ROOT
-    / "validate_nimble_instrumentation_preview.py"
-)
+VALIDATOR = ROOT / "validate_nimble_instrumentation_preview.py"
 
-TEST_FILE = (
-    ROOT
-    / "tests/nimble/test_instrumentation_preview.py"
-)
+TEST_FILE = ROOT / "tests/nimble/test_instrumentation_preview.py"
 
-BACKUP_ROOT = (
-    ROOT
-    / ".repair-backups/instrument-status-collision"
-)
+BACKUP_ROOT = ROOT / ".repair-backups/instrument-status-collision"
 
 
 def relative(path: Path) -> str:
@@ -61,9 +36,7 @@ def relative(path: Path) -> str:
 
 def require_file(path: Path) -> None:
     if not path.is_file():
-        raise RuntimeError(
-            f"Required file is missing: {relative(path)}"
-        )
+        raise RuntimeError(f"Required file is missing: {relative(path)}")
 
 
 def backup(path: Path) -> None:
@@ -116,21 +89,17 @@ def ensure_canonical_contract() -> None:
     )
 
     if declaration:
-        print(
-            "PASS: instrumentation/contracts.ts "
-            "owns InstrumentStatus."
-        )
+        print("PASS: instrumentation/contracts.ts owns InstrumentStatus.")
         return
 
     insertion_marker = "export type InstrumentTrend ="
 
     if insertion_marker not in original:
         raise RuntimeError(
-            "Could not locate a safe insertion point in "
-            f"{relative(path)}"
+            f"Could not locate a safe insertion point in {relative(path)}"
         )
 
-    canonical = '''export type InstrumentStatus =
+    canonical = """export type InstrumentStatus =
   | "initializing"
   | "healthy"
   | "attention"
@@ -139,7 +108,7 @@ def ensure_canonical_contract() -> None:
   | "unavailable";
 
 
-'''
+"""
 
     updated = original.replace(
         insertion_marker,
@@ -184,10 +153,7 @@ def remove_primitive_status_declaration() -> None:
                 "but could not be safely removed."
             )
 
-        print(
-            "PASS: primitives/types.ts no longer owns "
-            "InstrumentStatus."
-        )
+        print("PASS: primitives/types.ts no longer owns InstrumentStatus.")
         return
 
     write_if_changed(
@@ -202,17 +168,18 @@ def patch_primitive_instrument_imports() -> None:
     original = path.read_text(encoding="utf-8")
     updated = original
 
-    canonical_import = '''import type {
+    canonical_import = """import type {
   InstrumentStatus,
 } from "../instrumentation/contracts";
 
-'''
+"""
 
     if (
         'from "../instrumentation/contracts"' not in updated
-        or "InstrumentStatus" not in updated.split(
-            'from "../instrumentation/contracts"', 1
-        )[0].rsplit("import", 1)[-1]
+        or "InstrumentStatus"
+        not in updated.split('from "../instrumentation/contracts"', 1)[0].rsplit(
+            "import", 1
+        )[-1]
     ):
         first_import = re.search(
             r"^import\b",
@@ -221,10 +188,7 @@ def patch_primitive_instrument_imports() -> None:
         )
 
         if not first_import:
-            raise RuntimeError(
-                "Could not locate imports in "
-                f"{relative(path)}"
-            )
+            raise RuntimeError(f"Could not locate imports in {relative(path)}")
 
         updated = (
             updated[: first_import.start()]
@@ -245,34 +209,21 @@ def patch_primitive_instrument_imports() -> None:
 
     if match:
         names = [
-            item.strip()
-            for item in match.group("body").split(",")
-            if item.strip()
+            item.strip() for item in match.group("body").split(",") if item.strip()
         ]
 
-        names = [
-            name
-            for name in names
-            if name != "InstrumentStatus"
-        ]
+        names = [name for name in names if name != "InstrumentStatus"]
 
         if names:
             replacement = (
                 "import type {\n"
-                + "".join(
-                    f"  {name},\n"
-                    for name in names
-                )
+                + "".join(f"  {name},\n" for name in names)
                 + '} from "./types";'
             )
         else:
             replacement = ""
 
-        updated = (
-            updated[: match.start()]
-            + replacement
-            + updated[match.end() :]
-        )
+        updated = updated[: match.start()] + replacement + updated[match.end() :]
 
     updated = re.sub(
         r"\n{3,}",
@@ -307,18 +258,10 @@ def ensure_barrel_exports() -> None:
         original = path.read_text(encoding="utf-8")
 
         if export_line in original:
-            print(
-                f"PASS: {relative(path)} exports "
-                f"{export_line}"
-            )
+            print(f"PASS: {relative(path)} exports {export_line}")
             continue
 
-        updated = (
-            original.rstrip()
-            + "\n\n"
-            + export_line
-            + "\n"
-        )
+        updated = original.rstrip() + "\n\n" + export_line + "\n"
 
         write_if_changed(
             path,
@@ -330,13 +273,8 @@ def ensure_barrel_exports() -> None:
 def verify_public_api_ownership() -> None:
     primitive_files = [
         path
-        for path in (
-            PRIMITIVE_TYPES.parent.rglob("*")
-        )
-        if (
-            path.is_file()
-            and path.suffix in {".ts", ".tsx"}
-        )
+        for path in (PRIMITIVE_TYPES.parent.rglob("*"))
+        if (path.is_file() and path.suffix in {".ts", ".tsx"})
     ]
 
     violations: list[str] = []
@@ -349,8 +287,7 @@ def verify_public_api_ownership() -> None:
             text,
         ):
             violations.append(
-                f"Primitive still exports InstrumentStatus: "
-                f"{relative(path)}"
+                f"Primitive still exports InstrumentStatus: {relative(path)}"
             )
 
         if re.search(
@@ -359,26 +296,18 @@ def verify_public_api_ownership() -> None:
             flags=re.DOTALL,
         ):
             violations.append(
-                f"Primitive re-exports InstrumentStatus: "
-                f"{relative(path)}"
+                f"Primitive re-exports InstrumentStatus: {relative(path)}"
             )
 
-    contracts = INSTRUMENTATION_CONTRACTS.read_text(
-        encoding="utf-8"
-    )
+    contracts = INSTRUMENTATION_CONTRACTS.read_text(encoding="utf-8")
 
     if not re.search(
         r"\bexport\s+type\s+InstrumentStatus\b",
         contracts,
     ):
-        violations.append(
-            "Instrumentation contracts do not export "
-            "InstrumentStatus."
-        )
+        violations.append("Instrumentation contracts do not export InstrumentStatus.")
 
-    instrument = PRIMITIVE_INSTRUMENT.read_text(
-        encoding="utf-8"
-    )
+    instrument = PRIMITIVE_INSTRUMENT.read_text(encoding="utf-8")
 
     if not re.search(
         r"""
@@ -396,13 +325,10 @@ def verify_public_api_ownership() -> None:
 
     if violations:
         raise RuntimeError(
-            "Public API ownership validation failed:\n- "
-            + "\n- ".join(violations)
+            "Public API ownership validation failed:\n- " + "\n- ".join(violations)
         )
 
-    print(
-        "PASS: InstrumentStatus has one canonical public owner."
-    )
+    print("PASS: InstrumentStatus has one canonical public owner.")
 
 
 def run(
@@ -422,9 +348,7 @@ def run(
 
     if result.returncode != 0:
         raise RuntimeError(
-            "Command failed with exit code "
-            f"{result.returncode}: "
-            + " ".join(command)
+            f"Command failed with exit code {result.returncode}: " + " ".join(command)
         )
 
 
@@ -504,14 +428,8 @@ def main() -> int:
     print("=" * 72)
     print("INSTRUMENT STATUS COLLISION REPAIR COMPLETE")
     print("=" * 72)
-    print(
-        "Canonical owner: "
-        "nimble/packages/react/src/instrumentation/contracts.ts"
-    )
-    print(
-        "Backup directory: "
-        ".repair-backups/instrument-status-collision"
-    )
+    print("Canonical owner: nimble/packages/react/src/instrumentation/contracts.ts")
+    print("Backup directory: .repair-backups/instrument-status-collision")
 
     return 0
 

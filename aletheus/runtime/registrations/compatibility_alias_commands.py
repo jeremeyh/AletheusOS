@@ -16,26 +16,20 @@ SAFE_COMMAND_ALIASES: dict[str, str] = {
     "predict.risks": "prediction.risks",
     "predict.opportunities": "prediction.opportunities",
     "predict.recommend": "prediction.recommend",
-
     # Learning namespace evolution.
     "learn.record": "learning.record",
     "learn.lesson": "learning.lesson",
     "learn.patterns": "learning.patterns",
     "learn.improve": "learning.improve",
     "learn.snapshot": "learning.snapshot",
-
     # Security naming normalization.
     "security.role.create": "security.role_create",
     "security.role.assign": "security.role_assign",
-
     # Statistics naming normalization.
     "cluster.stats": "cluster.statistics",
     "mission.stats": "mission.statistics",
-
     # Mission v2 public compatibility names.
-
     # Workflow v2 public compatibility names.
-
     # Kernel public compatibility names.
     "kernel.boot": "kernel.bootstrap",
     "kernel.publish": "event.publish",
@@ -62,9 +56,7 @@ def register_compatibility_alias_commands(runtime: Any) -> None:
         metadata["alias_for"] = canonical
         metadata["compatibility_alias"] = True
 
-        canonical_result_key = (
-            dispatcher.RESULT_KEY_CONTRACTS.get(canonical)
-        )
+        canonical_result_key = dispatcher.RESULT_KEY_CONTRACTS.get(canonical)
 
         if canonical_result_key is not None:
             metadata.setdefault(

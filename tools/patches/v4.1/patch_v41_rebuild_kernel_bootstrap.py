@@ -9,7 +9,7 @@ pattern = re.compile(
     re.DOTALL,
 )
 
-replacement = '''def _cmd_kernel_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+replacement = """def _cmd_kernel_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
 
         self._bootstrap_compatibility()
 
@@ -27,7 +27,7 @@ replacement = '''def _cmd_kernel_bootstrap(self, context: RuntimeContext) -> Run
         return context
 
 
-    def _cmd_kernel_execute'''
+    def _cmd_kernel_execute"""
 
 text, count = pattern.subn(replacement, text, count=1)
 

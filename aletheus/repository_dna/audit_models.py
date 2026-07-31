@@ -62,10 +62,14 @@ class RepositoryDNAAuditReport:
             lines.append("- None detected.")
         else:
             for c in self.collision_candidates:
-                lines.append(f"- **{c.cluster}** ({c.severity}): {', '.join(c.members)} — {c.reason}")
+                lines.append(
+                    f"- **{c.cluster}** ({c.severity}): {', '.join(c.members)} — {c.reason}"
+                )
 
         lines.extend(["", "## Subsystems", ""])
         for s in self.subsystems:
-            lines.append(f"- `{s.name}` — family: **{s.family}**, files: **{s.python_files}**, status: **{s.status.value}**")
+            lines.append(
+                f"- `{s.name}` — family: **{s.family}**, files: **{s.python_files}**, status: **{s.status.value}**"
+            )
 
         return "\n".join(lines) + "\n"

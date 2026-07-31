@@ -69,10 +69,7 @@ def extract_registration_targets(path: Path) -> list[dict[str, Any]]:
         if not isinstance(node, ast.Call):
             continue
 
-        if not (
-            isinstance(node.func, ast.Attribute)
-            and node.func.attr == "register"
-        ):
+        if not (isinstance(node.func, ast.Attribute) and node.func.attr == "register"):
             continue
 
         if len(node.args) < 2:
@@ -132,10 +129,7 @@ for name in sorted(dir(runtime_core)):
         or name.endswith("_core")
     ):
         candidate_components[name] = {
-            "type": (
-                f"{type(value).__module__}."
-                f"{type(value).__qualname__}"
-            ),
+            "type": (f"{type(value).__module__}.{type(value).__qualname__}"),
             "members": public_members(value),
         }
 
@@ -143,11 +137,7 @@ for name in sorted(dir(runtime_core)):
 records = []
 
 for module_stem in MODULES:
-    path = (
-        ROOT
-        / "aletheus/runtime/registrations"
-        / f"{module_stem}.py"
-    )
+    path = ROOT / "aletheus/runtime/registrations" / f"{module_stem}.py"
 
     records.append(
         {
@@ -160,8 +150,7 @@ for module_stem in MODULES:
 
 report = {
     "runtime_type": (
-        f"{type(runtime_core).__module__}."
-        f"{type(runtime_core).__qualname__}"
+        f"{type(runtime_core).__module__}.{type(runtime_core).__qualname__}"
     ),
     "runtime_public_members": runtime_members,
     "candidate_components": candidate_components,
@@ -216,16 +205,10 @@ for name, component in candidate_components.items():
         ]
     )
 
-    methods = [
-        member
-        for member in component["members"]
-        if member["kind"] == "method"
-    ]
+    methods = [member for member in component["members"] if member["kind"] == "method"]
 
     for member in methods:
-        lines.append(
-            f"- `{member['name']}{member['signature']}`"
-        )
+        lines.append(f"- `{member['name']}{member['signature']}`")
 
     lines.append("")
 

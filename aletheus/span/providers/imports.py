@@ -38,7 +38,10 @@ class ImportProvider(Provider):
 
         for path in sorted(root.rglob("*.py")):
             relative = path.relative_to(root)
-            if any(part in {".git", ".venv", "venv", "__pycache__"} for part in relative.parts):
+            if any(
+                part in {".git", ".venv", "venv", "__pycache__"}
+                for part in relative.parts
+            ):
                 continue
 
             current_module = _module_name(relative)

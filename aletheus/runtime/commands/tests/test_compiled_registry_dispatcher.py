@@ -10,9 +10,7 @@ def test_registry_dispatches_through_compiled_dispatcher():
 
     registry.register(
         "math.add",
-        lambda payload: {
-            "value": payload["left"] + payload["right"]
-        },
+        lambda payload: {"value": payload["left"] + payload["right"]},
         category="test",
     )
 

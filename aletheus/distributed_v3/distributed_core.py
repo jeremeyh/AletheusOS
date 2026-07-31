@@ -77,7 +77,6 @@ class RuntimeCluster:
 
 
 class AletheusDistributedRuntimeFabric:
-
     VERSION = "3.0.0"
 
     def __init__(self):
@@ -85,9 +84,7 @@ class AletheusDistributedRuntimeFabric:
 
     def bootstrap(self):
         if self.cluster is None:
-            self.cluster = RuntimeCluster(
-                name="AletheusOS Primary Cluster"
-            )
+            self.cluster = RuntimeCluster(name="AletheusOS Primary Cluster")
 
             founder = RuntimeNode(
                 node_name="Founder Runtime",
@@ -155,9 +152,7 @@ class AletheusDistributedRuntimeFabric:
         if self.cluster is None:
             self.bootstrap()
 
-        return {
-            "nodes": [n.to_dict() for n in self.cluster.nodes.values()]
-        }
+        return {"nodes": [n.to_dict() for n in self.cluster.nodes.values()]}
 
     def services(self):
         if self.cluster is None:
@@ -192,9 +187,7 @@ class AletheusDistributedRuntimeFabric:
         leader = next(iter(self.cluster.nodes.values()))
         self.cluster.leader_node_id = leader.node_id
 
-        return {
-            "leader": leader.to_dict()
-        }
+        return {"leader": leader.to_dict()}
 
     def status(self):
         if self.cluster is None:
@@ -212,7 +205,6 @@ class AletheusDistributedRuntimeFabric:
                 "health": "offline",
                 "heartbeats": 0,
                 "services": 0,
-
                 # Genesis 7.11 Contract Convergence™
                 "tasks": 0,
                 "jobs": 0,
@@ -230,12 +222,9 @@ class AletheusDistributedRuntimeFabric:
             "services": sum(len(n.services) for n in nodes),
             "capabilities": sum(len(n.capabilities) for n in nodes),
             "jobs": len(self.cluster.jobs),
-
             # Genesis 7.11 Contract Convergence™
             "tasks": len(self.cluster.jobs),
         }
-
-
 
     # ============================================================
     # Legacy Runtime Compatibility Layer

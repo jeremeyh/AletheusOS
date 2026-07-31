@@ -1,8 +1,3 @@
 from .engine import UniversalCapabilityGenerationEngine
 
-__all__ = [
-
-"UniversalCapabilityGenerationEngine"
-
-]
-
+__all__ = ["UniversalCapabilityGenerationEngine"]

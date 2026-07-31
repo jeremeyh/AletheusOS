@@ -95,7 +95,6 @@ class BootManager:
         context = BootContext(runtime)
 
         for step in self.lifecycle.steps:
-
             context.transition(step.phase)
 
             try:
@@ -129,7 +128,6 @@ class BootManager:
     ) -> None:
 
         for entry in self.manifest.entries:
-
             instance = entry.factory(context.runtime)
 
             context.instances[entry.name] = instance
@@ -140,11 +138,9 @@ class BootManager:
     ) -> None:
 
         for entry in self.manifest.entries:
-
             instance = context.instances[entry.name]
 
             if entry.kind == "domain":
-
                 self.registry.register_domain(
                     RuntimeDomain(
                         name=entry.name,
@@ -157,7 +153,6 @@ class BootManager:
                 )
 
             elif entry.kind == "service":
-
                 self.registry.register_service(
                     RuntimeService(
                         name=entry.name,
@@ -170,7 +165,6 @@ class BootManager:
                 )
 
             elif entry.kind == "component":
-
                 self.registry.register_component(
                     RuntimeComponent(
                         name=entry.name,
@@ -183,7 +177,6 @@ class BootManager:
                 )
 
             elif entry.kind == "provider":
-
                 self.registry.register_provider(
                     entry.name,
                     instance,

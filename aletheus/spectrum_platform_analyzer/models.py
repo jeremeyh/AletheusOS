@@ -33,7 +33,6 @@ class FindingType(str, Enum):
 
 @dataclass
 class PlatformFinding:
-
     finding_id: str
 
     finding_type: FindingType
@@ -50,9 +49,7 @@ class PlatformFinding:
 
     evidence: list[str] = field(default_factory=list)
 
-    created_at: str = field(
-        default_factory=lambda: utc_now_iso()
-    )
+    created_at: str = field(default_factory=lambda: utc_now_iso())
 
     def to_dict(self):
 
@@ -71,7 +68,6 @@ class PlatformFinding:
 
 @dataclass
 class PlatformScore:
-
     architecture: float = 100.0
 
     coupling: float = 100.0
@@ -116,7 +112,6 @@ class PlatformScore:
 
 @dataclass
 class PlatformReport:
-
     report_id: str
 
     generated_at: str
@@ -133,9 +128,6 @@ class PlatformReport:
             "report_id": self.report_id,
             "generated_at": self.generated_at,
             "score": self.score.to_dict(),
-            "findings": [
-                finding.to_dict()
-                for finding in self.findings
-            ],
+            "findings": [finding.to_dict() for finding in self.findings],
             "metadata": self.metadata,
         }

@@ -1,5 +1,4 @@
 class RuntimeExtractionReporter:
-
     def render(self, plan):
 
         lines = [
@@ -13,24 +12,19 @@ class RuntimeExtractionReporter:
         ]
 
         for item in plan.candidates:
+            lines.append(f"{item.priority}. {item.name}")
+
+            lines.append(f"   -> {item.destination}")
 
             lines.append(
-                f"{item.priority}. "
-                f"{item.name}"
+                f"   ~{item.estimated_lines} lines (confidence {item.confidence})"
             )
 
-            lines.append(
-                f"   -> {item.destination}"
-            )
-
-            lines.append(
-                f"   ~{item.estimated_lines} lines "
-                f"(confidence {item.confidence})"
-            )
-
-        lines.extend([
-            "",
-            "========================================================",
-        ])
+        lines.extend(
+            [
+                "",
+                "========================================================",
+            ]
+        )
 
         return "\n".join(lines)

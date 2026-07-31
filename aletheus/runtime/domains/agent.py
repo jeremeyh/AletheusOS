@@ -42,23 +42,17 @@ class AgentDomain:
         return context
 
     def pause(self, context):
-        result = self.runtime.agents_v2.pause(
-            context.payload.get("agent_id", "")
-        )
+        result = self.runtime.agents_v2.pause(context.payload.get("agent_id", ""))
         context.add_result("agent", result)
         return context
 
     def resume(self, context):
-        result = self.runtime.agents_v2.resume(
-            context.payload.get("agent_id", "")
-        )
+        result = self.runtime.agents_v2.resume(context.payload.get("agent_id", ""))
         context.add_result("agent", result)
         return context
 
     def stop(self, context):
-        result = self.runtime.agents_v2.stop(
-            context.payload.get("agent_id", "")
-        )
+        result = self.runtime.agents_v2.stop(context.payload.get("agent_id", ""))
         context.add_result("agent", result)
         return context
 

@@ -9,25 +9,15 @@ from dataclasses import dataclass, field
 
 @dataclass
 class CollectorProfile:
-
-
     user_id: str
 
-    interests: list = field(
-        default_factory=list
-    )
+    interests: list = field(default_factory=list)
 
     reputation: int = 0
 
 
-
 @dataclass
 class Community:
-
-
     name: str
 
-    members: list = field(
-        default_factory=list
-    )
-
+    members: list = field(default_factory=list)

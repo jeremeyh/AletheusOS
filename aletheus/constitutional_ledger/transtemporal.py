@@ -30,10 +30,7 @@ class TemporalSnapshot:
         return {
             "as_of": self.as_of,
             "event_count": len(self.events),
-            "events": [
-                event.to_dict()
-                for event in self.events
-            ],
+            "events": [event.to_dict() for event in self.events],
         }
 
 
@@ -51,14 +48,8 @@ class TemporalDifference:
         return {
             "before": self.before.to_dict(),
             "after": self.after.to_dict(),
-            "added": [
-                event.to_dict()
-                for event in self.added
-            ],
-            "removed": [
-                event.to_dict()
-                for event in self.removed
-            ],
+            "added": [event.to_dict() for event in self.added],
+            "removed": [event.to_dict() for event in self.removed],
             "changed": list(self.changed),
         }
 
@@ -105,26 +96,22 @@ class TranstemporalEngine:
         results = []
 
         for event in self.store.all():
-            if (
-                source_identity is not None
-                and event.source_identity != source_identity
-            ):
+            if source_identity is not None and event.source_identity != source_identity:
                 continue
 
-            if (
-                event_type is not None
-                and event.event_type != event_type
-            ):
+            if event_type is not None and event.event_type != event_type:
                 continue
 
-            searchable = " ".join([
-                event.event_id,
-                event.event_type,
-                event.source_identity,
-                repr(event.payload),
-                repr(event.evidence),
-                " ".join(event.tags),
-            ]).casefold()
+            searchable = " ".join(
+                [
+                    event.event_id,
+                    event.event_type,
+                    event.source_identity,
+                    repr(event.payload),
+                    repr(event.evidence),
+                    " ".join(event.tags),
+                ]
+            ).casefold()
 
             if not normalized or normalized in searchable:
                 results.append(event)
@@ -146,10 +133,7 @@ class TranstemporalEngine:
             event
             for event in self.store.all()
             if _parse_timestamp(event.effective_at) <= boundary
-            and (
-                source_identity is None
-                or event.source_identity == source_identity
-            )
+            and (source_identity is None or event.source_identity == source_identity)
         ]
 
         latest: dict[
@@ -164,11 +148,9 @@ class TranstemporalEngine:
             )
             current = latest.get(key)
 
-            if (
-                current is None
-                or _parse_timestamp(event.effective_at)
-                > _parse_timestamp(current.effective_at)
-            ):
+            if current is None or _parse_timestamp(
+                event.effective_at
+            ) > _parse_timestamp(current.effective_at):
                 latest[key] = event
 
         events = tuple(
@@ -207,43 +189,35 @@ class TranstemporalEngine:
         )
 
         before_map = {
-            (event.source_identity, event.event_type): event
-            for event in before.events
+            (event.source_identity, event.event_type): event for event in before.events
         }
         after_map = {
-            (event.source_identity, event.event_type): event
-            for event in after.events
+            (event.source_identity, event.event_type): event for event in after.events
         }
 
         added = tuple(
-            after_map[key]
-            for key in sorted(
-                after_map.keys() - before_map.keys()
-            )
+            after_map[key] for key in sorted(after_map.keys() - before_map.keys())
         )
 
         removed = tuple(
-            before_map[key]
-            for key in sorted(
-                before_map.keys() - after_map.keys()
-            )
+            before_map[key] for key in sorted(before_map.keys() - after_map.keys())
         )
 
         changed = []
 
-        for key in sorted(
-            before_map.keys() & after_map.keys()
-        ):
+        for key in sorted(before_map.keys() & after_map.keys()):
             earlier = before_map[key]
             later = after_map[key]
 
             if earlier.event_id != later.event_id:
-                changed.append({
-                    "source_identity": key[0],
-                    "event_type": key[1],
-                    "before": earlier.to_dict(),
-                    "after": later.to_dict(),
-                })
+                changed.append(
+                    {
+                        "source_identity": key[0],
+                        "event_type": key[1],
+                        "before": earlier.to_dict(),
+                        "after": later.to_dict(),
+                    }
+                )
 
         return TemporalDifference(
             before=before,
@@ -266,16 +240,12 @@ class TranstemporalEngine:
 
         if correlation_id is not None:
             events = tuple(
-                event
-                for event in events
-                if event.correlation_id == correlation_id
+                event for event in events if event.correlation_id == correlation_id
             )
 
         if source_identity is not None:
             events = tuple(
-                event
-                for event in events
-                if event.source_identity == source_identity
+                event for event in events if event.source_identity == source_identity
             )
 
         return tuple(
@@ -350,10 +320,7 @@ class TranstemporalEngine:
             "correlation_id": event.correlation_id,
             "causation_id": event.causation_id,
             "certified": event.certified,
-            "lineage": [
-                item.to_dict()
-                for item in lineage
-            ],
+            "lineage": [item.to_dict() for item in lineage],
         }
 
     def health(self) -> dict[str, Any]:

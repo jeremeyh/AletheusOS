@@ -8,73 +8,39 @@ from aletheus.time_utils import utc_now
 
 
 class IntelligenceCivilizationEngine:
-
-
     def __init__(self):
 
         self.civilizations = []
 
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_intelligence_civilization",
-
-            "architecture":
-            "civilization_core",
-
-            "post_genesis":
-            "205-215",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_intelligence_civilization",
+            "architecture": "civilization_core",
+            "post_genesis": "205-215",
+            "status": "operational",
         }
-
-
 
     def create_civilization(self, domain):
 
         civilization = {
-
-            "name":
-            domain,
-
-            "runtime":
-            "AletheusOS",
-
-            "created":
-            str(utc_now()),
-
-            "components":
-            [
-
+            "name": domain,
+            "runtime": "AletheusOS",
+            "created": str(utc_now()),
+            "components": [
                 "Memory",
                 "Knowledge Graph",
                 "Governance",
                 "Collective Intelligence",
-                "Federation"
-
+                "Federation",
             ],
-
-            "status":
-            "initialized"
-
+            "status": "initialized",
         }
 
-
-        self.civilizations.append(
-            civilization
-        )
-
+        self.civilizations.append(civilization)
 
         return civilization
-
-
 
     def list_civilizations(self):
 
         return self.civilizations
-

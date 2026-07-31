@@ -5,19 +5,6 @@ Cognitive Forecasting Engine
 
 
 class CognitiveForecastingEngine:
+    def predict(self, scenario):
 
-
-    def predict(
-        self,
-        scenario
-    ):
-
-        return {
-
-            "scenario":
-                scenario,
-
-            "forecast":
-                "generated"
-
-        }
+        return {"scenario": scenario, "forecast": "generated"}

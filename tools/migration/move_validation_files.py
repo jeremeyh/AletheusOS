@@ -44,7 +44,6 @@ def destination(name: str) -> Path | None:
 
 
 for item in sorted(ROOT.iterdir()):
-
     if not item.is_file():
         continue
 

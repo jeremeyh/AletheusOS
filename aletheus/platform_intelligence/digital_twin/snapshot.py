@@ -35,14 +35,10 @@ class TwinSnapshot:
 
     def __post_init__(self) -> None:
         if self.revision < 0:
-            raise ValueError(
-                "Snapshot revision cannot be negative."
-            )
+            raise ValueError("Snapshot revision cannot be negative.")
 
         if self.created_at.tzinfo is None:
-            raise ValueError(
-                "Snapshot timestamp must include timezone."
-            )
+            raise ValueError("Snapshot timestamp must include timezone.")
 
         object.__setattr__(
             self,
@@ -52,26 +48,17 @@ class TwinSnapshot:
         object.__setattr__(
             self,
             "services",
-            tuple(
-                _freeze_mapping(item)
-                for item in self.services
-            ),
+            tuple(_freeze_mapping(item) for item in self.services),
         )
         object.__setattr__(
             self,
             "nodes",
-            tuple(
-                _freeze_mapping(item)
-                for item in self.nodes
-            ),
+            tuple(_freeze_mapping(item) for item in self.nodes),
         )
         object.__setattr__(
             self,
             "relationships",
-            tuple(
-                _freeze_mapping(item)
-                for item in self.relationships
-            ),
+            tuple(_freeze_mapping(item) for item in self.relationships),
         )
         object.__setattr__(
             self,
@@ -129,25 +116,14 @@ class TwinSnapshot:
 
         payload = {
             "revision": self.revision,
-            "services": [
-                dict(item)
-                for item in self.services
-            ],
-            "nodes": [
-                dict(item)
-                for item in self.nodes
-            ],
-            "relationships": [
-                dict(item)
-                for item in self.relationships
-            ],
+            "services": [dict(item) for item in self.services],
+            "nodes": [dict(item) for item in self.nodes],
+            "relationships": [dict(item) for item in self.relationships],
             "health": dict(self.health),
             "topology": dict(self.topology),
             "statistics": dict(self.statistics),
             "last_event": (
-                dict(self.last_event)
-                if self.last_event is not None
-                else None
+                dict(self.last_event) if self.last_event is not None else None
             ),
         }
 
@@ -165,25 +141,14 @@ class TwinSnapshot:
             "snapshot_id": str(self.snapshot_id),
             "revision": self.revision,
             "created_at": self.created_at.isoformat(),
-            "services": [
-                dict(item)
-                for item in self.services
-            ],
-            "nodes": [
-                dict(item)
-                for item in self.nodes
-            ],
-            "relationships": [
-                dict(item)
-                for item in self.relationships
-            ],
+            "services": [dict(item) for item in self.services],
+            "nodes": [dict(item) for item in self.nodes],
+            "relationships": [dict(item) for item in self.relationships],
             "health": dict(self.health),
             "topology": dict(self.topology),
             "statistics": dict(self.statistics),
             "last_event": (
-                dict(self.last_event)
-                if self.last_event is not None
-                else None
+                dict(self.last_event) if self.last_event is not None else None
             ),
             "integrity_hash": self.integrity_hash(),
         }

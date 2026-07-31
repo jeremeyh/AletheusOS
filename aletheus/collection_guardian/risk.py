@@ -6,19 +6,6 @@ Genesis 13.40
 
 
 class RiskDetectionEngine:
+    def analyze(self, portfolio):
 
-
-    def analyze(
-        self,
-        portfolio
-    ):
-
-
-        return {
-
-            "risk":
-
-                "low"
-
-        }
-
+        return {"risk": "low"}

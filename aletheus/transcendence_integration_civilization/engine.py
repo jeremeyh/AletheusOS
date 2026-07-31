@@ -4,8 +4,8 @@ AletheusOS Universal Intelligence Transcendence Integration Core
 Post-Genesis 10451-10550
 """
 
-class TranscendenceIntegrationCivilizationEngine:
 
+class TranscendenceIntegrationCivilizationEngine:
     def __init__(self):
         self.integrations = []
 
@@ -13,15 +13,12 @@ class TranscendenceIntegrationCivilizationEngine:
         return {
             "system": "aletheus_transcendence_integration_civilization",
             "range": "10451-10550",
-            "status": "operational"
+            "status": "operational",
         }
 
     def integrate(self, ecosystem):
 
-        integration = {
-            "ecosystem": ecosystem,
-            "status": "constitutionally_integrated"
-        }
+        integration = {"ecosystem": ecosystem, "status": "constitutionally_integrated"}
 
         self.integrations.append(integration)
 

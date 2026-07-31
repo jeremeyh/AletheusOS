@@ -1,5 +1,4 @@
 class RuntimeLifecycleReporter:
-
     def render(self, manager):
 
         health = manager.health()
@@ -17,15 +16,15 @@ class RuntimeLifecycleReporter:
 
         if health["history"]:
             for item in health["history"]:
-                lines.append(
-                    f"  {item['from']} -> {item['to']} ({item['reason']})"
-                )
+                lines.append(f"  {item['from']} -> {item['to']} ({item['reason']})")
         else:
             lines.append("  None")
 
-        lines.extend([
-            "",
-            "========================================================",
-        ])
+        lines.extend(
+            [
+                "",
+                "========================================================",
+            ]
+        )
 
         return "\n".join(lines)

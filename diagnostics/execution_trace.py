@@ -16,9 +16,7 @@ def trace():
         return
 
     with LOG.open() as fp:
-
         for line in fp:
-
             e = json.loads(line)
 
             print()

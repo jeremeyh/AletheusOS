@@ -6,10 +6,22 @@ from data_layer.database_manager import db
 class WatchlistRepository:
     @staticmethod
     def create(title, player="", query="", max_price=0, target_thorx=0, notes=""):
-        db.execute("""
+        db.execute(
+            """
             INSERT INTO watchlist (title, player, query, max_price, target_thorx, status, notes, created_at)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        """, (title, player, query, max_price, target_thorx, "Active", notes, datetime.utcnow().isoformat()))
+        """,
+            (
+                title,
+                player,
+                query,
+                max_price,
+                target_thorx,
+                "Active",
+                notes,
+                datetime.utcnow().isoformat(),
+            ),
+        )
 
     @staticmethod
     def all():

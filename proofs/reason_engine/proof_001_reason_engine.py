@@ -28,32 +28,23 @@ def header(title: str) -> None:
 def main() -> None:
 
     reason = reason_engine.reason(
-
         intent="APPRAISE",
-
         identity="identity.founder.master_lord_6ixth",
-
         query="What is my Caleb Williams Bowman worth?",
-
         conclusion="Marketplace appraisal should be performed.",
-
         evidence=[
             "Marketplace Intelligence",
             "Portfolio Analysis",
         ],
-
         memories_used=[
             "MEM-EXAMPLE-0001",
         ],
-
         constitutional_articles=[
             "Principle X",
             "Evidence Before Conclusion",
             "Reason Transparency Principle",
         ],
-
         confidence=0.93,
-
         provenance={
             "application": "CardHawk",
             "genesis": "49.0",
@@ -62,23 +53,16 @@ def main() -> None:
 
     header("REASON OBJECT")
 
-    pprint(
-        reason.to_dict()
-    )
+    pprint(reason.to_dict())
 
     header("HEALTH")
 
-    pprint(
-        reason_engine.health()
-    )
+    pprint(reason_engine.health())
 
     header("STATISTICS")
 
-    pprint(
-        reason_engine.statistics()
-    )
+    pprint(reason_engine.statistics())
 
 
 if __name__ == "__main__":
-
     main()

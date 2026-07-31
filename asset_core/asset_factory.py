@@ -9,6 +9,7 @@ class AssetFactory:
 
     Creates validated Asset objects with normalized CardHawk OS™ defaults.
     """
+
     @staticmethod
     def create(**kwargs) -> Asset:
         if "tags" in kwargs:

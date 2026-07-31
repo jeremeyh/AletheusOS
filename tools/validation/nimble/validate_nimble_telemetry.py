@@ -45,11 +45,7 @@ def main() -> int:
         LOG_FILE,
     )
 
-    missing = [
-        path
-        for path in required_files
-        if not path.exists()
-    ]
+    missing = [path for path in required_files if not path.exists()]
 
     if missing:
         for path in missing:
@@ -65,10 +61,7 @@ def main() -> int:
         )
     )
 
-    missing_keys = (
-        REQUIRED_TOP_LEVEL_KEYS
-        - set(report)
-    )
+    missing_keys = REQUIRED_TOP_LEVEL_KEYS - set(report)
 
     if missing_keys:
         print(
@@ -91,21 +84,15 @@ def main() -> int:
         return 1
 
     if gate["duration_seconds"] < 0:
-        print(
-            "FAIL: Invalid gate duration."
-        )
+        print("FAIL: Invalid gate duration.")
         return 1
 
     if not bundle["chunks"]:
-        print(
-            "FAIL: Bundle telemetry contains no chunks."
-        )
+        print("FAIL: Bundle telemetry contains no chunks.")
         return 1
 
     if bundle["primary"] is None:
-        print(
-            "FAIL: Primary bundle telemetry is missing."
-        )
+        print("FAIL: Primary bundle telemetry is missing.")
         return 1
 
     history_lines = [
@@ -117,9 +104,7 @@ def main() -> int:
     ]
 
     if not history_lines:
-        print(
-            "FAIL: Telemetry history is empty."
-        )
+        print("FAIL: Telemetry history is empty.")
         return 1
 
     json.loads(history_lines[-1])

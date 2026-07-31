@@ -4,7 +4,6 @@ from .models import CapabilityGrant
 
 
 class GrantManager:
-
     GENESIS = "21.6"
     VERSION = "1.0.0"
 
@@ -41,19 +40,12 @@ class GrantManager:
         self._grants = [
             g
             for g in self._grants
-            if not (
-                g.identity_id == identity_id
-                and g.capability_id == capability_id
-            )
+            if not (g.identity_id == identity_id and g.capability_id == capability_id)
         ]
 
     def grants_for(self, identity_id: str):
 
-        return [
-            g
-            for g in self._grants
-            if g.identity_id == identity_id
-        ]
+        return [g for g in self._grants if g.identity_id == identity_id]
 
     def has(
         self,
@@ -62,8 +54,7 @@ class GrantManager:
     ):
 
         return any(
-            g.identity_id == identity_id
-            and g.capability_id == capability_id
+            g.identity_id == identity_id and g.capability_id == capability_id
             for g in self._grants
         )
 

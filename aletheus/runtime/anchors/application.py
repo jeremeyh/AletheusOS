@@ -10,13 +10,10 @@ Used by bounded applications:
 - future products
 """
 
-
 from .base import RuntimeAnchorCircuit
 
 
 class ApplicationAnchorCircuit(RuntimeAnchorCircuit):
-
-
     def attach(self):
 
         self.connected = True
@@ -25,10 +22,6 @@ class ApplicationAnchorCircuit(RuntimeAnchorCircuit):
 
         return self.status()
 
-
     def capabilities(self):
 
-        return [
-            "application_runtime",
-            "product_extension"
-        ]
+        return ["application_runtime", "product_extension"]

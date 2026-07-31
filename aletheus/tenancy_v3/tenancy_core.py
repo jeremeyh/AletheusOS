@@ -102,7 +102,9 @@ class AletheusTenancyEngine:
 
         return asdict(organization)
 
-    def update_organization(self, organization_id: str, name=None, metadata=None, status=None):
+    def update_organization(
+        self, organization_id: str, name=None, metadata=None, status=None
+    ):
         organization = self.organizations.get(organization_id)
 
         if organization is None:

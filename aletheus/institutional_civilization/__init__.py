@@ -41,13 +41,11 @@ from .wiring import InstitutionWiring
 __all__ = [
     # Bootstrap
     "CivilizationBootstrap",
-
     # Civilization Framework
     "CivilizationProjector",
     "CivilizationRegistry",
     "DuplicateCivilizationError",
     "canonical_civilizations",
-
     # Institution Framework
     "InstitutionProjector",
     "InstitutionRegistry",
@@ -57,16 +55,13 @@ __all__ = [
     "DuplicateInstitutionError",
     "InstitutionValidationError",
     "canonical_institutions",
-
     # Constitutional Model
     "ConstitutionalLayer",
     "ConstitutionalPillar",
-
     # Security Civilization
     "SecurityCivilizationLifecycle",
     "SecurityCivilizationProjector",
     "CANONICAL_SECURITY_RELATIONSHIPS",
-
     # Runtime
     "InstitutionalCivilizationEngine",
     "InstitutionWiring",

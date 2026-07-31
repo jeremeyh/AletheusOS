@@ -30,7 +30,9 @@ class ExplanationEngine:
             reasons.append("Current value is above cost basis.")
 
         if current > 0 and ceiling > current:
-            reasons.append("Meaningful upside exists between current value and ceiling.")
+            reasons.append(
+                "Meaningful upside exists between current value and ceiling."
+            )
 
         if float(asset.get("hawk_aeye_confidence") or 0) >= 80:
             reasons.append("Hawk A•Eye™ confidence is strong.")
@@ -38,9 +40,13 @@ class ExplanationEngine:
         if recommendation in ["STRIKE", "BUY"]:
             reasons.append("DEF recommends active acquisition or accumulation.")
         elif recommendation == "HOLD":
-            reasons.append("Asset remains portfolio-worthy but does not demand urgent action.")
+            reasons.append(
+                "Asset remains portfolio-worthy but does not demand urgent action."
+            )
         elif recommendation == "WATCH":
-            reasons.append("Asset has some signals but needs stronger market confirmation.")
+            reasons.append(
+                "Asset has some signals but needs stronger market confirmation."
+            )
         else:
             reasons.append("Risk/reward profile is currently below CardHawk standards.")
 

@@ -67,7 +67,6 @@ def canonical_security_institutions() -> tuple[InstitutionRecord, ...]:
             ),
             genesis="12",
         ),
-
         InstitutionRecord(
             institution_id="aletheus.conclave",
             canonical_name="Conclave™",
@@ -120,7 +119,6 @@ def canonical_security_institutions() -> tuple[InstitutionRecord, ...]:
             ),
             genesis="12",
         ),
-
         InstitutionRecord(
             institution_id="aletheus.containment_vault",
             canonical_name="Containment Vault™",
@@ -174,7 +172,6 @@ def canonical_security_institutions() -> tuple[InstitutionRecord, ...]:
             ),
             genesis="12",
         ),
-
         InstitutionRecord(
             institution_id="aletheus.sentinel",
             canonical_name="Sentinel™",

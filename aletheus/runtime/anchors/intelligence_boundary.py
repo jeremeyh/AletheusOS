@@ -5,16 +5,6 @@ Intelligence Boundary Engine
 
 
 class IntelligenceBoundaryEngine:
+    def enforce(self, capability):
 
-
-    def enforce(self,capability):
-
-        return {
-
-            "capability":
-                capability,
-
-            "boundary_checked":
-                True
-
-        }
+        return {"capability": capability, "boundary_checked": True}

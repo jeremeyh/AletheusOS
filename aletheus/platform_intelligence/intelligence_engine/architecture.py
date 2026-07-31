@@ -32,9 +32,7 @@ def analyze_architecture(
     score = 100.0
 
     insights: list[PlatformInsight] = []
-    recommendations: list[
-        PlatformRecommendation
-    ] = []
+    recommendations: list[PlatformRecommendation] = []
 
     cycles = graph.cycles()
 
@@ -52,13 +50,7 @@ def analyze_architecture(
                     "composition and predictable lifecycle order."
                 ),
                 evidence={
-                    "cycles": [
-                        [
-                            str(address)
-                            for address in cycle
-                        ]
-                        for cycle in cycles
-                    ],
+                    "cycles": [[str(address) for address in cycle] for cycle in cycles],
                     "count": len(cycles),
                 },
                 confidence=1.0,
@@ -79,13 +71,7 @@ def analyze_architecture(
                     "predictable composition and recovery."
                 ),
                 subjects=tuple(
-                    sorted(
-                        {
-                            str(address)
-                            for cycle in cycles
-                            for address in cycle
-                        }
-                    )
+                    sorted({str(address) for cycle in cycles for address in cycle})
                 ),
                 confidence=1.0,
             )
@@ -106,10 +92,7 @@ def analyze_architecture(
                     "unfinished integration or obsolete capability."
                 ),
                 evidence={
-                    "objects": [
-                        item.address
-                        for item in orphans
-                    ],
+                    "objects": [item.address for item in orphans],
                     "count": len(orphans),
                 },
                 confidence=0.9,
@@ -129,10 +112,7 @@ def analyze_architecture(
                     "Every constitutional object should have an "
                     "explicit role within platform topology."
                 ),
-                subjects=tuple(
-                    item.address
-                    for item in orphans
-                ),
+                subjects=tuple(item.address for item in orphans),
                 confidence=0.9,
             )
         )
@@ -140,14 +120,10 @@ def analyze_architecture(
     hotspots: list[tuple[str, int]] = []
 
     for node in graph.nodes():
-        dependent_count = len(
-            graph.dependents(node.address)
-        )
+        dependent_count = len(graph.dependents(node.address))
 
         if dependent_count >= fan_in_warning_threshold:
-            hotspots.append(
-                (node.address, dependent_count)
-            )
+            hotspots.append((node.address, dependent_count))
 
     if hotspots:
         score -= min(
@@ -161,8 +137,7 @@ def analyze_architecture(
                 severity=IntelligenceSeverity.WARNING,
                 title="High dependency concentration detected",
                 description=(
-                    "One or more objects have high inbound "
-                    "dependency concentration."
+                    "One or more objects have high inbound dependency concentration."
                 ),
                 evidence={
                     "hotspots": [
@@ -190,10 +165,7 @@ def analyze_architecture(
                     "High fan-in increases blast radius and "
                     "single-point-of-failure pressure."
                 ),
-                subjects=tuple(
-                    address
-                    for address, _ in hotspots
-                ),
+                subjects=tuple(address for address, _ in hotspots),
                 confidence=0.9,
             )
         )
@@ -201,11 +173,7 @@ def analyze_architecture(
     if stats.maximum_depth > depth_warning_threshold:
         score -= min(
             20.0,
-            (
-                stats.maximum_depth
-                - depth_warning_threshold
-            )
-            * 3.0,
+            (stats.maximum_depth - depth_warning_threshold) * 3.0,
         )
 
         insights.append(

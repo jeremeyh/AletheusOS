@@ -20,7 +20,5 @@ class RuntimeHealthMonitor:
             "state": lifecycle.state.value,
             "services": len(container.services()),
             "capabilities": registry.count(),
-            "healthy": (
-                lifecycle.state.value == "online"
-            ),
+            "healthy": (lifecycle.state.value == "online"),
         }

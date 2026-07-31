@@ -24,11 +24,7 @@ class PrincipleXValidator:
             "governance": hasattr(self.runtime, "governance"),
         }
 
-        failed = [
-            name
-            for name, passed in checks.items()
-            if not passed
-        ]
+        failed = [name for name, passed in checks.items() if not passed]
 
         return {
             "principle": "X",

@@ -5,6 +5,7 @@ from config.settings import settings
 
 _LOGGERS = {}
 
+
 def get_logger(name: str = "system"):
     settings.ensure_directories()
     if name in _LOGGERS:

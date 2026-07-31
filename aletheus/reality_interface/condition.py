@@ -6,19 +6,6 @@ Genesis 13.55
 
 
 class ConditionEngine:
+    def evaluate(self, asset):
 
-
-    def evaluate(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "condition":
-
-                "unknown"
-
-        }
-
+        return {"condition": "unknown"}

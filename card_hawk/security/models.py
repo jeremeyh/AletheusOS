@@ -9,8 +9,6 @@ from dataclasses import dataclass
 
 @dataclass
 class SecurityEvent:
-
-
     event_type: str
 
     actor: str
@@ -18,12 +16,8 @@ class SecurityEvent:
     authorized: bool
 
 
-
 @dataclass
 class Policy:
-
-
     name: str
 
     enabled: bool
-

@@ -6,58 +6,29 @@ Post-Genesis 172-182
 
 
 class IntelligenceCivilizationEngine:
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_intelligence_civilization",
-
-            "range":
-            "172-182",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_intelligence_civilization",
+            "range": "172-182",
+            "status": "operational",
         }
-
-
 
     def activate(self):
 
         return {
-
-            "domains":
-            [
-
+            "domains": [
                 "Federation",
-
                 "Intelligence Exchange",
-
                 "Organizations",
-
                 "Economy",
-
                 "Agents",
-
                 "Collective Intelligence",
-
                 "Knowledge Civilization",
-
                 "Innovation",
-
                 "Coordination",
-
                 "Simulation",
-
-                "Civilization Core"
-
+                "Civilization Core",
             ],
-
-            "status":
-            "converged"
-
+            "status": "converged",
         }
-

@@ -34,9 +34,7 @@ def definition(
 def test_register_service() -> None:
     registry = PlatformServiceRegistry()
 
-    service = registry.register(
-        definition("service.runtime")
-    )
+    service = registry.register(definition("service.runtime"))
 
     assert service.address == "service.runtime"
     assert service.state is ConstitutionalState.REGISTERED
@@ -49,9 +47,7 @@ def test_duplicate_service_is_rejected() -> None:
 
     registry.register(service_definition)
 
-    with pytest.raises(
-        ServiceAlreadyRegisteredError
-    ):
+    with pytest.raises(ServiceAlreadyRegisteredError):
         registry.register(service_definition)
 
 
@@ -77,9 +73,7 @@ def test_missing_dependency_is_rejected() -> None:
 def test_dependency_can_be_registered() -> None:
     registry = PlatformServiceRegistry()
 
-    registry.register(
-        definition("service.runtime")
-    )
+    registry.register(definition("service.runtime"))
     registry.register(
         definition(
             "service.workspace",
@@ -87,21 +81,13 @@ def test_dependency_can_be_registered() -> None:
         )
     )
 
-    assert [
-        str(item)
-        for item
-        in registry.dependencies_of(
-            "service.workspace"
-        )
-    ] == ["service.runtime"]
+    assert [str(item) for item in registry.dependencies_of("service.workspace")] == [
+        "service.runtime"
+    ]
 
-    assert [
-        str(item)
-        for item
-        in registry.dependents_of(
-            "service.runtime"
-        )
-    ] == ["service.workspace"]
+    assert [str(item) for item in registry.dependents_of("service.runtime")] == [
+        "service.workspace"
+    ]
 
 
 def test_register_many_resolves_dependency_order() -> None:
@@ -117,10 +103,7 @@ def test_register_many_resolves_dependency_order() -> None:
         ]
     )
 
-    assert [
-        service.address
-        for service in registered
-    ] == [
+    assert [service.address for service in registered] == [
         "service.runtime",
         "service.workspace",
     ]
@@ -146,34 +129,19 @@ def test_register_many_rejects_unresolvable_graph() -> None:
 
 def test_registration_publishes_events() -> None:
     bus = ConstitutionalEventBus()
-    registry = PlatformServiceRegistry(
-        event_bus=bus
-    )
+    registry = PlatformServiceRegistry(event_bus=bus)
 
-    registry.register(
-        definition("service.runtime")
-    )
+    registry.register(definition("service.runtime"))
 
-    kinds = [
-        event.kind
-        for event in bus.history()
-    ]
+    kinds = [event.kind for event in bus.history()]
 
-    assert (
-        ConstitutionalEventKind.OBJECT_REGISTERED
-        in kinds
-    )
-    assert (
-        ConstitutionalEventKind.SERVICE_REGISTERED
-        in kinds
-    )
+    assert ConstitutionalEventKind.OBJECT_REGISTERED in kinds
+    assert ConstitutionalEventKind.SERVICE_REGISTERED in kinds
 
 
 def test_transition_updates_service() -> None:
     registry = PlatformServiceRegistry()
-    registry.register(
-        definition("service.runtime")
-    )
+    registry.register(definition("service.runtime"))
 
     initializing = registry.transition(
         "service.runtime",
@@ -189,9 +157,7 @@ def test_transition_updates_service() -> None:
         health=ConstitutionalHealth.HEALTHY,
     )
 
-    assert initializing.state is (
-        ConstitutionalState.INITIALIZING
-    )
+    assert initializing.state is (ConstitutionalState.INITIALIZING)
     assert starting.state is ConstitutionalState.STARTING
     assert running.state is ConstitutionalState.RUNNING
     assert running.health is ConstitutionalHealth.HEALTHY
@@ -199,13 +165,9 @@ def test_transition_updates_service() -> None:
 
 def test_running_transition_publishes_service_started() -> None:
     bus = ConstitutionalEventBus()
-    registry = PlatformServiceRegistry(
-        event_bus=bus
-    )
+    registry = PlatformServiceRegistry(event_bus=bus)
 
-    registry.register(
-        definition("service.runtime")
-    )
+    registry.register(definition("service.runtime"))
     registry.transition(
         "service.runtime",
         ConstitutionalState.INITIALIZING,
@@ -220,17 +182,13 @@ def test_running_transition_publishes_service_started() -> None:
     )
 
     assert any(
-        event.kind
-        is ConstitutionalEventKind.SERVICE_STARTED
-        for event in bus.history()
+        event.kind is ConstitutionalEventKind.SERVICE_STARTED for event in bus.history()
     )
 
 
 def test_health_reporting_updates_service() -> None:
     registry = PlatformServiceRegistry()
-    registry.register(
-        definition("service.runtime")
-    )
+    registry.register(definition("service.runtime"))
 
     updated = registry.report_health(
         "service.runtime",
@@ -244,31 +202,23 @@ def test_health_reporting_updates_service() -> None:
 
 def test_health_reporting_publishes_event() -> None:
     bus = ConstitutionalEventBus()
-    registry = PlatformServiceRegistry(
-        event_bus=bus
-    )
+    registry = PlatformServiceRegistry(event_bus=bus)
 
-    registry.register(
-        definition("service.runtime")
-    )
+    registry.register(definition("service.runtime"))
     registry.report_health(
         "service.runtime",
         ConstitutionalHealth.WARNING,
     )
 
     assert any(
-        event.kind
-        is ConstitutionalEventKind.HEALTH_CHANGED
-        for event in bus.history()
+        event.kind is ConstitutionalEventKind.HEALTH_CHANGED for event in bus.history()
     )
 
 
 def test_service_with_dependents_cannot_be_removed() -> None:
     registry = PlatformServiceRegistry()
 
-    registry.register(
-        definition("service.runtime")
-    )
+    registry.register(definition("service.runtime"))
     registry.register(
         definition(
             "service.workspace",
@@ -283,9 +233,7 @@ def test_service_with_dependents_cannot_be_removed() -> None:
 def test_force_remove_detaches_dependency() -> None:
     registry = PlatformServiceRegistry()
 
-    registry.register(
-        definition("service.runtime")
-    )
+    registry.register(definition("service.runtime"))
     registry.register(
         definition(
             "service.workspace",
@@ -299,20 +247,13 @@ def test_force_remove_detaches_dependency() -> None:
     )
 
     assert not registry.contains("service.runtime")
-    assert (
-        registry.dependencies_of(
-            "service.workspace"
-        )
-        == ()
-    )
+    assert registry.dependencies_of("service.workspace") == ()
 
 
 def test_statistics_are_consistent() -> None:
     registry = PlatformServiceRegistry()
 
-    registry.register(
-        definition("service.runtime")
-    )
+    registry.register(definition("service.runtime"))
     registry.register(
         definition(
             "service.workspace",
@@ -350,9 +291,7 @@ def test_statistics_are_consistent() -> None:
 def test_snapshot_contains_relationships() -> None:
     registry = PlatformServiceRegistry()
 
-    registry.register(
-        definition("service.runtime")
-    )
+    registry.register(definition("service.runtime"))
     registry.register(
         definition(
             "service.workspace",
@@ -361,19 +300,8 @@ def test_snapshot_contains_relationships() -> None:
     )
 
     snapshot = registry.snapshot()
-    services = {
-        item["identity"]["address"]: item
-        for item in snapshot["services"]
-    }
+    services = {item["identity"]["address"]: item for item in snapshot["services"]}
 
-    assert services[
-        "service.workspace"
-    ]["dependencies"] == [
-        "service.runtime"
-    ]
+    assert services["service.workspace"]["dependencies"] == ["service.runtime"]
 
-    assert services[
-        "service.runtime"
-    ]["dependents"] == [
-        "service.workspace"
-    ]
+    assert services["service.runtime"]["dependents"] == ["service.workspace"]

@@ -31,50 +31,71 @@ class RuntimeV3:
     def _boot(self) -> None:
         self.metrics.record("runtime.version", "v3")
         self.metrics.record("runtime.status", "online")
-        self.events.append(RuntimeEvent("runtime.boot", {"version": "v3", "plugins": self.plugin_loader.manifests()}))
+        self.events.append(
+            RuntimeEvent(
+                "runtime.boot",
+                {"version": "v3", "plugins": self.plugin_loader.manifests()},
+            )
+        )
         self.command_bus.register("runtime.health", self._cmd_health)
         self.command_bus.register("runtime.registry", self._cmd_registry)
         self.command_bus.register("runtime.pipeline", self._cmd_pipeline)
         self.command_bus.register("runtime.metrics", self._cmd_metrics)
         self.command_bus.register("runtime.events", self._cmd_events)
         self.command_bus.register("runtime.snapshot", self._cmd_snapshot)
-        self.scheduler.register("Daily Vault Pulse", "Create a runtime status pulse and event snapshot.", self._job_daily_vault_pulse)
+        self.scheduler.register(
+            "Daily Vault Pulse",
+            "Create a runtime status pulse and event snapshot.",
+            self._job_daily_vault_pulse,
+        )
 
     @property
     def events(self) -> EventStore:
         return self.event_store
 
     def _cmd_health(self, context: PipelineContext) -> PipelineContext:
-        context.add_result("health", {
-            "runtime": "CardHawkOS Runtime v3",
-            "status": "online",
-            "plugins": len(self.plugin_loader.plugins),
-            "enabled_plugins": len(self.plugin_loader.enabled_plugins()),
-            "jobs": len(self.scheduler.jobs),
-            "cache_keys": self.cache.stats()["keys"],
-            "timestamp": utc_now_iso(),
-        })
+        context.add_result(
+            "health",
+            {
+                "runtime": "CardHawkOS Runtime v3",
+                "status": "online",
+                "plugins": len(self.plugin_loader.plugins),
+                "enabled_plugins": len(self.plugin_loader.enabled_plugins()),
+                "jobs": len(self.scheduler.jobs),
+                "cache_keys": self.cache.stats()["keys"],
+                "timestamp": utc_now_iso(),
+            },
+        )
         return context
 
     def _cmd_registry(self, context: PipelineContext) -> PipelineContext:
-        context.add_result("registry", {
-            "plugins": self.plugin_loader.manifests(),
-            "jobs": self.scheduler.list_jobs(),
-            "commands": sorted(self.command_bus.handlers.keys()),
-        })
+        context.add_result(
+            "registry",
+            {
+                "plugins": self.plugin_loader.manifests(),
+                "jobs": self.scheduler.list_jobs(),
+                "commands": sorted(self.command_bus.handlers.keys()),
+            },
+        )
         return context
 
     def _cmd_pipeline(self, context: PipelineContext) -> PipelineContext:
         result = self.pipeline.run(payload=context.payload)
         context.add_result("pipeline", result.to_dict())
-        self.events.append(RuntimeEvent("pipeline.completed", result.to_dict(), request_id=context.request_id))
-        self.founder_state.record_decision({
-            "timestamp": utc_now_iso(),
-            "request_id": context.request_id,
-            "payload": context.payload,
-            "result": result.results,
-            "errors": result.errors,
-        })
+        self.events.append(
+            RuntimeEvent(
+                "pipeline.completed", result.to_dict(), request_id=context.request_id
+            )
+        )
+        self.founder_state.record_decision(
+            {
+                "timestamp": utc_now_iso(),
+                "request_id": context.request_id,
+                "payload": context.payload,
+                "result": result.results,
+                "errors": result.errors,
+            }
+        )
         return context
 
     def _cmd_metrics(self, context: PipelineContext) -> PipelineContext:
@@ -82,16 +103,28 @@ class RuntimeV3:
         return context
 
     def _cmd_events(self, context: PipelineContext) -> PipelineContext:
-        context.add_result("events", self.events.read_recent(limit=int(context.payload.get("limit", 100))))
+        context.add_result(
+            "events",
+            self.events.read_recent(limit=int(context.payload.get("limit", 100))),
+        )
         return context
 
     def _cmd_snapshot(self, context: PipelineContext) -> PipelineContext:
-        snap = self.state.snapshot("runtime_v3_snapshot", {
-            "health": self.command_bus.dispatch("runtime.health").results.get("health"),
-            "registry": self.command_bus.dispatch("runtime.registry").results.get("registry"),
-            "metrics": self.metrics.recent(),
-        })
-        self.events.append(RuntimeEvent("runtime.snapshot", snap, request_id=context.request_id))
+        snap = self.state.snapshot(
+            "runtime_v3_snapshot",
+            {
+                "health": self.command_bus.dispatch("runtime.health").results.get(
+                    "health"
+                ),
+                "registry": self.command_bus.dispatch("runtime.registry").results.get(
+                    "registry"
+                ),
+                "metrics": self.metrics.recent(),
+            },
+        )
+        self.events.append(
+            RuntimeEvent("runtime.snapshot", snap, request_id=context.request_id)
+        )
         context.add_result("snapshot", snap)
         return context
 

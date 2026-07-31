@@ -6,17 +6,6 @@ Post-Genesis 17
 
 
 class GraphEngine:
-
-
     def analyze(self, graph):
 
-        return {
-
-            "graph":
-            graph,
-
-            "analysis":
-            "complete"
-
-        }
-
+        return {"graph": graph, "analysis": "complete"}

@@ -30,7 +30,6 @@ def statistics() -> dict:
     intents = Counter()
 
     for reason in reasons:
-
         statuses[reason.status.value] += 1
 
         confidence[reason.confidence_label.value] += 1
@@ -38,18 +37,11 @@ def statistics() -> dict:
         intents[reason.intent] += 1
 
     return {
-
         "name": "Reason Engine",
-
         "genesis": "49.0",
-
         "version": "1.0.0",
-
         "registered_reasons": len(reasons),
-
         "statuses": dict(statuses),
-
         "confidence": dict(confidence),
-
         "intents": dict(intents),
     }

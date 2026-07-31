@@ -11,13 +11,46 @@ REPORT_DIR = ROOT / "reports" / "platform_census"
 
 CATEGORY_HINTS = {
     "governance": ["council", "constitution", "principle", "governance"],
-    "core_platform": ["runtime", "kernel", "platform", "orchestrator", "executive_kernel", "contracts"],
-    "platform_service": ["guardian", "sentinel", "atlas", "archivist", "watch", "observer", "communications"],
-    "engine": ["thor", "def", "soar", "perch", "eye", "oracle", "prediction", "reasoning", "decision"],
+    "core_platform": [
+        "runtime",
+        "kernel",
+        "platform",
+        "orchestrator",
+        "executive_kernel",
+        "contracts",
+    ],
+    "platform_service": [
+        "guardian",
+        "sentinel",
+        "atlas",
+        "archivist",
+        "watch",
+        "observer",
+        "communications",
+    ],
+    "engine": [
+        "thor",
+        "def",
+        "soar",
+        "perch",
+        "eye",
+        "oracle",
+        "prediction",
+        "reasoning",
+        "decision",
+    ],
     "application": ["applications", "cardhawk"],
     "memory_knowledge": ["memory", "knowledge", "semantic", "learning"],
     "workflow": ["mission", "workflow", "planning", "agents", "copilot"],
-    "infrastructure": ["security", "telemetry", "persistence", "plugins", "federation", "tenancy", "mesh"],
+    "infrastructure": [
+        "security",
+        "telemetry",
+        "persistence",
+        "plugins",
+        "federation",
+        "tenancy",
+        "mesh",
+    ],
 }
 
 
@@ -32,7 +65,11 @@ def classify(name: str) -> str:
 
 
 def file_count(path: Path) -> int:
-    return sum(1 for item in path.rglob("*") if item.is_file() and "__pycache__" not in item.parts)
+    return sum(
+        1
+        for item in path.rglob("*")
+        if item.is_file() and "__pycache__" not in item.parts
+    )
 
 
 def py_count(path: Path) -> int:
@@ -143,17 +180,19 @@ def markdown(result: dict) -> str:
     lines.append("")
 
     for package in census["packages"]:
-        lines.extend([
-            f"### {package['name']}",
-            "",
-            f"- Path: `{package['path']}`",
-            f"- Category: `{package['category']}`",
-            f"- Has `__init__.py`: `{package['has_init']}`",
-            f"- Files: `{package['files']}`",
-            f"- Python files: `{package['python_files']}`",
-            f"- Contract language detected: `{package['has_contract_language']}`",
-            "",
-        ])
+        lines.extend(
+            [
+                f"### {package['name']}",
+                "",
+                f"- Path: `{package['path']}`",
+                f"- Category: `{package['category']}`",
+                f"- Has `__init__.py`: `{package['has_init']}`",
+                f"- Files: `{package['files']}`",
+                f"- Python files: `{package['python_files']}`",
+                f"- Contract language detected: `{package['has_contract_language']}`",
+                "",
+            ]
+        )
 
     return "\n".join(lines)
 

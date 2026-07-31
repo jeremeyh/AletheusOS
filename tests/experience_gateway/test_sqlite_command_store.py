@@ -21,22 +21,16 @@ def create_service(
 ) -> CommandGatewayService:
     return CommandGatewayService(
         create_default_command_registry(),
-        store=SQLiteCommandAuditStore(
-            database_path
-        ),
+        store=SQLiteCommandAuditStore(database_path),
     )
 
 
 def test_execution_survives_service_restart(
     tmp_path: Path,
 ) -> None:
-    database_path = (
-        tmp_path / "commands.sqlite3"
-    )
+    database_path = tmp_path / "commands.sqlite3"
 
-    first_service = create_service(
-        database_path
-    )
+    first_service = create_service(database_path)
 
     preview = first_service.preview(
         CommandRequest(
@@ -50,29 +44,20 @@ def test_execution_survives_service_restart(
         idempotency_key="restart-test",
     )
 
-    second_service = create_service(
-        database_path
-    )
+    second_service = create_service(database_path)
 
     restored = second_service.history()
 
     assert len(restored) == 1
-    assert (
-        restored[0].execution_id
-        == execution.execution_id
-    )
+    assert restored[0].execution_id == execution.execution_id
 
 
 def test_idempotency_survives_restart(
     tmp_path: Path,
 ) -> None:
-    database_path = (
-        tmp_path / "commands.sqlite3"
-    )
+    database_path = tmp_path / "commands.sqlite3"
 
-    first_service = create_service(
-        database_path
-    )
+    first_service = create_service(database_path)
 
     preview = first_service.preview(
         CommandRequest(
@@ -86,9 +71,7 @@ def test_idempotency_survives_restart(
         idempotency_key="durable-key",
     )
 
-    second_service = create_service(
-        database_path
-    )
+    second_service = create_service(database_path)
 
     second_execution = second_service.execute(
         preview_id=preview.preview_id,
@@ -96,28 +79,19 @@ def test_idempotency_survives_restart(
         idempotency_key="durable-key",
     )
 
-    assert (
-        first_execution.execution_id
-        == second_execution.execution_id
-    )
+    assert first_execution.execution_id == second_execution.execution_id
 
 
 def test_reversal_survives_restart(
     tmp_path: Path,
 ) -> None:
-    database_path = (
-        tmp_path / "commands.sqlite3"
-    )
+    database_path = tmp_path / "commands.sqlite3"
 
-    first_service = create_service(
-        database_path
-    )
+    first_service = create_service(database_path)
 
     preview = first_service.preview(
         CommandRequest(
-            command_id=(
-                "experience.inspector.set"
-            ),
+            command_id=("experience.inspector.set"),
             arguments={
                 "open": False,
             },
@@ -131,36 +105,21 @@ def test_reversal_survives_restart(
 
     execution = first_service.execute(
         preview_id=preview.preview_id,
-        authorization_id=(
-            authorization.authorization_id
-        ),
+        authorization_id=(authorization.authorization_id),
     )
 
     assert execution.reversal_token
 
-    second_service = create_service(
-        database_path
+    second_service = create_service(database_path)
+
+    reversed_execution = second_service.reverse(
+        execution_id=(execution.execution_id),
+        reversal_token=(execution.reversal_token),
     )
 
-    reversed_execution = (
-        second_service.reverse(
-            execution_id=(
-                execution.execution_id
-            ),
-            reversal_token=(
-                execution.reversal_token
-            ),
-        )
-    )
+    assert reversed_execution.state == "reversed"
 
-    assert (
-        reversed_execution.state
-        == "reversed"
-    )
-
-    third_service = create_service(
-        database_path
-    )
+    third_service = create_service(database_path)
 
     persisted = third_service.history()
 
@@ -170,9 +129,7 @@ def test_reversal_survives_restart(
 def test_store_reports_durable_counts(
     tmp_path: Path,
 ) -> None:
-    store = SQLiteCommandAuditStore(
-        tmp_path / "commands.sqlite3"
-    )
+    store = SQLiteCommandAuditStore(tmp_path / "commands.sqlite3")
 
     service = CommandGatewayService(
         create_default_command_registry(),

@@ -6,19 +6,6 @@ Genesis 14.6
 
 
 class CollectorIntelligence:
+    def analyze(self, market):
 
-
-    def analyze(
-        self,
-        market
-    ):
-
-
-        return {
-
-            "trend":
-
-                "unknown"
-
-        }
-
+        return {"trend": "unknown"}

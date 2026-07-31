@@ -4,7 +4,6 @@ Aletheus Autonomous Discovery Engine
 Post-Genesis 24
 """
 
-
 from .anomaly_engine import AnomalyEngine
 from .insight_generator import InsightGenerator
 from .knowledge_integrator import KnowledgeIntegrator
@@ -15,8 +14,6 @@ from .signal_engine import SignalEngine
 
 
 class AutonomousDiscoveryEngine:
-
-
     def __init__(self):
 
         self.signals = SignalEngine()
@@ -33,43 +30,20 @@ class AutonomousDiscoveryEngine:
 
         self.knowledge = KnowledgeIntegrator()
 
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_autonomous_discovery",
-
-            "phase":
-            "post_genesis_24",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_autonomous_discovery",
+            "phase": "post_genesis_24",
+            "status": "operational",
         }
-
-
 
     def discover(self, domain):
 
         return {
-
-            "domain":
-            domain,
-
-            "signals":
-            "collected",
-
-            "patterns":
-            "identified",
-
-            "insights":
-            "generated",
-
-            "status":
-            "discovery_complete"
-
+            "domain": domain,
+            "signals": "collected",
+            "patterns": "identified",
+            "insights": "generated",
+            "status": "discovery_complete",
         }
-

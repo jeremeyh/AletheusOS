@@ -52,18 +52,20 @@ class SPANReport:
             lines.append("No findings.")
         else:
             for finding in self.findings:
-                lines.extend([
-                    f"### {finding.id} — {finding.title}",
-                    "",
-                    f"- Category: `{finding.category}`",
-                    f"- Severity: `{finding.severity.value}`",
-                    f"- Confidence: `{finding.confidence:.2f}`",
-                    "",
-                    finding.description,
-                    "",
-                    f"**Recommendation:** {finding.recommendation or 'Review the supporting evidence.'}",
-                    "",
-                ])
+                lines.extend(
+                    [
+                        f"### {finding.id} — {finding.title}",
+                        "",
+                        f"- Category: `{finding.category}`",
+                        f"- Severity: `{finding.severity.value}`",
+                        f"- Confidence: `{finding.confidence:.2f}`",
+                        "",
+                        finding.description,
+                        "",
+                        f"**Recommendation:** {finding.recommendation or 'Review the supporting evidence.'}",
+                        "",
+                    ]
+                )
         return "\n".join(lines)
 
     def write(self, path: str | Path) -> Path:

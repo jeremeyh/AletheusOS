@@ -2,7 +2,8 @@ import streamlit as st
 
 
 def apply_cardhawk_theme():
-    st.markdown("""
+    st.markdown(
+        """
     <style>
         :root {
             --ch-bg: #06080D;
@@ -170,4 +171,6 @@ def apply_cardhawk_theme():
             font-weight: 950;
         }
     </style>
-    """, unsafe_allow_html=True)
+    """,
+        unsafe_allow_html=True,
+    )

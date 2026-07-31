@@ -4,7 +4,6 @@ Autonomous Operations Engine
 Genesis 14.7
 """
 
-
 from .alerts import AlertEngine
 from .dispatcher import AgentDispatcher
 from .learning import LearningLoop
@@ -13,8 +12,6 @@ from .watchers import MarketplaceWatcher
 
 
 class AutomationEngine:
-
-
     def __init__(self):
 
         self.scheduler = Scheduler()
@@ -27,23 +24,6 @@ class AutomationEngine:
 
         self.learning = LearningLoop()
 
+    def run(self, mission):
 
-
-    def run(
-        self,
-        mission
-    ):
-
-
-        return {
-
-            "mission":
-
-                mission,
-
-            "status":
-
-                "executed"
-
-        }
-
+        return {"mission": mission, "status": "executed"}

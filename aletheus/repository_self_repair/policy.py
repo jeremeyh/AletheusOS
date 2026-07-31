@@ -15,29 +15,64 @@ class RepairPolicy:
     the caller explicitly requests permanent deletion.
     """
 
-    ignored_directory_names: set[str] = field(default_factory=lambda: {
-        ".git", ".venv", "venv", "node_modules", "__pycache__",
-        ".pytest_cache", ".mypy_cache", ".ruff_cache", ".tox",
-    })
-    ignored_file_patterns: tuple[str, ...] = (
-        "*.pyc", "*.pyo", ".DS_Store", "Thumbs.db", "*.swp", "*.swo",
+    ignored_directory_names: set[str] = field(
+        default_factory=lambda: {
+            ".git",
+            ".venv",
+            "venv",
+            "node_modules",
+            "__pycache__",
+            ".pytest_cache",
+            ".mypy_cache",
+            ".ruff_cache",
+            ".tox",
+        }
     )
-    known_orphan_file_names: set[str] = field(default_factory=lambda: {
-        "=END", ".sh", "cd",
-    })
+    ignored_file_patterns: tuple[str, ...] = (
+        "*.pyc",
+        "*.pyo",
+        ".DS_Store",
+        "Thumbs.db",
+        "*.swp",
+        "*.swo",
+    )
+    known_orphan_file_names: set[str] = field(
+        default_factory=lambda: {
+            "=END",
+            ".sh",
+            "cd",
+        }
+    )
     known_orphan_patterns: tuple[str, ...] = (
-        "*.tmp", "*.temp", "*.orig", "*.rej", "*~",
+        "*.tmp",
+        "*.temp",
+        "*.orig",
+        "*.rej",
+        "*~",
     )
     backup_patterns: tuple[str, ...] = (
-        "*.backup", "*.bak", "*.before_*", "*.genesis*_backup",
+        "*.backup",
+        "*.bak",
+        "*.before_*",
+        "*.genesis*_backup",
         "*.runtime_boot_restored",
     )
-    report_directory_names: set[str] = field(default_factory=lambda: {
-        "reports", "runtime_state", "logs",
-    })
+    report_directory_names: set[str] = field(
+        default_factory=lambda: {
+            "reports",
+            "runtime_state",
+            "logs",
+        }
+    )
     protected_prefixes: tuple[str, ...] = (
-        ".git/", "aletheus/", "tests/", "docs/", "config/", "tools/",
-        "nimble/", "card_hawk/",
+        ".git/",
+        "aletheus/",
+        "tests/",
+        "docs/",
+        "config/",
+        "tools/",
+        "nimble/",
+        "card_hawk/",
     )
 
     @classmethod
@@ -54,7 +89,9 @@ class RepairPolicy:
         path = Path(relative_path)
         if path.name in self.known_orphan_file_names:
             return size == 0 or path.name in {"=END", ".sh"}
-        return any(fnmatch(path.name, pattern) for pattern in self.known_orphan_patterns)
+        return any(
+            fnmatch(path.name, pattern) for pattern in self.known_orphan_patterns
+        )
 
     def classify(self, relative_path: str) -> FileClass:
         path = Path(relative_path)

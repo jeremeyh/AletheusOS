@@ -6,13 +6,6 @@ Genesis 14.26
 
 
 class InsuranceEngine:
-
-
-    def recommend(
-        self,
-        asset
-    ):
-
+    def recommend(self, asset):
 
         return {}
-

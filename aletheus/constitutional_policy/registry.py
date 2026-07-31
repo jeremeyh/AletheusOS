@@ -21,11 +21,7 @@ class ConstitutionalPolicyRegistry:
         return [policy.to_dict() for policy in self._policies.values()]
 
     def enabled(self):
-        return [
-            policy
-            for policy in self._policies.values()
-            if policy.enabled
-        ]
+        return [policy for policy in self._policies.values() if policy.enabled]
 
     def count(self):
         return len(self._policies)

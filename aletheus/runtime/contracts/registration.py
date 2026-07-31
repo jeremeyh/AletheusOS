@@ -29,5 +29,3 @@ class ComponentRegistry(Protocol):
     def all(self) -> tuple[RuntimeComponent, ...]:
         """Return all registered components."""
         ...
-
-

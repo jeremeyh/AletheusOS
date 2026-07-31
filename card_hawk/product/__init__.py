@@ -6,6 +6,4 @@ Genesis 51
 
 from .engine import ProductEngine
 
-__all__ = [
-    "ProductEngine"
-]
+__all__ = ["ProductEngine"]

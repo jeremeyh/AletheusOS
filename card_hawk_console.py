@@ -5,7 +5,6 @@ Powered by AletheusOS™
 Internal Runtime Preview
 """
 
-
 from card_hawk.acquisition_v2.engine import AutonomousAcquisitionEngine
 from card_hawk.assistant.engine import IntelligenceAssistantEngine
 from card_hawk.community.engine import CommunityIntelligenceEngine
@@ -33,7 +32,6 @@ def main():
 
     banner()
 
-
     runtime = CardHawkRuntime()
 
     print("BOOTING RUNTIME...")
@@ -41,37 +39,19 @@ def main():
 
     print()
 
-
     systems = {
-
-        "Community Intelligence":
-        CommunityIntelligenceEngine(),
-
-        "Marketplace Intelligence":
-        MarketplaceIntelligenceEngine(),
-
-        "Autonomous Acquisition":
-        AutonomousAcquisitionEngine(),
-
-        "Portfolio Intelligence":
-        PortfolioIntelligenceEngine(),
-
-        "AI Assistant":
-        IntelligenceAssistantEngine()
-
+        "Community Intelligence": CommunityIntelligenceEngine(),
+        "Marketplace Intelligence": MarketplaceIntelligenceEngine(),
+        "Autonomous Acquisition": AutonomousAcquisitionEngine(),
+        "Portfolio Intelligence": PortfolioIntelligenceEngine(),
+        "AI Assistant": IntelligenceAssistantEngine(),
     }
-
 
     print("SYSTEM STATUS")
     print("------------------------------")
 
-
     for name, engine in systems.items():
-
-        print(
-            f"✓ {name}: ONLINE"
-        )
-
+        print(f"✓ {name}: ONLINE")
 
     print("""
         
@@ -90,84 +70,45 @@ AVAILABLE COMMANDS:
 ------------------------------------------------
 """)
 
-
     while True:
-
         choice = input("CARD HAWK > ")
 
-
         if choice == "1":
-
             print(
-                systems["Portfolio Intelligence"]
-                .analyze_portfolio(
+                systems["Portfolio Intelligence"].analyze_portfolio(
                     "Current Collection"
                 )
             )
 
-
         elif choice == "2":
-
-            print(
-                systems["Marketplace Intelligence"]
-                .scan_market()
-            )
-
+            print(systems["Marketplace Intelligence"].scan_market())
 
         elif choice == "3":
-
             print(
-                systems["Autonomous Acquisition"]
-                .evaluate_target(
+                systems["Autonomous Acquisition"].evaluate_target(
                     "Premium Rookie Auto /25"
                 )
             )
 
-
         elif choice == "4":
+            request = input("Ask Card Hawk: ")
 
-            request = input(
-                "Ask Card Hawk: "
-            )
-
-            print(
-                systems["AI Assistant"]
-                .process_request(request)
-            )
-
+            print(systems["AI Assistant"].process_request(request))
 
         elif choice == "5":
-
-            print(
-                systems["Community Intelligence"]
-                .initialize()
-            )
-
+            print(systems["Community Intelligence"].initialize())
 
         elif choice == "6":
-
-            print(
-                runtime.health_check()
-            )
-
+            print(runtime.health_check())
 
         elif choice == "7":
-
-            print(
-                "Card Hawk shutting down..."
-            )
+            print("Card Hawk shutting down...")
 
             break
 
-
         else:
-
-            print(
-                "Unknown command"
-            )
+            print("Unknown command")
 
 
 if __name__ == "__main__":
-
     main()
-

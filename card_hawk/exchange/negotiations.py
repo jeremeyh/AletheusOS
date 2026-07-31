@@ -6,19 +6,6 @@ Genesis 14.10
 
 
 class NegotiationEngine:
+    def recommend(self, context):
 
-
-    def recommend(
-        self,
-        context
-    ):
-
-
-        return {
-
-            "offer":
-
-                None
-
-        }
-
+        return {"offer": None}

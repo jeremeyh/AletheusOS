@@ -16,7 +16,6 @@ def render_asset_table(snapshot):
     rows = []
 
     for asset in assets:
-
         purchase = asset.get("purchase_price") or 0
         value = asset.get("current_value") or 0
 

@@ -44,13 +44,11 @@ class SynapseRegistry:
     def fire(self, id: str):
 
         if id in self._synapses:
-
             self._synapses[id].fire()
 
     def decay_all(self):
 
         for synapse in self._synapses.values():
-
             synapse.decay()
 
     def get(self, id: str):
@@ -84,17 +82,12 @@ class SynapseRegistry:
             "synapses": self.count(),
             "average_strength": (
                 round(
-                    sum(
-                        s.strength
-                        for s in self._synapses.values()
-                    ) / len(self._synapses),
+                    sum(s.strength for s in self._synapses.values())
+                    / len(self._synapses),
                     3,
                 )
                 if self._synapses
                 else 0
             ),
-            "total_activations": sum(
-                s.activations
-                for s in self._synapses.values()
-            ),
+            "total_activations": sum(s.activations for s in self._synapses.values()),
         }

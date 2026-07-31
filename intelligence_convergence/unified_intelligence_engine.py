@@ -18,7 +18,9 @@ class UnifiedIntelligenceEngine:
     def analyze_candidate(self, candidate):
         candidate = dict(candidate or {})
 
-        thorx_score = float(candidate.get("thorx_score", candidate.get("scout_score", 0)) or 0)
+        thorx_score = float(
+            candidate.get("thorx_score", candidate.get("scout_score", 0)) or 0
+        )
         ni_score = float(candidate.get("ni_score", 0) or 0)
         price = float(candidate.get("price", 0) or 0)
 

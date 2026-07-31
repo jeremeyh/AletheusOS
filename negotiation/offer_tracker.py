@@ -12,16 +12,24 @@ class Offer:
     seller: str = ""
     status: str = "Submitted"
     notes: str = ""
-    offer_id: str = field(default_factory=lambda: f"OFF-{uuid.uuid4().hex[:10].upper()}")
+    offer_id: str = field(
+        default_factory=lambda: f"OFF-{uuid.uuid4().hex[:10].upper()}"
+    )
     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+
 
 class OfferTracker:
     """Offer Tracker™ for acquisition negotiation history."""
+
     _offers = []
 
     @classmethod
-    def add_offer(cls, asset_title, ask_price, offer_price, platform="", seller="", notes=""):
-        offer = Offer(asset_title, ask_price, offer_price, platform, seller, "Submitted", notes)
+    def add_offer(
+        cls, asset_title, ask_price, offer_price, platform="", seller="", notes=""
+    ):
+        offer = Offer(
+            asset_title, ask_price, offer_price, platform, seller, "Submitted", notes
+        )
         cls._offers.append(offer)
         return offer
 
@@ -42,4 +50,9 @@ class OfferTracker:
         total = len(cls._offers)
         accepted = len([o for o in cls._offers if o.status.lower() == "accepted"])
         savings = sum(max(o.ask_price - o.offer_price, 0) for o in cls._offers)
-        return {"total": total, "accepted": accepted, "win_rate": (accepted / total * 100) if total else 0, "estimated_savings": savings}
+        return {
+            "total": total,
+            "accepted": accepted,
+            "win_rate": (accepted / total * 100) if total else 0,
+            "estimated_savings": savings,
+        }

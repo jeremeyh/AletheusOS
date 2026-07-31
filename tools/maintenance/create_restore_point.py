@@ -12,8 +12,14 @@ ROOT = Path(__file__).resolve().parents[2]
 RESTORE_ROOT = ROOT / ".aletheus_restore_points"
 
 EXCLUDE_DIRS = {
-    ".git", "venv", ".venv", "__pycache__", ".pytest_cache",
-    ".mypy_cache", ".ruff_cache", "node_modules",
+    ".git",
+    "venv",
+    ".venv",
+    "__pycache__",
+    ".pytest_cache",
+    ".mypy_cache",
+    ".ruff_cache",
+    "node_modules",
     ".aletheus_restore_points",
 }
 
@@ -23,8 +29,18 @@ EXCLUDE_PREFIXES = {
 }
 
 INCLUDE_SUFFIXES = {
-    ".py", ".json", ".toml", ".yaml", ".yml", ".md", ".txt",
-    ".csv", ".sql", ".html", ".css", ".js",
+    ".py",
+    ".json",
+    ".toml",
+    ".yaml",
+    ".yml",
+    ".md",
+    ".txt",
+    ".csv",
+    ".sql",
+    ".html",
+    ".css",
+    ".js",
 }
 
 

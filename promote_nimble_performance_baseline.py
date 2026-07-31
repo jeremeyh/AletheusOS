@@ -13,17 +13,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 
-TARGET = (
-    ROOT
-    / "tools"
-    / "promotion"
-    / "promote_nimble_performance_baseline.py"
-)
+TARGET = ROOT / "tools" / "promotion" / "promote_nimble_performance_baseline.py"
 
 if not TARGET.exists():
-    raise FileNotFoundError(
-        f"Canonical promotion tool not found:\n{TARGET}"
-    )
+    raise FileNotFoundError(f"Canonical promotion tool not found:\n{TARGET}")
 
 
 def _load():

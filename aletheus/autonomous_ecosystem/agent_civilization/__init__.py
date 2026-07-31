@@ -1,8 +1,3 @@
 from .engine import AutonomousAgentCivilizationEngine
 
-__all__ = [
-
-"AutonomousAgentCivilizationEngine"
-
-]
-
+__all__ = ["AutonomousAgentCivilizationEngine"]

@@ -5,7 +5,6 @@ from .registry import identity_registry
 
 
 class IdentityResolver:
-
     GENESIS = "21.7"
     VERSION = "1.0.0"
 
@@ -17,7 +16,6 @@ class IdentityResolver:
         value = value.lower()
 
         for identity in identity_registry.identities():
-
             if identity.identity_id.lower() == value:
                 return identity
 
@@ -25,7 +23,6 @@ class IdentityResolver:
                 return identity
 
             for alias in identity.aliases:
-
                 if alias.lower() == value:
                     return identity
 

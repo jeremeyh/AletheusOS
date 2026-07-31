@@ -41,9 +41,7 @@ class ConstitutionalMissionRegistry:
         mission = self.get(mission_id)
 
         if mission is None:
-            raise KeyError(
-                f"Unknown mission: {mission_id}"
-            )
+            raise KeyError(f"Unknown mission: {mission_id}")
 
         return mission
 
@@ -57,17 +55,14 @@ class ConstitutionalMissionRegistry:
         status: MissionStatus,
     ) -> tuple[ConstitutionalMission, ...]:
         return tuple(
-            mission
-            for mission in self._missions.values()
-            if mission.status == status
+            mission for mission in self._missions.values() if mission.status == status
         )
 
     def statistics(self) -> dict:
         return {
             "missions": len(self._missions),
             "statuses": {
-                status.value: len(self.by_status(status))
-                for status in MissionStatus
+                status.value: len(self.by_status(status)) for status in MissionStatus
             },
         }
 

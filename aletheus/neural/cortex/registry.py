@@ -11,8 +11,17 @@ class CortexRegistry:
     def __init__(self):
         self._cortices: dict[str, Cortex] = {}
 
-    def register(self, id: str, name: str, role: str, status: str = "inactive", metadata: dict[str, Any] | None = None):
-        cortex = Cortex(id=id, name=name, role=role, status=status, metadata=metadata or {})
+    def register(
+        self,
+        id: str,
+        name: str,
+        role: str,
+        status: str = "inactive",
+        metadata: dict[str, Any] | None = None,
+    ):
+        cortex = Cortex(
+            id=id, name=name, role=role, status=status, metadata=metadata or {}
+        )
         self._cortices[id] = cortex
         return cortex
 

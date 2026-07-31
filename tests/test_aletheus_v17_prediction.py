@@ -8,7 +8,9 @@ def test_prediction_service_registered():
 
 
 def test_forecast_generation():
-    result = runtime_core.commands.dispatch("predict.forecast", {"horizon": "next sprint"})
+    result = runtime_core.commands.dispatch(
+        "predict.forecast", {"horizon": "next sprint"}
+    )
     assert not result.errors, result.errors
     assert "forecast" in result.results
     assert result.results["forecast"]["confidence"] > 0

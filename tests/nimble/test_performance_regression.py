@@ -4,26 +4,19 @@ import importlib.util
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-MODULE_PATH = (
-    ROOT
-    / "validate_nimble_performance_regression.py"
-)
+MODULE_PATH = ROOT / "validate_nimble_performance_regression.py"
 
 
 def load_module():
-    specification = (
-        importlib.util.spec_from_file_location(
-            "validate_nimble_performance_regression",
-            MODULE_PATH,
-        )
+    specification = importlib.util.spec_from_file_location(
+        "validate_nimble_performance_regression",
+        MODULE_PATH,
     )
 
     assert specification is not None
     assert specification.loader is not None
 
-    module = importlib.util.module_from_spec(
-        specification
-    )
+    module = importlib.util.module_from_spec(specification)
     specification.loader.exec_module(module)
 
     return module
@@ -32,10 +25,13 @@ def load_module():
 def test_percent_change():
     module = load_module()
 
-    assert module.percent_change(
-        105,
-        100,
-    ) == 5.0
+    assert (
+        module.percent_change(
+            105,
+            100,
+        )
+        == 5.0
+    )
 
 
 def test_metric_passes_within_threshold():

@@ -11,19 +11,12 @@ def render_timeline(
     """
 
     with st.container(border=True):
-
         st.subheader("📜 Timeline™")
 
         if not events:
-
-            st.info(
-                "No events."
-            )
+            st.info("No events.")
 
             return
 
         for event in events:
-
-            st.write(
-                f"• {event}"
-            )
+            st.write(f"• {event}")

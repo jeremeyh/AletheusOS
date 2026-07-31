@@ -6,15 +6,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 ADAPTER = ROOT / "aletheus/runtime/adapters/runtime_adapter.py"
-REGISTRATIONS = (
-    ROOT / "aletheus/runtime/registrations/runtime_commands.py"
-)
+REGISTRATIONS = ROOT / "aletheus/runtime/registrations/runtime_commands.py"
 
 stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 backup = (
-    ROOT
-    / "reports/genesis_8_command_dispatch"
-    / f"runtime_integrity_backup_{stamp}"
+    ROOT / "reports/genesis_8_command_dispatch" / f"runtime_integrity_backup_{stamp}"
 )
 backup.mkdir(parents=True, exist_ok=True)
 
@@ -307,33 +303,31 @@ ADAPTER.write_text(
 )
 
 
-registration_text = REGISTRATIONS.read_text(
-    encoding="utf-8"
-)
+registration_text = REGISTRATIONS.read_text(encoding="utf-8")
 
 if '"runtime.health_report"' not in registration_text:
-    anchor = '''\
+    anchor = """\
     runtime.commands.register_context_handler(
         "runtime.boot.validate",
         adapter.boot_validate,
         replace=True,
     )
-'''
+"""
 
-    addition = anchor + '''\
+    addition = (
+        anchor
+        + """\
 
     runtime.commands.register_context_handler(
         "runtime.health_report",
         adapter.health_report,
         replace=True,
     )
-'''
+"""
+    )
 
     if anchor not in registration_text:
-        raise RuntimeError(
-            "runtime.boot.validate registration block "
-            "was not found."
-        )
+        raise RuntimeError("runtime.boot.validate registration block was not found.")
 
     registration_text = registration_text.replace(
         anchor,

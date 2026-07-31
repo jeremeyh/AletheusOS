@@ -9,8 +9,6 @@ from dataclasses import dataclass
 
 @dataclass
 class AcquisitionDecision:
-
-
     asset_id: str
 
     score: int
@@ -18,12 +16,8 @@ class AcquisitionDecision:
     recommendation: str
 
 
-
 @dataclass
 class AcquisitionMission:
-
-
     name: str
 
     rules: dict
-

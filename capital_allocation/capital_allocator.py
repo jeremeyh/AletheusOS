@@ -17,4 +17,8 @@ class CapitalAllocator:
             plan.append({**opp, "recommended_allocation": amount})
             remaining -= amount
 
-        return {"cash_available": cash, "deployments": plan, "reserve": round(remaining, 2)}
+        return {
+            "cash_available": cash,
+            "deployments": plan,
+            "reserve": round(remaining, 2),
+        }

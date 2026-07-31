@@ -38,9 +38,7 @@ def participant(
             evidence_count=1,
             evidence=(
                 {
-                    "source": (
-                        f"{engine_id}.evidence"
-                    ),
+                    "source": (f"{engine_id}.evidence"),
                 },
             ),
         )
@@ -52,34 +50,18 @@ def participant(
 
 
 def test_canonical_instrument_catalog_is_complete():
-    instruments = (
-        canonical_cognition_instruments()
-    )
+    instruments = canonical_cognition_instruments()
 
-    instrument_ids = {
-        item.instrument_id
-        for item in instruments
-    }
+    instrument_ids = {item.instrument_id for item in instruments}
 
     assert len(instruments) == 8
-    assert (
-        "aletheus.instrument.confidence"
-        in instrument_ids
-    )
-    assert (
-        "aletheus.instrument.truth"
-        in instrument_ids
-    )
-    assert (
-        "aletheus.instrument.timeline"
-        in instrument_ids
-    )
+    assert "aletheus.instrument.confidence" in instrument_ids
+    assert "aletheus.instrument.truth" in instrument_ids
+    assert "aletheus.instrument.timeline" in instrument_ids
 
 
 def test_registry_rejects_duplicate_instrument():
-    registry = (
-        ConstitutionalInstrumentRegistry()
-    )
+    registry = ConstitutionalInstrumentRegistry()
 
     definition = InstrumentDefinition(
         instrument_id="test.instrument",
@@ -90,16 +72,12 @@ def test_registry_rejects_duplicate_instrument():
 
     registry.register(definition)
 
-    with pytest.raises(
-        DuplicateInstrumentError
-    ):
+    with pytest.raises(DuplicateInstrumentError):
         registry.register(definition)
 
 
 def test_bus_projects_current_instrument_state():
-    registry = (
-        ConstitutionalInstrumentRegistry()
-    )
+    registry = ConstitutionalInstrumentRegistry()
 
     registry.register(
         InstrumentDefinition(
@@ -110,17 +88,12 @@ def test_bus_projects_current_instrument_state():
         )
     )
 
-    bus = ConstitutionalInstrumentBus(
-        registry=registry
-    )
+    bus = ConstitutionalInstrumentBus(registry=registry)
 
     bus.publish(
         InstrumentSignal(
             instrument_id="test.confidence",
-            signal_type=(
-                InstrumentSignalType
-                .CONFIDENCE_CHANGED
-            ),
+            signal_type=(InstrumentSignalType.CONFIDENCE_CHANGED),
             source_identity="test.engine",
             value=0.82,
             confidence=0.82,
@@ -128,22 +101,16 @@ def test_bus_projects_current_instrument_state():
         )
     )
 
-    state = bus.state(
-        "test.confidence"
-    )
+    state = bus.state("test.confidence")
 
     assert state.current_value == 0.82
     assert state.normalized_value == 0.82
-    assert state.status == (
-        InstrumentStatus.STABLE
-    )
+    assert state.status == (InstrumentStatus.STABLE)
     assert state.update_count == 1
 
 
 def test_bus_notifies_instrument_subscribers():
-    registry = (
-        ConstitutionalInstrumentRegistry()
-    )
+    registry = ConstitutionalInstrumentRegistry()
 
     registry.register(
         InstrumentDefinition(
@@ -154,9 +121,7 @@ def test_bus_notifies_instrument_subscribers():
         )
     )
 
-    bus = ConstitutionalInstrumentBus(
-        registry=registry
-    )
+    bus = ConstitutionalInstrumentBus(registry=registry)
 
     observed = []
 
@@ -167,10 +132,7 @@ def test_bus_notifies_instrument_subscribers():
 
     signal = InstrumentSignal(
         instrument_id="test.pulse",
-        signal_type=(
-            InstrumentSignalType
-            .ACTIVITY_STARTED
-        ),
+        signal_type=(InstrumentSignalType.ACTIVITY_STARTED),
         source_identity="test.engine",
         value=1.0,
         status=InstrumentStatus.ACTIVE,
@@ -182,13 +144,9 @@ def test_bus_notifies_instrument_subscribers():
 
 
 def test_cognitive_mesh_drives_live_instruments():
-    bus, bridge = (
-        build_cognition_instrumentation()
-    )
+    bus, bridge = build_cognition_instrumentation()
 
-    mesh = MultiplicitousIntelligenceMesh(
-        observer=bridge
-    )
+    mesh = MultiplicitousIntelligenceMesh(observer=bridge)
 
     mesh.register(
         participant(
@@ -221,50 +179,30 @@ def test_cognitive_mesh_drives_live_instruments():
         },
     )
 
-    confidence = bus.state(
-        "aletheus.instrument.confidence"
-    )
+    confidence = bus.state("aletheus.instrument.confidence")
 
-    convergence = bus.state(
-        "aletheus.instrument.convergence"
-    )
+    convergence = bus.state("aletheus.instrument.convergence")
 
-    virtue_alignment = bus.state(
-        "aletheus.instrument.virtue_alignment"
-    )
+    virtue_alignment = bus.state("aletheus.instrument.virtue_alignment")
 
-    truth = bus.state(
-        "aletheus.instrument.truth"
-    )
+    truth = bus.state("aletheus.instrument.truth")
 
-    timeline = bus.state(
-        "aletheus.instrument.timeline"
-    )
+    timeline = bus.state("aletheus.instrument.timeline")
 
-    assert confidence.current_value == (
-        report.convergence.confidence
-    )
+    assert confidence.current_value == (report.convergence.confidence)
 
-    assert convergence.current_value == (
-        report.convergence.confidence
-    )
+    assert convergence.current_value == (report.convergence.confidence)
 
-    assert virtue_alignment.current_value == (
-        report.virtues.score
-    )
+    assert virtue_alignment.current_value == (report.virtues.score)
 
     assert truth.current_value == 1.0
     assert timeline.update_count > 0
 
 
 def test_dissent_is_visible_not_hidden():
-    bus, bridge = (
-        build_cognition_instrumentation()
-    )
+    bus, bridge = build_cognition_instrumentation()
 
-    mesh = MultiplicitousIntelligenceMesh(
-        observer=bridge
-    )
+    mesh = MultiplicitousIntelligenceMesh(observer=bridge)
 
     mesh.register(
         participant(
@@ -287,25 +225,17 @@ def test_dissent_is_visible_not_hidden():
         payload={},
     )
 
-    dissent = bus.state(
-        "aletheus.instrument.dissent"
-    )
+    dissent = bus.state("aletheus.instrument.dissent")
 
     assert report.convergence.dissent
     assert dissent.current_value > 0
-    assert dissent.status == (
-        InstrumentStatus.CONTESTED
-    )
+    assert dissent.status == (InstrumentStatus.CONTESTED)
 
 
 def test_mesh_activity_settles_after_completion():
-    bus, bridge = (
-        build_cognition_instrumentation()
-    )
+    bus, bridge = build_cognition_instrumentation()
 
-    mesh = MultiplicitousIntelligenceMesh(
-        observer=bridge
-    )
+    mesh = MultiplicitousIntelligenceMesh(observer=bridge)
 
     mesh.register(
         participant(
@@ -320,26 +250,17 @@ def test_mesh_activity_settles_after_completion():
         payload={},
     )
 
-    activity = bus.state(
-        "aletheus.instrument.mesh_activity"
-    )
+    activity = bus.state("aletheus.instrument.mesh_activity")
 
     assert activity.current_value == 0.0
-    assert activity.status == (
-        InstrumentStatus.STABLE
-    )
+    assert activity.status == (InstrumentStatus.STABLE)
 
 
 def test_instrument_snapshot_is_read_only_projection():
-    bus, _ = (
-        build_cognition_instrumentation()
-    )
+    bus, _ = build_cognition_instrumentation()
 
     snapshot = bus.snapshot()
 
     assert len(snapshot) == 8
 
-    assert all(
-        state.status == InstrumentStatus.IDLE
-        for state in snapshot.values()
-    )
+    assert all(state.status == InstrumentStatus.IDLE for state in snapshot.values())

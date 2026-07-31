@@ -9,8 +9,6 @@ from dataclasses import dataclass, field
 
 @dataclass
 class ImportedAsset:
-
-
     source_id: str
 
     title: str
@@ -27,8 +25,4 @@ class ImportedAsset:
 
     purchase_price: float = 0
 
-    metadata: dict = field(
-        default_factory=dict
-    )
-
-
+    metadata: dict = field(default_factory=dict)

@@ -7,96 +7,41 @@ Evaluates readiness for next
 intelligence evolution phase.
 """
 
-
 import time
 import uuid
 
 
 class GenesisTransitionPreparationEngine:
-
-
     def __init__(self):
 
         self.assessments = []
 
-
-
-    def assess_maturity(
-        self,
-        capabilities
-    ):
+    def assess_maturity(self, capabilities):
 
         assessment = {
-
-            "assessment_id":
-                str(uuid.uuid4()),
-
-            "capabilities_reviewed":
-                capabilities,
-
-            "maturity_score":
-                100,
-
-            "ready":
-                True,
-
-            "timestamp":
-                time.time()
-
+            "assessment_id": str(uuid.uuid4()),
+            "capabilities_reviewed": capabilities,
+            "maturity_score": 100,
+            "ready": True,
+            "timestamp": time.time(),
         }
 
-
-        self.assessments.append(
-            assessment
-        )
-
+        self.assessments.append(assessment)
 
         return assessment
 
-
-
-    def validate_transition(
-        self,
-        assessment
-    ):
+    def validate_transition(self, assessment):
 
         return {
-
-            "assessment":
-                assessment,
-
-            "transition_validated":
-                True,
-
-            "next_phase":
-                "Genesis 10"
-
+            "assessment": assessment,
+            "transition_validated": True,
+            "next_phase": "Genesis 10",
         }
 
+    def prepare(self):
 
-
-    def prepare(
-        self
-    ):
-
-        return {
-
-            "status":
-                "Genesis 10 Ready",
-
-            "prepared":
-                True
-
-        }
-
-
+        return {"status": "Genesis 10 Ready", "prepared": True}
 
     def snapshot(self):
 
-        return {
-
-            "assessments":
-                len(self.assessments)
-
-        }
-
+        return {"assessments": len(self.assessments)}

@@ -24,10 +24,7 @@ class InstitutionExecutorRegistry:
     ) -> InstitutionPhaseExecutor:
         institution_id = executor.institution_id
 
-        if (
-            institution_id in self._executors
-            and not replace
-        ):
+        if institution_id in self._executors and not replace:
             raise DuplicateInstitutionExecutorError(
                 f"Executor for {institution_id!r} is already registered."
             )
@@ -49,8 +46,7 @@ class InstitutionExecutorRegistry:
 
         if executor is None:
             raise KeyError(
-                f"No executor registered for institution "
-                f"{institution_id!r}."
+                f"No executor registered for institution {institution_id!r}."
             )
 
         return executor

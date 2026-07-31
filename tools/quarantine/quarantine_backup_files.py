@@ -9,24 +9,11 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-REPORT = (
-    ROOT
-    / "reports"
-    / "repository_hygiene"
-    / "backup_files.csv"
-)
+REPORT = ROOT / "reports" / "repository_hygiene" / "backup_files.csv"
 
-BATCH_ID = datetime.now(
-    UTC
-).strftime("%Y%m%dT%H%M%SZ")
+BATCH_ID = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
 
-QUARANTINE_ROOT = (
-    ROOT
-    / "archive"
-    / "quarantine"
-    / "backup_files"
-    / BATCH_ID
-)
+QUARANTINE_ROOT = ROOT / "archive" / "quarantine" / "backup_files" / BATCH_ID
 
 MANIFEST = QUARANTINE_ROOT / "manifest.json"
 
@@ -61,9 +48,7 @@ def original_candidate(path: Path) -> Path | None:
 
     for suffix in suffix_patterns:
         if name.endswith(suffix):
-            return path.with_name(
-                name[: -len(suffix)]
-            )
+            return path.with_name(name[: -len(suffix)])
 
     backup_match = re.match(
         r"^(?P<base>.+?)\.backup(?:_.*)?$",
@@ -71,9 +56,7 @@ def original_candidate(path: Path) -> Path | None:
     )
 
     if backup_match:
-        return path.with_name(
-            backup_match.group("base")
-        )
+        return path.with_name(backup_match.group("base"))
 
     return None
 
@@ -128,9 +111,7 @@ def main() -> None:
             "path": str(path.relative_to(ROOT)),
             "status": status,
             "original": (
-                str(original.relative_to(ROOT))
-                if original is not None
-                else ""
+                str(original.relative_to(ROOT)) if original is not None else ""
             ),
         }
         rows.append(row)
@@ -139,10 +120,7 @@ def main() -> None:
             safe.append(path)
 
     print("=" * 72)
-    print(
-        "Backup File Quarantine — "
-        + ("APPLY" if args.apply else "DRY RUN")
-    )
+    print("Backup File Quarantine — " + ("APPLY" if args.apply else "DRY RUN"))
     print("=" * 72)
     print(f"Reported backup files: {len(candidates)}")
     print(f"Safe duplicates: {len(safe)}")
@@ -152,10 +130,7 @@ def main() -> None:
     )
 
     for row in rows:
-        print(
-            f'{row["status"]:28} '
-            f'{row["path"]}'
-        )
+        print(f"{row['status']:28} {row['path']}")
 
     if not args.apply:
         print()
@@ -191,26 +166,16 @@ def main() -> None:
         moved.append(
             {
                 "source": str(relative),
-                "quarantine": str(
-                    destination.relative_to(ROOT)
-                ),
+                "quarantine": str(destination.relative_to(ROOT)),
             }
         )
 
     manifest = {
-        "created_at": datetime.now(
-            UTC
-        ).isoformat(),
-        "source_report": str(
-            REPORT.relative_to(ROOT)
-        ),
+        "created_at": datetime.now(UTC).isoformat(),
+        "source_report": str(REPORT.relative_to(ROOT)),
         "moved_count": len(moved),
         "moved": moved,
-        "review": [
-            row
-            for row in rows
-            if row["status"] != "SAFE_DUPLICATE"
-        ],
+        "review": [row for row in rows if row["status"] != "SAFE_DUPLICATE"],
     }
 
     MANIFEST.write_text(
@@ -225,9 +190,7 @@ def main() -> None:
 
     print()
     print(f"Moved safe duplicates: {len(moved)}")
-    print(
-        f"Manifest: {MANIFEST.relative_to(ROOT)}"
-    )
+    print(f"Manifest: {MANIFEST.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

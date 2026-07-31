@@ -29,9 +29,7 @@ def test_object_creation() -> None:
 def test_state_transition_returns_new_representation() -> None:
     service = make_service()
 
-    initializing = service.transition_to(
-        ConstitutionalState.INITIALIZING
-    )
+    initializing = service.transition_to(ConstitutionalState.INITIALIZING)
 
     assert service.state is ConstitutionalState.REGISTERED
     assert initializing.state is ConstitutionalState.INITIALIZING

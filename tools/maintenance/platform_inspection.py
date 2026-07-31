@@ -43,11 +43,7 @@ def main():
         },
         "discovery": {
             "discovered": len(discovered),
-            "loaded": sum(
-                1
-                for item in discovered
-                if item.get("loaded")
-            ),
+            "loaded": sum(1 for item in discovered if item.get("loaded")),
         },
         "homeostasis": homeostasis_engine.statistics(),
         "service_manager": service_manager.statistics(),

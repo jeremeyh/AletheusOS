@@ -14,16 +14,10 @@ def render_asset_gallery(assets, columns=3, limit=6):
     #
     # Prefer assets with real images.
     #
-    with_images = [
-        asset
-        for asset in assets
-        if AssetImageService.has_real_image(asset)
-    ]
+    with_images = [asset for asset in assets if AssetImageService.has_real_image(asset)]
 
     without_images = [
-        asset
-        for asset in assets
-        if not AssetImageService.has_real_image(asset)
+        asset for asset in assets if not AssetImageService.has_real_image(asset)
     ]
 
     visible_assets = (with_images + without_images)[:limit]

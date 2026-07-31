@@ -2,7 +2,6 @@ from __future__ import annotations
 
 
 class Configuration:
-
     VERSION = "0.1.0"
 
     DEFAULT_STATE = "online"

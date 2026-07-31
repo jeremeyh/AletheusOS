@@ -12,7 +12,6 @@ def render_chart_card(
     """
 
     with st.container(border=True):
-
         st.subheader(title)
 
         st.line_chart(

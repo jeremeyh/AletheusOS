@@ -91,29 +91,20 @@ def main() -> None:
 
     print_header("METADATA")
 
-    pprint(
-        capability.capability_metadata()
-    )
+    pprint(capability.capability_metadata())
 
     print_header("HEALTH")
 
-    pprint(
-        health(capability)
-    )
+    pprint(health(capability))
 
     print_header("STATISTICS")
 
-    pprint(
-        statistics(capability)
-    )
+    pprint(statistics(capability))
 
     print_header("FOUNDATION CONTRACT")
 
-    pprint(
-        contract.to_dict()
-    )
+    pprint(contract.to_dict())
 
 
 if __name__ == "__main__":
-
     main()

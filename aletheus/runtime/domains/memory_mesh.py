@@ -95,17 +95,13 @@ class MemoryMeshDomain:
         return context
 
     def history(self, context):
-        result = self.runtime.memory_mesh.history(
-            context.payload.get("object_id", "")
-        )
+        result = self.runtime.memory_mesh.history(context.payload.get("object_id", ""))
 
         context.add_result("history", result)
         return context
 
     def cache(self, context):
-        result = self.runtime.memory_mesh.cache(
-            context.payload.get("object_id", "")
-        )
+        result = self.runtime.memory_mesh.cache(context.payload.get("object_id", ""))
 
         context.add_result("cache", result)
         return context

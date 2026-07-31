@@ -29,11 +29,7 @@ class LocalPrincipalAuthenticator:
         entitlements = _parse_values(
             os.getenv(
                 "ALETHEUS_LOCAL_ENTITLEMENTS",
-                (
-                    "runtime.read,"
-                    "providers.refresh,"
-                    "experience.preferences.write"
-                ),
+                ("runtime.read,providers.refresh,experience.preferences.write"),
             )
         )
 
@@ -48,9 +44,7 @@ class LocalPrincipalAuthenticator:
             ).strip(),
             roles=roles,
             entitlements=entitlements,
-            authentication_method=(
-                "local_environment"
-            ),
+            authentication_method=("local_environment"),
             authenticated=True,
         )
 
@@ -60,17 +54,10 @@ def _parse_roles(
 ) -> tuple[PrincipalRole, ...]:
     parsed = _parse_values(value)
 
-    invalid = [
-        role
-        for role in parsed
-        if role not in _ALLOWED_ROLES
-    ]
+    invalid = [role for role in parsed if role not in _ALLOWED_ROLES]
 
     if invalid:
-        raise ValueError(
-            "Unsupported local role(s): "
-            + ", ".join(invalid)
-        )
+        raise ValueError("Unsupported local role(s): " + ", ".join(invalid))
 
     if not parsed:
         return ("viewer",)
@@ -81,8 +68,4 @@ def _parse_roles(
 def _parse_values(
     value: str,
 ) -> tuple[str, ...]:
-    return tuple(
-        entry.strip()
-        for entry in value.split(",")
-        if entry.strip()
-    )
+    return tuple(entry.strip() for entry in value.split(",") if entry.strip())

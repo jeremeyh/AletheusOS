@@ -1,8 +1,3 @@
 from .engine import LearningOptimizationEngine
 
-__all__=[
-
-"LearningOptimizationEngine"
-
-]
-
+__all__ = ["LearningOptimizationEngine"]

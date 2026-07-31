@@ -6,52 +6,26 @@ Post-Genesis 2251-2350
 
 
 class JudgmentCivilizationEngine:
-
-
     def __init__(self):
 
         self.decisions = []
 
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_judgment_civilization",
-
-            "range":
-            "2251-2350",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_judgment_civilization",
+            "range": "2251-2350",
+            "status": "operational",
         }
-
 
     def evaluate_decision(self, decision):
 
-        judgment = {
+        judgment = {"decision": decision, "status": "evaluated"}
 
-            "decision":
-            decision,
-
-            "status":
-            "evaluated"
-
-        }
-
-
-        self.decisions.append(
-            judgment
-        )
-
+        self.decisions.append(judgment)
 
         return judgment
-
-
 
     def list_decisions(self):
 
         return self.decisions
-

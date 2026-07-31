@@ -6,13 +6,6 @@ Genesis 14.25
 
 
 class ProfileManager:
-
-
-    def create(
-        self,
-        profile
-    ):
-
+    def create(self, profile):
 
         return profile
-

@@ -51,7 +51,9 @@ class HawkPassportEngine:
         self._passports[asset_id] = passport
         return passport.snapshot()
 
-    def add_provenance(self, asset_id: str, kind: str, source: str, note: str = "") -> dict:
+    def add_provenance(
+        self, asset_id: str, kind: str, source: str, note: str = ""
+    ) -> dict:
         passport = self._get(asset_id)
         passport.provenance.append(ProvenanceEvent(kind, source, note))
         return passport.snapshot()

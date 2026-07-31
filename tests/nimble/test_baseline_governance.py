@@ -6,34 +6,24 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
-PROMOTION_MODULE_PATH = (
-    ROOT
-    / "promote_nimble_performance_baseline.py"
-)
+PROMOTION_MODULE_PATH = ROOT / "promote_nimble_performance_baseline.py"
 
-VALIDATOR_MODULE_PATH = (
-    ROOT
-    / "validate_nimble_baseline_governance.py"
-)
+VALIDATOR_MODULE_PATH = ROOT / "validate_nimble_baseline_governance.py"
 
 
 def load_module(
     name: str,
     path: Path,
 ):
-    specification = (
-        importlib.util.spec_from_file_location(
-            name,
-            path,
-        )
+    specification = importlib.util.spec_from_file_location(
+        name,
+        path,
     )
 
     assert specification is not None
     assert specification.loader is not None
 
-    module = importlib.util.module_from_spec(
-        specification
-    )
+    module = importlib.util.module_from_spec(specification)
 
     specification.loader.exec_module(module)
 
@@ -47,17 +37,10 @@ def test_promotion_paths_are_repository_bounded():
     )
 
     assert module.CURRENT_BASELINE == (
-        ROOT
-        / "nimble"
-        / "governance"
-        / "performance-baseline.json"
+        ROOT / "nimble" / "governance" / "performance-baseline.json"
     )
 
-    assert module.BASELINE_HISTORY.parent == (
-        ROOT
-        / "nimble"
-        / "governance"
-    )
+    assert module.BASELINE_HISTORY.parent == (ROOT / "nimble" / "governance")
 
 
 def test_baseline_metrics_are_derived_from_telemetry():
@@ -92,26 +75,13 @@ def test_baseline_metrics_are_derived_from_telemetry():
         },
     }
 
-    metrics = module.build_metrics(
-        telemetry
-    )
+    metrics = module.build_metrics(telemetry)
 
-    assert (
-        metrics["primary_bundle_bytes"]
-        == 450000
-    )
+    assert metrics["primary_bundle_bytes"] == 450000
 
-    assert (
-        metrics["total_javascript_bytes"]
-        == 525000
-    )
+    assert metrics["total_javascript_bytes"] == 525000
 
-    assert (
-        metrics[
-            "largest_secondary_chunk_bytes"
-        ]
-        == 50000
-    )
+    assert metrics["largest_secondary_chunk_bytes"] == 50000
 
 
 def test_current_baseline_has_required_contract():
@@ -126,12 +96,6 @@ def test_current_baseline_has_required_contract():
         )
     )
 
-    assert (
-        module.REQUIRED_METRICS
-        <= set(baseline["metrics"])
-    )
+    assert module.REQUIRED_METRICS <= set(baseline["metrics"])
 
-    assert (
-        module.REQUIRED_THRESHOLDS
-        <= set(baseline["thresholds"])
-    )
+    assert module.REQUIRED_THRESHOLDS <= set(baseline["thresholds"])

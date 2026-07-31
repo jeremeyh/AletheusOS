@@ -68,11 +68,7 @@ class ExecutionGraphRegistry:
         node_type: NodeType,
     ) -> list[GraphNode]:
 
-        return [
-            node
-            for node in self._nodes.values()
-            if node.node_type == node_type
-        ]
+        return [node for node in self._nodes.values() if node.node_type == node_type]
 
     #
     # Edge Operations
@@ -110,22 +106,14 @@ class ExecutionGraphRegistry:
         node_id: str,
     ) -> list[GraphEdge]:
 
-        return [
-            edge
-            for edge in self._edges.values()
-            if edge.source == node_id
-        ]
+        return [edge for edge in self._edges.values() if edge.source == node_id]
 
     def incoming(
         self,
         node_id: str,
     ) -> list[GraphEdge]:
 
-        return [
-            edge
-            for edge in self._edges.values()
-            if edge.target == node_id
-        ]
+        return [edge for edge in self._edges.values() if edge.target == node_id]
 
     def neighbors(
         self,
@@ -135,7 +123,6 @@ class ExecutionGraphRegistry:
         connected = set()
 
         for edge in self._edges.values():
-
             if edge.source == node_id:
                 connected.add(edge.target)
 
@@ -166,7 +153,6 @@ class ExecutionGraphRegistry:
         edge_types: dict[str, int] = {}
 
         for node in self._nodes.values():
-
             key = node.node_type.value
 
             node_types.setdefault(key, 0)
@@ -174,7 +160,6 @@ class ExecutionGraphRegistry:
             node_types[key] += 1
 
         for edge in self._edges.values():
-
             key = edge.edge_type.value
 
             edge_types.setdefault(key, 0)

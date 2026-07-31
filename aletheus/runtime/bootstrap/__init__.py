@@ -1,7 +1,6 @@
-from .runtime_bootstrap import RuntimeBootstrap
-from .runtime_manifest_builder import RuntimeManifestBuilder
+"""
+Legacy runtime bootstrap package.
 
-__all__ = [
-    "RuntimeBootstrap",
-    "RuntimeManifestBuilder",
-]
+Canonical runtime composition and command registration are owned by the
+runtime boot pipeline.
+"""

@@ -87,11 +87,7 @@ class RepositorySteward:
         self,
         operations: Iterable[MoveOperation],
     ) -> list[MoveOperation]:
-        return [
-            operation
-            for operation in operations
-            if operation.destination.exists()
-        ]
+        return [operation for operation in operations if operation.destination.exists()]
 
     def apply(self, operations: Iterable[MoveOperation]) -> Path:
         operation_list = list(operations)
@@ -112,9 +108,7 @@ class RepositorySteward:
 
     def rollback(self, manifest_path: Path | str | None = None) -> int:
         manifest = (
-            Path(manifest_path)
-            if manifest_path
-            else self._latest_manifest_path()
+            Path(manifest_path) if manifest_path else self._latest_manifest_path()
         )
 
         if not manifest.exists():

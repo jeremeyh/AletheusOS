@@ -25,9 +25,7 @@ TARGET = (
 
 def _require_target() -> Path:
     if not TARGET.is_file():
-        raise FileNotFoundError(
-            f"Canonical validator not found:\n{TARGET}"
-        )
+        raise FileNotFoundError(f"Canonical validator not found:\n{TARGET}")
     return TARGET
 
 

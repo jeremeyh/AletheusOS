@@ -25,14 +25,9 @@ SCRIPTS = [
     "bin/apply_nimble_audit_recovery.py",
 ]
 
-LEDGER_RELATIVE = Path(
-    "nimble/governance/audit/"
-    "deployment-audit-ledger.jsonl"
-)
+LEDGER_RELATIVE = Path("nimble/governance/audit/deployment-audit-ledger.jsonl")
 
-SNAPSHOT_RELATIVE = Path(
-    "reports/nimble/recovery/snapshots"
-)
+SNAPSHOT_RELATIVE = Path("reports/nimble/recovery/snapshots")
 
 
 def run(
@@ -71,9 +66,7 @@ def run(
 
 
 def sha256(path: Path) -> str:
-    return hashlib.sha256(
-        path.read_bytes()
-    ).hexdigest()
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def initialize_git(root: Path) -> None:
@@ -132,9 +125,7 @@ def copy_runtime(root: Path) -> None:
             root / "reports/nimble",
         )
     else:
-        (
-            root / "reports/nimble"
-        ).mkdir(parents=True)
+        (root / "reports/nimble").mkdir(parents=True)
 
     (root / "bin").mkdir(parents=True, exist_ok=True)
 
@@ -156,10 +147,7 @@ def copy_runtime(root: Path) -> None:
         encoding="utf-8",
     )
 
-    checkpoints = (
-        root
-        / "nimble/governance/audit/checkpoints"
-    )
+    checkpoints = root / "nimble/governance/audit/checkpoints"
 
     if checkpoints.exists():
         shutil.rmtree(checkpoints)
@@ -169,10 +157,7 @@ def copy_runtime(root: Path) -> None:
         exist_ok=True,
     )
 
-    recovery_reports = (
-        root
-        / "reports/nimble/recovery"
-    )
+    recovery_reports = root / "reports/nimble/recovery"
 
     if recovery_reports.exists():
         shutil.rmtree(recovery_reports)
@@ -252,25 +237,15 @@ def prepare_recoverable_state(
     trusted_bytes = ledger.read_bytes()
 
     lines = [
-        line
-        for line in trusted_bytes.decode(
-            "utf-8"
-        ).splitlines()
-        if line.strip()
+        line for line in trusted_bytes.decode("utf-8").splitlines() if line.strip()
     ]
 
     if len(lines) < 2:
-        raise RuntimeError(
-            "Simulation requires at least two events."
-        )
+        raise RuntimeError("Simulation requires at least two events.")
 
-    truncated_bytes = (
-        lines[0] + "\n"
-    ).encode("utf-8")
+    truncated_bytes = (lines[0] + "\n").encode("utf-8")
 
-    ledger.write_bytes(
-        truncated_bytes
-    )
+    ledger.write_bytes(truncated_bytes)
 
     plan = run(
         [
@@ -281,23 +256,14 @@ def prepare_recoverable_state(
         expected=2,
     )
 
-    if (
-        "Classification: checkpoint_ahead_of_ledger"
-        not in plan.stdout
-    ):
+    if "Classification: checkpoint_ahead_of_ledger" not in plan.stdout:
         raise RuntimeError(
             "Planner did not classify the truncated "
-            "ledger as checkpoint_ahead_of_ledger.\n"
-            + plan.stdout
+            "ledger as checkpoint_ahead_of_ledger.\n" + plan.stdout
         )
 
-    if (
-        "Recommended action: restore_missing_suffix"
-        not in plan.stdout
-    ):
-        raise RuntimeError(
-            "Planner did not authorize suffix restoration."
-        )
+    if "Recommended action: restore_missing_suffix" not in plan.stdout:
+        raise RuntimeError("Planner did not authorize suffix restoration.")
 
     return trusted_bytes, truncated_bytes
 
@@ -307,9 +273,7 @@ def verify_successful_apply() -> None:
         root = Path(directory)
         copy_runtime(root)
 
-        trusted_bytes, truncated_bytes = (
-            prepare_recoverable_state(root)
-        )
+        trusted_bytes, truncated_bytes = prepare_recoverable_state(root)
 
         ledger = root / LEDGER_RELATIVE
 
@@ -324,69 +288,44 @@ def verify_successful_apply() -> None:
         )
 
         if "Atomic replacement: PASS" not in result.stdout:
-            raise RuntimeError(
-                "Atomic replacement was not confirmed."
-            )
+            raise RuntimeError("Atomic replacement was not confirmed.")
 
-        if (
-            "Recovery provenance event: APPENDED"
-            not in result.stdout
-        ):
-            raise RuntimeError(
-                "Recovery provenance was not appended."
-            )
+        if "Recovery provenance event: APPENDED" not in result.stdout:
+            raise RuntimeError("Recovery provenance was not appended.")
 
         snapshots = sorted(
-            (
-                root / SNAPSHOT_RELATIVE
-            ).glob(
-                "deployment-audit-ledger-*.jsonl"
-            )
+            (root / SNAPSHOT_RELATIVE).glob("deployment-audit-ledger-*.jsonl")
         )
 
         if len(snapshots) != 1:
-            raise RuntimeError(
-                "Exactly one pre-recovery snapshot "
-                "was expected."
-            )
+            raise RuntimeError("Exactly one pre-recovery snapshot was expected.")
 
         if snapshots[0].read_bytes() != truncated_bytes:
             raise RuntimeError(
-                "Pre-recovery snapshot does not contain "
-                "the truncated ledger."
+                "Pre-recovery snapshot does not contain the truncated ledger."
             )
 
         restored_lines = [
             json.loads(line)
-            for line in ledger.read_text(
-                encoding="utf-8"
-            ).splitlines()
+            for line in ledger.read_text(encoding="utf-8").splitlines()
             if line.strip()
         ]
 
         trusted_lines = [
             json.loads(line)
-            for line in trusted_bytes.decode(
-                "utf-8"
-            ).splitlines()
+            for line in trusted_bytes.decode("utf-8").splitlines()
             if line.strip()
         ]
 
-        if restored_lines[:len(trusted_lines)] != trusted_lines:
+        if restored_lines[: len(trusted_lines)] != trusted_lines:
             raise RuntimeError(
-                "Recovered ledger prefix differs from "
-                "the trusted source."
+                "Recovered ledger prefix differs from the trusted source."
             )
 
         final_event = restored_lines[-1]
 
-        if (
-            final_event.get("event_type")
-            != "audit_recovery_completed"
-        ):
-            raise RuntimeError(
-                "Final ledger event is not recovery provenance."
-            )
+        if final_event.get("event_type") != "audit_recovery_completed":
+            raise RuntimeError("Final ledger event is not recovery provenance.")
 
         run(
             [
@@ -402,16 +341,11 @@ def verify_validation_failure_rollback() -> None:
         root = Path(directory)
         copy_runtime(root)
 
-        _, truncated_bytes = (
-            prepare_recoverable_state(root)
-        )
+        _, truncated_bytes = prepare_recoverable_state(root)
 
         ledger = root / LEDGER_RELATIVE
 
-        validator = (
-            root
-            / "bin/validate_nimble_audit_ledger.py"
-        )
+        validator = root / "bin/validate_nimble_audit_ledger.py"
 
         validator.write_text(
             "#!/usr/bin/env python3\n"
@@ -432,38 +366,24 @@ def verify_validation_failure_rollback() -> None:
         )
 
         if result.returncode == 0:
-            raise RuntimeError(
-                "Injected validation failure unexpectedly passed."
-            )
+            raise RuntimeError("Injected validation failure unexpectedly passed.")
 
         output = result.stdout + result.stderr
 
-        if (
-            "pre-recovery snapshot was restored"
-            not in output
-        ):
-            raise RuntimeError(
-                "Recovery failure did not report rollback."
-            )
+        if "pre-recovery snapshot was restored" not in output:
+            raise RuntimeError("Recovery failure did not report rollback.")
 
         if ledger.read_bytes() != truncated_bytes:
             raise RuntimeError(
-                "Failed recovery did not restore the "
-                "pre-recovery ledger."
+                "Failed recovery did not restore the pre-recovery ledger."
             )
 
         snapshots = list(
-            (
-                root / SNAPSHOT_RELATIVE
-            ).glob(
-                "deployment-audit-ledger-*.jsonl"
-            )
+            (root / SNAPSHOT_RELATIVE).glob("deployment-audit-ledger-*.jsonl")
         )
 
         if not snapshots:
-            raise RuntimeError(
-                "Rollback scenario did not preserve a snapshot."
-            )
+            raise RuntimeError("Rollback scenario did not preserve a snapshot.")
 
 
 def main() -> int:
@@ -476,9 +396,7 @@ def main() -> int:
     canonical_after = sha256(canonical_ledger)
 
     if canonical_before != canonical_after:
-        print(
-            "FAIL: canonical deployment audit ledger changed."
-        )
+        print("FAIL: canonical deployment audit ledger changed.")
         return 1
 
     print("=" * 72)

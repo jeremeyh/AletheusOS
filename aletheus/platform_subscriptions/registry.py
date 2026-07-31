@@ -4,7 +4,6 @@ from .models import Subscription
 
 
 class SubscriptionRegistry:
-
     def __init__(self):
         self._subscriptions: list[Subscription] = []
 
@@ -27,11 +26,7 @@ class SubscriptionRegistry:
 
     def subscribers(self, event_type: str):
 
-        return [
-            s
-            for s in self._subscriptions
-            if s.event_type == event_type
-        ]
+        return [s for s in self._subscriptions if s.event_type == event_type]
 
     def statistics(self):
 

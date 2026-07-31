@@ -205,5 +205,7 @@ class AnalysisContext:
     ) -> AnalysisContext:
         root = Path(repository_root).expanduser().resolve()
         includes = tuple(Path(item) for item in (include_paths or ()))
-        excludes = DEFAULT_EXCLUDE_NAMES if exclude_names is None else frozenset(exclude_names)
+        excludes = (
+            DEFAULT_EXCLUDE_NAMES if exclude_names is None else frozenset(exclude_names)
+        )
         return cls(root, includes, excludes, metadata or {})

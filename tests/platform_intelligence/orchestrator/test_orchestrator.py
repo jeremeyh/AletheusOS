@@ -38,14 +38,10 @@ def build_orchestrator() -> tuple[
     ConstitutionalEventBus,
 ]:
     bus = ConstitutionalEventBus()
-    registry = PlatformServiceRegistry(
-        event_bus=bus
-    )
+    registry = PlatformServiceRegistry(event_bus=bus)
     graph = ConstitutionalGraph()
 
-    runtime = registry.register(
-        definition("service.runtime")
-    )
+    runtime = registry.register(definition("service.runtime"))
     workspace = registry.register(
         definition(
             "service.workspace",
@@ -91,31 +87,18 @@ def build_orchestrator() -> tuple[
 
 
 def test_overview_composes_platform_state() -> None:
-    orchestrator, _, _, _ = (
-        build_orchestrator()
-    )
+    orchestrator, _, _, _ = build_orchestrator()
 
     overview = orchestrator.overview()
 
     assert overview.twin_revision == 0
-    assert overview.services[
-        "statistics"
-    ]["registered"] == 2
-    assert overview.graph[
-        "statistics"
-    ]["relationships"] == 1
-    assert (
-        overview.intelligence[
-            "constitutional_score"
-        ]
-        >= 0
-    )
+    assert overview.services["statistics"]["registered"] == 2
+    assert overview.graph["statistics"]["relationships"] == 1
+    assert overview.intelligence["constitutional_score"] >= 0
 
 
 def test_overview_serializes() -> None:
-    orchestrator, _, _, _ = (
-        build_orchestrator()
-    )
+    orchestrator, _, _, _ = build_orchestrator()
 
     payload = orchestrator.overview().to_dict()
 
@@ -129,9 +112,7 @@ def test_overview_serializes() -> None:
 
 
 def test_health_summary_defaults_unknown() -> None:
-    orchestrator, _, _, _ = (
-        build_orchestrator()
-    )
+    orchestrator, _, _, _ = build_orchestrator()
 
     health = orchestrator.health_summary()
 
@@ -141,9 +122,7 @@ def test_health_summary_defaults_unknown() -> None:
 
 
 def test_health_summary_reflects_registry() -> None:
-    orchestrator, registry, graph, _ = (
-        build_orchestrator()
-    )
+    orchestrator, registry, graph, _ = build_orchestrator()
 
     runtime = registry.report_health(
         "service.runtime",
@@ -162,15 +141,11 @@ def test_health_summary_reflects_registry() -> None:
     assert health.state == "degraded"
     assert health.healthy == 1
     assert health.warning == 1
-    assert health.unhealthy_services == (
-        "service.workspace",
-    )
+    assert health.unhealthy_services == ("service.workspace",)
 
 
 def test_constitutional_state_is_satisfied() -> None:
-    orchestrator, _, _, _ = (
-        build_orchestrator()
-    )
+    orchestrator, _, _, _ = build_orchestrator()
 
     state = orchestrator.constitutional_state()
 
@@ -181,13 +156,9 @@ def test_constitutional_state_is_satisfied() -> None:
 
 
 def test_orphan_breaks_constitutional_state() -> None:
-    orchestrator, registry, graph, _ = (
-        build_orchestrator()
-    )
+    orchestrator, registry, graph, _ = build_orchestrator()
 
-    diagnostics = registry.register(
-        definition("service.diagnostics")
-    )
+    diagnostics = registry.register(definition("service.diagnostics"))
     graph.add_node(diagnostics)
 
     state = orchestrator.constitutional_state()
@@ -198,15 +169,11 @@ def test_orphan_breaks_constitutional_state() -> None:
 
 
 def test_event_summary_exposes_latest_event() -> None:
-    orchestrator, _, _, bus = (
-        build_orchestrator()
-    )
+    orchestrator, _, _, bus = build_orchestrator()
 
     published = bus.publish(
         ConstitutionalEvent.create(
-            kind=(
-                ConstitutionalEventKind.PLATFORM_STARTED
-            ),
+            kind=(ConstitutionalEventKind.PLATFORM_STARTED),
             source="runtime.core",
             subject="runtime.core",
         )
@@ -215,85 +182,55 @@ def test_event_summary_exposes_latest_event() -> None:
     summary = orchestrator.event_summary()
 
     assert summary["history_size"] >= 1
-    assert summary["latest"]["event_id"] == str(
-        published.event_id
-    )
+    assert summary["latest"]["event_id"] == str(published.event_id)
 
 
 def test_snapshot_delegates_to_twin() -> None:
-    orchestrator, _, _, _ = (
-        build_orchestrator()
-    )
+    orchestrator, _, _, _ = build_orchestrator()
 
     snapshot = orchestrator.snapshot()
 
     assert len(snapshot.services) == 2
     assert len(snapshot.nodes) == 2
-    assert len(
-        orchestrator.retained_snapshots()
-    ) == 1
+    assert len(orchestrator.retained_snapshots()) == 1
 
 
 def test_service_inventory_is_complete() -> None:
-    orchestrator, _, _, _ = (
-        build_orchestrator()
-    )
+    orchestrator, _, _, _ = build_orchestrator()
 
-    inventory = (
-        orchestrator.service_inventory()
-    )
+    inventory = orchestrator.service_inventory()
 
-    assert inventory[
-        "statistics"
-    ]["registered"] == 2
+    assert inventory["statistics"]["registered"] == 2
     assert len(inventory["services"]) == 2
 
 
 def test_dependency_summary_is_complete() -> None:
-    orchestrator, _, _, _ = (
-        build_orchestrator()
-    )
+    orchestrator, _, _, _ = build_orchestrator()
 
-    summary = (
-        orchestrator.dependency_summary()
-    )
+    summary = orchestrator.dependency_summary()
 
     assert len(summary["nodes"]) == 2
     assert len(summary["relationships"]) == 1
-    assert summary[
-        "statistics"
-    ]["connected_components"] == 1
+    assert summary["statistics"]["connected_components"] == 1
 
 
 def test_intelligence_summary_is_structured() -> None:
-    orchestrator, _, _, _ = (
-        build_orchestrator()
-    )
+    orchestrator, _, _, _ = build_orchestrator()
 
-    analysis = (
-        orchestrator.intelligence_summary()
-    )
+    analysis = orchestrator.intelligence_summary()
 
     assert 0 <= analysis.health_score <= 100
-    assert (
-        0
-        <= analysis.architecture_score
-        <= 100
-    )
+    assert 0 <= analysis.architecture_score <= 100
 
 
 def test_revision_tracks_twin_events() -> None:
-    orchestrator, _, _, bus = (
-        build_orchestrator()
-    )
+    orchestrator, _, _, bus = build_orchestrator()
 
     assert orchestrator.revision == 0
 
     bus.publish(
         ConstitutionalEvent.create(
-            kind=(
-                ConstitutionalEventKind.PLATFORM_STARTED
-            ),
+            kind=(ConstitutionalEventKind.PLATFORM_STARTED),
             source="runtime.core",
             subject="runtime.core",
         )
@@ -303,9 +240,7 @@ def test_revision_tracks_twin_events() -> None:
 
 
 def test_orchestrator_is_read_only() -> None:
-    orchestrator, _, _, _ = (
-        build_orchestrator()
-    )
+    orchestrator, _, _, _ = build_orchestrator()
 
     forbidden = {
         "register",
@@ -317,6 +252,4 @@ def test_orchestrator_is_read_only() -> None:
         "execute",
     }
 
-    assert forbidden.isdisjoint(
-        set(dir(orchestrator))
-    )
+    assert forbidden.isdisjoint(set(dir(orchestrator)))

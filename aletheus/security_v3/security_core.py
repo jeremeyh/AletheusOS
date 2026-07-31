@@ -30,7 +30,6 @@ class SecurityAudit:
 
 
 class AletheusSecurityEngine:
-
     VERSION = "3.7.0"
 
     def __init__(self):
@@ -47,7 +46,6 @@ class AletheusSecurityEngine:
     def bootstrap(self):
 
         if "Administrator" not in self.roles:
-
             self.create_role(
                 "Administrator",
                 permissions=["*"],
@@ -75,10 +73,7 @@ class AletheusSecurityEngine:
         permissions = self.roles[role].permissions
 
         return {
-            "authorized": (
-                "*" in permissions or
-                permission in permissions
-            ),
+            "authorized": ("*" in permissions or permission in permissions),
             "role": role,
         }
 
@@ -115,11 +110,7 @@ class AletheusSecurityEngine:
             "definition": self.policies[name],
         }
 
-    def audit(self,
-              action: str,
-              actor: str,
-              status="success",
-              metadata=None):
+    def audit(self, action: str, actor: str, status="success", metadata=None):
 
         audit = SecurityAudit(
             audit_id=str(uuid.uuid4()),

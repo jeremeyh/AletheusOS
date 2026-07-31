@@ -10,19 +10,6 @@ Maintain ecosystem intelligence
 
 
 class EcosystemMemory:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "24.0"
-
-        }
-
+        return {"status": "ready", "genesis": "24.0"}

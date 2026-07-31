@@ -99,7 +99,6 @@ def test_status_statistics():
 
 
 if __name__ == "__main__":
-
     test_cluster_service_registered()
     test_cluster_bootstrap()
     test_join_leave_node()

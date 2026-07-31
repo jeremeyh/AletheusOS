@@ -46,9 +46,7 @@ class ConstitutionalApplicationRegistry:
         normalized = application_id.strip()
 
         if not normalized:
-            raise ValueError(
-                "Application ID cannot be empty."
-            )
+            raise ValueError("Application ID cannot be empty.")
 
         return normalized
 
@@ -74,16 +72,11 @@ class ConstitutionalApplicationRegistry:
 
         validate_manifest(manifest)
 
-        application_id = (
-            self._normalize_application_id(
-                manifest.application_id
-            )
-        )
+        application_id = self._normalize_application_id(manifest.application_id)
 
         if application_id in self._records:
             raise DuplicateApplicationError(
-                f"Application is already installed: "
-                f"{application_id}"
+                f"Application is already installed: {application_id}"
             )
 
         record = ApplicationRecord(
@@ -98,11 +91,7 @@ class ConstitutionalApplicationRegistry:
         self,
         application_id: str,
     ) -> ApplicationRecord | None:
-        normalized = (
-            self._normalize_application_id(
-                application_id
-            )
-        )
+        normalized = self._normalize_application_id(application_id)
 
         return self._records.get(normalized)
 
@@ -110,47 +99,35 @@ class ConstitutionalApplicationRegistry:
         self,
         application_id: str,
     ) -> ApplicationRecord:
-        normalized = (
-            self._normalize_application_id(
-                application_id
-            )
-        )
+        normalized = self._normalize_application_id(application_id)
 
         try:
             return self._records[normalized]
 
         except KeyError as exc:
             raise ApplicationNotFoundError(
-                f"Application is not installed: "
-                f"{normalized}"
+                f"Application is not installed: {normalized}"
             ) from exc
 
     def remove(
         self,
         application_id: str,
     ) -> ApplicationRecord:
-        normalized = (
-            self._normalize_application_id(
-                application_id
-            )
-        )
+        normalized = self._normalize_application_id(application_id)
 
         try:
             return self._records.pop(normalized)
 
         except KeyError as exc:
             raise ApplicationNotFoundError(
-                f"Application is not installed: "
-                f"{normalized}"
+                f"Application is not installed: {normalized}"
             ) from exc
 
     def list_records(
         self,
     ) -> tuple[ApplicationRecord, ...]:
         return tuple(
-            self._records[application_id]
-            for application_id
-            in sorted(self._records)
+            self._records[application_id] for application_id in sorted(self._records)
         )
 
     def list_application_ids(
@@ -182,20 +159,14 @@ class ConstitutionalApplicationRegistry:
 
         for record in records:
             status = record.status.value
-            status_counts[status] = (
-                status_counts.get(status, 0) + 1
-            )
+            status_counts[status] = status_counts.get(status, 0) + 1
 
         return {
-            "name": (
-                "Constitutional Application Registry™"
-            ),
+            "name": ("Constitutional Application Registry™"),
             "version": self.VERSION,
             "status": "online",
             "applications": len(records),
-            "application_ids": list(
-                self.list_application_ids()
-            ),
+            "application_ids": list(self.list_application_ids()),
             "status_counts": status_counts,
         }
 
@@ -224,18 +195,10 @@ def register_application(
     normalized_name = name.strip().lower()
 
     if not normalized_name:
-        raise ValueError(
-            "Application name cannot be empty."
-        )
+        raise ValueError("Application name cannot be empty.")
 
-    if (
-        normalized_name in APPLICATIONS
-        and not replace
-    ):
-        raise ValueError(
-            "Application already registered: "
-            f"{normalized_name}"
-        )
+    if normalized_name in APPLICATIONS and not replace:
+        raise ValueError(f"Application already registered: {normalized_name}")
 
     APPLICATIONS[normalized_name] = application
     return application
@@ -254,10 +217,7 @@ def get_application(
         return APPLICATIONS[normalized_name]
 
     except KeyError as exc:
-        raise KeyError(
-            "Application is not registered: "
-            f"{normalized_name}"
-        ) from exc
+        raise KeyError(f"Application is not registered: {normalized_name}") from exc
 
 
 def has_application(
@@ -267,10 +227,7 @@ def has_application(
     Return whether an application exists in the legacy registry.
     """
 
-    return (
-        name.strip().lower()
-        in APPLICATIONS
-    )
+    return name.strip().lower() in APPLICATIONS
 
 
 def list_applications() -> list[str]:

@@ -13,23 +13,11 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parent
 
-CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/release/"
-    "release-integrity-contract.json"
-)
+CONTRACT_PATH = ROOT / "nimble/governance/release/release-integrity-contract.json"
 
-MANIFEST_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "nimble-release-manifest.json"
-)
+MANIFEST_PATH = ROOT / "reports/nimble/nimble-release-manifest.json"
 
-CHECKSUM_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "nimble-release-manifest.sha256"
-)
+CHECKSUM_PATH = ROOT / "reports/nimble/nimble-release-manifest.sha256"
 
 
 def git(*arguments: str) -> str:
@@ -117,18 +105,13 @@ def main() -> int:
     worktree_status = git("status", "--porcelain")
 
     if arguments.require_clean and worktree_status:
-        raise RuntimeError(
-            "Release manifest generation requires "
-            "a clean Git worktree."
-        )
+        raise RuntimeError("Release manifest generation requires a clean Git worktree.")
 
     subjects: list[dict[str, Any]] = []
 
     missing_required: list[str] = []
 
-    for relative_path in contract[
-        "required_subjects"
-    ]:
+    for relative_path in contract["required_subjects"]:
         path = ROOT / relative_path
 
         if not path.is_file():
@@ -139,31 +122,21 @@ def main() -> int:
 
     if missing_required:
         raise RuntimeError(
-            "Missing required release subjects: "
-            + ", ".join(missing_required)
+            "Missing required release subjects: " + ", ".join(missing_required)
         )
 
-    for relative_path in contract[
-        "conditional_subjects"
-    ]:
+    for relative_path in contract["conditional_subjects"]:
         path = ROOT / relative_path
 
         if path.is_file():
             subjects.append(subject_record(path))
 
-    subjects.sort(
-        key=lambda item: item["path"]
-    )
+    subjects.sort(key=lambda item: item["path"])
 
-    paths = [
-        subject["path"]
-        for subject in subjects
-    ]
+    paths = [subject["path"] for subject in subjects]
 
     if len(paths) != len(set(paths)):
-        raise RuntimeError(
-            "Duplicate release subjects detected."
-        )
+        raise RuntimeError("Duplicate release subjects detected.")
 
     revision = git("rev-parse", "HEAD")
 
@@ -180,38 +153,21 @@ def main() -> int:
     payload: dict[str, Any] = {
         "schema_version": "1.0",
         "manifest_id": "nimble-release-manifest-v0.1",
-        "generated_at": datetime.now(
-            UTC
-        ).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "release": {
             "name": "AletheusOS Nimble",
             "version": arguments.release_version,
             "ref": arguments.release_ref,
             "revision": revision,
             "tags": sorted(exact_tags),
-            "repository": (
-                os.environ.get(
-                    "GITHUB_REPOSITORY"
-                )
-                or "local"
-            ),
-            "workflow_run_id": (
-                os.environ.get(
-                    "GITHUB_RUN_ID"
-                )
-            ),
-            "workflow_run_attempt": (
-                os.environ.get(
-                    "GITHUB_RUN_ATTEMPT"
-                )
-            ),
+            "repository": (os.environ.get("GITHUB_REPOSITORY") or "local"),
+            "workflow_run_id": (os.environ.get("GITHUB_RUN_ID")),
+            "workflow_run_attempt": (os.environ.get("GITHUB_RUN_ATTEMPT")),
         },
         "integrity": {
             "algorithm": "sha256",
             "subject_count": len(subjects),
-            "worktree_clean": not bool(
-                worktree_status
-            ),
+            "worktree_clean": not bool(worktree_status),
         },
         "subjects": subjects,
     }
@@ -221,21 +177,14 @@ def main() -> int:
         exist_ok=True,
     )
 
-    manifest_bytes = canonical_json_bytes(
-        payload
-    )
+    manifest_bytes = canonical_json_bytes(payload)
 
-    MANIFEST_PATH.write_bytes(
-        manifest_bytes
-    )
+    MANIFEST_PATH.write_bytes(manifest_bytes)
 
-    manifest_digest = hashlib.sha256(
-        manifest_bytes
-    ).hexdigest()
+    manifest_digest = hashlib.sha256(manifest_bytes).hexdigest()
 
     CHECKSUM_PATH.write_text(
-        f"{manifest_digest}  "
-        f"{MANIFEST_PATH.name}\n",
+        f"{manifest_digest}  {MANIFEST_PATH.name}\n",
         encoding="utf-8",
     )
 

@@ -47,9 +47,7 @@ class CivilizationRecord:
     collaborates_with: tuple[str, ...] = ()
 
     status: CivilizationStatus = CivilizationStatus.ENGINEERING
-    criticality: CivilizationCriticality = (
-        CivilizationCriticality.CRITICAL
-    )
+    criticality: CivilizationCriticality = CivilizationCriticality.CRITICAL
 
     constitutional_articles: tuple[str, ...] = ()
     ontology_tags: tuple[str, ...] = ()

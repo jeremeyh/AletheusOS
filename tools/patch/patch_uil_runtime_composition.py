@@ -2,9 +2,7 @@ import re
 from pathlib import Path
 
 CORE_PATH = Path("aletheus/runtime/core.py")
-UIL_REGISTRATION_PATH = Path(
-    "aletheus/runtime/registrations/uil_commands.py"
-)
+UIL_REGISTRATION_PATH = Path("aletheus/runtime/registrations/uil_commands.py")
 
 
 def compose_uil_into_runtime() -> None:
@@ -27,11 +25,7 @@ def compose_uil_into_runtime() -> None:
 
         if prediction_import is not None:
             insert_at = prediction_import.start()
-            text = (
-                text[:insert_at]
-                + import_block
-                + text[insert_at:]
-            )
+            text = text[:insert_at] + import_block + text[insert_at:]
         else:
             first_runtime_import = re.search(
                 r"^from aletheus\.runtime\.",
@@ -40,21 +34,12 @@ def compose_uil_into_runtime() -> None:
             )
 
             if first_runtime_import is None:
-                raise RuntimeError(
-                    "Could not locate the runtime import section."
-                )
+                raise RuntimeError("Could not locate the runtime import section.")
 
             insert_at = first_runtime_import.start()
-            text = (
-                text[:insert_at]
-                + import_block
-                + text[insert_at:]
-            )
+            text = text[:insert_at] + import_block + text[insert_at:]
 
-    assignment = (
-        "        self.uil = "
-        "UniversalIntelligenceAdapter(self)\n"
-    )
+    assignment = "        self.uil = UniversalIntelligenceAdapter(self)\n"
 
     if assignment not in text:
         anchors = []
@@ -75,10 +60,7 @@ def compose_uil_into_runtime() -> None:
                 anchors.append(match)
 
         if not anchors:
-            raise RuntimeError(
-                "Could not locate a runtime service "
-                "composition anchor."
-            )
+            raise RuntimeError("Could not locate a runtime service composition anchor.")
 
         anchor = max(
             anchors,
@@ -94,21 +76,14 @@ def compose_uil_into_runtime() -> None:
             line_end += 1
             suffix = ""
 
-        text = (
-            text[:line_end]
-            + suffix
-            + assignment
-            + text[line_end:]
-        )
+        text = text[:line_end] + suffix + assignment + text[line_end:]
 
     CORE_PATH.write_text(
         text,
         encoding="utf-8",
     )
 
-    print(
-        "UIL adapter composed into runtime/core.py."
-    )
+    print("UIL adapter composed into runtime/core.py.")
 
 
 def simplify_uil_registrar() -> None:
@@ -140,8 +115,7 @@ def simplify_uil_registrar() -> None:
 
         if marker not in text:
             raise RuntimeError(
-                "Could not locate the UIL registrar "
-                "command binding anchor."
+                "Could not locate the UIL registrar command binding anchor."
             )
 
         text = text.replace(
@@ -155,19 +129,15 @@ def simplify_uil_registrar() -> None:
         encoding="utf-8",
     )
 
-    print(
-        "UIL registrar reduced to command binding only."
-    )
+    print("UIL registrar reduced to command binding only.")
 
 
 def validate() -> None:
     core_text = CORE_PATH.read_text(
         encoding="utf-8",
     )
-    registration_text = (
-        UIL_REGISTRATION_PATH.read_text(
-            encoding="utf-8",
-        )
+    registration_text = UIL_REGISTRATION_PATH.read_text(
+        encoding="utf-8",
     )
 
     required_core_fragments = (
@@ -177,28 +147,20 @@ def validate() -> None:
 
     for fragment in required_core_fragments:
         if fragment not in core_text:
-            raise RuntimeError(
-                f"Missing runtime composition fragment: "
-                f"{fragment}"
-            )
+            raise RuntimeError(f"Missing runtime composition fragment: {fragment}")
 
     forbidden_registration_fragments = (
-        "if not hasattr(runtime, \"uil\")",
+        'if not hasattr(runtime, "uil")',
         "if not hasattr(runtime, 'uil')",
         "runtime.uil = UniversalIntelligenceAdapter(runtime)",
     )
 
     for fragment in forbidden_registration_fragments:
         if fragment in registration_text:
-            raise RuntimeError(
-                f"UIL registrar still creates the service: "
-                f"{fragment}"
-            )
+            raise RuntimeError(f"UIL registrar still creates the service: {fragment}")
 
     if "uil = runtime.uil" not in registration_text:
-        raise RuntimeError(
-            "UIL registrar does not bind the composed service."
-        )
+        raise RuntimeError("UIL registrar does not bind the composed service.")
 
     print("UIL composition validation passed.")
 
@@ -208,9 +170,7 @@ def main() -> None:
         raise FileNotFoundError(CORE_PATH)
 
     if not UIL_REGISTRATION_PATH.exists():
-        raise FileNotFoundError(
-            UIL_REGISTRATION_PATH
-        )
+        raise FileNotFoundError(UIL_REGISTRATION_PATH)
 
     compose_uil_into_runtime()
     simplify_uil_registrar()

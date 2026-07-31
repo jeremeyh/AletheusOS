@@ -63,31 +63,19 @@ class CivilizationReadinessReport:
 
     @property
     def ready_count(self) -> int:
-        return sum(
-            check.state == ReadinessState.READY
-            for check in self.checks
-        )
+        return sum(check.state == ReadinessState.READY for check in self.checks)
 
     @property
     def skipped_count(self) -> int:
-        return sum(
-            check.state == ReadinessState.SKIPPED
-            for check in self.checks
-        )
+        return sum(check.state == ReadinessState.SKIPPED for check in self.checks)
 
     @property
     def degraded_count(self) -> int:
-        return sum(
-            check.state == ReadinessState.DEGRADED
-            for check in self.checks
-        )
+        return sum(check.state == ReadinessState.DEGRADED for check in self.checks)
 
     @property
     def failed_count(self) -> int:
-        return sum(
-            check.state == ReadinessState.FAILED
-            for check in self.checks
-        )
+        return sum(check.state == ReadinessState.FAILED for check in self.checks)
 
     @property
     def status(self) -> str:
@@ -142,10 +130,7 @@ class CivilizationReadinessReport:
             self.synthetic_harmony = 0.0
             return self.synthetic_harmony
 
-        total = sum(
-            weights[check.state]
-            for check in self.checks
-        )
+        total = sum(weights[check.state] for check in self.checks)
 
         self.synthetic_harmony = round(
             (total / len(self.checks)) * 100.0,
@@ -169,9 +154,6 @@ class CivilizationReadinessReport:
             "degraded": self.degraded_count,
             "failed": self.failed_count,
             "synthetic_harmony": self.synthetic_harmony,
-            "checks": [
-                check.to_dict()
-                for check in self.checks
-            ],
+            "checks": [check.to_dict() for check in self.checks],
             "metadata": self.metadata,
         }

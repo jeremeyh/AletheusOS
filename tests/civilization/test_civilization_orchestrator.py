@@ -78,14 +78,9 @@ def test_case_and_mission_share_correlation_history():
         },
     )
 
-    history = orchestrator.history(
-        response.correlation_id
-    )
+    history = orchestrator.history(response.correlation_id)
 
-    event_types = [
-        event.event_type
-        for event in history
-    ]
+    event_types = [event.event_type for event in history]
 
     assert "CaseDetected" in event_types
     assert "MissionCreated" in event_types
@@ -109,12 +104,8 @@ def test_orchestrator_automatically_attaches_mission_to_case():
         },
     )
 
-    case = orchestrator.case_engine.registry.require(
-        response.case_id
-    )
-    mission = orchestrator.mission_engine.registry.require(
-        response.mission_id
-    )
+    case = orchestrator.case_engine.registry.require(response.case_id)
+    mission = orchestrator.mission_engine.registry.require(response.mission_id)
 
     assert mission.case_id == case.case_id
     assert mission.mission_id in case.mission_ids
@@ -132,21 +123,11 @@ def test_orchestrator_automatically_projects_security_evidence():
         },
     )
 
-    case = orchestrator.case_engine.registry.require(
-        response.case_id
-    )
-    mission = orchestrator.mission_engine.registry.require(
-        response.mission_id
-    )
+    case = orchestrator.case_engine.registry.require(response.case_id)
+    mission = orchestrator.mission_engine.registry.require(response.mission_id)
 
-    case_evidence = {
-        item["evidence_type"]
-        for item in case.evidence
-    }
-    mission_evidence = {
-        item["evidence_type"]
-        for item in mission.evidence
-    }
+    case_evidence = {item["evidence_type"] for item in case.evidence}
+    mission_evidence = {item["evidence_type"] for item in mission.evidence}
 
     expected = {
         "integrity_finding",
@@ -171,17 +152,12 @@ def test_transtemporal_history_contains_entire_response():
         },
     )
 
-    history = orchestrator.history(
-        response.correlation_id
-    )
+    history = orchestrator.history(response.correlation_id)
 
     assert history[0].event_type == "CaseDetected"
     assert history[-1].event_type == "CaseClosed"
 
-    source_identities = {
-        event.source_identity
-        for event in history
-    }
+    source_identities = {event.source_identity for event in history}
 
     assert "aletheus.case_engine" in source_identities
     assert "aletheus.mission_engine" in source_identities

@@ -39,7 +39,10 @@ def test_execute_workflow():
 
     assert not executed.errors, executed.errors
     assert "execution" in executed.results
-    assert executed.results["execution"]["workflow"]["status"] in {"completed", "failed"}
+    assert executed.results["execution"]["workflow"]["status"] in {
+        "completed",
+        "failed",
+    }
 
 
 def test_workflow_history():

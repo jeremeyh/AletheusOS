@@ -1,5 +1,4 @@
 class CoreServiceRegistrar:
-
     def register(self, runtime):
         runtime.services.register(
             "Aletheus Runtime Core",

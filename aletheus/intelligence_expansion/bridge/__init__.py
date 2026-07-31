@@ -1,8 +1,3 @@
 from .engine import CrossPlatformIntelligenceBridgeEngine
 
-__all__ = [
-
-"CrossPlatformIntelligenceBridgeEngine"
-
-]
-
+__all__ = ["CrossPlatformIntelligenceBridgeEngine"]

@@ -37,9 +37,7 @@ def contribution(
         rationale=f"{engine_id} analysis",
         evidence=(
             {
-                "source": (
-                    f"{engine_id}.evidence"
-                ),
+                "source": (f"{engine_id}.evidence"),
             },
         ),
     )
@@ -71,9 +69,7 @@ def participant(
 def test_canonical_virtues_pass_when_behavior_is_aligned():
     framework = ConstitutionalVirtuesFramework()
 
-    assessment = framework.evaluate(
-        VirtueContext()
-    )
+    assessment = framework.evaluate(VirtueContext())
 
     assert assessment.passed
     assert assessment.score == 1.0
@@ -91,10 +87,7 @@ def test_truth_and_humility_fail_observably():
         )
     )
 
-    violations = {
-        finding.virtue.value
-        for finding in assessment.violations
-    }
+    violations = {finding.virtue.value for finding in assessment.violations}
 
     assert "truth" in violations
     assert "humility" in violations
@@ -125,22 +118,13 @@ def test_convergence_preserves_dissent():
         ),
     )
 
-    assert result.state == (
-        ConvergenceState.CONVERGED
-    )
-    assert result.dominant_stance == (
-        ContributionStance.SUPPORT
-    )
-    assert {
-        item.engine_id
-        for item in result.dissent
-    } == {"risk"}
+    assert result.state == (ConvergenceState.CONVERGED)
+    assert result.dominant_stance == (ContributionStance.SUPPORT)
+    assert {item.engine_id for item in result.dissent} == {"risk"}
 
 
 def test_close_division_remains_contested():
-    engine = ConstitutionalConvergenceEngine(
-        contest_threshold=0.20
-    )
+    engine = ConstitutionalConvergenceEngine(contest_threshold=0.20)
 
     result = engine.converge(
         assertion_key=ASSERTION,
@@ -158,9 +142,7 @@ def test_close_division_remains_contested():
         ),
     )
 
-    assert result.state == (
-        ConvergenceState.CONTESTED
-    )
+    assert result.state == (ConvergenceState.CONTESTED)
     assert len(result.dissent) == 1
 
 
@@ -178,9 +160,7 @@ def test_all_abstentions_are_insufficient():
         ),
     )
 
-    assert result.state == (
-        ConvergenceState.INSUFFICIENT
-    )
+    assert result.state == (ConvergenceState.INSUFFICIENT)
     assert result.confidence == 0.0
 
 
@@ -217,17 +197,13 @@ def test_mesh_executes_specialized_participants():
     )
 
     assert len(report.contributions) == 3
-    assert report.convergence.state == (
-        ConvergenceState.CONVERGED
-    )
+    assert report.convergence.state == (ConvergenceState.CONVERGED)
     assert report.virtues.passed
     assert report.successful
 
 
 def test_mesh_is_parallel_not_sequential():
-    mesh = MultiplicitousIntelligenceMesh(
-        max_workers=3
-    )
+    mesh = MultiplicitousIntelligenceMesh(max_workers=3)
 
     for engine_id in (
         "knowledge",
@@ -267,9 +243,7 @@ def test_mesh_preserves_participant_failure():
     )
 
     def fail(payload):
-        raise RuntimeError(
-            "Prediction model unavailable."
-        )
+        raise RuntimeError("Prediction model unavailable.")
 
     mesh.register(
         FunctionalCognitiveParticipant(
@@ -287,9 +261,7 @@ def test_mesh_preserves_participant_failure():
     assert report.failures == (
         {
             "engine_id": "prediction",
-            "error": (
-                "Prediction model unavailable."
-            ),
+            "error": ("Prediction model unavailable."),
         },
     )
 
@@ -297,9 +269,7 @@ def test_mesh_preserves_participant_failure():
 def test_signals_are_emitted_for_living_instruments():
     observed = []
 
-    mesh = MultiplicitousIntelligenceMesh(
-        observer=observed.append
-    )
+    mesh = MultiplicitousIntelligenceMesh(observer=observed.append)
 
     mesh.register(
         participant(
@@ -314,10 +284,7 @@ def test_signals_are_emitted_for_living_instruments():
         payload={},
     )
 
-    signal_types = {
-        signal.signal_type.value
-        for signal in report.signals
-    }
+    signal_types = {signal.signal_type.value for signal in report.signals}
 
     assert "mesh_started" in signal_types
     assert "engine_started" in signal_types
@@ -326,9 +293,7 @@ def test_signals_are_emitted_for_living_instruments():
     assert "virtues_evaluated" in signal_types
     assert "mesh_completed" in signal_types
 
-    assert len(observed) == len(
-        report.signals
-    )
+    assert len(observed) == len(report.signals)
 
 
 def test_duplicate_participant_is_rejected():
@@ -342,7 +307,5 @@ def test_duplicate_participant_is_rejected():
 
     mesh.register(knowledge)
 
-    with pytest.raises(
-        DuplicateCognitiveParticipantError
-    ):
+    with pytest.raises(DuplicateCognitiveParticipantError):
         mesh.register(knowledge)

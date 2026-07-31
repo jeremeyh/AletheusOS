@@ -15,25 +15,13 @@ CONTRACT_PATH = (
     / "audit-recovery-contract.json"
 )
 
-PLANNER = (
-    ROOT
-    / "bin"
-    / "plan_nimble_audit_recovery.py"
-)
+PLANNER = ROOT / "bin" / "plan_nimble_audit_recovery.py"
 
-CONTRACT_VALIDATOR = (
-    ROOT
-    / "bin"
-    / "validate_nimble_audit_recovery_contract.py"
-)
+CONTRACT_VALIDATOR = ROOT / "bin" / "validate_nimble_audit_recovery_contract.py"
 
 
 def load_contract() -> dict:
-    return json.loads(
-        CONTRACT_PATH.read_text(
-            encoding="utf-8"
-        )
-    )
+    return json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
 
 
 def test_recovery_contract_exists() -> None:
@@ -47,23 +35,13 @@ def test_recovery_defaults_to_plan_only() -> None:
 def test_automatic_mutation_is_forbidden() -> None:
     contract = load_contract()
 
-    assert (
-        contract["policy"][
-            "automatic_ledger_mutation_forbidden"
-        ]
-        is True
-    )
+    assert contract["policy"]["automatic_ledger_mutation_forbidden"] is True
 
 
 def test_snapshot_is_required_before_apply() -> None:
     contract = load_contract()
 
-    assert (
-        contract["policy"][
-            "pre_recovery_snapshot_required_before_apply"
-        ]
-        is True
-    )
+    assert contract["policy"]["pre_recovery_snapshot_required_before_apply"] is True
 
 
 def test_contract_validator_passes() -> None:
@@ -100,26 +78,13 @@ def test_trusted_recovery_source_contract() -> None:
 
     assert source["hash_algorithm"] == "sha256"
 
-    assert (
-        source["requirements"][
-            "canonical_ledger_mutation_forbidden"
-        ]
-        is True
-    )
+    assert source["requirements"]["canonical_ledger_mutation_forbidden"] is True
 
 
 def test_recovery_source_generator_and_validator() -> None:
-    generator = (
-        ROOT
-        / "bin"
-        / "create_nimble_audit_recovery_source.py"
-    )
+    generator = ROOT / "bin" / "create_nimble_audit_recovery_source.py"
 
-    validator = (
-        ROOT
-        / "bin"
-        / "validate_nimble_audit_recovery_source.py"
-    )
+    validator = ROOT / "bin" / "validate_nimble_audit_recovery_source.py"
 
     generated = subprocess.run(
         ["python", str(generator)],
@@ -145,19 +110,12 @@ def test_recovery_source_generator_and_validator() -> None:
 
     assert validated.returncode == 0
     assert "Status: PASS" in validated.stdout
-    assert (
-        "Canonical ledger mutation: False"
-        in validated.stdout
-    )
+    assert "Canonical ledger mutation: False" in validated.stdout
 
 
 def test_isolated_recovery_simulation() -> None:
     simulation = (
-        ROOT
-        / "tests"
-        / "nimble"
-        / "audit"
-        / "test_nimble_audit_recovery_simulation.py"
+        ROOT / "tests" / "nimble" / "audit" / "test_nimble_audit_recovery_simulation.py"
     )
 
     result = subprocess.run(
@@ -170,14 +128,8 @@ def test_isolated_recovery_simulation() -> None:
 
     assert result.returncode == 0
     assert "Separate reconstruction: PASS" in result.stdout
-    assert (
-        "Automatic canonical mutation: BLOCKED"
-        in result.stdout
-    )
-    assert (
-        "Canonical ledger isolation: PASS"
-        in result.stdout
-    )
+    assert "Automatic canonical mutation: BLOCKED" in result.stdout
+    assert "Canonical ledger isolation: PASS" in result.stdout
 
 
 def test_isolated_recovery_apply_simulation() -> None:
@@ -198,26 +150,12 @@ def test_isolated_recovery_apply_simulation() -> None:
         timeout=180,
     )
 
-    assert result.returncode == 0, (
-        result.stdout + result.stderr
-    )
+    assert result.returncode == 0, result.stdout + result.stderr
 
-    assert (
-        "Atomic ledger replacement: PASS"
-        in result.stdout
-    )
+    assert "Atomic ledger replacement: PASS" in result.stdout
 
-    assert (
-        "Recovery provenance append: PASS"
-        in result.stdout
-    )
+    assert "Recovery provenance append: PASS" in result.stdout
 
-    assert (
-        "Validation-failure rollback: PASS"
-        in result.stdout
-    )
+    assert "Validation-failure rollback: PASS" in result.stdout
 
-    assert (
-        "Canonical ledger isolation: PASS"
-        in result.stdout
-    )
+    assert "Canonical ledger isolation: PASS" in result.stdout

@@ -8,10 +8,7 @@ from .report import generate_report
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description=(
-            "Inspect AletheusOS build readiness "
-            "without mutating source code."
-        )
+        description=("Inspect AletheusOS build readiness without mutating source code.")
     )
 
     parser.add_argument(
@@ -21,10 +18,7 @@ def main() -> int:
 
     parser.add_argument(
         "--report",
-        default=(
-            "reports/nimble/orchestrator/"
-            "build-state-latest.json"
-        ),
+        default=("reports/nimble/orchestrator/build-state-latest.json"),
     )
 
     arguments = parser.parse_args()
@@ -34,10 +28,7 @@ def main() -> int:
     report_path = Path(arguments.report)
 
     if not report_path.is_absolute():
-        report_path = (
-            root
-            / report_path
-        ).resolve()
+        report_path = (root / report_path).resolve()
 
     report = generate_report(
         root,
@@ -88,9 +79,7 @@ def main() -> int:
         if capability["blocked_by"]:
             print(
                 "  blocked by:",
-                ", ".join(
-                    capability["blocked_by"]
-                ),
+                ", ".join(capability["blocked_by"]),
             )
 
     print()
@@ -100,11 +89,7 @@ def main() -> int:
         print("- No remaining build work.")
     else:
         for item in report["build_plan"]:
-            print(
-                f"- {item['display_name']}: "
-                f"{item['action']} "
-                f"({item['reason']})"
-            )
+            print(f"- {item['display_name']}: {item['action']} ({item['reason']})")
 
     print()
 

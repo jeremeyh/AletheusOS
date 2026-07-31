@@ -118,10 +118,7 @@ class CognitiveKernelRecord:
             "capability_resolution": self.capability_resolution,
             "execution_plan": self.execution_plan,
             "constitutional_articles": self.constitutional_articles,
-            "execution_steps": [
-                step.to_dict()
-                for step in self.execution_steps
-            ],
+            "execution_steps": [step.to_dict() for step in self.execution_steps],
             "status": self.status,
             "confidence": self.confidence,
             "created_at": self.created_at,

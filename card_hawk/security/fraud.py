@@ -6,19 +6,6 @@ Genesis 14.18
 
 
 class FraudEngine:
+    def analyze(self, activity):
 
-
-    def analyze(
-        self,
-        activity
-    ):
-
-
-        return {
-
-            "risk":
-
-                "low"
-
-        }
-
+        return {"risk": "low"}

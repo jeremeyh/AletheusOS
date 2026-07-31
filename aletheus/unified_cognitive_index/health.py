@@ -19,10 +19,7 @@ def health_report() -> dict:
     density = 0.0
 
     if report.node_count > 0:
-        density = (
-            report.relationship_count
-            / report.node_count
-        )
+        density = report.relationship_count / report.node_count
 
     return {
         "status": report.status,
@@ -56,7 +53,4 @@ def statistics() -> dict:
 def is_healthy() -> bool:
     report = uci.health()
 
-    return (
-        report.node_count >= 0
-        and report.relationship_count >= 0
-    )
+    return report.node_count >= 0 and report.relationship_count >= 0

@@ -60,7 +60,9 @@ def plan_operations(policy: dict[str, Any]) -> list[Operation]:
         if not entry.is_file():
             continue
 
-        if any(ord(character) < 32 or ord(character) == 127 for character in entry.name):
+        if any(
+            ord(character) < 32 or ord(character) == 127 for character in entry.name
+        ):
             destination = malformed_destination(entry)
             operations.append(
                 Operation(
@@ -91,14 +93,10 @@ def plan_operations(policy: dict[str, Any]) -> list[Operation]:
 
     gitignore = ROOT / ".gitignore"
     gitignore_content = (
-        gitignore.read_text(encoding="utf-8")
-        if gitignore.exists()
-        else ""
+        gitignore.read_text(encoding="utf-8") if gitignore.exists() else ""
     )
 
-    if ".DS_Store" not in {
-        line.strip() for line in gitignore_content.splitlines()
-    }:
+    if ".DS_Store" not in {line.strip() for line in gitignore_content.splitlines()}:
         operations.append(
             Operation(
                 action="append",
@@ -156,9 +154,7 @@ def apply_operations(operations: list[Operation]) -> None:
         if operation.action == "append":
             gitignore = ROOT / ".gitignore"
             existing = (
-                gitignore.read_text(encoding="utf-8")
-                if gitignore.exists()
-                else ""
+                gitignore.read_text(encoding="utf-8") if gitignore.exists() else ""
             )
 
             if existing and not existing.endswith("\n"):
@@ -183,10 +179,7 @@ def apply_operations(operations: list[Operation]) -> None:
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.move(str(source), str(destination))
 
-            print(
-                f"[MOVE] {operation.source} -> "
-                f"{destination.relative_to(ROOT)}"
-            )
+            print(f"[MOVE] {operation.source} -> {destination.relative_to(ROOT)}")
             continue
 
         raise RuntimeError(f"Unsupported operation: {operation.action}")
@@ -218,8 +211,7 @@ def main() -> int:
             )
         else:
             print(
-                f"[{operation.action.upper()}] "
-                f"{operation.source} ({operation.reason})"
+                f"[{operation.action.upper()}] {operation.source} ({operation.reason})"
             )
 
     if not operations:

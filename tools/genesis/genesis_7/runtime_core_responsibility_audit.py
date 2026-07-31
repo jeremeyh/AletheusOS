@@ -124,22 +124,14 @@ def classify_method(
         reasons.append("recognized composition/lifecycle method")
         return "COMPOSITION", reasons
 
-    calls = [
-        call_name(item)
-        for item in ast.walk(node)
-        if isinstance(item, ast.Call)
-    ]
+    calls = [call_name(item) for item in ast.walk(node) if isinstance(item, ast.Call)]
 
     self_assignments = 0
     for item in ast.walk(node):
         if not isinstance(item, (ast.Assign, ast.AnnAssign)):
             continue
 
-        targets = (
-            item.targets
-            if isinstance(item, ast.Assign)
-            else [item.target]
-        )
+        targets = item.targets if isinstance(item, ast.Assign) else [item.target]
 
         for target in targets:
             if (
@@ -166,23 +158,17 @@ def classify_method(
         return "IMPLEMENTATION", reasons
 
     delegated_calls = [
-        call
-        for call in calls
-        if call.startswith("self.")
-        and call.count(".") >= 2
+        call for call in calls if call.startswith("self.") and call.count(".") >= 2
     ]
 
     if delegated_calls and self_assignments == 0:
         reasons.append(
-            f"delegates through attached components: "
-            f"{len(delegated_calls)} call(s)"
+            f"delegates through attached components: {len(delegated_calls)} call(s)"
         )
         return "DELEGATION", reasons
 
     if self_assignments >= 2:
-        reasons.append(
-            f"wires runtime state: {self_assignments} self assignment(s)"
-        )
+        reasons.append(f"wires runtime state: {self_assignments} self assignment(s)")
         return "COMPOSITION", reasons
 
     if len(node.body) <= 3 and calls:
@@ -209,17 +195,12 @@ def main() -> None:
     runtime_class: ast.ClassDef | None = None
 
     for node in tree.body:
-        if (
-            isinstance(node, ast.ClassDef)
-            and node.name == "AletheusRuntime"
-        ):
+        if isinstance(node, ast.ClassDef) and node.name == "AletheusRuntime":
             runtime_class = node
             break
 
     if runtime_class is None:
-        raise SystemExit(
-            "Could not locate class AletheusRuntime in runtime/core.py"
-        )
+        raise SystemExit("Could not locate class AletheusRuntime in runtime/core.py")
 
     records: list[dict[str, object]] = []
 
@@ -242,10 +223,7 @@ def main() -> None:
             }
         )
 
-    counts = Counter(
-        str(record["classification"])
-        for record in records
-    )
+    counts = Counter(str(record["classification"]) for record in records)
 
     total_lines = len(source.splitlines())
     implementation_lines = sum(
@@ -260,12 +238,7 @@ def main() -> None:
     )
 
     pressure_score = round(
-        (
-            implementation_lines
-            + (unknown_lines * 0.5)
-        )
-        / max(total_lines, 1)
-        * 100,
+        (implementation_lines + (unknown_lines * 0.5)) / max(total_lines, 1) * 100,
         2,
     )
 
@@ -293,10 +266,7 @@ def main() -> None:
         "IMPLEMENTATION",
         "UNKNOWN",
     ):
-        lines.append(
-            f"| {classification} | "
-            f"{counts.get(classification, 0)} |"
-        )
+        lines.append(f"| {classification} | {counts.get(classification, 0)} |")
 
     lines.extend(
         [
@@ -322,7 +292,8 @@ def main() -> None:
     extraction_candidates = [
         record
         for record in records
-        if record["classification"] in {
+        if record["classification"]
+        in {
             "IMPLEMENTATION",
             "UNKNOWN",
         }
@@ -352,13 +323,10 @@ def main() -> None:
                 "retain thin compatibility delegate if needed"
             )
         elif record["classification"] == "UNKNOWN":
-            recommendation = (
-                "Manual boundary review before architecture freeze"
-            )
+            recommendation = "Manual boundary review before architecture freeze"
         else:
             recommendation = (
-                "Move domain behavior into bounded manager, service, "
-                "engine, or façade"
+                "Move domain behavior into bounded manager, service, engine, or façade"
             )
 
         lines.append(

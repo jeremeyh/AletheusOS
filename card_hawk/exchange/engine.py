@@ -4,7 +4,6 @@ Card Hawk Marketplace Exchange Engine
 Genesis 14.10
 """
 
-
 from .listings import ListingEngine
 from .negotiations import NegotiationEngine
 from .offers import OfferEngine
@@ -13,8 +12,6 @@ from .transactions import TransactionEngine
 
 
 class ExchangeEngine:
-
-
     def __init__(self):
 
         self.listings = ListingEngine()
@@ -27,19 +24,6 @@ class ExchangeEngine:
 
         self.transactions = TransactionEngine()
 
+    def execute(self, action):
 
-
-    def execute(
-        self,
-        action
-    ):
-
-
-        return {
-
-            "status":
-
-                "processed"
-
-        }
-
+        return {"status": "processed"}

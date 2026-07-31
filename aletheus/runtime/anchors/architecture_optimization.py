@@ -5,16 +5,6 @@ Architecture Optimization Engine
 
 
 class ArchitectureOptimizationEngine:
-
-
     def optimize(self, architecture):
 
-        return {
-
-            "architecture":
-                architecture,
-
-            "optimized":
-                True
-
-        }
+        return {"architecture": architecture, "optimized": True}

@@ -6,14 +6,6 @@ Genesis 13.51
 
 
 class AgentReputationEngine:
-
-
-    def update(
-        self,
-        agent,
-        outcome
-    ):
-
+    def update(self, agent, outcome):
 
         return agent
-

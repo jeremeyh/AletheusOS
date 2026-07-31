@@ -6,7 +6,6 @@ G7I-005 — RuntimeCommands Extraction
 """
 
 
-
 class RuntimeHealthStatus(str):
     """
     Backward-compatible runtime health status.
@@ -68,9 +67,7 @@ class RuntimeCommands:
             )
 
             health["reported_status"] = reported_status
-            health["status"] = RuntimeHealthStatus(
-                "online"
-            )
+            health["status"] = RuntimeHealthStatus("online")
 
         context.add_result(
             "health",

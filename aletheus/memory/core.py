@@ -67,7 +67,9 @@ class AletheusMemoryCore:
         if namespace:
             results = [record for record in results if record.namespace == namespace]
         if memory_type:
-            results = [record for record in results if record.memory_type == memory_type]
+            results = [
+                record for record in results if record.memory_type == memory_type
+            ]
         if tag:
             results = [record for record in results if tag in record.tags]
 
@@ -75,7 +77,9 @@ class AletheusMemoryCore:
 
     def clear_working_memory(self) -> int:
         before = len(self.records)
-        self.records = [record for record in self.records if record.memory_type != "working"]
+        self.records = [
+            record for record in self.records if record.memory_type != "working"
+        ]
         return before - len(self.records)
 
     def stats(self) -> dict[str, Any]:

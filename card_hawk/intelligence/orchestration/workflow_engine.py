@@ -10,19 +10,6 @@ Coordinate autonomous intelligence workflows
 
 
 class WorkflowEngine:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.2"
-
-        }
-
+        return {"status": "ready", "genesis": "23.2"}

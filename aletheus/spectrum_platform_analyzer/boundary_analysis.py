@@ -11,7 +11,6 @@ from .dependency import dependency_analyzer
 
 
 class BoundaryAnalyzer:
-
     VERSION = "1.0.0"
 
     GENESIS = "54.0"
@@ -23,65 +22,39 @@ class BoundaryAnalyzer:
     #
 
     ALLOWED = {
-
         #
         # Runtime
         #
-
         "aletheus.runtime": [
-
             "aletheus.runtime",
-
             "aletheus.foundation",
-
             "aletheus.kernel",
-
             "aletheus.memory",
-
             "aletheus.reasoning",
-
             "aletheus.knowledge",
-
         ],
-
         #
         # Memory
         #
-
         "aletheus.memory": [
-
             "aletheus.foundation",
-
             "aletheus.memory",
-
         ],
-
         #
         # Knowledge
         #
-
         "aletheus.knowledge": [
-
             "aletheus.foundation",
-
             "aletheus.memory",
-
             "aletheus.knowledge",
-
         ],
-
         #
         # Applications
         #
-
         "aletheus.applications": [
-
             "aletheus.foundation",
-
             "aletheus.runtime",
-
             "aletheus.applications",
-
         ],
     }
 
@@ -90,7 +63,6 @@ class BoundaryAnalyzer:
         parts = module.split(".")
 
         if len(parts) < 2:
-
             return module
 
         return ".".join(parts[:2])
@@ -102,7 +74,6 @@ class BoundaryAnalyzer:
         violations = []
 
         for module, imports in graph.items():
-
             source = self.subsystem(module)
 
             allowed = self.ALLOWED.get(source)
@@ -112,30 +83,22 @@ class BoundaryAnalyzer:
             #
 
             if allowed is None:
-
                 continue
 
             for imported in imports:
-
                 target = self.subsystem(imported)
 
                 if target not in allowed:
-
-                    violations.append({
-
-                        "source": source,
-
-                        "module": module,
-
-                        "target": target,
-
-                        "import": imported,
-
-                        "type": "BOUNDARY",
-
-                        "severity": "MEDIUM",
-
-                    })
+                    violations.append(
+                        {
+                            "source": source,
+                            "module": module,
+                            "target": target,
+                            "import": imported,
+                            "type": "BOUNDARY",
+                            "severity": "MEDIUM",
+                        }
+                    )
 
         return violations
 
@@ -144,33 +107,17 @@ class BoundaryAnalyzer:
         violations = self.analyze(root)
 
         return {
-
             "boundary_violations": len(violations),
-
-            "status": (
-
-                "PASS"
-
-                if len(violations) == 0
-
-                else "FAIL"
-
-            ),
-
+            "status": ("PASS" if len(violations) == 0 else "FAIL"),
         }
 
     def health(self):
 
         return {
-
             "name": "Boundary Analyzer",
-
             "version": self.VERSION,
-
             "genesis": self.GENESIS,
-
             "status": "healthy",
-
         }
 
 

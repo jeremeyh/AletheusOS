@@ -34,47 +34,32 @@ def main() -> None:
     #
 
     intent = foundation_execution_graph.create_node(
-
         node_type=NodeType.INTENT,
-
         canonical_id="INTENT-0001",
-
         display_name="Card Appraisal Intent",
     )
 
     identity = foundation_execution_graph.create_node(
-
         node_type=NodeType.IDENTITY,
-
         canonical_id="identity.founder.master_lord_6ixth",
-
         display_name="Jeremey Harvey",
     )
 
     memory = foundation_execution_graph.create_node(
-
         node_type=NodeType.MEMORY,
-
         canonical_id="MEM-0001",
-
         display_name="Marketplace Observation",
     )
 
     reason = foundation_execution_graph.create_node(
-
         node_type=NodeType.REASON,
-
         canonical_id="REASON-0001",
-
         display_name="Constitutional Appraisal",
     )
 
     execution = foundation_execution_graph.create_node(
-
         node_type=NodeType.EXECUTION,
-
         canonical_id="EXEC-0001",
-
         display_name="CardHawk Execution",
     )
 
@@ -112,41 +97,28 @@ def main() -> None:
 
     header("GRAPH NODES")
 
-    pprint(
-        [n.to_dict() for n in foundation_execution_graph.nodes()]
-    )
+    pprint([n.to_dict() for n in foundation_execution_graph.nodes()])
 
     header("GRAPH EDGES")
 
-    pprint(
-        [e.to_dict() for e in foundation_execution_graph.edges()]
-    )
+    pprint([e.to_dict() for e in foundation_execution_graph.edges()])
 
     header("LINEAGE")
 
-    pprint(
-        foundation_execution_graph.explain(reason.node_id)
-    )
+    pprint(foundation_execution_graph.explain(reason.node_id))
 
     header("MERMAID")
 
-    print(
-        foundation_execution_graph.mermaid()
-    )
+    print(foundation_execution_graph.mermaid())
 
     header("HEALTH")
 
-    pprint(
-        foundation_execution_graph.health()
-    )
+    pprint(foundation_execution_graph.health())
 
     header("STATISTICS")
 
-    pprint(
-        foundation_execution_graph.statistics()
-    )
+    pprint(foundation_execution_graph.statistics())
 
 
 if __name__ == "__main__":
-
     main()

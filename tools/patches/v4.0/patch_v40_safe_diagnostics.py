@@ -7,6 +7,7 @@ text = core.read_text()
 # Replace direct .stats() calls with a compatibility expression.
 pattern = re.compile(r"self\.([A-Za-z_][A-Za-z0-9_]*)\.stats\(\)")
 
+
 def repl(match):
     obj = match.group(1)
     return (
@@ -16,6 +17,7 @@ def repl(match):
         f"if hasattr(self.{obj}, 'statistics') "
         f"else {{'status': getattr(self.{obj}, 'status', 'unknown')}})"
     )
+
 
 new_text, count = pattern.subn(repl, text)
 

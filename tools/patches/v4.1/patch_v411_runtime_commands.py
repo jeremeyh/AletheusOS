@@ -22,14 +22,16 @@ if "self.hardening = RuntimeHardening(self)" not in text:
     )
 
 # Register commands
-registration_anchor = '        self.commands.register("runtime.diagnostics", self._cmd_diagnostics)\n'
+registration_anchor = (
+    '        self.commands.register("runtime.diagnostics", self._cmd_diagnostics)\n'
+)
 
-registrations = '''        self.commands.register("runtime.selftest", self._cmd_runtime_selftest)
+registrations = """        self.commands.register("runtime.selftest", self._cmd_runtime_selftest)
         self.commands.register("runtime.dashboard", self._cmd_runtime_dashboard)
         self.commands.register("runtime.snapshot", self._cmd_runtime_snapshot)
         self.commands.register("runtime.audit", self._cmd_runtime_audit)
         self.commands.register("runtime.docs", self._cmd_runtime_docs)
-'''
+"""
 
 if 'self.commands.register("runtime.selftest"' not in text:
     text = text.replace(registration_anchor, registration_anchor + registrations, 1)
@@ -37,7 +39,7 @@ if 'self.commands.register("runtime.selftest"' not in text:
 # Add handlers before _job_runtime_pulse
 if "def _cmd_runtime_selftest" not in text:
     marker = "    def _job_runtime_pulse(self) -> dict:"
-    handlers = '''
+    handlers = """
     # ==========================================================
     # v4.1.1 Engineering Foundation Commands
     # ==========================================================
@@ -64,7 +66,7 @@ if "def _cmd_runtime_selftest" not in text:
         return context
 
 
-'''
+"""
     text = text.replace(marker, handlers + marker, 1)
 
 text = text.replace('self.version = "4.1.0"', 'self.version = "4.1.1"')

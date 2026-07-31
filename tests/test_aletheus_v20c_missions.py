@@ -61,7 +61,9 @@ def test_v2_mission_telemetry():
     )
     mission = created.results["mission"]
 
-    runtime_core.commands.dispatch("mission.v2.execute_next", {"mission_id": mission["mission_id"]})
+    runtime_core.commands.dispatch(
+        "mission.v2.execute_next", {"mission_id": mission["mission_id"]}
+    )
 
     telemetry = runtime_core.commands.dispatch(
         "mission.v2.telemetry",

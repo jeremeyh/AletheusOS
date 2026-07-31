@@ -6,13 +6,6 @@ Genesis 14.1
 
 
 class AssetSearchEngine:
-
-
-    def search(
-        self,
-        query
-    ):
-
+    def search(self, query):
 
         return []
-

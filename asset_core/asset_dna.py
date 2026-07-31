@@ -8,6 +8,7 @@ class AssetDNA:
 
     Immutable or slow-changing identity facts that define what an asset is.
     """
+
     player: str = ""
     team: str = ""
     sport: str = ""

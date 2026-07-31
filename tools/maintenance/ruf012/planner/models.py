@@ -54,24 +54,15 @@ class PlannerSummary:
 
     @property
     def ready(self) -> int:
-        return sum(
-            rewrite.status is PlanStatus.READY
-            for rewrite in self.rewrites
-        )
+        return sum(rewrite.status is PlanStatus.READY for rewrite in self.rewrites)
 
     @property
     def skipped(self) -> int:
-        return sum(
-            rewrite.status is PlanStatus.SKIPPED
-            for rewrite in self.rewrites
-        )
+        return sum(rewrite.status is PlanStatus.SKIPPED for rewrite in self.rewrites)
 
     @property
     def failed(self) -> int:
-        return sum(
-            rewrite.status is PlanStatus.FAILED
-            for rewrite in self.rewrites
-        )
+        return sum(rewrite.status is PlanStatus.FAILED for rewrite in self.rewrites)
 
     @property
     def total(self) -> int:
@@ -90,8 +81,5 @@ class PlannerSummary:
             "skipped": self.skipped,
             "failed": self.failed,
             "successful": self.successful,
-            "rewrites": [
-                rewrite.as_dict()
-                for rewrite in self.rewrites
-            ],
+            "rewrites": [rewrite.as_dict() for rewrite in self.rewrites],
         }

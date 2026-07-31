@@ -46,13 +46,9 @@ class ConstitutionalMissionEngine:
         registry: ConstitutionalMissionRegistry | None = None,
     ) -> None:
         self.fabric = fabric
-        self.registry = (
-            registry or ConstitutionalMissionRegistry()
-        )
+        self.registry = registry or ConstitutionalMissionRegistry()
 
-        register_mission_event_types(
-            self.fabric.registry
-        )
+        register_mission_event_types(self.fabric.registry)
 
     def create(
         self,
@@ -114,9 +110,7 @@ class ConstitutionalMissionEngine:
             )
 
         if institution_id not in mission.participating_institutions:
-            mission.participating_institutions.append(
-                institution_id
-            )
+            mission.participating_institutions.append(institution_id)
 
             self._publish(
                 mission,
@@ -141,15 +135,14 @@ class ConstitutionalMissionEngine:
             MissionStatus.AUTHORIZED,
         )
 
-        missing = set(
-            mission.contract.required_institutions
-        ) - set(mission.participating_institutions)
+        missing = set(mission.contract.required_institutions) - set(
+            mission.participating_institutions
+        )
 
         if missing:
             raise ValueError(
                 "Mission cannot start; required institutions "
-                "have not joined: "
-                + ", ".join(sorted(missing))
+                "have not joined: " + ", ".join(sorted(missing))
             )
 
         mission.status = MissionStatus.RUNNING
@@ -213,14 +206,9 @@ class ConstitutionalMissionEngine:
             MissionStatus.RUNNING,
         )
 
-        evidence_types = {
-            item["evidence_type"]
-            for item in mission.evidence
-        }
+        evidence_types = {item["evidence_type"] for item in mission.evidence}
 
-        missing = set(
-            mission.contract.required_evidence_types
-        ) - evidence_types
+        missing = set(mission.contract.required_evidence_types) - evidence_types
 
         if missing:
             raise ValueError(
@@ -237,9 +225,7 @@ class ConstitutionalMissionEngine:
             source_identity="aletheus.mission_engine",
             payload={
                 "mission_id": mission.mission_id,
-                "success_criteria": (
-                    mission.contract.success_criteria
-                ),
+                "success_criteria": (mission.contract.success_criteria),
                 "evidence_count": len(mission.evidence),
             },
             certified=True,
@@ -284,9 +270,7 @@ class ConstitutionalMissionEngine:
     ) -> tuple[ConstitutionalEvent, ...]:
         mission = self.registry.require(mission_id)
 
-        return self.fabric.events(
-            correlation_id=mission.correlation_id
-        )
+        return self.fabric.events(correlation_id=mission.correlation_id)
 
     def _publish(
         self,
@@ -297,11 +281,7 @@ class ConstitutionalMissionEngine:
         payload: dict[str, Any],
         certified: bool = False,
     ) -> ConstitutionalEvent:
-        causation_id = (
-            mission.event_ids[-1]
-            if mission.event_ids
-            else None
-        )
+        causation_id = mission.event_ids[-1] if mission.event_ids else None
 
         event = ConstitutionalEvent.create(
             event_type,

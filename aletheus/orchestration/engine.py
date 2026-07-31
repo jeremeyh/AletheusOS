@@ -4,7 +4,6 @@ Aletheus Autonomous Orchestration Engine
 Post-Genesis 20
 """
 
-
 from .agent_router import AgentRouter
 from .capability_scheduler import CapabilityScheduler
 from .execution_coordinator import ExecutionCoordinator
@@ -14,8 +13,6 @@ from .workflow_engine import WorkflowEngine
 
 
 class AutonomousOrchestrationEngine:
-
-
     def __init__(self):
 
         self.workflows = WorkflowEngine()
@@ -30,43 +27,20 @@ class AutonomousOrchestrationEngine:
 
         self.intelligence = IntelligenceCoordinator()
 
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_autonomous_orchestration",
-
-            "phase":
-            "post_genesis_20",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_autonomous_orchestration",
+            "phase": "post_genesis_20",
+            "status": "operational",
         }
-
-
 
     def orchestrate(self, objective):
 
         return {
-
-            "objective":
-            objective,
-
-            "workflow":
-            "generated",
-
-            "agents":
-            "assigned",
-
-            "execution":
-            "coordinated",
-
-            "status":
-            "active"
-
+            "objective": objective,
+            "workflow": "generated",
+            "agents": "assigned",
+            "execution": "coordinated",
+            "status": "active",
         }
-

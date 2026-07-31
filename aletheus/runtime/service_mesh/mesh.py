@@ -15,7 +15,9 @@ class RuntimeServiceMesh:
         self.handlers = {}
         self.route_history = []
 
-    def register_node(self, name: str, node_type: str = "service", handler=None, metadata=None):
+    def register_node(
+        self, name: str, node_type: str = "service", handler=None, metadata=None
+    ):
         node = MeshNode(
             name=name,
             node_type=node_type,
@@ -40,7 +42,9 @@ class RuntimeServiceMesh:
                 source=source,
                 destination=destination,
                 status="unknown_destination",
-                response={"error": f"Destination '{destination}' is not registered in the mesh."},
+                response={
+                    "error": f"Destination '{destination}' is not registered in the mesh."
+                },
             )
             self.route_history.append(result)
             return result
@@ -52,7 +56,9 @@ class RuntimeServiceMesh:
                 source=source,
                 destination=destination,
                 status="no_handler",
-                response={"message": f"Destination '{destination}' is registered but has no handler."},
+                response={
+                    "message": f"Destination '{destination}' is registered but has no handler."
+                },
             )
             self.route_history.append(result)
             return result
@@ -63,7 +69,9 @@ class RuntimeServiceMesh:
                 source=source,
                 destination=destination,
                 status="delivered",
-                response=response if isinstance(response, dict) else {"result": response},
+                response=response
+                if isinstance(response, dict)
+                else {"result": response},
             )
         except Exception as exc:
             result = MeshRouteResult(

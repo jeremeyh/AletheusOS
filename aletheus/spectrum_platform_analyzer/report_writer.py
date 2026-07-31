@@ -12,7 +12,6 @@ from pathlib import Path
 
 
 class ReportWriter:
-
     VERSION = "1.0.0"
 
     GENESIS = "54.1"
@@ -28,13 +27,9 @@ class ReportWriter:
 
     def write_json(self, report):
 
-        filename = (
-            self.output_directory /
-            f"{report.report_id}.json"
-        )
+        filename = self.output_directory / f"{report.report_id}.json"
 
         with open(filename, "w", encoding="utf-8") as f:
-
             json.dump(
                 report.to_dict(),
                 f,
@@ -45,10 +40,7 @@ class ReportWriter:
 
     def write_markdown(self, report):
 
-        filename = (
-            self.output_directory /
-            f"{report.report_id}.md"
-        )
+        filename = self.output_directory / f"{report.report_id}.md"
 
         lines = []
 
@@ -78,25 +70,18 @@ class ReportWriter:
         lines.append("")
 
         if not report.findings:
-
             lines.append("No findings.")
 
         else:
-
             for finding in report.findings:
-
-                lines.append(
-                    f"### {finding.severity} — {finding.title}"
-                )
+                lines.append(f"### {finding.severity} — {finding.title}")
 
                 lines.append("")
                 lines.append(f"Component: `{finding.component}`")
                 lines.append("")
                 lines.append(finding.description)
                 lines.append("")
-                lines.append(
-                    f"Recommendation: {finding.recommendation}"
-                )
+                lines.append(f"Recommendation: {finding.recommendation}")
                 lines.append("")
 
         filename.write_text(
@@ -109,15 +94,10 @@ class ReportWriter:
     def health(self):
 
         return {
-
             "name": "Spectrum Report Writer",
-
             "status": "healthy",
-
             "version": self.VERSION,
-
             "genesis": self.GENESIS,
-
         }
 
 

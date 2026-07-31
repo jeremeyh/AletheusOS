@@ -11,7 +11,6 @@ from intelligence.projections.manager import projection_manager
 
 
 class Kernel:
-
     def __init__(self):
 
         self.booted = False
@@ -28,15 +27,10 @@ class Kernel:
     def status(self):
 
         return {
-
             "engines": len(engine_registry.all()),
-
             "services": len(service_registry.services),
-
             "projections": len(projection_manager.projections),
-
-            "listeners": event_bus.listeners()
-
+            "listeners": event_bus.listeners(),
         }
 
 

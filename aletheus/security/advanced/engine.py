@@ -4,7 +4,6 @@ AletheusOS Security Architecture Engine
 Post-Genesis 2
 """
 
-
 from .agent_identity import AgentIdentityEngine
 from .capability_guard import CapabilityGuardEngine
 from .execution_policy import ExecutionPolicyEngine
@@ -14,8 +13,6 @@ from .trust_manager import TrustManagerEngine
 
 
 class SecurityArchitectureEngine:
-
-
     def __init__(self):
 
         self.identity = AgentIdentityEngine()
@@ -30,51 +27,21 @@ class SecurityArchitectureEngine:
 
         self.events = SecurityEventEngine()
 
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_security_architecture",
-
-            "phase":
-            "post_genesis_2",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_security_architecture",
+            "phase": "post_genesis_2",
+            "status": "operational",
         }
 
-
-
-    def secure_execution(
-        self,
-        agent,
-        capability,
-        action
-    ):
+    def secure_execution(self, agent, capability, action):
 
         return {
-
-            "identity":
-            self.identity.identify(agent),
-
-            "capability":
-            self.guard.authorize(capability),
-
-            "policy":
-            self.policy.evaluate(action),
-
-            "sandbox":
-            self.sandbox.isolate(action),
-
-            "trust":
-            self.trust.evaluate(agent),
-
-            "event":
-            self.events.record(action)
-
+            "identity": self.identity.identify(agent),
+            "capability": self.guard.authorize(capability),
+            "policy": self.policy.evaluate(action),
+            "sandbox": self.sandbox.isolate(action),
+            "trust": self.trust.evaluate(agent),
+            "event": self.events.record(action),
         }
-

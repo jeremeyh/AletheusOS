@@ -1,8 +1,3 @@
 from .engine import CollectibleAutomationEngine
 
-__all__=[
-
-"CollectibleAutomationEngine"
-
-]
-
+__all__ = ["CollectibleAutomationEngine"]

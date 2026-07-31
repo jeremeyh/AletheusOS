@@ -59,45 +59,28 @@ class ConstitutionalMissionRuntime:
         case_id: str,
         context: dict[str, Any],
     ):
-        state = self.time.state(
-            mission_id
-        )
-        graph = self.time.graph(
-            mission_id
-        )
+        state = self.time.state(mission_id)
+        graph = self.time.graph(mission_id)
 
         accumulated_evidence: dict[
             str,
             dict[str, Any],
         ] = {}
 
-        while not self.time.sequence_completed(
-            mission_id
-        ):
-            eligible = self.time.eligible_phases(
-                mission_id
-            )
+        while not self.time.sequence_completed(mission_id):
+            eligible = self.time.eligible_phases(mission_id)
 
             if not eligible:
                 self._failures += 1
 
                 raise MissionRuntimeExecutionError(
-                    "TIME has no eligible phase and the "
-                    "mission sequence is incomplete."
+                    "TIME has no eligible phase and the mission sequence is incomplete."
                 )
 
             for phase_id in eligible:
-                contract = graph.require(
-                    phase_id
-                )
+                contract = graph.require(phase_id)
 
-                if (
-                    len(
-                        contract
-                        .participating_institutions
-                    )
-                    != 1
-                ):
+                if len(contract.participating_institutions) != 1:
                     self._failures += 1
 
                     raise MissionRuntimeExecutionError(
@@ -106,10 +89,7 @@ class ConstitutionalMissionRuntime:
                         "institution."
                     )
 
-                institution_id = (
-                    contract
-                    .participating_institutions[0]
-                )
+                institution_id = contract.participating_institutions[0]
 
                 self.time.join(
                     mission_id,
@@ -122,31 +102,23 @@ class ConstitutionalMissionRuntime:
                     phase_id,
                 )
 
-                executor = self.executors.require(
-                    institution_id
-                )
+                executor = self.executors.require(institution_id)
 
                 request = PhaseExecutionRequest(
                     mission_id=mission_id,
                     case_id=case_id,
-                    correlation_id=(
-                        state.correlation_id
-                    ),
+                    correlation_id=(state.correlation_id),
                     phase_id=phase_id,
                     institution_id=institution_id,
                     inputs={
                         **dict(context),
-                        **dict(
-                            accumulated_evidence
-                        ),
+                        **dict(accumulated_evidence),
                     },
                     context=dict(context),
                 )
 
                 try:
-                    result = executor.execute(
-                        request
-                    )
+                    result = executor.execute(request)
 
                 except Exception as exc:
                     self.time.fail_phase(
@@ -159,10 +131,7 @@ class ConstitutionalMissionRuntime:
                     raise
 
                 if not result.successful:
-                    reason = (
-                        result.message
-                        or "Institution execution failed."
-                    )
+                    reason = result.message or "Institution execution failed."
 
                     self.time.fail_phase(
                         mission_id,
@@ -172,43 +141,25 @@ class ConstitutionalMissionRuntime:
 
                     self._failures += 1
 
-                    raise MissionRuntimeExecutionError(
-                        reason
-                    )
+                    raise MissionRuntimeExecutionError(reason)
 
-                domain_event = (
-                    self._publish_domain_event(
-                        request=request,
-                        result=result,
-                    )
+                domain_event = self._publish_domain_event(
+                    request=request,
+                    result=result,
                 )
 
-                evidence = dict(
-                    result.evidence
-                )
+                evidence = dict(result.evidence)
 
                 if domain_event is not None:
-                    evidence[
-                        "domain_event_id"
-                    ] = domain_event.event_id
-                    evidence[
-                        "domain_event_type"
-                    ] = (
-                        domain_event
-                        .event_type
-                        .value
-                    )
+                    evidence["domain_event_id"] = domain_event.event_id
+                    evidence["domain_event_type"] = domain_event.event_type.value
 
                 self.time.attach_evidence(
                     mission_id,
                     phase_id=phase_id,
-                    evidence_type=(
-                        result.evidence_type
-                    ),
+                    evidence_type=(result.evidence_type),
                     evidence=evidence,
-                    source_identity=(
-                        result.institution_id
-                    ),
+                    source_identity=(result.institution_id),
                 )
 
                 self.time.complete_phase(
@@ -216,9 +167,7 @@ class ConstitutionalMissionRuntime:
                     phase_id,
                 )
 
-                accumulated_evidence[
-                    result.evidence_type
-                ] = evidence
+                accumulated_evidence[result.evidence_type] = evidence
 
                 self._phases_executed += 1
 
@@ -246,59 +195,31 @@ class ConstitutionalMissionRuntime:
         if not result.domain_event_type:
             return None
 
-        correlated_events = (
-            self.time.fabric.events(
-                correlation_id=(
-                    request.correlation_id
-                )
-            )
+        correlated_events = self.time.fabric.events(
+            correlation_id=(request.correlation_id)
         )
 
-        causation_id = (
-            correlated_events[-1].event_id
-            if correlated_events
-            else None
-        )
+        causation_id = correlated_events[-1].event_id if correlated_events else None
 
         event = ConstitutionalEvent.create(
             result.domain_event_type,
             result.institution_id,
-            correlation_id=(
-                request.correlation_id
-            ),
+            correlation_id=(request.correlation_id),
             causation_id=causation_id,
             payload={
                 "case_id": request.case_id,
                 "mission_id": request.mission_id,
                 "phase_id": request.phase_id,
-                "institution_id": (
-                    result.institution_id
-                ),
-                "evidence_type": (
-                    result.evidence_type
-                ),
-                "evidence": dict(
-                    result.evidence
-                ),
-                "entity_id": (
-                    request.context.get(
-                        "entity_id"
-                    )
-                ),
-                "severity": (
-                    request.context.get(
-                        "severity"
-                    )
-                ),
+                "institution_id": (result.institution_id),
+                "evidence_type": (result.evidence_type),
+                "evidence": dict(result.evidence),
+                "entity_id": (request.context.get("entity_id")),
+                "severity": (request.context.get("severity")),
             },
             evidence=(
                 {
-                    "evidence_type": (
-                        result.evidence_type
-                    ),
-                    "evidence": dict(
-                        result.evidence
-                    ),
+                    "evidence_type": (result.evidence_type),
+                    "evidence": dict(result.evidence),
                 },
             ),
             tags=(
@@ -315,27 +236,13 @@ class ConstitutionalMissionRuntime:
 
     def health(self) -> dict[str, Any]:
         return {
-            "name": (
-                "Constitutional Mission Runtime™"
-            ),
+            "name": ("Constitutional Mission Runtime™"),
             "version": self.VERSION,
-            "status": (
-                "degraded"
-                if self._failures
-                else "online"
-            ),
-            "missions_executed": (
-                self._missions_executed
-            ),
-            "phases_executed": (
-                self._phases_executed
-            ),
-            "domain_events_published": (
-                self._domain_events_published
-            ),
+            "status": ("degraded" if self._failures else "online"),
+            "missions_executed": (self._missions_executed),
+            "phases_executed": (self._phases_executed),
+            "domain_events_published": (self._domain_events_published),
             "failures": self._failures,
             "time": self.time.health(),
-            "executors": (
-                self.executors.health()
-            ),
+            "executors": (self.executors.health()),
         }

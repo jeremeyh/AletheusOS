@@ -72,7 +72,6 @@ from aletheus.runtime.registrations.workspace_commands import (
 
 
 class RuntimeCommandBootstrapper:
-
     LEGACY_REGISTRATION_FUNCTIONS = (
         register_graph_commands,
         register_mission_commands,
@@ -115,29 +114,19 @@ class RuntimeCommandBootstrapper:
             if not isinstance(node, ast.Attribute):
                 continue
 
-            if (
-                isinstance(node.value, ast.Name)
-                and node.value.id == "runtime"
-            ):
+            if isinstance(node.value, ast.Name) and node.value.id == "runtime":
                 required.add(node.attr)
 
         return required
 
     def _register_compatible(self, runtime, registration_function):
-        required = self._required_runtime_attributes(
-            registration_function
-        )
+        required = self._required_runtime_attributes(registration_function)
 
         missing = sorted(
-            attribute
-            for attribute in required
-            if not hasattr(runtime, attribute)
+            attribute for attribute in required if not hasattr(runtime, attribute)
         )
 
-        name = (
-            f"{registration_function.__module__}."
-            f"{registration_function.__name__}"
-        )
+        name = f"{registration_function.__module__}.{registration_function.__name__}"
 
         if missing:
             self.compatibility_report["skipped"][name] = {
@@ -154,9 +143,7 @@ class RuntimeCommandBootstrapper:
 
         except Exception as exc:
             commands_after = set(registry.list())
-            partial_commands = sorted(
-                commands_after - commands_before
-            )
+            partial_commands = sorted(commands_after - commands_before)
 
             rollback_errors = {}
 
@@ -165,15 +152,12 @@ class RuntimeCommandBootstrapper:
                     registry.unregister(command)
                 except Exception as rollback_exc:
                     rollback_errors[command] = (
-                        f"{type(rollback_exc).__name__}: "
-                        f"{rollback_exc}"
+                        f"{type(rollback_exc).__name__}: {rollback_exc}"
                     )
 
             detail = {
                 "reason": "registration_failed",
-                "error": (
-                    f"{type(exc).__name__}: {exc}"
-                ),
+                "error": (f"{type(exc).__name__}: {exc}"),
                 "partial_commands": partial_commands,
             }
 
@@ -215,9 +199,7 @@ class RuntimeCommandBootstrapper:
         #
         # Preflight dependency validation prevents stale registration
         # modules from partially mutating the registry or blocking boot.
-        for registration_function in (
-            self.LEGACY_REGISTRATION_FUNCTIONS
-        ):
+        for registration_function in self.LEGACY_REGISTRATION_FUNCTIONS:
             self._register_compatible(
                 runtime,
                 registration_function,

@@ -21,7 +21,11 @@ def _parse_scalar(value: str) -> Any:
         return value.lower() == "true"
     if value.startswith("[") and value.endswith("]"):
         inner = value[1:-1].strip()
-        return [] if not inner else [item.strip().strip("'\"") for item in inner.split(",")]
+        return (
+            []
+            if not inner
+            else [item.strip().strip("'\"") for item in inner.split(",")]
+        )
     return value.strip("'\"")
 
 

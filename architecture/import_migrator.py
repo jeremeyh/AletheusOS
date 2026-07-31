@@ -33,11 +33,13 @@ class ImportMigrator:
                 updated = updated.replace(old, new)
 
             if updated != original:
-                changes.append({
-                    "file": str(path),
-                    "changed": True,
-                    "applied": apply,
-                })
+                changes.append(
+                    {
+                        "file": str(path),
+                        "changed": True,
+                        "applied": apply,
+                    }
+                )
                 if apply:
                     path.write_text(updated, encoding="utf-8")
 

@@ -26,28 +26,14 @@ ROOT = find_repo_root(Path(__file__).parent)
 
 
 CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "environment-promotion-contract.json"
+    ROOT / "nimble/governance/environments/environment-promotion-contract.json"
 )
 
-STAGING_WORKFLOW = (
-    ROOT
-    / ".github/workflows/"
-    "nimble-staging-promotion.yml"
-)
+STAGING_WORKFLOW = ROOT / ".github/workflows/nimble-staging-promotion.yml"
 
-PRODUCTION_WORKFLOW = (
-    ROOT
-    / ".github/workflows/"
-    "nimble-production-promotion.yml"
-)
+PRODUCTION_WORKFLOW = ROOT / ".github/workflows/nimble-production-promotion.yml"
 
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "environment-automation-validation-latest.json"
-)
+REPORT_PATH = ROOT / "reports/nimble/environment-automation-validation-latest.json"
 
 
 def record(
@@ -100,36 +86,27 @@ def main() -> int:
 
         text = path.read_text(encoding="utf-8")
 
-        expected_environment = contract[
-            "environments"
-        ][environment]["github_environment"]
+        expected_environment = contract["environments"][environment][
+            "github_environment"
+        ]
 
         record(
             checks,
             failures,
             f"{environment}-environment-binding",
-            (
-                f"name: {expected_environment}"
-                in text
-            ),
-            (
-                f"{environment} workflow must bind "
-                f"to {expected_environment}."
-            ),
+            (f"name: {expected_environment}" in text),
+            (f"{environment} workflow must bind to {expected_environment}."),
         )
 
-        expected_concurrency = contract[
-            "environments"
-        ][environment]["deployment_concurrency"]
+        expected_concurrency = contract["environments"][environment][
+            "deployment_concurrency"
+        ]
 
         record(
             checks,
             failures,
             f"{environment}-concurrency",
-            (
-                f"group: {expected_concurrency}"
-                in text
-            ),
+            (f"group: {expected_concurrency}" in text),
             (
                 f"{environment} workflow must use "
                 f"concurrency group {expected_concurrency}."
@@ -141,10 +118,7 @@ def main() -> int:
             failures,
             f"{environment}-health-check",
             "curl" in text and "health" in text.lower(),
-            (
-                f"{environment} workflow requires "
-                "post-deploy health verification."
-            ),
+            (f"{environment} workflow requires post-deploy health verification."),
         )
 
     production_text = PRODUCTION_WORKFLOW.read_text(
@@ -159,23 +133,17 @@ def main() -> int:
             ROOT / "scripts/nimble_rollback_adapter.sh"
         ).is_file(),
         "adapter-contract": (
-            ROOT
-            / "nimble/governance/environments/"
-            "deployment-adapter-contract.json"
+            ROOT / "nimble/governance/environments/deployment-adapter-contract.json"
         ).is_file(),
         "staging-adapter-call": (
             "./scripts/nimble_deploy_adapter.sh"
-            in STAGING_WORKFLOW.read_text(
-                encoding="utf-8"
-            )
+            in STAGING_WORKFLOW.read_text(encoding="utf-8")
         ),
         "production-adapter-call": (
-            "./scripts/nimble_deploy_adapter.sh"
-            in production_text
+            "./scripts/nimble_deploy_adapter.sh" in production_text
         ),
         "production-rollback-call": (
-            "./scripts/nimble_rollback_adapter.sh"
-            in production_text
+            "./scripts/nimble_rollback_adapter.sh" in production_text
         ),
     }
 
@@ -189,25 +157,13 @@ def main() -> int:
         )
 
     production_requirements = {
-        "rollback-release-input": (
-            "rollback_release:" in production_text
-        ),
-        "rollback-revision-input": (
-            "rollback_revision:" in production_text
-        ),
-        "rollback-image-input": (
-            "rollback_image:" in production_text
-        ),
-        "staging-evidence-input": (
-            "staging_run_id:" in production_text
-        ),
-        "rollback-execution": (
-            "Execute rollback adapter"
-            in production_text
-        ),
+        "rollback-release-input": ("rollback_release:" in production_text),
+        "rollback-revision-input": ("rollback_revision:" in production_text),
+        "rollback-image-input": ("rollback_image:" in production_text),
+        "staging-evidence-input": ("staging_run_id:" in production_text),
+        "rollback-execution": ("Execute rollback adapter" in production_text),
         "staging-artifact-download": (
-            "actions/download-artifact@v4"
-            in production_text
+            "actions/download-artifact@v4" in production_text
         ),
     }
 
@@ -247,9 +203,7 @@ def main() -> int:
         json.dumps(
             {
                 "schema_version": "1.0",
-                "generated_at": datetime.now(
-                    UTC
-                ).isoformat(),
+                "generated_at": datetime.now(UTC).isoformat(),
                 "status": status,
                 "checks": checks,
                 "failures": failures,

@@ -1,5 +1,4 @@
 class IntelligenceServiceRegistrar:
-
     def register(self, runtime):
         runtime.services.register(
             "Aletheus Semantic Intelligence Layer",

@@ -17,52 +17,24 @@ def find_repo_root(start: Path) -> Path:
             return current
 
         if current.parent == current:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         current = current.parent
 
 
 ROOT = find_repo_root(Path(__file__).parent)
 
-MANIFEST = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "supply-chain"
-    / "dependency-manifest.json"
-)
+MANIFEST = ROOT / "nimble" / "governance" / "supply-chain" / "dependency-manifest.json"
 
-POLICY = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "supply-chain"
-    / "dependency-policy.json"
-)
+POLICY = ROOT / "nimble" / "governance" / "supply-chain" / "dependency-policy.json"
 
 EXCEPTIONS = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "supply-chain"
-    / "dependency-exceptions.json"
+    ROOT / "nimble" / "governance" / "supply-chain" / "dependency-exceptions.json"
 )
 
-LATEST_JSON = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "dependency-risk-latest.json"
-)
+LATEST_JSON = ROOT / "reports" / "nimble" / "dependency-risk-latest.json"
 
-LATEST_MARKDOWN = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "dependency-risk-latest.md"
-)
+LATEST_MARKDOWN = ROOT / "reports" / "nimble" / "dependency-risk-latest.md"
 
 NIMBLE_ROOT = ROOT / "nimble"
 
@@ -71,14 +43,9 @@ def load_json(
     path: Path,
 ) -> dict[str, Any]:
     if not path.exists():
-        raise FileNotFoundError(
-            f"Required file is missing: "
-            f"{path.relative_to(ROOT)}"
-        )
+        raise FileNotFoundError(f"Required file is missing: {path.relative_to(ROOT)}")
 
-    return json.loads(
-        path.read_text(encoding="utf-8")
-    )
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def run_json_command(
@@ -127,15 +94,9 @@ def classify_licenses(
     manifest: dict[str, Any],
     policy: dict[str, Any],
 ) -> dict[str, Any]:
-    allowed = set(
-        policy["licenses"]["allowed"]
-    )
-    review_required = set(
-        policy["licenses"]["review_required"]
-    )
-    denied = set(
-        policy["licenses"]["denied"]
-    )
+    allowed = set(policy["licenses"]["allowed"])
+    review_required = set(policy["licenses"]["review_required"])
+    denied = set(policy["licenses"]["denied"])
 
     results: list[dict[str, str]] = []
 
@@ -152,9 +113,7 @@ def classify_licenses(
 
     for ecosystem, packages in inventories:
         for package in packages:
-            license_name = normalize_license(
-                package.get("license")
-            )
+            license_name = normalize_license(package.get("license"))
 
             if license_name in denied:
                 classification = "denied"
@@ -176,21 +135,11 @@ def classify_licenses(
             )
 
     return {
-        "allowed": [
-            item
-            for item in results
-            if item["classification"] == "allowed"
-        ],
+        "allowed": [item for item in results if item["classification"] == "allowed"],
         "review_required": [
-            item
-            for item in results
-            if item["classification"] == "review_required"
+            item for item in results if item["classification"] == "review_required"
         ],
-        "denied": [
-            item
-            for item in results
-            if item["classification"] == "denied"
-        ],
+        "denied": [item for item in results if item["classification"] == "denied"],
         "all": results,
     }
 
@@ -224,8 +173,7 @@ def exception_matches(
         exception.get("ecosystem") == ecosystem
         and exception.get("package") == package
         and exception.get("version") == version
-        and exception.get("exception_type")
-        == exception_type
+        and exception.get("exception_type") == exception_type
         and exception.get("subject") == subject
     )
 
@@ -273,14 +221,10 @@ def collect_npm_audit() -> dict[str, Any]:
                     "severity",
                     "unknown",
                 ),
-                "is_direct": bool(
-                    record.get("isDirect", False)
-                ),
+                "is_direct": bool(record.get("isDirect", False)),
                 "via": record.get("via", []),
                 "range": record.get("range"),
-                "fix_available": record.get(
-                    "fixAvailable"
-                ),
+                "fix_available": record.get("fixAvailable"),
             }
         )
 
@@ -295,13 +239,8 @@ def collect_npm_audit() -> dict[str, Any]:
 def collect_python_audit() -> dict[str, Any]:
     import tempfile
 
-    with tempfile.TemporaryDirectory(
-        prefix="nimble-pip-audit-"
-    ) as temporary_directory:
-        output_path = (
-            Path(temporary_directory)
-            / "pip-audit.json"
-        )
+    with tempfile.TemporaryDirectory(prefix="nimble-pip-audit-") as temporary_directory:
+        output_path = Path(temporary_directory) / "pip-audit.json"
 
         try:
             completed = subprocess.run(
@@ -337,19 +276,14 @@ def collect_python_audit() -> dict[str, Any]:
                 "available": False,
                 "return_code": completed.returncode,
                 "error": (
-                    console_output
-                    or "pip-audit did not create its JSON output file."
+                    console_output or "pip-audit did not create its JSON output file."
                 ),
                 "dependencies": [],
                 "vulnerability_count": 0,
             }
 
         try:
-            payload = json.loads(
-                output_path.read_text(
-                    encoding="utf-8"
-                )
-            )
+            payload = json.loads(output_path.read_text(encoding="utf-8"))
         except json.JSONDecodeError as error:
             return {
                 "available": False,
@@ -374,10 +308,7 @@ def collect_python_audit() -> dict[str, Any]:
             return {
                 "available": False,
                 "return_code": completed.returncode,
-                "error": (
-                    "pip-audit returned an unsupported "
-                    "JSON payload type."
-                ),
+                "error": ("pip-audit returned an unsupported JSON payload type."),
                 "dependencies": [],
                 "vulnerability_count": 0,
             }
@@ -386,10 +317,7 @@ def collect_python_audit() -> dict[str, Any]:
             return {
                 "available": False,
                 "return_code": completed.returncode,
-                "error": (
-                    "pip-audit dependencies field "
-                    "is not an array."
-                ),
+                "error": ("pip-audit dependencies field is not an array."),
                 "dependencies": [],
                 "vulnerability_count": 0,
             }
@@ -418,11 +346,7 @@ def evaluate_npm_vulnerabilities(
     if not audit["available"]:
         return failures
 
-    maximum = policy[
-        "vulnerabilities"
-    ][
-        "maximum_accepted"
-    ]
+    maximum = policy["vulnerabilities"]["maximum_accepted"]
 
     for severity, limit in maximum.items():
         current = int(
@@ -434,8 +358,7 @@ def evaluate_npm_vulnerabilities(
 
         if current > int(limit):
             failures.append(
-                f"npm {severity} vulnerabilities: "
-                f"{current} exceeds {limit}"
+                f"npm {severity} vulnerabilities: {current} exceeds {limit}"
             )
 
     return failures
@@ -456,55 +379,28 @@ def write_markdown(
         "",
         "## License policy",
         "",
-        (
-            "- Allowed packages: "
-            f"`{len(licenses['allowed'])}`"
-        ),
-        (
-            "- Review required: "
-            f"`{len(licenses['review_required'])}`"
-        ),
-        (
-            "- Denied packages: "
-            f"`{len(licenses['denied'])}`"
-        ),
+        (f"- Allowed packages: `{len(licenses['allowed'])}`"),
+        (f"- Review required: `{len(licenses['review_required'])}`"),
+        (f"- Denied packages: `{len(licenses['denied'])}`"),
         "",
         "## Vulnerability scanning",
         "",
-        (
-            "- npm audit available: "
-            f"`{npm_audit['available']}`"
-        ),
-        (
-            "- pip-audit available: "
-            f"`{python_audit['available']}`"
-        ),
+        (f"- npm audit available: `{npm_audit['available']}`"),
+        (f"- pip-audit available: `{python_audit['available']}`"),
     ]
 
     if npm_audit["available"]:
         lines.extend(
             [
-                (
-                    "- npm critical: "
-                    f"`{npm_audit['counts'].get('critical', 0)}`"
-                ),
-                (
-                    "- npm high: "
-                    f"`{npm_audit['counts'].get('high', 0)}`"
-                ),
-                (
-                    "- npm moderate: "
-                    f"`{npm_audit['counts'].get('moderate', 0)}`"
-                ),
+                (f"- npm critical: `{npm_audit['counts'].get('critical', 0)}`"),
+                (f"- npm high: `{npm_audit['counts'].get('high', 0)}`"),
+                (f"- npm moderate: `{npm_audit['counts'].get('moderate', 0)}`"),
             ]
         )
 
     if python_audit["available"]:
         lines.append(
-            
-                "- Python vulnerabilities: "
-                f"`{python_audit['vulnerability_count']}`"
-            
+            f"- Python vulnerabilities: `{python_audit['vulnerability_count']}`"
         )
 
     if licenses["denied"]:
@@ -616,23 +512,13 @@ def main() -> int:
 
     report = {
         "schema_version": "1.0",
-        "generated_at": datetime.now(
-            UTC
-        ).isoformat(),
-        "status": (
-            "PASS"
-            if not failures
-            else "FAIL"
-        ),
+        "generated_at": datetime.now(UTC).isoformat(),
+        "status": ("PASS" if not failures else "FAIL"),
         "policy": {
-            "path": str(
-                POLICY.relative_to(ROOT)
-            ),
+            "path": str(POLICY.relative_to(ROOT)),
         },
         "manifest": {
-            "path": str(
-                MANIFEST.relative_to(ROOT)
-            ),
+            "path": str(MANIFEST.relative_to(ROOT)),
         },
         "licenses": licenses,
         "npm_audit": npm_audit,
@@ -673,19 +559,11 @@ def main() -> int:
     )
     print(
         "npm audit:",
-        (
-            "available"
-            if npm_audit["available"]
-            else "unavailable"
-        ),
+        ("available" if npm_audit["available"] else "unavailable"),
     )
     print(
         "pip-audit:",
-        (
-            "available"
-            if python_audit["available"]
-            else "unavailable"
-        ),
+        ("available" if python_audit["available"] else "unavailable"),
     )
 
     for failure in failures:

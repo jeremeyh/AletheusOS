@@ -17,20 +17,13 @@ def compare_assumptions(
     baseline_values = baseline.assumption_map()
     compared_values = compared.assumption_map()
 
-    keys = (
-        set(baseline_values)
-        | set(compared_values)
-    )
+    keys = set(baseline_values) | set(compared_values)
 
     changed: dict[str, dict] = {}
 
     for key in sorted(keys):
-        baseline_value = baseline_values.get(
-            key
-        )
-        compared_value = compared_values.get(
-            key
-        )
+        baseline_value = baseline_values.get(key)
+        compared_value = compared_values.get(key)
 
         if baseline_value == compared_value:
             continue
@@ -50,10 +43,7 @@ def compare_scenario_outcomes(
     compared_definition: ScenarioDefinition,
     compared_outcome: ScenarioOutcome,
 ) -> ScenarioComparison:
-    metric_names = (
-        set(baseline_outcome.metrics)
-        | set(compared_outcome.metrics)
-    )
+    metric_names = set(baseline_outcome.metrics) | set(compared_outcome.metrics)
 
     deltas = []
 
@@ -72,17 +62,11 @@ def compare_scenario_outcomes(
             )
         )
 
-        absolute_delta = (
-            scenario_value - baseline_value
-        )
+        absolute_delta = scenario_value - baseline_value
 
         percentage_delta = (
             round(
-                (
-                    absolute_delta
-                    / baseline_value
-                )
-                * 100.0,
+                (absolute_delta / baseline_value) * 100.0,
                 4,
             )
             if baseline_value != 0
@@ -98,31 +82,19 @@ def compare_scenario_outcomes(
                     absolute_delta,
                     4,
                 ),
-                percentage_delta=(
-                    percentage_delta
-                ),
+                percentage_delta=(percentage_delta),
             )
         )
 
     return ScenarioComparison(
-        baseline_scenario_id=(
-            baseline_definition.scenario_id
-        ),
-        compared_scenario_id=(
-            compared_definition.scenario_id
-        ),
+        baseline_scenario_id=(baseline_definition.scenario_id),
+        compared_scenario_id=(compared_definition.scenario_id),
         confidence_delta=round(
-            (
-                compared_outcome.confidence
-                - baseline_outcome.confidence
-            ),
+            (compared_outcome.confidence - baseline_outcome.confidence),
             4,
         ),
         virtue_delta=round(
-            (
-                compared_outcome.virtue_score
-                - baseline_outcome.virtue_score
-            ),
+            (compared_outcome.virtue_score - baseline_outcome.virtue_score),
             4,
         ),
         metric_deltas=tuple(deltas),

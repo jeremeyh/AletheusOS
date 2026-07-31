@@ -16,12 +16,8 @@ from aletheus.constitutional_ledger import ConstitutionalLedger
 def test_canonical_event_vocabulary_is_registered():
     registry = build_canonical_event_registry()
 
-    assert registry.get(
-        ConstitutionalEventType.INTEGRITY_FINDING_CREATED
-    ) is not None
-    assert registry.get(
-        ConstitutionalEventType.COUNCIL_DECISION_RECORDED
-    ) is not None
+    assert registry.get(ConstitutionalEventType.INTEGRITY_FINDING_CREATED) is not None
+    assert registry.get(ConstitutionalEventType.COUNCIL_DECISION_RECORDED) is not None
     assert registry.statistics()["event_types"] >= 15
 
 
@@ -70,19 +66,14 @@ def test_global_ledger_subscriber_records_event_for_time_travel():
 
     fabric.publish(event)
 
-    history = ledger.institutional_history(
-        "aletheus.watch_tower"
-    )
+    history = ledger.institutional_history("aletheus.watch_tower")
 
     assert len(history) == 1
     assert history[0].event_id == event.event_id
 
     snapshot = ledger.as_of(event.effective_at)
 
-    assert any(
-        item.event_id == event.event_id
-        for item in snapshot.events
-    )
+    assert any(item.event_id == event.event_id for item in snapshot.events)
 
 
 def test_certified_event_type_rejects_uncertified_event():
@@ -157,9 +148,7 @@ def test_replays_correlated_constitutional_history():
 
     original_count = len(collector.events)
 
-    deliveries = fabric.replay(
-        correlation_id="BOOT-REPLAY-001"
-    )
+    deliveries = fabric.replay(correlation_id="BOOT-REPLAY-001")
 
     assert original_count == 3
     assert len(deliveries) == 3

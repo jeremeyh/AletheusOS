@@ -6,13 +6,6 @@ Genesis 14.24
 
 
 class RecommendationEngine:
-
-
-    def generate(
-        self,
-        profile
-    ):
-
+    def generate(self, profile):
 
         return []
-

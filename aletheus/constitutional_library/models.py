@@ -25,7 +25,6 @@ def new_knowledge_id() -> str:
 
 
 class KnowledgeStatus(StrEnum):
-
     DRAFT = "DRAFT"
 
     VALIDATED = "VALIDATED"
@@ -38,7 +37,6 @@ class KnowledgeStatus(StrEnum):
 
 
 class KnowledgeType(StrEnum):
-
     PRINCIPLE = "PRINCIPLE"
 
     POLICY = "POLICY"

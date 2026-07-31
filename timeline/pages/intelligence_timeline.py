@@ -9,7 +9,21 @@ def render(state):
 
     c1, c2 = st.columns(2)
     with c1:
-        event_type = st.selectbox("Event Type", ["Acquisition", "Value Change", "THORᵡ Revision", "Hawk A•Eye Scan", "Note", "Marketplace Observation", "Offer", "Sale", "Thesis Revision", "Exit Recommendation"])
+        event_type = st.selectbox(
+            "Event Type",
+            [
+                "Acquisition",
+                "Value Change",
+                "THORᵡ Revision",
+                "Hawk A•Eye Scan",
+                "Note",
+                "Marketplace Observation",
+                "Offer",
+                "Sale",
+                "Thesis Revision",
+                "Exit Recommendation",
+            ],
+        )
     with c2:
         title = st.text_input("Title", "Timeline event")
 

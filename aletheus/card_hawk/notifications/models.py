@@ -10,8 +10,6 @@ from dataclasses import dataclass, field
 
 @dataclass
 class NotificationEvent:
-
-
     event_type: str
 
     title: str
@@ -22,11 +20,6 @@ class NotificationEvent:
 
     confidence: int = 0
 
-    channels: list = field(
-        default_factory=list
-    )
+    channels: list = field(default_factory=list)
 
-    timestamp: float = field(
-        default_factory=time.time
-    )
-
+    timestamp: float = field(default_factory=time.time)

@@ -15,9 +15,7 @@ class DiscoveryLoader:
     def load(self, module_name: str):
 
         try:
-
             return importlib.import_module(module_name)
 
         except Exception:
-
             return None

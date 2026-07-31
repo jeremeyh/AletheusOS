@@ -37,9 +37,7 @@ class ExperienceGatewayService:
         generated_at = utc_now_iso()
 
         if self.provider_registry is not None:
-            aggregator = LiveProviderAggregator(
-                self.provider_registry
-            )
+            aggregator = LiveProviderAggregator(self.provider_registry)
             snapshot = self._health_from_provider(
                 aggregator.health_payload(),
                 generated_at,
@@ -50,9 +48,7 @@ class ExperienceGatewayService:
                 generated_at,
             )
         else:
-            snapshot = self._verified_baseline_health(
-                generated_at
-            )
+            snapshot = self._verified_baseline_health(generated_at)
 
         return ExperienceResponse(
             data=snapshot,
@@ -76,17 +72,13 @@ class ExperienceGatewayService:
         generated_at = utc_now_iso()
 
         if self.provider_registry is not None:
-            aggregator = LiveProviderAggregator(
-                self.provider_registry
-            )
+            aggregator = LiveProviderAggregator(self.provider_registry)
             missions = tuple(
                 self._mission_from_mapping(
                     mission,
                     generated_at,
                 )
-                for mission in (
-                    aggregator.mission_payload()
-                )
+                for mission in (aggregator.mission_payload())
             )
             source = "provider_registry"
         elif self.mission_provider is not None:
@@ -99,9 +91,7 @@ class ExperienceGatewayService:
             )
             source = "runtime_provider"
         else:
-            missions = self._baseline_missions(
-                generated_at
-            )
+            missions = self._baseline_missions(generated_at)
             source = "verified_local_baseline"
 
         return ExperienceResponse(
@@ -131,12 +121,8 @@ class ExperienceGatewayService:
             generated_at=generated_at,
             request_id=str(uuid4()),
             metadata={
-                "healthRequestId": (
-                    health_response.request_id
-                ),
-                "missionRequestId": (
-                    mission_response.request_id
-                ),
+                "healthRequestId": (health_response.request_id),
+                "missionRequestId": (mission_response.request_id),
                 "principleX": True,
             },
         )
@@ -172,20 +158,14 @@ class ExperienceGatewayService:
                 id="nimble-production-build",
                 name="Nimble production build",
                 state="healthy",
-                detail=(
-                    "TypeScript workspace and Vite "
-                    "production build completed."
-                ),
+                detail=("TypeScript workspace and Vite production build completed."),
                 checked_at=checked_at,
             ),
         )
 
         return ExperienceHealthSnapshot(
             state="healthy",
-            summary=(
-                "AletheusOS is reporting its latest "
-                "verified local baseline."
-            ),
+            summary=("AletheusOS is reporting its latest verified local baseline."),
             passing_checks=246,
             total_checks=246,
             warning_count=0,
@@ -208,15 +188,9 @@ class ExperienceGatewayService:
                 ),
                 provenance=(
                     ExperienceProvenance(
-                        source_id=(
-                            "genesis-8-clean-baseline"
-                        ),
-                        source_type=(
-                            "verified_regression_baseline"
-                        ),
-                        label=(
-                            "AletheusOS clean baseline"
-                        ),
+                        source_id=("genesis-8-clean-baseline"),
+                        source_type=("verified_regression_baseline"),
+                        label=("AletheusOS clean baseline"),
                         observed_at=checked_at,
                     ),
                 ),
@@ -232,9 +206,7 @@ class ExperienceGatewayService:
                 ),
                 reversibility=ExperienceReversibility(
                     reversible=True,
-                    undo_label=(
-                        "Replace with live health provider"
-                    ),
+                    undo_label=("Replace with live health provider"),
                     consequence=(
                         "The baseline adapter can be replaced "
                         "without changing the public API."
@@ -260,10 +232,7 @@ class ExperienceGatewayService:
             ExperienceMission(
                 id="nimble-production-shell",
                 name="Nimble Production Shell",
-                description=(
-                    "Deliver the inherited AletheusOS "
-                    "experience framework."
-                ),
+                description=("Deliver the inherited AletheusOS experience framework."),
                 state="active",
                 progress=84,
                 confidence=ExperienceConfidence(
@@ -279,10 +248,7 @@ class ExperienceGatewayService:
             ExperienceMission(
                 id="runtime-api-integration",
                 name="Runtime API Integration",
-                description=(
-                    "Connect Nimble to live bounded runtime "
-                    "providers."
-                ),
+                description=("Connect Nimble to live bounded runtime providers."),
                 state="active",
                 progress=52,
                 confidence=ExperienceConfidence(
@@ -299,8 +265,7 @@ class ExperienceGatewayService:
                         known=True,
                         material=True,
                         description=(
-                            "Continuous subsystem probes are "
-                            "not yet registered."
+                            "Continuous subsystem probes are not yet registered."
                         ),
                     ),
                 ),
@@ -309,8 +274,7 @@ class ExperienceGatewayService:
                 id="card-hawk-inheritance",
                 name="Card Hawk Inheritance",
                 description=(
-                    "Adopt Nimble without duplicating the "
-                    "experience architecture."
+                    "Adopt Nimble without duplicating the experience architecture."
                 ),
                 state="planned",
                 progress=20,
@@ -318,8 +282,7 @@ class ExperienceGatewayService:
                     value=0.94,
                     label="high",
                     basis=(
-                        "Application inheritance contracts "
-                        "are already established."
+                        "Application inheritance contracts are already established."
                     ),
                 ),
                 provenance=provenance,
@@ -338,15 +301,9 @@ class ExperienceGatewayService:
 
         checks = tuple(
             ExperienceHealthCheck(
-                id=str(
-                    check.get("id", f"check-{index}")
-                ),
-                name=str(
-                    check.get("name", "Runtime check")
-                ),
-                state=self._health_state(
-                    check.get("state")
-                ),
+                id=str(check.get("id", f"check-{index}")),
+                name=str(check.get("name", "Runtime check")),
+                state=self._health_state(check.get("state")),
                 detail=str(
                     check.get(
                         "detail",
@@ -361,14 +318,11 @@ class ExperienceGatewayService:
                 ),
                 latency_ms=(
                     int(check["latency_ms"])
-                    if check.get("latency_ms")
-                    is not None
+                    if check.get("latency_ms") is not None
                     else None
                 ),
             )
-            for index, check in enumerate(
-                checks_payload
-            )
+            for index, check in enumerate(checks_payload)
         )
 
         total_checks = int(
@@ -381,17 +335,12 @@ class ExperienceGatewayService:
         passing_checks = int(
             payload.get(
                 "passing_checks",
-                sum(
-                    check.state == "healthy"
-                    for check in checks
-                ),
+                sum(check.state == "healthy" for check in checks),
             )
         )
 
         return ExperienceHealthSnapshot(
-            state=self._health_state(
-                payload.get("state")
-            ),
+            state=self._health_state(payload.get("state")),
             summary=str(
                 payload.get(
                     "summary",
@@ -410,8 +359,7 @@ class ExperienceGatewayService:
             truth=PrincipleXEnvelope(
                 state="live_runtime_provider",
                 explanation=(
-                    "This response was produced by a "
-                    "registered live runtime provider."
+                    "This response was produced by a registered live runtime provider."
                 ),
                 confidence=ExperienceConfidence(
                     value=float(
@@ -421,9 +369,7 @@ class ExperienceGatewayService:
                         )
                     ),
                     label="high",
-                    basis=(
-                        "Registered runtime provider response."
-                    ),
+                    basis=("Registered runtime provider response."),
                 ),
                 provenance=(
                     ExperienceProvenance(
@@ -435,9 +381,7 @@ class ExperienceGatewayService:
                 ),
                 reversibility=ExperienceReversibility(
                     reversible=False,
-                    consequence=(
-                        "This is a read-only health response."
-                    ),
+                    consequence=("This is a read-only health response."),
                 ),
             ),
         )
@@ -474,9 +418,7 @@ class ExperienceGatewayService:
                     )
                 ),
                 label="high",
-                basis=(
-                    "Registered mission provider response."
-                ),
+                basis=("Registered mission provider response."),
             ),
             provenance=(
                 ExperienceProvenance(

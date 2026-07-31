@@ -113,9 +113,7 @@ class ConstitutionalCase:
             "criticality": self.criticality.value,
             "correlation_id": self.correlation_id,
             "mission_ids": list(self.mission_ids),
-            "participating_institutions": list(
-                self.participating_institutions
-            ),
+            "participating_institutions": list(self.participating_institutions),
             "evidence": list(self.evidence),
             "event_ids": list(self.event_ids),
             "governance_records": list(self.governance_records),

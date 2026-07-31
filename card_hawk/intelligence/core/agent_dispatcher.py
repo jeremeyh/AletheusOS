@@ -10,19 +10,6 @@ Coordinate intelligence agents
 
 
 class AgentDispatcher:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.1"
-
-        }
-
+        return {"status": "ready", "genesis": "23.1"}

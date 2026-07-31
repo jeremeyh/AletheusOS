@@ -12,7 +12,6 @@ class GenomeService:
     def get(cls, asset_uuid):
 
         if asset_uuid not in cls._genomes:
-
             cls._genomes[asset_uuid] = AssetGenome(asset_uuid)
 
         return cls._genomes[asset_uuid]

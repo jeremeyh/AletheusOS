@@ -3,7 +3,10 @@ from pathlib import Path
 path = Path("aletheus/runtime/core.py")
 text = path.read_text()
 
-if "Aletheus Cognitive Reasoning Engine" in text and "diagnostics[\"services\"].append" in text:
+if (
+    "Aletheus Cognitive Reasoning Engine" in text
+    and 'diagnostics["services"].append' in text
+):
     print("Diagnostics already patched.")
     raise SystemExit(0)
 
@@ -13,7 +16,7 @@ anchor = """        diagnostics = {
 if anchor not in text:
     raise SystemExit("Could not locate diagnostics block.")
 
-insertion = '''
+insertion = """
         # Ensure the Reasoning Engine is exposed through runtime diagnostics.
         try:
             if hasattr(self, "reasoning"):
@@ -29,7 +32,7 @@ insertion = '''
         except Exception:
             pass
 
-'''
+"""
 
 text = text.replace(anchor, insertion + anchor, 1)
 

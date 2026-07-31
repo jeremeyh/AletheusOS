@@ -11,10 +11,13 @@ class Plugin(BasePlugin):
 
     def execute(self, context: PipelineContext) -> PipelineContext:
         price = float(context.payload.get("price", 0) or 0)
-        context.add_result("PERCH", {
-            "status": "observed",
-            "watch_signal": "active" if price else "passive",
-            "market_posture": "monitor",
-            "notes": "PERCH scanned the opportunity/watchlist state."
-        })
+        context.add_result(
+            "PERCH",
+            {
+                "status": "observed",
+                "watch_signal": "active" if price else "passive",
+                "market_posture": "monitor",
+                "notes": "PERCH scanned the opportunity/watchlist state.",
+            },
+        )
         return context

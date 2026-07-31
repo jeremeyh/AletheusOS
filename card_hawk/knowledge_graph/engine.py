@@ -4,7 +4,6 @@ Card Hawk Knowledge Graph Engine
 Genesis 14.6
 """
 
-
 from .collector import CollectorIntelligence
 from .comparables import ComparableEngine
 from .entities import EntityRegistry
@@ -14,8 +13,6 @@ from .relationships import RelationshipEngine
 
 
 class KnowledgeGraphEngine:
-
-
     def __init__(self):
 
         self.entities = EntityRegistry()
@@ -30,19 +27,6 @@ class KnowledgeGraphEngine:
 
         self.collectors = CollectorIntelligence()
 
+    def analyze(self, entity):
 
-
-    def analyze(
-        self,
-        entity
-    ):
-
-
-        return {
-
-            "status":
-
-                "connected"
-
-        }
-
+        return {"status": "connected"}

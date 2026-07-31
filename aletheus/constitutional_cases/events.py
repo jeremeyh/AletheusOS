@@ -25,15 +25,10 @@ class CaseEventType(StrEnum):
     CASE_GOVERNANCE_ESCALATED = "CaseGovernanceEscalated"
 
 
-def canonical_case_event_definitions(
-) -> tuple[EventTypeDefinition, ...]:
+def canonical_case_event_definitions() -> tuple[EventTypeDefinition, ...]:
     descriptions = {
-        CaseEventType.CASE_DETECTED: (
-            "A constitutional case was detected."
-        ),
-        CaseEventType.CASE_OPENED: (
-            "A constitutional case was opened."
-        ),
+        CaseEventType.CASE_DETECTED: ("A constitutional case was detected."),
+        CaseEventType.CASE_OPENED: ("A constitutional case was opened."),
         CaseEventType.CASE_INVESTIGATION_STARTED: (
             "Investigation of a constitutional case began."
         ),
@@ -43,24 +38,16 @@ def canonical_case_event_definitions(
         CaseEventType.CASE_EVIDENCE_ATTACHED: (
             "Evidence was attached to a constitutional case."
         ),
-        CaseEventType.CASE_CONTAINED: (
-            "A constitutional case entered containment."
-        ),
+        CaseEventType.CASE_CONTAINED: ("A constitutional case entered containment."),
         CaseEventType.CASE_RECOVERY_STARTED: (
             "Recovery for a constitutional case began."
         ),
-        CaseEventType.CASE_RESOLVED: (
-            "A constitutional case was resolved."
-        ),
+        CaseEventType.CASE_RESOLVED: ("A constitutional case was resolved."),
         CaseEventType.CASE_VERIFIED: (
             "Resolution of a constitutional case was verified."
         ),
-        CaseEventType.CASE_CLOSED: (
-            "A constitutional case was closed."
-        ),
-        CaseEventType.CASE_ARCHIVED: (
-            "A constitutional case was archived."
-        ),
+        CaseEventType.CASE_CLOSED: ("A constitutional case was closed."),
+        CaseEventType.CASE_ARCHIVED: ("A constitutional case was archived."),
         CaseEventType.CASE_GOVERNANCE_ESCALATED: (
             "A constitutional case was escalated for governance."
         ),
@@ -94,12 +81,9 @@ def register_case_event_types(
             continue
 
         if (
-            existing.event_type.value
-            != definition.event_type.value
-            or existing.constitutional_domain
-            != definition.constitutional_domain
-            or existing.requires_certification
-            != definition.requires_certification
+            existing.event_type.value != definition.event_type.value
+            or existing.constitutional_domain != definition.constitutional_domain
+            or existing.requires_certification != definition.requires_certification
         ):
             raise ValueError(
                 "Conflicting case event definition for "

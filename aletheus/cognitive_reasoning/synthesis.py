@@ -6,19 +6,6 @@ Genesis 13.52
 
 
 class SynthesisEngine:
+    def synthesize(self, inputs):
 
-
-    def synthesize(
-        self,
-        inputs
-    ):
-
-
-        return {
-
-            "decision":
-
-                "pending"
-
-        }
-
+        return {"decision": "pending"}

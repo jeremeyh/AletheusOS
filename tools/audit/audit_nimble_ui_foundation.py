@@ -236,11 +236,7 @@ def classify_dependencies(
     classification: dict[str, list[str]] = {}
 
     for group, known_names in DEPENDENCY_GROUPS.items():
-        matches = sorted(
-            name
-            for name in dependencies
-            if name in known_names
-        )
+        matches = sorted(name for name in dependencies if name in known_names)
         if matches:
             classification[group] = matches
 
@@ -286,28 +282,20 @@ def inspect_package_manifest(path: Path) -> dict[str, Any]:
         "workspaces": workspaces,
         "scripts": scripts,
         "dependency_count": len(dependencies),
-        "dependency_groups": classify_dependencies(
-            dependencies
-        ),
-        "all_dependencies": dict(
-            sorted(dependencies.items())
-        ),
+        "dependency_groups": classify_dependencies(dependencies),
+        "all_dependencies": dict(sorted(dependencies.items())),
     }
 
 
 def discover_files() -> list[Path]:
     return sorted(
-        path
-        for path in ROOT.rglob("*")
-        if path.is_file() and not is_excluded(path)
+        path for path in ROOT.rglob("*") if path.is_file() and not is_excluded(path)
     )
 
 
 def discover_directories() -> list[Path]:
     return sorted(
-        path
-        for path in ROOT.rglob("*")
-        if path.is_dir() and not is_excluded(path)
+        path for path in ROOT.rglob("*") if path.is_dir() and not is_excluded(path)
     )
 
 
@@ -317,15 +305,9 @@ def detect_probable_routes(
     route_files: list[str] = []
 
     for path in frontend_files:
-        parts_lower = {
-            part.lower()
-            for part in path.parts
-        }
+        parts_lower = {part.lower() for part in path.parts}
 
-        if (
-            {"pages", "routes", "screens", "views"}
-            & parts_lower
-        ):
+        if {"pages", "routes", "screens", "views"} & parts_lower:
             route_files.append(relative(path))
             continue
 
@@ -346,10 +328,7 @@ def detect_component_files(
     components: list[str] = []
 
     for path in frontend_files:
-        parts_lower = {
-            part.lower()
-            for part in path.parts
-        }
+        parts_lower = {part.lower() for part in path.parts}
 
         if "components" in parts_lower or "ui" in parts_lower:
             components.append(relative(path))
@@ -391,16 +370,9 @@ def detect_token_candidates(
     }
 
     for path in files:
-        path_words = {
-            part.lower()
-            for part in path.parts
-        }
+        path_words = {part.lower() for part in path.parts}
 
-        stem_words = set(
-            path.stem.lower()
-            .replace("-", "_")
-            .split("_")
-        )
+        stem_words = set(path.stem.lower().replace("-", "_").split("_"))
 
         if keywords & (path_words | stem_words):
             candidates.append(relative(path))
@@ -413,53 +385,26 @@ def build_report() -> dict[str, Any]:
     directories = discover_directories()
 
     frontend_files = [
-        path
-        for path in files
-        if path.suffix.lower()
-        in FRONTEND_EXTENSIONS
+        path for path in files if path.suffix.lower() in FRONTEND_EXTENSIONS
     ]
 
-    manifests = [
-        path
-        for path in files
-        if path.name in MANIFEST_NAMES
-    ]
+    manifests = [path for path in files if path.name in MANIFEST_NAMES]
 
-    package_manifests = [
-        path
-        for path in manifests
-        if path.name == "package.json"
-    ]
+    package_manifests = [path for path in manifests if path.name == "package.json"]
 
-    configs = [
-        path
-        for path in files
-        if path.name in CONFIG_NAMES
-    ]
+    configs = [path for path in files if path.name in CONFIG_NAMES]
 
     ui_directories = [
-        path
-        for path in directories
-        if path.name.lower()
-        in UI_DIRECTORY_NAMES
+        path for path in directories if path.name.lower() in UI_DIRECTORY_NAMES
     ]
 
     entrypoints = [
-        path
-        for path in frontend_files
-        if path.name.lower()
-        in ENTRYPOINT_NAMES
+        path for path in frontend_files if path.name.lower() in ENTRYPOINT_NAMES
     ]
 
-    extension_counts = Counter(
-        path.suffix.lower()
-        for path in frontend_files
-    )
+    extension_counts = Counter(path.suffix.lower() for path in frontend_files)
 
-    package_details = [
-        inspect_package_manifest(path)
-        for path in package_manifests
-    ]
+    package_details = [inspect_package_manifest(path) for path in package_manifests]
 
     detected_groups: dict[str, set[str]] = {}
 
@@ -474,18 +419,9 @@ def build_report() -> dict[str, Any]:
             ).update(names)
 
     probable_roots = sorted(
-        {
-            relative(path.parent)
-            for path in package_manifests
-        }
-        | {
-            relative(path.parent)
-            for path in configs
-        }
-        | {
-            relative(path.parent)
-            for path in entrypoints
-        }
+        {relative(path.parent) for path in package_manifests}
+        | {relative(path.parent) for path in configs}
+        | {relative(path.parent) for path in entrypoints}
     )
 
     return {
@@ -497,53 +433,24 @@ def build_report() -> dict[str, Any]:
             "frontend_configs": len(configs),
             "ui_directories": len(ui_directories),
             "entrypoints": len(entrypoints),
-            "probable_routes": len(
-                detect_probable_routes(frontend_files)
-            ),
-            "component_files": len(
-                detect_component_files(frontend_files)
-            ),
-            "style_files": len(
-                detect_style_files(frontend_files)
-            ),
-            "token_candidates": len(
-                detect_token_candidates(files)
-            ),
+            "probable_routes": len(detect_probable_routes(frontend_files)),
+            "component_files": len(detect_component_files(frontend_files)),
+            "style_files": len(detect_style_files(frontend_files)),
+            "token_candidates": len(detect_token_candidates(files)),
         },
-        "frontend_extension_counts": dict(
-            sorted(extension_counts.items())
-        ),
+        "frontend_extension_counts": dict(sorted(extension_counts.items())),
         "probable_frontend_roots": probable_roots,
         "package_manifests": package_details,
         "detected_dependency_groups": {
-            group: sorted(names)
-            for group, names
-            in sorted(detected_groups.items())
+            group: sorted(names) for group, names in sorted(detected_groups.items())
         },
-        "configuration_files": [
-            relative(path)
-            for path in configs
-        ],
-        "ui_directories": [
-            relative(path)
-            for path in ui_directories
-        ],
-        "entrypoints": [
-            relative(path)
-            for path in entrypoints
-        ],
-        "probable_routes": detect_probable_routes(
-            frontend_files
-        ),
-        "component_files": detect_component_files(
-            frontend_files
-        ),
-        "style_files": detect_style_files(
-            frontend_files
-        ),
-        "token_candidates": detect_token_candidates(
-            files
-        ),
+        "configuration_files": [relative(path) for path in configs],
+        "ui_directories": [relative(path) for path in ui_directories],
+        "entrypoints": [relative(path) for path in entrypoints],
+        "probable_routes": detect_probable_routes(frontend_files),
+        "component_files": detect_component_files(frontend_files),
+        "style_files": detect_style_files(frontend_files),
+        "token_candidates": detect_token_candidates(files),
     }
 
 
@@ -575,14 +482,9 @@ def render_markdown(
     roots = report["probable_frontend_roots"]
 
     if roots:
-        lines.extend(
-            f"- `{root}`"
-            for root in roots
-        )
+        lines.extend(f"- `{root}`" for root in roots)
     else:
-        lines.append(
-            "- No canonical frontend root detected."
-        )
+        lines.append("- No canonical frontend root detected.")
 
     lines.extend(
         [
@@ -597,16 +499,10 @@ def render_markdown(
     if groups:
         for group, names in groups.items():
             lines.append(
-                f"- **{group.title()}**: "
-                + ", ".join(
-                    f"`{name}`"
-                    for name in names
-                )
+                f"- **{group.title()}**: " + ", ".join(f"`{name}`" for name in names)
             )
     else:
-        lines.append(
-            "- No recognized frontend dependencies detected."
-        )
+        lines.append("- No recognized frontend dependencies detected.")
 
     lines.extend(
         [
@@ -617,9 +513,7 @@ def render_markdown(
     )
 
     for package in report["package_manifests"]:
-        lines.append(
-            f"### `{package['path']}`"
-        )
+        lines.append(f"### `{package['path']}`")
         lines.append("")
 
         if not package.get("valid_json"):
@@ -677,10 +571,7 @@ def render_markdown(
         )
 
         if entries:
-            lines.extend(
-                f"- `{entry}`"
-                for entry in entries
-            )
+            lines.extend(f"- `{entry}`" for entry in entries)
         else:
             lines.append("- None detected.")
 

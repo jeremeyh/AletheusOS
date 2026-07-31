@@ -36,15 +36,11 @@ def statistics() -> dict:
     capability_counter = Counter()
 
     for record in records:
-
         status_counter[record["status"]] += 1
 
         application_counter[record["application"]] += 1
 
-        capability = (
-            record["capability_resolution"]
-            .get("capability_id")
-        )
+        capability = record["capability_resolution"].get("capability_id")
 
         if capability:
             capability_counter[capability] += 1
@@ -53,12 +49,8 @@ def statistics() -> dict:
         "name": "Cognitive Kernel",
         "genesis": "46.1",
         "version": "1.0.0",
-
         "records": len(records),
-
         "status_breakdown": dict(status_counter),
-
         "applications": dict(application_counter),
-
         "capabilities": dict(capability_counter),
     }

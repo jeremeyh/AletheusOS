@@ -1,9 +1,7 @@
 import ast
 from pathlib import Path
 
-PATH = Path(
-    "aletheus/runtime/command_bootstrap/bootstrapper.py"
-)
+PATH = Path("aletheus/runtime/command_bootstrap/bootstrapper.py")
 
 text = PATH.read_text(encoding="utf-8")
 
@@ -23,15 +21,11 @@ if import_line not in text:
         for node in ast.parse(text).body
         if isinstance(node, ast.ImportFrom)
         and node.module
-        and node.module.startswith(
-            "aletheus.runtime.registrations."
-        )
+        and node.module.startswith("aletheus.runtime.registrations.")
     ]
 
     if not registration_imports:
-        raise RuntimeError(
-            "Could not locate registration import section."
-        )
+        raise RuntimeError("Could not locate registration import section.")
 
     final_import = max(
         registration_imports,
@@ -69,17 +63,14 @@ for node in ast.walk(tree):
         if isinstance(node.target, ast.Name):
             target_name = node.target.id
 
-    if (
-        target_name == "LEGACY_REGISTRATION_FUNCTIONS"
-        and isinstance(node.value, ast.Tuple)
+    if target_name == "LEGACY_REGISTRATION_FUNCTIONS" and isinstance(
+        node.value, ast.Tuple
     ):
         catalog = node.value
         break
 
 if catalog is None:
-    raise RuntimeError(
-        "LEGACY_REGISTRATION_FUNCTIONS tuple was not found."
-    )
+    raise RuntimeError("LEGACY_REGISTRATION_FUNCTIONS tuple was not found.")
 
 catalog_source = ast.get_source_segment(
     text,
@@ -87,9 +78,7 @@ catalog_source = ast.get_source_segment(
 )
 
 if catalog_source is None:
-    raise RuntimeError(
-        "Could not read registration catalog source."
-    )
+    raise RuntimeError("Could not read registration catalog source.")
 
 if "register_workflow_commands" not in catalog_source:
     closing = catalog.end_col_offset - 1
@@ -98,13 +87,7 @@ if "register_workflow_commands" not in catalog_source:
     closing_line_index = catalog.end_lineno - 1
     closing_line = lines[closing_line_index]
 
-    indent = (
-        closing_line[
-            : len(closing_line)
-            - len(closing_line.lstrip())
-        ]
-        + "    "
-    )
+    indent = closing_line[: len(closing_line) - len(closing_line.lstrip())] + "    "
 
     lines.insert(
         closing_line_index,
@@ -119,6 +102,4 @@ PATH.write_text(
     encoding="utf-8",
 )
 
-print(
-    "Legacy workflow registrar added to bootstrap catalog."
-)
+print("Legacy workflow registrar added to bootstrap catalog.")

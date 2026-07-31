@@ -8,24 +8,11 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-REPORT = (
-    ROOT
-    / "reports"
-    / "repository_hygiene"
-    / "zero_byte_other_files.csv"
-)
+REPORT = ROOT / "reports" / "repository_hygiene" / "zero_byte_other_files.csv"
 
-BATCH_ID = datetime.now(
-    UTC
-).strftime("%Y%m%dT%H%M%SZ")
+BATCH_ID = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
 
-QUARANTINE_ROOT = (
-    ROOT
-    / "archive"
-    / "quarantine"
-    / "zero_byte_non_python"
-    / BATCH_ID
-)
+QUARANTINE_ROOT = ROOT / "archive" / "quarantine" / "zero_byte_non_python" / BATCH_ID
 
 MANIFEST = QUARANTINE_ROOT / "manifest.json"
 
@@ -75,8 +62,7 @@ def load_candidates() -> list[Path]:
                 continue
 
             if any(
-                part.lower() in PROTECTED_DIRECTORY_NAMES
-                for part in relative.parts
+                part.lower() in PROTECTED_DIRECTORY_NAMES for part in relative.parts
             ):
                 continue
 
@@ -89,27 +75,19 @@ def validate(path: Path) -> None:
     try:
         path.relative_to(ROOT)
     except ValueError as exc:
-        raise RuntimeError(
-            f"Path outside repository: {path}"
-        ) from exc
+        raise RuntimeError(f"Path outside repository: {path}") from exc
 
     if not path.exists():
         return
 
     if not path.is_file():
-        raise RuntimeError(
-            f"Candidate is not a file: {path}"
-        )
+        raise RuntimeError(f"Candidate is not a file: {path}")
 
     if path.suffix == ".py":
-        raise RuntimeError(
-            f"Python file reached non-Python quarantine: {path}"
-        )
+        raise RuntimeError(f"Python file reached non-Python quarantine: {path}")
 
     if path.stat().st_size != 0:
-        raise RuntimeError(
-            f"Candidate is no longer zero bytes: {path}"
-        )
+        raise RuntimeError(f"Candidate is no longer zero bytes: {path}")
 
 
 def remove_empty_parents(start: Path) -> list[str]:
@@ -119,10 +97,7 @@ def remove_empty_parents(start: Path) -> list[str]:
     while current != ROOT:
         relative = current.relative_to(ROOT)
 
-        if any(
-            part.lower() in PROTECTED_DIRECTORY_NAMES
-            for part in relative.parts
-        ):
+        if any(part.lower() in PROTECTED_DIRECTORY_NAMES for part in relative.parts):
             break
 
         try:
@@ -141,9 +116,7 @@ def remove_empty_parents(start: Path) -> list[str]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description=(
-            "Quarantine audited zero-byte non-Python files."
-        )
+        description=("Quarantine audited zero-byte non-Python files.")
     )
     parser.add_argument(
         "--apply",
@@ -162,10 +135,7 @@ def main() -> None:
             existing.append(path)
 
     print("=" * 72)
-    print(
-        "Zero-Byte Non-Python Quarantine — "
-        + ("APPLY" if args.apply else "DRY RUN")
-    )
+    print("Zero-Byte Non-Python Quarantine — " + ("APPLY" if args.apply else "DRY RUN"))
     print("=" * 72)
     print(f"Audited candidates: {len(candidates)}")
     print(f"Existing candidates: {len(existing)}")
@@ -176,25 +146,17 @@ def main() -> None:
         print(path.relative_to(ROOT))
 
     if len(existing) > 100:
-        print(
-            f"... and {len(existing) - 100} more"
-        )
+        print(f"... and {len(existing) - 100} more")
 
     if not args.apply:
         print()
         print("No files were moved.")
-        print(
-            "Apply with: "
-            "python quarantine_zero_byte_files.py --apply"
-        )
+        print("Apply with: python quarantine_zero_byte_files.py --apply")
         return
 
     if not existing:
         print()
-        print(
-            "No existing candidates remain. "
-            "Nothing was moved."
-        )
+        print("No existing candidates remain. Nothing was moved.")
         return
 
     QUARANTINE_ROOT.mkdir(
@@ -222,28 +184,18 @@ def main() -> None:
         moved.append(
             {
                 "source": str(relative),
-                "quarantine": str(
-                    destination.relative_to(ROOT)
-                ),
+                "quarantine": str(destination.relative_to(ROOT)),
             }
         )
 
-        removed_directories.extend(
-            remove_empty_parents(source.parent)
-        )
+        removed_directories.extend(remove_empty_parents(source.parent))
 
     manifest = {
-        "created_at": datetime.now(
-            UTC
-        ).isoformat(),
-        "source_report": str(
-            REPORT.relative_to(ROOT)
-        ),
+        "created_at": datetime.now(UTC).isoformat(),
+        "source_report": str(REPORT.relative_to(ROOT)),
         "moved_count": len(moved),
         "moved": moved,
-        "removed_empty_directories": sorted(
-            set(removed_directories)
-        ),
+        "removed_empty_directories": sorted(set(removed_directories)),
     }
 
     MANIFEST.write_text(
@@ -258,13 +210,8 @@ def main() -> None:
 
     print()
     print(f"Moved files: {len(moved)}")
-    print(
-        "Removed newly empty directories: "
-        f"{len(set(removed_directories))}"
-    )
-    print(
-        f"Manifest: {MANIFEST.relative_to(ROOT)}"
-    )
+    print(f"Removed newly empty directories: {len(set(removed_directories))}")
+    print(f"Manifest: {MANIFEST.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

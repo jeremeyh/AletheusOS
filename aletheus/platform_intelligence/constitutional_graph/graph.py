@@ -89,10 +89,7 @@ class ConstitutionalGraph:
         self,
         nodes: Iterable[ConstitutionalObject],
     ) -> tuple[ConstitutionalObject, ...]:
-        return tuple(
-            self.add_node(node)
-            for node in nodes
-        )
+        return tuple(self.add_node(node) for node in nodes)
 
     def update_node(
         self,
@@ -102,9 +99,7 @@ class ConstitutionalGraph:
 
         with self._lock:
             if address not in self._nodes:
-                raise GraphNodeNotFoundError(
-                    f"Graph node not found: {address}"
-                )
+                raise GraphNodeNotFoundError(f"Graph node not found: {address}")
 
             self._nodes[address] = node
 
@@ -120,9 +115,7 @@ class ConstitutionalGraph:
             node = self._nodes.get(resolved)
 
         if node is None:
-            raise GraphNodeNotFoundError(
-                f"Graph node not found: {resolved}"
-            )
+            raise GraphNodeNotFoundError(f"Graph node not found: {resolved}")
 
         return node
 
@@ -171,21 +164,15 @@ class ConstitutionalGraph:
         node = self.get_node(resolved)
 
         with self._lock:
-            connected = (
-                self._outgoing[resolved]
-                | self._incoming[resolved]
-            )
+            connected = self._outgoing[resolved] | self._incoming[resolved]
 
             if connected and not force:
                 raise GraphNodeInUseError(
-                    f"Graph node {resolved} has "
-                    f"{len(connected)} relationships."
+                    f"Graph node {resolved} has {len(connected)} relationships."
                 )
 
             for relationship_id in tuple(connected):
-                self._remove_relationship_locked(
-                    relationship_id
-                )
+                self._remove_relationship_locked(relationship_id)
 
             del self._nodes[resolved]
             del self._outgoing[resolved]
@@ -211,32 +198,21 @@ class ConstitutionalGraph:
                     and existing.kind == relationship.kind
                 ):
                     raise GraphRelationshipAlreadyExistsError(
-                        "Equivalent constitutional relationship "
-                        "already exists."
+                        "Equivalent constitutional relationship already exists."
                     )
 
-            if (
-                self._reject_cycles
-                and self._would_create_cycle(
-                    source,
-                    target,
-                )
+            if self._reject_cycles and self._would_create_cycle(
+                source,
+                target,
             ):
                 raise ConstitutionalCycleError(
-                    f"Relationship {source} -> {target} "
-                    "would create a cycle."
+                    f"Relationship {source} -> {target} would create a cycle."
                 )
 
-            self._relationships[
-                relationship.relationship_id
-            ] = relationship
+            self._relationships[relationship.relationship_id] = relationship
 
-            self._outgoing[source].add(
-                relationship.relationship_id
-            )
-            self._incoming[target].add(
-                relationship.relationship_id
-            )
+            self._outgoing[source].add(relationship.relationship_id)
+            self._incoming[target].add(relationship.relationship_id)
 
         return relationship
 
@@ -262,14 +238,11 @@ class ConstitutionalGraph:
         relationship_id: UUID,
     ) -> ConstitutionalRelationship:
         with self._lock:
-            relationship = self._relationships.get(
-                relationship_id
-            )
+            relationship = self._relationships.get(relationship_id)
 
         if relationship is None:
             raise GraphRelationshipNotFoundError(
-                "Graph relationship not found: "
-                f"{relationship_id}"
+                f"Graph relationship not found: {relationship_id}"
             )
 
         return relationship
@@ -279,9 +252,7 @@ class ConstitutionalGraph:
         relationship_id: UUID,
     ) -> ConstitutionalRelationship:
         with self._lock:
-            return self._remove_relationship_locked(
-                relationship_id
-            )
+            return self._remove_relationship_locked(relationship_id)
 
     def relationships(
         self,
@@ -307,17 +278,11 @@ class ConstitutionalGraph:
         self.get_node(resolved)
 
         with self._lock:
-            ids = (
-                self._outgoing[resolved]
-                | self._incoming[resolved]
-            )
+            ids = self._outgoing[resolved] | self._incoming[resolved]
 
             return tuple(
                 sorted(
-                    (
-                        self._relationships[item]
-                        for item in ids
-                    ),
+                    (self._relationships[item] for item in ids),
                     key=lambda relationship: (
                         relationship.kind.value,
                         str(relationship.source),
@@ -338,8 +303,7 @@ class ConstitutionalGraph:
 
         with self._lock:
             relationships = (
-                self._relationships[item]
-                for item in self._outgoing[resolved]
+                self._relationships[item] for item in self._outgoing[resolved]
             )
 
             return tuple(
@@ -347,11 +311,7 @@ class ConstitutionalGraph:
                     (
                         relationship
                         for relationship in relationships
-                        if (
-                            not kind_filter
-                            or relationship.kind
-                            in kind_filter
-                        )
+                        if (not kind_filter or relationship.kind in kind_filter)
                     ),
                     key=lambda relationship: (
                         relationship.kind.value,
@@ -372,8 +332,7 @@ class ConstitutionalGraph:
 
         with self._lock:
             relationships = (
-                self._relationships[item]
-                for item in self._incoming[resolved]
+                self._relationships[item] for item in self._incoming[resolved]
             )
 
             return tuple(
@@ -381,11 +340,7 @@ class ConstitutionalGraph:
                     (
                         relationship
                         for relationship in relationships
-                        if (
-                            not kind_filter
-                            or relationship.kind
-                            in kind_filter
-                        )
+                        if (not kind_filter or relationship.kind in kind_filter)
                     ),
                     key=lambda relationship: (
                         relationship.kind.value,
@@ -463,9 +418,7 @@ class ConstitutionalGraph:
                 ConstitutionalAddress,
                 tuple[ConstitutionalAddress, ...],
             ]
-        ] = deque(
-            [(source_address, (source_address,))]
-        )
+        ] = deque([(source_address, (source_address,))])
 
         visited = {source_address}
 
@@ -483,15 +436,10 @@ class ConstitutionalGraph:
                 next_path = path + (neighbour,)
 
                 if neighbour == target_address:
-                    return tuple(
-                        self.get_node(item)
-                        for item in next_path
-                    )
+                    return tuple(self.get_node(item) for item in next_path)
 
                 visited.add(neighbour)
-                queue.append(
-                    (neighbour, next_path)
-                )
+                queue.append((neighbour, next_path))
 
         return ()
 
@@ -515,9 +463,7 @@ class ConstitutionalGraph:
     ) -> tuple[ConstitutionalObject, ...]:
         with self._lock:
             addresses = (
-                address
-                for address in self._nodes
-                if not self._incoming[address]
+                address for address in self._nodes if not self._incoming[address]
             )
 
             return tuple(
@@ -533,9 +479,7 @@ class ConstitutionalGraph:
     ) -> tuple[ConstitutionalObject, ...]:
         with self._lock:
             addresses = (
-                address
-                for address in self._nodes
-                if not self._outgoing[address]
+                address for address in self._nodes if not self._outgoing[address]
             )
 
             return tuple(
@@ -553,10 +497,7 @@ class ConstitutionalGraph:
             addresses = (
                 address
                 for address in self._nodes
-                if (
-                    not self._incoming[address]
-                    and not self._outgoing[address]
-                )
+                if (not self._incoming[address] and not self._outgoing[address])
             )
 
             return tuple(
@@ -576,9 +517,7 @@ class ConstitutionalGraph:
         with self._lock:
             addresses = tuple(self._nodes)
 
-        discovered: set[
-            tuple[ConstitutionalAddress, ...]
-        ] = set()
+        discovered: set[tuple[ConstitutionalAddress, ...]] = set()
 
         for start in addresses:
             self._find_cycles_from(
@@ -592,10 +531,7 @@ class ConstitutionalGraph:
         return tuple(
             sorted(
                 discovered,
-                key=lambda cycle: tuple(
-                    str(item)
-                    for item in cycle
-                ),
+                key=lambda cycle: tuple(str(item) for item in cycle),
             )
         )
 
@@ -608,9 +544,7 @@ class ConstitutionalGraph:
         with self._lock:
             remaining = set(self._nodes)
 
-        components: list[
-            tuple[ConstitutionalObject, ...]
-        ] = []
+        components: list[tuple[ConstitutionalObject, ...]] = []
 
         while remaining:
             start = min(
@@ -619,9 +553,7 @@ class ConstitutionalGraph:
             )
 
             queue = deque([start])
-            component: set[
-                ConstitutionalAddress
-            ] = set()
+            component: set[ConstitutionalAddress] = set()
 
             while queue:
                 current = queue.popleft()
@@ -645,9 +577,7 @@ class ConstitutionalGraph:
                 )
 
                 queue.extend(
-                    neighbour
-                    for neighbour in neighbours
-                    if neighbour not in component
+                    neighbour for neighbour in neighbours if neighbour not in component
                 )
 
             remaining.difference_update(component)
@@ -665,11 +595,7 @@ class ConstitutionalGraph:
         return tuple(
             sorted(
                 components,
-                key=lambda component: (
-                    component[0].address
-                    if component
-                    else ""
-                ),
+                key=lambda component: component[0].address if component else "",
             )
         )
 
@@ -688,31 +614,16 @@ class ConstitutionalGraph:
         relationship_count = len(relationships)
 
         maximum_depth = max(
-            (
-                len(
-                    self.downstream(
-                        root.identity.address
-                    )
-                )
-                for root in roots
-            ),
+            (len(self.downstream(root.identity.address)) for root in roots),
             default=0,
         )
 
-        nodes_by_kind = Counter(
-            node.kind.value
-            for node in nodes
-        )
+        nodes_by_kind = Counter(node.kind.value for node in nodes)
         relationships_by_kind = Counter(
-            relationship.kind.value
-            for relationship in relationships
+            relationship.kind.value for relationship in relationships
         )
 
-        average_degree = (
-            relationship_count / node_count
-            if node_count
-            else 0.0
-        )
+        average_degree = relationship_count / node_count if node_count else 0.0
 
         return ConstitutionalGraphStatistics(
             nodes=node_count,
@@ -725,71 +636,36 @@ class ConstitutionalGraph:
             maximum_depth=maximum_depth,
             average_out_degree=average_degree,
             average_in_degree=average_degree,
-            nodes_by_kind=MappingProxyType(
-                dict(nodes_by_kind)
-            ),
-            relationships_by_kind=MappingProxyType(
-                dict(relationships_by_kind)
-            ),
+            nodes_by_kind=MappingProxyType(dict(nodes_by_kind)),
+            relationships_by_kind=MappingProxyType(dict(relationships_by_kind)),
         )
 
     def snapshot(
         self,
     ) -> dict[str, object]:
         return {
-            "nodes": [
-                node.to_snapshot()
-                for node in self.nodes()
-            ],
+            "nodes": [node.to_snapshot() for node in self.nodes()],
             "relationships": [
                 {
-                    "relationship_id": str(
-                        relationship.relationship_id
-                    ),
-                    "source": str(
-                        relationship.source
-                    ),
-                    "target": str(
-                        relationship.target
-                    ),
+                    "relationship_id": str(relationship.relationship_id),
+                    "source": str(relationship.source),
+                    "target": str(relationship.target),
                     "kind": relationship.kind.value,
-                    "created_at": (
-                        relationship.created_at.isoformat()
-                    ),
-                    "metadata": dict(
-                        relationship.metadata
-                    ),
+                    "created_at": (relationship.created_at.isoformat()),
+                    "metadata": dict(relationship.metadata),
                 }
-                for relationship
-                in self.relationships()
+                for relationship in self.relationships()
             ],
             "topology": {
-                "roots": [
-                    node.address
-                    for node in self.roots()
-                ],
-                "leaves": [
-                    node.address
-                    for node in self.leaves()
-                ],
-                "orphans": [
-                    node.address
-                    for node in self.orphans()
-                ],
+                "roots": [node.address for node in self.roots()],
+                "leaves": [node.address for node in self.leaves()],
+                "orphans": [node.address for node in self.orphans()],
                 "cycles": [
-                    [
-                        str(address)
-                        for address in cycle
-                    ]
-                    for cycle in self.cycles()
+                    [str(address) for address in cycle] for cycle in self.cycles()
                 ],
                 "components": [
-                    [
-                        node.address
-                        for node in component
-                    ]
-                    for component
-                    in self.connected_components()
+                    [node.address for node in component]
+                    for component in self.connected_components()
                 ],
             },
             "statistics": self.statistics().to_dict(),
@@ -824,10 +700,7 @@ class ConstitutionalGraph:
                 ordered.append(neighbour)
                 queue.append(neighbour)
 
-        return tuple(
-            self.get_node(item)
-            for item in ordered
-        )
+        return tuple(self.get_node(item) for item in ordered)
 
     def _neighbours(
         self,
@@ -843,9 +716,7 @@ class ConstitutionalGraph:
         )
 
         addresses = (
-            relationship.target
-            if direction == "outgoing"
-            else relationship.source
+            relationship.target if direction == "outgoing" else relationship.source
             for relationship in relationships
         )
 
@@ -876,9 +747,7 @@ class ConstitutionalGraph:
         current: ConstitutionalAddress,
         path: tuple[ConstitutionalAddress, ...],
         active: set[ConstitutionalAddress],
-        discovered: set[
-            tuple[ConstitutionalAddress, ...]
-        ],
+        discovered: set[tuple[ConstitutionalAddress, ...]],
     ) -> None:
         for neighbour in self._neighbours(
             current,
@@ -886,9 +755,7 @@ class ConstitutionalGraph:
         ):
             if neighbour == start:
                 cycle = path
-                discovered.add(
-                    self._canonical_cycle(cycle)
-                )
+                discovered.add(self._canonical_cycle(cycle))
                 continue
 
             if neighbour in active:
@@ -906,44 +773,29 @@ class ConstitutionalGraph:
     def _canonical_cycle(
         cycle: tuple[ConstitutionalAddress, ...],
     ) -> tuple[ConstitutionalAddress, ...]:
-        rotations = [
-            cycle[index:] + cycle[:index]
-            for index in range(len(cycle))
-        ]
+        rotations = [cycle[index:] + cycle[:index] for index in range(len(cycle))]
 
         return min(
             rotations,
-            key=lambda rotation: tuple(
-                str(item)
-                for item in rotation
-            ),
+            key=lambda rotation: tuple(str(item) for item in rotation),
         )
 
     def _remove_relationship_locked(
         self,
         relationship_id: UUID,
     ) -> ConstitutionalRelationship:
-        relationship = self._relationships.get(
-            relationship_id
-        )
+        relationship = self._relationships.get(relationship_id)
 
         if relationship is None:
             raise GraphRelationshipNotFoundError(
-                "Graph relationship not found: "
-                f"{relationship_id}"
+                f"Graph relationship not found: {relationship_id}"
             )
 
-        self._outgoing[
-            relationship.source
-        ].discard(relationship_id)
+        self._outgoing[relationship.source].discard(relationship_id)
 
-        self._incoming[
-            relationship.target
-        ].discard(relationship_id)
+        self._incoming[relationship.target].discard(relationship_id)
 
-        del self._relationships[
-            relationship_id
-        ]
+        del self._relationships[relationship_id]
 
         return relationship
 
@@ -952,9 +804,7 @@ class ConstitutionalGraph:
         address: ConstitutionalAddress,
     ) -> None:
         if address not in self._nodes:
-            raise GraphNodeNotFoundError(
-                f"Graph node not found: {address}"
-            )
+            raise GraphNodeNotFoundError(f"Graph node not found: {address}")
 
     @staticmethod
     def _address(

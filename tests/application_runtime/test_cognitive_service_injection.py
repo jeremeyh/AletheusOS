@@ -13,26 +13,17 @@ from aletheus.platform_surface import (
 
 class CognitiveHostedApplication:
     manifest = ApplicationManifest(
-        application_id=(
-            "aletheus.cognitive_hosted_proof"
-        ),
-        canonical_name=(
-            "Cognitive Hosted Proof™"
-        ),
+        application_id=("aletheus.cognitive_hosted_proof"),
+        canonical_name=("Cognitive Hosted Proof™"),
         version="0.1.0",
         owner="6th Dimension Multimedia",
-        purpose=(
-            "Prove injection of cognition, "
-            "instrumentation, and scenarios."
-        ),
+        purpose=("Prove injection of cognition, instrumentation, and scenarios."),
         required_services=(
             "cognition",
             "instrumentation",
             "scenarios",
         ),
-        provided_capabilities=(
-            "cognitive_platform_proof",
-        ),
+        provided_capabilities=("cognitive_platform_proof",),
     )
 
     def __init__(self) -> None:
@@ -53,31 +44,19 @@ class CognitiveHostedApplication:
 
     def health(self) -> dict[str, Any]:
         return {
-            "status": (
-                "online"
-                if self.running
-                else "stopped"
-            ),
-            "services": sorted(
-                self.services
-            ),
+            "status": ("online" if self.running else "stopped"),
+            "services": sorted(self.services),
         }
 
 
 def test_application_runtime_injects_cognitive_services():
     platform = build_aletheus_platform()
 
-    runtime = ConstitutionalApplicationRuntime(
-        platform=platform
-    )
+    runtime = ConstitutionalApplicationRuntime(platform=platform)
 
-    application = (
-        CognitiveHostedApplication()
-    )
+    application = CognitiveHostedApplication()
 
-    application_id = (
-        application.manifest.application_id
-    )
+    application_id = application.manifest.application_id
 
     runtime.install(application)
     runtime.initialize(application_id)

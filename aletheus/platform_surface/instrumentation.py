@@ -38,17 +38,13 @@ class InstrumentationSurface:
         self,
         instrument_id: str,
     ) -> InstrumentState:
-        return self._bus.state(
-            instrument_id
-        )
+        return self._bus.state(instrument_id)
 
     def signals(
         self,
         instrument_id: str,
     ) -> tuple[InstrumentSignal, ...]:
-        return self._bus.signals(
-            instrument_id
-        )
+        return self._bus.signals(instrument_id)
 
     def snapshot(
         self,

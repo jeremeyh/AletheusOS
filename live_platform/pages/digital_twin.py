@@ -13,6 +13,7 @@ def render(state):
 
     try:
         from portfolio_digital_twin.digital_twin_service import PortfolioDigitalTwin
+
         if st.button("Simulate Portfolio Impact"):
             st.json(PortfolioDigitalTwin.simulate_add(assets, ask, est))
     except Exception:

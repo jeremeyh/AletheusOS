@@ -11,6 +11,7 @@ class AssetMedia:
 
     Media vault for front/back images, details, receipts, certificates, and videos.
     """
+
     files: list[str] = field(default_factory=list)
     cover_image: str = ""
 

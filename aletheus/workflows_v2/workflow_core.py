@@ -11,7 +11,13 @@ class AletheusWorkflowFabric:
         self.workflows: list[WorkflowExecution] = []
         self.events: list[WorkflowEvent] = []
 
-    def emit(self, workflow_id: str, event_type: str, message: str, payload: dict[str, Any] | None = None) -> WorkflowEvent:
+    def emit(
+        self,
+        workflow_id: str,
+        event_type: str,
+        message: str,
+        payload: dict[str, Any] | None = None,
+    ) -> WorkflowEvent:
         item = WorkflowEvent(
             workflow_id=workflow_id,
             event_type=event_type,
@@ -139,11 +145,18 @@ class AletheusWorkflowFabric:
             nodes=workflow_nodes,
         )
         self.workflows.append(workflow)
-        self.emit(workflow.workflow_id, "workflow.created", f"Workflow created: {title}", workflow.to_dict())
+        self.emit(
+            workflow.workflow_id,
+            "workflow.created",
+            f"Workflow created: {title}",
+            workflow.to_dict(),
+        )
         return workflow
 
     def get_workflow(self, workflow_id: str) -> WorkflowExecution | None:
-        return next((item for item in self.workflows if item.workflow_id == workflow_id), None)
+        return next(
+            (item for item in self.workflows if item.workflow_id == workflow_id), None
+        )
 
     def list_workflows(self, status: str | None = None) -> list[dict[str, Any]]:
         items = self.workflows
@@ -151,12 +164,21 @@ class AletheusWorkflowFabric:
             items = [workflow for workflow in items if workflow.status == status]
         return [workflow.to_dict() for workflow in items]
 
-    def execute_node(self, workflow: WorkflowExecution, node: WorkflowNode, runtime: Any) -> dict[str, Any]:
+    def execute_node(
+        self, workflow: WorkflowExecution, node: WorkflowNode, runtime: Any
+    ) -> dict[str, Any]:
         node.start()
-        self.emit(workflow.workflow_id, "workflow.node.started", f"Node started: {node.title}", node.to_dict())
+        self.emit(
+            workflow.workflow_id,
+            "workflow.node.started",
+            f"Node started: {node.title}",
+            node.to_dict(),
+        )
 
         if node.node_type == "command" and node.command:
-            context = runtime.commands.dispatch(node.command, node.payload, application=node.application)
+            context = runtime.commands.dispatch(
+                node.command, node.payload, application=node.application
+            )
             result = {
                 "command": node.command,
                 "results": context.results,
@@ -165,10 +187,20 @@ class AletheusWorkflowFabric:
 
             if context.errors:
                 node.fail(result)
-                self.emit(workflow.workflow_id, "workflow.node.failed", f"Node failed: {node.title}", node.to_dict())
+                self.emit(
+                    workflow.workflow_id,
+                    "workflow.node.failed",
+                    f"Node failed: {node.title}",
+                    node.to_dict(),
+                )
             else:
                 node.complete(result)
-                self.emit(workflow.workflow_id, "workflow.node.completed", f"Node completed: {node.title}", node.to_dict())
+                self.emit(
+                    workflow.workflow_id,
+                    "workflow.node.completed",
+                    f"Node completed: {node.title}",
+                    node.to_dict(),
+                )
 
             return result
 
@@ -180,7 +212,9 @@ class AletheusWorkflowFabric:
                 "payload": node.payload,
             },
         )
-        agent_run = runtime.commands.dispatch("agent.run", {"agent_name": node.assigned_agent})
+        agent_run = runtime.commands.dispatch(
+            "agent.run", {"agent_name": node.assigned_agent}
+        )
 
         result = {
             "assignment": assignment.results,
@@ -190,10 +224,20 @@ class AletheusWorkflowFabric:
 
         if result["errors"]:
             node.fail(result)
-            self.emit(workflow.workflow_id, "workflow.node.failed", f"Node failed: {node.title}", node.to_dict())
+            self.emit(
+                workflow.workflow_id,
+                "workflow.node.failed",
+                f"Node failed: {node.title}",
+                node.to_dict(),
+            )
         else:
             node.complete(result)
-            self.emit(workflow.workflow_id, "workflow.node.completed", f"Node completed: {node.title}", node.to_dict())
+            self.emit(
+                workflow.workflow_id,
+                "workflow.node.completed",
+                f"Node completed: {node.title}",
+                node.to_dict(),
+            )
 
         return result
 
@@ -204,7 +248,12 @@ class AletheusWorkflowFabric:
 
         if workflow.status in {"queued", "created"}:
             workflow.start()
-            self.emit(workflow.workflow_id, "workflow.started", f"Workflow started: {workflow.title}", workflow.to_dict())
+            self.emit(
+                workflow.workflow_id,
+                "workflow.started",
+                f"Workflow started: {workflow.title}",
+                workflow.to_dict(),
+            )
 
         pending = [node for node in workflow.nodes if node.status == "queued"]
         if not pending:
@@ -219,9 +268,19 @@ class AletheusWorkflowFabric:
         workflow.fail_if_needed()
 
         if workflow.status == "completed":
-            self.emit(workflow.workflow_id, "workflow.completed", f"Workflow completed: {workflow.title}", workflow.to_dict())
+            self.emit(
+                workflow.workflow_id,
+                "workflow.completed",
+                f"Workflow completed: {workflow.title}",
+                workflow.to_dict(),
+            )
         elif workflow.status == "failed":
-            self.emit(workflow.workflow_id, "workflow.failed", f"Workflow failed: {workflow.title}", workflow.to_dict())
+            self.emit(
+                workflow.workflow_id,
+                "workflow.failed",
+                f"Workflow failed: {workflow.title}",
+                workflow.to_dict(),
+            )
 
         return {
             "workflow": workflow.to_dict(),
@@ -244,7 +303,11 @@ class AletheusWorkflowFabric:
             outputs.append(result)
 
             workflow = self.get_workflow(workflow_id)
-            if workflow is None or workflow.status in {"completed", "failed", "cancelled"}:
+            if workflow is None or workflow.status in {
+                "completed",
+                "failed",
+                "cancelled",
+            }:
                 break
 
         workflow = self.get_workflow(workflow_id)
@@ -271,7 +334,12 @@ class AletheusWorkflowFabric:
         if workflow is None:
             return {"error": f"Workflow not found: {workflow_id}"}
         workflow.status = "paused"
-        self.emit(workflow_id, "workflow.paused", f"Workflow paused: {workflow.title}", workflow.to_dict())
+        self.emit(
+            workflow_id,
+            "workflow.paused",
+            f"Workflow paused: {workflow.title}",
+            workflow.to_dict(),
+        )
         return workflow.to_dict()
 
     def resume(self, workflow_id: str) -> dict[str, Any]:
@@ -279,7 +347,12 @@ class AletheusWorkflowFabric:
         if workflow is None:
             return {"error": f"Workflow not found: {workflow_id}"}
         workflow.status = "queued"
-        self.emit(workflow_id, "workflow.resumed", f"Workflow resumed: {workflow.title}", workflow.to_dict())
+        self.emit(
+            workflow_id,
+            "workflow.resumed",
+            f"Workflow resumed: {workflow.title}",
+            workflow.to_dict(),
+        )
         return workflow.to_dict()
 
     def cancel(self, workflow_id: str) -> dict[str, Any]:
@@ -287,7 +360,12 @@ class AletheusWorkflowFabric:
         if workflow is None:
             return {"error": f"Workflow not found: {workflow_id}"}
         workflow.status = "cancelled"
-        self.emit(workflow_id, "workflow.cancelled", f"Workflow cancelled: {workflow.title}", workflow.to_dict())
+        self.emit(
+            workflow_id,
+            "workflow.cancelled",
+            f"Workflow cancelled: {workflow.title}",
+            workflow.to_dict(),
+        )
         return workflow.to_dict()
 
     def history(self, workflow_id: str = "") -> list[dict[str, Any]]:
@@ -301,11 +379,17 @@ class AletheusWorkflowFabric:
             "version": self.version,
             "workflows": len(self.workflows),
             "queued": len([item for item in self.workflows if item.status == "queued"]),
-            "running": len([item for item in self.workflows if item.status == "running"]),
-            "completed": len([item for item in self.workflows if item.status == "completed"]),
+            "running": len(
+                [item for item in self.workflows if item.status == "running"]
+            ),
+            "completed": len(
+                [item for item in self.workflows if item.status == "completed"]
+            ),
             "failed": len([item for item in self.workflows if item.status == "failed"]),
             "paused": len([item for item in self.workflows if item.status == "paused"]),
-            "cancelled": len([item for item in self.workflows if item.status == "cancelled"]),
+            "cancelled": len(
+                [item for item in self.workflows if item.status == "cancelled"]
+            ),
             "events": len(self.events),
         }
 

@@ -47,9 +47,7 @@ class UnifiedCognitiveIndex:
         self,
         relationship: UCIRelationship,
     ) -> None:
-        self._relationships[
-            relationship.relationship_id
-        ] = relationship
+        self._relationships[relationship.relationship_id] = relationship
 
     def get_relationship(
         self,
@@ -100,16 +98,12 @@ class UnifiedCognitiveIndex:
         connected = []
 
         for relationship in self.outgoing_relationships(node_id):
-            node = self.get_node(
-                relationship.target_node_id
-            )
+            node = self.get_node(relationship.target_node_id)
             if node:
                 connected.append(node)
 
         for relationship in self.incoming_relationships(node_id):
-            node = self.get_node(
-                relationship.source_node_id
-            )
+            node = self.get_node(relationship.source_node_id)
             if node:
                 connected.append(node)
 
@@ -129,10 +123,7 @@ class UnifiedCognitiveIndex:
         matches = [
             node
             for node in self._nodes.values()
-            if (
-                text in node.title.lower()
-                or text in node.description.lower()
-            )
+            if (text in node.title.lower() or text in node.description.lower())
         ]
 
         return UCIQueryResult(
@@ -162,23 +153,14 @@ class UnifiedCognitiveIndex:
         orphan_nodes = 0
 
         for node in self._nodes.values():
-
-            if (
-                not self.outgoing_relationships(node.node_id)
-                and not self.incoming_relationships(node.node_id)
-            ):
+            if not self.outgoing_relationships(
+                node.node_id
+            ) and not self.incoming_relationships(node.node_id):
                 orphan_nodes += 1
 
-        weights = [
-            relationship.weight
-            for relationship in self._relationships.values()
-        ]
+        weights = [relationship.weight for relationship in self._relationships.values()]
 
-        average_weight = (
-            sum(weights) / len(weights)
-            if weights
-            else 0.0
-        )
+        average_weight = sum(weights) / len(weights) if weights else 0.0
 
         return UCIHealthReport(
             status="healthy",

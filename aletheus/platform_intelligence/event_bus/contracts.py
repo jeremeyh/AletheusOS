@@ -15,8 +15,7 @@ class ConstitutionalEventHandler(Protocol):
     def __call__(
         self,
         event: ConstitutionalEvent,
-    ) -> None:
-        ...
+    ) -> None: ...
 
 
 class ConstitutionalSubscriber(Protocol):
@@ -25,5 +24,4 @@ class ConstitutionalSubscriber(Protocol):
     def handle(
         self,
         event: ConstitutionalEvent,
-    ) -> None:
-        ...
+    ) -> None: ...

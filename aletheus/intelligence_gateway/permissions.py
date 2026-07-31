@@ -6,20 +6,6 @@ Genesis 13.43
 
 
 class PermissionEngine:
+    def authorize(self, identity, capability):
 
-
-    def authorize(
-        self,
-        identity,
-        capability
-    ):
-
-
-        return {
-
-            "allowed":
-
-                True
-
-        }
-
+        return {"allowed": True}

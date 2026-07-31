@@ -42,9 +42,7 @@ class ObservatorySubsystemScore:
 
     def __post_init__(self) -> None:
         if not 0.0 <= self.score <= 100.0:
-            raise ValueError(
-                "score must be between 0 and 100."
-            )
+            raise ValueError("score must be between 0 and 100.")
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -69,15 +67,10 @@ class ConstitutionalRuntimeHealthScore:
 
     def to_dict(self) -> dict[str, Any]:
         return {
-            "generated_at": (
-                self.generated_at.isoformat()
-            ),
+            "generated_at": (self.generated_at.isoformat()),
             "overall_score": self.overall_score,
             "band": self.band.value,
-            "subsystems": [
-                item.to_dict()
-                for item in self.subsystems
-            ],
+            "subsystems": [item.to_dict() for item in self.subsystems],
         }
 
 
@@ -145,61 +138,32 @@ class ObservatorySnapshot:
             generated_at=datetime.now(UTC),
             sequence=sequence,
             kernel=MappingProxyType(dict(kernel)),
-            supervisor=MappingProxyType(
-                dict(supervisor)
-            ),
-            executive=MappingProxyType(
-                dict(executive)
-            ),
-            policy_engine=MappingProxyType(
-                dict(policy_engine)
-            ),
-            governor=MappingProxyType(
-                dict(governor)
-            ),
-            council=MappingProxyType(
-                dict(council)
-            ),
-            dependency_manager=MappingProxyType(
-                dict(dependency_manager)
-            ),
-            services=tuple(
-                MappingProxyType(dict(service))
-                for service in services
-            ),
+            supervisor=MappingProxyType(dict(supervisor)),
+            executive=MappingProxyType(dict(executive)),
+            policy_engine=MappingProxyType(dict(policy_engine)),
+            governor=MappingProxyType(dict(governor)),
+            council=MappingProxyType(dict(council)),
+            dependency_manager=MappingProxyType(dict(dependency_manager)),
+            services=tuple(MappingProxyType(dict(service)) for service in services),
             health=health,
             drift=drift,
         )
 
     def to_dict(self) -> dict[str, Any]:
         return {
-            "snapshot_id": str(
-                self.snapshot_id
-            ),
-            "generated_at": (
-                self.generated_at.isoformat()
-            ),
+            "snapshot_id": str(self.snapshot_id),
+            "generated_at": (self.generated_at.isoformat()),
             "sequence": self.sequence,
             "kernel": dict(self.kernel),
             "supervisor": dict(self.supervisor),
             "executive": dict(self.executive),
-            "policy_engine": dict(
-                self.policy_engine
-            ),
+            "policy_engine": dict(self.policy_engine),
             "governor": dict(self.governor),
             "council": dict(self.council),
-            "dependency_manager": dict(
-                self.dependency_manager
-            ),
-            "services": [
-                dict(service)
-                for service in self.services
-            ],
+            "dependency_manager": dict(self.dependency_manager),
+            "services": [dict(service) for service in self.services],
             "health": self.health.to_dict(),
-            "drift": [
-                item.to_dict()
-                for item in self.drift
-            ],
+            "drift": [item.to_dict() for item in self.drift],
         }
 
 
@@ -217,15 +181,11 @@ class ObservatoryTimelineEntry:
     def to_dict(self) -> dict[str, Any]:
         return {
             "sequence": self.sequence,
-            "recorded_at": (
-                self.recorded_at.isoformat()
-            ),
+            "recorded_at": (self.recorded_at.isoformat()),
             "event_type": self.event_type,
             "subject": self.subject,
             "summary": self.summary,
-            "snapshot_id": str(
-                self.snapshot_id
-            ),
+            "snapshot_id": str(self.snapshot_id),
         }
 
 
@@ -241,9 +201,7 @@ class ObservatoryExplanation:
     def to_dict(self) -> dict[str, Any]:
         return {
             "subject": self.subject,
-            "generated_at": (
-                self.generated_at.isoformat()
-            ),
+            "generated_at": (self.generated_at.isoformat()),
             "explanation": self.explanation,
             "evidence": list(self.evidence),
         }
@@ -264,14 +222,8 @@ class ObservatoryStatistics:
     ) -> dict[str, int | float | None]:
         return {
             "snapshots": self.snapshots,
-            "timeline_entries": (
-                self.timeline_entries
-            ),
-            "drift_observations": (
-                self.drift_observations
-            ),
+            "timeline_entries": (self.timeline_entries),
+            "drift_observations": (self.drift_observations),
             "explanations": self.explanations,
-            "latest_health_score": (
-                self.latest_health_score
-            ),
+            "latest_health_score": (self.latest_health_score),
         }

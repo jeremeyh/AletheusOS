@@ -38,10 +38,12 @@ class RepositoryDNAInventoryProvider:
         records = []
         for child in sorted(aletheus_root.iterdir()):
             if child.is_dir() and not child.name.startswith("__"):
-                records.append({
-                    "name": child.name,
-                    "path": str(child),
-                    "python_files": len(list(child.rglob("*.py"))),
-                    "family": "Unclassified",
-                })
+                records.append(
+                    {
+                        "name": child.name,
+                        "path": str(child),
+                        "python_files": len(list(child.rglob("*.py"))),
+                        "family": "Unclassified",
+                    }
+                )
         return records

@@ -21,9 +21,7 @@ class FunctionalCognitiveParticipant:
         ],
     ) -> None:
         if not engine_id.strip():
-            raise ValueError(
-                "engine_id may not be blank."
-            )
+            raise ValueError("engine_id may not be blank.")
 
         self.engine_id = engine_id
         self._evaluator = evaluator

@@ -6,34 +6,24 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
-VALIDATOR = (
-    ROOT
-    / "validate_nimble_dependency_exceptions.py"
-)
+VALIDATOR = ROOT / "validate_nimble_dependency_exceptions.py"
 
-SCANNER = (
-    ROOT
-    / "scan_nimble_dependency_risk.py"
-)
+SCANNER = ROOT / "scan_nimble_dependency_risk.py"
 
 
 def load_module(
     name: str,
     path: Path,
 ):
-    specification = (
-        importlib.util.spec_from_file_location(
-            name,
-            path,
-        )
+    specification = importlib.util.spec_from_file_location(
+        name,
+        path,
     )
 
     assert specification is not None
     assert specification.loader is not None
 
-    module = importlib.util.module_from_spec(
-        specification
-    )
+    module = importlib.util.module_from_spec(specification)
     specification.loader.exec_module(module)
 
     return module
@@ -48,16 +38,13 @@ def valid_exception():
         "exception_type": "license_review",
         "subject": "unknown",
         "rationale": (
-            "A reviewed temporary exception with "
-            "sufficient documented justification."
+            "A reviewed temporary exception with sufficient documented justification."
         ),
         "approved_by": "Council",
         "owner": "Platform",
         "ticket": "SEC-1",
-        "created_at":
-            "2026-07-10T00:00:00+00:00",
-        "expires_at":
-            "2026-10-10T00:00:00+00:00",
+        "created_at": "2026-07-10T00:00:00+00:00",
+        "expires_at": "2026-10-10T00:00:00+00:00",
         "status": "active",
     }
 
@@ -88,9 +75,7 @@ def test_expired_active_exception_fails():
     )
 
     item = valid_exception()
-    item["expires_at"] = (
-        "2026-07-10T01:00:00+00:00"
-    )
+    item["expires_at"] = "2026-07-10T01:00:00+00:00"
 
     failures = module.validate_exception(
         item,
@@ -102,10 +87,7 @@ def test_expired_active_exception_fails():
         ),
     )
 
-    assert (
-        "active exception has expired"
-        in failures
-    )
+    assert "active exception has expired" in failures
 
 
 def test_exception_matching_is_exact():

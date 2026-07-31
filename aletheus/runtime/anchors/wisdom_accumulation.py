@@ -5,26 +5,13 @@ Wisdom Accumulation Engine
 
 
 class WisdomAccumulationEngine:
-
-
     def __init__(self):
 
-        self.wisdom=[]
-
-
+        self.wisdom = []
 
     def accumulate(self, experience):
 
-        record={
-
-            "experience":
-                experience,
-
-            "converted_to_wisdom":
-                True
-
-        }
-
+        record = {"experience": experience, "converted_to_wisdom": True}
 
         self.wisdom.append(record)
 

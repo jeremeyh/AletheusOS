@@ -1,4 +1,5 @@
 """Base transformation interfaces."""
+
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
@@ -9,6 +10,7 @@ from typing import Any
 class TransformationError(RuntimeError):
     pass
 
+
 class Transformation(ABC):
     name: str
 
@@ -17,5 +19,7 @@ class Transformation(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def transform(self, *, candidate: Any, path: Path, source: str) -> tuple[str, tuple[str, ...]]:
+    def transform(
+        self, *, candidate: Any, path: Path, source: str
+    ) -> tuple[str, tuple[str, ...]]:
         raise NotImplementedError

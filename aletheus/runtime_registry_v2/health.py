@@ -78,9 +78,7 @@ class HealthMonitor:
                 "degraded": 0,
             }
 
-        healthy = sum(
-            1 for c in self._checks.values() if c.healthy
-        )
+        healthy = sum(1 for c in self._checks.values() if c.healthy)
 
         degraded = total - healthy
 

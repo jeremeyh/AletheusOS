@@ -78,35 +78,22 @@ class ReasonEngine:
         #
 
         reason = ReasonObject(
-
             reason_id=new_reason_id(),
-
             intent=intent,
-
             identity=identity,
-
             query=query,
-
             conclusion=conclusion,
-
             evidence=evidence or [],
-
             memories_used=memories_used or [],
-
             alternatives_considered=alternatives,
-
             constitutional_articles=constitutional_articles or [],
-
             provenance=provenance or {},
-
             metadata=metadata or {},
         )
 
         reason.set_confidence(confidence)
 
-        reason.set_status(
-            ReasonStatus.INFERRED
-        )
+        reason.set_status(ReasonStatus.INFERRED)
 
         #
         # Constitutional justification
@@ -125,10 +112,7 @@ class ReasonEngine:
         #
 
         if reason.status == ReasonStatus.EVALUATED:
-
-            reason.set_status(
-                ReasonStatus.COMPLETED
-            )
+            reason.set_status(ReasonStatus.COMPLETED)
 
         reason_registry.register(reason)
 
@@ -137,21 +121,13 @@ class ReasonEngine:
     def health(self) -> dict:
 
         return {
-
             "name": "Reason Engine",
-
             "genesis": self.GENESIS,
-
             "version": self.VERSION,
-
             "status": "healthy",
-
             "registry": reason_registry.health(),
-
             "inference": reason_inference.health(),
-
             "justification": reason_justification.health(),
-
             "evaluation": reason_evaluation.health(),
         }
 

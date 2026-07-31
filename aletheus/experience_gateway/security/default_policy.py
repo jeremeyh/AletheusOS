@@ -44,35 +44,23 @@ class DefaultAuthorizationPolicy:
                 command_id=command_id,
             )
 
-        minimum_role = MINIMUM_ROLE_BY_RISK.get(
-            command_risk
-        )
+        minimum_role = MINIMUM_ROLE_BY_RISK.get(command_risk)
 
         if minimum_role is None:
             return AuthorizationDecision(
                 outcome="deny",
-                reason=(
-                    "Command risk is not recognized by "
-                    "the authorization policy."
-                ),
+                reason=("Command risk is not recognized by the authorization policy."),
                 policy_id=self.policy_id,
                 principal_id=principal.subject_id,
                 command_id=command_id,
             )
 
-        principal_rank = max(
-            ROLE_RANK[role]
-            for role in principal.roles
-        )
+        principal_rank = max(ROLE_RANK[role] for role in principal.roles)
 
-        required_rank = ROLE_RANK[
-            minimum_role
-        ]
+        required_rank = ROLE_RANK[minimum_role]
 
         matched_roles = tuple(
-            role
-            for role in principal.roles
-            if ROLE_RANK[role] >= required_rank
+            role for role in principal.roles if ROLE_RANK[role] >= required_rank
         )
 
         if principal_rank < required_rank:
@@ -109,10 +97,7 @@ class DefaultAuthorizationPolicy:
 
         return AuthorizationDecision(
             outcome="allow",
-            reason=(
-                "Principal role and entitlements satisfy "
-                "the command policy."
-            ),
+            reason=("Principal role and entitlements satisfy the command policy."),
             policy_id=self.policy_id,
             principal_id=principal.subject_id,
             command_id=command_id,
@@ -121,6 +106,5 @@ class DefaultAuthorizationPolicy:
         )
 
 
-def create_default_authorization_policy(
-) -> DefaultAuthorizationPolicy:
+def create_default_authorization_policy() -> DefaultAuthorizationPolicy:
     return DefaultAuthorizationPolicy()

@@ -48,7 +48,6 @@ def main():
     updated = 0
 
     for row in rows:
-
         card = {
             "player": row["player"],
             "year": row["year"],
@@ -62,7 +61,6 @@ def main():
         }
 
         try:
-
             score = ThorX.score(card)
 
             AssetRepository.update_thorx(
@@ -70,19 +68,12 @@ def main():
                 score,
             )
 
-            print(
-                f"Asset {row['id']:>3} | "
-                f"{row['player']} | "
-                f"THORᵡ {score}"
-            )
+            print(f"Asset {row['id']:>3} | {row['player']} | THORᵡ {score}")
 
             updated += 1
 
         except Exception as exc:
-
-            print(
-                f"Asset {row['id']} failed: {exc}"
-            )
+            print(f"Asset {row['id']} failed: {exc}")
 
     conn.close()
 

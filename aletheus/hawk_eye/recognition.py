@@ -6,23 +6,6 @@ Genesis 13.36
 
 
 class ObjectRecognitionEngine:
+    def detect(self, image):
 
-
-    def detect(
-        self,
-        image
-    ):
-
-
-        return {
-
-            "object":
-
-                "unknown",
-
-            "confidence":
-
-                0
-
-        }
-
+        return {"object": "unknown", "confidence": 0}

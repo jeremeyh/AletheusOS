@@ -19,20 +19,15 @@ class CommandPalette:
         #
 
         if command == "refresh portfolio":
-
             count = AssetEnrichmentEngine.refresh_all()
 
-            return {
-                "success": True,
-                "message": f"Refreshed {count} assets."
-            }
+            return {"success": True, "message": f"Refreshed {count} assets."}
 
         #
         # Portfolio Snapshot
         #
 
         if command == "portfolio":
-
             return PortfolioDigitalTwin.snapshot()
 
         #
@@ -40,23 +35,6 @@ class CommandPalette:
         #
 
         if command == "help":
+            return {"commands": ["portfolio", "refresh portfolio", "help"]}
 
-            return {
-                "commands": [
-
-                    "portfolio",
-
-                    "refresh portfolio",
-
-                    "help"
-
-                ]
-            }
-
-        return {
-
-            "success": False,
-
-            "message": "Unknown command."
-
-        }
+        return {"success": False, "message": "Unknown command."}

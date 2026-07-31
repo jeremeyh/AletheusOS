@@ -6,17 +6,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
-CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/audit/"
-    "deployment-audit-ledger-contract.json"
-)
+CONTRACT_PATH = ROOT / "nimble/governance/audit/deployment-audit-ledger-contract.json"
 
-LEDGER_PATH = (
-    ROOT
-    / "nimble/governance/audit/"
-    "deployment-audit-ledger.jsonl"
-)
+LEDGER_PATH = ROOT / "nimble/governance/audit/deployment-audit-ledger.jsonl"
 
 WRITER = ROOT / "bin/append_nimble_audit_event.py"
 
@@ -32,23 +24,11 @@ def test_audit_ledger_exists() -> None:
 
 
 def test_contract_requires_sha256_chain() -> None:
-    contract = json.loads(
-        CONTRACT_PATH.read_text(
-            encoding="utf-8"
-        )
-    )
+    contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
 
-    assert (
-        contract["ledger"]["hash_algorithm"]
-        == "sha256"
-    )
+    assert contract["ledger"]["hash_algorithm"] == "sha256"
 
-    assert (
-        contract["policy"][
-            "tamper_detection_required"
-        ]
-        is True
-    )
+    assert contract["policy"]["tamper_detection_required"] is True
 
 
 def test_empty_ledger_validates() -> None:
@@ -116,17 +96,13 @@ def test_event_writer_rejects_unknown_event_type() -> None:
 
 
 def test_workflows_append_deployment_events() -> None:
-    staging = (
-        ROOT
-        / ".github/workflows/"
-        "nimble-staging-promotion.yml"
-    ).read_text(encoding="utf-8")
+    staging = (ROOT / ".github/workflows/nimble-staging-promotion.yml").read_text(
+        encoding="utf-8"
+    )
 
-    production = (
-        ROOT
-        / ".github/workflows/"
-        "nimble-production-promotion.yml"
-    ).read_text(encoding="utf-8")
+    production = (ROOT / ".github/workflows/nimble-production-promotion.yml").read_text(
+        encoding="utf-8"
+    )
 
     assert "deployment_started" in staging
     assert "deployment_completed" in staging
@@ -140,10 +116,7 @@ def test_workflows_append_deployment_events() -> None:
 
 
 def test_audit_helper_exists_and_is_executable() -> None:
-    helper = (
-        ROOT
-        / "scripts/nimble_append_audit_event.sh"
-    )
+    helper = ROOT / "scripts/nimble_append_audit_event.sh"
 
     assert helper.is_file()
     assert helper.stat().st_mode & 0o111
@@ -153,10 +126,7 @@ def test_tamper_simulation_detects_modification() -> None:
     result = subprocess.run(
         [
             "python",
-            str(
-                ROOT
-                / "test_nimble_audit_ledger_tamper.py"
-            ),
+            str(ROOT / "test_nimble_audit_ledger_tamper.py"),
         ],
         cwd=ROOT,
         capture_output=True,
@@ -165,8 +135,5 @@ def test_tamper_simulation_detects_modification() -> None:
     )
 
     assert result.returncode == 0
-    assert (
-        "Historical event modification: DETECTED"
-        in result.stdout
-    )
+    assert "Historical event modification: DETECTED" in result.stdout
     assert "Canonical ledger isolation: PASS" in result.stdout

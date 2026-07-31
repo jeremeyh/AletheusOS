@@ -6,19 +6,6 @@ Genesis 13.54
 
 
 class PolicyEngine:
+    def evaluate(self, action):
 
-
-    def evaluate(
-        self,
-        action
-    ):
-
-
-        return {
-
-            "compliant":
-
-                True
-
-        }
-
+        return {"compliant": True}

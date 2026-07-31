@@ -4,7 +4,7 @@ path = Path("aletheus/federation_v3/federation_core.py")
 text = path.read_text()
 
 text = text.replace(
-'''    def statistics(self):
+    """    def statistics(self):
 
         self.bootstrap()
 
@@ -23,8 +23,8 @@ text = text.replace(
             "health": "healthy",
 
         }
-''',
-'''    def statistics(self):
+""",
+    """    def statistics(self):
 
         if self.federation is None:
             return {
@@ -40,7 +40,7 @@ text = text.replace(
             "remote_nodes": len(self.federation.remote_nodes),
             "health": "healthy",
         }
-'''
+""",
 )
 
 path.write_text(text)

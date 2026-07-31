@@ -8,7 +8,6 @@ from pathlib import Path
 
 
 class Config:
-
     ROOT = Path(__file__).resolve().parent.parent
 
     DEBUG = os.getenv("CARDHAWK_DEBUG", "false").lower() == "true"
@@ -26,5 +25,6 @@ class Config:
         "live_data": False,
         "commercialization": False,
     }
+
 
 config = Config()

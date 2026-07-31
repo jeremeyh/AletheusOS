@@ -57,10 +57,7 @@ class CompatibilityCommandAdapter:
             {
                 "alias": alias,
                 "resolved": service is not None,
-                "type": (
-                    f"{type(service).__module__}."
-                    f"{type(service).__qualname__}"
-                ),
+                "type": (f"{type(service).__module__}.{type(service).__qualname__}"),
                 "version": getattr(
                     service,
                     "VERSION",
@@ -102,10 +99,7 @@ class CompatibilityCommandAdapter:
                     "unknown",
                 ),
             ),
-            "type": (
-                f"{type(service).__module__}."
-                f"{type(service).__qualname__}"
-            ),
+            "type": (f"{type(service).__module__}.{type(service).__qualname__}"),
         }
 
         context.add_result(

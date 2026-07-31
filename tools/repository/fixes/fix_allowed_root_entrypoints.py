@@ -23,11 +23,9 @@ policy["allowed_root_entrypoints"] = [
     "run.py",
     "manage.py",
     "conftest.py",
-
     "run_aletheus_founder_console.py",
     "run_aletheus_system_test.sh",
     "run_repository_self_repair.sh",
-
     "append_nimble_audit_event.py",
     "collect_nimble_production_telemetry.py",
     "generate_nimble_dependency_manifest.py",
@@ -50,7 +48,7 @@ policy["allowed_root_entrypoints"] = [
     "validate_nimble_primitive_experience.py",
     "validate_nimble_provider_preflight.py",
     "validate_nimble_release_attestation.py",
-    "validate_nimble_workspace_engine.py"
+    "validate_nimble_workspace_engine.py",
 ]
 
 with POLICY.open("w", encoding="utf-8") as f:

@@ -6,17 +6,6 @@ Post-Genesis 21
 
 
 class PerformanceMonitor:
-
-
     def measure(self, system):
 
-        return {
-
-            "system":
-            system,
-
-            "performance":
-            "measured"
-
-        }
-
+        return {"system": system, "performance": "measured"}

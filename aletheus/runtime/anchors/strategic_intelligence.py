@@ -5,16 +5,6 @@ Strategic Intelligence Engine
 
 
 class StrategicIntelligenceEngine:
-
-
     def analyze(self, environment):
 
-        return {
-
-            "environment":
-                environment,
-
-            "strategy_generated":
-                True
-
-        }
+        return {"environment": environment, "strategy_generated": True}

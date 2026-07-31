@@ -15,10 +15,8 @@ from __future__ import annotations
 
 
 class RuntimeFacade:
-
     def __init__(self, runtime):
         self.runtime = runtime
-
 
     def health(self):
         return {
@@ -50,7 +48,6 @@ class RuntimeFacade:
             ),
         }
 
-
     def diagnostics(self):
 
         if hasattr(
@@ -70,7 +67,6 @@ class RuntimeFacade:
             "reason": "diagnostics unavailable",
         }
 
-
     def invariants(self):
 
         if hasattr(
@@ -83,7 +79,6 @@ class RuntimeFacade:
             "status": "unavailable",
             "reason": "invariant engine unavailable",
         }
-
 
     def architecture_snapshot(self):
 
@@ -103,7 +98,6 @@ class RuntimeFacade:
             ),
         }
 
-
     def applications_snapshot(self):
 
         return {
@@ -114,7 +108,6 @@ class RuntimeFacade:
             )
         }
 
-
     def platform_services(self):
 
         if hasattr(
@@ -124,14 +117,9 @@ class RuntimeFacade:
             self.runtime.services,
             "snapshot",
         ):
-            return {
-                "services": self.runtime.services.snapshot()
-            }
+            return {"services": self.runtime.services.snapshot()}
 
-        return {
-            "services": {}
-        }
-
+        return {"services": {}}
 
     def runtime_readiness(self):
 
@@ -139,7 +127,6 @@ class RuntimeFacade:
             "ready": True,
             "health": self.health(),
         }
-
 
     def boot_certification_validate(self):
 

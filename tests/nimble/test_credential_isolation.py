@@ -8,21 +8,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 
 CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "credential-isolation-contract.json"
+    ROOT / "nimble/governance/environments/credential-isolation-contract.json"
 )
 
-VALIDATOR = (
-    ROOT
-    / "validate_nimble_credential_isolation.py"
-)
+VALIDATOR = ROOT / "validate_nimble_credential_isolation.py"
 
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "credential-isolation-latest.json"
-)
+REPORT_PATH = ROOT / "reports/nimble/credential-isolation-latest.json"
 
 
 def run_validator(
@@ -59,18 +50,9 @@ def test_credential_isolation_contract_exists() -> None:
 
 
 def test_contract_uses_sha256_fingerprints() -> None:
-    contract = json.loads(
-        CONTRACT_PATH.read_text(
-            encoding="utf-8"
-        )
-    )
+    contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
 
-    assert (
-        contract["policy"][
-            "fingerprint_algorithm"
-        ]
-        == "sha256"
-    )
+    assert contract["policy"]["fingerprint_algorithm"] == "sha256"
 
 
 def test_dry_run_passes_without_credentials() -> None:
@@ -85,9 +67,7 @@ def test_public_evidence_contains_no_raw_secret_names() -> None:
 
     assert result.returncode == 0
 
-    report_text = REPORT_PATH.read_text(
-        encoding="utf-8"
-    )
+    report_text = REPORT_PATH.read_text(encoding="utf-8")
 
     assert "NIMBLE_STAGING_TOKEN" not in report_text
     assert "NIMBLE_PRODUCTION_TOKEN" not in report_text
@@ -105,9 +85,7 @@ def test_public_evidence_contains_no_raw_secret_values() -> None:
 
     assert result.returncode == 0
 
-    report_text = REPORT_PATH.read_text(
-        encoding="utf-8"
-    )
+    report_text = REPORT_PATH.read_text(encoding="utf-8")
 
     assert secret_value not in report_text
 

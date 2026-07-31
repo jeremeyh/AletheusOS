@@ -24,16 +24,9 @@ def find_repo_root(start: Path) -> Path:
 ROOT = find_repo_root(Path(__file__).parent)
 
 
-PRIMITIVES = (
-    ROOT
-    / "nimble/packages/react/src/primitives"
-)
+PRIMITIVES = ROOT / "nimble/packages/react/src/primitives"
 
-REPORT = (
-    ROOT
-    / "reports/nimble/experience/"
-    "primitive-experience-validation-latest.json"
-)
+REPORT = ROOT / "reports/nimble/experience/primitive-experience-validation-latest.json"
 
 
 def main() -> int:
@@ -57,23 +50,13 @@ def main() -> int:
     ]
 
     for relative in required_files:
-        if not (
-            PRIMITIVES / relative
-        ).is_file():
-            failures.append(
-                f"Missing primitive file: {relative}"
-            )
+        if not (PRIMITIVES / relative).is_file():
+            failures.append(f"Missing primitive file: {relative}")
 
     combined = "\n".join(
-        path.read_text(
-            encoding="utf-8"
-        )
+        path.read_text(encoding="utf-8")
         for path in PRIMITIVES.rglob("*")
-        if (
-            path.is_file()
-            and path.suffix
-            in {".ts", ".tsx"}
-        )
+        if (path.is_file() and path.suffix in {".ts", ".tsx"})
     )
 
     required_concepts = [
@@ -87,17 +70,11 @@ def main() -> int:
     ]
 
     for concept in required_concepts:
-        if (
-            concept
-            == "prefers-reduced-motion"
-        ):
+        if concept == "prefers-reduced-motion":
             continue
 
         if concept not in combined:
-            failures.append(
-                "Missing primitive concept: "
-                + concept
-            )
+            failures.append("Missing primitive concept: " + concept)
 
     typecheck = subprocess.run(
         [
@@ -115,15 +92,9 @@ def main() -> int:
     )
 
     if typecheck.returncode != 0:
-        failures.append(
-            "Nimble React typecheck failed."
-        )
+        failures.append("Nimble React typecheck failed.")
 
-    status = (
-        "PASS"
-        if not failures
-        else "FAIL"
-    )
+    status = "PASS" if not failures else "FAIL"
 
     REPORT.parent.mkdir(
         parents=True,
@@ -133,25 +104,12 @@ def main() -> int:
     REPORT.write_text(
         json.dumps(
             {
-                "schema_version":
-                    "1.0",
-
-                "generated_at":
-                    datetime.now(
-                        UTC
-                    ).isoformat(),
-
-                "status":
-                    status,
-
-                "failures":
-                    failures,
-
-                "typecheck_stdout":
-                    typecheck.stdout.strip(),
-
-                "typecheck_stderr":
-                    typecheck.stderr.strip(),
+                "schema_version": "1.0",
+                "generated_at": datetime.now(UTC).isoformat(),
+                "status": status,
+                "failures": failures,
+                "typecheck_stdout": typecheck.stdout.strip(),
+                "typecheck_stderr": typecheck.stderr.strip(),
             },
             indent=2,
             sort_keys=True,
@@ -161,16 +119,10 @@ def main() -> int:
     )
 
     print("=" * 72)
-    print(
-        "NIMBLE™ PRIMITIVE EXPERIENCE"
-    )
+    print("NIMBLE™ PRIMITIVE EXPERIENCE")
     print("=" * 72)
-    print(
-        f"Failures: {len(failures)}"
-    )
-    print(
-        f"Status: {status}"
-    )
+    print(f"Failures: {len(failures)}")
+    print(f"Status: {status}")
     print(
         "Report:",
         REPORT.relative_to(ROOT),
@@ -180,18 +132,10 @@ def main() -> int:
         print(f"- {failure}")
 
     if typecheck.returncode != 0:
-        print(
-            typecheck.stdout
-        )
-        print(
-            typecheck.stderr
-        )
+        print(typecheck.stdout)
+        print(typecheck.stderr)
 
-    return (
-        0
-        if status == "PASS"
-        else 1
-    )
+    return 0 if status == "PASS" else 1
 
 
 if __name__ == "__main__":

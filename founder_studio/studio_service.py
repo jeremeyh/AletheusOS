@@ -12,8 +12,10 @@ class StudioItem:
     item_id: str = field(default_factory=lambda: f"FS-{uuid.uuid4().hex[:10].upper()}")
     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
 
+
 class FounderStudioService:
     """CardHawk OS™ 6.0E Founder Intelligence Studio™."""
+
     _items = []
 
     @classmethod
@@ -31,7 +33,15 @@ class FounderStudioService:
     @classmethod
     def seed_defaults(cls):
         if not cls._items:
-            cls.create("Investment Thesis", "Core thesis", "Prefer scarce, premium, visually distinctive assets.")
-            cls.create("Capital Plan", "Monthly deployment", "Deploy selectively into THORᵡ ≥ 9.0 opportunities.")
+            cls.create(
+                "Investment Thesis",
+                "Core thesis",
+                "Prefer scarce, premium, visually distinctive assets.",
+            )
+            cls.create(
+                "Capital Plan",
+                "Monthly deployment",
+                "Deploy selectively into THORᵡ ≥ 9.0 opportunities.",
+            )
             cls.create("Decision Journal", "Launch note", "Founder Studio initialized.")
         return cls._items

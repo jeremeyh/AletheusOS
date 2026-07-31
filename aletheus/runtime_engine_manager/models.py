@@ -12,9 +12,7 @@ class RuntimeEngineState:
     enabled: bool = True
     last_action: str = "registered"
     metadata: dict[str, Any] = field(default_factory=dict)
-    updated_at: str = field(
-        default_factory=lambda: datetime.now(UTC).isoformat()
-    )
+    updated_at: str = field(default_factory=lambda: datetime.now(UTC).isoformat())
 
     def to_dict(self):
         return {

@@ -6,19 +6,6 @@ Genesis 13.41
 
 
 class MarketPricingEngine:
+    def compare(self, listings):
 
-
-    def compare(
-        self,
-        listings
-    ):
-
-
-        return {
-
-            "fair_market":
-
-                None
-
-        }
-
+        return {"fair_market": None}

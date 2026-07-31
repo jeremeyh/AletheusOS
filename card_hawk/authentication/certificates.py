@@ -6,19 +6,6 @@ Genesis 14.11
 
 
 class CertificateEngine:
+    def issue(self, asset):
 
-
-    def issue(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "certificate":
-
-                True
-
-        }
-
+        return {"certificate": True}

@@ -5,19 +5,6 @@ Cognitive Memory Optimization Engine
 
 
 class CognitiveMemoryOptimizationEngine:
+    def optimize(self, memory):
 
-
-    def optimize(
-        self,
-        memory
-    ):
-
-        return {
-
-            "memory":
-                memory,
-
-            "optimized":
-                True
-
-        }
+        return {"memory": memory, "optimized": True}

@@ -3,9 +3,11 @@ from enum import StrEnum
 
 
 class RepositoryDomain(StrEnum):
-    SOURCE='source'
-    UNKNOWN='unknown'
+    SOURCE = "source"
+    UNKNOWN = "unknown"
+
+
 @dataclass
 class FileRecord:
-    path:str
-    domain:RepositoryDomain
+    path: str
+    domain: RepositoryDomain

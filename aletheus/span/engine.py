@@ -59,7 +59,9 @@ class SpanEngine:
             LOGGER.info("Running SPAN analyzer: %s", analyzer.name)
             try:
                 result = analyzer.analyze(context, self.evidence, self.graph)
-            except Exception as exc:  # SPAN must report analyzer failures without hiding them.
+            except (
+                Exception
+            ) as exc:  # SPAN must report analyzer failures without hiding them.
                 LOGGER.exception("SPAN analyzer failed: %s", analyzer.name)
                 result = AnalyzerResult(
                     analyzer=analyzer.name,
@@ -81,7 +83,11 @@ class SpanEngine:
     ) -> tuple[list[AnalyzerResult], dict[str, Path]]:
         context = AnalysisContext.create(repository_root)
         results = self.run(context, analyzers=analyzers)
-        output = Path(output_directory) if output_directory else context.repository_root / "reports/span"
+        output = (
+            Path(output_directory)
+            if output_directory
+            else context.repository_root / "reports/span"
+        )
         artifacts = self.reporter.write_all(
             repository_root=context.repository_root,
             results=results,
@@ -92,10 +98,17 @@ class SpanEngine:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Run the AletheusOS SPAN architectural analyzer")
+    parser = argparse.ArgumentParser(
+        description="Run the AletheusOS SPAN architectural analyzer"
+    )
     parser.add_argument("repository", nargs="?", default=".", help="Repository root")
     parser.add_argument("--output", default=None, help="Report output directory")
-    parser.add_argument("--analyzer", action="append", dest="analyzers", help="Analyzer name; repeatable")
+    parser.add_argument(
+        "--analyzer",
+        action="append",
+        dest="analyzers",
+        help="Analyzer name; repeatable",
+    )
     parser.add_argument("--verbose", action="store_true", help="Enable verbose logging")
     return parser
 

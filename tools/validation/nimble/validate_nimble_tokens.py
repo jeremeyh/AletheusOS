@@ -84,19 +84,13 @@ def assert_scalar_leaves(
         return
 
     if not isinstance(value, (str, int, float, bool)):
-        raise TypeError(
-            f"Unsupported token value at {path}: "
-            f"{type(value).__name__}"
-        )
+        raise TypeError(f"Unsupported token value at {path}: {type(value).__name__}")
 
 
 def main() -> None:
     missing = [
         path
-        for path in (
-            REQUIRED_SOURCE_FILES
-            + REQUIRED_GENERATED_FILES
-        )
+        for path in (REQUIRED_SOURCE_FILES + REQUIRED_GENERATED_FILES)
         if not path.exists()
     ]
 
@@ -105,57 +99,32 @@ def main() -> None:
             print("MISSING:", path.relative_to(ROOT))
         raise SystemExit(1)
 
-    primitives_document = load_json(
-        SOURCE / "primitives.json"
-    )
-    themes_document = load_json(
-        SOURCE / "themes.json"
-    )
-    motion_document = load_json(
-        SOURCE / "motion.json"
-    )
-    compiled_document = load_json(
-        GENERATED / "nimble.tokens.json"
-    )
+    primitives_document = load_json(SOURCE / "primitives.json")
+    themes_document = load_json(SOURCE / "themes.json")
+    motion_document = load_json(SOURCE / "motion.json")
+    compiled_document = load_json(GENERATED / "nimble.tokens.json")
 
-    primitive_groups = (
-        set(primitives_document)
-        - {"meta"}
-    )
+    primitive_groups = set(primitives_document) - {"meta"}
 
-    missing_primitive_groups = (
-        REQUIRED_PRIMITIVE_GROUPS
-        - primitive_groups
-    )
+    missing_primitive_groups = REQUIRED_PRIMITIVE_GROUPS - primitive_groups
 
     if missing_primitive_groups:
         raise ValueError(
-            "Missing primitive groups: "
-            + ", ".join(
-                sorted(missing_primitive_groups)
-            )
+            "Missing primitive groups: " + ", ".join(sorted(missing_primitive_groups))
         )
 
     themes = themes_document.get("themes", {})
 
     if set(themes) != {"light", "dark"}:
-        raise ValueError(
-            "Nimble must define exactly light and dark "
-            "foundation themes."
-        )
+        raise ValueError("Nimble must define exactly light and dark foundation themes.")
 
     for theme_name, theme in themes.items():
-        missing_semantic_groups = (
-            REQUIRED_SEMANTIC_GROUPS
-            - set(theme)
-        )
+        missing_semantic_groups = REQUIRED_SEMANTIC_GROUPS - set(theme)
 
         if missing_semantic_groups:
             raise ValueError(
                 f"{theme_name} missing semantic groups: "
-                + ", ".join(
-                    sorted(missing_semantic_groups)
-                )
+                + ", ".join(sorted(missing_semantic_groups))
             )
 
         assert_scalar_leaves(
@@ -165,25 +134,15 @@ def main() -> None:
 
     motion = motion_document.get("motion", {})
 
-    missing_motion_groups = (
-        REQUIRED_MOTION_GROUPS
-        - set(motion)
-    )
+    missing_motion_groups = REQUIRED_MOTION_GROUPS - set(motion)
 
     if missing_motion_groups:
         raise ValueError(
-            "Missing motion groups: "
-            + ", ".join(
-                sorted(missing_motion_groups)
-            )
+            "Missing motion groups: " + ", ".join(sorted(missing_motion_groups))
         )
 
     assert_scalar_leaves(
-        {
-            key: value
-            for key, value in primitives_document.items()
-            if key != "meta"
-        },
+        {key: value for key, value in primitives_document.items() if key != "meta"},
         "primitives",
     )
 
@@ -192,12 +151,8 @@ def main() -> None:
         "motion",
     )
 
-    if compiled_document.get("meta", {}).get(
-        "generated"
-    ) is not True:
-        raise ValueError(
-            "Compiled token document is not marked generated."
-        )
+    if compiled_document.get("meta", {}).get("generated") is not True:
+        raise ValueError("Compiled token document is not marked generated.")
 
     print("=" * 72)
     print("NIMBLE™ TOKEN VALIDATION")

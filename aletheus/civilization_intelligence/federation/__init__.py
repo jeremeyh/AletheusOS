@@ -1,8 +1,3 @@
 from .engine import UniversalIntelligenceFederationEngine
 
-__all__ = [
-
-"UniversalIntelligenceFederationEngine"
-
-]
-
+__all__ = ["UniversalIntelligenceFederationEngine"]

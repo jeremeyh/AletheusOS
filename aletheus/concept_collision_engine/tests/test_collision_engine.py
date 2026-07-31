@@ -18,6 +18,8 @@ def test_unique_concept_passes():
     service = ConceptCollisionService()
     service.register_concept(ConceptSignature(name="Atlas™", owns="Architecture"))
 
-    report = service.evaluate(ConceptSignature(name="New Unique Concept", owns="Unique Domain"))
+    report = service.evaluate(
+        ConceptSignature(name="New Unique Concept", owns="Unique Domain")
+    )
 
     assert report.passed is True

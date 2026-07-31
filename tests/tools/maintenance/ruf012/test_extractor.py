@@ -10,10 +10,10 @@ from tools.maintenance.ruf012.extractor import (
 
 
 def test_extractor_discovers_uppercase_literal_list() -> None:
-    source = '''
+    source = """
 class Example:
     VALUES = ["one", "two"]
-'''
+"""
 
     result = RUF012CandidateExtractor().extract_file(
         path=Path("example.py"),
@@ -33,11 +33,11 @@ class Example:
 
 
 def test_extractor_discovers_literal_dict_and_set() -> None:
-    source = '''
+    source = """
 class Example:
     MAPPING = {"one": 1}
     NAMES = {"one", "two"}
-'''
+"""
 
     result = RUF012CandidateExtractor().extract_file(
         path=Path("example.py"),
@@ -59,10 +59,10 @@ class Example:
 
 
 def test_extractor_marks_lowercase_mutable_attribute_unsafe() -> None:
-    source = '''
+    source = """
 class Example:
     values = []
-'''
+"""
 
     result = RUF012CandidateExtractor().extract_file(
         path=Path("example.py"),
@@ -76,10 +76,10 @@ class Example:
 
 
 def test_extractor_marks_dynamic_container_unsafe() -> None:
-    source = '''
+    source = """
 class Example:
     VALUES = [build_value()]
-'''
+"""
 
     result = RUF012CandidateExtractor().extract_file(
         path=Path("example.py"),
@@ -93,12 +93,12 @@ class Example:
 
 
 def test_extractor_accepts_empty_mutable_constructor_calls() -> None:
-    source = '''
+    source = """
 class Example:
     ITEMS = list()
     MAPPING = dict()
     NAMES = set()
-'''
+"""
 
     result = RUF012CandidateExtractor().extract_file(
         path=Path("example.py"),
@@ -117,10 +117,10 @@ class Example:
 
 
 def test_extractor_marks_constructor_with_arguments_unsafe() -> None:
-    source = '''
+    source = """
 class Example:
     ITEMS = list(DEFAULT_ITEMS)
-'''
+"""
 
     result = RUF012CandidateExtractor().extract_file(
         path=Path("example.py"),
@@ -134,12 +134,12 @@ class Example:
 
 
 def test_extractor_ignores_annotated_assignments() -> None:
-    source = '''
+    source = """
 from typing import ClassVar
 
 class Example:
     VALUES: ClassVar = []
-'''
+"""
 
     result = RUF012CandidateExtractor().extract_file(
         path=Path("example.py"),
@@ -150,11 +150,11 @@ class Example:
 
 
 def test_extractor_ignores_instance_assignments() -> None:
-    source = '''
+    source = """
 class Example:
     def __init__(self) -> None:
         self.values = []
-'''
+"""
 
     result = RUF012CandidateExtractor().extract_file(
         path=Path("example.py"),
@@ -165,11 +165,11 @@ class Example:
 
 
 def test_extractor_ignores_nested_class_assignments() -> None:
-    source = '''
+    source = """
 class Outer:
     class Inner:
         VALUES = []
-'''
+"""
 
     result = RUF012CandidateExtractor().extract_file(
         path=Path("example.py"),
@@ -180,10 +180,10 @@ class Outer:
 
 
 def test_extractor_ignores_multiple_target_assignment() -> None:
-    source = '''
+    source = """
 class Example:
     LEFT = RIGHT = []
-'''
+"""
 
     result = RUF012CandidateExtractor().extract_file(
         path=Path("example.py"),

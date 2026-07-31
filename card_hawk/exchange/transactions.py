@@ -6,19 +6,6 @@ Genesis 14.10
 
 
 class TransactionEngine:
+    def process(self, transaction):
 
-
-    def process(
-        self,
-        transaction
-    ):
-
-
-        return {
-
-            "status":
-
-                "complete"
-
-        }
-
+        return {"status": "complete"}

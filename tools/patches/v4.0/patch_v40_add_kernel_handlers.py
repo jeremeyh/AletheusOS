@@ -7,7 +7,7 @@ if "def _cmd_kernel_bootstrap" in text:
     print("✔ Kernel handlers already installed.")
     raise SystemExit(0)
 
-handlers = '''
+handlers = """
 
     # ==========================================================
     # v4.0 Intelligence Kernel
@@ -136,7 +136,7 @@ handlers = '''
 
         return context
 
-'''
+"""
 
 anchor = "    def _job_runtime_pulse(self) -> dict:"
 

@@ -27,16 +27,12 @@ def test_object_registered_factory() -> None:
 
     assert event.kind.value == "object.registered"
     assert str(event.subject) == "service.workspace"
-    assert event.payload["object"]["canonical_name"] == (
-        "WorkspaceService"
-    )
+    assert event.payload["object"]["canonical_name"] == ("WorkspaceService")
 
 
 def test_state_changed_factory() -> None:
     service = make_service()
-    initializing = service.transition_to(
-        ConstitutionalState.INITIALIZING
-    )
+    initializing = service.transition_to(ConstitutionalState.INITIALIZING)
 
     event = state_changed_event(
         initializing,

@@ -14,7 +14,6 @@ print("========================================================")
 print()
 
 for phase in BOOT_PHASES:
-
     enabled = BootConditions.should_run(runtime, phase)
 
     status = "ENABLED" if enabled else "SKIPPED"

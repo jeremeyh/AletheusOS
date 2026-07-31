@@ -5,20 +5,6 @@ Cognitive Resource Allocation Engine
 
 
 class CognitiveResourceAllocator:
+    def allocate(self, capability, priority):
 
-
-    def allocate(
-        self,
-        capability,
-        priority
-    ):
-
-        return {
-
-            "capability":
-                capability,
-
-            "priority":
-                priority
-
-        }
+        return {"capability": capability, "priority": priority}

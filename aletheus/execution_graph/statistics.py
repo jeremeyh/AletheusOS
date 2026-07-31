@@ -39,10 +39,8 @@ def statistics() -> dict:
         "name": "Foundation Execution Graph",
         "genesis": "50.0",
         "version": "1.0.0",
-
         "nodes": len(nodes),
         "edges": len(edges),
-
         "node_types": dict(node_types),
         "edge_types": dict(edge_types),
     }

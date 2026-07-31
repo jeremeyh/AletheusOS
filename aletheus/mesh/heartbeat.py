@@ -2,18 +2,11 @@ from aletheus.time_utils import utc_now_iso
 
 
 class HeartbeatService:
-
     version = "2.0.0-e"
 
     def pulse(self):
 
-        return {
-
-            "status": "alive",
-
-            "timestamp": utc_now_iso()
-
-        }
+        return {"status": "alive", "timestamp": utc_now_iso()}
 
 
 heartbeat_service = HeartbeatService()

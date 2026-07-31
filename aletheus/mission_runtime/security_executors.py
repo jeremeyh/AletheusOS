@@ -55,27 +55,17 @@ class WatchTowerPhaseExecutor:
         self,
         request: PhaseExecutionRequest,
     ) -> PhaseExecutionResult:
-        finding = dict(
-            request.context.get("finding") or {}
-        )
+        finding = dict(request.context.get("finding") or {})
 
         if self.watch_tower is not None:
             if hasattr(self.watch_tower, "verify"):
-                output = _mapping(
-                    self.watch_tower.verify()
-                )
+                output = _mapping(self.watch_tower.verify())
 
             elif hasattr(self.watch_tower, "analyze"):
-                output = _mapping(
-                    self.watch_tower.analyze(
-                        request.context
-                    )
-                )
+                output = _mapping(self.watch_tower.analyze(request.context))
 
             else:
-                raise TypeError(
-                    "Watch Tower exposes no verify or analyze method."
-                )
+                raise TypeError("Watch Tower exposes no verify or analyze method.")
 
         else:
             output = {
@@ -89,12 +79,8 @@ class WatchTowerPhaseExecutor:
             phase_id=request.phase_id,
             evidence_type="integrity_finding",
             evidence={
-                "entity_id": request.context[
-                    "entity_id"
-                ],
-                "severity": request.context[
-                    "severity"
-                ],
+                "entity_id": request.context["entity_id"],
+                "severity": request.context["severity"],
                 "finding": finding,
                 "watch_tower": output,
             },
@@ -118,30 +104,18 @@ class GuardianPhaseExecutor:
     ) -> PhaseExecutionResult:
         if self.guardian is not None:
             if hasattr(self.guardian, "classify"):
-                output = _mapping(
-                    self.guardian.classify(
-                        request.inputs
-                    )
-                )
+                output = _mapping(self.guardian.classify(request.inputs))
 
             elif hasattr(self.guardian, "evaluate"):
-                output = _mapping(
-                    self.guardian.evaluate(
-                        request.inputs
-                    )
-                )
+                output = _mapping(self.guardian.evaluate(request.inputs))
 
             else:
-                raise TypeError(
-                    "Guardian exposes no classify or evaluate method."
-                )
+                raise TypeError("Guardian exposes no classify or evaluate method.")
 
         else:
             output = {
                 "classification": "unverified_threat",
-                "severity": request.context[
-                    "severity"
-                ],
+                "severity": request.context["severity"],
                 "strategy": "contain",
                 "adapter": "constitutional_default",
             }
@@ -151,16 +125,11 @@ class GuardianPhaseExecutor:
             phase_id=request.phase_id,
             evidence_type="threat_classification",
             evidence=output,
-            domain_event_type=(
-                SecurityEventType
-                .THREAT_CLASSIFIED
-            ),
+            domain_event_type=(SecurityEventType.THREAT_CLASSIFIED),
             domain_event_tags=(
                 "security",
                 "classification",
-                request.context[
-                    "severity"
-                ].casefold(),
+                request.context["severity"].casefold(),
             ),
         )
 
@@ -182,33 +151,19 @@ class ConclavePhaseExecutor:
     ) -> PhaseExecutionResult:
         if self.conclave is not None:
             if hasattr(self.conclave, "contain"):
-                output = _mapping(
-                    self.conclave.contain(
-                        request.inputs
-                    )
-                )
+                output = _mapping(self.conclave.contain(request.inputs))
 
             elif hasattr(self.conclave, "isolate"):
-                output = _mapping(
-                    self.conclave.isolate(
-                        request.inputs
-                    )
-                )
+                output = _mapping(self.conclave.isolate(request.inputs))
 
             else:
-                raise TypeError(
-                    "Conclave exposes no contain or isolate method."
-                )
+                raise TypeError("Conclave exposes no contain or isolate method.")
 
         else:
             output = {
                 "contained": True,
-                "boundary": (
-                    "default_secure_boundary"
-                ),
-                "entity_id": request.context[
-                    "entity_id"
-                ],
+                "boundary": ("default_secure_boundary"),
+                "entity_id": request.context["entity_id"],
                 "adapter": "constitutional_default",
             }
 
@@ -217,10 +172,7 @@ class ConclavePhaseExecutor:
             phase_id=request.phase_id,
             evidence_type="containment_result",
             evidence=output,
-            domain_event_type=(
-                SecurityEventType
-                .ENTITY_QUARANTINED
-            ),
+            domain_event_type=(SecurityEventType.ENTITY_QUARANTINED),
             domain_event_tags=(
                 "security",
                 "containment",
@@ -232,17 +184,13 @@ class ConclavePhaseExecutor:
 class ContainmentVaultPhaseExecutor:
     """Execute forensic preservation through Containment Vault™."""
 
-    institution_id = (
-        "aletheus.containment_vault"
-    )
+    institution_id = "aletheus.containment_vault"
 
     def __init__(
         self,
         containment_vault: Any | None = None,
     ) -> None:
-        self.containment_vault = (
-            containment_vault
-        )
+        self.containment_vault = containment_vault
 
     def execute(
         self,
@@ -253,26 +201,17 @@ class ContainmentVaultPhaseExecutor:
                 self.containment_vault,
                 "preserve",
             ):
-                output = _mapping(
-                    self.containment_vault.preserve(
-                        request.inputs
-                    )
-                )
+                output = _mapping(self.containment_vault.preserve(request.inputs))
 
             elif hasattr(
                 self.containment_vault,
                 "store",
             ):
-                output = _mapping(
-                    self.containment_vault.store(
-                        request.inputs
-                    )
-                )
+                output = _mapping(self.containment_vault.store(request.inputs))
 
             else:
                 raise TypeError(
-                    "Containment Vault exposes no "
-                    "preserve or store method."
+                    "Containment Vault exposes no preserve or store method."
                 )
 
         else:
@@ -288,10 +227,7 @@ class ContainmentVaultPhaseExecutor:
             phase_id=request.phase_id,
             evidence_type="forensic_preservation",
             evidence=output,
-            domain_event_type=(
-                SecurityEventType
-                .EVIDENCE_PRESERVED
-            ),
+            domain_event_type=(SecurityEventType.EVIDENCE_PRESERVED),
             domain_event_tags=(
                 "security",
                 "forensics",
@@ -320,27 +256,16 @@ class SentinelPhaseExecutor:
                 self.sentinel,
                 "stabilize",
             ):
-                output = _mapping(
-                    self.sentinel.stabilize(
-                        request.inputs
-                    )
-                )
+                output = _mapping(self.sentinel.stabilize(request.inputs))
 
             elif hasattr(
                 self.sentinel,
                 "protect",
             ):
-                output = _mapping(
-                    self.sentinel.protect(
-                        request.inputs
-                    )
-                )
+                output = _mapping(self.sentinel.protect(request.inputs))
 
             else:
-                raise TypeError(
-                    "Sentinel exposes no stabilize "
-                    "or protect method."
-                )
+                raise TypeError("Sentinel exposes no stabilize or protect method.")
 
         else:
             output = {
@@ -354,10 +279,7 @@ class SentinelPhaseExecutor:
             phase_id=request.phase_id,
             evidence_type="stabilization_result",
             evidence=output,
-            domain_event_type=(
-                SecurityEventType
-                .SECURITY_INCIDENT_STABILIZED
-            ),
+            domain_event_type=(SecurityEventType.SECURITY_INCIDENT_STABILIZED),
             domain_event_tags=(
                 "security",
                 "runtime",
@@ -377,30 +299,10 @@ def register_security_executors(
 ):
     """Register the canonical Security Civilization phase executors."""
 
-    registry.register(
-        WatchTowerPhaseExecutor(
-            watch_tower
-        )
-    )
-    registry.register(
-        GuardianPhaseExecutor(
-            guardian
-        )
-    )
-    registry.register(
-        ConclavePhaseExecutor(
-            conclave
-        )
-    )
-    registry.register(
-        ContainmentVaultPhaseExecutor(
-            containment_vault
-        )
-    )
-    registry.register(
-        SentinelPhaseExecutor(
-            sentinel
-        )
-    )
+    registry.register(WatchTowerPhaseExecutor(watch_tower))
+    registry.register(GuardianPhaseExecutor(guardian))
+    registry.register(ConclavePhaseExecutor(conclave))
+    registry.register(ContainmentVaultPhaseExecutor(containment_vault))
+    registry.register(SentinelPhaseExecutor(sentinel))
 
     return registry

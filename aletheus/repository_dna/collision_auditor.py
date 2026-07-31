@@ -9,11 +9,30 @@ class RepositoryDNACollisionAuditor:
     """Detects likely concept overlap clusters from subsystem names."""
 
     KNOWN_CLUSTERS = {
-        "kernel": ["kernel", "kernel_v2", "platform_kernel", "executive_kernel", "cognitive_kernel"],
-        "runtime": ["runtime", "application_runtime", "intent_runtime", "cognitive_runtime", "constitutional_runtime", "runtime_registry_v2"],
+        "kernel": [
+            "kernel",
+            "kernel_v2",
+            "platform_kernel",
+            "executive_kernel",
+            "cognitive_kernel",
+        ],
+        "runtime": [
+            "runtime",
+            "application_runtime",
+            "intent_runtime",
+            "cognitive_runtime",
+            "constitutional_runtime",
+            "runtime_registry_v2",
+        ],
         "memory": ["memory", "working_memory", "memory_mesh", "constitutional_memory"],
         "mesh": ["mesh", "cognitive_mesh", "memory_mesh"],
-        "registry": ["platform_registry", "runtime_registry_v2", "engine_registry", "council_registry", "boot_registry"],
+        "registry": [
+            "platform_registry",
+            "runtime_registry_v2",
+            "engine_registry",
+            "council_registry",
+            "boot_registry",
+        ],
         "planning": ["planning", "planning_v2"],
         "agents": ["agents", "agents_v2"],
     }

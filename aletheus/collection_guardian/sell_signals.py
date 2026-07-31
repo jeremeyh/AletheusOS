@@ -6,19 +6,6 @@ Genesis 13.40
 
 
 class SellSignalEngine:
+    def evaluate(self, asset):
 
-
-    def evaluate(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "recommendation":
-
-                "hold"
-
-        }
-
+        return {"recommendation": "hold"}

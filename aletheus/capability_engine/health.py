@@ -4,7 +4,6 @@ from .core import capability_engine
 
 
 class CapabilityHealth:
-
     GENESIS = "21.6"
     VERSION = "1.0.0"
 

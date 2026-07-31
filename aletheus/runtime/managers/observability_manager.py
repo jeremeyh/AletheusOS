@@ -6,20 +6,16 @@ Genesis 7 Runtime Orchestration
 
 
 class ObservabilityManager:
-
     def __init__(self, runtime):
         self.runtime = runtime
-
 
     def health(self):
 
         return {
             "runtime": "healthy",
             "initialized": True,
-            "registry":
-                self.runtime.registry_snapshot(),
+            "registry": self.runtime.registry_snapshot(),
         }
-
 
     def diagnostics(self):
 
@@ -29,12 +25,8 @@ class ObservabilityManager:
                 self.runtime,
                 "diagnostics_engine",
             )
-            else {
-                "status":
-                    "available"
-            }
+            else {"status": "available"}
         )
-
 
     def invariants(self):
 
@@ -44,46 +36,33 @@ class ObservabilityManager:
                 self.runtime,
                 "invariant_engine",
             )
-            else {
-                "status":
-                    "available"
-            }
+            else {"status": "available"}
         )
-
 
     def architecture_snapshot(self):
 
         return {
-            "runtime":
-                "AletheusOS",
-            "registry":
-                self.runtime.registry_snapshot(),
+            "runtime": "AletheusOS",
+            "registry": self.runtime.registry_snapshot(),
         }
-
 
     def applications_snapshot(self):
 
-        return {
-            "applications": []
-        }
-
+        return {"applications": []}
 
     def platform_services(self):
 
         return {
-            "services":
+            "services": (
                 self.runtime.services.list()
-            if hasattr(
-                self.runtime.services,
-                "list",
+                if hasattr(
+                    self.runtime.services,
+                    "list",
+                )
+                else []
             )
-            else []
         }
-
 
     def command_surface_audit(self):
 
-        return {
-            "commands":
-                self.runtime.commands.count()
-        }
+        return {"commands": self.runtime.commands.count()}

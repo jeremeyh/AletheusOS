@@ -9,8 +9,6 @@ from dataclasses import dataclass
 
 @dataclass
 class APIRequest:
-
-
     identity: str
 
     capability: str
@@ -18,12 +16,8 @@ class APIRequest:
     payload: dict
 
 
-
 @dataclass
 class APIResponse:
-
-
     success: bool
 
     data: dict
-

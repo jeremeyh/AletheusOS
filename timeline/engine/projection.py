@@ -4,18 +4,14 @@ from timeline.storage.store import store
 
 TIMELINE = store.load()
 
+
 class TimelineProjection:
+    def project(self, event, payload):
 
-    def project(self,event,payload):
-
-        entry={
-
-            "timestamp":datetime.utcnow().isoformat(),
-
-            "event":event,
-
-            "payload":payload
-
+        entry = {
+            "timestamp": datetime.utcnow().isoformat(),
+            "event": event,
+            "payload": payload,
         }
 
         TIMELINE.append(entry)
@@ -26,4 +22,5 @@ class TimelineProjection:
 
         return TIMELINE
 
-projection=TimelineProjection()
+
+projection = TimelineProjection()

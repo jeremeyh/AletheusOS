@@ -52,9 +52,7 @@ class PlatformServiceRegistry:
         require_registered_dependencies: bool = True,
     ) -> None:
         self._event_bus = event_bus
-        self._require_registered_dependencies = (
-            require_registered_dependencies
-        )
+        self._require_registered_dependencies = require_registered_dependencies
 
         self._services: dict[
             ConstitutionalAddress,
@@ -97,23 +95,16 @@ class PlatformServiceRegistry:
                 key=str,
             )
 
-            if (
-                missing
-                and self._require_registered_dependencies
-            ):
+            if missing and self._require_registered_dependencies:
                 raise ServiceDependencyError(
                     "Service dependencies are not registered: "
                     + ", ".join(str(item) for item in missing)
                 )
 
-            service = (
-                definition.to_constitutional_object()
-            )
+            service = definition.to_constitutional_object()
 
             self._services[address] = service
-            self._dependencies[address] = (
-                definition.dependencies
-            )
+            self._dependencies[address] = definition.dependencies
 
         self._publish(
             object_registered_event(
@@ -124,17 +115,13 @@ class PlatformServiceRegistry:
 
         self._publish(
             ConstitutionalEvent.create(
-                kind=(
-                    ConstitutionalEventKind.SERVICE_REGISTERED
-                ),
+                kind=(ConstitutionalEventKind.SERVICE_REGISTERED),
                 source="service.platform-registry",
                 subject=address,
                 payload={
                     "service": service.to_snapshot(),
                     "dependencies": sorted(
-                        str(dependency)
-                        for dependency
-                        in definition.dependencies
+                        str(dependency) for dependency in definition.dependencies
                     ),
                 },
             )
@@ -143,9 +130,7 @@ class PlatformServiceRegistry:
         for dependency in definition.dependencies:
             self._publish(
                 ConstitutionalEvent.create(
-                    kind=(
-                        ConstitutionalEventKind.DEPENDENCY_RESOLVED
-                    ),
+                    kind=(ConstitutionalEventKind.DEPENDENCY_RESOLVED),
                     source="service.platform-registry",
                     subject=address,
                     payload={
@@ -158,9 +143,7 @@ class PlatformServiceRegistry:
 
     def register_many(
         self,
-        definitions: Iterable[
-            PlatformServiceDefinition
-        ],
+        definitions: Iterable[PlatformServiceDefinition],
     ) -> tuple[ConstitutionalObject, ...]:
         """
         Register service definitions in dependency-resolvable order.
@@ -176,13 +159,8 @@ class PlatformServiceRegistry:
             progressed = False
 
             for definition in tuple(pending):
-                if all(
-                    dependency in self
-                    for dependency in definition.dependencies
-                ):
-                    registered.append(
-                        self.register(definition)
-                    )
+                if all(dependency in self for dependency in definition.dependencies):
+                    registered.append(self.register(definition))
                     pending.remove(definition)
                     progressed = True
 
@@ -199,8 +177,7 @@ class PlatformServiceRegistry:
             }
 
             raise ServiceDependencyError(
-                "Unable to resolve service dependency order: "
-                f"{unresolved}"
+                f"Unable to resolve service dependency order: {unresolved}"
             )
 
         return tuple(registered)
@@ -215,9 +192,7 @@ class PlatformServiceRegistry:
             service = self._services.get(resolved)
 
         if service is None:
-            raise ServiceNotFoundError(
-                f"Service not found: {resolved}"
-            )
+            raise ServiceNotFoundError(f"Service not found: {resolved}")
 
         return service
 
@@ -278,8 +253,7 @@ class PlatformServiceRegistry:
         with self._lock:
             dependents = tuple(
                 service_address
-                for service_address, dependencies
-                in self._dependencies.items()
+                for service_address, dependencies in self._dependencies.items()
                 if resolved in dependencies
             )
 
@@ -320,14 +294,11 @@ class PlatformServiceRegistry:
                     subject=resolved,
                     severity=(
                         ConstitutionalEventSeverity.ERROR
-                        if state
-                        is ConstitutionalState.DEGRADED
+                        if state is ConstitutionalState.DEGRADED
                         else ConstitutionalEventSeverity.INFO
                     ),
                     payload={
-                        "previous_state": (
-                            current.state.value
-                        ),
+                        "previous_state": (current.state.value),
                         "current_state": state.value,
                     },
                 )
@@ -383,16 +354,10 @@ class PlatformServiceRegistry:
             del self._dependencies[resolved]
 
             if force:
-                for dependent, dependencies in tuple(
-                    self._dependencies.items()
-                ):
+                for dependent, dependencies in tuple(self._dependencies.items()):
                     if resolved in dependencies:
-                        self._dependencies[dependent] = (
-                            frozenset(
-                                item
-                                for item in dependencies
-                                if item != resolved
-                            )
+                        self._dependencies[dependent] = frozenset(
+                            item for item in dependencies if item != resolved
                         )
 
         self._publish(
@@ -420,19 +385,11 @@ class PlatformServiceRegistry:
         with self._lock:
             services = tuple(self._services.values())
             dependency_edges = sum(
-                len(dependencies)
-                for dependencies
-                in self._dependencies.values()
+                len(dependencies) for dependencies in self._dependencies.values()
             )
 
-        state_counts = Counter(
-            service.state.value
-            for service in services
-        )
-        health_counts = Counter(
-            service.health.value
-            for service in services
-        )
+        state_counts = Counter(service.state.value for service in services)
+        health_counts = Counter(service.health.value for service in services)
 
         unhealthy_states = {
             ConstitutionalHealth.WARNING,
@@ -443,23 +400,12 @@ class PlatformServiceRegistry:
 
         return PlatformServiceRegistryStatistics(
             registered=len(services),
-            running=state_counts[
-                ConstitutionalState.RUNNING.value
-            ],
-            degraded=state_counts[
-                ConstitutionalState.DEGRADED.value
-            ],
-            unhealthy=sum(
-                service.health in unhealthy_states
-                for service in services
-            ),
+            running=state_counts[ConstitutionalState.RUNNING.value],
+            degraded=state_counts[ConstitutionalState.DEGRADED.value],
+            unhealthy=sum(service.health in unhealthy_states for service in services),
             dependency_edges=dependency_edges,
-            services_by_state=MappingProxyType(
-                dict(state_counts)
-            ),
-            services_by_health=MappingProxyType(
-                dict(health_counts)
-            ),
+            services_by_state=MappingProxyType(dict(state_counts)),
+            services_by_health=MappingProxyType(dict(health_counts)),
         )
 
     def snapshot(
@@ -473,17 +419,11 @@ class PlatformServiceRegistry:
                     **service.to_snapshot(),
                     "dependencies": [
                         str(dependency)
-                        for dependency
-                        in self.dependencies_of(
-                            service.identity.address
-                        )
+                        for dependency in self.dependencies_of(service.identity.address)
                     ],
                     "dependents": [
                         str(dependent)
-                        for dependent
-                        in self.dependents_of(
-                            service.identity.address
-                        )
+                        for dependent in self.dependents_of(service.identity.address)
                     ],
                 }
                 for service in self.all()

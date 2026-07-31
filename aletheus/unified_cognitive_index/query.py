@@ -7,26 +7,15 @@ from .registry import uci
 def find_nodes_by_tag(tag: str) -> list[UCINode]:
     tag = tag.lower()
 
-    return [
-        node
-        for node in uci.all_nodes()
-        if tag in [t.lower() for t in node.tags]
-    ]
+    return [node for node in uci.all_nodes() if tag in [t.lower() for t in node.tags]]
 
 
 def find_nodes_by_type(node_type: str) -> list[UCINode]:
-    return [
-        node
-        for node in uci.all_nodes()
-        if node.node_type.value == node_type
-    ]
+    return [node for node in uci.all_nodes() if node.node_type.value == node_type]
 
 
 def relationships_for_node(node_id: str) -> list[UCIRelationship]:
-    return (
-        uci.incoming_relationships(node_id)
-        + uci.outgoing_relationships(node_id)
-    )
+    return uci.incoming_relationships(node_id) + uci.outgoing_relationships(node_id)
 
 
 def explain_node(node_id: str) -> dict:

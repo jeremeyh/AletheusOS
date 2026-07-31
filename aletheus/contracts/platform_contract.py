@@ -59,6 +59,4 @@ class PlatformContract(ABC):
         return {}
 
     def repair(self) -> dict[str, Any]:
-        return {
-            "status": "not_implemented"
-        }
+        return {"status": "not_implemented"}

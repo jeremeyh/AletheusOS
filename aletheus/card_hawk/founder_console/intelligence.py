@@ -6,20 +6,6 @@ Genesis 13.32
 
 
 class FounderIntelligenceFeed:
+    def generate(self):
 
-
-    def generate(
-        self
-    ):
-
-
-        return {
-
-            "alerts": [],
-
-            "opportunities": [],
-
-            "recommendations": []
-
-        }
-
+        return {"alerts": [], "opportunities": [], "recommendations": []}

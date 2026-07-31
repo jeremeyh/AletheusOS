@@ -5,7 +5,6 @@ from dataclasses import dataclass
 
 @dataclass(slots=True)
 class Subscription:
-
     event_type: str
     subscriber: str
     callback: callable

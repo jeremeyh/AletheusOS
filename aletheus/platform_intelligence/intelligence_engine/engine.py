@@ -34,29 +34,21 @@ class PlatformIntelligenceEngine:
         depth_warning_threshold: int = 6,
     ) -> None:
         if fan_in_warning_threshold < 1:
-            raise ValueError(
-                "fan_in_warning_threshold must be positive."
-            )
+            raise ValueError("fan_in_warning_threshold must be positive.")
 
         if depth_warning_threshold < 1:
-            raise ValueError(
-                "depth_warning_threshold must be positive."
-            )
+            raise ValueError("depth_warning_threshold must be positive.")
 
         self._explorer = explorer
         self._graph = graph
-        self._fan_in_warning_threshold = (
-            fan_in_warning_threshold
-        )
-        self._depth_warning_threshold = (
-            depth_warning_threshold
-        )
+        self._fan_in_warning_threshold = fan_in_warning_threshold
+        self._depth_warning_threshold = depth_warning_threshold
 
     def analyze(
         self,
     ) -> PlatformIntelligenceAnalysis:
-        health_score, health_insights, health_recommendations = (
-            analyze_health(self._explorer)
+        health_score, health_insights, health_recommendations = analyze_health(
+            self._explorer
         )
 
         (
@@ -66,18 +58,11 @@ class PlatformIntelligenceEngine:
         ) = analyze_architecture(
             self._explorer,
             self._graph,
-            fan_in_warning_threshold=(
-                self._fan_in_warning_threshold
-            ),
-            depth_warning_threshold=(
-                self._depth_warning_threshold
-            ),
+            fan_in_warning_threshold=(self._fan_in_warning_threshold),
+            depth_warning_threshold=(self._depth_warning_threshold),
         )
 
-        constitutional_score = (
-            health_score * 0.45
-            + architecture_score * 0.55
-        )
+        constitutional_score = health_score * 0.45 + architecture_score * 0.55
 
         insights = tuple(
             sorted(
@@ -86,9 +71,7 @@ class PlatformIntelligenceEngine:
                     *architecture_insights,
                 ),
                 key=lambda insight: (
-                    self._severity_rank(
-                        insight.severity
-                    ),
+                    self._severity_rank(insight.severity),
                     insight.category.value,
                     insight.title,
                 ),
@@ -102,9 +85,7 @@ class PlatformIntelligenceEngine:
                     *architecture_recommendations,
                 ),
                 key=lambda recommendation: (
-                    self._severity_rank(
-                        recommendation.severity
-                    ),
+                    self._severity_rank(recommendation.severity),
                     recommendation.category.value,
                     recommendation.title,
                 ),
@@ -116,41 +97,25 @@ class PlatformIntelligenceEngine:
             insights,
         )
 
-        explorer_stats = (
-            self._explorer.statistics()
-        )
+        explorer_stats = self._explorer.statistics()
         graph_stats = self._graph.statistics()
 
         metrics = {
             "objects": explorer_stats.objects,
             "services": explorer_stats.services,
-            "relationships": (
-                explorer_stats.relationships
-            ),
+            "relationships": (explorer_stats.relationships),
             "unhealthy": explorer_stats.unhealthy,
             "orphans": explorer_stats.orphans,
             "cycles": explorer_stats.cycles,
-            "maximum_depth": (
-                graph_stats.maximum_depth
-            ),
-            "connected_components": (
-                graph_stats.connected_components
-            ),
-            "average_in_degree": (
-                graph_stats.average_in_degree
-            ),
-            "average_out_degree": (
-                graph_stats.average_out_degree
-            ),
+            "maximum_depth": (graph_stats.maximum_depth),
+            "connected_components": (graph_stats.connected_components),
+            "average_in_degree": (graph_stats.average_in_degree),
+            "average_out_degree": (graph_stats.average_out_degree),
         }
 
         return PlatformIntelligenceAnalysis.create(
-            twin_revision=(
-                explorer_stats.twin_revision
-            ),
-            constitutional_score=(
-                constitutional_score
-            ),
+            twin_revision=(explorer_stats.twin_revision),
+            constitutional_score=(constitutional_score),
             health_score=health_score,
             architecture_score=architecture_score,
             risk_level=risk_level,
@@ -164,30 +129,15 @@ class PlatformIntelligenceEngine:
         score: float,
         insights: tuple[object, ...],
     ) -> IntelligenceSeverity:
-        severities = {
-            getattr(insight, "severity", None)
-            for insight in insights
-        }
+        severities = {getattr(insight, "severity", None) for insight in insights}
 
-        if (
-            IntelligenceSeverity.CRITICAL
-            in severities
-            or score < 40
-        ):
+        if IntelligenceSeverity.CRITICAL in severities or score < 40:
             return IntelligenceSeverity.CRITICAL
 
-        if (
-            IntelligenceSeverity.ERROR
-            in severities
-            or score < 60
-        ):
+        if IntelligenceSeverity.ERROR in severities or score < 60:
             return IntelligenceSeverity.ERROR
 
-        if (
-            IntelligenceSeverity.WARNING
-            in severities
-            or score < 80
-        ):
+        if IntelligenceSeverity.WARNING in severities or score < 80:
             return IntelligenceSeverity.WARNING
 
         if score < 95:

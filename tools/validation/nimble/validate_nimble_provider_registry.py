@@ -26,24 +26,14 @@ ROOT = find_repo_root(Path(__file__).parent)
 
 
 REGISTRY_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "deployment-provider-registry.json"
+    ROOT / "nimble/governance/environments/deployment-provider-registry.json"
 )
 
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "deployment-provider-registry-latest.json"
-)
+REPORT_PATH = ROOT / "reports/nimble/deployment-provider-registry-latest.json"
 
 WORKFLOWS = [
-    ROOT
-    / ".github/workflows/"
-    "nimble-staging-promotion.yml",
-    ROOT
-    / ".github/workflows/"
-    "nimble-production-promotion.yml",
+    ROOT / ".github/workflows/nimble-staging-promotion.yml",
+    ROOT / ".github/workflows/nimble-production-promotion.yml",
 ]
 
 
@@ -51,17 +41,13 @@ def main() -> int:
     failures: list[str] = []
     checks: list[dict[str, Any]] = []
 
-    registry = json.loads(
-        REGISTRY_PATH.read_text(encoding="utf-8")
-    )
+    registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
 
     providers = registry.get("providers", {})
     default_provider = registry.get("default_provider")
 
     if default_provider not in providers:
-        failures.append(
-            "Default deployment provider is not registered."
-        )
+        failures.append("Default deployment provider is not registered.")
 
     for name, provider in providers.items():
         executable_value = provider.get("executable", "")
@@ -80,36 +66,24 @@ def main() -> int:
         )
 
         if not valid_path:
-            failures.append(
-                f"Invalid provider executable path: {name}"
-            )
+            failures.append(f"Invalid provider executable path: {name}")
             continue
 
         executable = ROOT / executable_relative
 
         if not executable.is_file():
-            failures.append(
-                f"Missing provider executable: {name}"
-            )
+            failures.append(f"Missing provider executable: {name}")
         elif not os.access(executable, os.X_OK):
-            failures.append(
-                f"Provider executable is not executable: {name}"
-            )
+            failures.append(f"Provider executable is not executable: {name}")
 
         if not provider.get("provider_version"):
-            failures.append(
-                f"Provider version is missing: {name}"
-            )
+            failures.append(f"Provider version is missing: {name}")
 
         if not provider.get("supports"):
-            failures.append(
-                f"Provider actions are missing: {name}"
-            )
+            failures.append(f"Provider actions are missing: {name}")
 
         if not provider.get("environments"):
-            failures.append(
-                f"Provider environments are missing: {name}"
-            )
+            failures.append(f"Provider environments are missing: {name}")
 
     forbidden_tokens = [
         "NIMBLE_DEPLOY_COMMAND",
@@ -124,13 +98,8 @@ def main() -> int:
 
             checks.append(
                 {
-                    "check": (
-                        f"forbidden-token:"
-                        f"{workflow.name}:{token}"
-                    ),
-                    "status": (
-                        "PASS" if absent else "FAIL"
-                    ),
+                    "check": (f"forbidden-token:{workflow.name}:{token}"),
+                    "status": ("PASS" if absent else "FAIL"),
                 }
             )
 
@@ -141,10 +110,7 @@ def main() -> int:
                 )
 
         if "NIMBLE_DEPLOY_PROVIDER" not in text:
-            failures.append(
-                f"Workflow does not select a provider: "
-                f"{workflow.name}"
-            )
+            failures.append(f"Workflow does not select a provider: {workflow.name}")
 
     status = "PASS" if not failures else "FAIL"
 
@@ -157,9 +123,7 @@ def main() -> int:
         json.dumps(
             {
                 "schema_version": "1.0",
-                "generated_at": datetime.now(
-                    UTC
-                ).isoformat(),
+                "generated_at": datetime.now(UTC).isoformat(),
                 "status": status,
                 "provider_count": len(providers),
                 "checks": checks,

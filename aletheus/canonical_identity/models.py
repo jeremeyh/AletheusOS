@@ -25,7 +25,6 @@ def new_identity_id() -> str:
 
 
 class IdentityType(StrEnum):
-
     PERSON = "PERSON"
 
     ORGANIZATION = "ORGANIZATION"
@@ -46,7 +45,6 @@ class IdentityType(StrEnum):
 
 
 class TrustLevel(StrEnum):
-
     UNKNOWN = "UNKNOWN"
 
     EXTERNAL = "EXTERNAL"
@@ -63,7 +61,6 @@ class TrustLevel(StrEnum):
 
 
 class IdentityStatus(StrEnum):
-
     ACTIVE = "ACTIVE"
 
     DISABLED = "DISABLED"
@@ -73,7 +70,6 @@ class IdentityStatus(StrEnum):
 
 @dataclass(slots=True)
 class IdentityRelationship:
-
     relationship_type: str
 
     target_identity: str
@@ -88,7 +84,6 @@ class IdentityRelationship:
 
 @dataclass(slots=True)
 class CanonicalIdentity:
-
     identity_id: str
 
     canonical_name: str
@@ -150,8 +145,7 @@ class CanonicalIdentity:
             "applications": self.applications,
             "permissions": self.permissions,
             "relationships": [
-                relationship.to_dict()
-                for relationship in self.relationships
+                relationship.to_dict() for relationship in self.relationships
             ],
             "memory_references": self.memory_references,
             "metadata": self.metadata,

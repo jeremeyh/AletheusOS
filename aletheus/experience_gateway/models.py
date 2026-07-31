@@ -34,9 +34,7 @@ class ExperienceConfidence:
 
     def __post_init__(self) -> None:
         if not 0 <= self.value <= 1:
-            raise ValueError(
-                "Confidence value must be between 0 and 1."
-            )
+            raise ValueError("Confidence value must be between 0 and 1.")
 
 
 @dataclass(frozen=True, slots=True)
@@ -72,14 +70,10 @@ class PrincipleXEnvelope:
 
     def __post_init__(self) -> None:
         if not self.state.strip():
-            raise ValueError(
-                "Principle X state cannot be empty."
-            )
+            raise ValueError("Principle X state cannot be empty.")
 
         if not self.explanation.strip():
-            raise ValueError(
-                "Principle X explanation cannot be empty."
-            )
+            raise ValueError("Principle X explanation cannot be empty.")
 
 
 @dataclass(frozen=True, slots=True)
@@ -104,24 +98,16 @@ class ExperienceHealthSnapshot:
 
     def __post_init__(self) -> None:
         if self.passing_checks < 0:
-            raise ValueError(
-                "passing_checks cannot be negative."
-            )
+            raise ValueError("passing_checks cannot be negative.")
 
         if self.total_checks < 0:
-            raise ValueError(
-                "total_checks cannot be negative."
-            )
+            raise ValueError("total_checks cannot be negative.")
 
         if self.passing_checks > self.total_checks:
-            raise ValueError(
-                "passing_checks cannot exceed total_checks."
-            )
+            raise ValueError("passing_checks cannot exceed total_checks.")
 
         if self.warning_count < 0:
-            raise ValueError(
-                "warning_count cannot be negative."
-            )
+            raise ValueError("warning_count cannot be negative.")
 
 
 @dataclass(frozen=True, slots=True)
@@ -137,9 +123,7 @@ class ExperienceMission:
 
     def __post_init__(self) -> None:
         if not 0 <= self.progress <= 100:
-            raise ValueError(
-                "Mission progress must be between 0 and 100."
-            )
+            raise ValueError("Mission progress must be between 0 and 100.")
 
 
 @dataclass(frozen=True, slots=True)
@@ -164,28 +148,18 @@ class ExperienceResponse:
 def _serialize(value: Any) -> Any:
     if isinstance(value, dict):
         return {
-            _camel_case(str(key)): _serialize(child)
-            for key, child in value.items()
+            _camel_case(str(key)): _serialize(child) for key, child in value.items()
         }
 
     if isinstance(value, list):
-        return [
-            _serialize(child)
-            for child in value
-        ]
+        return [_serialize(child) for child in value]
 
     if isinstance(value, tuple):
-        return [
-            _serialize(child)
-            for child in value
-        ]
+        return [_serialize(child) for child in value]
 
     return value
 
 
 def _camel_case(value: str) -> str:
     head, *tail = value.split("_")
-    return head + "".join(
-        part[:1].upper() + part[1:]
-        for part in tail
-    )
+    return head + "".join(part[:1].upper() + part[1:] for part in tail)

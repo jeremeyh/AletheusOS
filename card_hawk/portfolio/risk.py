@@ -4,19 +4,6 @@ Portfolio Risk Intelligence
 
 
 class RiskEngine:
+    def evaluate(self, portfolio):
 
-
-    def evaluate(
-        self,
-        portfolio
-    ):
-
-
-        return {
-
-            "risk":
-
-                "unknown"
-
-        }
-
+        return {"risk": "unknown"}

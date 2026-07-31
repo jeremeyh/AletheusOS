@@ -23,9 +23,7 @@ def _find_root() -> Path:
             return probe
 
         if probe.parent == probe:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         probe = probe.parent
 
@@ -33,22 +31,14 @@ def _find_root() -> Path:
 ROOT = _find_root()
 
 
-LATEST_POINTER_PATH = (
-    ROOT
-    / "nimble/governance/audit/checkpoints/"
-    "latest.json"
-)
+LATEST_POINTER_PATH = ROOT / "nimble/governance/audit/checkpoints/latest.json"
 
 DEFAULT_SOURCE_PATH = (
-    ROOT
-    / "reports/nimble/recovery/"
-    "trusted-audit-recovery-source.json"
+    ROOT / "reports/nimble/recovery/trusted-audit-recovery-source.json"
 )
 
 DEFAULT_OUTPUT_PATH = (
-    ROOT
-    / "reports/nimble/recovery/"
-    "reconstructed-deployment-audit-ledger.jsonl"
+    ROOT / "reports/nimble/recovery/reconstructed-deployment-audit-ledger.jsonl"
 )
 
 
@@ -64,9 +54,7 @@ def canonical_json_bytes(
 
 
 def calculate_hash(payload: Any) -> str:
-    return hashlib.sha256(
-        canonical_json_bytes(payload)
-    ).hexdigest()
+    return hashlib.sha256(canonical_json_bytes(payload)).hexdigest()
 
 
 def ledger_jsonl_bytes(
@@ -90,49 +78,31 @@ def ledger_jsonl_bytes(
 
 
 def load_json(path: Path) -> dict[str, Any]:
-    return json.loads(
-        path.read_text(encoding="utf-8")
-    )
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def resolve_checkpoint() -> dict[str, Any]:
-    pointer = load_json(
-        LATEST_POINTER_PATH
-    )
+    pointer = load_json(LATEST_POINTER_PATH)
 
     raw_path = pointer.get("checkpoint_path")
 
     if not isinstance(raw_path, str):
-        raise RuntimeError(
-            "Latest checkpoint path is invalid."
-        )
+        raise RuntimeError("Latest checkpoint path is invalid.")
 
     relative_path = Path(raw_path)
 
-    if (
-        relative_path.is_absolute()
-        or ".." in relative_path.parts
-    ):
-        raise RuntimeError(
-            "Checkpoint path violates policy."
-        )
+    if relative_path.is_absolute() or ".." in relative_path.parts:
+        raise RuntimeError("Checkpoint path violates policy.")
 
     checkpoint_path = ROOT / relative_path
 
     if not checkpoint_path.is_file():
-        raise RuntimeError(
-            "Checkpoint target is missing."
-        )
+        raise RuntimeError("Checkpoint target is missing.")
 
     checkpoint = load_json(checkpoint_path)
 
-    if (
-        pointer.get("checkpoint_hash")
-        != checkpoint.get("checkpoint_hash")
-    ):
-        raise RuntimeError(
-            "Checkpoint pointer binding mismatch."
-        )
+    if pointer.get("checkpoint_hash") != checkpoint.get("checkpoint_hash"):
+        raise RuntimeError("Checkpoint pointer binding mismatch.")
 
     return checkpoint
 
@@ -147,41 +117,22 @@ def validate_chain(
         entries,
         start=1,
     ):
-        if event.get(
-            "sequence"
-        ) != expected_sequence:
-            failures.append(
-                f"Entry {expected_sequence}: "
-                "sequence mismatch."
-            )
+        if event.get("sequence") != expected_sequence:
+            failures.append(f"Entry {expected_sequence}: sequence mismatch.")
 
-        if event.get(
-            "previous_hash"
-        ) != expected_previous_hash:
-            failures.append(
-                f"Entry {expected_sequence}: "
-                "previous_hash mismatch."
-            )
+        if event.get("previous_hash") != expected_previous_hash:
+            failures.append(f"Entry {expected_sequence}: previous_hash mismatch.")
 
-        recorded_hash = event.get(
-            "event_hash"
-        )
+        recorded_hash = event.get("event_hash")
 
         payload_without_hash = {
-            key: value
-            for key, value in event.items()
-            if key != "event_hash"
+            key: value for key, value in event.items() if key != "event_hash"
         }
 
-        calculated_hash = calculate_hash(
-            payload_without_hash
-        )
+        calculated_hash = calculate_hash(payload_without_hash)
 
         if recorded_hash != calculated_hash:
-            failures.append(
-                f"Entry {expected_sequence}: "
-                "event_hash mismatch."
-            )
+            failures.append(f"Entry {expected_sequence}: event_hash mismatch.")
 
         expected_previous_hash = recorded_hash
 
@@ -222,70 +173,39 @@ def main() -> int:
 
     failures: list[str] = []
 
-    recorded_source_hash = source.get(
-        "source_hash"
-    )
+    recorded_source_hash = source.get("source_hash")
 
     source_without_hash = {
-        key: value
-        for key, value in source.items()
-        if key != "source_hash"
+        key: value for key, value in source.items() if key != "source_hash"
     }
 
-    if recorded_source_hash != calculate_hash(
-        source_without_hash
-    ):
-        failures.append(
-            "Recovery source hash mismatch."
-        )
+    if recorded_source_hash != calculate_hash(source_without_hash):
+        failures.append("Recovery source hash mismatch.")
 
     entries = source.get("ledger_entries")
 
     if not isinstance(entries, list):
-        failures.append(
-            "Recovery source ledger_entries is invalid."
-        )
+        failures.append("Recovery source ledger_entries is invalid.")
         entries = []
 
-    failures.extend(
-        validate_chain(entries)
-    )
+    failures.extend(validate_chain(entries))
 
-    ledger_bytes = ledger_jsonl_bytes(
-        entries
-    )
+    ledger_bytes = ledger_jsonl_bytes(entries)
 
-    if source.get(
-        "ledger_file_sha256"
-    ) != hashlib.sha256(
-        ledger_bytes
-    ).hexdigest():
-        failures.append(
-            "Recovery source ledger digest mismatch."
-        )
+    if source.get("ledger_file_sha256") != hashlib.sha256(ledger_bytes).hexdigest():
+        failures.append("Recovery source ledger digest mismatch.")
 
     bindings = {
-        "checkpoint_hash": checkpoint.get(
-            "checkpoint_hash"
-        ),
-        "checkpoint_entry_count": checkpoint.get(
-            "ledger_entry_count"
-        ),
-        "checkpoint_head_hash": checkpoint.get(
-            "ledger_head_hash"
-        ),
+        "checkpoint_hash": checkpoint.get("checkpoint_hash"),
+        "checkpoint_entry_count": checkpoint.get("ledger_entry_count"),
+        "checkpoint_head_hash": checkpoint.get("ledger_head_hash"),
     }
 
     for field, expected in bindings.items():
         if source.get(field) != expected:
-            failures.append(
-                f"Recovery source binding mismatch: "
-                f"{field}"
-            )
+            failures.append(f"Recovery source binding mismatch: {field}")
 
-    checkpoint_entry_count = checkpoint.get(
-        "ledger_entry_count"
-    )
+    checkpoint_entry_count = checkpoint.get("ledger_entry_count")
 
     if (
         isinstance(checkpoint_entry_count, int)
@@ -294,21 +214,14 @@ def main() -> int:
         anchored_hash = (
             "GENESIS"
             if checkpoint_entry_count == 0
-            else entries[
-                checkpoint_entry_count - 1
-            ].get("event_hash")
+            else entries[checkpoint_entry_count - 1].get("event_hash")
         )
 
-        if anchored_hash != checkpoint.get(
-            "ledger_head_hash"
-        ):
-            failures.append(
-                "Recovery source checkpoint prefix mismatch."
-            )
+        if anchored_hash != checkpoint.get("ledger_head_hash"):
+            failures.append("Recovery source checkpoint prefix mismatch.")
     else:
         failures.append(
-            "Recovery source does not contain the "
-            "complete checkpoint prefix."
+            "Recovery source does not contain the complete checkpoint prefix."
         )
 
     if failures:
@@ -331,9 +244,7 @@ def main() -> int:
             exist_ok=True,
         )
 
-        output_path.write_bytes(
-            ledger_bytes
-        )
+        output_path.write_bytes(ledger_bytes)
 
     print("=" * 72)
     print("NIMBLE™ AUDIT RECOVERY SOURCE")

@@ -20,9 +20,7 @@ def create_scenario(
     description: str = "",
     horizon: str | None = None,
     parent_scenario_id: str | None = None,
-    assumption_kind: (
-        AssumptionKind
-    ) = AssumptionKind.HYPOTHESIS,
+    assumption_kind: (AssumptionKind) = AssumptionKind.HYPOTHESIS,
 ) -> ScenarioDefinition:
     return ScenarioDefinition(
         scenario_id=new_scenario_id(),
@@ -34,12 +32,9 @@ def create_scenario(
                 value=value,
                 kind=assumption_kind,
             )
-            for key, value
-            in assumptions.items()
+            for key, value in assumptions.items()
         ),
         description=description,
         horizon=horizon,
-        parent_scenario_id=(
-            parent_scenario_id
-        ),
+        parent_scenario_id=(parent_scenario_id),
     )

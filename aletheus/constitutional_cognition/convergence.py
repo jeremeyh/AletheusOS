@@ -29,14 +29,10 @@ class ConstitutionalConvergenceEngine:
         minimum_contributions: int = 1,
     ) -> None:
         if not 0.0 <= contest_threshold <= 1.0:
-            raise ValueError(
-                "contest_threshold must be between 0.0 and 1.0."
-            )
+            raise ValueError("contest_threshold must be between 0.0 and 1.0.")
 
         if minimum_contributions < 1:
-            raise ValueError(
-                "minimum_contributions must be at least one."
-            )
+            raise ValueError("minimum_contributions must be at least one.")
 
         self.contest_threshold = contest_threshold
         self.minimum_contributions = minimum_contributions
@@ -56,8 +52,7 @@ class ConstitutionalConvergenceEngine:
         relevant = tuple(
             contribution
             for contribution in contributions
-            if contribution.assertion_key
-            == assertion_key
+            if contribution.assertion_key == assertion_key
         )
 
         if len(relevant) < self.minimum_contributions:
@@ -84,19 +79,12 @@ class ConstitutionalConvergenceEngine:
 
         for contribution in relevant:
             strengths[contribution.stance] += (
-                contribution.confidence
-                * contribution.weight
+                contribution.confidence * contribution.weight
             )
 
-        support = strengths[
-            ContributionStance.SUPPORT
-        ]
-        challenge = strengths[
-            ContributionStance.CHALLENGE
-        ]
-        abstain = strengths[
-            ContributionStance.ABSTAIN
-        ]
+        support = strengths[ContributionStance.SUPPORT]
+        challenge = strengths[ContributionStance.CHALLENGE]
+        abstain = strengths[ContributionStance.ABSTAIN]
 
         directional_total = support + challenge
 
@@ -117,10 +105,7 @@ class ConstitutionalConvergenceEngine:
                 ),
             )
 
-        difference_ratio = (
-            abs(support - challenge)
-            / directional_total
-        )
+        difference_ratio = abs(support - challenge) / directional_total
 
         if support >= challenge:
             dominant = ContributionStance.SUPPORT
@@ -129,26 +114,15 @@ class ConstitutionalConvergenceEngine:
             dominant = ContributionStance.CHALLENGE
             dominant_strength = challenge
 
-        agreement = (
-            dominant_strength
-            / directional_total
-        )
+        agreement = dominant_strength / directional_total
 
-        average_confidence = (
-            sum(
-                item.confidence
-                for item in relevant
-                if item.stance
-                != ContributionStance.ABSTAIN
-            )
-            / max(
-                1,
-                sum(
-                    item.stance
-                    != ContributionStance.ABSTAIN
-                    for item in relevant
-                ),
-            )
+        average_confidence = sum(
+            item.confidence
+            for item in relevant
+            if item.stance != ContributionStance.ABSTAIN
+        ) / max(
+            1,
+            sum(item.stance != ContributionStance.ABSTAIN for item in relevant),
         )
 
         confidence = round(
@@ -157,17 +131,10 @@ class ConstitutionalConvergenceEngine:
         )
 
         contested = (
-            support > 0
-            and challenge > 0
-            and difference_ratio
-            <= self.contest_threshold
+            support > 0 and challenge > 0 and difference_ratio <= self.contest_threshold
         )
 
-        state = (
-            ConvergenceState.CONTESTED
-            if contested
-            else ConvergenceState.CONVERGED
-        )
+        state = ConvergenceState.CONTESTED if contested else ConvergenceState.CONVERGED
 
         dissent = tuple(
             contribution
@@ -224,9 +191,7 @@ class ConstitutionalConvergenceEngine:
                     difference_ratio,
                     4,
                 ),
-                "participant_count": len(
-                    relevant
-                ),
+                "participant_count": len(relevant),
             },
         )
 
@@ -236,10 +201,6 @@ class ConstitutionalConvergenceEngine:
             "version": self.VERSION,
             "status": "online",
             "evaluations": self._evaluations,
-            "contest_threshold": (
-                self.contest_threshold
-            ),
-            "minimum_contributions": (
-                self.minimum_contributions
-            ),
+            "contest_threshold": (self.contest_threshold),
+            "minimum_contributions": (self.minimum_contributions),
         }

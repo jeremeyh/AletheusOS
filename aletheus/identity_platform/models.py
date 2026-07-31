@@ -9,8 +9,6 @@ from dataclasses import dataclass, field
 
 @dataclass
 class Identity:
-
-
     identity_id: str
 
     identity_type: str
@@ -19,21 +17,13 @@ class Identity:
 
     tenant_id: str
 
-    capabilities: list = field(
-        default_factory=list
-    )
-
+    capabilities: list = field(default_factory=list)
 
 
 @dataclass
 class Tenant:
-
-
     tenant_id: str
 
     name: str
 
-    members: list = field(
-        default_factory=list
-    )
-
+    members: list = field(default_factory=list)

@@ -10,19 +10,6 @@ Maintain market intelligence context
 
 
 class MarketContext:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.7"
-
-        }
-
+        return {"status": "ready", "genesis": "23.7"}

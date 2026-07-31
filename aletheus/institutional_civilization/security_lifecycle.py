@@ -91,9 +91,7 @@ class SecurityCivilizationLifecycle:
         self._installed = False
         self._handled = 0
 
-        register_security_event_types(
-            self.fabric.registry
-        )
+        register_security_event_types(self.fabric.registry)
 
     def install(self) -> None:
         """Install canonical institutional subscriptions once."""
@@ -305,18 +303,12 @@ class SecurityCivilizationLifecycle:
             }
 
         if hasattr(self.guardian, "classify"):
-            return _mapping(
-                self.guardian.classify(event.payload)
-            )
+            return _mapping(self.guardian.classify(event.payload))
 
         if hasattr(self.guardian, "evaluate"):
-            return _mapping(
-                self.guardian.evaluate(event.payload)
-            )
+            return _mapping(self.guardian.evaluate(event.payload))
 
-        raise TypeError(
-            "Guardian exposes no classify or evaluate method."
-        )
+        raise TypeError("Guardian exposes no classify or evaluate method.")
 
     def _contain(
         self,
@@ -330,18 +322,12 @@ class SecurityCivilizationLifecycle:
             }
 
         if hasattr(self.conclave, "contain"):
-            return _mapping(
-                self.conclave.contain(event.payload)
-            )
+            return _mapping(self.conclave.contain(event.payload))
 
         if hasattr(self.conclave, "isolate"):
-            return _mapping(
-                self.conclave.isolate(event.payload)
-            )
+            return _mapping(self.conclave.isolate(event.payload))
 
-        raise TypeError(
-            "Conclave exposes no contain or isolate method."
-        )
+        raise TypeError("Conclave exposes no contain or isolate method.")
 
     def _preserve(
         self,
@@ -356,22 +342,12 @@ class SecurityCivilizationLifecycle:
             }
 
         if hasattr(self.containment_vault, "preserve"):
-            return _mapping(
-                self.containment_vault.preserve(
-                    event.payload
-                )
-            )
+            return _mapping(self.containment_vault.preserve(event.payload))
 
         if hasattr(self.containment_vault, "store"):
-            return _mapping(
-                self.containment_vault.store(
-                    event.payload
-                )
-            )
+            return _mapping(self.containment_vault.store(event.payload))
 
-        raise TypeError(
-            "Containment Vault exposes no preserve or store method."
-        )
+        raise TypeError("Containment Vault exposes no preserve or store method.")
 
     def _stabilize(
         self,
@@ -385,18 +361,12 @@ class SecurityCivilizationLifecycle:
             }
 
         if hasattr(self.sentinel, "stabilize"):
-            return _mapping(
-                self.sentinel.stabilize(event.payload)
-            )
+            return _mapping(self.sentinel.stabilize(event.payload))
 
         if hasattr(self.sentinel, "protect"):
-            return _mapping(
-                self.sentinel.protect(event.payload)
-            )
+            return _mapping(self.sentinel.protect(event.payload))
 
-        raise TypeError(
-            "Sentinel exposes no stabilize or protect method."
-        )
+        raise TypeError("Sentinel exposes no stabilize or protect method.")
 
     def _require_case(
         self,
@@ -406,9 +376,7 @@ class SecurityCivilizationLifecycle:
         case = self.cases.get(case_id)
 
         if case is None:
-            raise KeyError(
-                f"Unknown security case: {case_id!r}"
-            )
+            raise KeyError(f"Unknown security case: {case_id!r}")
 
         return case
 
@@ -427,9 +395,7 @@ class SecurityCivilizationLifecycle:
         if case is None:
             return ()
 
-        return self.fabric.events(
-            correlation_id=case.correlation_id
-        )
+        return self.fabric.events(correlation_id=case.correlation_id)
 
     def health(self) -> dict[str, Any]:
         return {
@@ -440,7 +406,6 @@ class SecurityCivilizationLifecycle:
             "cases": len(self.cases),
             "handled_events": self._handled,
             "stabilized": sum(
-                case.status == "stabilized"
-                for case in self.cases.values()
+                case.status == "stabilized" for case in self.cases.values()
             ),
         }

@@ -76,9 +76,7 @@ def test_summary_counts() -> None:
 
 
 def test_summary_serialization() -> None:
-    summary = PlannerSummary(
-        rewrites=()
-    )
+    summary = PlannerSummary(rewrites=())
 
     payload = summary.as_dict()
 

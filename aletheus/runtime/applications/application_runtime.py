@@ -8,7 +8,6 @@ from __future__ import annotations
 
 
 class ApplicationRuntime:
-
     def __init__(self):
 
         self._applications = {}

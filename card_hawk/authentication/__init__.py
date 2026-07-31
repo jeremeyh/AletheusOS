@@ -6,6 +6,4 @@ Genesis 35
 
 from .engine import AssetAuthenticationEngine
 
-__all__ = [
-    "AssetAuthenticationEngine"
-]
+__all__ = ["AssetAuthenticationEngine"]

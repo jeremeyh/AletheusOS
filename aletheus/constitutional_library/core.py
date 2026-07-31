@@ -53,37 +53,22 @@ class ConstitutionalLibrary:
     ) -> KnowledgeObject:
 
         knowledge = KnowledgeObject(
-
             knowledge_id=new_knowledge_id(),
-
             title=title,
-
             statement=statement,
-
             knowledge_type=knowledge_type,
-
             confidence=confidence,
-
             constitutional_articles=constitutional_articles or [],
-
             supporting_evidence=supporting_evidence or [],
-
             related_identities=related_identities or [],
-
             related_memories=related_memories or [],
-
             related_reasons=related_reasons or [],
-
             execution_graph_nodes=execution_graph_nodes or [],
-
             provenance=provenance or {},
-
             metadata=metadata or {},
         )
 
-        constitutional_library_registry.register(
-            knowledge
-        )
+        constitutional_library_registry.register(knowledge)
 
         return knowledge
 
@@ -96,36 +81,28 @@ class ConstitutionalLibrary:
         knowledge: KnowledgeObject,
     ) -> KnowledgeObject:
 
-        return constitutional_library_governance.validate_only(
-            knowledge
-        )
+        return constitutional_library_governance.validate_only(knowledge)
 
     def promote(
         self,
         knowledge: KnowledgeObject,
     ) -> KnowledgeObject:
 
-        return constitutional_library_governance.promote(
-            knowledge
-        )
+        return constitutional_library_governance.promote(knowledge)
 
     def archive(
         self,
         knowledge: KnowledgeObject,
     ) -> KnowledgeObject:
 
-        return constitutional_library_governance.archive(
-            knowledge
-        )
+        return constitutional_library_governance.archive(knowledge)
 
     def supersede(
         self,
         knowledge: KnowledgeObject,
     ) -> KnowledgeObject:
 
-        return constitutional_library_governance.supersede(
-            knowledge
-        )
+        return constitutional_library_governance.supersede(knowledge)
 
     #
     # Retrieval
@@ -154,23 +131,13 @@ class ConstitutionalLibrary:
     def health(self) -> dict:
 
         return {
-
             "name": "Constitutional Library",
-
             "genesis": self.GENESIS,
-
             "version": self.VERSION,
-
             "status": "healthy",
-
-            "registry":
-                constitutional_library_registry.health(),
-
-            "retrieval":
-                constitutional_library_retrieval.health(),
-
-            "governance":
-                constitutional_library_governance.health(),
+            "registry": constitutional_library_registry.health(),
+            "retrieval": constitutional_library_retrieval.health(),
+            "governance": constitutional_library_governance.health(),
         }
 
     def statistics(self) -> dict:

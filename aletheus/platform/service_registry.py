@@ -4,11 +4,9 @@ from datetime import UTC, datetime
 
 
 class ServiceRegistry:
-
     def __init__(self):
 
         self.services = {}
-
 
     def register(
         self,
@@ -25,52 +23,31 @@ class ServiceRegistry:
             "domain": domain,
             "status": status,
             "metadata": metadata or {},
-            "registered":
-                datetime.now(
-                    UTC
-                ).isoformat(),
+            "registered": datetime.now(UTC).isoformat(),
         }
 
         return self.services[name]
 
-
     def get(self, name):
 
-        return self.services.get(
-            name,
-            {
-                "error":
-                    "service_not_found"
-            }
-        )
-
+        return self.services.get(name, {"error": "service_not_found"})
 
     def list(self):
 
-        return list(
-            self.services.values()
-        )
-
+        return list(self.services.values())
 
     def health(self):
 
         unhealthy = []
 
         for name, service in self.services.items():
-
             if service["status"] != "active":
                 unhealthy.append(name)
 
-
         return {
-            "healthy":
-                len(unhealthy) == 0,
-
-            "services":
-                len(self.services),
-
-            "unhealthy":
-                unhealthy,
+            "healthy": len(unhealthy) == 0,
+            "services": len(self.services),
+            "unhealthy": unhealthy,
         }
 
 

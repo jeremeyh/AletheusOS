@@ -209,7 +209,8 @@ class AletheusHighAvailabilityEngine:
 
     def _elect_leader(self):
         candidates = [
-            node for node in self.nodes.values()
+            node
+            for node in self.nodes.values()
             if node.status == "online" and node.health == "healthy"
         ]
 

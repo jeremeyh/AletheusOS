@@ -2,7 +2,8 @@ import streamlit as st
 
 
 def inject_cardhawk_styles():
-    st.markdown("""
+    st.markdown(
+        """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
     :root{--bg:#05070B;--gold:#D4AF37;--gold2:#F4C542;--muted:#A8AFBC;--white:#F8FAFC;--green:#35D66B;--red:#FF5C5C;}
@@ -69,4 +70,6 @@ def inject_cardhawk_styles():
     div[data-testid="stDataFrame"]{border:1px solid rgba(212,175,55,.20);border-radius:10px;overflow:hidden;}
     div[data-baseweb="select"] > div,div[data-testid="stTextInput"] input,div[data-testid="stNumberInput"] input,textarea{background:#0B0F16 !important;color:#FFF !important;border-color:rgba(212,175,55,.22) !important;}
     </style>
-    """, unsafe_allow_html=True)
+    """,
+        unsafe_allow_html=True,
+    )

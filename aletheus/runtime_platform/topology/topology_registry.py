@@ -40,9 +40,7 @@ class RuntimeTopologyRegistry:
 
     def _ensure_mutable(self) -> None:
         if self._sealed:
-            raise TopologyRegistrationError(
-                "Runtime topology is sealed."
-            )
+            raise TopologyRegistrationError("Runtime topology is sealed.")
 
     def register_domain(
         self,
@@ -180,9 +178,7 @@ class RuntimeTopologyRegistry:
             raise ValueError("Registration name cannot be empty.")
 
         if normalized in target and not replace:
-            raise TopologyRegistrationError(
-                f"Already registered: {normalized}"
-            )
+            raise TopologyRegistrationError(f"Already registered: {normalized}")
 
         target[normalized] = value
 
@@ -208,10 +204,7 @@ class RuntimeTopologyRegistry:
         return self.snapshot()
 
     def snapshot(self) -> TopologySnapshot:
-        dependency_map = {
-            node.name: node.dependencies
-            for node in self._graph.nodes()
-        }
+        dependency_map = {node.name: node.dependencies for node in self._graph.nodes()}
 
         return TopologySnapshot(
             version=self.VERSION,
@@ -225,9 +218,7 @@ class RuntimeTopologyRegistry:
                 {
                     "sealed": self._sealed,
                     "boot_order": self._graph.boot_order(),
-                    "shutdown_order": (
-                        self._graph.shutdown_order()
-                    ),
+                    "shutdown_order": (self._graph.shutdown_order()),
                 }
             ),
         )

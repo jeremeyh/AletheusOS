@@ -5,16 +5,6 @@ Autonomous Validation Engine
 
 
 class AutonomousValidationEngine:
+    def validate(self, system):
 
-
-    def validate(self,system):
-
-        return {
-
-            "system":
-                system,
-
-            "valid":
-                True
-
-        }
+        return {"system": system, "valid": True}

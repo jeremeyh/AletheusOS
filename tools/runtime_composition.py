@@ -10,11 +10,7 @@ def main():
 
     runtime = root.build()
 
-    print(
-        RuntimeCompositionReporter().render(
-            runtime
-        )
-    )
+    print(RuntimeCompositionReporter().render(runtime))
 
 
 if __name__ == "__main__":

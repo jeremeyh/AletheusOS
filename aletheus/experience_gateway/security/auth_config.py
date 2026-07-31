@@ -32,34 +32,27 @@ class AuthenticationConfig:
                 "jwks_url": self.jwks_url,
             }
 
-            missing = [
-                name
-                for name, value in required.items()
-                if not value
-            ]
+            missing = [name for name, value in required.items() if not value]
 
             if missing:
-                raise ValueError(
-                    "OIDC authentication requires: "
-                    + ", ".join(missing)
-                )
+                raise ValueError("OIDC authentication requires: " + ", ".join(missing))
 
 
-def load_authentication_config(
-) -> AuthenticationConfig:
-    raw_mode = os.getenv(
-        "ALETHEUS_AUTH_MODE",
-        "local",
-    ).strip().lower()
+def load_authentication_config() -> AuthenticationConfig:
+    raw_mode = (
+        os.getenv(
+            "ALETHEUS_AUTH_MODE",
+            "local",
+        )
+        .strip()
+        .lower()
+    )
 
     if raw_mode not in {
         "local",
         "oidc",
     }:
-        raise ValueError(
-            "ALETHEUS_AUTH_MODE must be "
-            "'local' or 'oidc'."
-        )
+        raise ValueError("ALETHEUS_AUTH_MODE must be 'local' or 'oidc'.")
 
     mode: AuthenticationMode = raw_mode  # type: ignore[assignment]
 
@@ -74,15 +67,9 @@ def load_authentication_config(
 
     return AuthenticationConfig(
         mode=mode,
-        issuer=_optional_environment(
-            "ALETHEUS_OIDC_ISSUER"
-        ),
-        audience=_optional_environment(
-            "ALETHEUS_OIDC_AUDIENCE"
-        ),
-        jwks_url=_optional_environment(
-            "ALETHEUS_OIDC_JWKS_URL"
-        ),
+        issuer=_optional_environment("ALETHEUS_OIDC_ISSUER"),
+        audience=_optional_environment("ALETHEUS_OIDC_AUDIENCE"),
+        jwks_url=_optional_environment("ALETHEUS_OIDC_JWKS_URL"),
         algorithms=algorithms or ("RS256",),
         subject_claim=os.getenv(
             "ALETHEUS_OIDC_SUBJECT_CLAIM",
@@ -148,6 +135,4 @@ def _environment_bool(
     }:
         return False
 
-    raise ValueError(
-        f"{name} must contain a boolean value."
-    )
+    raise ValueError(f"{name} must contain a boolean value.")

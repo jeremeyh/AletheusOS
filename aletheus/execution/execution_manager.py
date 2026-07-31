@@ -6,17 +6,6 @@ Post-Genesis 15
 
 
 class ExecutionManager:
-
-
     def run(self, action):
 
-        return {
-
-            "action":
-            action,
-
-            "status":
-            "executing"
-
-        }
-
+        return {"action": action, "status": "executing"}

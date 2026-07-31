@@ -4,7 +4,6 @@ from statistics import mean
 
 
 class SearchConsensus:
-
     GENESIS = "21.8"
     VERSION = "1.0.0"
 
@@ -14,11 +13,9 @@ class SearchConsensus:
         evidence = []
 
         for provider, result in provider_results.items():
-
             evidence.append(provider)
 
             if isinstance(result, dict):
-
                 value = result.get("value")
 
                 if isinstance(value, (int, float)):
@@ -36,9 +33,7 @@ class SearchConsensus:
                 f"Consensus calculated from {len(values)} provider(s)."
             )
         else:
-            consensus["reasoning"] = (
-                "No numeric consensus available."
-            )
+            consensus["reasoning"] = "No numeric consensus available."
 
         return consensus
 

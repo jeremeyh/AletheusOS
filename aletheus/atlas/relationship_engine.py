@@ -6,7 +6,9 @@ from .models import ArchitectureGraph, AtlasEdge, AtlasEdgeType
 class RelationshipEngine:
     """Adds semantic relationships based on authority/family inference."""
 
-    def enrich_family_relationships(self, graph: ArchitectureGraph) -> ArchitectureGraph:
+    def enrich_family_relationships(
+        self, graph: ArchitectureGraph
+    ) -> ArchitectureGraph:
         family_nodes: set[str] = set()
 
         for node in list(graph.nodes.values()):
@@ -16,6 +18,7 @@ class RelationshipEngine:
             family_id = f"family:{node.family}"
             if family_id not in graph.nodes:
                 from .models import AtlasNode, AtlasNodeType
+
                 graph.add_node(
                     AtlasNode(id=family_id, name=node.family, type=AtlasNodeType.FAMILY)
                 )

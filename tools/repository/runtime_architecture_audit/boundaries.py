@@ -72,7 +72,7 @@ def _check_layer_direction(
         line=edge.line,
         rule="upward_dependency",
         message=(
-            f"{source_layer.name} may not depend upward upon " f"{target_layer.name}."
+            f"{source_layer.name} may not depend upward upon {target_layer.name}."
         ),
     )
 
@@ -148,7 +148,7 @@ def analyze_boundaries(
         report.add_finding(
             "error",
             violation.rule,
-            (f"{violation.message} " f"{violation.source} imports {violation.target}."),
+            (f"{violation.message} {violation.source} imports {violation.target}."),
             f"{violation.source}:{violation.line}",
             source=violation.source,
             target=violation.target,

@@ -27,29 +27,13 @@ def find_repo_root(start: Path) -> Path:
 ROOT = find_repo_root(Path(__file__).parent)
 
 
-CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/release/"
-    "release-integrity-contract.json"
-)
+CONTRACT_PATH = ROOT / "nimble/governance/release/release-integrity-contract.json"
 
-MANIFEST_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "nimble-release-manifest.json"
-)
+MANIFEST_PATH = ROOT / "reports/nimble/nimble-release-manifest.json"
 
-CHECKSUM_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "nimble-release-manifest.sha256"
-)
+CHECKSUM_PATH = ROOT / "reports/nimble/nimble-release-manifest.sha256"
 
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "release-integrity-latest.json"
-)
+REPORT_PATH = ROOT / "reports/nimble/release-integrity-latest.json"
 
 
 def sha256_file(path: Path) -> str:
@@ -89,26 +73,18 @@ def main() -> int:
     checks: list[dict[str, Any]] = []
 
     if not CONTRACT_PATH.is_file():
-        failures.append(
-            "Release-integrity contract is missing."
-        )
+        failures.append("Release-integrity contract is missing.")
 
     if not MANIFEST_PATH.is_file():
-        failures.append(
-            "Release manifest is missing."
-        )
+        failures.append("Release manifest is missing.")
 
     if not CHECKSUM_PATH.is_file():
-        failures.append(
-            "Release-manifest checksum is missing."
-        )
+        failures.append("Release-manifest checksum is missing.")
 
     if failures:
         report = {
             "schema_version": "1.0",
-            "generated_at": datetime.now(
-                UTC
-            ).isoformat(),
+            "generated_at": datetime.now(UTC).isoformat(),
             "status": "FAIL",
             "checks": checks,
             "failures": failures,
@@ -144,39 +120,26 @@ def main() -> int:
     )
 
     if match is None:
-        failures.append(
-            "Manifest checksum file has an invalid format."
-        )
+        failures.append("Manifest checksum file has an invalid format.")
         expected_manifest_digest = ""
     else:
         expected_manifest_digest = match.group(1)
 
-    actual_manifest_digest = sha256_file(
-        MANIFEST_PATH
-    )
+    actual_manifest_digest = sha256_file(MANIFEST_PATH)
 
-    digest_matches = (
-        expected_manifest_digest
-        == actual_manifest_digest
-    )
+    digest_matches = expected_manifest_digest == actual_manifest_digest
 
     checks.append(
         {
             "check": "manifest-checksum",
-            "status": (
-                "PASS"
-                if digest_matches
-                else "FAIL"
-            ),
+            "status": ("PASS" if digest_matches else "FAIL"),
             "actual": actual_manifest_digest,
             "expected": expected_manifest_digest,
         }
     )
 
     if not digest_matches:
-        failures.append(
-            "Release-manifest checksum mismatch."
-        )
+        failures.append("Release-manifest checksum mismatch.")
 
     subjects = manifest.get("subjects", [])
 
@@ -190,22 +153,15 @@ def main() -> int:
         )
 
         if not isinstance(relative_path, str):
-            failures.append(
-                "Release subject has a non-string path."
-            )
+            failures.append("Release subject has a non-string path.")
             continue
 
         if relative_path.startswith("/"):
-            failures.append(
-                f"Absolute subject path forbidden: "
-                f"{relative_path}"
-            )
+            failures.append(f"Absolute subject path forbidden: {relative_path}")
             continue
 
         if relative_path in seen_paths:
-            failures.append(
-                f"Duplicate subject: {relative_path}"
-            )
+            failures.append(f"Duplicate subject: {relative_path}")
             continue
 
         seen_paths.add(relative_path)
@@ -213,10 +169,7 @@ def main() -> int:
         path = ROOT / relative_path
 
         if not path.is_file():
-            failures.append(
-                f"Release subject is missing: "
-                f"{relative_path}"
-            )
+            failures.append(f"Release subject is missing: {relative_path}")
             continue
 
         actual_digest = sha256_file(path)
@@ -225,38 +178,22 @@ def main() -> int:
 
         checks.append(
             {
-                "check": (
-                    f"subject-checksum:{relative_path}"
-                ),
-                "status": (
-                    "PASS"
-                    if passed
-                    else "FAIL"
-                ),
+                "check": (f"subject-checksum:{relative_path}"),
+                "status": ("PASS" if passed else "FAIL"),
                 "actual": actual_digest,
                 "expected": expected_digest,
             }
         )
 
         if not passed:
-            failures.append(
-                f"Subject checksum mismatch: "
-                f"{relative_path}"
-            )
+            failures.append(f"Subject checksum mismatch: {relative_path}")
 
-    required_subjects = set(
-        contract["required_subjects"]
-    )
+    required_subjects = set(contract["required_subjects"])
 
-    missing_required = sorted(
-        required_subjects - seen_paths
-    )
+    missing_required = sorted(required_subjects - seen_paths)
 
     for missing in missing_required:
-        failures.append(
-            f"Required subject missing from manifest: "
-            f"{missing}"
-        )
+        failures.append(f"Required subject missing from manifest: {missing}")
 
     revision = manifest.get(
         "release",
@@ -276,32 +213,22 @@ def main() -> int:
     checks.append(
         {
             "check": "git-revision",
-            "status": (
-                "PASS"
-                if revision_matches
-                else "FAIL"
-            ),
+            "status": ("PASS" if revision_matches else "FAIL"),
             "manifest": revision,
             "current": current_revision,
         }
     )
 
     if not revision_matches:
-        failures.append(
-            "Manifest revision does not match HEAD."
-        )
+        failures.append("Manifest revision does not match HEAD.")
 
     status = "PASS" if not failures else "FAIL"
 
     report = {
         "schema_version": "1.0",
-        "generated_at": datetime.now(
-            UTC
-        ).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "status": status,
-        "manifest_sha256": (
-            actual_manifest_digest
-        ),
+        "manifest_sha256": (actual_manifest_digest),
         "subject_count": len(subjects),
         "checks": checks,
         "failures": failures,

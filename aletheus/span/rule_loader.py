@@ -105,8 +105,7 @@ class RuleLoader:
     ) -> None:
         if not isinstance(registry, RuleRegistry):
             raise TypeError(
-                "registry must be a RuleRegistry, "
-                f"got {type(registry).__name__}"
+                f"registry must be a RuleRegistry, got {type(registry).__name__}"
             )
 
         package = str(package).strip()
@@ -205,17 +204,14 @@ class RuleLoader:
         ):
             iterable = value
         else:
-            raise TypeError(
-                "RULES must be an iterable or mapping of Rule instances"
-            )
+            raise TypeError("RULES must be an iterable or mapping of Rule instances")
 
         rules: list[Rule] = []
 
         for item in iterable:
             if not isinstance(item, Rule):
                 raise TypeError(
-                    "RULES contains a non-Rule value: "
-                    f"{type(item).__name__}"
+                    f"RULES contains a non-Rule value: {type(item).__name__}"
                 )
             rules.append(item)
 
@@ -372,9 +368,6 @@ class RuleLoader:
         if not strict or report.ok:
             return
 
-        error = RuntimeError(
-            "Rule loading failed with "
-            f"{report.error_count} error(s)."
-        )
+        error = RuntimeError(f"Rule loading failed with {report.error_count} error(s).")
         error.report = report  # type: ignore[attr-defined]
         raise error

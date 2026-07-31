@@ -4,7 +4,6 @@ from .models import Identity
 
 
 class IdentityAuthentication:
-
     GENESIS = "21.7"
     VERSION = "1.0.0"
 

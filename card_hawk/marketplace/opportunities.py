@@ -6,19 +6,6 @@ Genesis 14.3
 
 
 class OpportunityEngine:
+    def score(self, listing):
 
-
-    def score(
-        self,
-        listing
-    ):
-
-
-        return {
-
-            "score":
-
-                0
-
-        }
-
+        return {"score": 0}

@@ -15,9 +15,7 @@ def replace_required(
             print(f"Already patched: {label}")
             return
 
-        raise RuntimeError(
-            f"Expected block not found for {label}: {path}"
-        )
+        raise RuntimeError(f"Expected block not found for {label}: {path}")
 
     path.write_text(
         text.replace(old, new, 1),
@@ -30,13 +28,11 @@ def replace_required(
 # 1. Compatibility adapter owns compat.statistics
 # =========================================================
 
-compat_path = Path(
-    "aletheus/runtime/adapters/compatibility_adapter.py"
-)
+compat_path = Path("aletheus/runtime/adapters/compatibility_adapter.py")
 
 replace_required(
     compat_path,
-    '''    def statistics(self, context):
+    """    def statistics(self, context):
 
         context.add_result(
             "compatibility_statistics",
@@ -44,8 +40,8 @@ replace_required(
         )
 
         return context
-''',
-    '''    def statistics(self, context):
+""",
+    """    def statistics(self, context):
 
         statistics = self.runtime.compat.statistics()
 
@@ -59,7 +55,7 @@ replace_required(
         )
 
         return context
-''',
+""",
     "compatibility statistics envelope",
 )
 
@@ -72,25 +68,23 @@ replace_required(
 # Remove only that duplicate registration and handler.
 # =========================================================
 
-planning_path = Path(
-    "aletheus/runtime/registrations/planning_commands.py"
-)
+planning_path = Path("aletheus/runtime/registrations/planning_commands.py")
 planning_text = planning_path.read_text(encoding="utf-8")
 
 planning_text = re.sub(
-    r'\n    def decision_history\(payload=None\):\n'
-    r'        return cognition\.decision_history\(\)\n',
+    r"\n    def decision_history\(payload=None\):\n"
+    r"        return cognition\.decision_history\(\)\n",
     "\n",
     planning_text,
     count=1,
 )
 
 planning_text = re.sub(
-    r'\n    commands\.register\(\n'
+    r"\n    commands\.register\(\n"
     r'        "decision\.history",\n'
-    r'        decision_history,\n'
-    r'        replace=True,\n'
-    r'    \)\n',
+    r"        decision_history,\n"
+    r"        replace=True,\n"
+    r"    \)\n",
     "\n",
     planning_text,
     count=1,
@@ -101,34 +95,30 @@ planning_path.write_text(
     encoding="utf-8",
 )
 
-print(
-    "Removed planning override for canonical decision.history."
-)
+print("Removed planning override for canonical decision.history.")
 
 
 # Ensure the canonical decision domain exposes both names.
-decision_path = Path(
-    "aletheus/runtime/domains/decision.py"
-)
+decision_path = Path("aletheus/runtime/domains/decision.py")
 
 replace_required(
     decision_path,
-    '''    def history(self, context):
+    """    def history(self, context):
         context.add_result(
             "history",
             self.runtime.decision.history(),
         )
 
         return context
-''',
-    '''    def history(self, context):
+""",
+    """    def history(self, context):
         history = self.runtime.decision.history()
 
         context.add_result("history", history)
         context.add_result("decisions", history)
 
         return context
-''',
+""",
     "canonical decision history envelope",
 )
 
@@ -152,15 +142,15 @@ for path in runtime_candidates:
     text = path.read_text(encoding="utf-8")
 
     # Legacy RuntimeCommands implementation.
-    old = '''    def health(self, context):
+    old = """    def health(self, context):
         context.add_result(
             "health",
             self.runtime.health(),
         )
         return context
-'''
+"""
 
-    new = '''    def health(self, context):
+    new = """    def health(self, context):
         health = self.runtime.health()
 
         if isinstance(health, dict):
@@ -173,7 +163,7 @@ for path in runtime_candidates:
 
         context.add_result("health", health)
         return context
-'''
+"""
 
     if old in text:
         path.write_text(
@@ -186,13 +176,13 @@ for path in runtime_candidates:
 
     # RuntimeDomain implementation.
     domain_pattern = re.compile(
-        r'    def health\(self, context\):\n'
-        r'(?:        .*\n)*?'
-        r'        context\.add_result\(\n'
+        r"    def health\(self, context\):\n"
+        r"(?:        .*\n)*?"
+        r"        context\.add_result\(\n"
         r'            "health",\n'
-        r'            RuntimeHealthService\(\)\.collect\(self\.runtime\),\n'
-        r'        \)\n\n'
-        r'        return context\n'
+        r"            RuntimeHealthService\(\)\.collect\(self\.runtime\),\n"
+        r"        \)\n\n"
+        r"        return context\n"
     )
 
     match = domain_pattern.search(text)
@@ -218,9 +208,7 @@ for path in runtime_candidates:
 '''
 
         path.write_text(
-            text[:match.start()]
-            + replacement
-            + text[match.end():],
+            text[: match.start()] + replacement + text[match.end() :],
             encoding="utf-8",
         )
 
@@ -229,9 +217,7 @@ for path in runtime_candidates:
         break
 
 if not patched_health:
-    raise RuntimeError(
-        "Could not locate the authoritative runtime.health handler."
-    )
+    raise RuntimeError("Could not locate the authoritative runtime.health handler.")
 
 
 print("Authoritative compatibility patch completed.")

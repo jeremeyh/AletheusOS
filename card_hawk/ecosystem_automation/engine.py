@@ -6,37 +6,14 @@ Genesis 69
 
 
 class EcosystemAutomationEngine:
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "card_hawk_ecosystem_automation",
-
-            "status":
-            "operational",
-
-            "genesis":
-            "69"
-
+            "system": "card_hawk_ecosystem_automation",
+            "status": "operational",
+            "genesis": "69",
         }
-
-
 
     def execute(self, request=None):
 
-        return {
-
-            "request":
-            request,
-
-            "status":
-            "completed",
-
-            "genesis":
-            "69"
-
-        }
-
+        return {"request": request, "status": "completed", "genesis": "69"}

@@ -6,40 +6,11 @@ Genesis 13.9
 
 
 class PricingIntelligenceEngine:
-
-
-    def analyze(
-        self,
-        sales
-    ):
+    def analyze(self, sales):
 
         if not sales:
+            return {"average": 0, "trend": "unknown"}
 
-            return {
+        average = sum(sales) / len(sales)
 
-                "average":
-                    0,
-
-                "trend":
-                    "unknown"
-
-            }
-
-
-        average = (
-            sum(sales)
-            /
-            len(sales)
-        )
-
-
-        return {
-
-            "average":
-                average,
-
-            "trend":
-                "stable"
-
-        }
-
+        return {"average": average, "trend": "stable"}

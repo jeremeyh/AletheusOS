@@ -37,7 +37,9 @@ class ClassificationRule:
 
         prefix_match = not self.prefixes or filename.startswith(self.prefixes)
         suffix_match = not self.suffixes or filename.endswith(self.suffixes)
-        contains_match = not self.contains or any(token in filename for token in self.contains)
+        contains_match = not self.contains or any(
+            token in filename for token in self.contains
+        )
         extension_match = not self.extensions or suffix in self.extensions
 
         return prefix_match and suffix_match and contains_match and extension_match

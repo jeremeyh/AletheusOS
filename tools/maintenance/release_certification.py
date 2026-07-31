@@ -42,9 +42,7 @@ def main():
     discovery = DiscoveryEngine(ROOT / "aletheus")
     discovered = discovery.discover()
 
-    runtime_census = run_command(
-        ["python3", "tools/maintenance/runtime_census.py"]
-    )
+    runtime_census = run_command(["python3", "tools/maintenance/runtime_census.py"])
 
     platform_inspection = run_command(
         ["python3", "tools/maintenance/platform_inspection.py"]

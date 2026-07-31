@@ -13,11 +13,23 @@ from pathlib import Path
 ROOT = Path.cwd().resolve()
 
 CANONICAL_DIRS = [
-    "docs/architecture", "docs/constitution", "docs/governance",
-    "docs/implementation", "docs/decisions", "reports/generated",
-    "tools/doctor", "tools/migration", "tools/build", "tools/repair",
-    "tools/audit", "tools/release", "tools/repository", "scripts",
-    ".github/workflows", ".github/ISSUE_TEMPLATE", "tests/architecture",
+    "docs/architecture",
+    "docs/constitution",
+    "docs/governance",
+    "docs/implementation",
+    "docs/decisions",
+    "reports/generated",
+    "tools/doctor",
+    "tools/migration",
+    "tools/build",
+    "tools/repair",
+    "tools/audit",
+    "tools/release",
+    "tools/repository",
+    "scripts",
+    ".github/workflows",
+    ".github/ISSUE_TEMPLATE",
+    "tests/architecture",
 ]
 
 FILE_MOVES = {
@@ -48,7 +60,8 @@ DIRECTORY_MOVES = {
     "reports/genesis_8_command_dispatch": "docs/architecture/genesis8/command_dispatch",
 }
 
-GITIGNORE_RULES = """
+GITIGNORE_RULES = (
+    """
 # AletheusOS generated state and reports
 runtime_state/
 .aletheus_restore_points/
@@ -82,10 +95,12 @@ dist/
 .DS_Store
 .idea/
 .vscode/
-""".strip() + "\n"
+""".strip()
+    + "\n"
+)
 
 DOCS = {
-"docs/REPOSITORY_CONSTITUTION.md": """# AletheusOS Repository Constitution
+    "docs/REPOSITORY_CONSTITUTION.md": """# AletheusOS Repository Constitution
 
 ## Canonical identity
 - **AletheusOS** is the platform.
@@ -115,7 +130,7 @@ DOCS = {
 The runtime core remains small, stable, and focused on construction, wiring, startup,
 shutdown, and delegation. Sophistication belongs in bounded components.
 """,
-"docs/DIRECTORY_STRUCTURE.md": """# Directory Structure
+    "docs/DIRECTORY_STRUCTURE.md": """# Directory Structure
 
 ```text
 AletheusOS/
@@ -135,7 +150,7 @@ AletheusOS/
 Source packages named `reports` inside application modules are valid code. For example,
 `aletheus/card_hawk/reports/` must remain tracked.
 """,
-"docs/DEVELOPMENT_GUIDE.md": """# Development Guide
+    "docs/DEVELOPMENT_GUIDE.md": """# Development Guide
 
 ```bash
 ./scripts/bootstrap.sh
@@ -146,7 +161,7 @@ pytest tests/architecture
 Keep changes bounded and independently testable. Generated diagnostics belong under
 `reports/generated/`; enduring findings belong under `docs/`.
 """,
-"docs/RELEASE_PROCESS.md": """# Release Process
+    "docs/RELEASE_PROCESS.md": """# Release Process
 
 1. Confirm a clean Git working tree.
 2. Run the repository doctor.
@@ -156,7 +171,7 @@ Keep changes bounded and independently testable. Generated diagnostics belong un
 6. Review migration and architecture manifests.
 7. Tag only after validation passes.
 """,
-"docs/CONTRIBUTING.md": """# Contributing
+    "docs/CONTRIBUTING.md": """# Contributing
 
 Before submitting changes:
 
@@ -167,7 +182,7 @@ pytest tests/architecture
 
 Do not commit caches, local runtime snapshots, restore points, or generated reports.
 """,
-"docs/ARCHITECTURE_OVERVIEW.md": """# Architecture Overview
+    "docs/ARCHITECTURE_OVERVIEW.md": """# Architecture Overview
 
 AletheusOS is a constitutional intelligence platform. Card Hawk is its flagship proof
 application. Nimble provides the universal experience layer.
@@ -177,7 +192,7 @@ and services own implementation responsibilities.
 """,
 }
 
-DOCTOR = '''#!/usr/bin/env python3
+DOCTOR = """#!/usr/bin/env python3
 from __future__ import annotations
 import ast, os, subprocess, sys
 from dataclasses import dataclass
@@ -226,9 +241,9 @@ def main() -> int:
     return 0 if passed == len(results) else 1
 if __name__ == "__main__":
     raise SystemExit(main())
-'''
+"""
 
-BOOTSTRAP = '''#!/usr/bin/env bash
+BOOTSTRAP = """#!/usr/bin/env bash
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
@@ -242,10 +257,10 @@ fi
 python -m compileall -q aletheus
 python tools/doctor/doctor.py || true
 echo "AletheusOS development environment prepared."
-'''
+"""
 
 ARCH_TESTS = {
-"tests/architecture/test_repository_policy.py": '''from pathlib import Path
+    "tests/architecture/test_repository_policy.py": """from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 def test_canonical_directories_exist():
     for rel in ("aletheus", "tests", "docs", "tools", "reports"):
@@ -255,18 +270,18 @@ def test_generated_reports_are_ignored():
     assert "reports/generated/" in text
     assert "runtime_state/" in text
     assert ".aletheus_restore_points/" in text
-''',
-"tests/architecture/test_runtime_composition_policy.py": '''from pathlib import Path
+""",
+    "tests/architecture/test_runtime_composition_policy.py": """from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 def test_single_runtime_singleton_definition():
     core = ROOT / "aletheus/runtime/core.py"
     text = core.read_text(encoding="utf-8")
     assert text.count("runtime_core = AletheusRuntime(") == 1
-''',
+""",
 }
 
 GITHUB = {
-".github/workflows/tests.yml": '''name: Tests
+    ".github/workflows/tests.yml": """name: Tests
 on: [push, pull_request]
 jobs:
   test:
@@ -280,9 +295,9 @@ jobs:
       - run: python -m pip install -e ".[dev]" || python -m pip install -e .
       - run: python -m compileall -q aletheus
       - run: pytest tests/architecture
-''',
-".github/CODEOWNERS": "# Replace with GitHub usernames or teams when collaboration begins.\n* @OWNER\n",
-".github/pull_request_template.md": '''## Summary
+""",
+    ".github/CODEOWNERS": "# Replace with GitHub usernames or teams when collaboration begins.\n* @OWNER\n",
+    ".github/pull_request_template.md": """## Summary
 
 ## Architectural impact
 
@@ -291,8 +306,9 @@ jobs:
 - [ ] Architecture tests
 - [ ] Regression tests
 - [ ] Generated artifacts excluded
-''',
+""",
 }
+
 
 @dataclass
 class Manifest:
@@ -301,6 +317,7 @@ class Manifest:
     skipped: list[dict] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
 
+
 def sha256(path: Path) -> str:
     h = hashlib.sha256()
     with path.open("rb") as f:
@@ -308,9 +325,14 @@ def sha256(path: Path) -> str:
             h.update(chunk)
     return h.hexdigest()
 
-def write_file(path: Path, content: str, dry: bool, m: Manifest, executable: bool = False) -> None:
+
+def write_file(
+    path: Path, content: str, dry: bool, m: Manifest, executable: bool = False
+) -> None:
     if path.exists() and path.stat().st_size > 0:
-        m.skipped.append({"path": str(path.relative_to(ROOT)), "reason": "existing_nonempty"})
+        m.skipped.append(
+            {"path": str(path.relative_to(ROOT)), "reason": "existing_nonempty"}
+        )
         return
     if dry:
         m.created.append({"path": str(path.relative_to(ROOT)), "dry_run": True})
@@ -321,44 +343,81 @@ def write_file(path: Path, content: str, dry: bool, m: Manifest, executable: boo
         path.chmod(path.stat().st_mode | 0o111)
     m.created.append({"path": str(path.relative_to(ROOT)), "sha256": sha256(path)})
 
+
 def merge_gitignore(dry: bool, m: Manifest) -> None:
     p = ROOT / ".gitignore"
     existing = p.read_text(encoding="utf-8") if p.exists() else ""
-    needed = [line for line in GITIGNORE_RULES.splitlines() if line and not line.startswith("#") and line not in existing.splitlines()]
+    needed = [
+        line
+        for line in GITIGNORE_RULES.splitlines()
+        if line and not line.startswith("#") and line not in existing.splitlines()
+    ]
     if not needed:
         m.skipped.append({"path": ".gitignore", "reason": "rules_present"})
         return
     if dry:
-        m.created.append({"path": ".gitignore", "action": "append_rules", "dry_run": True})
+        m.created.append(
+            {"path": ".gitignore", "action": "append_rules", "dry_run": True}
+        )
         return
     p.write_text(existing.rstrip() + "\n\n" + GITIGNORE_RULES, encoding="utf-8")
-    m.created.append({"path": ".gitignore", "action": "appended_rules", "sha256": sha256(p)})
+    m.created.append(
+        {"path": ".gitignore", "action": "appended_rules", "sha256": sha256(p)}
+    )
+
 
 def merge_directory(src: Path, dst: Path, dry: bool, m: Manifest) -> None:
-    if not src.exists() or src.resolve() == dst.resolve(): return
+    if not src.exists() or src.resolve() == dst.resolve():
+        return
     if not dst.exists():
         if dry:
-            m.moved.append({"source": str(src.relative_to(ROOT)), "destination": str(dst.relative_to(ROOT)), "dry_run": True})
+            m.moved.append(
+                {
+                    "source": str(src.relative_to(ROOT)),
+                    "destination": str(dst.relative_to(ROOT)),
+                    "dry_run": True,
+                }
+            )
         else:
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.move(str(src), str(dst))
-            m.moved.append({"source": str(src.relative_to(ROOT)), "destination": str(dst.relative_to(ROOT))})
+            m.moved.append(
+                {
+                    "source": str(src.relative_to(ROOT)),
+                    "destination": str(dst.relative_to(ROOT)),
+                }
+            )
         return
     for item in sorted(src.rglob("*")):
         rel, target = item.relative_to(src), dst / item.relative_to(src)
         if item.is_dir():
-            if not dry: target.mkdir(parents=True, exist_ok=True)
+            if not dry:
+                target.mkdir(parents=True, exist_ok=True)
             continue
         if target.exists():
-            m.skipped.append({"path": str(item.relative_to(ROOT)), "reason": "destination_exists"})
+            m.skipped.append(
+                {"path": str(item.relative_to(ROOT)), "reason": "destination_exists"}
+            )
         elif dry:
-            m.moved.append({"source": str(item.relative_to(ROOT)), "destination": str(target.relative_to(ROOT)), "dry_run": True})
+            m.moved.append(
+                {
+                    "source": str(item.relative_to(ROOT)),
+                    "destination": str(target.relative_to(ROOT)),
+                    "dry_run": True,
+                }
+            )
         else:
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.move(str(item), str(target))
-            m.moved.append({"source": str(item.relative_to(ROOT)), "destination": str(target.relative_to(ROOT))})
+            m.moved.append(
+                {
+                    "source": str(item.relative_to(ROOT)),
+                    "destination": str(target.relative_to(ROOT)),
+                }
+            )
     if not dry:
         shutil.rmtree(src, ignore_errors=True)
+
 
 def verify() -> int:
     checks = {
@@ -369,42 +428,72 @@ def verify() -> int:
         "bootstrap": (ROOT / "scripts/bootstrap.sh").is_file(),
         "architecture tests": (ROOT / "tests/architecture").is_dir(),
     }
-    for name, ok in checks.items(): print(f"[{'PASS' if ok else 'FAIL'}] {name}")
+    for name, ok in checks.items():
+        print(f"[{'PASS' if ok else 'FAIL'}] {name}")
     return 0 if all(checks.values()) else 1
+
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--verify", action="store_true")
     args = parser.parse_args()
-    if args.verify: return verify()
+    if args.verify:
+        return verify()
     if not (ROOT / "aletheus").exists():
         print("ERROR: Run from the AletheusOS repository root.", file=sys.stderr)
         return 2
     m = Manifest()
     for rel in CANONICAL_DIRS:
         p = ROOT / rel
-        if args.dry_run and not p.exists(): m.created.append({"path": rel, "kind": "directory", "dry_run": True})
-        elif not args.dry_run: p.mkdir(parents=True, exist_ok=True)
-    merge_directory(ROOT / "docs/ARCHITECTURE", ROOT / "docs/architecture", args.dry_run, m)
+        if args.dry_run and not p.exists():
+            m.created.append({"path": rel, "kind": "directory", "dry_run": True})
+        elif not args.dry_run:
+            p.mkdir(parents=True, exist_ok=True)
+    merge_directory(
+        ROOT / "docs/ARCHITECTURE", ROOT / "docs/architecture", args.dry_run, m
+    )
     for src_rel, dst_rel in FILE_MOVES.items():
         src, dst = ROOT / src_rel, ROOT / dst_rel
-        if not src.exists(): continue
-        if dst.exists(): m.skipped.append({"path": src_rel, "reason": "destination_exists"}); continue
-        if args.dry_run: m.moved.append({"source": src_rel, "destination": dst_rel, "dry_run": True})
+        if not src.exists():
+            continue
+        if dst.exists():
+            m.skipped.append({"path": src_rel, "reason": "destination_exists"})
+            continue
+        if args.dry_run:
+            m.moved.append({"source": src_rel, "destination": dst_rel, "dry_run": True})
         else:
-            dst.parent.mkdir(parents=True, exist_ok=True); shutil.move(str(src), str(dst)); m.moved.append({"source": src_rel, "destination": dst_rel})
-    for src_rel, dst_rel in DIRECTORY_MOVES.items(): merge_directory(ROOT / src_rel, ROOT / dst_rel, args.dry_run, m)
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(src), str(dst))
+            m.moved.append({"source": src_rel, "destination": dst_rel})
+    for src_rel, dst_rel in DIRECTORY_MOVES.items():
+        merge_directory(ROOT / src_rel, ROOT / dst_rel, args.dry_run, m)
     merge_gitignore(args.dry_run, m)
-    for rel, content in DOCS.items(): write_file(ROOT / rel, content, args.dry_run, m)
+    for rel, content in DOCS.items():
+        write_file(ROOT / rel, content, args.dry_run, m)
     write_file(ROOT / "tools/doctor/doctor.py", DOCTOR, args.dry_run, m, True)
     write_file(ROOT / "scripts/bootstrap.sh", BOOTSTRAP, args.dry_run, m, True)
-    for rel, content in ARCH_TESTS.items(): write_file(ROOT / rel, content, args.dry_run, m)
-    for rel, content in GITHUB.items(): write_file(ROOT / rel, content, args.dry_run, m)
+    for rel, content in ARCH_TESTS.items():
+        write_file(ROOT / rel, content, args.dry_run, m)
+    for rel, content in GITHUB.items():
+        write_file(ROOT / rel, content, args.dry_run, m)
     if not args.dry_run:
         out = ROOT / "reports/generated/repository_updates_manifest.json"
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(json.dumps({"generated": datetime.now(UTC).isoformat(), "created": m.created, "moved": m.moved, "skipped": m.skipped, "warnings": m.warnings}, indent=2) + "\n", encoding="utf-8")
+        out.write_text(
+            json.dumps(
+                {
+                    "generated": datetime.now(UTC).isoformat(),
+                    "created": m.created,
+                    "moved": m.moved,
+                    "skipped": m.skipped,
+                    "warnings": m.warnings,
+                },
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
     print("=" * 72)
     print("AletheusOS Genesis 10 Repository Updates")
     print("=" * 72)
@@ -413,5 +502,7 @@ def main() -> int:
     print(f"Skipped:         {len(m.skipped)}")
     print("Dry run only." if args.dry_run else "Updates applied.")
     return 0
+
+
 if __name__ == "__main__":
     raise SystemExit(main())

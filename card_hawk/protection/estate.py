@@ -6,13 +6,6 @@ Genesis 14.26
 
 
 class EstateEngine:
-
-
-    def create(
-        self,
-        plan
-    ):
-
+    def create(self, plan):
 
         return True
-

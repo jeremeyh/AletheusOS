@@ -52,64 +52,47 @@ class ConstitutionalKnowledgeIndex:
         self._type: dict[str, list[str]] = defaultdict(list)
 
         for knowledge in constitutional_library_registry.all():
-
             kid = knowledge.knowledge_id
 
             #
             # Title
             #
 
-            self._title[
-                knowledge.title.lower()
-            ].append(kid)
+            self._title[knowledge.title.lower()].append(kid)
 
             #
             # Type
             #
 
-            self._type[
-                knowledge.knowledge_type.value
-            ].append(kid)
+            self._type[knowledge.knowledge_type.value].append(kid)
 
             #
             # Constitutional Articles
             #
 
             for article in knowledge.constitutional_articles:
-
-                self._article[
-                    article
-                ].append(kid)
+                self._article[article].append(kid)
 
             #
             # Related identities
             #
 
             for identity in knowledge.related_identities:
-
-                self._identity[
-                    identity
-                ].append(kid)
+                self._identity[identity].append(kid)
 
             #
             # Related memories
             #
 
             for memory in knowledge.related_memories:
-
-                self._memory[
-                    memory
-                ].append(kid)
+                self._memory[memory].append(kid)
 
             #
             # Related reasons
             #
 
             for reason in knowledge.related_reasons:
-
-                self._reason[
-                    reason
-                ].append(kid)
+                self._reason[reason].append(kid)
 
     #
     # Lookup Helpers
@@ -218,29 +201,17 @@ class ConstitutionalKnowledgeIndex:
     def health(self) -> dict:
 
         return {
-
             "name": "Constitutional Knowledge Index",
-
             "genesis": self.GENESIS,
-
             "version": self.VERSION,
-
             "status": "healthy",
-
             "title_index": len(self._title),
-
             "article_index": len(self._article),
-
             "identity_index": len(self._identity),
-
             "memory_index": len(self._memory),
-
             "reason_index": len(self._reason),
-
             "type_index": len(self._type),
         }
 
 
-constitutional_knowledge_index = (
-    ConstitutionalKnowledgeIndex()
-)
+constitutional_knowledge_index = ConstitutionalKnowledgeIndex()

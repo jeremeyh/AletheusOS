@@ -24,20 +24,12 @@ def find_repo_root(start: Path) -> Path:
 ROOT = find_repo_root(Path(__file__).parent)
 
 
-REACT = (
-    ROOT
-    / "nimble/packages/react/src/instrumentation"
-)
+REACT = ROOT / "nimble/packages/react/src/instrumentation"
 
-SHELL = (
-    ROOT
-    / "nimble/apps/platform-shell"
-)
+SHELL = ROOT / "nimble/apps/platform-shell"
 
 REPORT = (
-    ROOT
-    / "reports/nimble/experience/"
-    "instrumentation-preview-validation-latest.json"
+    ROOT / "reports/nimble/experience/instrumentation-preview-validation-latest.json"
 )
 
 
@@ -65,31 +57,18 @@ def main() -> int:
     ]
 
     for relative in required_react:
-        if not (
-            REACT / relative
-        ).is_file():
-            failures.append(
-                "Missing instrumentation framework file: "
-                + relative
-            )
+        if not (REACT / relative).is_file():
+            failures.append("Missing instrumentation framework file: " + relative)
 
     for relative in required_shell:
-        if not (
-            SHELL / relative
-        ).is_file():
-            failures.append(
-                "Missing instrumentation preview file: "
-                + relative
-            )
+        if not (SHELL / relative).is_file():
+            failures.append("Missing instrumentation preview file: " + relative)
 
     combined = "\n".join(
-        path.read_text(
-            encoding="utf-8"
-        )
+        path.read_text(encoding="utf-8")
         for root in [
             REACT,
-            SHELL
-            / "src/nimble/showcase",
+            SHELL / "src/nimble/showcase",
         ]
         if root.exists()
         for path in root.rglob("*")
@@ -122,10 +101,7 @@ def main() -> int:
 
     for concept in concepts:
         if concept not in combined:
-            failures.append(
-                "Missing instrumentation concept: "
-                + concept
-            )
+            failures.append("Missing instrumentation concept: " + concept)
 
     commands = [
         [
@@ -151,9 +127,7 @@ def main() -> int:
         ],
     ]
 
-    results: list[
-        dict[str, object]
-    ] = []
+    results: list[dict[str, object]] = []
 
     for command in commands:
         result = subprocess.run(
@@ -167,31 +141,17 @@ def main() -> int:
 
         results.append(
             {
-                "command":
-                    " ".join(command),
-
-                "returncode":
-                    result.returncode,
-
-                "stdout":
-                    result.stdout.strip(),
-
-                "stderr":
-                    result.stderr.strip(),
+                "command": " ".join(command),
+                "returncode": result.returncode,
+                "stdout": result.stdout.strip(),
+                "stderr": result.stderr.strip(),
             }
         )
 
         if result.returncode != 0:
-            failures.append(
-                "Command failed: "
-                + " ".join(command)
-            )
+            failures.append("Command failed: " + " ".join(command))
 
-    status = (
-        "PASS"
-        if not failures
-        else "FAIL"
-    )
+    status = "PASS" if not failures else "FAIL"
 
     REPORT.parent.mkdir(
         parents=True,
@@ -201,22 +161,11 @@ def main() -> int:
     REPORT.write_text(
         json.dumps(
             {
-                "schema_version":
-                    "1.0",
-
-                "generated_at":
-                    datetime.now(
-                        UTC
-                    ).isoformat(),
-
-                "status":
-                    status,
-
-                "failures":
-                    failures,
-
-                "commands":
-                    results,
+                "schema_version": "1.0",
+                "generated_at": datetime.now(UTC).isoformat(),
+                "status": status,
+                "failures": failures,
+                "commands": results,
             },
             indent=2,
             sort_keys=True,
@@ -226,47 +175,27 @@ def main() -> int:
     )
 
     print("=" * 72)
-    print(
-        "NIMBLE™ INTELLIGENCE INSTRUMENTATION PREVIEW"
-    )
+    print("NIMBLE™ INTELLIGENCE INSTRUMENTATION PREVIEW")
     print("=" * 72)
-    print(
-        f"Failures: {len(failures)}"
-    )
-    print(
-        f"Status: {status}"
-    )
+    print(f"Failures: {len(failures)}")
+    print(f"Status: {status}")
     print(
         "Report:",
         REPORT.relative_to(ROOT),
     )
 
     for failure in failures:
-        print(
-            f"- {failure}"
-        )
+        print(f"- {failure}")
 
     if failures:
         for result in results:
-            if result[
-                "returncode"
-            ] != 0:
+            if result["returncode"] != 0:
                 print()
-                print(
-                    result["command"]
-                )
-                print(
-                    result["stdout"]
-                )
-                print(
-                    result["stderr"]
-                )
+                print(result["command"])
+                print(result["stdout"])
+                print(result["stderr"])
 
-    return (
-        0
-        if status == "PASS"
-        else 1
-    )
+    return 0 if status == "PASS" else 1
 
 
 if __name__ == "__main__":

@@ -4,7 +4,6 @@ from time import perf_counter
 
 @dataclass
 class BootTiming:
-
     phase: str
     started: float = field(default_factory=perf_counter)
     finished: float | None = None

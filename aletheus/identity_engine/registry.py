@@ -4,7 +4,6 @@ from .models import Identity
 
 
 class IdentityRegistry:
-
     GENESIS = "21.7"
     VERSION = "1.0.0"
 
@@ -16,9 +15,7 @@ class IdentityRegistry:
         identity: Identity,
     ) -> Identity:
 
-        self._identities[
-            identity.identity_id
-        ] = identity
+        self._identities[identity.identity_id] = identity
 
         return identity
 
@@ -27,9 +24,7 @@ class IdentityRegistry:
         identity_id: str,
     ) -> Identity | None:
 
-        return self._identities.get(
-            identity_id
-        )
+        return self._identities.get(identity_id)
 
     def unregister(
         self,
@@ -43,15 +38,11 @@ class IdentityRegistry:
 
     def identities(self):
 
-        return list(
-            self._identities.values()
-        )
+        return list(self._identities.values())
 
     def count(self):
 
-        return len(
-            self._identities
-        )
+        return len(self._identities)
 
     def statistics(self):
 

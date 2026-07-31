@@ -6,22 +6,6 @@ Genesis 13.45
 
 
 class CommercialAnalytics:
+    def snapshot(self):
 
-
-    def snapshot(
-        self
-    ):
-
-
-        return {
-
-            "customers":
-
-                0,
-
-            "revenue":
-
-                0
-
-        }
-
+        return {"customers": 0, "revenue": 0}

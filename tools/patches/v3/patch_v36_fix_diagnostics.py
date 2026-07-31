@@ -6,7 +6,6 @@ text = diag.read_text()
 entry = '("high_availability_v3", "Aletheus High Availability Platform"),'
 
 if entry not in text:
-
     anchors = [
         '("telemetry_v3", "Aletheus Observability Platform"),',
         '("federation_v3", "Aletheus Federated Knowledge Fabric"),',
@@ -26,9 +25,7 @@ if entry not in text:
             break
 
     if not inserted:
-        raise SystemExit(
-            "Could not locate a diagnostics insertion point."
-        )
+        raise SystemExit("Could not locate a diagnostics insertion point.")
 
     diag.write_text(text)
     print("✔ Added High Availability to RuntimeDiagnostics.")

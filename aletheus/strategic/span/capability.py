@@ -78,10 +78,7 @@ class SPANCapability:
             assessment,
         )
 
-        if (
-            recommendation.confidence
-            >= self.config.minimum_recommendation_confidence
-        ):
+        if recommendation.confidence >= self.config.minimum_recommendation_confidence:
             self.memory.record(recommendation)
             self.telemetry.increment("recommendation.recorded")
         else:

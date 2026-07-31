@@ -36,11 +36,7 @@ class ApplicationServiceResolver:
 
     def available(self) -> tuple[str, ...]:
         return tuple(
-            sorted(
-                name
-                for name in self.SERVICE_NAMES
-                if hasattr(self.platform, name)
-            )
+            sorted(name for name in self.SERVICE_NAMES if hasattr(self.platform, name))
         )
 
     def resolve(
@@ -49,8 +45,7 @@ class ApplicationServiceResolver:
     ) -> Any:
         if service_name not in self.SERVICE_NAMES:
             raise MissingApplicationServiceError(
-                f"Unknown platform service: "
-                f"{service_name!r}."
+                f"Unknown platform service: {service_name!r}."
             )
 
         if not hasattr(
@@ -58,8 +53,7 @@ class ApplicationServiceResolver:
             service_name,
         ):
             raise MissingApplicationServiceError(
-                f"Platform service "
-                f"{service_name!r} is unavailable."
+                f"Platform service {service_name!r} is unavailable."
             )
 
         return getattr(
@@ -72,8 +66,5 @@ class ApplicationServiceResolver:
         service_names: tuple[str, ...],
     ) -> dict[str, Any]:
         return {
-            service_name: self.resolve(
-                service_name
-            )
-            for service_name in service_names
+            service_name: self.resolve(service_name) for service_name in service_names
         }

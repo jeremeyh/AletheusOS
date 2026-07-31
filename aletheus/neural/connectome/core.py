@@ -38,18 +38,10 @@ class Connectome:
         return sorted(set(linked))
 
     def outgoing(self, neuron_id: str):
-        return [
-            synapse
-            for synapse in self.synapses()
-            if synapse.source == neuron_id
-        ]
+        return [synapse for synapse in self.synapses() if synapse.source == neuron_id]
 
     def incoming(self, neuron_id: str):
-        return [
-            synapse
-            for synapse in self.synapses()
-            if synapse.target == neuron_id
-        ]
+        return [synapse for synapse in self.synapses() if synapse.target == neuron_id]
 
     def path(self, source: str, target: str) -> list[str]:
         if source == target:

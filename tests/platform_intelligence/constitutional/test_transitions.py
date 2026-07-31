@@ -128,9 +128,7 @@ def test_same_state_transition_is_rejected() -> None:
 
 def test_retired_state_is_terminal() -> None:
     assert (
-        CANONICAL_TRANSITION_POLICY.allowed_targets(
-            ConstitutionalState.RETIRED
-        )
+        CANONICAL_TRANSITION_POLICY.allowed_targets(ConstitutionalState.RETIRED)
         == frozenset()
     )
 
@@ -138,12 +136,8 @@ def test_retired_state_is_terminal() -> None:
 def test_object_transition_uses_canonical_policy() -> None:
     service = make_service()
 
-    initializing = service.transition_to(
-        ConstitutionalState.INITIALIZING
-    )
-    starting = initializing.transition_to(
-        ConstitutionalState.STARTING
-    )
+    initializing = service.transition_to(ConstitutionalState.INITIALIZING)
+    starting = initializing.transition_to(ConstitutionalState.STARTING)
     running = starting.transition_to(
         ConstitutionalState.RUNNING,
         health=ConstitutionalHealth.HEALTHY,

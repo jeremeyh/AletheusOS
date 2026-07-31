@@ -27,16 +27,9 @@ def find_repo_root(start: Path) -> Path:
 ROOT = find_repo_root(Path(__file__).parent)
 
 
-REPORT = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "container-smoke-latest.json"
-)
+REPORT = ROOT / "reports" / "nimble" / "container-smoke-latest.json"
 
-DEFAULT_IMAGE = (
-    "aletheus/nimble-experience-gateway:local"
-)
+DEFAULT_IMAGE = "aletheus/nimble-experience-gateway:local"
 
 
 def run(
@@ -63,9 +56,7 @@ def request_json(
     ) as response:
         return (
             response.status,
-            json.loads(
-                response.read().decode("utf-8")
-            ),
+            json.loads(response.read().decode("utf-8")),
         )
 
 
@@ -97,10 +88,7 @@ def main() -> int:
     parser.add_argument(
         "--require-runtime",
         action="store_true",
-        help=(
-            "Fail instead of skipping when Docker "
-            "is unavailable."
-        ),
+        help=("Fail instead of skipping when Docker is unavailable."),
     )
 
     arguments = parser.parse_args()
@@ -111,20 +99,12 @@ def main() -> int:
 
         report = {
             "schema_version": "1.0",
-            "generated_at": datetime.now(
-                UTC
-            ).isoformat(),
+            "generated_at": datetime.now(UTC).isoformat(),
             "image": arguments.image,
             "status": "FAIL" if strict else "SKIP",
             "checks": [],
-            "failures": (
-                ["Docker runtime is unavailable."]
-                if strict
-                else []
-            ),
-            "skip_reason": (
-                "Docker runtime is unavailable."
-            ),
+            "failures": (["Docker runtime is unavailable."] if strict else []),
+            "skip_reason": ("Docker runtime is unavailable."),
         }
 
         REPORT.parent.mkdir(
@@ -151,7 +131,6 @@ def main() -> int:
         return 1 if strict else 0
 
     container_name = arguments.container_name
-
 
     run(
         [
@@ -208,48 +187,35 @@ def main() -> int:
 
                 for path, expected_state in probe_specs:
                     status, payload = request_json(
-                        "http://127.0.0.1:"
-                        f"{arguments.port}{path}"
+                        f"http://127.0.0.1:{arguments.port}{path}"
                     )
 
-                    passed = (
-                        status == 200
-                        and payload.get("status")
-                        == expected_state
-                    )
+                    passed = status == 200 and payload.get("status") == expected_state
 
                     collected.append(
                         {
                             "path": path,
                             "http_status": status,
-                            "reported_status":
-                                payload.get("status"),
-                            "expected_status":
-                                expected_state,
+                            "reported_status": payload.get("status"),
+                            "expected_status": expected_state,
                             "passed": passed,
                         }
                     )
 
                 checks = collected
 
-                if all(
-                    check["passed"]
-                    for check in checks
-                ):
+                if all(check["passed"] for check in checks):
                     break
             except Exception:
                 time.sleep(1)
         else:
             failures.append(
-                "Container did not become ready "
-                f"within {arguments.timeout} seconds."
+                f"Container did not become ready within {arguments.timeout} seconds."
             )
 
         for check in checks:
             if not check["passed"]:
-                failures.append(
-                    f"Probe failed: {check['path']}"
-                )
+                failures.append(f"Probe failed: {check['path']}")
 
         inspect_result = run(
             [
@@ -264,23 +230,17 @@ def main() -> int:
         runtime_user = inspect_result.stdout.strip()
 
         if not runtime_user:
-            failures.append(
-                "Container has no explicit runtime user."
-            )
+            failures.append("Container has no explicit runtime user.")
 
         if runtime_user in {
             "root",
             "0",
             "0:0",
         }:
-            failures.append(
-                "Container is running as root."
-            )
+            failures.append("Container is running as root.")
 
     except Exception as error:
-        failures.append(
-            f"{type(error).__name__}: {error}"
-        )
+        failures.append(f"{type(error).__name__}: {error}")
         runtime_user = "unknown"
     finally:
         logs = run(
@@ -304,17 +264,11 @@ def main() -> int:
 
     report = {
         "schema_version": "1.0",
-        "generated_at": datetime.now(
-            UTC
-        ).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "image": arguments.image,
         "container_id": container_id,
         "runtime_user": runtime_user,
-        "status": (
-            "PASS"
-            if not failures
-            else "FAIL"
-        ),
+        "status": ("PASS" if not failures else "FAIL"),
         "checks": checks,
         "failures": failures,
         "logs": logs[-10000:],
@@ -344,9 +298,7 @@ def main() -> int:
     for check in checks:
         print(
             check["path"],
-            "PASS"
-            if check["passed"]
-            else "FAIL",
+            "PASS" if check["passed"] else "FAIL",
         )
 
     for failure in failures:

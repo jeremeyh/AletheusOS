@@ -6,19 +6,6 @@ Genesis 13.36
 
 
 class CollectibleOCREngine:
+    def extract(self, image):
 
-
-    def extract(
-        self,
-        image
-    ):
-
-
-        return {
-
-            "text":
-
-                []
-
-        }
-
+        return {"text": []}

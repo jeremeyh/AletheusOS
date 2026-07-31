@@ -6,19 +6,6 @@ Genesis 14.11
 
 
 class CounterfeitEngine:
+    def analyze(self, asset):
 
-
-    def analyze(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "risk":
-
-                "unknown"
-
-        }
-
+        return {"risk": "unknown"}

@@ -6,107 +6,45 @@ Genesis 8.15
 Controls bounded runtime evolution.
 """
 
-
 import time
 
 
 class AnchorGovernanceCouncil:
-
-
-    def __init__(
-        self,
-        predictive,
-        intelligence
-    ):
+    def __init__(self, predictive, intelligence):
 
         self.predictive = predictive
         self.intelligence = intelligence
 
         self.decisions = []
 
+    def evaluate(self, anchor, proposal):
 
+        prediction = self.predictive.predict(anchor)
 
-    def evaluate(
-        self,
-        anchor,
-        proposal
-    ):
+        score = prediction["intelligence_score"]
 
-        prediction = (
-            self.predictive
-            .predict(anchor)
-        )
+        risk = prediction["risk"]
 
-
-        score = (
-            prediction["intelligence_score"]
-        )
-
-
-        risk = (
-            prediction["risk"]
-        )
-
-
-        approved = (
-            score >= 70
-            and
-            risk < 50
-        )
-
+        approved = score >= 70 and risk < 50
 
         decision = {
-
-            "anchor":
-                anchor,
-
-            "proposal":
-                proposal,
-
-            "approved":
-                approved,
-
-            "confidence":
-                score,
-
-            "risk":
-                risk,
-
-            "reason":
-
-                (
-                    "aligned"
-                    if approved
-                    else
-                    "requires_review"
-                ),
-
-            "timestamp":
-                time.time()
-
+            "anchor": anchor,
+            "proposal": proposal,
+            "approved": approved,
+            "confidence": score,
+            "risk": risk,
+            "reason": ("aligned" if approved else "requires_review"),
+            "timestamp": time.time(),
         }
 
-
-        self.decisions.append(
-            decision
-        )
-
+        self.decisions.append(decision)
 
         return decision
-
-
 
     def history(self):
 
         return self.decisions
 
-
-
     def snapshot(self):
 
-        return {
-
-            "decision_count":
-                len(self.decisions)
-
-        }
+        return {"decision_count": len(self.decisions)}

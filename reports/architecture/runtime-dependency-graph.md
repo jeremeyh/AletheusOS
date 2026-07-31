@@ -145,7 +145,6 @@ flowchart TD
     aletheus_runtime_boot_pipeline_reporter["aletheus.runtime.boot_pipeline.reporter"]
     aletheus_runtime_boot_pipeline_timing["aletheus.runtime.boot_pipeline.timing"]
     aletheus_runtime_bootstrap["aletheus.runtime.bootstrap"]
-    aletheus_runtime_bootstrap_bootstrap_engine["aletheus.runtime.bootstrap.bootstrap_engine"]
     aletheus_runtime_bootstrap_runtime_bootstrap["aletheus.runtime.bootstrap.runtime_bootstrap"]
     aletheus_runtime_bootstrap_runtime_manifest_builder["aletheus.runtime.bootstrap.runtime_manifest_builder"]
     aletheus_runtime_builder["aletheus.runtime.builder"]
@@ -318,7 +317,6 @@ flowchart TD
     aletheus_runtime_managers_invariant_manager["aletheus.runtime.managers.invariant_manager"]
     aletheus_runtime_managers_lifecycle_manager["aletheus.runtime.managers.lifecycle_manager"]
     aletheus_runtime_managers_observability_manager["aletheus.runtime.managers.observability_manager"]
-    aletheus_runtime_managers_registration_manager["aletheus.runtime.managers.registration_manager"]
     aletheus_runtime_managers_registry_federation_manager["aletheus.runtime.managers.registry_federation_manager"]
     aletheus_runtime_managers_registry_manager["aletheus.runtime.managers.registry_manager"]
     aletheus_runtime_managers_runtime_facade["aletheus.runtime.managers.runtime_facade"]
@@ -547,9 +545,6 @@ flowchart TD
     aletheus_runtime_boot_pipeline_pipeline --> aletheus_runtime_boot_pipeline_conditions
     aletheus_runtime_boot_pipeline_pipeline --> aletheus_runtime_boot_pipeline_context
     aletheus_runtime_boot_pipeline_pipeline --> aletheus_runtime_boot_pipeline_timing
-    aletheus_runtime_bootstrap --> aletheus_runtime_bootstrap_runtime_bootstrap
-    aletheus_runtime_bootstrap --> aletheus_runtime_bootstrap_runtime_manifest_builder
-    aletheus_runtime_bootstrap_bootstrap_engine --> aletheus_runtime_managers
     aletheus_runtime_builder --> aletheus_runtime_builder_builder
     aletheus_runtime_builder_builder --> aletheus_runtime_container
     aletheus_runtime_capabilities --> aletheus_runtime_capabilities_registry
@@ -784,13 +779,10 @@ flowchart TD
     aletheus_runtime_managers --> aletheus_runtime_managers_governance_manager
     aletheus_runtime_managers --> aletheus_runtime_managers_health_manager
     aletheus_runtime_managers --> aletheus_runtime_managers_invariant_manager
-    aletheus_runtime_managers --> aletheus_runtime_managers_registration_manager
     aletheus_runtime_managers --> aletheus_runtime_managers_registry_manager
     aletheus_runtime_managers --> aletheus_runtime_managers_snapshot_manager
     aletheus_runtime_managers --> aletheus_runtime_managers_validation_manager
-    aletheus_runtime_managers_command_manager --> aletheus_runtime_command_bootstrap_bootstrapper
     aletheus_runtime_managers_health_manager --> aletheus_runtime_lifecycle_resolver
-    aletheus_runtime_managers_registration_manager --> aletheus_runtime_command_bootstrap_bootstrapper
     aletheus_runtime_managers_registry_federation_manager --> aletheus_runtime_services_registry_federation_bootstrap
     aletheus_runtime_migration --> aletheus_runtime_migration_reporter
     aletheus_runtime_migration --> aletheus_runtime_migration_tracker
@@ -860,6 +852,6 @@ flowchart TD
 
 ## Summary
 
-- Modules: 417
-- Internal dependency edges: 437
+- Modules: 415
+- Internal dependency edges: 431
 - Dependency cycles: 0

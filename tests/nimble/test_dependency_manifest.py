@@ -5,31 +5,21 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
-GENERATOR = (
-    ROOT
-    / "generate_nimble_dependency_manifest.py"
-)
+GENERATOR = ROOT / "generate_nimble_dependency_manifest.py"
 
-VALIDATOR = (
-    ROOT
-    / "validate_nimble_dependency_manifest.py"
-)
+VALIDATOR = ROOT / "validate_nimble_dependency_manifest.py"
 
 
 def load_module(name: str, path: Path):
-    specification = (
-        importlib.util.spec_from_file_location(
-            name,
-            path,
-        )
+    specification = importlib.util.spec_from_file_location(
+        name,
+        path,
     )
 
     assert specification is not None
     assert specification.loader is not None
 
-    module = importlib.util.module_from_spec(
-        specification
-    )
+    module = importlib.util.module_from_spec(specification)
     specification.loader.exec_module(module)
 
     return module
@@ -42,11 +32,7 @@ def test_manifest_paths_are_canonical():
     )
 
     assert module.MANIFEST == (
-        ROOT
-        / "nimble"
-        / "governance"
-        / "supply-chain"
-        / "dependency-manifest.json"
+        ROOT / "nimble" / "governance" / "supply-chain" / "dependency-manifest.json"
     )
 
 
@@ -56,9 +42,7 @@ def test_npm_inventory_contract():
         GENERATOR,
     )
 
-    inventory = (
-        module.collect_npm_dependencies()
-    )
+    inventory = module.collect_npm_dependencies()
 
     assert "package_lock_sha256" in inventory
     assert "resolved_package_count" in inventory

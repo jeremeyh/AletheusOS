@@ -2,13 +2,11 @@
 Registry Federation Models
 """
 
-
 from dataclasses import dataclass
 
 
 @dataclass
 class EngineBinding:
-
     engine: str
 
     domain: str
@@ -16,4 +14,3 @@ class EngineBinding:
     registries: list
 
     status: str = "pending"
-

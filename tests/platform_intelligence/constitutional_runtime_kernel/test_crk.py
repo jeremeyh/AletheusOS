@@ -12,9 +12,7 @@ from aletheus.platform_intelligence import (
 def test_kernel_auto_composes() -> None:
     kernel = ConstitutionalRuntimeKernel()
 
-    assert kernel.state is (
-        ConstitutionalRuntimeKernelState.COMPOSED
-    )
+    assert kernel.state is (ConstitutionalRuntimeKernelState.COMPOSED)
     assert kernel.composed is True
     assert kernel.running is False
 
@@ -40,23 +38,11 @@ def test_kernel_registers_canonical_services() -> None:
 
     assert stats.registered == 10
 
-    addresses = {
-        service.address
-        for service in kernel.service_registry.all()
-    }
+    addresses = {service.address for service in kernel.service_registry.all()}
 
-    assert (
-        "service.platform-intelligence.crk"
-        in addresses
-    )
-    assert (
-        "service.platform-intelligence.digital-twin"
-        in addresses
-    )
-    assert (
-        "service.platform-intelligence.mission-engine"
-        in addresses
-    )
+    assert "service.platform-intelligence.crk" in addresses
+    assert "service.platform-intelligence.digital-twin" in addresses
+    assert "service.platform-intelligence.mission-engine" in addresses
 
 
 def test_kernel_builds_constitutional_graph() -> None:
@@ -74,20 +60,16 @@ def test_kernel_start_transitions_services() -> None:
 
     status = kernel.start()
 
-    assert status.state is (
-        ConstitutionalRuntimeKernelState.RUNNING
-    )
+    assert status.state is (ConstitutionalRuntimeKernelState.RUNNING)
     assert status.running is True
     assert status.registered_services == 10
 
     assert all(
-        service.state.value == "running"
-        for service in kernel.service_registry.all()
+        service.state.value == "running" for service in kernel.service_registry.all()
     )
 
     assert all(
-        service.health.value == "healthy"
-        for service in kernel.service_registry.all()
+        service.health.value == "healthy" for service in kernel.service_registry.all()
     )
 
 
@@ -97,14 +79,11 @@ def test_kernel_stop_transitions_services() -> None:
     kernel.start()
     status = kernel.stop()
 
-    assert status.state is (
-        ConstitutionalRuntimeKernelState.STOPPED
-    )
+    assert status.state is (ConstitutionalRuntimeKernelState.STOPPED)
     assert status.running is False
 
     assert all(
-        service.state.value == "stopped"
-        for service in kernel.service_registry.all()
+        service.state.value == "stopped" for service in kernel.service_registry.all()
     )
 
 
@@ -125,19 +104,13 @@ def test_invalid_stop_is_rejected() -> None:
 
 
 def test_manual_composition() -> None:
-    kernel = ConstitutionalRuntimeKernel(
-        auto_compose=False
-    )
+    kernel = ConstitutionalRuntimeKernel(auto_compose=False)
 
-    assert kernel.state is (
-        ConstitutionalRuntimeKernelState.CREATED
-    )
+    assert kernel.state is (ConstitutionalRuntimeKernelState.CREATED)
 
     kernel.compose()
 
-    assert kernel.state is (
-        ConstitutionalRuntimeKernelState.COMPOSED
-    )
+    assert kernel.state is (ConstitutionalRuntimeKernelState.COMPOSED)
 
 
 def test_double_composition_is_rejected() -> None:
@@ -188,19 +161,11 @@ def test_status_tracks_event_subscriber() -> None:
 def test_close_releases_twin_subscription() -> None:
     kernel = ConstitutionalRuntimeKernel()
 
-    before = (
-        kernel.event_bus
-        .statistics()
-        .subscriber_count
-    )
+    before = kernel.event_bus.statistics().subscriber_count
 
     kernel.close()
 
-    after = (
-        kernel.event_bus
-        .statistics()
-        .subscriber_count
-    )
+    after = kernel.event_bus.statistics().subscriber_count
 
     assert before >= 1
     assert after == before - 1
@@ -222,6 +187,4 @@ def test_kernel_does_not_absorb_subsystem_methods() -> None:
         "mark_failed",
     }
 
-    assert forbidden.isdisjoint(
-        set(dir(kernel))
-    )
+    assert forbidden.isdisjoint(set(dir(kernel)))

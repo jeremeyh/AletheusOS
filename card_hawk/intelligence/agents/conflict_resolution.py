@@ -10,19 +10,6 @@ Resolve agent disagreements
 
 
 class ConflictResolution:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.5"
-
-        }
-
+        return {"status": "ready", "genesis": "23.5"}

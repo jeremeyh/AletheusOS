@@ -43,35 +43,23 @@ class ReasonJustification:
         #
 
         if reason.evidence:
-
             reason.add_step(
-
                 statement="Evidence reviewed.",
-
                 support=reason.evidence,
-
                 confidence=reason.confidence,
             )
 
         if reason.memories_used:
-
             reason.add_step(
-
                 statement="Relevant constitutional memory considered.",
-
                 support=reason.memories_used,
-
                 confidence=reason.confidence,
             )
 
         if reason.constitutional_articles:
-
             reason.add_step(
-
                 statement="Constitutional principles applied.",
-
                 support=reason.constitutional_articles,
-
                 confidence=reason.confidence,
             )
 
@@ -80,28 +68,20 @@ class ReasonJustification:
         #
 
         reason.add_step(
-
             statement=f"Conclusion justified: {reason.conclusion}",
-
             confidence=reason.confidence,
         )
 
-        reason.set_status(
-            ReasonStatus.JUSTIFIED
-        )
+        reason.set_status(ReasonStatus.JUSTIFIED)
 
         return reason
 
     def health(self) -> dict:
 
         return {
-
             "name": "Reason Justification",
-
             "genesis": self.GENESIS,
-
             "version": self.VERSION,
-
             "status": "healthy",
         }
 

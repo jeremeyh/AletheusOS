@@ -46,23 +46,16 @@ class ExecutionSummary:
     @property
     def previewed(self) -> int:
         return sum(
-            result.status is ExecutionStatus.PREVIEWED
-            for result in self.results
+            result.status is ExecutionStatus.PREVIEWED for result in self.results
         )
 
     @property
     def skipped(self) -> int:
-        return sum(
-            result.status is ExecutionStatus.SKIPPED
-            for result in self.results
-        )
+        return sum(result.status is ExecutionStatus.SKIPPED for result in self.results)
 
     @property
     def failed(self) -> int:
-        return sum(
-            result.status is ExecutionStatus.FAILED
-            for result in self.results
-        )
+        return sum(result.status is ExecutionStatus.FAILED for result in self.results)
 
     @property
     def total(self) -> int:
@@ -81,8 +74,5 @@ class ExecutionSummary:
             "skipped": self.skipped,
             "failed": self.failed,
             "successful": self.successful,
-            "results": [
-                result.as_dict()
-                for result in self.results
-            ],
+            "results": [result.as_dict() for result in self.results],
         }

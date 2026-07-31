@@ -7,14 +7,11 @@ Foundation layer for operating
 a complete intelligence ecosystem.
 """
 
-
 import time
 import uuid
 
 
 class AutonomousIntelligenceEcosystemCore:
-
-
     def __init__(self):
 
         self.capabilities = {}
@@ -25,113 +22,48 @@ class AutonomousIntelligenceEcosystemCore:
 
         self.events = []
 
-
-
-    def register_capability(
-        self,
-        name,
-        metadata=None
-    ):
+    def register_capability(self, name, metadata=None):
 
         capability = {
-
-            "id":
-                str(uuid.uuid4()),
-
-            "name":
-                name,
-
-            "metadata":
-                metadata or {},
-
-            "status":
-                "active",
-
-            "registered":
-                time.time()
-
+            "id": str(uuid.uuid4()),
+            "name": name,
+            "metadata": metadata or {},
+            "status": "active",
+            "registered": time.time(),
         }
-
 
         self.capabilities[name] = capability
 
-
         return capability
 
-
-
-    def register_agent(
-        self,
-        name,
-        role
-    ):
+    def register_agent(self, name, role):
 
         agent = {
-
-            "id":
-                str(uuid.uuid4()),
-
-            "name":
-                name,
-
-            "role":
-                role,
-
-            "status":
-                "active"
-
+            "id": str(uuid.uuid4()),
+            "name": name,
+            "role": role,
+            "status": "active",
         }
-
 
         self.agents[name] = agent
 
-
         return agent
 
+    def register_service(self, name, service):
 
-
-    def register_service(
-        self,
-        name,
-        service
-    ):
-
-        self.services[name] = {
-
-            "service":
-                service,
-
-            "available":
-                True
-
-        }
-
+        self.services[name] = {"service": service, "available": True}
 
         return self.services[name]
-
-
 
     def ecosystem_state(self):
 
         return {
-
-            "capabilities":
-                len(self.capabilities),
-
-            "agents":
-                len(self.agents),
-
-            "services":
-                len(self.services),
-
-            "ecosystem_active":
-                True
-
+            "capabilities": len(self.capabilities),
+            "agents": len(self.agents),
+            "services": len(self.services),
+            "ecosystem_active": True,
         }
-
-
 
     def snapshot(self):
 
         return self.ecosystem_state()
-

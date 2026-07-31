@@ -6,23 +6,6 @@ Genesis 159
 
 
 class ReadinessScore:
-
-
     def calculate(self):
 
-        return {
-
-            "stability":
-            96,
-
-            "future_readiness":
-            91,
-
-            "innovation":
-            95,
-
-            "ERI":
-            94
-
-        }
-
+        return {"stability": 96, "future_readiness": 91, "innovation": 95, "ERI": 94}

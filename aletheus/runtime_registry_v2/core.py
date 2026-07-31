@@ -63,11 +63,7 @@ class RuntimeRegistry:
 
     def by_layer(self, layer: RuntimeLayer) -> list[RuntimeComponent]:
 
-        return [
-            c
-            for c in self._components.values()
-            if c.layer == layer
-        ]
+        return [c for c in self._components.values() if c.layer == layer]
 
     def grouped_by_layer(self):
 
@@ -90,7 +86,6 @@ class RuntimeRegistry:
         unknown = 0
 
         for component in self._components.values():
-
             if component.health == ComponentHealth.HEALTHY:
                 healthy += 1
 
@@ -129,10 +124,7 @@ class RuntimeRegistry:
         graph = {}
 
         for component in self._components.values():
-
-            graph[component.component_id] = list(
-                component.dependencies
-            )
+            graph[component.component_id] = list(component.dependencies)
 
         return graph
 
@@ -141,7 +133,6 @@ class RuntimeRegistry:
         dependents = []
 
         for component in self._components.values():
-
             if component_id in component.dependencies:
                 dependents.append(component.component_id)
 
@@ -157,10 +148,7 @@ class RuntimeRegistry:
 
         return {
             "total_components": len(self._components),
-            "layers": {
-                layer: len(components)
-                for layer, components in grouped.items()
-            },
+            "layers": {layer: len(components) for layer, components in grouped.items()},
         }
 
     # ---------------------------------------------------------

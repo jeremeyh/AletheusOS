@@ -25,7 +25,9 @@ class TopologyEngine:
             graph.add_node(node)
 
         families = {node.family for node in graph.nodes.values() if node.family}
-        authorities = {node.authority for node in graph.nodes.values() if node.authority}
+        authorities = {
+            node.authority for node in graph.nodes.values() if node.authority
+        }
 
         return TopologySnapshot(
             graph=graph,
@@ -66,6 +68,11 @@ class TopologyEngine:
             return "Security / Defense"
         if "registry" in lowered:
             return "Registry"
-        if "atlas" in lowered or "oracle" in lowered or "watch" in lowered or "repository" in lowered:
+        if (
+            "atlas" in lowered
+            or "oracle" in lowered
+            or "watch" in lowered
+            or "repository" in lowered
+        ):
             return "Platform Intelligence"
         return "Unclassified"

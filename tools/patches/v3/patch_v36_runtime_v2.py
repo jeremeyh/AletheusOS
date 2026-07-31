@@ -42,8 +42,9 @@ text = text.replace(
 # --------------------------------------------------
 
 if "Aletheus High Availability Platform" not in text:
-
-    pattern = r'(self\.services\.register\(\s*"Aletheus Observability Platform".*?\n\s*\)\n)'
+    pattern = (
+        r'(self\.services\.register\(\s*"Aletheus Observability Platform".*?\n\s*\)\n)'
+    )
 
     match = re.search(pattern, text, flags=re.DOTALL)
 
@@ -51,10 +52,10 @@ if "Aletheus High Availability Platform" not in text:
         raise SystemExit(
             "Could not locate Observability service block.\n"
             "Run:\n"
-            "grep -n \"Aletheus Observability Platform\" -A6 -B2 aletheus/runtime/core.py"
+            'grep -n "Aletheus Observability Platform" -A6 -B2 aletheus/runtime/core.py'
         )
 
-    insertion = '''
+    insertion = """
 
         self.services.register(
             "Aletheus High Availability Platform",
@@ -63,24 +64,26 @@ if "Aletheus High Availability Platform" not in text:
                 "version": self.high_availability_v3.VERSION,
             },
         )
-'''
+"""
 
-    text = text[:match.end()] + insertion + text[match.end():]
+    text = text[: match.end()] + insertion + text[match.end() :]
 
 # --------------------------------------------------
 # Commands
 # --------------------------------------------------
 
 if 'self.commands.register("ha.bootstrap"' not in text:
-
-    anchor = 'self.commands.register("telemetry.statistics", self._cmd_telemetry_statistics)'
+    anchor = (
+        'self.commands.register("telemetry.statistics", self._cmd_telemetry_statistics)'
+    )
 
     if anchor not in text:
         raise SystemExit("Telemetry command registration not found.")
 
     text = text.replace(
         anchor,
-        anchor + '''
+        anchor
+        + """
 
         # v3.6 High Availability
 
@@ -94,7 +97,7 @@ if 'self.commands.register("ha.bootstrap"' not in text:
         self.commands.register("ha.replicate", self._cmd_ha_replicate)
         self.commands.register("ha.status", self._cmd_ha_status)
         self.commands.register("ha.statistics", self._cmd_ha_statistics)
-''',
+""",
         1,
     )
 

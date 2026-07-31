@@ -30,7 +30,10 @@ class FoundationServiceRouter:
             resolved=False,
             reason="No enabled Foundation capability matched the request.",
             confidence=0.0,
-            alternatives=[capability.capability_id for capability in foundation_service_registry.list()],
+            alternatives=[
+                capability.capability_id
+                for capability in foundation_service_registry.list()
+            ],
         )
 
     def health(self) -> dict:

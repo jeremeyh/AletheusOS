@@ -67,17 +67,9 @@ class FoundationExecutionGraph:
         metadata: dict | None = None,
     ) -> GraphEdge:
 
-        source_id = (
-            source.node_id
-            if isinstance(source, GraphNode)
-            else source
-        )
+        source_id = source.node_id if isinstance(source, GraphNode) else source
 
-        target_id = (
-            target.node_id
-            if isinstance(target, GraphNode)
-            else target
-        )
+        target_id = target.node_id if isinstance(target, GraphNode) else target
 
         edge = GraphEdge(
             edge_id=new_edge_id(),

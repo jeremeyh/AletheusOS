@@ -6,19 +6,6 @@ Genesis 13.52
 
 
 class IntentEngine:
+    def analyze(self, request):
 
-
-    def analyze(
-        self,
-        request
-    ):
-
-
-        return {
-
-            "intent":
-
-                "analysis"
-
-        }
-
+        return {"intent": "analysis"}

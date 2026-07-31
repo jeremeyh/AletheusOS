@@ -19,14 +19,13 @@ def render_intelligence_workspace(result):
     left, right = st.columns([1, 1])
 
     with left:
-
         st.markdown("### Asset")
 
-        st.write(f"**Player:** {card.get('player','Unknown')}")
-        st.write(f"**Brand:** {card.get('brand','')}")
-        st.write(f"**Set:** {card.get('set','')}")
-        st.write(f"**Parallel:** {card.get('parallel','')}")
-        st.write(f"**Grade:** {card.get('grade','Raw')}")
+        st.write(f"**Player:** {card.get('player', 'Unknown')}")
+        st.write(f"**Brand:** {card.get('brand', '')}")
+        st.write(f"**Set:** {card.get('set', '')}")
+        st.write(f"**Parallel:** {card.get('parallel', '')}")
+        st.write(f"**Grade:** {card.get('grade', 'Raw')}")
 
         st.metric(
             "THORᵡ",
@@ -34,27 +33,26 @@ def render_intelligence_workspace(result):
         )
 
     with right:
-
         st.markdown("### Market")
 
         st.metric(
             "Market Value",
-            f"${market.get('current_value',0):,.2f}",
+            f"${market.get('current_value', 0):,.2f}",
         )
 
         st.metric(
             "Confidence",
-            f"{market.get('confidence',0)}%",
+            f"{market.get('confidence', 0)}%",
         )
 
         st.metric(
             "Maximum Offer",
-            f"${negotiation.get('maximum_offer',0):,.2f}",
+            f"${negotiation.get('maximum_offer', 0):,.2f}",
         )
 
         st.metric(
             "ROI",
-            f"{negotiation.get('expected_roi',0):.2f}%",
+            f"{negotiation.get('expected_roi', 0):.2f}%",
         )
 
     st.divider()

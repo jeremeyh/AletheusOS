@@ -49,7 +49,6 @@ class CompiledRuntimeCommandDispatcher:
         "plugin.disable": "plugin",
         "plugin.remove": "plugin",
         "plugin.statistics": "plugin_stats",
-
         "kernel.bootstrap": "kernel",
         "kernel.boot": "kernel",
         "kernel.sync": "kernel",
@@ -61,7 +60,6 @@ class CompiledRuntimeCommandDispatcher:
         "kernel.dispatcher": "dispatch",
         "kernel.supervisor": "supervisor",
         "kernel.statistics": "kernel_stats",
-
         "state.bootstrap": "state",
         "state.save": "state",
         "state.load": "state",
@@ -70,7 +68,6 @@ class CompiledRuntimeCommandDispatcher:
         "state.export": "state",
         "state.import": "state",
         "state.statistics": "state_stats",
-
         "federation.bootstrap": "federation",
         "federation.join": "node",
         "federation.discover": "nodes",
@@ -78,7 +75,6 @@ class CompiledRuntimeCommandDispatcher:
         "federation.broadcast": "broadcast",
         "federation.leave": "node",
         "federation.statistics": "federation_stats",
-
         "telemetry.bootstrap": "telemetry",
         "telemetry.metric": "metric",
         "telemetry.record": "record",
@@ -87,14 +83,12 @@ class CompiledRuntimeCommandDispatcher:
         "telemetry.health": "health",
         "telemetry.timeline": "timeline",
         "telemetry.statistics": "telemetry_stats",
-
         "ha.bootstrap": "ha",
         "ha.join": "node",
         "ha.status": "ha_status",
         "ha.replicate": "replication",
         "ha.failover": "failover",
         "ha.statistics": "ha_stats",
-
         "security.bootstrap": "security",
         "security.authenticate": "authentication",
         "security.authorize": "authorization",
@@ -105,7 +99,6 @@ class CompiledRuntimeCommandDispatcher:
         "security.role_assign": "assignment",
         "security.role.create": "role",
         "security.role.assign": "assignment",
-
         "tenant.bootstrap": "tenant",
         "organization.create": "organization",
         "tenant.create": "tenant",
@@ -119,13 +112,11 @@ class CompiledRuntimeCommandDispatcher:
         "mission.v2.execute_next": "execution",
         "mission.v2.telemetry": "telemetry",
         "mission.v2.stats": "mission_v2_stats",
-
         "workflow.v2.create": "workflow",
         "workflow.v2.execute": "execution",
         "workflow.v2.execute_next": "execution",
         "workflow.v2.history": "history",
         "workflow.v2.stats": "workflow_v2_stats",
-
         "workspace.overview": "workspace",
         "workspace.stats": "workspace_stats",
         "founder.journal.create": "journal_entry",
@@ -134,7 +125,6 @@ class CompiledRuntimeCommandDispatcher:
         "objective.list": "objectives",
         "notification.create": "notification",
         "notification.list": "notifications",
-
         "application.register": "application",
         "application.list": "applications",
         "application.start": "application",
@@ -149,7 +139,6 @@ class CompiledRuntimeCommandDispatcher:
         "application.bootstrap.defaults": "applications",
         "cardhawk.start": "cardhawk",
         "cardhawk.status": "cardhawk",
-
         "semantic.concept.create": "concept",
         "semantic.concept.search": "concepts",
         "semantic.assert": "assertion",
@@ -157,7 +146,6 @@ class CompiledRuntimeCommandDispatcher:
         "semantic.explain": "explanation",
         "semantic.bootstrap.cardhawk": "bootstrap",
         "semantic.stats": "semantic_stats",
-
         "executive.status": "executive_status",
         "executive.snapshot": "snapshot",
         "executive.summary": "summary",
@@ -165,7 +153,6 @@ class CompiledRuntimeCommandDispatcher:
         "executive.risks": "risks",
         "executive.daily_brief": "brief",
         "executive.system_report": "system_report",
-
         "uil.context": "context",
         "uil.reason": "reasoning",
         "uil.synthesize": "synthesis",
@@ -174,7 +161,6 @@ class CompiledRuntimeCommandDispatcher:
         "uil.snapshot": "snapshot",
         "uil.timeline": "timeline",
         "uil.stats": "uil_stats",
-
         "goal.create": "goal",
         "goal.complete": "goal",
         "goal.list": "goals",
@@ -194,7 +180,6 @@ class CompiledRuntimeCommandDispatcher:
         "plan.replan": "plan",
         "plan.complete": "plan",
         "plan.statistics": "planning_stats",
-
         "cluster.bootstrap": "cluster",
         "cluster.join": "node",
         "cluster.nodes": "nodes",
@@ -205,13 +190,11 @@ class CompiledRuntimeCommandDispatcher:
         "cluster.stats": "cluster_stats",
         "cluster.broadcast": "broadcast",
         "cluster.task.assign": "task",
-
         "compat.statistics": "compat_stats",
-
         "agent.task.assign": "task",
         "agent.run": "agent_run",
         "agent.orchestrate": "orchestration",
-}
+    }
 
     __slots__ = (
         "_commands",
@@ -228,9 +211,7 @@ class CompiledRuntimeCommandDispatcher:
         compiled = {
             name: CompiledCommandEntry(
                 record=record,
-                invocation_mode=self._classify_handler(
-                    record.handler
-                ),
+                invocation_mode=self._classify_handler(record.handler),
                 result_key=(
                     record.metadata.get("result_key")
                     or self.RESULT_KEY_CONTRACTS.get(name)
@@ -326,10 +307,7 @@ class CompiledRuntimeCommandDispatcher:
 
         closure = getattr(handler, "__closure__", None) or ()
 
-        closure_values = tuple(
-            repr(cell.cell_contents)
-            for cell in closure
-        )
+        closure_values = tuple(repr(cell.cell_contents) for cell in closure)
 
         return repr(
             (
@@ -451,11 +429,7 @@ class CompiledRuntimeCommandDispatcher:
             return CommandResult(
                 command=name,
                 status="missing",
-                response={
-                    "error": (
-                        f"Command '{name}' is not registered."
-                    )
-                },
+                response={"error": (f"Command '{name}' is not registered.")},
             )
 
         try:

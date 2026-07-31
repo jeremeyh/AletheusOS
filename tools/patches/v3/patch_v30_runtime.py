@@ -37,16 +37,14 @@ text = text.replace('self.version = "2.9.0"', 'self.version = "3.0.0"')
 # -------------------------------------------------------
 
 if "Aletheus Distributed Runtime Fabric" not in text:
-
     marker = 'self.services.register("Aletheus Autonomous Planning Engine"'
 
     start = text.find(marker)
 
     if start != -1:
-
         end = text.find("\n", start)
 
-        insertion = '''
+        insertion = """
 
         self.services.register(
             "Aletheus Distributed Runtime Fabric",
@@ -56,16 +54,15 @@ if "Aletheus Distributed Runtime Fabric" not in text:
             },
         )
 
-'''
+"""
 
-        text = text[:end+1] + insertion + text[end+1:]
+        text = text[: end + 1] + insertion + text[end + 1 :]
 
 # -------------------------------------------------------
 # Command Registration
 # -------------------------------------------------------
 
 if 'self.commands.register("cluster.bootstrap"' not in text:
-
     anchor = 'self.commands.register("plan.statistics", self._cmd_plan_statistics)'
 
     if anchor not in text:
@@ -73,7 +70,8 @@ if 'self.commands.register("cluster.bootstrap"' not in text:
 
     text = text.replace(
         anchor,
-        anchor + '''
+        anchor
+        + """
 
         # =====================================================
         # v3.0 Distributed Runtime Fabric
@@ -89,7 +87,7 @@ if 'self.commands.register("cluster.bootstrap"' not in text:
         self.commands.register("cluster.status", self._cmd_cluster_status)
         self.commands.register("cluster.statistics", self._cmd_cluster_statistics)
 
-''',
+""",
         1,
     )
 

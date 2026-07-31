@@ -4,15 +4,12 @@ Personal Collector Intelligence Engine
 Genesis 14.24
 """
 
-
 from .advisor import AdvisorEngine
 from .profile import ProfileEngine
 from .recommendations import RecommendationEngine
 
 
 class PersonalIntelligenceEngine:
-
-
     def __init__(self):
 
         self.profile = ProfileEngine()
@@ -21,19 +18,6 @@ class PersonalIntelligenceEngine:
 
         self.recommendations = RecommendationEngine()
 
+    def personalize(self, collector):
 
-
-    def personalize(
-        self,
-        collector
-    ):
-
-
-        return {
-
-            "status":
-
-                "personalized"
-
-        }
-
+        return {"status": "personalized"}

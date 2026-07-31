@@ -1,1 +1,2 @@
-def check(): return True
+def check():
+    return True

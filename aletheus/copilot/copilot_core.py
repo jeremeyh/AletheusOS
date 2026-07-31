@@ -24,9 +24,15 @@ class AletheusFounderCopilot:
         return "general"
 
     def brief(self, runtime: Any) -> dict[str, Any]:
-        summary = runtime.commands.dispatch("executive.summary", {}).results.get("summary", {})
-        recommendations = runtime.commands.dispatch("executive.recommendations", {}).results.get("recommendations", [])
-        risks = runtime.commands.dispatch("executive.risks", {}).results.get("risks", [])
+        summary = runtime.commands.dispatch("executive.summary", {}).results.get(
+            "summary", {}
+        )
+        recommendations = runtime.commands.dispatch(
+            "executive.recommendations", {}
+        ).results.get("recommendations", [])
+        risks = runtime.commands.dispatch("executive.risks", {}).results.get(
+            "risks", []
+        )
 
         return {
             "title": "Founder Copilot Brief",
@@ -55,17 +61,27 @@ class AletheusFounderCopilot:
 
         elif intent == "recommendation":
             result = runtime.commands.dispatch("executive.recommendations", {})
-            response = "I generated executive recommendations based on current runtime state."
-            actions.append({"command": "executive.recommendations", "result": result.results})
+            response = (
+                "I generated executive recommendations based on current runtime state."
+            )
+            actions.append(
+                {"command": "executive.recommendations", "result": result.results}
+            )
 
         elif intent == "explanation":
             result = runtime.commands.dispatch("executive.system_report", {})
-            response = "I generated a system report to explain current state and reasoning."
-            actions.append({"command": "executive.system_report", "result": result.results})
+            response = (
+                "I generated a system report to explain current state and reasoning."
+            )
+            actions.append(
+                {"command": "executive.system_report", "result": result.results}
+            )
 
         else:
             result = runtime.commands.dispatch("workspace.overview", {})
-            response = "I reviewed the Founder Workspace overview and current operating state."
+            response = (
+                "I reviewed the Founder Workspace overview and current operating state."
+            )
             actions.append({"command": "workspace.overview", "result": result.results})
 
         exchange = CopilotExchange(
@@ -78,7 +94,9 @@ class AletheusFounderCopilot:
         return exchange
 
     def recommend(self, runtime: Any) -> list[dict[str, Any]]:
-        health = runtime.commands.dispatch("runtime.health", {}).results.get("health", {})
+        health = runtime.commands.dispatch("runtime.health", {}).results.get(
+            "health", {}
+        )
         recs: list[CopilotRecommendation] = []
 
         if health.get("active_plans", 0) == 0:
@@ -115,8 +133,12 @@ class AletheusFounderCopilot:
         return [item.to_dict() for item in recs]
 
     def timeline(self, runtime: Any) -> dict[str, Any]:
-        events = runtime.commands.dispatch("runtime.events", {}).results.get("events", [])
-        memory = runtime.commands.dispatch("memory.recall", {"limit": 20}).results.get("memory", [])
+        events = runtime.commands.dispatch("runtime.events", {}).results.get(
+            "events", []
+        )
+        memory = runtime.commands.dispatch("memory.recall", {"limit": 20}).results.get(
+            "memory", []
+        )
 
         return {
             "events": events[-20:],

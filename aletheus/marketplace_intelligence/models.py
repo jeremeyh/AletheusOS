@@ -9,8 +9,6 @@ from dataclasses import dataclass, field
 
 @dataclass
 class MarketplaceOpportunity:
-
-
     opportunity_id: str
 
     source: str
@@ -19,8 +17,4 @@ class MarketplaceOpportunity:
 
     price: float = 0
 
-    metadata: dict = field(
-        default_factory=dict
-    )
-
-
+    metadata: dict = field(default_factory=dict)

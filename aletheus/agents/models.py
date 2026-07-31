@@ -20,23 +20,13 @@ class AgentCapability:
 
     domain: str = ""
 
-
-
     def describe(self):
 
         return {
-
-            "capability":
-            self.name,
-
-            "description":
-            self.description,
-
-            "domain":
-            self.domain
-
+            "capability": self.name,
+            "description": self.description,
+            "domain": self.domain,
         }
-
 
 
 @dataclass
@@ -49,12 +39,9 @@ class AgentTask:
 
     objective: str
 
-    context: dict = field(
-        default_factory=dict
-    )
+    context: dict = field(default_factory=dict)
 
     status: str = "created"
-
 
 
 @dataclass
@@ -69,46 +56,23 @@ class AletheusAgent:
 
     purpose: str
 
-    capabilities: list = field(
-        default_factory=list
-    )
+    capabilities: list = field(default_factory=list)
 
     status: str = "created"
 
+    def add_capability(self, capability):
 
-
-    def add_capability(
-        self,
-        capability
-    ):
-
-        self.capabilities.append(
-            capability
-        )
-
-
+        self.capabilities.append(capability)
 
     def describe(self):
 
         return {
-
-            "agent_id":
-            self.agent_id,
-
-            "name":
-            self.name,
-
-            "purpose":
-            self.purpose,
-
-            "capabilities":
-            len(self.capabilities),
-
-            "status":
-            self.status
-
+            "agent_id": self.agent_id,
+            "name": self.name,
+            "purpose": self.purpose,
+            "capabilities": len(self.capabilities),
+            "status": self.status,
         }
-
 
 
 @dataclass
@@ -123,12 +87,9 @@ class AgentDefinition:
 
     purpose: str
 
-    capabilities: list = field(
-        default_factory=list
-    )
+    capabilities: list = field(default_factory=list)
 
     status: str = "created"
-
 
 
 @dataclass
@@ -141,7 +102,4 @@ class AgentMission:
 
     objective: str
 
-    constraints: dict = field(
-        default_factory=dict
-    )
-
+    constraints: dict = field(default_factory=dict)

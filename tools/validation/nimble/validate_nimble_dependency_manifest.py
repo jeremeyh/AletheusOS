@@ -22,13 +22,7 @@ def find_repo_root(start: Path) -> Path:
 ROOT = find_repo_root(Path(__file__).parent)
 
 
-MANIFEST = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "supply-chain"
-    / "dependency-manifest.json"
-)
+MANIFEST = ROOT / "nimble" / "governance" / "supply-chain" / "dependency-manifest.json"
 
 NIMBLE_PACKAGE = ROOT / "nimble" / "package.json"
 NIMBLE_LOCK = ROOT / "nimble" / "package-lock.json"
@@ -52,19 +46,12 @@ def sha256_file(path: Path) -> str:
 
 def main() -> int:
     if not MANIFEST.exists():
-        print(
-            "FAIL: Dependency manifest is missing."
-        )
+        print("FAIL: Dependency manifest is missing.")
         return 1
 
-    data: dict[str, Any] = json.loads(
-        MANIFEST.read_text(encoding="utf-8")
-    )
+    data: dict[str, Any] = json.loads(MANIFEST.read_text(encoding="utf-8"))
 
-    missing = (
-        REQUIRED_TOP_LEVEL_KEYS
-        - set(data)
-    )
+    missing = REQUIRED_TOP_LEVEL_KEYS - set(data)
 
     if missing:
         print(
@@ -76,66 +63,36 @@ def main() -> int:
     npm = data["npm"]
     python_data = data["python"]
 
-    if (
-        npm["package_json_sha256"]
-        != sha256_file(NIMBLE_PACKAGE)
-    ):
-        print(
-            "FAIL: nimble/package.json changed "
-            "without regenerating the manifest."
-        )
+    if npm["package_json_sha256"] != sha256_file(NIMBLE_PACKAGE):
+        print("FAIL: nimble/package.json changed without regenerating the manifest.")
         return 1
 
-    if (
-        npm["package_lock_sha256"]
-        != sha256_file(NIMBLE_LOCK)
-    ):
+    if npm["package_lock_sha256"] != sha256_file(NIMBLE_LOCK):
         print(
-            "FAIL: nimble/package-lock.json changed "
-            "without regenerating the manifest."
+            "FAIL: nimble/package-lock.json changed without regenerating the manifest."
         )
         return 1
 
     if PYPROJECT.exists():
-        if (
-            python_data["pyproject_sha256"]
-            != sha256_file(PYPROJECT)
-        ):
+        if python_data["pyproject_sha256"] != sha256_file(PYPROJECT):
             print(
                 "FAIL: pyproject.toml changed without "
                 "regenerating the dependency manifest."
             )
             return 1
 
-    if npm["resolved_package_count"] != len(
-        npm["resolved_packages"]
-    ):
-        print(
-            "FAIL: Node package count does not match "
-            "the package inventory."
-        )
+    if npm["resolved_package_count"] != len(npm["resolved_packages"]):
+        print("FAIL: Node package count does not match the package inventory.")
         return 1
 
-    if python_data[
-        "installed_package_count"
-    ] != len(
-        python_data["installed_packages"]
-    ):
-        print(
-            "FAIL: Python package count does not match "
-            "the package inventory."
-        )
+    if python_data["installed_package_count"] != len(python_data["installed_packages"]):
+        print("FAIL: Python package count does not match the package inventory.")
         return 1
 
-    node_names = [
-        package["name"]
-        for package in npm["resolved_packages"]
-    ]
+    node_names = [package["name"] for package in npm["resolved_packages"]]
 
     if len(node_names) != len(set(node_names)):
-        print(
-            "FAIL: Duplicate Node package records found."
-        )
+        print("FAIL: Duplicate Node package records found.")
         return 1
 
     print("=" * 72)
@@ -149,9 +106,7 @@ def main() -> int:
     )
     print(
         "Installed Python packages:",
-        python_data[
-            "installed_package_count"
-        ],
+        python_data["installed_package_count"],
     )
     print("Dependency inventory: consistent")
     print("Status: PASS")

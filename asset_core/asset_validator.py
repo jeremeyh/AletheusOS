@@ -1,12 +1,14 @@
 class AssetValidationError(ValueError):
     pass
 
+
 class AssetValidator:
     """
     Asset Validator™
 
     Prevents incomplete or bad Asset DNA™ records from entering CardHawk OS™.
     """
+
     @staticmethod
     def validate(asset):
         errors = []

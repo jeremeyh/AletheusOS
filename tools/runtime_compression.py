@@ -13,11 +13,7 @@ def main():
         health=100.0,
     )
 
-    print(
-        RuntimeCompressionReporter().render(
-            report
-        )
-    )
+    print(RuntimeCompressionReporter().render(report))
 
 
 if __name__ == "__main__":

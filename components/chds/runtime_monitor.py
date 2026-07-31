@@ -24,26 +24,17 @@ def render_runtime_monitor():
 
     history = JobManager.history()
 
-    success_count = sum(
-        1
-        for job in history
-        if job.get("status") == "SUCCESS"
-    )
+    success_count = sum(1 for job in history if job.get("status") == "SUCCESS")
 
     success_rate = 100.0
 
     if completed_jobs > 0:
-        success_rate = (
-            success_count / completed_jobs
-        ) * 100
+        success_rate = (success_count / completed_jobs) * 100
 
     last_runtime = "-"
 
     if history:
-        last_runtime = history[0].get(
-            "completed",
-            "-"
-        )
+        last_runtime = history[0].get("completed", "-")
 
     st.subheader("🖥 CardHawkOS Runtime™")
 
@@ -103,13 +94,10 @@ def render_runtime_monitor():
     st.markdown("### Recent Jobs")
 
     if not history:
-
         st.info("No jobs have been executed.")
 
     else:
-
         for job in history[:10]:
-
             icon = "🟢"
 
             if job["status"] != "SUCCESS":
@@ -117,11 +105,11 @@ def render_runtime_monitor():
 
             st.markdown(
                 f"""
-**{icon} {job['job']}**
+**{icon} {job["job"]}**
 
-Status: `{job['status']}`
+Status: `{job["status"]}`
 
-Completed: `{job['completed']}`
+Completed: `{job["completed"]}`
 """
             )
 
@@ -130,7 +118,6 @@ Completed: `{job['completed']}`
     st.markdown("### Engine Health")
 
     for engine in EngineRegistry.status():
-
         left, right = st.columns([5, 1])
 
         with left:

@@ -4,7 +4,6 @@ Universal Trust Intelligence Engine
 Genesis 13.56
 """
 
-
 from .authentication import AuthenticationEngine
 from .custody import CustodyEngine
 from .fraud import FraudDetectionEngine
@@ -14,8 +13,6 @@ from .scoring import TrustScoringEngine
 
 
 class TrustNetworkEngine:
-
-
     def __init__(self):
 
         self.identity = IdentityEngine()
@@ -30,21 +27,6 @@ class TrustNetworkEngine:
 
         self.scoring = TrustScoringEngine()
 
+    def evaluate(self, asset):
 
-
-    def evaluate(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "trust":
-
-                self.scoring.calculate(
-                    asset
-                )
-
-        }
-
+        return {"trust": self.scoring.calculate(asset)}

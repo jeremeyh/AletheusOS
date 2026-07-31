@@ -6,34 +6,14 @@ Post-Genesis 458
 
 
 class HistoricalOutcomeAnalysisEngine:
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_historical_outcome_analysis",
-
-            "post_genesis":
-            "458",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_historical_outcome_analysis",
+            "post_genesis": "458",
+            "status": "operational",
         }
-
-
 
     def execute(self, request=None):
 
-        return {
-
-            "request":
-            request,
-
-            "status":
-            "completed"
-
-        }
-
+        return {"request": request, "status": "completed"}

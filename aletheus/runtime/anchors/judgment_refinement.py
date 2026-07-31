@@ -5,16 +5,6 @@ Judgment Refinement Engine
 
 
 class JudgmentRefinementEngine:
-
-
     def refine(self, judgment):
 
-        return {
-
-            "original":
-                judgment,
-
-            "refined":
-                True
-
-        }
+        return {"original": judgment, "refined": True}

@@ -22,7 +22,6 @@ class RuntimeExtractionMissionManager:
     ):
 
         self.missions.append(
-
             ExtractionMission(
                 mission_id=mission_id,
                 responsibility=responsibility,
@@ -39,13 +38,7 @@ class RuntimeExtractionMissionManager:
         if not self.missions:
             return 0.0
 
-        complete = len(
-            [
-                m
-                for m in self.missions
-                if m.status == "complete"
-            ]
-        )
+        complete = len([m for m in self.missions if m.status == "complete"])
 
         return round(
             complete / len(self.missions) * 100,

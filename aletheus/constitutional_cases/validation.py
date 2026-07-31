@@ -21,18 +21,12 @@ class CaseValidationError(ValueError):
         self.issues = tuple(issues)
 
         super().__init__(
-            "; ".join(
-                f"{issue.field}: {issue.message}"
-                for issue in issues
-            )
+            "; ".join(f"{issue.field}: {issue.message}" for issue in issues)
         )
 
 
 def _duplicates(values: tuple[str, ...]) -> bool:
-    normalized = [
-        value.strip().casefold()
-        for value in values
-    ]
+    normalized = [value.strip().casefold() for value in values]
     return len(normalized) != len(set(normalized))
 
 
@@ -58,15 +52,9 @@ def validate_contract(
         )
 
     fields = {
-        "permitted_mission_types": (
-            contract.permitted_mission_types
-        ),
-        "required_institutions": (
-            contract.required_institutions
-        ),
-        "required_evidence_types": (
-            contract.required_evidence_types
-        ),
+        "permitted_mission_types": (contract.permitted_mission_types),
+        "required_institutions": (contract.required_institutions),
+        "required_evidence_types": (contract.required_evidence_types),
         "closure_criteria": contract.closure_criteria,
     }
 

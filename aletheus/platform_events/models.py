@@ -10,9 +10,7 @@ class PlatformEvent:
     event_type: str
     source: str
     payload: dict[str, Any] = field(default_factory=dict)
-    timestamp: str = field(
-        default_factory=lambda: datetime.now(UTC).isoformat()
-    )
+    timestamp: str = field(default_factory=lambda: datetime.now(UTC).isoformat())
 
     def to_dict(self):
         return {

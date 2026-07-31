@@ -54,7 +54,6 @@ __all__ = [
     "PlatformIntelligenceEngine",
     "PlatformIntelligenceReporter",
     "ArchitecturalFitnessReport",
-
     *constitutional_all,
     *dependency_all,
     *graph_all,

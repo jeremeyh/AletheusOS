@@ -6,7 +6,6 @@ from .models import IdentitySession
 
 
 class SessionManager:
-
     GENESIS = "21.7"
     VERSION = "1.0.0"
 

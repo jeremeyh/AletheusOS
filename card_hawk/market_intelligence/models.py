@@ -9,8 +9,6 @@ from dataclasses import dataclass
 
 @dataclass
 class MarketSignal:
-
-
     asset_id: str
 
     signal_type: str
@@ -18,14 +16,10 @@ class MarketSignal:
     value: float
 
 
-
 @dataclass
 class Forecast:
-
-
     asset_id: str
 
     prediction: str
 
     confidence: int
-

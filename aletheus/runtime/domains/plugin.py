@@ -9,14 +9,10 @@ class PluginDomain:
         return self.runtime.plugins_v3.install(**payload)
 
     def enable(self, payload):
-        return self.runtime.plugins_v3.enable(
-            payload.get("plugin_id", "")
-        )
+        return self.runtime.plugins_v3.enable(payload.get("plugin_id", ""))
 
     def disable(self, payload):
-        return self.runtime.plugins_v3.disable(
-            payload.get("plugin_id", "")
-        )
+        return self.runtime.plugins_v3.disable(payload.get("plugin_id", ""))
 
     def update(self, payload):
         return self.runtime.plugins_v3.update(
@@ -25,9 +21,7 @@ class PluginDomain:
         )
 
     def remove(self, payload):
-        return self.runtime.plugins_v3.remove(
-            payload.get("plugin_id", "")
-        )
+        return self.runtime.plugins_v3.remove(payload.get("plugin_id", ""))
 
     def list(self, payload=None):
         return self.runtime.plugins_v3.list()

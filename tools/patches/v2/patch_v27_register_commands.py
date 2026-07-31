@@ -12,7 +12,9 @@ anchor = 'self.commands.register("decision.statistics", self._cmd_decision_stati
 if anchor not in text:
     raise SystemExit("Could not find decision.statistics registration.")
 
-replacement = anchor + '''
+replacement = (
+    anchor
+    + """
 
         # -----------------------------
         # v2.7 Autonomous Agent Runtime
@@ -26,7 +28,8 @@ replacement = anchor + '''
         self.commands.register("agent.stop", self._cmd_agent_stop)
         self.commands.register("agent.heartbeat", self._cmd_agent_heartbeat)
         self.commands.register("agent.statistics", self._cmd_agent_statistics)
-'''
+"""
+)
 
 text = text.replace(anchor, replacement, 1)
 

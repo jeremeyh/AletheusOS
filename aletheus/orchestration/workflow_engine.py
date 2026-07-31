@@ -6,17 +6,6 @@ Post-Genesis 20
 
 
 class WorkflowEngine:
-
-
     def create(self, workflow):
 
-        return {
-
-            "workflow":
-            workflow,
-
-            "status":
-            "created"
-
-        }
-
+        return {"workflow": workflow, "status": "created"}

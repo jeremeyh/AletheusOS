@@ -6,6 +6,4 @@ Genesis 38
 
 from .engine import IntelligenceCommandCenter
 
-__all__ = [
-    "IntelligenceCommandCenter"
-]
+__all__ = ["IntelligenceCommandCenter"]

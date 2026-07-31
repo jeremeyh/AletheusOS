@@ -33,9 +33,7 @@ class Bootstrap:
         ]
 
         for id, name, role in defaults:
-
             if id not in self.brain.cortex._cortices:
-
                 self.brain.cortex.register(
                     id=id,
                     name=name,
@@ -67,9 +65,7 @@ class Bootstrap:
         ]
 
         for id, name, cortex in defaults:
-
             if self.brain.neurons.get(id) is None:
-
                 self.brain.neurons.register(
                     id=id,
                     name=name,
@@ -92,9 +88,7 @@ class Bootstrap:
         ]
 
         for id, source, target in defaults:
-
             if id not in self.brain.synapses._synapses:
-
                 self.brain.synapses.register(
                     id=id,
                     source=source,

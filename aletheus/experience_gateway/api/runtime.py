@@ -16,8 +16,7 @@ class RouteApplication(Protocol):
         self,
         path: str,
         **kwargs: Any,
-    ) -> Any:
-        ...
+    ) -> Any: ...
 
 
 def _repository_root() -> Path:
@@ -30,10 +29,7 @@ def build_runtime_health() -> dict[str, Any]:
     root = _repository_root()
     checks: list[dict[str, Any]] = []
 
-    repository_ok = (
-        (root / "aletheus").is_dir()
-        and (root / "tests").is_dir()
-    )
+    repository_ok = (root / "aletheus").is_dir() and (root / "tests").is_dir()
 
     checks.append(
         {
@@ -49,9 +45,7 @@ def build_runtime_health() -> dict[str, Any]:
     )
 
     try:
-        runtime_module = importlib.import_module(
-            "aletheus.runtime"
-        )
+        runtime_module = importlib.import_module("aletheus.runtime")
         runtime_ok = hasattr(runtime_module, "runtime_core")
     except Exception:
         runtime_ok = False
@@ -70,9 +64,7 @@ def build_runtime_health() -> dict[str, Any]:
     )
 
     try:
-        importlib.import_module(
-            "aletheus.experience_gateway"
-        )
+        importlib.import_module("aletheus.experience_gateway")
         gateway_ok = True
     except Exception:
         gateway_ok = False
@@ -97,10 +89,7 @@ def build_runtime_health() -> dict[str, Any]:
         root / "dist",
     )
 
-    nimble_build_ok = any(
-        path.exists()
-        for path in nimble_build_locations
-    )
+    nimble_build_ok = any(path.exists() for path in nimble_build_locations)
 
     checks.append(
         {
@@ -118,25 +107,12 @@ def build_runtime_health() -> dict[str, Any]:
         }
     )
 
-    passing_checks = sum(
-        check["state"] == "passing"
-        for check in checks
-    )
-    warning_count = sum(
-        check["state"] == "warning"
-        for check in checks
-    )
-    failing_count = sum(
-        check["state"] == "failing"
-        for check in checks
-    )
+    passing_checks = sum(check["state"] == "passing" for check in checks)
+    warning_count = sum(check["state"] == "warning" for check in checks)
+    failing_count = sum(check["state"] == "failing" for check in checks)
 
     if failing_count == 0:
-        state = (
-            "healthy"
-            if warning_count == 0
-            else "degraded"
-        )
+        state = "healthy" if warning_count == 0 else "degraded"
     elif passing_checks > 0:
         state = "degraded"
     else:
@@ -190,8 +166,7 @@ def load_missions(
             "name": "Platform Intelligence Fabric",
             "state": "active",
             "objective": (
-                "Connect AletheusOS through constitutional "
-                "platform intelligence."
+                "Connect AletheusOS through constitutional platform intelligence."
             ),
         }
     ]

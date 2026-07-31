@@ -6,19 +6,6 @@ Genesis 14.10
 
 
 class OfferEngine:
+    def evaluate(self, offer):
 
-
-    def evaluate(
-        self,
-        offer
-    ):
-
-
-        return {
-
-            "strength":
-
-                "unknown"
-
-        }
-
+        return {"strength": "unknown"}

@@ -18,9 +18,9 @@ def new_request_id() -> str:
 # Foundation Engine
 # ============================================================
 
+
 @dataclass(slots=True)
 class FoundationEngine:
-
     engine_id: str
 
     name: str
@@ -62,14 +62,15 @@ class FoundationEngine:
             "metadata": self.metadata,
         }
 
+
 # ============================================================
 # Genesis 22
 # Foundation Request / Response
 # ============================================================
 
+
 @dataclass(slots=True)
 class FoundationRequest:
-
     request_id: str
 
     identity: str
@@ -102,7 +103,6 @@ class FoundationRequest:
 
 @dataclass(slots=True)
 class FoundationResponse:
-
     request_id: str
 
     success: bool

@@ -6,17 +6,6 @@ Post-Genesis 21
 
 
 class OptimizationEngine:
-
-
     def optimize(self, capability):
 
-        return {
-
-            "capability":
-            capability,
-
-            "optimization":
-            "applied"
-
-        }
-
+        return {"capability": capability, "optimization": "applied"}

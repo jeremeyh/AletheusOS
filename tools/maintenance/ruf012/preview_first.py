@@ -1,4 +1,5 @@
 """Preview the first safe RUF012 transformation."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -20,6 +21,7 @@ def _safe_candidates(result: Any) -> list[Any]:
     if candidates is None:
         raise RuntimeError("Scanner result does not expose safe_candidates.")
     return list(candidates)
+
 
 def main() -> int:
     root = Path.cwd().resolve()
@@ -60,6 +62,7 @@ def main() -> int:
     print(transaction.message)
     print("=" * 72)
     return 0
+
 
 if __name__ == "__main__":
     raise SystemExit(main())

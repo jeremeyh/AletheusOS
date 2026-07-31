@@ -34,7 +34,9 @@ def test_reasoning_evaluate_decision_explain():
 
     trace_id = evaluation.results["evaluation"]["trace_id"]
 
-    explanation = runtime_core.commands.dispatch("reason.explain", {"trace_id": trace_id})
+    explanation = runtime_core.commands.dispatch(
+        "reason.explain", {"trace_id": trace_id}
+    )
     assert not explanation.errors, explanation.errors
     assert "explanation" in explanation.results
 

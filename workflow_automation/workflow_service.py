@@ -9,6 +9,7 @@ class WorkflowStep:
     status: str = "pending"
     notes: str = ""
 
+
 @dataclass
 class WorkflowRun:
     workflow_type: str
@@ -17,6 +18,7 @@ class WorkflowRun:
     steps: list = field(default_factory=list)
     run_id: str = field(default_factory=lambda: f"WF-{uuid.uuid4().hex[:10].upper()}")
     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+
 
 class WorkflowAutomationService:
     """CardHawk OS™ 6.0A Workflow Automation™."""
@@ -53,7 +55,9 @@ class WorkflowAutomationService:
     @classmethod
     def start(cls, workflow_type, subject=""):
         steps = [WorkflowStep(name=s) for s in cls.TEMPLATES.get(workflow_type, [])]
-        run = WorkflowRun(workflow_type=workflow_type, subject=subject, steps=steps, status="active")
+        run = WorkflowRun(
+            workflow_type=workflow_type, subject=subject, steps=steps, status="active"
+        )
         cls._runs.append(run)
         return run
 

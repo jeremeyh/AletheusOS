@@ -6,23 +6,6 @@ Genesis 13.35
 
 
 class FraudDetectionEngine:
+    def analyze(self, asset):
 
-
-    def analyze(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "risk":
-
-                "unknown",
-
-            "confidence":
-
-                0
-
-        }
-
+        return {"risk": "unknown", "confidence": 0}

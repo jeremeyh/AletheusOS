@@ -4,19 +4,6 @@ Portfolio Valuation Engine
 
 
 class ValuationEngine:
+    def calculate(self, assets):
 
-
-    def calculate(
-        self,
-        assets
-    ):
-
-
-        return {
-
-            "value":
-
-                0
-
-        }
-
+        return {"value": 0}

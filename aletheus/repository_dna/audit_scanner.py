@@ -50,7 +50,13 @@ class RepositoryDNAScanner:
             return "Mesh"
         if "engine" in n:
             return "Engine"
-        if "atlas" in n or "oracle" in n or "watch" in n or "repository" in n or "genesis" in n:
+        if (
+            "atlas" in n
+            or "oracle" in n
+            or "watch" in n
+            or "repository" in n
+            or "genesis" in n
+        ):
             return "Platform Intelligence"
         return "Unclassified"
 

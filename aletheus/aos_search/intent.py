@@ -5,7 +5,6 @@ from dataclasses import dataclass
 
 @dataclass(slots=True)
 class SearchIntent:
-
     intent: str
     confidence: float
     category: str
@@ -22,7 +21,6 @@ class SearchIntent:
 
 
 class IntentEngine:
-
     GENESIS = "21.8.1"
     VERSION = "1.0.0"
 
@@ -33,14 +31,16 @@ class IntentEngine:
 
         q = query.lower()
 
-        if any(word in q for word in [
-            "worth",
-            "value",
-            "price",
-            "ebay",
-            "card",
-        ]):
-
+        if any(
+            word in q
+            for word in [
+                "worth",
+                "value",
+                "price",
+                "ebay",
+                "card",
+            ]
+        ):
             return SearchIntent(
                 intent="marketplace_analysis",
                 confidence=0.95,
@@ -48,12 +48,14 @@ class IntentEngine:
                 reasoning="Marketplace terminology detected.",
             )
 
-        if any(word in q for word in [
-            "inventory",
-            "stock",
-            "available",
-        ]):
-
+        if any(
+            word in q
+            for word in [
+                "inventory",
+                "stock",
+                "available",
+            ]
+        ):
             return SearchIntent(
                 intent="inventory_lookup",
                 confidence=0.94,

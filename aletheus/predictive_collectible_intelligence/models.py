@@ -9,8 +9,6 @@ from dataclasses import dataclass, field
 
 @dataclass
 class MarketForecast:
-
-
     asset_id: str
 
     direction: str
@@ -19,8 +17,4 @@ class MarketForecast:
 
     timeframe: str
 
-    signals: dict = field(
-        default_factory=dict
-    )
-
-
+    signals: dict = field(default_factory=dict)

@@ -81,7 +81,9 @@ with tab3:
         "Run the integrated CardHawkOS Runtime v2 pipeline across Hawk A•Eye™, THORᵡ, DEF, NEST™, and FALCON™."
     )
 
-    asset_name = st.text_input("Asset / Opportunity Name", value="Sample CardHawk Opportunity")
+    asset_name = st.text_input(
+        "Asset / Opportunity Name", value="Sample CardHawk Opportunity"
+    )
     player = st.text_input("Player", value="Caleb Williams")
     price = st.number_input("Price", min_value=0.0, value=150.0, step=5.0)
 

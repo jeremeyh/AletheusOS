@@ -16,7 +16,13 @@ class AletheusDistributedIntelligenceFabric:
         self.clusters: list[DistributedCluster] = []
         self.events: list[DistributedEvent] = []
 
-    def emit(self, event_type: str, message: str, source: str = "distributed_fabric", payload: dict[str, Any] | None = None) -> DistributedEvent:
+    def emit(
+        self,
+        event_type: str,
+        message: str,
+        source: str = "distributed_fabric",
+        payload: dict[str, Any] | None = None,
+    ) -> DistributedEvent:
         event = DistributedEvent(
             event_type=event_type,
             message=message,
@@ -26,14 +32,18 @@ class AletheusDistributedIntelligenceFabric:
         self.events.append(event)
         return event
 
-    def create_cluster(self, name: str = "Aletheus Primary Cluster") -> DistributedCluster:
+    def create_cluster(
+        self, name: str = "Aletheus Primary Cluster"
+    ) -> DistributedCluster:
         existing = self.get_cluster(name=name)
         if existing:
             return existing
 
         cluster = DistributedCluster(name=name)
         self.clusters.append(cluster)
-        self.emit("cluster.created", f"Cluster created: {name}", payload=cluster.to_dict())
+        self.emit(
+            "cluster.created", f"Cluster created: {name}", payload=cluster.to_dict()
+        )
         return cluster
 
     def bootstrap_primary_cluster(self) -> DistributedCluster:
@@ -48,7 +58,13 @@ class AletheusDistributedIntelligenceFabric:
             {
                 "name": "Card Hawk Runtime Node",
                 "node_type": "application",
-                "capabilities": ["asset_vault", "portfolio", "marketplace", "thorx", "hawk_aeye"],
+                "capabilities": [
+                    "asset_vault",
+                    "portfolio",
+                    "marketplace",
+                    "thorx",
+                    "hawk_aeye",
+                ],
             },
             {
                 "name": "Memory Node",
@@ -77,7 +93,9 @@ class AletheusDistributedIntelligenceFabric:
 
         return cluster
 
-    def get_cluster(self, cluster_id: str = "", name: str = "") -> DistributedCluster | None:
+    def get_cluster(
+        self, cluster_id: str = "", name: str = ""
+    ) -> DistributedCluster | None:
         for cluster in self.clusters:
             if cluster_id and cluster.cluster_id == cluster_id:
                 return cluster
@@ -136,10 +154,14 @@ class AletheusDistributedIntelligenceFabric:
             return {"error": f"Node not found: {node_id}"}
 
         node.heartbeat()
-        self.emit("node.heartbeat", f"Heartbeat received: {node.name}", payload=node.to_dict())
+        self.emit(
+            "node.heartbeat", f"Heartbeat received: {node.name}", payload=node.to_dict()
+        )
         return node.to_dict()
 
-    def broadcast(self, cluster_id: str, message: str, payload: dict[str, Any] | None = None) -> dict[str, Any]:
+    def broadcast(
+        self, cluster_id: str, message: str, payload: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
         cluster = self.get_cluster(cluster_id=cluster_id)
         if cluster is None:
             return {"error": f"Cluster not found: {cluster_id}"}
@@ -175,7 +197,10 @@ class AletheusDistributedIntelligenceFabric:
 
         node = None
         if capability:
-            node = next((item for item in cluster.nodes if capability in item.capabilities), None)
+            node = next(
+                (item for item in cluster.nodes if capability in item.capabilities),
+                None,
+            )
 
         if node is None and cluster.nodes:
             node = cluster.nodes[0]
@@ -199,19 +224,29 @@ class AletheusDistributedIntelligenceFabric:
         )
 
         cluster.tasks.append(task)
-        self.emit("distributed.task.completed", f"Distributed task completed: {title}", payload=task.to_dict())
+        self.emit(
+            "distributed.task.completed",
+            f"Distributed task completed: {title}",
+            payload=task.to_dict(),
+        )
 
         return task.to_dict()
 
     def cluster_status(self, cluster_id: str = "") -> dict[str, Any]:
-        cluster = self.get_cluster(cluster_id=cluster_id) if cluster_id else (self.clusters[0] if self.clusters else None)
+        cluster = (
+            self.get_cluster(cluster_id=cluster_id)
+            if cluster_id
+            else (self.clusters[0] if self.clusters else None)
+        )
         if cluster is None:
             return {"error": "No cluster available."}
 
         return {
             "cluster": cluster.to_dict(),
             "health": "healthy" if cluster.nodes else "empty",
-            "nodes_online": len([node for node in cluster.nodes if node.status == "online"]),
+            "nodes_online": len(
+                [node for node in cluster.nodes if node.status == "online"]
+            ),
             "node_count": len(cluster.nodes),
             "task_count": len(cluster.tasks),
             "replication_health": "healthy",

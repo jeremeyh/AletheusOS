@@ -31,21 +31,15 @@ def mission(
 def test_register_root_mission_becomes_ready() -> None:
     engine = ConstitutionalMissionEngine()
 
-    registered = engine.register(
-        mission("mission.root")
-    )
+    registered = engine.register(mission("mission.root"))
 
-    assert registered.state is (
-        ConstitutionalMissionState.READY
-    )
+    assert registered.state is (ConstitutionalMissionState.READY)
 
 
 def test_register_dependent_mission_becomes_blocked() -> None:
     engine = ConstitutionalMissionEngine()
 
-    engine.register(
-        mission("mission.root")
-    )
+    engine.register(mission("mission.root"))
 
     dependent = engine.register(
         mission(
@@ -54,9 +48,7 @@ def test_register_dependent_mission_becomes_blocked() -> None:
         )
     )
 
-    assert dependent.state is (
-        ConstitutionalMissionState.BLOCKED
-    )
+    assert dependent.state is (ConstitutionalMissionState.BLOCKED)
 
 
 def test_duplicate_mission_is_rejected() -> None:
@@ -65,18 +57,14 @@ def test_duplicate_mission_is_rejected() -> None:
 
     engine.register(value)
 
-    with pytest.raises(
-        MissionAlreadyExistsError
-    ):
+    with pytest.raises(MissionAlreadyExistsError):
         engine.register(value)
 
 
 def test_missing_dependency_is_rejected() -> None:
     engine = ConstitutionalMissionEngine()
 
-    with pytest.raises(
-        MissionDependencyError
-    ):
+    with pytest.raises(MissionDependencyError):
         engine.register(
             mission(
                 "mission.dependent",
@@ -98,10 +86,7 @@ def test_register_many_resolves_order() -> None:
         ]
     )
 
-    assert [
-        item.address
-        for item in registered
-    ] == [
+    assert [item.address for item in registered] == [
         "mission.root",
         "mission.dependent",
     ]
@@ -117,9 +102,7 @@ def test_unknown_mission_is_rejected() -> None:
 def test_valid_lifecycle() -> None:
     engine = ConstitutionalMissionEngine()
 
-    engine.register(
-        mission("mission.root")
-    )
+    engine.register(mission("mission.root"))
 
     scheduled = engine.transition(
         "mission.root",
@@ -134,27 +117,17 @@ def test_valid_lifecycle() -> None:
         ConstitutionalMissionState.COMPLETED,
     )
 
-    assert scheduled.state is (
-        ConstitutionalMissionState.SCHEDULED
-    )
-    assert running.state is (
-        ConstitutionalMissionState.RUNNING
-    )
-    assert completed.state is (
-        ConstitutionalMissionState.COMPLETED
-    )
+    assert scheduled.state is (ConstitutionalMissionState.SCHEDULED)
+    assert running.state is (ConstitutionalMissionState.RUNNING)
+    assert completed.state is (ConstitutionalMissionState.COMPLETED)
 
 
 def test_invalid_transition_is_rejected() -> None:
     engine = ConstitutionalMissionEngine()
 
-    engine.register(
-        mission("mission.root")
-    )
+    engine.register(mission("mission.root"))
 
-    with pytest.raises(
-        MissionTransitionError
-    ):
+    with pytest.raises(MissionTransitionError):
         engine.transition(
             "mission.root",
             ConstitutionalMissionState.COMPLETED,
@@ -164,9 +137,7 @@ def test_invalid_transition_is_rejected() -> None:
 def test_failed_transition_requires_reason() -> None:
     engine = ConstitutionalMissionEngine()
 
-    engine.register(
-        mission("mission.root")
-    )
+    engine.register(mission("mission.root"))
     engine.transition(
         "mission.root",
         ConstitutionalMissionState.SCHEDULED,
@@ -176,9 +147,7 @@ def test_failed_transition_requires_reason() -> None:
         ConstitutionalMissionState.RUNNING,
     )
 
-    with pytest.raises(
-        MissionTransitionError
-    ):
+    with pytest.raises(MissionTransitionError):
         engine.transition(
             "mission.root",
             ConstitutionalMissionState.FAILED,
@@ -188,9 +157,7 @@ def test_failed_transition_requires_reason() -> None:
 def test_completion_unblocks_dependent() -> None:
     engine = ConstitutionalMissionEngine()
 
-    engine.register(
-        mission("mission.root")
-    )
+    engine.register(mission("mission.root"))
     engine.register(
         mission(
             "mission.dependent",
@@ -211,17 +178,13 @@ def test_completion_unblocks_dependent() -> None:
         ConstitutionalMissionState.COMPLETED,
     )
 
-    assert engine.get(
-        "mission.dependent"
-    ).state is ConstitutionalMissionState.READY
+    assert engine.get("mission.dependent").state is ConstitutionalMissionState.READY
 
 
 def test_ready_and_blocked_queries() -> None:
     engine = ConstitutionalMissionEngine()
 
-    engine.register(
-        mission("mission.root")
-    )
+    engine.register(mission("mission.root"))
     engine.register(
         mission(
             "mission.dependent",
@@ -229,23 +192,15 @@ def test_ready_and_blocked_queries() -> None:
         )
     )
 
-    assert [
-        item.address
-        for item in engine.ready()
-    ] == ["mission.root"]
+    assert [item.address for item in engine.ready()] == ["mission.root"]
 
-    assert [
-        item.address
-        for item in engine.blocked()
-    ] == ["mission.dependent"]
+    assert [item.address for item in engine.blocked()] == ["mission.dependent"]
 
 
 def test_remove_depended_upon_mission_is_rejected() -> None:
     engine = ConstitutionalMissionEngine()
 
-    engine.register(
-        mission("mission.root")
-    )
+    engine.register(mission("mission.root"))
     engine.register(
         mission(
             "mission.dependent",
@@ -259,13 +214,9 @@ def test_remove_depended_upon_mission_is_rejected() -> None:
 
 def test_registration_and_transitions_publish_events() -> None:
     bus = ConstitutionalEventBus()
-    engine = ConstitutionalMissionEngine(
-        event_bus=bus
-    )
+    engine = ConstitutionalMissionEngine(event_bus=bus)
 
-    engine.register(
-        mission("mission.root")
-    )
+    engine.register(mission("mission.root"))
 
     engine.transition(
         "mission.root",
@@ -274,10 +225,7 @@ def test_registration_and_transitions_publish_events() -> None:
 
     assert bus.statistics().published >= 3
 
-    subjects = {
-        str(event.subject)
-        for event in bus.history()
-    }
+    subjects = {str(event.subject) for event in bus.history()}
 
     assert subjects == {"mission.root"}
 
@@ -285,9 +233,7 @@ def test_registration_and_transitions_publish_events() -> None:
 def test_statistics_are_consistent() -> None:
     engine = ConstitutionalMissionEngine()
 
-    engine.register(
-        mission("mission.root")
-    )
+    engine.register(mission("mission.root"))
     engine.register(
         mission(
             "mission.dependent",
@@ -306,16 +252,12 @@ def test_statistics_are_consistent() -> None:
 def test_snapshot_is_complete() -> None:
     engine = ConstitutionalMissionEngine()
 
-    engine.register(
-        mission("mission.root")
-    )
+    engine.register(mission("mission.root"))
 
     snapshot = engine.snapshot()
 
     assert len(snapshot["missions"]) == 1
-    assert snapshot[
-        "statistics"
-    ]["total"] == 1
+    assert snapshot["statistics"]["total"] == 1
 
 
 def test_engine_does_not_schedule_or_execute() -> None:
@@ -331,6 +273,4 @@ def test_engine_does_not_schedule_or_execute() -> None:
         "report_health",
     }
 
-    assert forbidden.isdisjoint(
-        set(dir(engine))
-    )
+    assert forbidden.isdisjoint(set(dir(engine)))

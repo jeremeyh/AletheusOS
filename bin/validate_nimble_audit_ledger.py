@@ -21,9 +21,7 @@ def _find_repo_root() -> Path:
             return current
 
         if current.parent == current:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         current = current.parent
 
@@ -31,33 +29,17 @@ def _find_repo_root() -> Path:
 ROOT = _find_repo_root()
 
 CONTRACT_PATH = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "audit"
-    / "deployment-audit-ledger-contract.json"
+    ROOT / "nimble" / "governance" / "audit" / "deployment-audit-ledger-contract.json"
 )
 
-LEDGER_PATH = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "audit"
-    / "deployment-audit-ledger.jsonl"
-)
+LEDGER_PATH = ROOT / "nimble" / "governance" / "audit" / "deployment-audit-ledger.jsonl"
 
 REPORT_PATH = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "deployment-audit-ledger-validation-latest.json"
+    ROOT / "reports" / "nimble" / "deployment-audit-ledger-validation-latest.json"
 )
 
 SUMMARY_PATH = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "deployment-audit-ledger-summary-latest.json"
+    ROOT / "reports" / "nimble" / "deployment-audit-ledger-summary-latest.json"
 )
 
 
@@ -75,17 +57,11 @@ def canonical_payload(
 def calculate_hash(
     payload: dict[str, Any],
 ) -> str:
-    return hashlib.sha256(
-        canonical_payload(payload)
-    ).hexdigest()
+    return hashlib.sha256(canonical_payload(payload)).hexdigest()
 
 
 def main() -> int:
-    contract = json.loads(
-        CONTRACT_PATH.read_text(
-            encoding="utf-8"
-        )
-    )
+    contract = json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))
 
     failures: list[str] = []
     checks: list[dict[str, Any]] = []
@@ -93,9 +69,7 @@ def main() -> int:
 
     if LEDGER_PATH.exists():
         for line_number, line in enumerate(
-            LEDGER_PATH.read_text(
-                encoding="utf-8"
-            ).splitlines(),
+            LEDGER_PATH.read_text(encoding="utf-8").splitlines(),
             start=1,
         ):
             if not line.strip():
@@ -104,14 +78,10 @@ def main() -> int:
             try:
                 entries.append(json.loads(line))
             except json.JSONDecodeError as error:
-                failures.append(
-                    f"Line {line_number}: invalid JSON: {error}"
-                )
+                failures.append(f"Line {line_number}: invalid JSON: {error}")
 
     event_ids: set[str] = set()
-    expected_previous_hash = contract[
-        "ledger"
-    ]["genesis_previous_hash"]
+    expected_previous_hash = contract["ledger"]["genesis_previous_hash"]
 
     for index, event in enumerate(
         entries,
@@ -121,53 +91,34 @@ def main() -> int:
 
         if sequence != index:
             failures.append(
-                f"Entry {index}: sequence is "
-                f"{sequence!r}, expected {index}."
+                f"Entry {index}: sequence is {sequence!r}, expected {index}."
             )
 
         event_id = event.get("event_id")
 
         if not isinstance(event_id, str):
-            failures.append(
-                f"Entry {index}: missing event_id."
-            )
+            failures.append(f"Entry {index}: missing event_id.")
         elif event_id in event_ids:
-            failures.append(
-                f"Entry {index}: duplicate event_id."
-            )
+            failures.append(f"Entry {index}: duplicate event_id.")
         else:
             event_ids.add(event_id)
 
-        if event.get("event_type") not in contract[
-            "event_types"
-        ]:
-            failures.append(
-                f"Entry {index}: unsupported event type."
-            )
+        if event.get("event_type") not in contract["event_types"]:
+            failures.append(f"Entry {index}: unsupported event type.")
 
-        if event.get(
-            "previous_hash"
-        ) != expected_previous_hash:
-            failures.append(
-                f"Entry {index}: previous_hash mismatch."
-            )
+        if event.get("previous_hash") != expected_previous_hash:
+            failures.append(f"Entry {index}: previous_hash mismatch.")
 
         recorded_hash = event.get("event_hash")
 
         payload_without_hash = {
-            key: value
-            for key, value in event.items()
-            if key != "event_hash"
+            key: value for key, value in event.items() if key != "event_hash"
         }
 
-        calculated_hash = calculate_hash(
-            payload_without_hash
-        )
+        calculated_hash = calculate_hash(payload_without_hash)
 
         if recorded_hash != calculated_hash:
-            failures.append(
-                f"Entry {index}: event_hash mismatch."
-            )
+            failures.append(f"Entry {index}: event_hash mismatch.")
 
         occurred_at = event.get("occurred_at")
 
@@ -180,25 +131,18 @@ def main() -> int:
             )
 
             if timestamp.tzinfo is None:
-                raise ValueError(
-                    "timestamp has no timezone"
-                )
+                raise ValueError("timestamp has no timezone")
         except (
             AttributeError,
             TypeError,
             ValueError,
         ) as error:
-            failures.append(
-                f"Entry {index}: invalid occurred_at: "
-                f"{error}"
-            )
+            failures.append(f"Entry {index}: invalid occurred_at: {error}")
 
         checks.append(
             {
                 "sequence": index,
-                "event_type": event.get(
-                    "event_type"
-                ),
+                "event_type": event.get("event_type"),
                 "event_hash": recorded_hash,
                 "status": "PASS",
             }
@@ -210,17 +154,13 @@ def main() -> int:
 
     report = {
         "schema_version": "1.0",
-        "generated_at": datetime.now(
-            UTC
-        ).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "status": status,
         "entry_count": len(entries),
         "head_hash": (
             entries[-1].get("event_hash")
             if entries
-            else contract["ledger"][
-                "genesis_previous_hash"
-            ]
+            else contract["ledger"]["genesis_previous_hash"]
         ),
         "checks": checks,
         "failures": failures,
@@ -243,9 +183,7 @@ def main() -> int:
 
     summary = {
         "schema_version": "1.0",
-        "generated_at": report[
-            "generated_at"
-        ],
+        "generated_at": report["generated_at"],
         "status": status,
         "entry_count": len(entries),
         "event_type_counts": {},
@@ -254,17 +192,11 @@ def main() -> int:
     }
 
     for event in entries:
-        event_type = str(
-            event.get("event_type")
-        )
+        event_type = str(event.get("event_type"))
 
-        environment = str(
-            event.get("environment")
-        )
+        environment = str(event.get("environment"))
 
-        summary["event_type_counts"][
-            event_type
-        ] = (
+        summary["event_type_counts"][event_type] = (
             summary["event_type_counts"].get(
                 event_type,
                 0,
@@ -272,9 +204,7 @@ def main() -> int:
             + 1
         )
 
-        summary["environment_counts"][
-            environment
-        ] = (
+        summary["environment_counts"][environment] = (
             summary["environment_counts"].get(
                 environment,
                 0,

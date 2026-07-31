@@ -13,8 +13,7 @@ if "from aletheus.persistence_v3 import persistence_core" not in text:
 if "self.persistence_v3 = persistence_core" not in text:
     text = text.replace(
         "self.plugins_v3 = plugin_core",
-        "self.plugins_v3 = plugin_core\n"
-        "        self.persistence_v3 = persistence_core",
+        "self.plugins_v3 = plugin_core\n        self.persistence_v3 = persistence_core",
         1,
     )
 
@@ -26,7 +25,7 @@ if "Aletheus Persistence Engine" not in text:
     idx = text.find(marker)
     if idx != -1:
         end = text.find("\n", idx)
-        service = '''
+        service = """
 
         self.services.register(
             "Aletheus Persistence Engine",
@@ -35,8 +34,8 @@ if "Aletheus Persistence Engine" not in text:
                 "version": self.persistence_v3.VERSION,
             },
         )
-'''
-        text = text[:end+1] + service + text[end+1:]
+"""
+        text = text[: end + 1] + service + text[end + 1 :]
 
 if 'self.commands.register("state.bootstrap"' not in text:
     anchor = 'self.commands.register("plugin.statistics", self._cmd_plugin_statistics)'
@@ -45,7 +44,8 @@ if 'self.commands.register("state.bootstrap"' not in text:
 
     text = text.replace(
         anchor,
-        anchor + '''
+        anchor
+        + """
 
         # v3.2 Persistence Engine
         self.commands.register("state.bootstrap", self._cmd_state_bootstrap)
@@ -56,7 +56,7 @@ if 'self.commands.register("state.bootstrap"' not in text:
         self.commands.register("state.export", self._cmd_state_export)
         self.commands.register("state.import", self._cmd_state_import)
         self.commands.register("state.statistics", self._cmd_state_statistics)
-''',
+""",
         1,
     )
 

@@ -32,10 +32,7 @@ class PlatformTimeline:
         return [entry.to_dict() for entry in self._entries]
 
     def latest(self, limit: int = 10):
-        return [
-            entry.to_dict()
-            for entry in self._entries[-limit:]
-        ]
+        return [entry.to_dict() for entry in self._entries[-limit:]]
 
     def clear(self):
         self._entries.clear()

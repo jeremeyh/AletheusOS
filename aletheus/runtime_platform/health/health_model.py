@@ -5,7 +5,6 @@ from dataclasses import dataclass, field
 
 @dataclass(frozen=True, slots=True)
 class HealthEvidence:
-
     source: str
 
     healthy: bool
@@ -14,16 +13,13 @@ class HealthEvidence:
 
     message: str
 
-    metadata: dict = field(
-        default_factory=dict
-    )
+    metadata: dict = field(default_factory=dict)
 
 
 @dataclass(frozen=True, slots=True)
 class RuntimeHealth:
-
     healthy: bool
 
-    evidence: tuple[HealthEvidence,...]
+    evidence: tuple[HealthEvidence, ...]
 
     timestamp: str

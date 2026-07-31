@@ -4,15 +4,17 @@ from .policy_registry import PolicyRegistry
 
 class GovernanceEngine:
     def __init__(self, registry=None):
-        self.registry=registry or PolicyRegistry.default()
+        self.registry = registry or PolicyRegistry.default()
 
-    def evaluate_metric(self,name,value):
-        decisions=[]
+    def evaluate_metric(self, name, value):
+        decisions = []
         for p in self.registry.policies():
-            if p.name.endswith(name.replace("_","-").title()) or \
-               (name=="fan_out" and p.name=="Maximum Fan-Out") or \
-               (name=="fan_in" and p.name=="Maximum Fan-In"):
-                passed=value<=p.threshold
+            if (
+                p.name.endswith(name.replace("_", "-").title())
+                or (name == "fan_out" and p.name == "Maximum Fan-Out")
+                or (name == "fan_in" and p.name == "Maximum Fan-In")
+            ):
+                passed = value <= p.threshold
                 decisions.append(
                     Decision(
                         policy=p.name,

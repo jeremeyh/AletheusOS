@@ -35,7 +35,6 @@ def statistics() -> dict:
     identities = Counter()
 
     for memory in memories:
-
         memory_types[memory.memory_type.value] += 1
         lifecycles[memory.lifecycle.value] += 1
         capabilities[memory.capability] += 1
@@ -45,14 +44,9 @@ def statistics() -> dict:
         "name": "Double Hedron Session Memory",
         "genesis": "48.0",
         "version": "1.0.0",
-
         "registered_memories": len(memories),
-
         "memory_types": dict(memory_types),
-
         "lifecycles": dict(lifecycles),
-
         "capabilities": dict(capabilities),
-
         "identities": dict(identities),
     }

@@ -28,4 +28,3 @@ class ComponentManifest:
 
         if not self.responsibility.strip():
             raise ValueError("responsibility must not be empty")
-

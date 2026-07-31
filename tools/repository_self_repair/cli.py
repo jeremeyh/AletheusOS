@@ -14,17 +14,44 @@ from aletheus.repository_self_repair import RepositorySelfRepairEngine
 
 
 def parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(description="AletheusOS Repository Self-Repair and Convergence Engine")
+    p = argparse.ArgumentParser(
+        description="AletheusOS Repository Self-Repair and Convergence Engine"
+    )
     p.add_argument("target", type=Path, help="Canonical Git-backed repository")
     p.add_argument("--source", type=Path, help="Secondary repository/snapshot to merge")
-    p.add_argument("--apply", action="store_true", help="Apply the generated plan; default is dry-run")
-    p.add_argument("--delete-known-orphans", action="store_true", help="Permanently delete policy-confirmed debris instead of quarantining it")
-    p.add_argument("--archive-source", action="store_true", help="Create a checksummed tar.gz of the source after successful execution")
-    p.add_argument("--remove-source", action="store_true", help="Remove source only after a successful archive; requires --archive-source and --apply")
+    p.add_argument(
+        "--apply",
+        action="store_true",
+        help="Apply the generated plan; default is dry-run",
+    )
+    p.add_argument(
+        "--delete-known-orphans",
+        action="store_true",
+        help="Permanently delete policy-confirmed debris instead of quarantining it",
+    )
+    p.add_argument(
+        "--archive-source",
+        action="store_true",
+        help="Create a checksummed tar.gz of the source after successful execution",
+    )
+    p.add_argument(
+        "--remove-source",
+        action="store_true",
+        help="Remove source only after a successful archive; requires --archive-source and --apply",
+    )
     p.add_argument("--archive-root", type=Path)
     p.add_argument("--report-root", type=Path)
-    p.add_argument("--monitor", action="store_true", help="Run continuous non-destructive self-repair")
-    p.add_argument("--interval", type=int, default=3600, help="Monitor interval in seconds (minimum 60)")
+    p.add_argument(
+        "--monitor",
+        action="store_true",
+        help="Run continuous non-destructive self-repair",
+    )
+    p.add_argument(
+        "--interval",
+        type=int,
+        default=3600,
+        help="Monitor interval in seconds (minimum 60)",
+    )
     return p
 
 
@@ -37,8 +64,12 @@ def main() -> int:
     engine = RepositorySelfRepairEngine()
     if args.monitor:
         if args.source:
-            raise SystemExit("continuous monitor does not merge a source; run explicit convergence first")
-        engine.monitor(args.target, interval_seconds=args.interval, report_root=args.report_root)
+            raise SystemExit(
+                "continuous monitor does not merge a source; run explicit convergence first"
+            )
+        engine.monitor(
+            args.target, interval_seconds=args.interval, report_root=args.report_root
+        )
         return 0
     plan, result, report = engine.run(
         args.target,
@@ -50,7 +81,18 @@ def main() -> int:
         archive_root=args.archive_root,
         report_root=args.report_root,
     )
-    print(json.dumps({"counts": plan.counts(), "success": result.success, "dry_run": result.dry_run, "archive": result.archive_path, "report": str(report)}, indent=2))
+    print(
+        json.dumps(
+            {
+                "counts": plan.counts(),
+                "success": result.success,
+                "dry_run": result.dry_run,
+                "archive": result.archive_path,
+                "report": str(report),
+            },
+            indent=2,
+        )
+    )
     return 0 if result.success else 2
 
 

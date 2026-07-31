@@ -7,108 +7,46 @@ Unified orchestration layer for
 Aletheus intelligence capabilities.
 """
 
-
 import time
 import uuid
 
 
 class AutonomousIntelligenceRuntime:
-
-
-    def __init__(
-        self,
-        cognitive_systems=None,
-        governance=None,
-        memory=None
-    ):
+    def __init__(self, cognitive_systems=None, governance=None, memory=None):
 
         self.runtime_id = str(uuid.uuid4())
 
-        self.cognitive_systems = (
-            cognitive_systems or {}
-        )
+        self.cognitive_systems = cognitive_systems or {}
 
         self.governance = governance
 
         self.memory = memory
 
-        self.state = {
-
-            "status":
-                "initialized",
-
-            "evolution_cycle":
-                0
-
-        }
-
-
+        self.state = {"status": "initialized", "evolution_cycle": 0}
 
     def start(self):
 
-        self.state["status"] = (
-            "operational"
-        )
+        self.state["status"] = "operational"
 
         return self.state
 
-
-
-    def process(
-        self,
-        objective
-    ):
+    def process(self, objective):
 
         result = {
-
-            "objective":
-                objective,
-
-            "processed":
-                True,
-
-            "runtime":
-                self.runtime_id,
-
-            "timestamp":
-                time.time()
-
+            "objective": objective,
+            "processed": True,
+            "runtime": self.runtime_id,
+            "timestamp": time.time(),
         }
-
 
         return result
 
-
-
     def evolve(self):
 
-        self.state[
-            "evolution_cycle"
-        ] += 1
+        self.state["evolution_cycle"] += 1
 
-
-        return {
-
-            "cycle":
-                self.state[
-                    "evolution_cycle"
-                ],
-
-            "evolved":
-                True
-
-        }
-
-
+        return {"cycle": self.state["evolution_cycle"], "evolved": True}
 
     def snapshot(self):
 
-        return {
-
-            "runtime_id":
-                self.runtime_id,
-
-            "state":
-                self.state
-
-        }
+        return {"runtime_id": self.runtime_id, "state": self.state}

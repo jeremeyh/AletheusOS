@@ -1,8 +1,3 @@
 from .engine import PredictiveCollectibleEngine
 
-__all__=[
-
-"PredictiveCollectibleEngine"
-
-]
-
+__all__ = ["PredictiveCollectibleEngine"]

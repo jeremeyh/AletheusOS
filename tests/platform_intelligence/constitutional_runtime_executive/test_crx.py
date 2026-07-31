@@ -13,19 +13,13 @@ from aletheus.platform_intelligence import (
 def build_runtime():
     kernel = ConstitutionalRuntimeKernel()
 
-    supervisor = (
-        ConstitutionalRuntimeSupervisor(
-            kernel=kernel
-        )
-    )
+    supervisor = ConstitutionalRuntimeSupervisor(kernel=kernel)
 
     supervisor.start_platform()
 
-    executive = (
-        ConstitutionalRuntimeExecutive(
-            kernel=kernel,
-            supervisor=supervisor,
-        )
+    executive = ConstitutionalRuntimeExecutive(
+        kernel=kernel,
+        supervisor=supervisor,
     )
 
     return kernel, supervisor, executive
@@ -36,12 +30,9 @@ def degrade(
     address: str,
     health: ConstitutionalHealth,
 ) -> None:
-    service = (
-        kernel.service_registry
-        .report_health(
-            address,
-            health,
-        )
+    service = kernel.service_registry.report_health(
+        address,
+        health,
     )
 
     kernel.graph.update_node(service)
@@ -52,21 +43,14 @@ def test_healthy_runtime_requires_no_action() -> None:
 
     recommendation = executive.evaluate()
 
-    assert recommendation.decision is (
-        ExecutiveDecision.NO_ACTION
-    )
-    assert recommendation.risk is (
-        ExecutiveRisk.LOW
-    )
+    assert recommendation.decision is (ExecutiveDecision.NO_ACTION)
+    assert recommendation.risk is (ExecutiveRisk.LOW)
 
 
 def test_warning_runtime_is_observed() -> None:
     kernel, _, executive = build_runtime()
 
-    address = (
-        "service.platform-intelligence."
-        "runtime-explorer"
-    )
+    address = "service.platform-intelligence.runtime-explorer"
 
     degrade(
         kernel,
@@ -76,21 +60,14 @@ def test_warning_runtime_is_observed() -> None:
 
     recommendation = executive.evaluate()
 
-    assert recommendation.decision is (
-        ExecutiveDecision.OBSERVE
-    )
-    assert address in (
-        recommendation.affected_services
-    )
+    assert recommendation.decision is (ExecutiveDecision.OBSERVE)
+    assert address in (recommendation.affected_services)
 
 
 def test_degraded_runtime_restarts_chain() -> None:
     kernel, _, executive = build_runtime()
 
-    address = (
-        "service.platform-intelligence."
-        "service-registry"
-    )
+    address = "service.platform-intelligence.service-registry"
 
     degrade(
         kernel,
@@ -100,22 +77,14 @@ def test_degraded_runtime_restarts_chain() -> None:
 
     recommendation = executive.evaluate()
 
-    assert recommendation.decision is (
-        ExecutiveDecision
-        .RESTART_DEPENDENCY_CHAIN
-    )
-    assert recommendation.risk is (
-        ExecutiveRisk.HIGH
-    )
+    assert recommendation.decision is (ExecutiveDecision.RESTART_DEPENDENCY_CHAIN)
+    assert recommendation.risk is (ExecutiveRisk.HIGH)
 
 
 def test_critical_runtime_escalates() -> None:
     kernel, _, executive = build_runtime()
 
-    address = (
-        "service.platform-intelligence."
-        "runtime-explorer"
-    )
+    address = "service.platform-intelligence.runtime-explorer"
 
     degrade(
         kernel,
@@ -125,21 +94,14 @@ def test_critical_runtime_escalates() -> None:
 
     recommendation = executive.evaluate()
 
-    assert recommendation.decision is (
-        ExecutiveDecision.ESCALATE
-    )
-    assert recommendation.risk is (
-        ExecutiveRisk.CRITICAL
-    )
+    assert recommendation.decision is (ExecutiveDecision.ESCALATE)
+    assert recommendation.risk is (ExecutiveRisk.CRITICAL)
 
 
 def test_dependency_restart_plan_is_ordered() -> None:
     kernel, _, executive = build_runtime()
 
-    address = (
-        "service.platform-intelligence."
-        "service-registry"
-    )
+    address = "service.platform-intelligence.service-registry"
 
     degrade(
         kernel,
@@ -147,48 +109,29 @@ def test_dependency_restart_plan_is_ordered() -> None:
         ConstitutionalHealth.DEGRADED,
     )
 
-    recommendation, plan = (
-        executive.decide_and_plan()
-    )
+    recommendation, plan = executive.decide_and_plan()
 
-    assert recommendation.decision is (
-        ExecutiveDecision
-        .RESTART_DEPENDENCY_CHAIN
-    )
+    assert recommendation.decision is (ExecutiveDecision.RESTART_DEPENDENCY_CHAIN)
 
     assert address in plan.ordered_services
 
-    assert (
-        "service.platform-intelligence."
-        "digital-twin"
-        in plan.ordered_services
-    )
+    assert "service.platform-intelligence.digital-twin" in plan.ordered_services
 
 
 def test_no_action_plan_is_empty() -> None:
     _, _, executive = build_runtime()
 
-    recommendation, plan = (
-        executive.decide_and_plan()
-    )
+    recommendation, plan = executive.decide_and_plan()
 
-    assert recommendation.decision is (
-        ExecutiveDecision.NO_ACTION
-    )
+    assert recommendation.decision is (ExecutiveDecision.NO_ACTION)
     assert plan.ordered_services == ()
-    assert (
-        plan.requires_manual_approval
-        is False
-    )
+    assert plan.requires_manual_approval is False
 
 
 def test_escalation_requires_manual_approval() -> None:
     kernel, _, executive = build_runtime()
 
-    address = (
-        "service.platform-intelligence."
-        "runtime-explorer"
-    )
+    address = "service.platform-intelligence.runtime-explorer"
 
     degrade(
         kernel,
@@ -198,10 +141,7 @@ def test_escalation_requires_manual_approval() -> None:
 
     _, plan = executive.decide_and_plan()
 
-    assert (
-        plan.requires_manual_approval
-        is True
-    )
+    assert plan.requires_manual_approval is True
     assert plan.ordered_services == ()
 
 
@@ -226,9 +166,7 @@ def test_export_contains_last_recommendation() -> None:
     payload = executive.export()
 
     assert payload["version"] == "9.15.0"
-    assert payload[
-        "last_recommendation"
-    ] is not None
+    assert payload["last_recommendation"] is not None
 
 
 def test_executive_does_not_execute_actions() -> None:
@@ -245,6 +183,4 @@ def test_executive_does_not_execute_actions() -> None:
         "connect",
     }
 
-    assert forbidden.isdisjoint(
-        set(dir(executive))
-    )
+    assert forbidden.isdisjoint(set(dir(executive)))

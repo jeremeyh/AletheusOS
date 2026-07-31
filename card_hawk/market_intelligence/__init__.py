@@ -6,6 +6,4 @@ Genesis 36
 
 from .engine import MarketIntelligenceEngine
 
-__all__ = [
-    "MarketIntelligenceEngine"
-]
+__all__ = ["MarketIntelligenceEngine"]

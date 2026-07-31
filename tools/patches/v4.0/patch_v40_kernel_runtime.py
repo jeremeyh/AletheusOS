@@ -19,7 +19,6 @@ from aletheus.runtime.kernel import (
 """
 
 if "intelligence_orchestrator" not in text:
-
     anchor = "from aletheus.tenancy_v3 import tenancy_core"
 
     if anchor not in text:
@@ -38,19 +37,21 @@ if "intelligence_orchestrator" not in text:
 # ------------------------------------------------------------
 
 if "self.intelligence_orchestrator = intelligence_orchestrator" not in text:
-
     anchor = "self.tenancy_v3 = tenancy_core"
 
     if anchor not in text:
         raise SystemExit("Tenancy runtime anchor not found.")
 
-    replacement = anchor + """
+    replacement = (
+        anchor
+        + """
 
         self.intelligence_orchestrator = intelligence_orchestrator
         self.intelligence_scheduler = intelligence_scheduler
         self.intelligence_dispatcher = intelligence_dispatcher
         self.intelligence_supervisor = intelligence_supervisor
 """
+    )
 
     text = text.replace(anchor, replacement, 1)
 
@@ -70,13 +71,12 @@ text = text.replace(
 # ------------------------------------------------------------
 
 if 'self.commands.register("kernel.bootstrap"' not in text:
-
     anchor = 'self.commands.register("tenant.health", self._cmd_tenant_health)'
 
     if anchor not in text:
         raise SystemExit("Tenant command anchor not found.")
 
-    kernel_commands = '''
+    kernel_commands = """
 
         # ======================================================
         # v4.0 Intelligence Kernel
@@ -116,7 +116,7 @@ if 'self.commands.register("kernel.bootstrap"' not in text:
             "kernel.statistics",
             self._cmd_kernel_statistics,
         )
-'''
+"""
 
     text = text.replace(anchor, anchor + kernel_commands, 1)
 

@@ -19,7 +19,7 @@ if "self.knowledge_graph = knowledge_graph_core" not in text:
 
 if 'self.commands.register("knowledge.entity.create"' not in text:
     anchor = '        self.commands.register("memory.mesh.stats", self._cmd_memory_mesh_stats)\n'
-    insert = '''        self.commands.register("knowledge.entity.create", self._cmd_kg_entity_create)
+    insert = """        self.commands.register("knowledge.entity.create", self._cmd_kg_entity_create)
         self.commands.register("knowledge.entity.update", self._cmd_kg_entity_update)
         self.commands.register("knowledge.entity.delete", self._cmd_kg_entity_delete)
         self.commands.register("knowledge.relationship.create", self._cmd_kg_relationship_create)
@@ -30,20 +30,20 @@ if 'self.commands.register("knowledge.entity.create"' not in text:
         self.commands.register("knowledge.infer", self._cmd_kg_infer)
         self.commands.register("knowledge.bootstrap.cardhawk", self._cmd_kg_bootstrap_cardhawk)
         self.commands.register("knowledge.statistics", self._cmd_kg_statistics)
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find memory.mesh.stats command anchor.")
     text = text.replace(anchor, anchor + insert)
 
 if '"Aletheus Knowledge Graph Engine"' not in text:
-    anchor = '''        self.services.register(
+    anchor = """        self.services.register(
             "Aletheus Universal Memory Mesh",
             {"status": "online", "version": self.memory_mesh.version},
         )
 
         self.scheduler.register(
-'''
-    replacement = '''        self.services.register(
+"""
+    replacement = """        self.services.register(
             "Aletheus Universal Memory Mesh",
             {"status": "online", "version": self.memory_mesh.version},
         )
@@ -53,21 +53,21 @@ if '"Aletheus Knowledge Graph Engine"' not in text:
         )
 
         self.scheduler.register(
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find memory mesh service anchor.")
     text = text.replace(anchor, replacement)
 
 if '"graph_nodes": self.knowledge_graph.stats()["nodes"]' not in text:
     text = text.replace(
-        '''                "memory_mesh_objects": self.memory_mesh.stats()["memory_objects"],
+        """                "memory_mesh_objects": self.memory_mesh.stats()["memory_objects"],
                 "memory_mesh_snapshots": self.memory_mesh.stats()["snapshots"],
                 "memory_mesh_versions": self.memory_mesh.stats()["memory_versions"],
             },
         )
         return context
-''',
-        '''                "memory_mesh_objects": self.memory_mesh.stats()["memory_objects"],
+""",
+        """                "memory_mesh_objects": self.memory_mesh.stats()["memory_objects"],
                 "memory_mesh_snapshots": self.memory_mesh.stats()["snapshots"],
                 "memory_mesh_versions": self.memory_mesh.stats()["memory_versions"],
                 "graph_nodes": self.knowledge_graph.stats()["nodes"],
@@ -76,23 +76,23 @@ if '"graph_nodes": self.knowledge_graph.stats()["nodes"]' not in text:
             },
         )
         return context
-''',
+""",
     )
 
 if 'context.add_result("knowledge_graph", self.knowledge_graph.stats())' not in text:
     text = text.replace(
-        '''        context.add_result("memory_mesh", self.memory_mesh.stats())
+        """        context.add_result("memory_mesh", self.memory_mesh.stats())
         return context
-''',
-        '''        context.add_result("memory_mesh", self.memory_mesh.stats())
+""",
+        """        context.add_result("memory_mesh", self.memory_mesh.stats())
         context.add_result("knowledge_graph", self.knowledge_graph.stats())
         return context
-''',
+""",
     )
 
 if "def _cmd_kg_entity_create" not in text:
     anchor = "    def _job_runtime_pulse(self) -> dict:\n"
-    methods = '''
+    methods = """
     def _cmd_kg_entity_create(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
         result = self.knowledge_graph.create_entity(
@@ -169,7 +169,7 @@ if "def _cmd_kg_entity_create" not in text:
         context.add_result("knowledge_graph_stats", self.knowledge_graph.stats())
         return context
 
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find _job_runtime_pulse anchor.")
     text = text.replace(anchor, methods + anchor)

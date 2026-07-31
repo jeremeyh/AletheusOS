@@ -13,15 +13,15 @@ for path in FILES:
     text = path.read_text(encoding="utf-8")
     original = text
 
-    old = '''import type {
+    old = """import type {
   InstrumentStatus,
 } from "./types";
-'''
+"""
 
-    new = '''import type {
+    new = """import type {
   InstrumentStatus,
 } from "../instrumentation/contracts";
-'''
+"""
 
     if old in text:
         text = text.replace(old, new)

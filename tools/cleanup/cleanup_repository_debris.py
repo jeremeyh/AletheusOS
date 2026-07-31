@@ -130,12 +130,8 @@ def discover_targets() -> tuple[list[Path], list[Path]]:
             if filename.endswith("~"):
                 removable_files.append(file_path)
 
-    removable_directories.sort(
-        key=lambda path: str(path.relative_to(ROOT))
-    )
-    removable_files.sort(
-        key=lambda path: str(path.relative_to(ROOT))
-    )
+    removable_directories.sort(key=lambda path: str(path.relative_to(ROOT)))
+    removable_files.sort(key=lambda path: str(path.relative_to(ROOT)))
 
     return removable_directories, removable_files
 
@@ -152,8 +148,7 @@ def remove_target(path: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=(
-            "Remove objectively safe repository debris. "
-            "Dry-run is the default."
+            "Remove objectively safe repository debris. Dry-run is the default."
         )
     )
     parser.add_argument(
@@ -170,26 +165,14 @@ def main() -> None:
 
     directories, files = discover_targets()
 
-    directory_sizes = {
-        path: directory_size(path)
-        for path in directories
-    }
+    directory_sizes = {path: directory_size(path) for path in directories}
 
-    file_sizes = {
-        path: file_size(path)
-        for path in files
-    }
+    file_sizes = {path: file_size(path) for path in files}
 
-    total_size = (
-        sum(directory_sizes.values())
-        + sum(file_sizes.values())
-    )
+    total_size = sum(directory_sizes.values()) + sum(file_sizes.values())
 
     print("=" * 72)
-    print(
-        "AletheusOS Repository Cleanup — "
-        + ("APPLY" if args.apply else "DRY RUN")
-    )
+    print("AletheusOS Repository Cleanup — " + ("APPLY" if args.apply else "DRY RUN"))
     print("=" * 72)
     print(f"Root: {ROOT}")
     print(f"Directories: {len(directories)}")
@@ -201,26 +184,16 @@ def main() -> None:
 
         for path in directories:
             relative = path.relative_to(ROOT)
-            print(
-                f"DIR   {relative} "
-                f"({human_size(directory_sizes[path])})"
-            )
+            print(f"DIR   {relative} ({human_size(directory_sizes[path])})")
 
         for path in files:
             relative = path.relative_to(ROOT)
-            print(
-                f"FILE  {relative} "
-                f"({human_size(file_sizes[path])})"
-            )
+            print(f"FILE  {relative} ({human_size(file_sizes[path])})")
 
     if not args.apply:
         print()
         print("No files were deleted.")
-        print(
-            "Apply with: "
-            "python cleanup_repository_debris.py "
-            "--apply --summary-only"
-        )
+        print("Apply with: python cleanup_repository_debris.py --apply --summary-only")
         return
 
     removed_directories = 0
@@ -250,20 +223,14 @@ def main() -> None:
     print()
     print(f"Removed directories: {removed_directories}")
     print(f"Removed files: {removed_files}")
-    print(
-        "Recovered approximately: "
-        f"{human_size(total_size)}"
-    )
+    print(f"Recovered approximately: {human_size(total_size)}")
 
     if failures:
         print()
         print("Failures:")
 
         for path, error in failures:
-            print(
-                f"  {path.relative_to(ROOT)}: "
-                f"{type(error).__name__}: {error}"
-            )
+            print(f"  {path.relative_to(ROOT)}: {type(error).__name__}: {error}")
 
         raise SystemExit(1)
 

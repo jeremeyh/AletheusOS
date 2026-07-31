@@ -9,6 +9,7 @@ def upgrade(conn):
     """)
     conn.commit()
 
+
 def rollback(conn):
     cur = conn.cursor()
     cur.execute("DROP TABLE IF EXISTS system_metadata")

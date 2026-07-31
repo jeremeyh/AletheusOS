@@ -36,21 +36,13 @@ class ConstitutionalInstrumentBus:
     def __init__(
         self,
         *,
-        registry: (
-            ConstitutionalInstrumentRegistry
-            | None
-        ) = None,
+        registry: (ConstitutionalInstrumentRegistry | None) = None,
         history_limit: int = 100,
     ) -> None:
         if history_limit < 1:
-            raise ValueError(
-                "history_limit must be at least one."
-            )
+            raise ValueError("history_limit must be at least one.")
 
-        self.registry = (
-            registry
-            or ConstitutionalInstrumentRegistry()
-        )
+        self.registry = registry or ConstitutionalInstrumentRegistry()
 
         self.history_limit = history_limit
 
@@ -64,9 +56,7 @@ class ConstitutionalInstrumentBus:
             list[InstrumentSubscriber],
         ] = defaultdict(list)
 
-        self._all_subscribers: list[
-            InstrumentSubscriber
-        ] = []
+        self._all_subscribers: list[InstrumentSubscriber] = []
 
         self._published = 0
         self._subscriber_failures = 0
@@ -76,62 +66,41 @@ class ConstitutionalInstrumentBus:
         instrument_id: str,
         subscriber: InstrumentSubscriber,
     ) -> None:
-        self.registry.require(
-            instrument_id
-        )
+        self.registry.require(instrument_id)
 
-        if subscriber not in self._subscribers[
-            instrument_id
-        ]:
-            self._subscribers[
-                instrument_id
-            ].append(subscriber)
+        if subscriber not in self._subscribers[instrument_id]:
+            self._subscribers[instrument_id].append(subscriber)
 
     def subscribe_all(
         self,
         subscriber: InstrumentSubscriber,
     ) -> None:
         if subscriber not in self._all_subscribers:
-            self._all_subscribers.append(
-                subscriber
-            )
+            self._all_subscribers.append(subscriber)
 
     def publish(
         self,
         signal: InstrumentSignal,
     ) -> InstrumentSignal:
-        definition = self.registry.require(
-            signal.instrument_id
-        )
+        definition = self.registry.require(signal.instrument_id)
 
         if signal.value is not None:
-            if not (
-                definition.minimum
-                <= signal.value
-                <= definition.maximum
-            ):
+            if not (definition.minimum <= signal.value <= definition.maximum):
                 raise ValueError(
                     f"Signal value {signal.value!r} "
                     f"is outside the range for "
                     f"{signal.instrument_id!r}."
                 )
 
-        history = self._signals[
-            signal.instrument_id
-        ]
+        history = self._signals[signal.instrument_id]
 
         history.append(signal)
 
         if len(history) > self.history_limit:
-            del history[
-                : len(history)
-                - self.history_limit
-            ]
+            del history[: len(history) - self.history_limit]
 
         subscribers = [
-            *self._subscribers[
-                signal.instrument_id
-            ],
+            *self._subscribers[signal.instrument_id],
             *self._all_subscribers,
         ]
 
@@ -148,9 +117,7 @@ class ConstitutionalInstrumentBus:
         self,
         instrument_id: str,
     ) -> tuple[InstrumentSignal, ...]:
-        self.registry.require(
-            instrument_id
-        )
+        self.registry.require(instrument_id)
 
         return tuple(
             self._signals.get(
@@ -163,119 +130,60 @@ class ConstitutionalInstrumentBus:
         self,
         instrument_id: str,
     ) -> InstrumentState:
-        definition = self.registry.require(
-            instrument_id
-        )
+        definition = self.registry.require(instrument_id)
 
-        history = self.signals(
-            instrument_id
-        )
+        history = self.signals(instrument_id)
 
-        latest = (
-            history[-1]
-            if history
-            else None
-        )
+        latest = history[-1] if history else None
 
         return InstrumentState(
-            instrument_id=(
-                definition.instrument_id
-            ),
-            canonical_name=(
-                definition.canonical_name
-            ),
+            instrument_id=(definition.instrument_id),
+            canonical_name=(definition.canonical_name),
             kind=definition.kind,
-            current_value=(
-                latest.value
-                if latest
-                else None
-            ),
+            current_value=(latest.value if latest else None),
             minimum=definition.minimum,
             maximum=definition.maximum,
             unit=definition.unit,
             status=(
                 latest.status
-                if (
-                    latest
-                    and latest.status
-                    is not None
-                )
+                if (latest and latest.status is not None)
                 else InstrumentStatus.IDLE
             ),
-            confidence=(
-                latest.confidence
-                if latest
-                else None
-            ),
+            confidence=(latest.confidence if latest else None),
             update_count=len(history),
-            last_signal_id=(
-                latest.signal_id
-                if latest
-                else None
-            ),
-            last_updated=(
-                latest.emitted_at
-                if latest
-                else None
-            ),
-            last_message=(
-                latest.message
-                if latest
-                else ""
-            ),
+            last_signal_id=(latest.signal_id if latest else None),
+            last_updated=(latest.emitted_at if latest else None),
+            last_message=(latest.message if latest else ""),
             history=history,
-            metadata=dict(
-                definition.metadata
-            ),
+            metadata=dict(definition.metadata),
         )
 
     def snapshot(
         self,
     ) -> dict[str, InstrumentState]:
         return {
-            definition.instrument_id: (
-                self.state(
-                    definition.instrument_id
-                )
-            )
-            for definition
-            in self.registry.list()
+            definition.instrument_id: (self.state(definition.instrument_id))
+            for definition in self.registry.list()
         }
 
     def statistics(self) -> dict[str, Any]:
         return {
-            "published_signals": (
-                self._published
-            ),
-            "subscriber_failures": (
-                self._subscriber_failures
-            ),
+            "published_signals": (self._published),
+            "subscriber_failures": (self._subscriber_failures),
             "instrument_subscriptions": sum(
-                len(subscribers)
-                for subscribers
-                in self._subscribers.values()
+                len(subscribers) for subscribers in self._subscribers.values()
             ),
-            "global_subscriptions": len(
-                self._all_subscribers
-            ),
+            "global_subscriptions": len(self._all_subscribers),
             "instruments_with_history": sum(
-                bool(signals)
-                for signals
-                in self._signals.values()
+                bool(signals) for signals in self._signals.values()
             ),
         }
 
     def health(self) -> dict[str, Any]:
         return {
-            "name": (
-                "Constitutional Instrument Bus™"
-            ),
+            "name": ("Constitutional Instrument Bus™"),
             "version": self.VERSION,
-            "status": (
-                "degraded"
-                if self._subscriber_failures
-                else "online"
-            ),
+            "status": ("degraded" if self._subscriber_failures else "online"),
             "registry": self.registry.health(),
             **self.statistics(),
         }

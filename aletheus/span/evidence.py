@@ -55,10 +55,14 @@ class EvidenceStore:
         return self._items.get(evidence_id)
 
     def by_kind(self, kind: str) -> tuple[Evidence, ...]:
-        return tuple(self._items[item_id] for item_id in sorted(self._by_kind.get(kind, ())))
+        return tuple(
+            self._items[item_id] for item_id in sorted(self._by_kind.get(kind, ()))
+        )
 
     def by_source(self, source: str) -> tuple[Evidence, ...]:
-        return tuple(self._items[item_id] for item_id in sorted(self._by_source.get(source, ())))
+        return tuple(
+            self._items[item_id] for item_id in sorted(self._by_source.get(source, ()))
+        )
 
     def query(
         self,

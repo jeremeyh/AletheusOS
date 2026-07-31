@@ -13,30 +13,17 @@ class RuntimeSPABridge:
     def __init__(self, runtime):
         self.runtime = runtime
 
-
-
     def registry_governance_check(self):
 
         runtime = self.runtime
 
-        if not hasattr(
-            runtime,
-            "registry_governance_validate"
-        ):
-            return {
-                "healthy": False,
-                "reason": "registry governance unavailable"
-            }
+        if not hasattr(runtime, "registry_governance_validate"):
+            return {"healthy": False, "reason": "registry governance unavailable"}
 
-        result = (
-            runtime.registry_governance_validate()
-        )
+        result = runtime.registry_governance_validate()
 
         return {
-            "healthy": result.get(
-                "compliant",
-                False
-            ),
+            "healthy": result.get("compliant", False),
             "result": result,
         }
 
@@ -73,15 +60,8 @@ class RuntimeSPABridge:
             "analyzer": "Spectrum Platform Analyzer",
             "status": "healthy" if passed else "attention_required",
             "checks": checks,
-            "risk_count": len(
-                [
-                    item
-                    for item, value in checks.items()
-                    if not value
-                ]
-            ),
+            "risk_count": len([item for item, value in checks.items() if not value]),
         }
-
 
     def drift_report(self):
         """

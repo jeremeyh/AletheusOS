@@ -6,20 +6,6 @@ Genesis 155
 
 
 class ReviewEngine:
-
-
     def review(self, proposal):
 
-        return {
-
-            "proposal":
-            proposal,
-
-            "review":
-            "complete",
-
-            "score":
-            95
-
-        }
-
+        return {"proposal": proposal, "review": "complete", "score": 95}

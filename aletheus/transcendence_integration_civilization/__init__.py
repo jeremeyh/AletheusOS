@@ -6,6 +6,4 @@ Post-Genesis 10451-10550
 
 from .engine import TranscendenceIntegrationCivilizationEngine
 
-__all__ = [
-    "TranscendenceIntegrationCivilizationEngine"
-]
+__all__ = ["TranscendenceIntegrationCivilizationEngine"]

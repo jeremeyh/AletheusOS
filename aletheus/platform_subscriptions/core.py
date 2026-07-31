@@ -4,7 +4,6 @@ from .registry import SubscriptionRegistry
 
 
 class PlatformSubscriptionEngine:
-
     GENESIS = "15.4"
     VERSION = "0.1.0"
 
@@ -29,10 +28,7 @@ class PlatformSubscriptionEngine:
 
         dispatched = 0
 
-        for subscription in self.registry.subscribers(
-            event["event_type"]
-        ):
-
+        for subscription in self.registry.subscribers(event["event_type"]):
             subscription.callback(event)
             dispatched += 1
 

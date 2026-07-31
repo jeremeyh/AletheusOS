@@ -5,19 +5,6 @@ Cognitive Adaptation Engine
 
 
 class CognitiveAdaptationEngine:
+    def adapt(self, condition):
 
-
-    def adapt(
-        self,
-        condition
-    ):
-
-        return {
-
-            "condition":
-                condition,
-
-            "adapted":
-                True
-
-        }
+        return {"condition": condition, "adapted": True}

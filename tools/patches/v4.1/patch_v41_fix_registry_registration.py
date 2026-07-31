@@ -9,7 +9,7 @@ pattern = re.compile(
     re.DOTALL,
 )
 
-replacement = '''
+replacement = """
 def _register_compatibility_services(self):
 
         registry = [
@@ -43,14 +43,12 @@ def _register_compatibility_services(self):
             )
 
 
-    def _apply_compatibility_aliases'''
+    def _apply_compatibility_aliases"""
 
 text, count = pattern.subn(replacement, text, count=1)
 
 if count != 1:
-    raise SystemExit(
-        "Could not rebuild _register_compatibility_services()."
-    )
+    raise SystemExit("Could not rebuild _register_compatibility_services().")
 
 core.write_text(text)
 

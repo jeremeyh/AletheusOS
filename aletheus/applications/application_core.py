@@ -41,7 +41,11 @@ class AletheusApplicationManager:
         )
 
         app = NativeApplication(manifest=manifest)
-        app.emit("application.installed", f"{name} installed.", {"manifest": manifest.to_dict()})
+        app.emit(
+            "application.installed",
+            f"{name} installed.",
+            {"manifest": manifest.to_dict()},
+        )
         self.applications.append(app)
 
         if autostart:
@@ -59,7 +63,9 @@ class AletheusApplicationManager:
         commands: list[str] | None = None,
     ) -> NativeApplication:
         app_id = name.lower().replace("™", "").replace("•", "").replace(" ", ".")
-        service_names = [item.get("name", "Unnamed Service") for item in (services or [])]
+        service_names = [
+            item.get("name", "Unnamed Service") for item in (services or [])
+        ]
 
         return self.install_application(
             app_id=app_id,
@@ -128,7 +134,13 @@ class AletheusApplicationManager:
                 autostart=True,
                 permissions=["memory", "knowledge", "storage", "kernel"],
                 dependencies=["Card Hawk Foundation™"],
-                commands=["asset.create", "asset.read", "asset.update", "asset.delete", "asset.search"],
+                commands=[
+                    "asset.create",
+                    "asset.read",
+                    "asset.update",
+                    "asset.delete",
+                    "asset.search",
+                ],
                 services=["Asset CRUD", "Asset Search", "Asset Uploads"],
             ),
             self.install_application(
@@ -139,7 +151,11 @@ class AletheusApplicationManager:
                 autostart=True,
                 permissions=["memory", "knowledge", "prediction", "learning"],
                 dependencies=["Asset Vault"],
-                commands=["portfolio.refresh", "portfolio.value", "portfolio.allocation"],
+                commands=[
+                    "portfolio.refresh",
+                    "portfolio.value",
+                    "portfolio.allocation",
+                ],
                 services=["Valuation", "Allocation", "Gain/Loss"],
             ),
             self.install_application(
@@ -185,10 +201,16 @@ class AletheusApplicationManager:
             return {"error": "Application not found."}
 
         app.emit("application.uninstalled", f"{app.name} uninstalled.")
-        self.applications = [item for item in self.applications if item.application_id != app.application_id]
+        self.applications = [
+            item
+            for item in self.applications
+            if item.application_id != app.application_id
+        ]
         return app.to_dict()
 
-    def get_application(self, app_id: str = "", application_id: str = "", name: str = "") -> NativeApplication | None:
+    def get_application(
+        self, app_id: str = "", application_id: str = "", name: str = ""
+    ) -> NativeApplication | None:
         lookup_id = app_id or application_id
         for app in self.applications:
             if lookup_id and app.application_id == lookup_id:
@@ -200,29 +222,45 @@ class AletheusApplicationManager:
     def list_applications(self) -> list[dict[str, Any]]:
         return [app.to_dict() for app in self.applications]
 
-    def start_application(self, app_id: str = "", application_id: str = "", name: str = "") -> dict[str, Any]:
-        app = self.get_application(app_id=app_id, application_id=application_id, name=name)
+    def start_application(
+        self, app_id: str = "", application_id: str = "", name: str = ""
+    ) -> dict[str, Any]:
+        app = self.get_application(
+            app_id=app_id, application_id=application_id, name=name
+        )
         if app is None:
             return {"error": "Application not found."}
         app.start()
         return app.to_dict()
 
-    def stop_application(self, app_id: str = "", application_id: str = "", name: str = "") -> dict[str, Any]:
-        app = self.get_application(app_id=app_id, application_id=application_id, name=name)
+    def stop_application(
+        self, app_id: str = "", application_id: str = "", name: str = ""
+    ) -> dict[str, Any]:
+        app = self.get_application(
+            app_id=app_id, application_id=application_id, name=name
+        )
         if app is None:
             return {"error": "Application not found."}
         app.stop()
         return app.to_dict()
 
-    def restart_application(self, app_id: str = "", application_id: str = "", name: str = "") -> dict[str, Any]:
-        app = self.get_application(app_id=app_id, application_id=application_id, name=name)
+    def restart_application(
+        self, app_id: str = "", application_id: str = "", name: str = ""
+    ) -> dict[str, Any]:
+        app = self.get_application(
+            app_id=app_id, application_id=application_id, name=name
+        )
         if app is None:
             return {"error": "Application not found."}
         app.restart()
         return app.to_dict()
 
-    def health(self, app_id: str = "", application_id: str = "", name: str = "") -> dict[str, Any]:
-        app = self.get_application(app_id=app_id, application_id=application_id, name=name)
+    def health(
+        self, app_id: str = "", application_id: str = "", name: str = ""
+    ) -> dict[str, Any]:
+        app = self.get_application(
+            app_id=app_id, application_id=application_id, name=name
+        )
         if app is None:
             return {"error": "Application not found."}
         app.heartbeat()
@@ -240,14 +278,22 @@ class AletheusApplicationManager:
             "last_heartbeat": app.last_heartbeat,
         }
 
-    def manifest(self, app_id: str = "", application_id: str = "", name: str = "") -> dict[str, Any]:
-        app = self.get_application(app_id=app_id, application_id=application_id, name=name)
+    def manifest(
+        self, app_id: str = "", application_id: str = "", name: str = ""
+    ) -> dict[str, Any]:
+        app = self.get_application(
+            app_id=app_id, application_id=application_id, name=name
+        )
         if app is None:
             return {"error": "Application not found."}
         return app.manifest.to_dict()
 
-    def events(self, app_id: str = "", application_id: str = "", name: str = "") -> list[dict[str, Any]]:
-        app = self.get_application(app_id=app_id, application_id=application_id, name=name)
+    def events(
+        self, app_id: str = "", application_id: str = "", name: str = ""
+    ) -> list[dict[str, Any]]:
+        app = self.get_application(
+            app_id=app_id, application_id=application_id, name=name
+        )
         if app is None:
             return [{"error": "Application not found."}]
         return [event.to_dict() for event in app.events]
@@ -256,10 +302,18 @@ class AletheusApplicationManager:
         return {
             "version": self.version,
             "applications": len(self.applications),
-            "running": len([app for app in self.applications if app.status == "running"]),
-            "installed": len([app for app in self.applications if app.status == "installed"]),
-            "stopped": len([app for app in self.applications if app.status == "stopped"]),
-            "healthy": len([app for app in self.applications if app.health == "healthy"]),
+            "running": len(
+                [app for app in self.applications if app.status == "running"]
+            ),
+            "installed": len(
+                [app for app in self.applications if app.status == "installed"]
+            ),
+            "stopped": len(
+                [app for app in self.applications if app.status == "stopped"]
+            ),
+            "healthy": len(
+                [app for app in self.applications if app.health == "healthy"]
+            ),
             "events": sum(len(app.events) for app in self.applications),
         }
 

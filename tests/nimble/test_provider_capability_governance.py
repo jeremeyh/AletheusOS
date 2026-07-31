@@ -8,27 +8,18 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 
 REGISTRY_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "deployment-provider-registry.json"
+    ROOT / "nimble/governance/environments/deployment-provider-registry.json"
 )
 
 CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "provider-capability-contract.json"
+    ROOT / "nimble/governance/environments/provider-capability-contract.json"
 )
 
-PREFLIGHT = (
-    ROOT
-    / "validate_nimble_provider_preflight.py"
-)
+PREFLIGHT = ROOT / "validate_nimble_provider_preflight.py"
 
 
 def load_json(path: Path) -> dict:
-    return json.loads(
-        path.read_text(encoding="utf-8")
-    )
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def test_capability_contract_exists() -> None:
@@ -49,9 +40,7 @@ def test_supported_actions_have_capabilities() -> None:
     registry = load_json(REGISTRY_PATH)
 
     for provider in registry["providers"].values():
-        assert set(provider["supports"]) <= set(
-            provider["capabilities"]
-        )
+        assert set(provider["supports"]) <= set(provider["capabilities"])
 
 
 def test_required_secrets_are_environment_scoped() -> None:
@@ -59,14 +48,10 @@ def test_required_secrets_are_environment_scoped() -> None:
 
     for provider in registry["providers"].values():
         for environment in provider["environments"]:
-            assert environment in provider[
-                "required_secrets"
-            ]
+            assert environment in provider["required_secrets"]
 
             assert isinstance(
-                provider["required_secrets"][
-                    environment
-                ],
+                provider["required_secrets"][environment],
                 list,
             )
 
@@ -119,7 +104,4 @@ def test_dry_run_provider_cannot_execute_production() -> None:
 
     assert result.returncode != 0
 
-    assert (
-        "not approved for production execution"
-        in result.stdout
-    )
+    assert "not approved for production execution" in result.stdout

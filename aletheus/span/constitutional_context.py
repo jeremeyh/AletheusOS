@@ -72,22 +72,40 @@ class ProjectInspector:
     """Build deterministic static-analysis context for Genesis 14 rules."""
 
     EXCLUDED_PARTS = {
-        ".git", ".venv", "venv", "__pycache__", "node_modules",
-        "dist", "build", ".mypy_cache", ".pytest_cache", "reports",
-        "backups", "archive", "archives",
+        ".git",
+        ".venv",
+        "venv",
+        "__pycache__",
+        "node_modules",
+        "dist",
+        "build",
+        ".mypy_cache",
+        ".pytest_cache",
+        "reports",
+        "backups",
+        "archive",
+        "archives",
     }
 
     def inspect(self, project_root: str | Path) -> ProjectContext:
         root = Path(project_root).expanduser().resolve()
         if not root.exists() or not root.is_dir():
-            raise ValueError(f"project root does not exist or is not a directory: {root}")
+            raise ValueError(
+                f"project root does not exist or is not a directory: {root}"
+            )
 
         context = ProjectContext(project_root=root)
         context.python_files = sorted(self._python_files(root))
-        context.relative_files = [str(path.relative_to(root)) for path in context.python_files]
+        context.relative_files = [
+            str(path.relative_to(root)) for path in context.python_files
+        ]
 
-        context.missing_tests = not any((root / name).exists() for name in ("tests", "test"))
-        context.missing_readme = not any((root / name).exists() for name in ("README.md", "README.rst", "README"))
+        context.missing_tests = not any(
+            (root / name).exists() for name in ("tests", "test")
+        )
+        context.missing_readme = not any(
+            (root / name).exists() for name in ("README.md", "README.rst", "README")
+        )
         context.missing_pyproject = not (root / "pyproject.toml").exists()
         context.missing_constitution = not self._any_exists(
             root, ("CONSTITUTION.md", "docs/CONSTITUTION.md", "docs/constitution.md")
@@ -141,7 +159,8 @@ class ProjectInspector:
     def _inspect_root_artifacts(root: Path, context: ProjectContext) -> None:
         allow = {"setup.py", "manage.py", "conftest.py"}
         context.root_python_artifacts = sorted(
-            p.name for p in root.glob("*.py")
+            p.name
+            for p in root.glob("*.py")
             if p.name not in allow and not p.name.startswith(".")
         )
 
@@ -195,12 +214,18 @@ class ProjectInspector:
             elif isinstance(node, ast.Import):
                 for alias in node.names:
                     import_graph[module_name].add(alias.name)
-            elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            elif isinstance(
+                node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)
+            ):
                 if not node.name.startswith("_") and ast.get_docstring(node) is None:
-                    context.missing_public_docstrings.append(f"{rel}:{node.lineno}:{node.name}")
+                    context.missing_public_docstrings.append(
+                        f"{rel}:{node.lineno}:{node.name}"
+                    )
                 if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
                     for default in (*node.args.defaults, *node.args.kw_defaults):
-                        if default is not None and isinstance(default, (ast.List, ast.Dict, ast.Set)):
+                        if default is not None and isinstance(
+                            default, (ast.List, ast.Dict, ast.Set)
+                        ):
                             context.mutable_default_candidates.append(
                                 f"{rel}:{node.lineno}:{node.name}"
                             )
@@ -216,7 +241,8 @@ class ProjectInspector:
                     context.print_statement_candidates.append(f"{rel}:{node.lineno}")
             elif isinstance(node, ast.ExceptHandler):
                 if node.type is None or (
-                    isinstance(node.type, ast.Name) and node.type.id in {"Exception", "BaseException"}
+                    isinstance(node.type, ast.Name)
+                    and node.type.id in {"Exception", "BaseException"}
                 ):
                     context.broad_exception_candidates.append(f"{rel}:{node.lineno}")
         for class_name, methods in class_method_counts:

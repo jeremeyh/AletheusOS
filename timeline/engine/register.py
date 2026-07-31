@@ -1,6 +1,4 @@
 from intelligence.projections.manager import projection_manager
 from timeline.engine.timeline_projection import TIMELINE_PROJECTION
 
-projection_manager.register(
-    TIMELINE_PROJECTION
-)
+projection_manager.register(TIMELINE_PROJECTION)

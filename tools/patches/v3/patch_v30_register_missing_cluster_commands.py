@@ -5,7 +5,7 @@ text = p.read_text()
 
 anchor = 'self.commands.register("cluster.bootstrap", self._cmd_cluster_bootstrap)'
 
-missing = '''
+missing = """
         self.commands.register("cluster.join", self._cmd_cluster_join)
         self.commands.register("cluster.leave", self._cmd_cluster_leave)
         self.commands.register("cluster.nodes", self._cmd_cluster_nodes)
@@ -13,7 +13,7 @@ missing = '''
         self.commands.register("cluster.heartbeat", self._cmd_cluster_heartbeat)
         self.commands.register("cluster.elect_leader", self._cmd_cluster_elect_leader)
         self.commands.register("cluster.statistics", self._cmd_cluster_statistics)
-'''
+"""
 
 if 'self.commands.register("cluster.join"' not in text:
     if anchor not in text:
@@ -21,7 +21,7 @@ if 'self.commands.register("cluster.join"' not in text:
     text = text.replace(anchor, anchor + "\n" + missing, 1)
 
 if "def _cmd_cluster_join" not in text:
-    methods = '''
+    methods = """
     def _cmd_cluster_join(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
         result = self.distributed_v3.join(
@@ -57,7 +57,7 @@ if "def _cmd_cluster_join" not in text:
         context.add_result("cluster_stats", self.distributed_v3.statistics())
         return context
 
-'''
+"""
     insert_before = "    def _job_runtime_pulse(self) -> dict:"
     if insert_before not in text:
         raise SystemExit("_job_runtime_pulse anchor not found.")

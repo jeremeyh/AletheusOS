@@ -5,16 +5,6 @@ Architecture Experiment Engine
 
 
 class ArchitectureExperimentEngine:
-
-
     def experiment(self, design):
 
-        return {
-
-            "design":
-                design,
-
-            "experiment_successful":
-                True
-
-        }
+        return {"design": design, "experiment_successful": True}

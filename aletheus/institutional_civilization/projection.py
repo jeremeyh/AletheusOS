@@ -67,8 +67,7 @@ class InstitutionProjector:
             name=record.canonical_name,
             version=record.version,
             genesis=record.genesis,
-            critical=record.criticality.value
-            in {"critical", "constitutional"},
+            critical=record.criticality.value in {"critical", "constitutional"},
             dependencies=list(record.dependencies),
             metadata={
                 "institution_id": record.institution_id,
@@ -112,10 +111,7 @@ class InstitutionProjector:
         self,
         records: tuple[InstitutionRecord, ...],
     ) -> None:
-        known_ids = {
-            record.institution_id
-            for record in records
-        }
+        known_ids = {record.institution_id for record in records}
 
         for record in records:
             source_node_id = self._graph_nodes[record.institution_id]

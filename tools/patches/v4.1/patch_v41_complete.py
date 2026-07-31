@@ -10,18 +10,22 @@ if "from aletheus.runtime.compat import compatibility_registry" not in text:
     if idx == -1:
         raise SystemExit("Kernel import anchor not found.")
     line_end = text.find("\n", idx)
-    text = text[:line_end+1] + "from aletheus.runtime.compat import compatibility_registry\n" + text[line_end+1:]
+    text = (
+        text[: line_end + 1]
+        + "from aletheus.runtime.compat import compatibility_registry\n"
+        + text[line_end + 1 :]
+    )
 
 # Add compat initialization after KernelExecutor
 if "self.compat = compatibility_registry" not in text:
     anchor = "self.kernel = KernelExecutor(self)"
     if anchor not in text:
         raise SystemExit("KernelExecutor init anchor not found.")
-    compat_block = '''
+    compat_block = """
         self.compat = compatibility_registry
         self._register_compatibility_services()
         self._apply_compatibility_aliases()
-'''
+"""
     text = text.replace(anchor, anchor + compat_block, 1)
 
 # Version
@@ -33,18 +37,23 @@ if 'self.commands.register("compat.list"' not in text:
     anchor = 'self.commands.register("kernel.statistics", self._cmd_kernel_statistics)'
     if anchor not in text:
         raise SystemExit("Kernel command anchor not found.")
-    text = text.replace(anchor, anchor + '''
+    text = text.replace(
+        anchor,
+        anchor
+        + """
 
         # v4.1 Runtime Compatibility Layer
         self.commands.register("compat.list", self._cmd_compat_list)
         self.commands.register("compat.resolve", self._cmd_compat_resolve)
         self.commands.register("compat.statistics", self._cmd_compat_statistics)
         self.commands.register("compat.contract", self._cmd_compat_contract)
-''', 1)
+""",
+        1,
+    )
 
 # Add methods before _job_runtime_pulse
 if "def _register_compatibility_services" not in text:
-    methods = '''
+    methods = """
 
     # ==========================================================
     # v4.1 Runtime Compatibility Layer
@@ -161,7 +170,7 @@ if "def _register_compatibility_services" not in text:
             )
         return context
 
-'''
+"""
     anchor = "    def _job_runtime_pulse(self) -> dict:"
     if anchor not in text:
         raise SystemExit("_job_runtime_pulse anchor not found.")

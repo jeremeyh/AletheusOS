@@ -6,17 +6,6 @@ Post-Genesis 24
 
 
 class RelationshipDiscovery:
-
-
     def discover(self, entities):
 
-        return {
-
-            "entities":
-            entities,
-
-            "relationships":
-            "discovered"
-
-        }
-
+        return {"entities": entities, "relationships": "discovered"}

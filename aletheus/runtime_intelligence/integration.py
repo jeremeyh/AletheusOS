@@ -4,7 +4,6 @@ from aletheus.runtime_engine_manager import runtime_engine_manager
 
 
 class RuntimeIntelligenceIntegration:
-
     GENESIS = "16.5"
     VERSION = "0.1.0"
 

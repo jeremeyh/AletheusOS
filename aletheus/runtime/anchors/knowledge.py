@@ -4,13 +4,10 @@ Knowledge Anchor Circuit
 Genesis 8
 """
 
-
 from .base import RuntimeAnchorCircuit
 
 
 class KnowledgeAnchorCircuit(RuntimeAnchorCircuit):
-
-
     def attach(self):
 
         self.connected = True
@@ -19,10 +16,6 @@ class KnowledgeAnchorCircuit(RuntimeAnchorCircuit):
 
         return self.status()
 
-
     def capabilities(self):
 
-        return [
-            "knowledge_graph",
-            "semantic_search"
-        ]
+        return ["knowledge_graph", "semantic_search"]

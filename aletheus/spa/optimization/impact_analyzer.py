@@ -6,17 +6,6 @@ Genesis 158
 
 
 class ImpactAnalyzer:
-
-
     def evaluate(self):
 
-        return {
-
-            "complexity":
-            "reduced",
-
-            "maintainability":
-            "improved"
-
-        }
-
+        return {"complexity": "reduced", "maintainability": "improved"}

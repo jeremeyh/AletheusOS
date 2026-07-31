@@ -65,7 +65,9 @@ def main():
 
     for name, obj in registries.items():
         status = "FOUND" if obj is not None else "MISSING"
-        print(f"{name:12} {status:8} {type(obj).__name__ if obj else ''} count={safe_len(obj)}")
+        print(
+            f"{name:12} {status:8} {type(obj).__name__ if obj else ''} count={safe_len(obj)}"
+        )
 
     section("Runtime Self Commands")
 

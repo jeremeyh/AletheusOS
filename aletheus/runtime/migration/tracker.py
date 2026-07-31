@@ -12,13 +12,7 @@ class RuntimeMigrationTracker:
     def __init__(self):
         self.items = []
 
-    def add(
-        self,
-        name,
-        destination,
-        status="planned",
-        notes=""
-    ):
+    def add(self, name, destination, status="planned", notes=""):
         self.items.append(
             MigrationItem(
                 name=name,
@@ -37,13 +31,7 @@ class RuntimeMigrationTracker:
         if not self.items:
             return 0.0
 
-        complete = len(
-            [
-                item
-                for item in self.items
-                if item.status == "complete"
-            ]
-        )
+        complete = len([item for item in self.items if item.status == "complete"])
 
         return round(
             complete / len(self.items) * 100,

@@ -6,6 +6,4 @@ Post-Genesis 4851-4950
 
 from .engine import EconomicCivilizationEngine
 
-__all__ = [
-"EconomicCivilizationEngine"
-]
+__all__ = ["EconomicCivilizationEngine"]

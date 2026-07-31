@@ -5,19 +5,6 @@ Cognitive Strategy Engine
 
 
 class CognitiveStrategyEngine:
+    def create(self, objective):
 
-
-    def create(
-        self,
-        objective
-    ):
-
-        return {
-
-            "objective":
-                objective,
-
-            "strategy":
-                "generated"
-
-        }
+        return {"objective": objective, "strategy": "generated"}

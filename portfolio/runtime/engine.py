@@ -27,7 +27,6 @@ class PortfolioEngine:
         # --------------------------------------------------
 
         if asset_count == 0:
-
             return {
                 "asset_count": 0,
                 "total_value": 0.0,
@@ -60,7 +59,6 @@ class PortfolioEngine:
         # --------------------------------------------------
 
         for asset in assets:
-
             value = float(asset.get("current_value") or 0)
             cost = float(asset.get("purchase_price") or 0)
             thorx = float(asset.get("thorx_score") or 0)
@@ -75,17 +73,11 @@ class PortfolioEngine:
             brand = asset.get("brand") or "Unknown"
             sport = asset.get("sport") or "Unknown"
 
-            allocation_by_player[player] = (
-                allocation_by_player.get(player, 0) + value
-            )
+            allocation_by_player[player] = allocation_by_player.get(player, 0) + value
 
-            allocation_by_brand[brand] = (
-                allocation_by_brand.get(brand, 0) + value
-            )
+            allocation_by_brand[brand] = allocation_by_brand.get(brand, 0) + value
 
-            allocation_by_sport[sport] = (
-                allocation_by_sport.get(sport, 0) + value
-            )
+            allocation_by_sport[sport] = allocation_by_sport.get(sport, 0) + value
 
         # --------------------------------------------------
         # Metrics
@@ -93,11 +85,7 @@ class PortfolioEngine:
 
         gain_loss = total_value - total_cost
 
-        average_thorx = (
-            sum(thorx_scores) / len(thorx_scores)
-            if thorx_scores
-            else 0.0
-        )
+        average_thorx = sum(thorx_scores) / len(thorx_scores) if thorx_scores else 0.0
 
         # --------------------------------------------------
         # Rankings

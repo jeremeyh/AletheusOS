@@ -58,9 +58,7 @@ class RuntimeComponent:
     dependencies: list[str] = field(default_factory=list)
     provides: list[str] = field(default_factory=list)
 
-    runtime_characteristics: list[RuntimeCharacteristic] = field(
-        default_factory=list
-    )
+    runtime_characteristics: list[RuntimeCharacteristic] = field(default_factory=list)
 
     owner: str = "AletheusOS"
     metadata: dict[str, Any] = field(default_factory=dict)

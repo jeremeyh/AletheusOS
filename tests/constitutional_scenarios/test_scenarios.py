@@ -31,9 +31,7 @@ def participant(
     confidence_resolver,
 ):
     def evaluate(payload):
-        confidence = confidence_resolver(
-            payload
-        )
+        confidence = confidence_resolver(payload)
 
         return EngineContribution(
             engine_id=engine_id,
@@ -43,9 +41,7 @@ def participant(
             evidence_count=1,
             evidence=(
                 {
-                    "source": (
-                        f"{engine_id}.evidence"
-                    ),
+                    "source": (f"{engine_id}.evidence"),
                 },
             ),
         )
@@ -57,18 +53,12 @@ def participant(
 
 
 def build_engine():
-    bus, bridge = (
-        build_cognition_instrumentation()
-    )
+    bus, bridge = build_cognition_instrumentation()
 
-    mesh = MultiplicitousIntelligenceMesh(
-        observer=bridge
-    )
+    mesh = MultiplicitousIntelligenceMesh(observer=bridge)
 
     def grade_confidence(payload):
-        grade = payload[
-            "assumptions"
-        ].get("grade")
+        grade = payload["assumptions"].get("grade")
 
         return {
             "raw": 0.55,
@@ -101,18 +91,14 @@ def build_engine():
         )
     )
 
-    publisher = ScenarioInstrumentPublisher(
-        bus=bus
-    )
+    publisher = ScenarioInstrumentPublisher(bus=bus)
 
     def project_metrics(
         definition,
         payload,
         report,
     ):
-        grade = payload[
-            "assumptions"
-        ].get("grade")
+        grade = payload["assumptions"].get("grade")
 
         projected_value = {
             "raw": 900.0,
@@ -122,17 +108,9 @@ def build_engine():
         }[grade]
 
         return {
-            "projected_value": (
-                projected_value
-            ),
-            "confidence": (
-                report.convergence.confidence
-            ),
-            "dissent_count": float(
-                len(
-                    report.convergence.dissent
-                )
-            ),
+            "projected_value": (projected_value),
+            "confidence": (report.convergence.confidence),
+            "dissent_count": float(len(report.convergence.dissent)),
         }
 
     engine = ConstitutionalScenarioEngine(
@@ -159,14 +137,9 @@ def test_registers_explicit_scenario():
 
     engine.register(scenario)
 
-    stored = engine.registry.require(
-        scenario.scenario_id
-    )
+    stored = engine.registry.require(scenario.scenario_id)
 
-    assert (
-        stored.assumption_map()["grade"]
-        == "PSA 10"
-    )
+    assert stored.assumption_map()["grade"] == "PSA 10"
 
 
 def test_duplicate_scenario_is_rejected():
@@ -182,9 +155,7 @@ def test_duplicate_scenario_is_rejected():
 
     engine.register(scenario)
 
-    with pytest.raises(
-        DuplicateScenarioError
-    ):
+    with pytest.raises(DuplicateScenarioError):
         engine.register(scenario)
 
 
@@ -202,20 +173,11 @@ def test_scenario_runs_through_cognition():
 
     engine.register(scenario)
 
-    outcome = engine.run(
-        scenario.scenario_id
-    )
+    outcome = engine.run(scenario.scenario_id)
 
-    assert outcome.status == (
-        ScenarioStatus.COMPLETED
-    )
+    assert outcome.status == (ScenarioStatus.COMPLETED)
 
-    assert (
-        outcome.metrics[
-            "projected_value"
-        ]
-        == 1450.0
-    )
+    assert outcome.metrics["projected_value"] == 1450.0
 
     assert outcome.confidence > 0
     assert outcome.virtue_score == 1.0
@@ -244,27 +206,16 @@ def test_grade_scenarios_produce_different_outcomes():
     engine.register(raw)
     engine.register(psa_10)
 
-    raw_outcome = engine.run(
-        raw.scenario_id
-    )
+    raw_outcome = engine.run(raw.scenario_id)
 
-    psa_10_outcome = engine.run(
-        psa_10.scenario_id
-    )
+    psa_10_outcome = engine.run(psa_10.scenario_id)
 
     assert (
-        psa_10_outcome.metrics[
-            "projected_value"
-        ]
-        > raw_outcome.metrics[
-            "projected_value"
-        ]
+        psa_10_outcome.metrics["projected_value"]
+        > raw_outcome.metrics["projected_value"]
     )
 
-    assert (
-        psa_10_outcome.confidence
-        > raw_outcome.confidence
-    )
+    assert psa_10_outcome.confidence > raw_outcome.confidence
 
 
 def test_scenario_comparison_exposes_deltas():
@@ -295,36 +246,18 @@ def test_scenario_comparison_exposes_deltas():
     engine.run(psa_10.scenario_id)
 
     comparison = engine.compare(
-        baseline_scenario_id=(
-            raw.scenario_id
-        ),
-        compared_scenario_id=(
-            psa_10.scenario_id
-        ),
+        baseline_scenario_id=(raw.scenario_id),
+        compared_scenario_id=(psa_10.scenario_id),
     )
 
-    deltas = {
-        item.metric: item
-        for item in (
-            comparison.metric_deltas
-        )
+    deltas = {item.metric: item for item in (comparison.metric_deltas)}
+
+    assert deltas["projected_value"].absolute_delta == 1500.0
+
+    assert comparison.changed_assumptions["grade"] == {
+        "baseline": "raw",
+        "scenario": "PSA 10",
     }
-
-    assert (
-        deltas[
-            "projected_value"
-        ].absolute_delta
-        == 1500.0
-    )
-
-    assert (
-        comparison
-        .changed_assumptions["grade"]
-        == {
-            "baseline": "raw",
-            "scenario": "PSA 10",
-        }
-    )
 
 
 def test_scenario_instruments_update():
@@ -340,29 +273,17 @@ def test_scenario_instruments_update():
 
     engine.register(scenario)
 
-    outcome = engine.run(
-        scenario.scenario_id
-    )
+    outcome = engine.run(scenario.scenario_id)
 
-    confidence = bus.state(
-        SCENARIO_CONFIDENCE_ID
-    )
+    confidence = bus.state(SCENARIO_CONFIDENCE_ID)
 
-    virtues = bus.state(
-        SCENARIO_VIRTUE_ID
-    )
+    virtues = bus.state(SCENARIO_VIRTUE_ID)
 
-    activity = bus.state(
-        SCENARIO_ACTIVITY_ID
-    )
+    activity = bus.state(SCENARIO_ACTIVITY_ID)
 
-    assert confidence.current_value == (
-        outcome.confidence
-    )
+    assert confidence.current_value == (outcome.confidence)
 
-    assert virtues.current_value == (
-        outcome.virtue_score
-    )
+    assert virtues.current_value == (outcome.virtue_score)
 
     assert activity.current_value == 0.0
     assert activity.status.value == "stable"
@@ -381,17 +302,11 @@ def test_scenario_registry_preserves_run_history():
 
     engine.register(scenario)
 
-    first = engine.run(
-        scenario.scenario_id
-    )
+    first = engine.run(scenario.scenario_id)
 
-    second = engine.run(
-        scenario.scenario_id
-    )
+    second = engine.run(scenario.scenario_id)
 
-    history = engine.registry.outcomes(
-        scenario.scenario_id
-    )
+    history = engine.registry.outcomes(scenario.scenario_id)
 
     assert len(history) == 2
     assert history[0].run_id == first.run_id

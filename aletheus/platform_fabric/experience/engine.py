@@ -4,18 +4,6 @@ Experience Layer Engine
 
 
 class ExperienceEngine:
+    def render(self, context):
 
-
-    def render(
-        self,
-        context
-    ):
-
-        return {
-
-            "experience":
-
-                context
-
-        }
-
+        return {"experience": context}

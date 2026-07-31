@@ -41,9 +41,7 @@ def relative(path: Path) -> str:
 
 def load_package(path: Path) -> dict[str, Any]:
     try:
-        return json.loads(
-            path.read_text(encoding="utf-8")
-        )
+        return json.loads(path.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, OSError):
         return {}
 
@@ -97,9 +95,7 @@ def main() -> int:
             )
 
             if frameworks:
-                likely_ui_roots.add(
-                    relative(package_root)
-                )
+                likely_ui_roots.add(relative(package_root))
 
         if path.is_dir() and path.name in {
             "src",
@@ -149,10 +145,7 @@ def main() -> int:
     print(
         "Package managers:",
         ", ".join(
-            name
-            for name, present
-            in report["package_managers"].items()
-            if present
+            name for name, present in report["package_managers"].items() if present
         )
         or "none detected",
     )

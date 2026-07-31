@@ -5,23 +5,6 @@ Cognitive Transfer Engine
 
 
 class CognitiveTransferEngine:
+    def transfer(self, knowledge, domain):
 
-
-    def transfer(
-        self,
-        knowledge,
-        domain
-    ):
-
-        return {
-
-            "knowledge":
-                knowledge,
-
-            "target_domain":
-                domain,
-
-            "transferred":
-                True
-
-        }
+        return {"knowledge": knowledge, "target_domain": domain, "transferred": True}

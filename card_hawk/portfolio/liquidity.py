@@ -4,19 +4,6 @@ Liquidity Intelligence
 
 
 class LiquidityEngine:
+    def analyze(self, asset):
 
-
-    def analyze(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "liquidity":
-
-                "unknown"
-
-        }
-
+        return {"liquidity": "unknown"}

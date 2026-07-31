@@ -45,14 +45,10 @@ class RestartPolicy:
 
     def __post_init__(self) -> None:
         if self.maximum_attempts < 0:
-            raise ValueError(
-                "maximum_attempts cannot be negative."
-            )
+            raise ValueError("maximum_attempts cannot be negative.")
 
         if self.cooldown < timedelta(0):
-            raise ValueError(
-                "cooldown cannot be negative."
-            )
+            raise ValueError("cooldown cannot be negative.")
 
 
 @dataclass(frozen=True, slots=True)
@@ -74,9 +70,7 @@ class ServiceSupervisionRecord:
             "restart_attempts": self.restart_attempts,
             "recoverable": self.recoverable,
             "last_recovery_at": (
-                self.last_recovery_at.isoformat()
-                if self.last_recovery_at
-                else None
+                self.last_recovery_at.isoformat() if self.last_recovery_at else None
             ),
         }
 
@@ -130,18 +124,14 @@ class RuntimeHealthReport:
             unknown=unknown,
             running=running,
             stopped=stopped,
-            recoverable_services=tuple(
-                sorted(recoverable_services)
-            ),
+            recoverable_services=tuple(sorted(recoverable_services)),
             services=services,
         )
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "report_id": str(self.report_id),
-            "generated_at": (
-                self.generated_at.isoformat()
-            ),
+            "generated_at": (self.generated_at.isoformat()),
             "state": self.state.value,
             "service_count": self.service_count,
             "healthy": self.healthy,
@@ -152,13 +142,8 @@ class RuntimeHealthReport:
             "unknown": self.unknown,
             "running": self.running,
             "stopped": self.stopped,
-            "recoverable_services": list(
-                self.recoverable_services
-            ),
-            "services": [
-                service.to_dict()
-                for service in self.services
-            ],
+            "recoverable_services": list(self.recoverable_services),
+            "services": [service.to_dict() for service in self.services],
         }
 
 
@@ -168,9 +153,7 @@ class SupervisorHeartbeat:
 
     sequence: int
     generated_at: datetime
-    supervisor_state: (
-        ConstitutionalRuntimeSupervisorState
-    )
+    supervisor_state: ConstitutionalRuntimeSupervisorState
     runtime_state: RuntimeSupervisionState
     kernel_state: str
     service_count: int
@@ -181,15 +164,9 @@ class SupervisorHeartbeat:
     def to_dict(self) -> dict[str, Any]:
         return {
             "sequence": self.sequence,
-            "generated_at": (
-                self.generated_at.isoformat()
-            ),
-            "supervisor_state": (
-                self.supervisor_state.value
-            ),
-            "runtime_state": (
-                self.runtime_state.value
-            ),
+            "generated_at": (self.generated_at.isoformat()),
+            "supervisor_state": (self.supervisor_state.value),
+            "runtime_state": (self.runtime_state.value),
             "kernel_state": self.kernel_state,
             "service_count": self.service_count,
             "degraded_count": self.degraded_count,
@@ -212,23 +189,11 @@ class SupervisorStatistics:
 
     def to_dict(self) -> dict[str, int]:
         return {
-            "supervision_cycles": (
-                self.supervision_cycles
-            ),
+            "supervision_cycles": (self.supervision_cycles),
             "heartbeats": self.heartbeats,
-            "recovery_attempts": (
-                self.recovery_attempts
-            ),
-            "successful_recoveries": (
-                self.successful_recoveries
-            ),
-            "failed_recoveries": (
-                self.failed_recoveries
-            ),
-            "service_restarts": (
-                self.service_restarts
-            ),
-            "monitored_services": (
-                self.monitored_services
-            ),
+            "recovery_attempts": (self.recovery_attempts),
+            "successful_recoveries": (self.successful_recoveries),
+            "failed_recoveries": (self.failed_recoveries),
+            "service_restarts": (self.service_restarts),
+            "monitored_services": (self.monitored_services),
         }

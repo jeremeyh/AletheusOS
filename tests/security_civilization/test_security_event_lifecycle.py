@@ -70,15 +70,9 @@ def build_lifecycle():
 def test_security_lifecycle_registers_canonical_events():
     _, fabric, _ = build_lifecycle()
 
-    assert fabric.registry.get(
-        SecurityEventType.THREAT_CLASSIFIED
-    ) is not None
-    assert fabric.registry.get(
-        SecurityEventType.ENTITY_QUARANTINED
-    ) is not None
-    assert fabric.registry.get(
-        SecurityEventType.EVIDENCE_PRESERVED
-    ) is not None
+    assert fabric.registry.get(SecurityEventType.THREAT_CLASSIFIED) is not None
+    assert fabric.registry.get(SecurityEventType.ENTITY_QUARANTINED) is not None
+    assert fabric.registry.get(SecurityEventType.EVIDENCE_PRESERVED) is not None
 
 
 def test_integrity_finding_runs_complete_defense_chain():
@@ -96,10 +90,7 @@ def test_integrity_finding_runs_complete_defense_chain():
 
     history = lifecycle.history(case.case_id)
 
-    assert [
-        event.event_type.value
-        for event in history
-    ] == [
+    assert [event.event_type.value for event in history] == [
         "IntegrityFindingCreated",
         "ThreatClassified",
         "EntityQuarantined",
@@ -121,17 +112,11 @@ def test_security_history_is_recorded_in_ledger():
         },
     )
 
-    replay = ledger.replay_events(
-        correlation_id=case.correlation_id
-    )
+    replay = ledger.replay_events(correlation_id=case.correlation_id)
 
     assert len(replay) == 5
-    assert replay[0].source_identity == (
-        "aletheus.watch_tower"
-    )
-    assert replay[-1].source_identity == (
-        "aletheus.sentinel"
-    )
+    assert replay[0].source_identity == ("aletheus.watch_tower")
+    assert replay[-1].source_identity == ("aletheus.sentinel")
 
 
 def test_transtemporal_lineage_follows_defense_chain():
@@ -146,14 +131,9 @@ def test_transtemporal_lineage_follows_defense_chain():
     )
 
     terminal_event_id = case.event_ids[-1]
-    lineage = ledger.temporal_lineage(
-        terminal_event_id
-    )
+    lineage = ledger.temporal_lineage(terminal_event_id)
 
-    assert [
-        event.event_type
-        for event in lineage
-    ] == [
+    assert [event.event_type for event in lineage] == [
         "IntegrityFindingCreated",
         "ThreatClassified",
         "EntityQuarantined",
@@ -165,13 +145,9 @@ def test_transtemporal_lineage_follows_defense_chain():
 def test_default_adapters_remain_explicit_and_operational():
     ledger = ConstitutionalLedger()
     fabric = ConstitutionalEventFabric()
-    fabric.subscribe_all(
-        LedgerEventSubscriber(ledger)
-    )
+    fabric.subscribe_all(LedgerEventSubscriber(ledger))
 
-    lifecycle = SecurityCivilizationLifecycle(
-        fabric=fabric
-    )
+    lifecycle = SecurityCivilizationLifecycle(fabric=fabric)
 
     case = lifecycle.raise_integrity_finding(
         entity_id="unknown.entity",
@@ -188,14 +164,10 @@ def test_default_adapters_remain_explicit_and_operational():
 def test_installation_is_idempotent():
     lifecycle, fabric, _ = build_lifecycle()
 
-    subscriptions_before = fabric.health()[
-        "subscriptions"
-    ]
+    subscriptions_before = fabric.health()["subscriptions"]
 
     lifecycle.install()
 
-    subscriptions_after = fabric.health()[
-        "subscriptions"
-    ]
+    subscriptions_after = fabric.health()["subscriptions"]
 
     assert subscriptions_after == subscriptions_before

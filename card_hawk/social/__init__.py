@@ -1,8 +1,3 @@
 from .engine import SocialEngine
 
-__all__=[
-
-"SocialEngine"
-
-]
-
+__all__ = ["SocialEngine"]

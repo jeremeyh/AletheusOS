@@ -67,13 +67,9 @@ class ConstitutionalLibraryGovernance:
         """
 
         if not self.validate(knowledge):
-            raise ValueError(
-                "Knowledge failed constitutional validation."
-            )
+            raise ValueError("Knowledge failed constitutional validation.")
 
-        knowledge.set_status(
-            KnowledgeStatus.CANONICAL
-        )
+        knowledge.set_status(KnowledgeStatus.CANONICAL)
 
         return knowledge
 
@@ -83,13 +79,9 @@ class ConstitutionalLibraryGovernance:
     ) -> KnowledgeObject:
 
         if not self.validate(knowledge):
-            raise ValueError(
-                "Knowledge failed constitutional validation."
-            )
+            raise ValueError("Knowledge failed constitutional validation.")
 
-        knowledge.set_status(
-            KnowledgeStatus.VALIDATED
-        )
+        knowledge.set_status(KnowledgeStatus.VALIDATED)
 
         return knowledge
 
@@ -98,9 +90,7 @@ class ConstitutionalLibraryGovernance:
         knowledge: KnowledgeObject,
     ) -> KnowledgeObject:
 
-        knowledge.set_status(
-            KnowledgeStatus.ARCHIVED
-        )
+        knowledge.set_status(KnowledgeStatus.ARCHIVED)
 
         return knowledge
 
@@ -109,9 +99,7 @@ class ConstitutionalLibraryGovernance:
         knowledge: KnowledgeObject,
     ) -> KnowledgeObject:
 
-        knowledge.set_status(
-            KnowledgeStatus.SUPERSEDED
-        )
+        knowledge.set_status(KnowledgeStatus.SUPERSEDED)
 
         return knowledge
 
@@ -122,17 +110,11 @@ class ConstitutionalLibraryGovernance:
     def health(self) -> dict:
 
         return {
-
             "name": "Constitutional Library Governance",
-
             "genesis": self.GENESIS,
-
             "version": self.VERSION,
-
             "status": "healthy",
         }
 
 
-constitutional_library_governance = (
-    ConstitutionalLibraryGovernance()
-)
+constitutional_library_governance = ConstitutionalLibraryGovernance()

@@ -43,11 +43,7 @@ def main():
         {"source": "tool"},
     )
 
-    print(
-        RuntimeCommandRegistryReporter().render(
-            registry
-        )
-    )
+    print(RuntimeCommandRegistryReporter().render(registry))
 
 
 if __name__ == "__main__":

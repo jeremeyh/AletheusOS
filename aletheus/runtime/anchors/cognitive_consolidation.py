@@ -5,29 +5,13 @@ Cognitive Knowledge Consolidation Engine
 
 
 class CognitiveKnowledgeConsolidationEngine:
-
-
     def __init__(self):
 
-        self.knowledge=[]
+        self.knowledge = []
 
+    def consolidate(self, information):
 
-
-    def consolidate(
-        self,
-        information
-    ):
-
-        record={
-
-            "information":
-                information,
-
-            "consolidated":
-                True
-
-        }
-
+        record = {"information": information, "consolidated": True}
 
         self.knowledge.append(record)
 

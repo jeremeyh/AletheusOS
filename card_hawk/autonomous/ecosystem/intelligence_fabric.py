@@ -10,19 +10,6 @@ Connect intelligence capabilities
 
 
 class IntelligenceFabric:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "24.0"
-
-        }
-
+        return {"status": "ready", "genesis": "24.0"}

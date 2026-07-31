@@ -46,25 +46,19 @@ class ConstitutionalRuntimeGovernor:
         constraints: GovernorConstraints | None = None,
     ) -> None:
         self._kernel = kernel
-        self._constraints = (
-            constraints or GovernorConstraints()
-        )
+        self._constraints = constraints or GovernorConstraints()
         self._mode = GovernorMode.NORMAL
         self._lock = RLock()
 
         self._quarantined: set[str] = set()
-        self._restart_counts: dict[str, int] = (
-            defaultdict(int)
-        )
+        self._restart_counts: dict[str, int] = defaultdict(int)
         self._last_restart_at: dict[
             str,
             datetime,
         ] = {}
         self._outcomes: Counter[str] = Counter()
         self._evaluations = 0
-        self._last_decision: (
-            GovernorDecision | None
-        ) = None
+        self._last_decision: GovernorDecision | None = None
 
     @property
     def kernel(self) -> ConstitutionalRuntimeKernel:
@@ -83,13 +77,9 @@ class ConstitutionalRuntimeGovernor:
         mode: GovernorMode,
     ) -> GovernorMode:
         with self._lock:
-            if (
-                self._mode is GovernorMode.EMERGENCY
-                and mode is GovernorMode.NORMAL
-            ):
+            if self._mode is GovernorMode.EMERGENCY and mode is GovernorMode.NORMAL:
                 raise GovernorStateError(
-                    "Emergency mode must transition "
-                    "through maintenance."
+                    "Emergency mode must transition through maintenance."
                 )
 
             self._mode = mode
@@ -119,18 +109,13 @@ class ConstitutionalRuntimeGovernor:
         self,
         address: str,
     ) -> bool:
-        return (
-            self._normalize_target(address)
-            in self._quarantined
-        )
+        return self._normalize_target(address) in self._quarantined
 
     def evaluate(
         self,
         plan: ExecutiveRecoveryPlan,
         *,
-        requested_by: str = (
-            "constitutional-runtime-executive"
-        ),
+        requested_by: str = ("constitutional-runtime-executive"),
     ) -> GovernorDecision:
         request = GovernorRequest.create(
             plan=plan,
@@ -145,88 +130,60 @@ class ConstitutionalRuntimeGovernor:
                 request=request,
                 outcome=GovernorOutcome.DENIED,
                 approved=False,
-                reason=(
-                    "Runtime governance is frozen."
-                ),
+                reason=("Runtime governance is frozen."),
                 requires_manual_approval=True,
             )
             return self._record(decision)
 
-        if any(
-            target in self._quarantined
-            for target in plan.target_services
-        ):
+        if any(target in self._quarantined for target in plan.target_services):
             decision = GovernorDecision.create(
                 request=request,
                 outcome=GovernorOutcome.DENIED,
                 approved=False,
-                reason=(
-                    "One or more target services "
-                    "are quarantined."
-                ),
+                reason=("One or more target services are quarantined."),
                 requires_manual_approval=True,
             )
             return self._record(decision)
 
-        if (
-            len(plan.target_services)
-            > self._constraints
-            .maximum_concurrent_targets
-        ):
+        if len(plan.target_services) > self._constraints.maximum_concurrent_targets:
             decision = GovernorDecision.create(
                 request=request,
                 outcome=GovernorOutcome.THROTTLED,
                 approved=False,
-                reason=(
-                    "Plan exceeds the concurrent "
-                    "target limit."
-                ),
+                reason=("Plan exceeds the concurrent target limit."),
                 requires_manual_approval=False,
             )
             return self._record(decision)
 
         if (
-            plan.decision
-            in self._constraints.manual_approval_for
+            plan.decision in self._constraints.manual_approval_for
             or plan.requires_manual_approval
         ):
             decision = GovernorDecision.create(
                 request=request,
                 outcome=GovernorOutcome.ESCALATED,
                 approved=False,
-                reason=(
-                    "Plan requires manual approval."
-                ),
+                reason=("Plan requires manual approval."),
                 requires_manual_approval=True,
             )
             return self._record(decision)
 
-        cooldown_decision = self._evaluate_cooldown(
-            request
-        )
+        cooldown_decision = self._evaluate_cooldown(request)
 
         if cooldown_decision is not None:
-            return self._record(
-                cooldown_decision
-            )
+            return self._record(cooldown_decision)
 
-        budget_decision = self._evaluate_budget(
-            request
-        )
+        budget_decision = self._evaluate_budget(request)
 
         if budget_decision is not None:
-            return self._record(
-                budget_decision
-            )
+            return self._record(budget_decision)
 
         if self._mode is GovernorMode.MAINTENANCE:
             decision = GovernorDecision.create(
                 request=request,
                 outcome=GovernorOutcome.DEFERRED,
                 approved=False,
-                reason=(
-                    "Plan deferred during maintenance."
-                ),
+                reason=("Plan deferred during maintenance."),
                 requires_manual_approval=False,
             )
             return self._record(decision)
@@ -235,10 +192,7 @@ class ConstitutionalRuntimeGovernor:
             request=request,
             outcome=GovernorOutcome.APPROVED,
             approved=True,
-            reason=(
-                "Plan satisfies active runtime "
-                "governance constraints."
-            ),
+            reason=("Plan satisfies active runtime governance constraints."),
             requires_manual_approval=False,
         )
 
@@ -289,27 +243,13 @@ class ConstitutionalRuntimeGovernor:
     ) -> GovernorStatistics:
         return GovernorStatistics(
             evaluations=self._evaluations,
-            approvals=self._outcomes[
-                GovernorOutcome.APPROVED.value
-            ],
-            denials=self._outcomes[
-                GovernorOutcome.DENIED.value
-            ],
-            deferrals=self._outcomes[
-                GovernorOutcome.DEFERRED.value
-            ],
-            throttles=self._outcomes[
-                GovernorOutcome.THROTTLED.value
-            ],
-            escalations=self._outcomes[
-                GovernorOutcome.ESCALATED.value
-            ],
-            frozen=(
-                self._mode is GovernorMode.FROZEN
-            ),
-            quarantined_services=len(
-                self._quarantined
-            ),
+            approvals=self._outcomes[GovernorOutcome.APPROVED.value],
+            denials=self._outcomes[GovernorOutcome.DENIED.value],
+            deferrals=self._outcomes[GovernorOutcome.DEFERRED.value],
+            throttles=self._outcomes[GovernorOutcome.THROTTLED.value],
+            escalations=self._outcomes[GovernorOutcome.ESCALATED.value],
+            frozen=(self._mode is GovernorMode.FROZEN),
+            quarantined_services=len(self._quarantined),
         )
 
     def snapshot(self) -> dict[str, Any]:
@@ -318,38 +258,23 @@ class ConstitutionalRuntimeGovernor:
             "mode": self._mode.value,
             "constraints": {
                 "maximum_restarts_per_target": (
-                    self._constraints
-                    .maximum_restarts_per_target
+                    self._constraints.maximum_restarts_per_target
                 ),
                 "maximum_concurrent_targets": (
-                    self._constraints
-                    .maximum_concurrent_targets
+                    self._constraints.maximum_concurrent_targets
                 ),
                 "restart_cooldown_seconds": (
-                    self._constraints
-                    .restart_cooldown
-                    .total_seconds()
+                    self._constraints.restart_cooldown.total_seconds()
                 ),
                 "manual_approval_for": sorted(
-                    decision.value
-                    for decision
-                    in self._constraints
-                    .manual_approval_for
+                    decision.value for decision in self._constraints.manual_approval_for
                 ),
             },
-            "quarantined_services": sorted(
-                self._quarantined
-            ),
-            "restart_counts": dict(
-                self._restart_counts
-            ),
-            "statistics": (
-                self.statistics().to_dict()
-            ),
+            "quarantined_services": sorted(self._quarantined),
+            "restart_counts": dict(self._restart_counts),
+            "statistics": (self.statistics().to_dict()),
             "last_decision": (
-                self._last_decision.to_dict()
-                if self._last_decision
-                else None
+                self._last_decision.to_dict() if self._last_decision else None
             ),
         }
 
@@ -370,8 +295,7 @@ class ConstitutionalRuntimeGovernor:
             target
             for target in request.plan.target_services
             if self._restart_counts[target]
-            >= self._constraints
-            .maximum_restarts_per_target
+            >= self._constraints.maximum_restarts_per_target
         )
 
         if not exhausted:
@@ -381,10 +305,7 @@ class ConstitutionalRuntimeGovernor:
             request=request,
             outcome=GovernorOutcome.THROTTLED,
             approved=False,
-            reason=(
-                "Restart budget exhausted for: "
-                + ", ".join(sorted(exhausted))
-            ),
+            reason=("Restart budget exhausted for: " + ", ".join(sorted(exhausted))),
             requires_manual_approval=True,
         )
 
@@ -402,23 +323,15 @@ class ConstitutionalRuntimeGovernor:
         blocked_until: list[datetime] = []
 
         for target in request.plan.target_services:
-            last_restart = (
-                self._last_restart_at.get(target)
-            )
+            last_restart = self._last_restart_at.get(target)
 
             if last_restart is None:
                 continue
 
-            retry_after = (
-                last_restart
-                + self._constraints
-                .restart_cooldown
-            )
+            retry_after = last_restart + self._constraints.restart_cooldown
 
             if now < retry_after:
-                blocked_until.append(
-                    retry_after
-                )
+                blocked_until.append(retry_after)
 
         if not blocked_until:
             return None
@@ -427,9 +340,7 @@ class ConstitutionalRuntimeGovernor:
             request=request,
             outcome=GovernorOutcome.DEFERRED,
             approved=False,
-            reason=(
-                "Restart cooldown remains active."
-            ),
+            reason=("Restart cooldown remains active."),
             requires_manual_approval=False,
             retry_after=max(blocked_until),
         )
@@ -440,9 +351,7 @@ class ConstitutionalRuntimeGovernor:
     ) -> GovernorDecision:
         with self._lock:
             self._evaluations += 1
-            self._outcomes[
-                decision.outcome.value
-            ] += 1
+            self._outcomes[decision.outcome.value] += 1
             self._last_decision = decision
 
         return decision
@@ -452,13 +361,10 @@ class ConstitutionalRuntimeGovernor:
         address: str,
     ) -> None:
         try:
-            self._kernel.service_registry.get(
-                self._normalize_target(address)
-            )
+            self._kernel.service_registry.get(self._normalize_target(address))
         except Exception as error:
             raise GovernorTargetNotFoundError(
-                f"Governor target not found: "
-                f"{address}"
+                f"Governor target not found: {address}"
             ) from error
 
     @staticmethod
@@ -468,8 +374,6 @@ class ConstitutionalRuntimeGovernor:
         resolved = address.strip().lower()
 
         if not resolved:
-            raise ValueError(
-                "Governor target cannot be empty."
-            )
+            raise ValueError("Governor target cannot be empty.")
 
         return resolved

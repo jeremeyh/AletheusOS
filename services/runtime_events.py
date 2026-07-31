@@ -42,4 +42,6 @@ class EventStore:
         return [json.loads(line) for line in lines if line.strip()]
 
     def find_by_type(self, event_type: str, limit: int = 100) -> list[dict[str, Any]]:
-        return [e for e in self.read_recent(limit=1000) if e.get("event_type") == event_type][-limit:]
+        return [
+            e for e in self.read_recent(limit=1000) if e.get("event_type") == event_type
+        ][-limit:]

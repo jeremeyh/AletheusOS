@@ -8,9 +8,7 @@ from uuid import UUID, uuid4
 
 from .enums import ConstitutionalKind
 
-_ADDRESS_PATTERN = re.compile(
-    r"^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
-)
+_ADDRESS_PATTERN = re.compile(r"^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$")
 
 
 @dataclass(frozen=True, slots=True, order=True)

@@ -12,15 +12,19 @@ class PortfolioSimulationLab:
             risk = float(option.get("risk", 0.5) or 0.5)
             gain = expected_value - cost
             risk_adjusted = gain * (1 - risk)
-            results.append({
-                "name": name,
-                "cost": cost,
-                "expected_value": expected_value,
-                "expected_gain": round(gain, 2),
-                "risk": risk,
-                "risk_adjusted_gain": round(risk_adjusted, 2),
-                "recommendation": "Best" if risk_adjusted == max([risk_adjusted]) else "Compare",
-            })
+            results.append(
+                {
+                    "name": name,
+                    "cost": cost,
+                    "expected_value": expected_value,
+                    "expected_gain": round(gain, 2),
+                    "risk": risk,
+                    "risk_adjusted_gain": round(risk_adjusted, 2),
+                    "recommendation": "Best"
+                    if risk_adjusted == max([risk_adjusted])
+                    else "Compare",
+                }
+            )
 
         if results:
             best = max(results, key=lambda x: x["risk_adjusted_gain"])
@@ -35,7 +39,11 @@ class PortfolioSimulationLab:
         grading_cost = float(grading_cost or 0)
         gem_value = float(gem_value or 0)
         gem_probability = float(gem_probability or 0)
-        expected = gem_value * gem_probability + raw_value * (1 - gem_probability) - grading_cost
+        expected = (
+            gem_value * gem_probability
+            + raw_value * (1 - gem_probability)
+            - grading_cost
+        )
         return {
             "sell_raw_value": raw_value,
             "grade_expected_value": round(expected, 2),

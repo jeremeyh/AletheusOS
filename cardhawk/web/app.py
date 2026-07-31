@@ -52,11 +52,9 @@ st.divider()
 st.subheader("Asset Vault")
 
 if assets:
-
     rows = []
 
     for asset in assets:
-
         rows.append(
             {
                 "Player": asset.player,
@@ -74,7 +72,4 @@ if assets:
     )
 
 else:
-
-    st.info(
-        "No assets have been added yet."
-    )
+    st.info("No assets have been added yet.")

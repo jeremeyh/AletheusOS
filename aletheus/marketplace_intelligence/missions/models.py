@@ -9,8 +9,6 @@ from dataclasses import dataclass, field
 
 @dataclass
 class DiscoveryMission:
-
-
     mission_id: str
 
     name: str
@@ -19,17 +17,10 @@ class DiscoveryMission:
 
     query: str
 
-    sources: list = field(
-        default_factory=list
-    )
+    sources: list = field(default_factory=list)
 
-    filters: dict = field(
-        default_factory=dict
-    )
+    filters: dict = field(default_factory=dict)
 
-    intelligence_rules: dict = field(
-        default_factory=dict
-    )
+    intelligence_rules: dict = field(default_factory=dict)
 
     status: str = "created"
-

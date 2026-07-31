@@ -6,34 +6,14 @@ Post-Genesis 447
 
 
 class IntelligenceEvolutionMemoryEngine:
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_evolution_memory",
-
-            "post_genesis":
-            "447",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_evolution_memory",
+            "post_genesis": "447",
+            "status": "operational",
         }
-
-
 
     def execute(self, request=None):
 
-        return {
-
-            "request":
-            request,
-
-            "status":
-            "completed"
-
-        }
-
+        return {"request": request, "status": "completed"}

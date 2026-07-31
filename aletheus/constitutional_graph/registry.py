@@ -36,24 +36,16 @@ class ConstitutionalGraphRegistry:
         return [edge.to_dict() for edge in self._edges.values()]
 
     def outgoing(self, node_id: str):
-        return [
-            self._edges[edge_id]
-            for edge_id in self._outgoing.get(node_id, [])
-        ]
+        return [self._edges[edge_id] for edge_id in self._outgoing.get(node_id, [])]
 
     def incoming(self, node_id: str):
-        return [
-            self._edges[edge_id]
-            for edge_id in self._incoming.get(node_id, [])
-        ]
+        return [self._edges[edge_id] for edge_id in self._incoming.get(node_id, [])]
 
     def statistics(self):
         return {
             "nodes": len(self._nodes),
             "edges": len(self._edges),
-            "node_types": sorted(
-                set(node.node_type for node in self._nodes.values())
-            ),
+            "node_types": sorted(set(node.node_type for node in self._nodes.values())),
             "relationships": sorted(
                 set(edge.relationship for edge in self._edges.values())
             ),

@@ -76,13 +76,17 @@ class ArchitecturalGraph:
             values = (edge for edge in values if edge.kind == kind)
         return tuple(values)
 
-    def outgoing(self, node_id: str, *, kind: str | None = None) -> tuple[GraphEdge, ...]:
+    def outgoing(
+        self, node_id: str, *, kind: str | None = None
+    ) -> tuple[GraphEdge, ...]:
         edges = (self._edges[item_id] for item_id in self._outgoing.get(node_id, ()))
         if kind is not None:
             edges = (edge for edge in edges if edge.kind == kind)
         return tuple(edges)
 
-    def incoming(self, node_id: str, *, kind: str | None = None) -> tuple[GraphEdge, ...]:
+    def incoming(
+        self, node_id: str, *, kind: str | None = None
+    ) -> tuple[GraphEdge, ...]:
         edges = (self._edges[item_id] for item_id in self._incoming.get(node_id, ()))
         if kind is not None:
             edges = (edge for edge in edges if edge.kind == kind)
@@ -102,7 +106,9 @@ class ArchitecturalGraph:
         seen.remove(start)
         return tuple(sorted(seen))
 
-    def dependency_cycles(self, *, edge_kind: str = "imports") -> tuple[tuple[str, ...], ...]:
+    def dependency_cycles(
+        self, *, edge_kind: str = "imports"
+    ) -> tuple[tuple[str, ...], ...]:
         adjacency = {
             node.id: [edge.target for edge in self.outgoing(node.id, kind=edge_kind)]
             for node in self.nodes()
@@ -116,7 +122,9 @@ class ArchitecturalGraph:
             body = cycle[:-1]
             if not body:
                 return ()
-            rotations = [tuple(body[index:] + body[:index]) for index in range(len(body))]
+            rotations = [
+                tuple(body[index:] + body[:index]) for index in range(len(body))
+            ]
             return min(rotations)
 
         def visit(node_id: str) -> None:
@@ -150,7 +158,9 @@ class ArchitecturalGraph:
     def export_json(self, destination: str | Path) -> Path:
         path = Path(destination)
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(self.to_dict(), indent=2, sort_keys=True), encoding="utf-8")
+        path.write_text(
+            json.dumps(self.to_dict(), indent=2, sort_keys=True), encoding="utf-8"
+        )
         return path
 
     def export_dot(self, destination: str | Path) -> Path:

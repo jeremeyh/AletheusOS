@@ -27,15 +27,12 @@ def find_repo_root(start: Path) -> Path:
             return current
 
         if current.parent == current:
-            raise RuntimeError(
-                "Unable to locate repository root (pyproject.toml)."
-            )
+            raise RuntimeError("Unable to locate repository root (pyproject.toml).")
 
         current = current.parent
 
 
 REPO_ROOT = find_repo_root(Path(__file__).parent)
-
 
 
 REQUIRED_METRICS = {
@@ -45,7 +42,6 @@ REQUIRED_METRICS = {
     "secondary_chunk_count",
     "total_javascript_bytes",
 }
-
 
 
 REQUIRED_THRESHOLDS = {
@@ -59,23 +55,14 @@ REQUIRED_THRESHOLDS = {
     "total_javascript_growth_percent",
 }
 
-BASELINE = (
-    REPO_ROOT
-    / "nimble"
-    / "governance"
-    / "performance-baseline.json"
-)
+BASELINE = REPO_ROOT / "nimble" / "governance" / "performance-baseline.json"
 
 
 def load_baseline() -> dict:
     if not BASELINE.exists():
-        raise FileNotFoundError(
-            f"Performance baseline not found: {BASELINE}"
-        )
+        raise FileNotFoundError(f"Performance baseline not found: {BASELINE}")
 
-    return json.loads(
-        BASELINE.read_text(encoding="utf-8")
-    )
+    return json.loads(BASELINE.read_text(encoding="utf-8"))
 
 
 def validate() -> bool:
@@ -86,17 +73,10 @@ def validate() -> bool:
         "generated_at",
     )
 
-    missing = [
-        key
-        for key in required
-        if key not in baseline
-    ]
+    missing = [key for key in required if key not in baseline]
 
     if missing:
-        raise ValueError(
-            "Missing required baseline keys: "
-            + ", ".join(missing)
-        )
+        raise ValueError("Missing required baseline keys: " + ", ".join(missing))
 
     return True
 

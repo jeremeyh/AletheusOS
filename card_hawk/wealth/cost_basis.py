@@ -6,13 +6,6 @@ Genesis 14.27
 
 
 class CostBasisEngine:
-
-
-    def calculate(
-        self,
-        asset
-    ):
-
+    def calculate(self, asset):
 
         return {}
-

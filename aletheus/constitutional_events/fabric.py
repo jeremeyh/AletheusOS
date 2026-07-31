@@ -83,9 +83,7 @@ class ConstitutionalEventFabric:
         elif hasattr(subscriber, "handle"):
             handler = subscriber.handle
         else:
-            raise TypeError(
-                "Subscriber must be callable or expose handle(event)."
-            )
+            raise TypeError("Subscriber must be callable or expose handle(event).")
 
         name = (
             subscriber_name
@@ -113,9 +111,7 @@ class ConstitutionalEventFabric:
         elif hasattr(subscriber, "handle"):
             handler = subscriber.handle
         else:
-            raise TypeError(
-                "Subscriber must be callable or expose handle(event)."
-            )
+            raise TypeError("Subscriber must be callable or expose handle(event).")
 
         name = (
             subscriber_name
@@ -137,9 +133,7 @@ class ConstitutionalEventFabric:
         definition = self.registry.require(event.event_type)
 
         if definition.requires_certification and not event.certified:
-            raise ValueError(
-                f"{event.event_type.value} requires certification."
-            )
+            raise ValueError(f"{event.event_type.value} requires certification.")
 
         self._events.append(event)
 
@@ -184,24 +178,16 @@ class ConstitutionalEventFabric:
         results = self._events
 
         if event_type is not None:
-            results = [
-                event
-                for event in results
-                if event.event_type == event_type
-            ]
+            results = [event for event in results if event.event_type == event_type]
 
         if correlation_id is not None:
             results = [
-                event
-                for event in results
-                if event.correlation_id == correlation_id
+                event for event in results if event.correlation_id == correlation_id
             ]
 
         if source_identity is not None:
             results = [
-                event
-                for event in results
-                if event.source_identity == source_identity
+                event for event in results if event.source_identity == source_identity
             ]
 
         return tuple(results)
@@ -253,18 +239,13 @@ class ConstitutionalEventFabric:
         return tuple(self._deliveries)
 
     def health(self) -> dict[str, Any]:
-        failed_deliveries = sum(
-            not delivery.delivered
-            for delivery in self._deliveries
-        )
+        failed_deliveries = sum(not delivery.delivered for delivery in self._deliveries)
 
         return {
             "name": "Constitutional Event Fabric™",
             "version": self.VERSION,
             "status": "degraded" if failed_deliveries else "online",
-            "registered_event_types": (
-                self.registry.statistics()["event_types"]
-            ),
+            "registered_event_types": (self.registry.statistics()["event_types"]),
             "events": len(self._events),
             "subscriptions": (
                 sum(len(items) for items in self._subscriptions.values())

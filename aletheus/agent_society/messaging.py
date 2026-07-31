@@ -6,19 +6,6 @@ Genesis 13.51
 
 
 class AgentMessaging:
+    def send(self, message):
 
-
-    def send(
-        self,
-        message
-    ):
-
-
-        return {
-
-            "delivered":
-
-                True
-
-        }
-
+        return {"delivered": True}

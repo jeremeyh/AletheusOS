@@ -30,32 +30,22 @@ def header(title: str) -> None:
 def main() -> None:
 
     memory = double_hedron.remember(
-
         identity="identity.founder.master_lord_6ixth",
-
         capability="foundation.appraiserx",
-
         execution="EXEC-0001",
-
         session="SESSION-0001",
-
         memory_type=MemoryType.OBSERVATION,
-
         observation="Caleb Williams Bowman valuation requested.",
-
         evidence=[
             "Marketplace Intelligence",
             "Portfolio Analysis",
         ],
-
         reasoning=[
             "Intent resolved",
             "Marketplace evidence gathered",
             "Portfolio context applied",
         ],
-
         confidence=0.94,
-
         provenance={
             "application": "CardHawk",
             "genesis": "48.0",
@@ -68,9 +58,7 @@ def main() -> None:
 
     header("RECALL BY IDENTITY")
 
-    memories = double_hedron.recall(
-        identity="identity.founder.master_lord_6ixth"
-    )
+    memories = double_hedron.recall(identity="identity.founder.master_lord_6ixth")
 
     pprint([m.to_dict() for m in memories])
 
@@ -85,17 +73,12 @@ def main() -> None:
 
     header("HEALTH")
 
-    pprint(
-        double_hedron.health()
-    )
+    pprint(double_hedron.health())
 
     header("STATISTICS")
 
-    pprint(
-        double_hedron.statistics()
-    )
+    pprint(double_hedron.statistics())
 
 
 if __name__ == "__main__":
-
     main()

@@ -13,7 +13,9 @@ class AletheusUniversalIntelligence:
 
     def build_context(self, question: str, runtime: Any) -> IntelligenceContext:
         diagnostics = runtime.commands.dispatch("runtime.diagnostics", {}).results
-        health = runtime.commands.dispatch("runtime.health", {}).results.get("health", {})
+        health = runtime.commands.dispatch("runtime.health", {}).results.get(
+            "health", {}
+        )
 
         context = IntelligenceContext(
             question=question,
@@ -46,7 +48,9 @@ class AletheusUniversalIntelligence:
             reasoning.append("No active autonomous plans are currently running.")
 
         if data["runtime"].get("semantic_concepts", 0) == 0:
-            reasoning.append("Semantic concept density is low; semantic bootstrap should be prioritized.")
+            reasoning.append(
+                "Semantic concept density is low; semantic bootstrap should be prioritized."
+            )
 
         return {
             "question": question,
@@ -72,20 +76,30 @@ class AletheusUniversalIntelligence:
         recommendations = []
 
         if runtime_data.get("applications", 0) >= 1:
-            opportunities.append("Card Hawk Foundation is registered as a native Aletheus application.")
+            opportunities.append(
+                "Card Hawk Foundation is registered as a native Aletheus application."
+            )
 
         if runtime_data.get("online_agents", 0) >= 6:
-            opportunities.append("Multi-agent orchestration is available for complex work.")
+            opportunities.append(
+                "Multi-agent orchestration is available for complex work."
+            )
 
         if runtime_data.get("semantic_concepts", 0) < 5:
             risks.append("Semantic layer remains under-seeded.")
-            recommendations.append("Run Card Hawk semantic bootstrap and add core asset/player/service concepts.")
+            recommendations.append(
+                "Run Card Hawk semantic bootstrap and add core asset/player/service concepts."
+            )
 
         if runtime_data.get("active_plans", 0) == 0:
             risks.append("No active autonomous plan is currently guiding execution.")
-            recommendations.append("Create an autonomous plan for the next Card Hawk Foundation milestone.")
+            recommendations.append(
+                "Create an autonomous plan for the next Card Hawk Foundation milestone."
+            )
 
-        recommendations.append("Continue integrating Card Hawk Foundation as the reference application.")
+        recommendations.append(
+            "Continue integrating Card Hawk Foundation as the reference application."
+        )
 
         return {
             "question": question,
@@ -101,7 +115,9 @@ class AletheusUniversalIntelligence:
         synthesis = self.synthesize(question, runtime)
 
         if synthesis["risks"]:
-            decision = "Proceed, but address the identified gaps before expanding scope."
+            decision = (
+                "Proceed, but address the identified gaps before expanding scope."
+            )
         else:
             decision = "Proceed with the next planned Aletheus/Card Hawk integration milestone."
 
@@ -136,7 +152,9 @@ class AletheusUniversalIntelligence:
             "stats": self.stats(),
             "latest_context": self.contexts[-1].to_dict() if self.contexts else None,
             "latest_decision": self.decisions[-1].to_dict() if self.decisions else None,
-            "runtime_health": runtime.commands.dispatch("runtime.health", {}).results.get("health", {}),
+            "runtime_health": runtime.commands.dispatch(
+                "runtime.health", {}
+            ).results.get("health", {}),
         }
 
     def confidence_score(self, context: dict[str, Any]) -> float:

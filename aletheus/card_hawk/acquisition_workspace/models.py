@@ -9,8 +9,6 @@ from dataclasses import dataclass, field
 
 @dataclass
 class AcquisitionOpportunity:
-
-
     opportunity_id: str
 
     asset_name: str
@@ -25,7 +23,4 @@ class AcquisitionOpportunity:
 
     recommendation: str = "UNASSESSED"
 
-    signals: dict = field(
-        default_factory=dict
-    )
-
+    signals: dict = field(default_factory=dict)

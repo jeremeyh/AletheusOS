@@ -36,7 +36,6 @@ def discover_modules():
     modules = []
 
     for path in ROOT.rglob("*.py"):
-
         if any(part in IGNORED for part in path.parts):
             continue
 
@@ -54,7 +53,6 @@ def verify_import(module):
     start = time.perf_counter()
 
     try:
-
         importlib.import_module(module)
 
         elapsed = (time.perf_counter() - start) * 1000
@@ -62,7 +60,6 @@ def verify_import(module):
         return True, elapsed, None
 
     except Exception as e:
-
         elapsed = (time.perf_counter() - start) * 1000
 
         return False, elapsed, str(e)
@@ -73,7 +70,6 @@ def check_missing_init():
     missing = []
 
     for directory in ROOT.rglob("*"):
-
         if not directory.is_dir():
             continue
 
@@ -88,7 +84,6 @@ def check_missing_init():
         init = directory / "__init__.py"
 
         if not init.exists():
-
             missing.append(directory.relative_to(ROOT))
 
     return missing
@@ -101,15 +96,12 @@ def duplicate_modules(modules):
     duplicates = {}
 
     for module in modules:
-
         short = module.split(".")[-1]
 
         if short in seen:
-
             duplicates.setdefault(short, []).append(module)
 
         else:
-
             seen[short] = module
 
     return duplicates
@@ -130,19 +122,16 @@ def main():
     total_time = 0
 
     for module in modules:
-
         ok, elapsed, error = verify_import(module)
 
         total_time += elapsed
 
         if ok:
-
             success += 1
 
             print(f"[ OK ] {module:<55} {elapsed:6.1f} ms")
 
         else:
-
             failures.append((module, error))
 
             print(f"[FAIL] {module}")
@@ -166,35 +155,29 @@ def main():
     missing = check_missing_init()
 
     if missing:
-
         print()
 
         print("Missing __init__.py")
 
         for item in missing:
-
             print(f"  - {item}")
 
     duplicates = duplicate_modules(modules)
 
     if duplicates:
-
         print()
 
         print("Duplicate Module Names")
 
         for name, items in duplicates.items():
-
             print()
 
             print(name)
 
             for m in items:
-
                 print("   ", m)
 
     if failures:
-
         print()
 
         print("=" * 70)
@@ -204,7 +187,6 @@ def main():
         print("=" * 70)
 
         for module, error in failures:
-
             print()
 
             print(module)

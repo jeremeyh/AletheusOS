@@ -6,33 +6,14 @@ Post-Genesis 974
 
 
 class CivilizationHeritageLayerEngine:
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_heritage_layer",
-
-            "post_genesis":
-            "974",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_heritage_layer",
+            "post_genesis": "974",
+            "status": "operational",
         }
-
 
     def execute(self, request=None):
 
-        return {
-
-            "request":
-            request,
-
-            "status":
-            "completed"
-
-        }
-
+        return {"request": request, "status": "completed"}

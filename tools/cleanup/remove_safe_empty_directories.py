@@ -5,12 +5,7 @@ import csv
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-REPORT = (
-    ROOT
-    / "reports"
-    / "repository_hygiene"
-    / "empty_directories.csv"
-)
+REPORT = ROOT / "reports" / "repository_hygiene" / "empty_directories.csv"
 
 PRESERVE_NAMES = {
     "uploads",
@@ -44,10 +39,7 @@ def candidates() -> list[Path]:
         for row in reader:
             relative = Path(row["path"])
 
-            if any(
-                part.lower() in PRESERVE_NAMES
-                for part in relative.parts
-            ):
+            if any(part.lower() in PRESERVE_NAMES for part in relative.parts):
                 continue
 
             result.append(ROOT / relative)

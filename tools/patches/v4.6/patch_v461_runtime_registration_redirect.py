@@ -29,9 +29,7 @@ new = """
 if old in text:
     text = text.replace(old, new, 1)
 
-import_line = (
-    "from aletheus.runtime.registrations import register_runtime_commands\n"
-)
+import_line = "from aletheus.runtime.registrations import register_runtime_commands\n"
 
 if "register_runtime_commands" not in text:
     marker = "from aletheus.runtime.modules import"
@@ -39,7 +37,7 @@ if "register_runtime_commands" not in text:
 
     if idx != -1:
         insert = text.find("\n", idx)
-        text = text[:insert + 1] + import_line + text[insert + 1:]
+        text = text[: insert + 1] + import_line + text[insert + 1 :]
 
 CORE.write_text(text)
 

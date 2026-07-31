@@ -56,9 +56,7 @@ class CompiledRuntimeCommandDispatcher:
         compiled = {
             name: CompiledCommandEntry(
                 record=record,
-                invocation_mode=self._classify_handler(
-                    record.handler
-                ),
+                invocation_mode=self._classify_handler(record.handler),
             )
             for name, record in commands.items()
         }
@@ -150,10 +148,7 @@ class CompiledRuntimeCommandDispatcher:
 
         closure = getattr(handler, "__closure__", None) or ()
 
-        closure_values = tuple(
-            repr(cell.cell_contents)
-            for cell in closure
-        )
+        closure_values = tuple(repr(cell.cell_contents) for cell in closure)
 
         return repr(
             (
@@ -274,11 +269,7 @@ class CompiledRuntimeCommandDispatcher:
             return CommandResult(
                 command=name,
                 status="missing",
-                response={
-                    "error": (
-                        f"Command '{name}' is not registered."
-                    )
-                },
+                response={"error": (f"Command '{name}' is not registered.")},
             )
 
         try:

@@ -87,7 +87,7 @@ def patch_alias_installer():
         replacement = (
             "len(SAFE_COMMAND_ALIASES)"
             if "SAFE_COMMAND_ALIASES =" in text
-            else 'len(alias_module.splitlines())'
+            else "len(alias_module.splitlines())"
         )
 
         new = text.replace(
@@ -129,11 +129,7 @@ def patch_backup():
         )
         return
 
-    print(
-        "NOTICE:",
-        path.name,
-        "contains archived undefined session reference."
-    )
+    print("NOTICE:", path.name, "contains archived undefined session reference.")
     print("Recommend manual inspection rather than blind replacement.")
 
 

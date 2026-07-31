@@ -52,9 +52,7 @@ class TetraInstitutionalMissionEngine:
         self._graphs: dict[str, MissionPhaseGraph] = {}
         self._states: dict[str, MissionTemporalState] = {}
 
-        register_time_event_types(
-            self.fabric.registry
-        )
+        register_time_event_types(self.fabric.registry)
 
     def attach_graph(
         self,
@@ -64,9 +62,7 @@ class TetraInstitutionalMissionEngine:
         graph: MissionPhaseGraph,
     ) -> MissionTemporalState:
         if mission_id in self._graphs:
-            raise ValueError(
-                f"Mission {mission_id!r} already has a phase graph."
-            )
+            raise ValueError(f"Mission {mission_id!r} already has a phase graph.")
 
         graph.validate()
 
@@ -74,9 +70,7 @@ class TetraInstitutionalMissionEngine:
             mission_id=mission_id,
             correlation_id=correlation_id,
             phases={
-                contract.phase_id: MissionPhaseState(
-                    phase_id=contract.phase_id
-                )
+                contract.phase_id: MissionPhaseState(phase_id=contract.phase_id)
                 for contract in graph.list()
             },
         )
@@ -89,10 +83,7 @@ class TetraInstitutionalMissionEngine:
             TimeEventType.MISSION_PHASE_GRAPH_ATTACHED,
             payload={
                 "mission_id": mission_id,
-                "graph": [
-                    contract.to_dict()
-                    for contract in graph.ordered()
-                ],
+                "graph": [contract.to_dict() for contract in graph.ordered()],
             },
         )
 
@@ -106,9 +97,7 @@ class TetraInstitutionalMissionEngine:
         try:
             return self._states[mission_id]
         except KeyError as exc:
-            raise KeyError(
-                f"TIME has no state for mission {mission_id!r}."
-            ) from exc
+            raise KeyError(f"TIME has no state for mission {mission_id!r}.") from exc
 
     def graph(
         self,
@@ -117,9 +106,7 @@ class TetraInstitutionalMissionEngine:
         try:
             return self._graphs[mission_id]
         except KeyError as exc:
-            raise KeyError(
-                f"TIME has no graph for mission {mission_id!r}."
-            ) from exc
+            raise KeyError(f"TIME has no graph for mission {mission_id!r}.") from exc
 
     def eligible_phases(
         self,
@@ -131,8 +118,7 @@ class TetraInstitutionalMissionEngine:
         return tuple(
             contract.phase_id
             for contract in self.graph(mission_id).ordered()
-            if state.phases[contract.phase_id].status
-            == PhaseStatus.ELIGIBLE
+            if state.phases[contract.phase_id].status == PhaseStatus.ELIGIBLE
         )
 
     def join(
@@ -147,20 +133,14 @@ class TetraInstitutionalMissionEngine:
         contract = graph.require(phase_id)
         phase = state.phases[phase_id]
 
-        if institution_id not in (
-            contract.participating_institutions
-        ):
+        if institution_id not in (contract.participating_institutions):
             raise ValueError(
                 f"Institution {institution_id!r} is not authorized "
                 f"for phase {phase_id!r}."
             )
 
-        if institution_id not in (
-            phase.participating_institutions
-        ):
-            phase.participating_institutions.append(
-                institution_id
-            )
+        if institution_id not in (phase.participating_institutions):
+            phase.participating_institutions.append(institution_id)
 
             event = self._publish(
                 state,
@@ -189,19 +169,17 @@ class TetraInstitutionalMissionEngine:
 
         if phase.status != PhaseStatus.ELIGIBLE:
             raise InvalidPhaseTransitionError(
-                f"Phase {phase_id!r} is {phase.status.value!r}; "
-                "expected 'eligible'."
+                f"Phase {phase_id!r} is {phase.status.value!r}; expected 'eligible'."
             )
 
-        missing = set(
-            contract.participating_institutions
-        ) - set(phase.participating_institutions)
+        missing = set(contract.participating_institutions) - set(
+            phase.participating_institutions
+        )
 
         if missing:
             raise ValueError(
                 "Phase cannot start; required institutions "
-                "have not joined: "
-                + ", ".join(sorted(missing))
+                "have not joined: " + ", ".join(sorted(missing))
             )
 
         phase.status = PhaseStatus.RUNNING
@@ -278,24 +256,22 @@ class TetraInstitutionalMissionEngine:
 
         if phase.status != PhaseStatus.RUNNING:
             raise InvalidPhaseTransitionError(
-                f"Phase {phase_id!r} is {phase.status.value!r}; "
-                "expected 'running'."
+                f"Phase {phase_id!r} is {phase.status.value!r}; expected 'running'."
             )
 
-        missing_institutions = set(
-            contract.participating_institutions
-        ) - set(phase.participating_institutions)
+        missing_institutions = set(contract.participating_institutions) - set(
+            phase.participating_institutions
+        )
 
         if missing_institutions:
             raise ValueError(
                 "Phase cannot complete; institutional "
-                "participation is missing: "
-                + ", ".join(sorted(missing_institutions))
+                "participation is missing: " + ", ".join(sorted(missing_institutions))
             )
 
-        missing_evidence = set(
-            contract.required_evidence_types
-        ) - phase.evidence_types()
+        missing_evidence = (
+            set(contract.required_evidence_types) - phase.evidence_types()
+        )
 
         if missing_evidence:
             raise ValueError(
@@ -313,17 +289,13 @@ class TetraInstitutionalMissionEngine:
                 "mission_id": mission_id,
                 "phase_id": phase_id,
                 "relative_position": phase.relative_position,
-                "completion_criteria": (
-                    contract.completion_criteria
-                ),
+                "completion_criteria": (contract.completion_criteria),
             },
         )
         phase.event_ids.append(event.event_id)
 
         self._refresh_eligibility(mission_id)
-        self._publish_sequence_completion_if_ready(
-            mission_id
-        )
+        self._publish_sequence_completion_if_ready(mission_id)
 
         return phase
 
@@ -343,8 +315,7 @@ class TetraInstitutionalMissionEngine:
             PhaseStatus.WAITING,
         }:
             raise InvalidPhaseTransitionError(
-                f"Phase {phase_id!r} cannot fail from "
-                f"{phase.status.value!r}."
+                f"Phase {phase_id!r} cannot fail from {phase.status.value!r}."
             )
 
         phase.status = PhaseStatus.FAILED
@@ -390,9 +361,7 @@ class TetraInstitutionalMissionEngine:
     ) -> tuple[ConstitutionalEvent, ...]:
         state = self.state(mission_id)
 
-        return self.fabric.events(
-            correlation_id=state.correlation_id
-        )
+        return self.fabric.events(correlation_id=state.correlation_id)
 
     def _refresh_eligibility(
         self,
@@ -413,14 +382,10 @@ class TetraInstitutionalMissionEngine:
                 continue
 
             dependency_states = [
-                state.phases[dependency].status
-                for dependency in contract.dependencies
+                state.phases[dependency].status for dependency in contract.dependencies
             ]
 
-            if any(
-                status == PhaseStatus.FAILED
-                for status in dependency_states
-            ):
+            if any(status == PhaseStatus.FAILED for status in dependency_states):
                 if phase.status != PhaseStatus.BLOCKED:
                     phase.status = PhaseStatus.BLOCKED
                     event = self._publish(
@@ -429,9 +394,7 @@ class TetraInstitutionalMissionEngine:
                         payload={
                             "mission_id": mission_id,
                             "phase_id": contract.phase_id,
-                            "dependencies": (
-                                contract.dependencies
-                            ),
+                            "dependencies": (contract.dependencies),
                         },
                     )
                     phase.event_ids.append(event.event_id)
@@ -447,11 +410,7 @@ class TetraInstitutionalMissionEngine:
                 for status in dependency_states
             )
 
-            new_status = (
-                PhaseStatus.ELIGIBLE
-                if eligible
-                else PhaseStatus.PENDING
-            )
+            new_status = PhaseStatus.ELIGIBLE if eligible else PhaseStatus.PENDING
 
             if (
                 new_status == PhaseStatus.ELIGIBLE
@@ -482,10 +441,7 @@ class TetraInstitutionalMissionEngine:
         state = self.state(mission_id)
 
         existing = self.fabric.events(
-            event_type=(
-                TimeEventType
-                .MISSION_TEMPORAL_SEQUENCE_COMPLETED
-            ),
+            event_type=(TimeEventType.MISSION_TEMPORAL_SEQUENCE_COMPLETED),
             correlation_id=state.correlation_id,
         )
 
@@ -497,9 +453,7 @@ class TetraInstitutionalMissionEngine:
             TimeEventType.MISSION_TEMPORAL_SEQUENCE_COMPLETED,
             payload={
                 "mission_id": mission_id,
-                "completed_order": list(
-                    state.completed_order
-                ),
+                "completed_order": list(state.completed_order),
             },
         )
 
@@ -511,15 +465,9 @@ class TetraInstitutionalMissionEngine:
         payload: dict[str, Any],
         source_identity: str = "aletheus.time",
     ) -> ConstitutionalEvent:
-        correlated_events = self.fabric.events(
-            correlation_id=state.correlation_id
-        )
+        correlated_events = self.fabric.events(correlation_id=state.correlation_id)
 
-        causation_id = (
-            correlated_events[-1].event_id
-            if correlated_events
-            else None
-        )
+        causation_id = correlated_events[-1].event_id if correlated_events else None
 
         event = ConstitutionalEvent.create(
             event_type,
@@ -535,9 +483,7 @@ class TetraInstitutionalMissionEngine:
 
     def health(self) -> dict[str, Any]:
         phase_states = [
-            phase
-            for state in self._states.values()
-            for phase in state.phases.values()
+            phase for state in self._states.values() for phase in state.phases.values()
         ]
 
         return {
@@ -548,15 +494,12 @@ class TetraInstitutionalMissionEngine:
             "missions": len(self._states),
             "phases": len(phase_states),
             "completed_phases": sum(
-                phase.status == PhaseStatus.COMPLETED
-                for phase in phase_states
+                phase.status == PhaseStatus.COMPLETED for phase in phase_states
             ),
             "failed_phases": sum(
-                phase.status == PhaseStatus.FAILED
-                for phase in phase_states
+                phase.status == PhaseStatus.FAILED for phase in phase_states
             ),
             "blocked_phases": sum(
-                phase.status == PhaseStatus.BLOCKED
-                for phase in phase_states
+                phase.status == PhaseStatus.BLOCKED for phase in phase_states
             ),
         }

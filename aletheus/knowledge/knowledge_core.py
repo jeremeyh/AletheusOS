@@ -37,7 +37,9 @@ class AletheusKnowledgeCore:
             results = [entity for entity in results if needle in entity.label.lower()]
 
         if entity_type:
-            results = [entity for entity in results if entity.entity_type == entity_type]
+            results = [
+                entity for entity in results if entity.entity_type == entity_type
+            ]
 
         return [entity.to_dict() for entity in results]
 
@@ -72,29 +74,31 @@ class AletheusKnowledgeCore:
             results = [item for item in results if item.target_id == target_id]
 
         if relationship_type:
-            results = [item for item in results if item.relationship_type == relationship_type]
+            results = [
+                item for item in results if item.relationship_type == relationship_type
+            ]
 
         return [item.to_dict() for item in results]
 
     def graph_export(self) -> dict[str, Any]:
         return {
             "entities": [entity.to_dict() for entity in self.entities],
-            "relationships": [relationship.to_dict() for relationship in self.relationships],
+            "relationships": [
+                relationship.to_dict() for relationship in self.relationships
+            ],
         }
 
     def graph_query(self, entity_id: str) -> dict[str, Any]:
-        entity = next((item for item in self.entities if item.entity_id == entity_id), None)
+        entity = next(
+            (item for item in self.entities if item.entity_id == entity_id), None
+        )
 
         outgoing = [
-            item.to_dict()
-            for item in self.relationships
-            if item.source_id == entity_id
+            item.to_dict() for item in self.relationships if item.source_id == entity_id
         ]
 
         incoming = [
-            item.to_dict()
-            for item in self.relationships
-            if item.target_id == entity_id
+            item.to_dict() for item in self.relationships if item.target_id == entity_id
         ]
 
         return {

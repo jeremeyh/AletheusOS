@@ -9,11 +9,7 @@ DISPATCHER = ROOT / "aletheus/runtime/commands_v2/dispatcher.py"
 COMMAND_BUS = ROOT / "aletheus/runtime/commands/command_bus.py"
 
 stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-backup = (
-    ROOT
-    / "reports/genesis_8_command_dispatch"
-    / f"result_contract_backup_{stamp}"
-)
+backup = ROOT / "reports/genesis_8_command_dispatch" / f"result_contract_backup_{stamp}"
 backup.mkdir(parents=True, exist_ok=True)
 
 shutil.copy2(DISPATCHER, backup / "dispatcher.py")
@@ -22,20 +18,20 @@ shutil.copy2(COMMAND_BUS, backup / "command_bus.py")
 
 dispatcher_text = DISPATCHER.read_text(encoding="utf-8")
 
-old_entry = '''\
+old_entry = """\
 @dataclass(frozen=True, slots=True)
 class CompiledCommandEntry:
     record: CommandRecord
     invocation_mode: InvocationMode
-'''
+"""
 
-new_entry = '''\
+new_entry = """\
 @dataclass(frozen=True, slots=True)
 class CompiledCommandEntry:
     record: CommandRecord
     invocation_mode: InvocationMode
     result_key: str | None = None
-'''
+"""
 
 if old_entry not in dispatcher_text:
     raise RuntimeError("CompiledCommandEntry block not found.")
@@ -140,7 +136,7 @@ dispatcher_text = dispatcher_text.replace(
 )
 
 
-old_compilation = '''\
+old_compilation = """\
         compiled = {
             name: CompiledCommandEntry(
                 record=record,
@@ -150,9 +146,9 @@ old_compilation = '''\
             )
             for name, record in commands.items()
         }
-'''
+"""
 
-new_compilation = '''\
+new_compilation = """\
         compiled = {
             name: CompiledCommandEntry(
                 record=record,
@@ -166,7 +162,7 @@ new_compilation = '''\
             )
             for name, record in commands.items()
         }
-'''
+"""
 
 if old_compilation not in dispatcher_text:
     raise RuntimeError("Dispatcher compilation block not found.")
@@ -177,18 +173,18 @@ dispatcher_text = dispatcher_text.replace(
 )
 
 
-old_fingerprint_row = '''\
+old_fingerprint_row = """\
                         repr(record.metadata),
                         entry.invocation_mode,
                         cls._handler_identity(record.handler),
-'''
+"""
 
-new_fingerprint_row = '''\
+new_fingerprint_row = """\
                         repr(record.metadata),
                         entry.invocation_mode,
                         str(entry.result_key),
                         cls._handler_identity(record.handler),
-'''
+"""
 
 if old_fingerprint_row not in dispatcher_text:
     raise RuntimeError("Fingerprint row block not found.")
@@ -199,15 +195,15 @@ dispatcher_text = dispatcher_text.replace(
 )
 
 
-old_response = '''\
+old_response = """\
             return CommandResult(
                 command=name,
                 status="completed",
                 response=response,
             )
-'''
+"""
 
-new_response = '''\
+new_response = """\
             if isinstance(response, RuntimeContext):
                 normalized_response = response
 
@@ -229,11 +225,11 @@ new_response = '''\
                 status="completed",
                 response=normalized_response,
             )
-'''
+"""
 
 if old_response not in dispatcher_text:
     # Accommodate the scalar-normalization patch if already applied.
-    old_response = '''\
+    old_response = """\
             return CommandResult(
                 command=name,
                 status="completed",
@@ -246,7 +242,7 @@ if old_response not in dispatcher_text:
                     else {"result": response}
                 ),
             )
-'''
+"""
 
 if old_response not in dispatcher_text:
     raise RuntimeError("Completed response block not found.")

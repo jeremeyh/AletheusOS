@@ -10,7 +10,6 @@ changed = False
 # -------------------------------------------------
 
 if "from aletheus.security_v3 import security_core" not in text:
-
     anchor = "from aletheus.high_availability_v3 import high_availability_core"
 
     if anchor not in text:
@@ -18,8 +17,7 @@ if "from aletheus.security_v3 import security_core" not in text:
 
     text = text.replace(
         anchor,
-        anchor +
-        "\nfrom aletheus.security_v3 import security_core",
+        anchor + "\nfrom aletheus.security_v3 import security_core",
         1,
     )
 
@@ -30,7 +28,6 @@ if "from aletheus.security_v3 import security_core" not in text:
 # -------------------------------------------------
 
 if "self.security_v3 = security_core" not in text:
-
     anchor = "self.high_availability_v3 = high_availability_core"
 
     if anchor not in text:
@@ -38,8 +35,7 @@ if "self.security_v3 = security_core" not in text:
 
     text = text.replace(
         anchor,
-        anchor +
-        "\n        self.security_v3 = security_core",
+        anchor + "\n        self.security_v3 = security_core",
         1,
     )
 
@@ -59,13 +55,14 @@ text = text.replace(
 # -------------------------------------------------
 
 if 'self.commands.register("security.bootstrap"' not in text:
-
     anchor = 'self.commands.register("ha.statistics", self._cmd_ha_statistics)'
 
     if anchor not in text:
         raise SystemExit("HA command anchor not found.")
 
-    replacement = anchor + '''
+    replacement = (
+        anchor
+        + """
 
         # --------------------------------------------------
         # v3.7 Security & Policy Engine
@@ -79,7 +76,8 @@ if 'self.commands.register("security.bootstrap"' not in text:
         self.commands.register("security.role.assign", self._cmd_security_role_assign)
         self.commands.register("security.audit", self._cmd_security_audit)
         self.commands.register("security.statistics", self._cmd_security_statistics)
-'''
+"""
+    )
 
     text = text.replace(anchor, replacement, 1)
     changed = True

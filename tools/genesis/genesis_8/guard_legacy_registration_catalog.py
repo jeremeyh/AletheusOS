@@ -5,16 +5,11 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-BOOTSTRAPPER = (
-    ROOT
-    / "aletheus/runtime/command_bootstrap/bootstrapper.py"
-)
+BOOTSTRAPPER = ROOT / "aletheus/runtime/command_bootstrap/bootstrapper.py"
 
 stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 backup_dir = (
-    ROOT
-    / "reports/genesis_8_command_dispatch"
-    / f"guarded_registration_backup_{stamp}"
+    ROOT / "reports/genesis_8_command_dispatch" / f"guarded_registration_backup_{stamp}"
 )
 backup_dir.mkdir(parents=True, exist_ok=True)
 
@@ -30,10 +25,10 @@ if "import ast\n" not in text:
     text = "import ast\nimport inspect\n\n" + text
 
 
-old_class = '''\
+old_class = """\
 class RuntimeCommandBootstrapper:
     def bootstrap(self, runtime):
-'''
+"""
 
 new_class = '''\
 class RuntimeCommandBootstrapper:
@@ -120,14 +115,12 @@ class RuntimeCommandBootstrapper:
 '''
 
 if old_class not in text:
-    raise RuntimeError(
-        "RuntimeCommandBootstrapper class header was not found."
-    )
+    raise RuntimeError("RuntimeCommandBootstrapper class header was not found.")
 
 text = text.replace(old_class, new_class, 1)
 
 
-old_calls = '''\
+old_calls = """\
         # Legacy and compatibility command families.
         # These remain first-class bootstrap registrations
         # until their public contracts are formally retired.
@@ -143,9 +136,9 @@ old_calls = '''\
         register_uil_commands(runtime)
         register_decision_commands(runtime)
         register_compatibility_commands(runtime)
-'''
+"""
 
-new_calls = '''\
+new_calls = """\
         # Legacy and compatibility command families.
         #
         # Preflight dependency validation prevents stale registration
@@ -157,12 +150,10 @@ new_calls = '''\
                 runtime,
                 registration_function,
             )
-'''
+"""
 
 if old_calls not in text:
-    raise RuntimeError(
-        "Legacy registration call block was not found."
-    )
+    raise RuntimeError("Legacy registration call block was not found.")
 
 text = text.replace(old_calls, new_calls, 1)
 

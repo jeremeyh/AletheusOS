@@ -7,7 +7,6 @@ from dataclasses import dataclass
 
 @dataclass
 class EngineMetadata:
-
     name: str
 
     version: str

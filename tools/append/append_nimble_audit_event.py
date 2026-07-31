@@ -14,26 +14,16 @@ def find_repo_root(start: Path) -> Path:
             return current
 
         if current.parent == current:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         current = current.parent
 
 
 ROOT = find_repo_root(Path(__file__).parent)
 
-CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/audit/"
-    "deployment-audit-ledger-contract.json"
-)
+CONTRACT_PATH = ROOT / "nimble/governance/audit/deployment-audit-ledger-contract.json"
 
-LEDGER_PATH = (
-    ROOT
-    / "nimble/governance/audit/"
-    "deployment-audit-ledger.jsonl"
-)
+LEDGER_PATH = ROOT / "nimble/governance/audit/deployment-audit-ledger.jsonl"
 
 FORBIDDEN_KEY_PATTERN = re.compile(
     r"(secret|password|token|credential)",

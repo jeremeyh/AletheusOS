@@ -6,20 +6,6 @@ Genesis 13.28
 
 
 class SemanticMemory:
+    def extract(self, knowledge):
 
-
-    def extract(
-        self,
-        knowledge
-    ):
-
-        return {
-
-            "memory_type":
-                "semantic",
-
-            "knowledge":
-                knowledge
-
-        }
-
+        return {"memory_type": "semantic", "knowledge": knowledge}

@@ -142,7 +142,9 @@ class AletheusCognitionCore:
         return {
             "version": self.version,
             "goals": len(self.goals),
-            "active_goals": len([goal for goal in self.goals if goal.status == "active"]),
+            "active_goals": len(
+                [goal for goal in self.goals if goal.status == "active"]
+            ),
             "plans": len(self.plans),
             "reasoning_sessions": len(self.reasoning_sessions),
             "decisions": len(self.decisions),

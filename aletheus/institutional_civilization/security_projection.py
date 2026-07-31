@@ -73,9 +73,7 @@ class SecurityCivilizationProjector:
     ) -> None:
         self.institution_projector = institution_projector
         self.constitutional_graph = constitutional_graph
-        self._projected: set[
-            tuple[str, str, str]
-        ] = set()
+        self._projected: set[tuple[str, str, str]] = set()
 
     def project(
         self,

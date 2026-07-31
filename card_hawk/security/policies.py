@@ -6,13 +6,6 @@ Genesis 14.18
 
 
 class PolicyEngine:
-
-
-    def evaluate(
-        self,
-        action
-    ):
-
+    def evaluate(self, action):
 
         return True
-

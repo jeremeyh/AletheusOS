@@ -27,23 +27,11 @@ def find_repo_root(start: Path) -> Path:
 ROOT = find_repo_root(Path(__file__).parent)
 
 
-CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/release/"
-    "promotion-contract.json"
-)
+CONTRACT_PATH = ROOT / "nimble/governance/release/promotion-contract.json"
 
-PROMOTION_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "nimble-promotion-record.json"
-)
+PROMOTION_PATH = ROOT / "reports/nimble/nimble-promotion-record.json"
 
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "promotion-validation-latest.json"
-)
+REPORT_PATH = ROOT / "reports/nimble/promotion-validation-latest.json"
 
 
 def sha256_file(path: Path) -> str:
@@ -96,22 +84,16 @@ def main() -> int:
     checks: list[dict[str, Any]] = []
 
     if not CONTRACT_PATH.is_file():
-        failures.append(
-            "Promotion contract is missing."
-        )
+        failures.append("Promotion contract is missing.")
 
     if not PROMOTION_PATH.is_file():
-        failures.append(
-            "Promotion record is missing."
-        )
+        failures.append("Promotion record is missing.")
 
     if failures:
         write_report(
             {
                 "schema_version": "1.0",
-                "generated_at": datetime.now(
-                    UTC
-                ).isoformat(),
+                "generated_at": datetime.now(UTC).isoformat(),
                 "status": "FAIL",
                 "checks": checks,
                 "failures": failures,
@@ -134,21 +116,13 @@ def main() -> int:
 
     environment = promotion.get("environment")
 
-    if (
-        arguments.environment
-        and arguments.environment != environment
-    ):
+    if arguments.environment and arguments.environment != environment:
         failures.append(
-            "Promotion environment does not match "
-            "the requested validation environment."
+            "Promotion environment does not match the requested validation environment."
         )
 
-    if environment not in contract[
-        "promotion_sequence"
-    ]:
-        failures.append(
-            f"Unknown promotion environment: {environment!r}"
-        )
+    if environment not in contract["promotion_sequence"]:
+        failures.append(f"Unknown promotion environment: {environment!r}")
 
     candidate = promotion.get(
         "candidate",
@@ -163,34 +137,22 @@ def main() -> int:
         text=True,
     ).stdout.strip()
 
-    revision_matches = (
-        candidate.get("revision")
-        == current_revision
-    )
+    revision_matches = candidate.get("revision") == current_revision
 
     checks.append(
         {
             "check": "candidate-revision",
-            "status": (
-                "PASS"
-                if revision_matches
-                else "FAIL"
-            ),
+            "status": ("PASS" if revision_matches else "FAIL"),
         }
     )
 
     if not revision_matches:
-        failures.append(
-            "Promotion candidate revision does not "
-            "match HEAD."
-        )
+        failures.append("Promotion candidate revision does not match HEAD.")
 
-    evidence_records = (
-        promotion.get(
-            "integrity",
-            {},
-        ).get("evidence", [])
-    )
+    evidence_records = promotion.get(
+        "integrity",
+        {},
+    ).get("evidence", [])
 
     evidence_by_name = {
         record.get("name"): record
@@ -228,9 +190,7 @@ def main() -> int:
         record = evidence_by_name.get(name)
 
         if not record:
-            failures.append(
-                f"Required promotion evidence missing: {name}"
-            )
+            failures.append(f"Required promotion evidence missing: {name}")
             continue
 
         relative_path = record.get("path", "")
@@ -240,9 +200,7 @@ def main() -> int:
             or relative_path.startswith("/")
             or ".." in Path(relative_path).parts
         ):
-            failures.append(
-                f"Invalid evidence path: {relative_path!r}"
-            )
+            failures.append(f"Invalid evidence path: {relative_path!r}")
             continue
 
         path = ROOT / relative_path
@@ -252,35 +210,25 @@ def main() -> int:
         checks.append(
             {
                 "check": f"evidence:{name}",
-                "status": (
-                    "PASS"
-                    if present
-                    else "FAIL"
-                ),
+                "status": ("PASS" if present else "FAIL"),
             }
         )
 
         if not present:
-            failures.append(
-                f"Evidence file is missing: {relative_path}"
-            )
+            failures.append(f"Evidence file is missing: {relative_path}")
             continue
 
         expected_digest = record.get("sha256")
         actual_digest = sha256_file(path)
 
         if expected_digest != actual_digest:
-            failures.append(
-                f"Evidence checksum mismatch: {relative_path}"
-            )
+            failures.append(f"Evidence checksum mismatch: {relative_path}")
 
     if environment == "production":
         tags = candidate.get("tags") or []
 
         if not tags:
-            failures.append(
-                "Production promotion requires a tag."
-            )
+            failures.append("Production promotion requires a tag.")
 
         rollback = promotion.get(
             "rollback",
@@ -291,30 +239,21 @@ def main() -> int:
         rollback_revision = rollback.get("revision")
 
         if not rollback_release:
-            failures.append(
-                "Production promotion requires "
-                "a rollback release."
-            )
+            failures.append("Production promotion requires a rollback release.")
 
         if not rollback_revision:
-            failures.append(
-                "Production promotion requires "
-                "a rollback revision."
-            )
+            failures.append("Production promotion requires a rollback revision.")
 
         if rollback_revision == current_revision:
             failures.append(
-                "Rollback revision must differ from "
-                "the candidate revision."
+                "Rollback revision must differ from the candidate revision."
             )
 
     status = "PASS" if not failures else "FAIL"
 
     report = {
         "schema_version": "1.0",
-        "generated_at": datetime.now(
-            UTC
-        ).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "environment": environment,
         "candidate_revision": current_revision,
         "status": status,
@@ -352,9 +291,7 @@ def main() -> int:
                 "--metadata-json",
                 json.dumps(
                     {
-                        "rollback_required": (
-                            environment == "production"
-                        ),
+                        "rollback_required": (environment == "production"),
                     }
                 ),
             ],

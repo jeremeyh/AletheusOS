@@ -7,7 +7,6 @@ from abc import ABC, abstractmethod
 
 
 class EngineBase(ABC):
-
     name = "Unnamed Engine"
     version = "1.0"
 

@@ -3,7 +3,6 @@ from timeline.engine.projection import projection
 
 
 class TimelineProjection(Projection):
-
     name = "Timeline"
 
     events = [
@@ -14,8 +13,9 @@ class TimelineProjection(Projection):
         "founder.updated",
     ]
 
-    def handle(self,event,payload):
+    def handle(self, event, payload):
 
-        projection.project(event,payload)
+        projection.project(event, payload)
+
 
 TIMELINE_PROJECTION = TimelineProjection()

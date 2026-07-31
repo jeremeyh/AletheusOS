@@ -19,9 +19,7 @@ MD_REPORT = REPORT_DIR / "registration_bootstrap_audit.md"
 
 
 def module_name(path: Path) -> str:
-    return ".".join(
-        path.relative_to(ROOT).with_suffix("").parts
-    )
+    return ".".join(path.relative_to(ROOT).with_suffix("").parts)
 
 
 def extract_registered_commands(
@@ -45,7 +43,8 @@ def extract_registered_commands(
 
         if not (
             isinstance(function, ast.Attribute)
-            and function.attr in {
+            and function.attr
+            in {
                 "register",
                 "register_context_handler",
                 "register_payload_handler",
@@ -58,9 +57,8 @@ def extract_registered_commands(
 
         command_node = node.args[0]
 
-        if (
-            isinstance(command_node, ast.Constant)
-            and isinstance(command_node.value, str)
+        if isinstance(command_node, ast.Constant) and isinstance(
+            command_node.value, str
         ):
             commands.append(command_node.value)
 
@@ -120,17 +118,14 @@ def source_mentions(
             continue
 
         try:
-            lines = path.read_text(
-                encoding="utf-8"
-            ).splitlines()
+            lines = path.read_text(encoding="utf-8").splitlines()
         except (OSError, UnicodeDecodeError):
             continue
 
         for line_number, line in enumerate(lines, start=1):
             if any(pattern in line for pattern in patterns):
                 references.append(
-                    f"{path.relative_to(ROOT)}:{line_number}:"
-                    f"{line.strip()}"
+                    f"{path.relative_to(ROOT)}:{line_number}:{line.strip()}"
                 )
 
     return references[:30]
@@ -147,14 +142,10 @@ for path in sorted(REGISTRATION_DIR.glob("*_commands.py")):
     missing = sorted(set(declared) - live_commands)
 
     function_references: dict[str, list[str]] = {
-        function: source_mentions(module, function)
-        for function in functions
+        function: source_mentions(module, function) for function in functions
     }
 
-    likely_called = any(
-        references
-        for references in function_references.values()
-    )
+    likely_called = any(references for references in function_references.values())
 
     import_error = None
 
@@ -178,8 +169,7 @@ for path in sorted(REGISTRATION_DIR.glob("*_commands.py")):
             "declared_commands": declared,
             "live_commands": live,
             "missing_commands": missing,
-            "all_declared_live": bool(declared)
-            and not missing,
+            "all_declared_live": bool(declared) and not missing,
             "likely_referenced_by_bootstrap": likely_called,
             "references": function_references,
             "import_error": import_error,
@@ -189,22 +179,17 @@ for path in sorted(REGISTRATION_DIR.glob("*_commands.py")):
 
 summary = {
     "registration_modules": len(records),
-    "fully_live_modules": sum(
-        1 for record in records
-        if record["all_declared_live"]
-    ),
+    "fully_live_modules": sum(1 for record in records if record["all_declared_live"]),
     "partially_or_fully_missing_modules": sum(
-        1 for record in records
-        if record["missing_commands"]
+        1 for record in records if record["missing_commands"]
     ),
     "unreferenced_missing_modules": sum(
-        1 for record in records
-        if record["missing_commands"]
-        and not record["likely_referenced_by_bootstrap"]
+        1
+        for record in records
+        if record["missing_commands"] and not record["likely_referenced_by_bootstrap"]
     ),
     "modules_with_import_errors": sum(
-        1 for record in records
-        if record["import_error"]
+        1 for record in records if record["import_error"]
     ),
 }
 
@@ -242,30 +227,15 @@ for record in records:
             f"- File: `{record['file']}`",
             (
                 "- Functions: "
-                + ", ".join(
-                    f"`{name}`"
-                    for name in record[
-                        "registration_functions"
-                    ]
-                )
+                + ", ".join(f"`{name}`" for name in record["registration_functions"])
             ),
             (
                 "- Loadable functions: "
-                + ", ".join(
-                    f"`{name}`"
-                    for name in record[
-                        "loadable_functions"
-                    ]
-                )
+                + ", ".join(f"`{name}`" for name in record["loadable_functions"])
             ),
             (
                 "- Missing commands: "
-                + ", ".join(
-                    f"`{name}`"
-                    for name in record[
-                        "missing_commands"
-                    ]
-                )
+                + ", ".join(f"`{name}`" for name in record["missing_commands"])
             ),
             (
                 "- Referenced by bootstrap: "
@@ -275,9 +245,7 @@ for record in records:
     )
 
     if record["import_error"]:
-        lines.append(
-            f"- Import error: `{record['import_error']}`"
-        )
+        lines.append(f"- Import error: `{record['import_error']}`")
 
     for function, references in record["references"].items():
         if not references:

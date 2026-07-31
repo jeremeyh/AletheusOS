@@ -29,26 +29,16 @@ ROOT = find_repo_root(Path(__file__).parent)
 
 
 REGISTRY_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "deployment-provider-registry.json"
+    ROOT / "nimble/governance/environments/deployment-provider-registry.json"
 )
 
 CAPABILITY_CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "provider-capability-contract.json"
+    ROOT / "nimble/governance/environments/provider-capability-contract.json"
 )
 
-REPORT_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "provider-preflight-latest.json"
-)
+REPORT_PATH = ROOT / "reports/nimble/provider-preflight-latest.json"
 
-SECRET_NAME_PATTERN = re.compile(
-    r"^[A-Z][A-Z0-9_]*$"
-)
+SECRET_NAME_PATTERN = re.compile(r"^[A-Z][A-Z0-9_]*$")
 
 
 class ProviderPreflightError(RuntimeError):
@@ -56,9 +46,7 @@ class ProviderPreflightError(RuntimeError):
 
 
 def load_json(path: Path) -> dict[str, Any]:
-    return json.loads(
-        path.read_text(encoding="utf-8")
-    )
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def main() -> int:
@@ -93,9 +81,7 @@ def main() -> int:
     arguments = parser.parse_args()
 
     registry = load_json(REGISTRY_PATH)
-    contract = load_json(
-        CAPABILITY_CONTRACT_PATH
-    )
+    contract = load_json(CAPABILITY_CONTRACT_PATH)
 
     failures: list[str] = []
     checks: list[dict[str, Any]] = []
@@ -106,9 +92,7 @@ def main() -> int:
     ).get(arguments.provider)
 
     if provider is None:
-        failures.append(
-            f"Unregistered provider: {arguments.provider}"
-        )
+        failures.append(f"Unregistered provider: {arguments.provider}")
     else:
         checks.append(
             {
@@ -123,43 +107,31 @@ def main() -> int:
         checks.append(
             {
                 "check": "provider-enabled",
-                "status": (
-                    "PASS" if enabled else "FAIL"
-                ),
+                "status": ("PASS" if enabled else "FAIL"),
             }
         )
 
         if not enabled:
-            failures.append(
-                f"Provider is disabled: {arguments.provider}"
-            )
+            failures.append(f"Provider is disabled: {arguments.provider}")
 
-        supported_actions = set(
-            provider.get("supports", [])
-        )
+        supported_actions = set(provider.get("supports", []))
 
         if arguments.action not in supported_actions:
-            failures.append(
-                f"Provider does not support action: "
-                f"{arguments.action}"
-            )
+            failures.append(f"Provider does not support action: {arguments.action}")
 
-        capabilities = set(
-            provider.get("capabilities", [])
-        )
+        capabilities = set(provider.get("capabilities", []))
 
         required_capability = arguments.action
 
         if required_capability not in capabilities:
             failures.append(
-                f"Provider lacks required capability: "
-                f"{required_capability}"
+                f"Provider lacks required capability: {required_capability}"
             )
 
         allowed_capabilities = set(
-            contract["environment_policy"][
-                arguments.environment
-            ]["allowed_capabilities"]
+            contract["environment_policy"][arguments.environment][
+                "allowed_capabilities"
+            ]
         )
 
         if required_capability not in allowed_capabilities:
@@ -168,96 +140,57 @@ def main() -> int:
                 f"allowed in {arguments.environment}."
             )
 
-        supported_environments = set(
-            provider.get("environments", [])
-        )
+        supported_environments = set(provider.get("environments", []))
 
-        if (
-            arguments.environment
-            not in supported_environments
-        ):
+        if arguments.environment not in supported_environments:
             failures.append(
-                "Provider does not support environment: "
-                f"{arguments.environment}"
+                f"Provider does not support environment: {arguments.environment}"
             )
 
-        version = provider.get(
-            "provider_version"
-        )
+        version = provider.get("provider_version")
 
         if not isinstance(version, str) or not version:
-            failures.append(
-                "Provider version is missing."
-            )
+            failures.append("Provider version is missing.")
 
-        required_secrets_by_environment = (
-            provider.get(
-                "required_secrets",
-                {},
-            )
+        required_secrets_by_environment = provider.get(
+            "required_secrets",
+            {},
         )
 
-        environment_secrets = (
-            required_secrets_by_environment.get(
-                arguments.environment
-            )
-        )
+        environment_secrets = required_secrets_by_environment.get(arguments.environment)
 
         if not isinstance(environment_secrets, list):
             failures.append(
-                "Provider must declare an environment-scoped "
-                "required_secrets list."
+                "Provider must declare an environment-scoped required_secrets list."
             )
             environment_secrets = []
 
         for secret_name in environment_secrets:
-            if (
-                not isinstance(secret_name, str)
-                or not SECRET_NAME_PATTERN.fullmatch(
-                    secret_name
-                )
+            if not isinstance(secret_name, str) or not SECRET_NAME_PATTERN.fullmatch(
+                secret_name
             ):
-                failures.append(
-                    f"Invalid secret declaration: "
-                    f"{secret_name!r}"
-                )
+                failures.append(f"Invalid secret declaration: {secret_name!r}")
                 continue
 
-            present = bool(
-                os.environ.get(secret_name)
-            )
+            present = bool(os.environ.get(secret_name))
 
             checks.append(
                 {
-                    "check": (
-                        f"required-secret:{secret_name}"
-                    ),
+                    "check": (f"required-secret:{secret_name}"),
                     "status": (
-                        "PASS"
-                        if present
-                        or arguments.mode == "dry-run"
-                        else "FAIL"
+                        "PASS" if present or arguments.mode == "dry-run" else "FAIL"
                     ),
                     "required_in_mode": "execute",
                 }
             )
 
-            if (
-                arguments.mode == "execute"
-                and not present
-            ):
-                failures.append(
-                    f"Required secret is missing: "
-                    f"{secret_name}"
-                )
+            if arguments.mode == "execute" and not present:
+                failures.append(f"Required secret is missing: {secret_name}")
 
         if (
             arguments.environment == "production"
             and arguments.mode == "execute"
-            and provider.get(
-                "production_execution"
-            )
-            is not True
+            and provider.get("production_execution") is not True
         ):
             failures.append(
                 f"Provider {arguments.provider} is not "
@@ -266,9 +199,7 @@ def main() -> int:
 
         if (
             arguments.environment == "staging"
-            and contract["environment_policy"][
-                "staging"
-            ][
+            and contract["environment_policy"]["staging"][
                 "production_credentials_forbidden"
             ]
         ):
@@ -280,27 +211,19 @@ def main() -> int:
             )
 
             leaked_production_secrets = sorted(
-                name
-                for name in production_secret_names
-                if os.environ.get(name)
+                name for name in production_secret_names if os.environ.get(name)
             )
 
             if leaked_production_secrets:
                 failures.append(
                     "Production-scoped secrets are present "
-                    "during staging execution: "
-                    + ", ".join(
-                        leaked_production_secrets
-                    )
+                    "during staging execution: " + ", ".join(leaked_production_secrets)
                 )
 
     credential_isolation = subprocess.run(
         [
             "python",
-            str(
-                ROOT
-                / "validate_nimble_credential_isolation.py"
-            ),
+            str(ROOT / "validate_nimble_credential_isolation.py"),
             "--provider",
             arguments.provider,
             "--environment",
@@ -318,30 +241,18 @@ def main() -> int:
     checks.append(
         {
             "check": "credential-isolation",
-            "status": (
-                "PASS"
-                if credential_isolation.returncode == 0
-                else "FAIL"
-            ),
+            "status": ("PASS" if credential_isolation.returncode == 0 else "FAIL"),
         }
     )
 
     if credential_isolation.returncode != 0:
-        failures.append(
-            "Credential isolation validation failed."
-        )
+        failures.append("Credential isolation validation failed.")
 
-    status = (
-        "PASS"
-        if not failures
-        else "FAIL"
-    )
+    status = "PASS" if not failures else "FAIL"
 
     report = {
         "schema_version": "1.0",
-        "generated_at": datetime.now(
-            UTC
-        ).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "provider": arguments.provider,
         "action": arguments.action,
         "environment": arguments.environment,

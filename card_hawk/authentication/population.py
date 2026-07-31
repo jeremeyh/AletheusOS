@@ -6,13 +6,6 @@ Genesis 14.11
 
 
 class PopulationEngine:
-
-
-    def analyze(
-        self,
-        asset
-    ):
-
+    def analyze(self, asset):
 
         return {}
-

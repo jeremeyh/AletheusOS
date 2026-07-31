@@ -6,26 +6,17 @@ text = core.read_text()
 # Canonical runtime object
 text = text.replace(
     "self.distributed_v3 = distributed_v3_core",
-    "self.distributed = distributed_v3_core"
+    "self.distributed = distributed_v3_core",
 )
 
 # Remove any remaining legacy assignment
-text = text.replace(
-    "self.distributed = distributed_core",
-    ""
-)
+text = text.replace("self.distributed = distributed_core", "")
 
 # Remove legacy import
-text = text.replace(
-    "from aletheus.distributed import distributed_core\n",
-    ""
-)
+text = text.replace("from aletheus.distributed import distributed_core\n", "")
 
 # Rename remaining references
-text = text.replace(
-    "self.distributed_v3.",
-    "self.distributed."
-)
+text = text.replace("self.distributed_v3.", "self.distributed.")
 
 core.write_text(text)
 

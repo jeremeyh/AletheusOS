@@ -6,23 +6,6 @@ Genesis 13.50
 
 
 class GoalAnalyzer:
+    def analyze(self, goal):
 
-
-    def analyze(
-        self,
-        goal
-    ):
-
-
-        return {
-
-            "goal":
-
-                goal,
-
-            "analyzed":
-
-                True
-
-        }
-
+        return {"goal": goal, "analyzed": True}

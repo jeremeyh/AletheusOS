@@ -10,19 +10,6 @@ Execute automated intelligence workflows
 
 
 class AutomationEngine:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.4"
-
-        }
-
+        return {"status": "ready", "genesis": "23.4"}

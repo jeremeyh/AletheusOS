@@ -14,7 +14,10 @@ def test_runtime_uses_canonical_version():
 def test_packaging_uses_dynamic_version_source():
     data = tomllib.loads((ROOT / "pyproject.toml").read_text())
     assert "version" in data["project"]["dynamic"]
-    assert data["tool"]["setuptools"]["dynamic"]["version"]["attr"] == "aletheus.version.__version__"
+    assert (
+        data["tool"]["setuptools"]["dynamic"]["version"]["attr"]
+        == "aletheus.version.__version__"
+    )
 
 
 def test_readme_declares_canonical_version():

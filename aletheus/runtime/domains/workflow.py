@@ -26,30 +26,22 @@ class WorkflowDomain:
         return context
 
     def start(self, context):
-        result = self.runtime.workflow_v3.start(
-            context.payload.get("workflow_id", "")
-        )
+        result = self.runtime.workflow_v3.start(context.payload.get("workflow_id", ""))
         context.add_result("workflow", result)
         return context
 
     def pause(self, context):
-        result = self.runtime.workflow_v3.pause(
-            context.payload.get("workflow_id", "")
-        )
+        result = self.runtime.workflow_v3.pause(context.payload.get("workflow_id", ""))
         context.add_result("workflow", result)
         return context
 
     def resume(self, context):
-        result = self.runtime.workflow_v3.resume(
-            context.payload.get("workflow_id", "")
-        )
+        result = self.runtime.workflow_v3.resume(context.payload.get("workflow_id", ""))
         context.add_result("workflow", result)
         return context
 
     def cancel(self, context):
-        result = self.runtime.workflow_v3.cancel(
-            context.payload.get("workflow_id", "")
-        )
+        result = self.runtime.workflow_v3.cancel(context.payload.get("workflow_id", ""))
         context.add_result("workflow", result)
         return context
 

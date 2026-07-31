@@ -8,20 +8,11 @@ if not FILE.exists():
 text = FILE.read_text(encoding="utf-8")
 
 replacements = {
-    "assert not report.errors":
-        "assert report.ok, report.to_dict()",
-
-    "assert len(report.errors) == 0":
-        "assert report.error_count == 0, report.to_dict()",
-
-    "assert report.errors == []":
-        "assert report.error_count == 0, report.to_dict()",
-
-    "if report.errors:":
-        "if not report.ok:",
-
-    "len(report.errors)":
-        "report.error_count",
+    "assert not report.errors": "assert report.ok, report.to_dict()",
+    "assert len(report.errors) == 0": "assert report.error_count == 0, report.to_dict()",
+    "assert report.errors == []": "assert report.error_count == 0, report.to_dict()",
+    "if report.errors:": "if not report.ok:",
+    "len(report.errors)": "report.error_count",
 }
 
 count = 0

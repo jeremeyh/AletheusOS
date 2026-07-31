@@ -21,7 +21,6 @@ print(f"Repository Root: {ROOT}")
 print()
 
 for item in sorted(ROOT.iterdir()):
-
     if not item.is_file():
         continue
 
@@ -35,13 +34,7 @@ for item in sorted(ROOT.iterdir()):
     generation = match.group(1)
     remainder = match.group(2)
 
-    destination = (
-        ROOT
-        / "tools"
-        / "genesis"
-        / f"genesis_{generation}"
-        / remainder
-    )
+    destination = ROOT / "tools" / "genesis" / f"genesis_{generation}" / remainder
 
     print(f"{'MOVE' if args.apply else 'PLAN'}")
     print(f"  {item.name}")

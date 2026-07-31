@@ -6,20 +6,10 @@ Genesis 13.51
 
 
 class AgentRegistry:
-
-
     def __init__(self):
 
         self.agents = {}
 
+    def register(self, agent):
 
-
-    def register(
-        self,
-        agent
-    ):
-
-        self.agents[
-            agent.agent_id
-        ] = agent
-
+        self.agents[agent.agent_id] = agent

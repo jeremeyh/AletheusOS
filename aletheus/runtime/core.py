@@ -112,55 +112,68 @@ from aletheus.workspace import workspace_core
 
 class AletheusRuntime:
     def __init__(self) -> None:
+        """Compose and boot the Aletheus runtime in explicit stages."""
+
+        self._initialize_identity()
+        self._initialize_core_runtime()
+        self._initialize_anchor_system()
+        self._initialize_managers()
+        self._initialize_runtime_registry()
+        self._initialize_platform_services()
+        self._initialize_adapters()
+        self._initialize_governance()
+        self._initialize_runtime_services()
+        self._initialize_boot_pipeline()
+        self._initialize_providers()
+
+    def _initialize_identity(self) -> None:
+        """Initialize immutable runtime identity and release metadata."""
+
         self.organization = "6th Dimension Multimedia"
         self.product = "Aletheus™"
         self.product_type = "Universal Intelligence Operating System"
         self.version = "4.2.1"
         self.status = "created"
 
+    def _initialize_core_runtime(self) -> None:
+        """Initialize foundational runtime infrastructure."""
+
         self.events = EventBus()
         self.engines = EngineRegistry()
         self.services = ServiceRegistry()
         self.metrics = RuntimeMetrics()
-
         self.commands = CommandBus(self)
-
         self.command_bootstrapper = RuntimeCommandBootstrapper()
 
+    def _initialize_anchor_system(self) -> None:
+        """Create, register, and attach the foundational anchor circuits."""
+
         self.anchor_registry = AnchorRegistry(self)
-
         self.anchor_lifecycle = AnchorLifecycleController(self.anchor_registry)
-
         self.anchor_dependencies = AnchorDependencyGraph(self.anchor_registry)
 
-        # Anchor governance deferred until intelligence services initialize
-
+        # Anchor governance is deferred until intelligence services initialize.
         self.anchor_registry.register("intelligence", IntelligenceAnchorCircuit(self))
-
         self.anchor_registry.register("memory", MemoryAnchorCircuit(self))
-
         self.anchor_registry.register("knowledge", KnowledgeAnchorCircuit(self))
-
         self.anchor_registry.register("application", ApplicationAnchorCircuit(self))
-
         self.anchor_registry.attach_all()
+
+    def _initialize_managers(self) -> None:
+        """Initialize bounded runtime managers."""
 
         self.certification_manager = CertificationManager(self)
         self.snapshot_manager = SnapshotManager(self)
         self.invariant_manager = InvariantManager(self)
-
         self.health_manager = HealthManager(self)
         self.validation_manager = ValidationManager(self)
         self.registry_manager = RegistryManager(self)
         self.command_manager = CommandManager(self)
         self.governance_manager = GovernanceManager(self)
 
-        self.graph_adapter = GraphCommandAdapter(self)
-        self.mission_adapter = MissionCommandAdapter(self)
-        self.event_adapter = EventCommandAdapter(self)
-        self.runtime_adapter = RuntimeCommandAdapter(self)
-        self.compatibility_adapter = CompatibilityCommandAdapter(self)
-        self.runtime_facade = RuntimeFacade(self)
+    def _initialize_runtime_registry(self) -> None:
+        """Initialize registry infrastructure, diagnostics, and topology metadata."""
+
         self.registry = runtime_registry
         self.registry_compatibility = RegistryCompatibility()
         self.boot_certification = BootCertification()
@@ -169,27 +182,16 @@ class AletheusRuntime:
         self.genesis6_review = Genesis6FreezeReview()
         self.genesis6_validator = Genesis6Validator()
 
+        # Preserve the established bootstrap sequence. Domain registration is
+        # completed again during boot after platform services are available.
         self._register_runtime_domains()
         self.diagnostics = RuntimeDiagnostics(self)
-
         self._bootstrap_runtime_registry()
 
-        self.architecture_validator = ArchitectureValidator(self)
-        self.architecture_governance = ArchitectureGovernanceRules(self)
+        self.registry.register_domain("runtime", self)
 
-        self.registry_governance = RegistryGovernanceRules()
-        self.governance_history = GovernanceHistory()
-
-        self.registry.register_domain(
-            "runtime",
-            self,
-        )
-
-        self.pipelines = PipelineExecutor(self)
-        self.workflows = WorkflowExecutor(self)
-        self.scheduler = Scheduler()
-        self.queue = JobQueue(self)
-        self.plugins = RuntimePluginManager(self)
+    def _initialize_platform_services(self) -> None:
+        """Attach canonical platform capability implementations."""
 
         self.memory = memory_core
         self.cognition = cognition_core
@@ -220,12 +222,6 @@ class AletheusRuntime:
         self.kernel = KernelExecutor(self)
         self.copilot = copilot_core
         self.intelligence = intelligence_core
-
-        self.prediction = PredictionAdapter()
-
-        self.anchor_governance_analyzer = AnchorGovernanceCouncil(
-            self.prediction, self.intelligence
-        )
         self.learning = learning_core
         self.kernel_v2 = kernel_core
         self.mission_v2 = mission_v2_core
@@ -242,37 +238,70 @@ class AletheusRuntime:
         self.memory_mesh = memory_mesh_core
         self.knowledge_graph = knowledge_graph_core
         self.reasoning = reasoning_core
-        self.uil = UniversalIntelligenceAdapter(self)
         self.decision = decision_core
         self.agents_v2 = agent_core
         self.workflow_v3 = workflow_core
         self.planning_v2 = planning_core
 
-        # Runtime Compatibility Layer
-        self.compat = compatibility_registry
+    def _initialize_adapters(self) -> None:
+        """Initialize runtime-facing command and intelligence adapters."""
 
+        self.graph_adapter = GraphCommandAdapter(self)
+        self.mission_adapter = MissionCommandAdapter(self)
+        self.event_adapter = EventCommandAdapter(self)
+        self.runtime_adapter = RuntimeCommandAdapter(self)
+        self.compatibility_adapter = CompatibilityCommandAdapter(self)
+        self.runtime_facade = RuntimeFacade(self)
+        self.prediction = PredictionAdapter()
+        self.uil = UniversalIntelligenceAdapter(self)
+
+    def _initialize_governance(self) -> None:
+        """Initialize architecture governance and anchor analysis services."""
+
+        self.architecture_validator = ArchitectureValidator(self)
+        self.architecture_governance = ArchitectureGovernanceRules(self)
+        self.registry_governance = RegistryGovernanceRules()
+        self.governance_history = GovernanceHistory()
+        self.anchor_governance_analyzer = AnchorGovernanceCouncil(
+            self.prediction,
+            self.intelligence,
+        )
+
+    def _initialize_runtime_services(self) -> None:
+        """Initialize execution, scheduling, plugin, and observability services."""
+
+        self.pipelines = PipelineExecutor(self)
+        self.workflows = WorkflowExecutor(self)
+        self.scheduler = Scheduler()
+        self.queue = JobQueue(self)
+        self.plugins = RuntimePluginManager(self)
+
+        # Runtime compatibility and observability surfaces.
+        self.compat = compatibility_registry
         self.spa = RuntimeSPABridge(self)
         self.command_auditor = CommandSurfaceAuditor(self)
+
+    def _initialize_boot_pipeline(self) -> None:
+        """Boot the runtime, then initialize post-boot integrity services."""
+
         self.boot()
         self._bootstrap_compatibility()
+
         self.hardening = RuntimeHardening(self)
         self.runtime_doctor = RuntimeDoctor(self)
-
         self.governance = GovernanceEngine(self)
         self.principle_x = PrincipleXValidator(self)
         self.runtime_invariants = RuntimeInvariantEngine(self)
         self.boot_validator = RuntimeBootValidator(self)
 
-        # --------------------------------------------------
-        # Runtime Service Registry
-        # --------------------------------------------------
+    def _initialize_providers(self) -> None:
+        """Register runtime service providers after successful boot."""
 
         from aletheus.runtime.providers import RuntimeServiceProvider
 
         RuntimeServiceProvider().register(self)
 
     def boot(self) -> None:
-
         self.command_bootstrapper.bootstrap(self)
 
         from aletheus.runtime.boot_pipeline import (
@@ -290,7 +319,6 @@ class AletheusRuntime:
         )
 
     def register_service(self, name: str, service: Any) -> None:
-
         self.services.register(
             "Aletheus Cognitive Reasoning Engine",
             {
@@ -340,9 +368,7 @@ class AletheusRuntime:
         }
 
         for name, instance in registrations.items():
-
             if instance is not None:
-
                 self.registry.register_domain(
                     name,
                     instance,
@@ -455,7 +481,6 @@ class AletheusRuntime:
         return context
 
     def _cmd_event_publish(self, context: RuntimeContext) -> RuntimeContext:
-
         payload = context.payload
 
         context.add_result(
@@ -471,7 +496,6 @@ class AletheusRuntime:
         return context
 
     def _cmd_event_subscribe(self, context: RuntimeContext) -> RuntimeContext:
-
         payload = context.payload
 
         context.add_result(
@@ -485,7 +509,6 @@ class AletheusRuntime:
         return context
 
     def _cmd_event_unsubscribe(self, context: RuntimeContext) -> RuntimeContext:
-
         payload = context.payload
 
         context.add_result(
@@ -499,7 +522,6 @@ class AletheusRuntime:
         return context
 
     def _cmd_event_history(self, context: RuntimeContext) -> RuntimeContext:
-
         context.add_result(
             "history",
             self.event_bus_v3.history(
@@ -510,7 +532,6 @@ class AletheusRuntime:
         return context
 
     def _cmd_event_replay(self, context: RuntimeContext) -> RuntimeContext:
-
         context.add_result(
             "replay",
             self.event_bus_v3.replay(
@@ -521,7 +542,6 @@ class AletheusRuntime:
         return context
 
     def _cmd_event_statistics(self, context: RuntimeContext) -> RuntimeContext:
-
         context.add_result(
             "event_stats",
             self.event_bus_v3.statistics(),
@@ -578,7 +598,6 @@ class AletheusRuntime:
     # ==========================================================
 
     def _cmd_registry_inspect(self, context):
-
         context.add_result("registry", self.registry_snapshot())
 
         return context
@@ -680,7 +699,32 @@ class AletheusRuntime:
         return context
 
     def _cmd_runtime_audit(self, context: RuntimeContext) -> RuntimeContext:
-        context.add_result("audit", self.hardening.audit())
+        """
+        Return the canonical runtime audit payload.
+
+        The public command contract retains the historical ``audit`` result
+        key while enriching the hardening audit with serializable runtime
+        diagnostics, registry topology, and SPA architecture evidence.
+        """
+
+        hardening_audit = self.hardening.audit()
+
+        if isinstance(hardening_audit, dict):
+            audit = {
+                **hardening_audit,
+                "diagnostics": self.diagnostics.report(),
+                "registry": self.registry_snapshot(),
+                "spa": self.spa.assess(),
+            }
+        else:
+            audit = {
+                "hardening": hardening_audit,
+                "diagnostics": self.diagnostics.report(),
+                "registry": self.registry_snapshot(),
+                "spa": self.spa.assess(),
+            }
+
+        context.add_result("audit", audit)
         return context
 
     def _cmd_runtime_docs(self, context: RuntimeContext) -> RuntimeContext:
@@ -794,7 +838,6 @@ class AletheusRuntime:
         return context
 
     def _cmd_architecture_governance_check(self, context):
-
         context.add_result(
             "architecture_governance", self.architecture_governance_validate()
         )
@@ -807,17 +850,6 @@ class AletheusRuntime:
             {
                 "architecture": self.architecture_snapshot(),
                 "invariants": self.invariants(),
-                "spa": self.spa.assess(),
-            },
-        )
-        return context
-
-    def _cmd_runtime_audit(self, context):
-        context.add_result(
-            "runtime_audit",
-            {
-                "diagnostics": self.diagnostics,
-                "registry": self.registry_snapshot(),
                 "spa": self.spa.assess(),
             },
         )
@@ -836,11 +868,9 @@ class AletheusRuntime:
         }
 
     def anchor_governance_status(self):
-
         return self.anchor_governance_analyzer.analyze()
 
     def anchor_lifecycle_status(self):
-
         return {
             "anchors": self.anchor_registry.list(),
             "health": self.anchor_lifecycle.health(),
@@ -848,175 +878,132 @@ class AletheusRuntime:
         }
 
     def anchor_dependency_status(self):
-
         return self.anchor_dependencies.snapshot()
 
     def anchor_contract_status(self):
-
         return self.anchor_contracts.snapshot()
 
     def anchor_discovery_status(self):
-
         return self.anchor_discovery.snapshot()
 
     def anchor_healing_status(self):
-
         return self.anchor_healing.snapshot()
 
     def anchor_intelligence_status(self):
-
         return self.anchor_intelligence.snapshot()
 
     def anchor_optimization_status(self):
-
         return self.anchor_optimization.snapshot()
 
     def anchor_learning_status(self):
-
         return self.anchor_learning.snapshot()
 
     def anchor_predictive_status(self):
-
         return self.anchor_predictive.snapshot()
 
     def anchor_constitution_status(self):
-
         return self.anchor_constitution.snapshot()
 
     def anchor_simulation_status(self):
-
         return self.anchor_simulation.snapshot()
 
     def anchor_research_status(self):
-
         return self.anchor_research.snapshot()
 
     def anchor_proposal_status(self):
-
         return self.anchor_proposals.snapshot()
 
     def anchor_negotiation_status(self):
-
         return self.anchor_negotiation.snapshot()
 
     def anchor_execution_status(self):
-
         return self.anchor_execution.snapshot()
 
     def anchor_verification_status(self):
-
         return self.anchor_verification.snapshot()
 
     def anchor_evolution_graph_status(self):
-
         return self.anchor_evolution_graph.snapshot()
 
     def anchor_analytics_status(self):
-
         return self.anchor_analytics.snapshot()
 
     def anchor_strategy_status(self):
-
         return self.anchor_strategy.snapshot()
 
     def anchor_portfolio_status(self):
-
         return self.anchor_portfolio.snapshot()
 
     def anchor_resource_status(self):
-
         return self.anchor_resources.snapshot()
 
     def anchor_performance_status(self):
-
         return self.anchor_performance.snapshot()
 
     def anchor_improvement_status(self):
-
         return self.anchor_improvement_loop.snapshot()
 
     def anchor_architect_status(self):
-
         return self.anchor_architect.snapshot()
 
     def anchor_architecture_simulator_status(self):
-
         return self.anchor_architecture_simulator.snapshot()
 
     def anchor_architecture_selection_status(self):
-
         return self.anchor_architecture_selection.snapshot()
 
     def anchor_deployment_status(self):
-
         return self.anchor_deployment_governor.snapshot()
 
     def anchor_migration_status(self):
-
         return self.anchor_runtime_migration.snapshot()
 
     def anchor_continuity_status(self):
-
         return self.anchor_continuity.snapshot()
 
     def anchor_institutional_memory_status(self):
-
         return self.anchor_institutional_memory.snapshot()
 
     def anchor_pattern_status(self):
-
         return self.anchor_pattern_intelligence.snapshot()
 
     def anchor_forecasting_status(self):
-
         return self.anchor_pattern_forecasting.snapshot()
 
     def anchor_steward_status(self):
-
         return self.anchor_architecture_steward.snapshot()
 
     def anchor_constitution_reasoning_status(self):
-
         return self.anchor_constitution_reasoning.snapshot()
 
     def anchor_council_status(self):
-
         return self.anchor_architecture_council.snapshot()
 
     def anchor_consensus_status(self):
-
         return self.anchor_consensus_memory.snapshot()
 
     def anchor_judgment_status(self):
-
         return self.anchor_judgment_optimizer.snapshot()
 
     def anchor_meta_reasoning_status(self):
-
         return self.anchor_meta_reasoning.snapshot()
 
     def anchor_cognitive_status(self):
-
         return self.anchor_cognitive_architecture.snapshot()
 
     def anchor_cognitive_optimization_status(self):
-
         return self.anchor_cognitive_optimizer.snapshot()
 
     def anchor_cognitive_self_improvement_status(self):
-
         return self.anchor_cognitive_self_improvement.snapshot()
 
     def anchor_cognitive_architect_status(self):
-
         return self.anchor_cognitive_architect.snapshot()
 
     def anchor_cognitive_simulation_status(self):
-
         return self.anchor_cognitive_simulator.snapshot()
 
     def anchor_cognitive_selection_status(self):
-
         return self.anchor_cognitive_selector.snapshot()
 
 

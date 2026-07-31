@@ -4,7 +4,6 @@ from .providers import provider_registry
 
 
 class SearchResolver:
-
     GENESIS = "21.8"
     VERSION = "1.0.0"
 

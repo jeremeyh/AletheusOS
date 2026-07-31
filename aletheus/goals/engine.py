@@ -4,7 +4,6 @@ Aletheus Autonomous Goal Management Engine
 Post-Genesis 19
 """
 
-
 from .adjustment_engine import AdjustmentEngine
 from .evaluation_engine import EvaluationEngine
 from .goal_decomposer import GoalDecomposer
@@ -14,8 +13,6 @@ from .progress_tracker import ProgressTracker
 
 
 class AutonomousGoalEngine:
-
-
     def __init__(self):
 
         self.objectives = ObjectiveManager()
@@ -30,40 +27,19 @@ class AutonomousGoalEngine:
 
         self.adjustment = AdjustmentEngine()
 
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_autonomous_goal_management",
-
-            "phase":
-            "post_genesis_19",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_autonomous_goal_management",
+            "phase": "post_genesis_19",
+            "status": "operational",
         }
-
-
 
     def manage_goal(self, goal):
 
         return {
-
-            "goal":
-            goal,
-
-            "management":
-            "active",
-
-            "progress":
-            "tracked",
-
-            "status":
-            "pursuing"
-
+            "goal": goal,
+            "management": "active",
+            "progress": "tracked",
+            "status": "pursuing",
         }
-

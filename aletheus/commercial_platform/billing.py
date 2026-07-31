@@ -6,19 +6,6 @@ Genesis 13.45
 
 
 class BillingEngine:
+    def invoice(self, customer):
 
-
-    def invoice(
-        self,
-        customer
-    ):
-
-
-        return {
-
-            "status":
-
-                "generated"
-
-        }
-
+        return {"status": "generated"}

@@ -33,46 +33,35 @@ def main() -> None:
     #
 
     knowledge = constitutional_library.create(
-
         title="Marketplace Appraisal Principle",
-
         statement=(
             "Marketplace appraisals should combine "
             "market evidence, portfolio context, and "
             "constitutional reasoning."
         ),
-
         knowledge_type=KnowledgeType.PRINCIPLE,
-
         confidence=0.95,
-
         constitutional_articles=[
             "Principle X",
             "Evidence Before Conclusion",
             "Knowledge Stewardship Principle",
         ],
-
         supporting_evidence=[
             "Marketplace Intelligence",
             "Portfolio Analysis",
         ],
-
         related_identities=[
             "identity.founder.master_lord_6ixth",
         ],
-
         related_memories=[
             "MEM-EXAMPLE-0001",
         ],
-
         related_reasons=[
             "REASON-EXAMPLE-0001",
         ],
-
         execution_graph_nodes=[
             "NODE-EXAMPLE-0001",
         ],
-
         provenance={
             "application": "CardHawk",
             "genesis": "51.0",
@@ -81,27 +70,19 @@ def main() -> None:
 
     header("CREATED KNOWLEDGE")
 
-    pprint(
-        knowledge.to_dict()
-    )
+    pprint(knowledge.to_dict())
 
     #
     # Governance
     #
 
-    constitutional_library.validate(
-        knowledge
-    )
+    constitutional_library.validate(knowledge)
 
-    constitutional_library.promote(
-        knowledge
-    )
+    constitutional_library.promote(knowledge)
 
     header("CANONICAL KNOWLEDGE")
 
-    pprint(
-        knowledge.to_dict()
-    )
+    pprint(knowledge.to_dict())
 
     #
     # Retrieval
@@ -109,23 +90,11 @@ def main() -> None:
 
     header("SEARCH")
 
-    pprint(
-        [
-            k.to_dict()
-            for k in constitutional_library.search(
-                "Marketplace"
-            )
-        ]
-    )
+    pprint([k.to_dict() for k in constitutional_library.search("Marketplace")])
 
     header("CANONICAL")
 
-    pprint(
-        [
-            k.to_dict()
-            for k in constitutional_library.canonical()
-        ]
-    )
+    pprint([k.to_dict() for k in constitutional_library.canonical()])
 
     #
     # Diagnostics
@@ -133,17 +102,12 @@ def main() -> None:
 
     header("HEALTH")
 
-    pprint(
-        constitutional_library.health()
-    )
+    pprint(constitutional_library.health())
 
     header("STATISTICS")
 
-    pprint(
-        constitutional_library.statistics()
-    )
+    pprint(constitutional_library.statistics())
 
 
 if __name__ == "__main__":
-
     main()

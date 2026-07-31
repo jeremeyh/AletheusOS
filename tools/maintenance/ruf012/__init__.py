@@ -1,4 +1,5 @@
 """Genesis 11 RUF012 transformation framework."""
+
 from .models import RewriteFailure, RewritePreview, RewriteStatistics
 from .registry import TransformationRegistry
 from .rewriter import CandidateRewriter, RewriteError

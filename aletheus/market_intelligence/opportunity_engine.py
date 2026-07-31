@@ -6,17 +6,6 @@ Post-Genesis 25
 
 
 class OpportunityEngine:
-
-
     def score(self, asset):
 
-        return {
-
-            "asset":
-            asset,
-
-            "opportunity":
-            "scored"
-
-        }
-
+        return {"asset": asset, "opportunity": "scored"}

@@ -10,10 +10,8 @@ from __future__ import annotations
 
 
 class GraphCommandAdapter:
-
     def __init__(self, runtime):
         self.runtime = runtime
-
 
     def entity_create(self, context):
 
@@ -52,7 +50,6 @@ class GraphCommandAdapter:
 
         return context
 
-
     def entity_search(self, context):
 
         payload = context.payload
@@ -60,17 +57,12 @@ class GraphCommandAdapter:
         context.add_result(
             "entities",
             self.runtime.knowledge.search_entities(
-                label=payload.get(
-                    "label"
-                ),
-                entity_type=payload.get(
-                    "entity_type"
-                ),
+                label=payload.get("label"),
+                entity_type=payload.get("entity_type"),
             ),
         )
 
         return context
-
 
     def relationship_create(self, context):
 
@@ -113,7 +105,6 @@ class GraphCommandAdapter:
 
         return context
 
-
     def relationship_search(self, context):
 
         payload = context.payload
@@ -121,20 +112,13 @@ class GraphCommandAdapter:
         context.add_result(
             "relationships",
             self.runtime.knowledge.search_relationships(
-                source_id=payload.get(
-                    "source_id"
-                ),
-                target_id=payload.get(
-                    "target_id"
-                ),
-                relationship_type=payload.get(
-                    "relationship_type"
-                ),
+                source_id=payload.get("source_id"),
+                target_id=payload.get("target_id"),
+                relationship_type=payload.get("relationship_type"),
             ),
         )
 
         return context
-
 
     def graph_export(self, context):
 
@@ -144,7 +128,6 @@ class GraphCommandAdapter:
         )
 
         return context
-
 
     def graph_query(self, context):
 
@@ -159,7 +142,6 @@ class GraphCommandAdapter:
         )
 
         return context
-
 
     def graph_stats(self, context):
 
@@ -178,9 +160,7 @@ class GraphCommandAdapter:
             result = knowledge.statistics()
 
         else:
-            result = {
-                "status": "unknown"
-            }
+            result = {"status": "unknown"}
 
         context.add_result(
             "graph_stats",

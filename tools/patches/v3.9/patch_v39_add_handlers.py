@@ -7,7 +7,7 @@ if "def _cmd_tenant_bootstrap" in text:
     print("✔ Tenant handlers already exist.")
     raise SystemExit(0)
 
-handlers = '''
+handlers = """
 
     # ==========================================================
     # v3.9 Multi-Tenant Runtime
@@ -137,7 +137,7 @@ handlers = '''
         )
         return context
 
-'''
+"""
 
 anchor = "    def _job_runtime_pulse(self) -> dict:"
 

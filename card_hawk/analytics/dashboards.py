@@ -6,13 +6,6 @@ Genesis 14.19
 
 
 class DashboardEngine:
-
-
-    def generate(
-        self,
-        metrics
-    ):
-
+    def generate(self, metrics):
 
         return {}
-

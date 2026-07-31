@@ -64,14 +64,10 @@ class ConstitutionalMission:
 
     def __post_init__(self) -> None:
         if self.created_at.tzinfo is None:
-            raise ValueError(
-                "created_at must include timezone information."
-            )
+            raise ValueError("created_at must include timezone information.")
 
         if self.modified_at.tzinfo is None:
-            raise ValueError(
-                "modified_at must include timezone information."
-            )
+            raise ValueError("modified_at must include timezone information.")
 
         object.__setattr__(
             self,
@@ -101,17 +97,9 @@ class ConstitutionalMission:
             ConstitutionalMissionPriority.NORMAL
         ),
         dependencies: (
-            set[str]
-            | frozenset[str]
-            | tuple[str, ...]
-            | list[str]
-            | None
+            set[str] | frozenset[str] | tuple[str, ...] | list[str] | None
         ) = None,
-        required_evidence: (
-            tuple[str, ...]
-            | list[str]
-            | None
-        ) = None,
+        required_evidence: (tuple[str, ...] | list[str] | None) = None,
         owner: str = "Platform Intelligence",
         authority: str = "AletheusOS Constitution",
         metadata: Mapping[str, Any] | None = None,
@@ -121,19 +109,14 @@ class ConstitutionalMission:
         normalized_address = address.strip().lower()
 
         if not normalized_address:
-            raise ValueError(
-                "Mission address cannot be empty."
-            )
+            raise ValueError("Mission address cannot be empty.")
 
         dependency_set = frozenset(
-            dependency.strip().lower()
-            for dependency in (dependencies or ())
+            dependency.strip().lower() for dependency in (dependencies or ())
         )
 
         if normalized_address in dependency_set:
-            raise ValueError(
-                "A mission cannot depend on itself."
-            )
+            raise ValueError("A mission cannot depend on itself.")
 
         now = created_at or datetime.now(UTC)
 
@@ -144,20 +127,14 @@ class ConstitutionalMission:
             objective=objective.strip(),
             description=description.strip(),
             priority=priority,
-            state=(
-                ConstitutionalMissionState.CREATED
-            ),
+            state=(ConstitutionalMissionState.CREATED),
             dependencies=dependency_set,
-            required_evidence=tuple(
-                required_evidence or ()
-            ),
+            required_evidence=tuple(required_evidence or ()),
             owner=owner.strip(),
             authority=authority.strip(),
             created_at=now,
             modified_at=now,
-            metadata=MappingProxyType(
-                dict(metadata or {})
-            ),
+            metadata=MappingProxyType(dict(metadata or {})),
         )
 
     @property
@@ -175,9 +152,7 @@ class ConstitutionalMission:
             self,
             state=state,
             failure_reason=failure_reason,
-            modified_at=(
-                modified_at or datetime.now(UTC)
-            ),
+            modified_at=(modified_at or datetime.now(UTC)),
         )
 
     def to_snapshot(self) -> dict[str, Any]:
@@ -189,12 +164,8 @@ class ConstitutionalMission:
             "description": self.description,
             "priority": self.priority.value,
             "state": self.state.value,
-            "dependencies": sorted(
-                self.dependencies
-            ),
-            "required_evidence": list(
-                self.required_evidence
-            ),
+            "dependencies": sorted(self.dependencies),
+            "required_evidence": list(self.required_evidence),
             "owner": self.owner,
             "authority": self.authority,
             "created_at": self.created_at.isoformat(),
@@ -230,7 +201,5 @@ class MissionEngineStatistics:
             "completed": self.completed,
             "failed": self.failed,
             "cancelled": self.cancelled,
-            "dependency_edges": (
-                self.dependency_edges
-            ),
+            "dependency_edges": (self.dependency_edges),
         }

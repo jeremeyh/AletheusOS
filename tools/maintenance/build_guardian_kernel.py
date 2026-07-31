@@ -12,8 +12,7 @@ from .kernel import GuardianKernel
 
 __all__ = ["GuardianKernel"]
 ''',
-
-    "aletheus/runtime/guardian/models.py": '''from dataclasses import dataclass, asdict
+    "aletheus/runtime/guardian/models.py": """from dataclasses import dataclass, asdict
 from datetime import datetime
 
 
@@ -34,8 +33,7 @@ class GuardianEvent:
         if not data["created_at"]:
             data["created_at"] = datetime.utcnow().isoformat()
         return data
-''',
-
+""",
     "aletheus/runtime/guardian/kernel.py": '''from __future__ import annotations
 
 import importlib.util
@@ -259,8 +257,7 @@ class GuardianKernel:
         spec.loader.exec_module(module)
         return module
 ''',
-
-    "tools/maintenance/run_guardian_kernel.py": '''import argparse
+    "tools/maintenance/run_guardian_kernel.py": """import argparse
 import importlib.util
 import json
 from pathlib import Path
@@ -331,7 +328,7 @@ def main():
 
 if __name__ == "__main__":
     main()
-''',
+""",
 }
 
 
@@ -351,10 +348,14 @@ def main():
     print("Guardian Kernel™ files created.")
     print()
     print("Next run:")
-    print("python3 -m py_compile aletheus/runtime/guardian/*.py tools/maintenance/run_guardian_kernel.py")
+    print(
+        "python3 -m py_compile aletheus/runtime/guardian/*.py tools/maintenance/run_guardian_kernel.py"
+    )
     print()
     print("Then test:")
-    print('python3 tools/maintenance/run_guardian_kernel.py --action "delete" --target "vault" --source "guardian-test"')
+    print(
+        'python3 tools/maintenance/run_guardian_kernel.py --action "delete" --target "vault" --source "guardian-test"'
+    )
     print("=" * 72)
 
 

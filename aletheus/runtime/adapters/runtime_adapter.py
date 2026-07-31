@@ -13,7 +13,6 @@ from typing import Any
 
 
 class RuntimeCommandAdapter:
-
     def __init__(self, runtime):
         self.runtime = runtime
 
@@ -52,9 +51,7 @@ class RuntimeCommandAdapter:
             if health is not None:
                 return self._call_or_value(health)
 
-        raise RuntimeError(
-            "Runtime doctor capability is unavailable."
-        )
+        raise RuntimeError("Runtime doctor capability is unavailable.")
 
     def _resolve_invariants(self) -> Any:
         candidates = (
@@ -110,13 +107,9 @@ class RuntimeCommandAdapter:
         )
 
         if architecture_validate is not None:
-            return self._call_or_value(
-                architecture_validate
-            )
+            return self._call_or_value(architecture_validate)
 
-        raise RuntimeError(
-            "Runtime invariant capability is unavailable."
-        )
+        raise RuntimeError("Runtime invariant capability is unavailable.")
 
     def _resolve_boot_validation(self) -> Any:
         candidates = (
@@ -130,9 +123,7 @@ class RuntimeCommandAdapter:
 
             if target is not None:
                 result = self._call_or_value(target)
-                return self._normalize_boot_validation(
-                    result
-                )
+                return self._normalize_boot_validation(result)
 
         validator = getattr(
             self.runtime,
@@ -153,16 +144,10 @@ class RuntimeCommandAdapter:
                 )
 
                 if method is not None:
-                    result = self._call_or_value(
-                        method
-                    )
-                    return self._normalize_boot_validation(
-                        result
-                    )
+                    result = self._call_or_value(method)
+                    return self._normalize_boot_validation(result)
 
-        raise RuntimeError(
-            "Runtime boot validation capability is unavailable."
-        )
+        raise RuntimeError("Runtime boot validation capability is unavailable.")
 
     @staticmethod
     def _normalize_boot_validation(
@@ -183,17 +168,13 @@ class RuntimeCommandAdapter:
                     ),
                 )
 
-                normalized["status"] = (
-                    "pass" if healthy else "fail"
-                )
+                normalized["status"] = "pass" if healthy else "fail"
 
             return normalized
 
         if isinstance(result, bool):
             return {
-                "status": (
-                    "pass" if result else "fail"
-                ),
+                "status": ("pass" if result else "fail"),
                 "valid": result,
             }
 
@@ -207,7 +188,8 @@ class RuntimeCommandAdapter:
 
         passed = bool(
             health.get("booted", False)
-            and health.get("status") in {
+            and health.get("status")
+            in {
                 "healthy",
                 "online",
             }
@@ -216,9 +198,7 @@ class RuntimeCommandAdapter:
         context.add_result(
             "selftest",
             {
-                "status": (
-                    "pass" if passed else "fail"
-                ),
+                "status": ("pass" if passed else "fail"),
                 "health": health,
                 "commands": self.runtime.commands.count(),
             },
@@ -233,10 +213,7 @@ class RuntimeCommandAdapter:
             "dashboard",
             {
                 "health": (
-                    "pass"
-                    if health.get("status")
-                    in {"healthy", "online"}
-                    else "fail"
+                    "pass" if health.get("status") in {"healthy", "online"} else "fail"
                 ),
                 "runtime": health,
                 "registry": self.runtime.registry_snapshot(),
@@ -344,11 +321,7 @@ class RuntimeCommandAdapter:
             if callable(statistics):
                 compatibility = statistics()
 
-        status = (
-            "healthy"
-            if health.get("booted", False)
-            else "warning"
-        )
+        status = "healthy" if health.get("booted", False) else "warning"
 
         context.add_result(
             "audit",
@@ -395,9 +368,7 @@ class RuntimeCommandAdapter:
         documentation = {
             "status": "written",
             "path": str(output_path),
-            "bytes": len(
-                content.encode("utf-8")
-            ),
+            "bytes": len(content.encode("utf-8")),
         }
 
         context.add_result(
@@ -464,9 +435,7 @@ class RuntimeCommandAdapter:
         )
 
         if runtime_doctor is None:
-            raise RuntimeError(
-                "Runtime health report writer is unavailable."
-            )
+            raise RuntimeError("Runtime health report writer is unavailable.")
 
         write_reports = getattr(
             runtime_doctor,
@@ -476,8 +445,7 @@ class RuntimeCommandAdapter:
 
         if not callable(write_reports):
             raise TypeError(
-                "Runtime health report writer does not expose "
-                "write_reports()."
+                "Runtime health report writer does not expose write_reports()."
             )
 
         report = write_reports()

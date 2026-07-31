@@ -54,9 +54,7 @@ def create_security_containment_mission(
 
     return ConstitutionalMission(
         mission_id=mission_id,
-        mission_type=(
-            SECURITY_CONTAINMENT_CONTRACT.mission_type
-        ),
+        mission_type=(SECURITY_CONTAINMENT_CONTRACT.mission_type),
         canonical_name="Security Containment Mission™",
         purpose=SECURITY_CONTAINMENT_CONTRACT.purpose,
         authority="Security Civilization™",

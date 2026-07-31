@@ -97,30 +97,17 @@ class ExecutionGraphLineage:
         """
 
         return {
-
             "node": node_id,
-
-            "ancestry": [
-                node.to_dict()
-                for node in self.ancestry(node_id)
-            ],
-
-            "descendants": [
-                node.to_dict()
-                for node in self.descendants(node_id)
-            ],
+            "ancestry": [node.to_dict() for node in self.ancestry(node_id)],
+            "descendants": [node.to_dict() for node in self.descendants(node_id)],
         }
 
     def health(self) -> dict:
 
         return {
-
             "name": "Foundation Execution Graph Lineage",
-
             "genesis": self.GENESIS,
-
             "version": self.VERSION,
-
             "status": "healthy",
         }
 

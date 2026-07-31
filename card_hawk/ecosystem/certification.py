@@ -6,19 +6,6 @@ Genesis 14.21
 
 
 class CertificationEngine:
+    def certify(self, submission):
 
-
-    def certify(
-        self,
-        submission
-    ):
-
-
-        return {
-
-            "status":
-
-                "approved"
-
-        }
-
+        return {"status": "approved"}

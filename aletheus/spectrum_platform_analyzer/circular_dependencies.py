@@ -11,7 +11,6 @@ from .dependency import dependency_analyzer
 
 
 class CircularDependencyAnalyzer:
-
     VERSION = "1.0.0"
 
     GENESIS = "54.4"
@@ -26,17 +25,13 @@ class CircularDependencyAnalyzer:
         normalized: dict[str, list[str]] = {}
 
         for module, imports in graph.items():
-
             internal_imports = []
 
             for imported in imports:
-
                 if imported in modules:
-
                     internal_imports.append(imported)
 
                 else:
-
                     #
                     # Match package-level imports to known modules.
                     #
@@ -69,19 +64,16 @@ class CircularDependencyAnalyzer:
         def visit(node: str):
 
             if node in stack:
-
                 index = path.index(node)
 
                 cycle = path[index:] + [node]
 
                 if cycle not in cycles:
-
                     cycles.append(cycle)
 
                 return
 
             if node in visited:
-
                 return
 
             visited.add(node)
@@ -91,7 +83,6 @@ class CircularDependencyAnalyzer:
             path.append(node)
 
             for neighbor in graph.get(node, []):
-
                 visit(neighbor)
 
             stack.remove(node)
@@ -99,7 +90,6 @@ class CircularDependencyAnalyzer:
             path.pop()
 
         for node in graph:
-
             visit(node)
 
         return cycles
@@ -119,11 +109,7 @@ class CircularDependencyAnalyzer:
             {
                 "cycle": cycle,
                 "length": len(cycle) - 1,
-                "severity": (
-                    "HIGH"
-                    if len(cycle) > 4
-                    else "MEDIUM"
-                ),
+                "severity": ("HIGH" if len(cycle) > 4 else "MEDIUM"),
             }
             for cycle in cycles
         ]
@@ -137,11 +123,7 @@ class CircularDependencyAnalyzer:
 
         return {
             "circular_dependencies": len(cycles),
-            "status": (
-                "PASS"
-                if len(cycles) == 0
-                else "REVIEW"
-            ),
+            "status": ("PASS" if len(cycles) == 0 else "REVIEW"),
         }
 
     def health(self) -> dict:

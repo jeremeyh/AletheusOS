@@ -53,11 +53,7 @@ def relative(path: Path) -> str:
 
 
 def module_name(path: Path) -> str:
-    parts = list(
-        path.relative_to(ROOT)
-        .with_suffix("")
-        .parts
-    )
+    parts = list(path.relative_to(ROOT).with_suffix("").parts)
 
     if parts and parts[-1] == "__init__":
         parts.pop()
@@ -77,9 +73,7 @@ def discover() -> tuple[list[Path], list[Path]]:
         current = Path(current_root)
 
         directory_names[:] = [
-            name
-            for name in directory_names
-            if name not in EXCLUDED_DIRECTORY_NAMES
+            name for name in directory_names if name not in EXCLUDED_DIRECTORY_NAMES
         ]
 
         if current != ROOT:
@@ -119,9 +113,7 @@ def parse_imports(
                 imports.add(node.module)
 
                 for alias in node.names:
-                    imported_symbols.add(
-                        f"{node.module}.{alias.name}"
-                    )
+                    imported_symbols.add(f"{node.module}.{alias.name}")
 
     return imports, imported_symbols
 
@@ -181,12 +173,8 @@ def classify_empty_python(
 
     slash_name = module.replace(".", "/")
 
-    referenced = (
-        bool(module)
-        and (
-            module in reference_text
-            or slash_name in reference_text
-        )
+    referenced = bool(module) and (
+        module in reference_text or slash_name in reference_text
     )
 
     if package_marker:
@@ -241,18 +229,12 @@ def main() -> None:
 
     files, directories = discover()
 
-    python_files = [
-        path
-        for path in files
-        if path.suffix == ".py"
-    ]
+    python_files = [path for path in files if path.suffix == ".py"]
 
     print(f"Files discovered: {len(files)}")
     print(f"Python files: {len(python_files)}")
 
-    imports, imported_symbols = parse_imports(
-        python_files
-    )
+    imports, imported_symbols = parse_imports(python_files)
 
     print("Building one-pass text reference index...")
     reference_text = build_reference_index(files)
@@ -318,9 +300,7 @@ def main() -> None:
         if path.name in protected_zero_byte_names:
             classification = "KEEP_MARKER"
 
-        elif relative_path.startswith(
-            "reports/repository_hygiene/"
-        ):
+        elif relative_path.startswith("reports/repository_hygiene/"):
             classification = "KEEP_GENERATED_REPORT"
 
         elif path.suffix in SAFE_ZERO_BYTE_SUFFIXES:
@@ -369,24 +349,15 @@ def main() -> None:
 
     for filename, rows in reports.items():
         report = write_csv(filename, rows)
-        print(
-            f"{filename}: {len(rows)} -> {report}"
-        )
+        print(f"{filename}: {len(rows)} -> {report}")
 
-    counts = Counter(
-        row["classification"]
-        for row in empty_python_rows
-    )
+    counts = Counter(row["classification"] for row in empty_python_rows)
 
     print()
     print("Empty Python classifications:")
 
-    for classification, count in sorted(
-        counts.items()
-    ):
-        print(
-            f"  {classification}: {count}"
-        )
+    for classification, count in sorted(counts.items()):
+        print(f"  {classification}: {count}")
 
     print()
     print("No files were deleted.")

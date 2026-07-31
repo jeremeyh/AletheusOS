@@ -37,13 +37,10 @@ class SecurityEventType(StrEnum):
     ENTITY_RELEASED = "EntityReleased"
     ENTITY_DESTROYED = "EntityDestroyed"
 
-    SECURITY_GOVERNANCE_ESCALATED = (
-        "SecurityGovernanceEscalated"
-    )
+    SECURITY_GOVERNANCE_ESCALATED = "SecurityGovernanceEscalated"
 
 
-def canonical_security_event_definitions(
-) -> tuple[EventTypeDefinition, ...]:
+def canonical_security_event_definitions() -> tuple[EventTypeDefinition, ...]:
     """
     Return event definitions owned by the Security Civilization.
 
@@ -55,48 +52,37 @@ def canonical_security_event_definitions(
         EventTypeDefinition(
             event_type=SecurityEventType.THREAT_CLASSIFIED,
             description=(
-                "Guardian classified the defensive significance "
-                "of a security finding."
+                "Guardian classified the defensive significance of a security finding."
             ),
             constitutional_domain="security",
         ),
         EventTypeDefinition(
             event_type=SecurityEventType.CONTAINMENT_REQUESTED,
-            description=(
-                "Guardian or Council requested governed containment."
-            ),
+            description=("Guardian or Council requested governed containment."),
             constitutional_domain="security",
         ),
         EventTypeDefinition(
             event_type=SecurityEventType.ENTITY_QUARANTINED,
             description=(
-                "Conclave isolated an entity within a governed "
-                "containment boundary."
+                "Conclave isolated an entity within a governed containment boundary."
             ),
             constitutional_domain="security",
         ),
         EventTypeDefinition(
             event_type=SecurityEventType.EVIDENCE_PRESERVED,
-            description=(
-                "Containment Vault preserved forensic evidence."
-            ),
+            description=("Containment Vault preserved forensic evidence."),
             constitutional_domain="security",
         ),
         EventTypeDefinition(
-            event_type=(
-                SecurityEventType.CHAIN_OF_CUSTODY_RECORDED
-            ),
+            event_type=(SecurityEventType.CHAIN_OF_CUSTODY_RECORDED),
             description=(
-                "Containment Vault established an inspectable "
-                "chain-of-custody record."
+                "Containment Vault established an inspectable chain-of-custody record."
             ),
             constitutional_domain="security",
             requires_certification=True,
         ),
         EventTypeDefinition(
-            event_type=(
-                SecurityEventType.SECURITY_INCIDENT_STABILIZED
-            ),
+            event_type=(SecurityEventType.SECURITY_INCIDENT_STABILIZED),
             description=(
                 "Sentinel confirmed that the active security incident "
                 "was operationally stabilized."
@@ -105,52 +91,40 @@ def canonical_security_event_definitions(
         ),
         EventTypeDefinition(
             event_type=SecurityEventType.RELEASE_REVIEW_REQUESTED,
-            description=(
-                "Conclave requested governed review of a "
-                "quarantined entity."
-            ),
+            description=("Conclave requested governed review of a quarantined entity."),
             constitutional_domain="security",
         ),
         EventTypeDefinition(
             event_type=SecurityEventType.RELEASE_AUTHORIZED,
-            description=(
-                "Council authorized release of a quarantined entity."
-            ),
+            description=("Council authorized release of a quarantined entity."),
             constitutional_domain="governance",
             requires_certification=True,
         ),
         EventTypeDefinition(
             event_type=SecurityEventType.DESTRUCTION_AUTHORIZED,
             description=(
-                "Council authorized governed destruction of a "
-                "quarantined entity."
+                "Council authorized governed destruction of a quarantined entity."
             ),
             constitutional_domain="governance",
             requires_certification=True,
         ),
         EventTypeDefinition(
             event_type=SecurityEventType.ENTITY_RELEASED,
-            description=(
-                "Conclave released an entity from containment."
-            ),
+            description=("Conclave released an entity from containment."),
             constitutional_domain="security",
         ),
         EventTypeDefinition(
             event_type=SecurityEventType.ENTITY_DESTROYED,
             description=(
-                "A quarantined entity was destroyed under "
-                "certified authorization."
+                "A quarantined entity was destroyed under certified authorization."
             ),
             constitutional_domain="security",
             requires_certification=True,
         ),
         EventTypeDefinition(
-            event_type=(
-                SecurityEventType.SECURITY_GOVERNANCE_ESCALATED
-            ),
+            event_type=(SecurityEventType.SECURITY_GOVERNANCE_ESCALATED),
             description=(
-                "Guardian escalated a consequential security matter "
-                "to Council."
+                "Guardian escalated a consequential security matter to Council."
             ),
             constitutional_domain="governance",
         ),
@@ -175,16 +149,12 @@ def register_security_event_types(
             continue
 
         if (
-            existing.event_type.value
-            != definition.event_type.value
-            or existing.constitutional_domain
-            != definition.constitutional_domain
-            or existing.requires_certification
-            != definition.requires_certification
+            existing.event_type.value != definition.event_type.value
+            or existing.constitutional_domain != definition.constitutional_domain
+            or existing.requires_certification != definition.requires_certification
         ):
             raise ValueError(
-                "Conflicting event definition for "
-                f"{definition.event_type.value!r}."
+                f"Conflicting event definition for {definition.event_type.value!r}."
             )
 
     return registry

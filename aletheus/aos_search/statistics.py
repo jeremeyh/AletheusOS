@@ -2,7 +2,6 @@ from __future__ import annotations
 
 
 class SearchStatistics:
-
     GENESIS = "21.8"
     VERSION = "1.0.0"
 
@@ -32,19 +31,12 @@ class SearchStatistics:
     def snapshot(self):
 
         return {
-
             "requests": self.requests,
-
             "plans": self.plans,
-
             "routes": self.routes,
-
             "consensus": self.consensus,
-
             "genesis": self.GENESIS,
-
             "version": self.VERSION,
-
         }
 
 

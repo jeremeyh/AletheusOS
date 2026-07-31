@@ -5,16 +5,11 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-BOOTSTRAPPER = (
-    ROOT
-    / "aletheus/runtime/command_bootstrap/bootstrapper.py"
-)
+BOOTSTRAPPER = ROOT / "aletheus/runtime/command_bootstrap/bootstrapper.py"
 
 stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 backup_dir = (
-    ROOT
-    / "reports/genesis_8_command_dispatch"
-    / f"registration_catalog_backup_{stamp}"
+    ROOT / "reports/genesis_8_command_dispatch" / f"registration_catalog_backup_{stamp}"
 )
 backup_dir.mkdir(parents=True, exist_ok=True)
 
@@ -100,13 +95,9 @@ if missing_imports:
             break
 
     if last_import_index < 0:
-        raise RuntimeError(
-            "Could not locate bootstrapper import section."
-        )
+        raise RuntimeError("Could not locate bootstrapper import section.")
 
-    lines[
-        last_import_index + 1:last_import_index + 1
-    ] = missing_imports
+    lines[last_import_index + 1 : last_import_index + 1] = missing_imports
 
     text = "\n".join(lines) + "\n"
 
@@ -126,11 +117,7 @@ CALLS = [
     "register_compatibility_commands(runtime)",
 ]
 
-missing_calls = [
-    call
-    for call in CALLS
-    if call not in text
-]
+missing_calls = [call for call in CALLS if call not in text]
 
 if missing_calls:
     anchor = "        register_governance_commands(runtime)"
@@ -147,10 +134,7 @@ if missing_calls:
             "        # Legacy and compatibility command families.",
             "        # These remain first-class bootstrap registrations",
             "        # until their public contracts are formally retired.",
-            *[
-                f"        {call}"
-                for call in missing_calls
-            ],
+            *[f"        {call}" for call in missing_calls],
         ]
     )
 

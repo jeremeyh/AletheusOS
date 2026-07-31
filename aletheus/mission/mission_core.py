@@ -44,7 +44,10 @@ class AletheusMissionCore:
         return [mission.to_dict() for mission in results]
 
     def get_mission(self, mission_id: str) -> Mission | None:
-        return next((mission for mission in self.missions if mission.mission_id == mission_id), None)
+        return next(
+            (mission for mission in self.missions if mission.mission_id == mission_id),
+            None,
+        )
 
     def complete_mission(self, mission_id: str) -> dict[str, Any]:
         mission = self.get_mission(mission_id)
@@ -76,19 +79,49 @@ class AletheusMissionCore:
 
         if "portfolio" in lower_title or "card" in lower_title:
             tasks = [
-                {"title": "Refresh marketplace intelligence", "description": "Collect current listings and comps."},
-                {"title": "Run opportunity scoring", "description": "Apply THORᵡ and DEF scoring."},
-                {"title": "Rank acquisition candidates", "description": "Prioritize assets by opportunity and risk."},
-                {"title": "Record founder decision", "description": "Capture rationale and confidence."},
-                {"title": "Update knowledge graph", "description": "Connect asset, player, decision, and mission entities."},
+                {
+                    "title": "Refresh marketplace intelligence",
+                    "description": "Collect current listings and comps.",
+                },
+                {
+                    "title": "Run opportunity scoring",
+                    "description": "Apply THORᵡ and DEF scoring.",
+                },
+                {
+                    "title": "Rank acquisition candidates",
+                    "description": "Prioritize assets by opportunity and risk.",
+                },
+                {
+                    "title": "Record founder decision",
+                    "description": "Capture rationale and confidence.",
+                },
+                {
+                    "title": "Update knowledge graph",
+                    "description": "Connect asset, player, decision, and mission entities.",
+                },
             ]
         else:
             tasks = [
-                {"title": "Clarify mission objective", "description": "Define success criteria."},
-                {"title": "Gather evidence", "description": "Collect relevant facts and constraints."},
-                {"title": "Generate plan", "description": "Build an ordered execution path."},
-                {"title": "Execute first action", "description": "Move the mission forward."},
-                {"title": "Record outcome", "description": "Store result and rationale."},
+                {
+                    "title": "Clarify mission objective",
+                    "description": "Define success criteria.",
+                },
+                {
+                    "title": "Gather evidence",
+                    "description": "Collect relevant facts and constraints.",
+                },
+                {
+                    "title": "Generate plan",
+                    "description": "Build an ordered execution path.",
+                },
+                {
+                    "title": "Execute first action",
+                    "description": "Move the mission forward.",
+                },
+                {
+                    "title": "Record outcome",
+                    "description": "Store result and rationale.",
+                },
             ]
 
         return self.create_mission(
@@ -142,8 +175,12 @@ class AletheusMissionCore:
         return {
             "version": self.version,
             "missions": len(self.missions),
-            "active_missions": len([mission for mission in self.missions if mission.status == "active"]),
-            "completed_missions": len([mission for mission in self.missions if mission.status == "completed"]),
+            "active_missions": len(
+                [mission for mission in self.missions if mission.status == "active"]
+            ),
+            "completed_missions": len(
+                [mission for mission in self.missions if mission.status == "completed"]
+            ),
             "runs": len(self.runs),
         }
 

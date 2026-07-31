@@ -6,13 +6,6 @@ Genesis 14.9
 
 
 class GoalEngine:
-
-
-    def track(
-        self,
-        goal
-    ):
-
+    def track(self, goal):
 
         return goal
-

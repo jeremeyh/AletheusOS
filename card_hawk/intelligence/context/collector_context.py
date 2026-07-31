@@ -10,19 +10,6 @@ Maintain collector intelligence context
 
 
 class CollectorContext:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.7"
-
-        }
-
+        return {"status": "ready", "genesis": "23.7"}

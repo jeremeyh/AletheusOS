@@ -7,130 +7,52 @@ Transforms knowledge into
 strategic direction.
 """
 
-
 import time
 import uuid
 
 
 class IntelligenceStrategyEngine:
+    def __init__(self, knowledge_engine=None):
 
-
-    def __init__(
-        self,
-        knowledge_engine=None
-    ):
-
-        self.knowledge_engine = (
-            knowledge_engine
-        )
+        self.knowledge_engine = knowledge_engine
 
         self.strategies = []
 
-
-
-    def analyze_objective(
-        self,
-        objective
-    ):
+    def analyze_objective(self, objective):
 
         analysis = {
-
-            "objective_id":
-                str(uuid.uuid4()),
-
-            "objective":
-                objective,
-
-            "importance_score":
-                100,
-
-            "analyzed":
-                True
-
+            "objective_id": str(uuid.uuid4()),
+            "objective": objective,
+            "importance_score": 100,
+            "analyzed": True,
         }
-
 
         return analysis
 
-
-
-    def prioritize(
-        self,
-        objectives
-    ):
+    def prioritize(self, objectives):
 
         return sorted(
-            objectives,
-            key=lambda x:
-                x.get(
-                    "importance_score",
-                    0
-                ),
-            reverse=True
+            objectives, key=lambda x: x.get("importance_score", 0), reverse=True
         )
 
-
-
-    def create_strategy(
-        self,
-        objective
-    ):
+    def create_strategy(self, objective):
 
         strategy = {
-
-            "strategy_id":
-                str(uuid.uuid4()),
-
-            "objective":
-                objective,
-
-            "priority":
-                "high",
-
-            "long_term":
-                True,
-
-            "created":
-                time.time()
-
+            "strategy_id": str(uuid.uuid4()),
+            "objective": objective,
+            "priority": "high",
+            "long_term": True,
+            "created": time.time(),
         }
 
-
-        self.strategies.append(
-            strategy
-        )
-
+        self.strategies.append(strategy)
 
         return strategy
 
+    def evaluate(self, strategy):
 
-
-    def evaluate(
-        self,
-        strategy
-    ):
-
-        return {
-
-            "strategy":
-                strategy,
-
-            "viability":
-                100,
-
-            "recommended":
-                True
-
-        }
-
-
+        return {"strategy": strategy, "viability": 100, "recommended": True}
 
     def snapshot(self):
 
-        return {
-
-            "strategy_count":
-                len(self.strategies)
-
-        }
-
+        return {"strategy_count": len(self.strategies)}

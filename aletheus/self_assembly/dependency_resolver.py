@@ -32,9 +32,7 @@ class DependencyResolver:
                 return
 
             if component_id in visiting:
-                raise ValueError(
-                    f"Dependency cycle detected at {component_id}"
-                )
+                raise ValueError(f"Dependency cycle detected at {component_id}")
 
             visiting.add(component_id)
 

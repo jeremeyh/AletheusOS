@@ -1,8 +1,3 @@
 from .engine import GlobalKnowledgeCivilizationGraphEngine
 
-__all__ = [
-
-"GlobalKnowledgeCivilizationGraphEngine"
-
-]
-
+__all__ = ["GlobalKnowledgeCivilizationGraphEngine"]

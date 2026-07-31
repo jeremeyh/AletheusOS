@@ -5,11 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
-CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/deployment/"
-    "image-provenance-contract.json"
-)
+CONTRACT_PATH = ROOT / "nimble/governance/deployment/image-provenance-contract.json"
 
 DOCKERFILE_PATH = ROOT / "Dockerfile.nimble"
 
@@ -29,9 +25,7 @@ def test_dockerfile_contains_required_oci_labels() -> None:
         encoding="utf-8",
     )
 
-    for label in contract["image"][
-        "required_oci_labels"
-    ]:
+    for label in contract["image"]["required_oci_labels"]:
         assert label in dockerfile
 
 
@@ -42,19 +36,9 @@ def test_provenance_contract_requires_digest() -> None:
         )
     )
 
-    assert (
-        contract["provenance"][
-            "digest_algorithm"
-        ]
-        == "sha256"
-    )
+    assert contract["provenance"]["digest_algorithm"] == "sha256"
 
-    assert (
-        contract["provenance"][
-            "digest_required_in_ci"
-        ]
-        is True
-    )
+    assert contract["provenance"]["digest_required_in_ci"] is True
 
 
 def test_provenance_contract_requires_sbom() -> None:

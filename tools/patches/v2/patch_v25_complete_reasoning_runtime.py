@@ -11,7 +11,8 @@ if 'self.commands.register("reason.bootstrap"' not in text:
 
     text = text.replace(
         anchor,
-        anchor + '''
+        anchor
+        + """
 
         # v2.5 Cognitive Reasoning Engine
         self.commands.register("reason.bootstrap", self._cmd_reason_bootstrap)
@@ -22,13 +23,13 @@ if 'self.commands.register("reason.bootstrap"' not in text:
         self.commands.register("reason.decision", self._cmd_reason_decision)
         self.commands.register("reason.confidence", self._cmd_reason_confidence)
         self.commands.register("reason.statistics", self._cmd_reason_statistics)
-''',
+""",
         1,
     )
 
 # 2. Add command handlers if missing
 if "def _cmd_reason_bootstrap" not in text:
-    methods = '''
+    methods = """
     def _cmd_reason_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("reasoning", self.reasoning.bootstrap_rules())
         return context
@@ -86,7 +87,7 @@ if "def _cmd_reason_bootstrap" not in text:
         context.add_result("reasoning_stats", self.reasoning.stats())
         return context
 
-'''
+"""
     anchor = "    def _job_runtime_pulse(self) -> dict:"
     if anchor not in text:
         raise SystemExit("Could not locate _job_runtime_pulse anchor.")

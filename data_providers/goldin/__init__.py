@@ -1,6 +1,8 @@
 class Provider:
-    NAME="Goldin"
-    def search(self, query:str):
+    NAME = "Goldin"
+
+    def search(self, query: str):
         return []
-    def normalize(self, record:dict):
+
+    def normalize(self, record: dict):
         return record

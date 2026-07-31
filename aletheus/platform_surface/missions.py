@@ -23,17 +23,13 @@ class MissionSurface:
         self,
         mission_id: str,
     ):
-        return self._engine.registry.get(
-            mission_id
-        )
+        return self._engine.registry.get(mission_id)
 
     def require(
         self,
         mission_id: str,
     ):
-        return self._engine.registry.require(
-            mission_id
-        )
+        return self._engine.registry.require(mission_id)
 
     def list(self):
         return self._engine.registry.list()
@@ -51,56 +47,40 @@ class MissionSurface:
             else MissionStatus(status)
         )
 
-        return self._engine.registry.by_status(
-            resolved
-        )
+        return self._engine.registry.by_status(resolved)
 
     def history(
         self,
         mission_id: str,
     ):
-        return self._engine.history(
-            mission_id
-        )
+        return self._engine.history(mission_id)
 
     def temporal_state(
         self,
         mission_id: str,
     ):
-        return self._time.state(
-            mission_id
-        )
+        return self._time.state(mission_id)
 
     def phase_graph(
         self,
         mission_id: str,
     ):
-        return self._time.graph(
-            mission_id
-        )
+        return self._time.graph(mission_id)
 
     def eligible_phases(
         self,
         mission_id: str,
     ):
-        return self._time.eligible_phases(
-            mission_id
-        )
+        return self._time.eligible_phases(mission_id)
 
     def statistics(self) -> dict:
         return self._engine.registry.statistics()
 
     def health(self) -> dict:
         return {
-            "name": (
-                "AletheusOS Mission Surface™"
-            ),
+            "name": ("AletheusOS Mission Surface™"),
             "version": self.VERSION,
             "status": "online",
-            "missions": (
-                self._engine
-                .registry
-                .statistics()
-            ),
+            "missions": (self._engine.registry.statistics()),
             "time": self._time.health(),
         }

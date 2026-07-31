@@ -42,20 +42,11 @@ ROOT = Path(__file__).resolve().parents[2]
 # ---------------------------------------------------------------------
 
 FILE_MOVES = {
-    "reports/runtime_core_decomposition_baseline.md":
-        "docs/architecture/runtime_core_decomposition_baseline.md",
-
-    "reports/runtime_v5_command_inventory.txt":
-        "docs/architecture/runtime_v5_command_inventory.txt",
-
-    "reports/release_cleanup_report.md":
-        "docs/architecture/release_cleanup_report.md",
-
-    "reports/architecture/crk_constitutional_ownership_map.md":
-        "docs/architecture/crk_constitutional_ownership_map.md",
-
-    "reports/architecture/crk_constitutional_ownership_map.json":
-        "docs/architecture/crk_constitutional_ownership_map.json",
+    "reports/runtime_core_decomposition_baseline.md": "docs/architecture/runtime_core_decomposition_baseline.md",
+    "reports/runtime_v5_command_inventory.txt": "docs/architecture/runtime_v5_command_inventory.txt",
+    "reports/release_cleanup_report.md": "docs/architecture/release_cleanup_report.md",
+    "reports/architecture/crk_constitutional_ownership_map.md": "docs/architecture/crk_constitutional_ownership_map.md",
+    "reports/architecture/crk_constitutional_ownership_map.json": "docs/architecture/crk_constitutional_ownership_map.json",
 }
 
 
@@ -64,41 +55,18 @@ FILE_MOVES = {
 # ---------------------------------------------------------------------
 
 DIRECTORY_MOVES = {
-    "reports/guardian":
-        "reports/generated/guardian",
-
-    "reports/sentinel":
-        "reports/generated/sentinel",
-
-    "reports/council":
-        "reports/generated/council",
-
-    "reports/conclave":
-        "reports/generated/conclave",
-
-    "reports/atlas":
-        "reports/generated/atlas",
-
-    "reports/lighthouse":
-        "reports/generated/lighthouse",
-
-    "reports/platform":
-        "reports/generated/platform",
-
-    "reports/platform_census":
-        "reports/generated/platform_census",
-
-    "reports/platform_inspection":
-        "reports/generated/platform_inspection",
-
-    "reports/spectrum":
-        "reports/generated/spectrum",
-
-    "reports/nimble":
-        "reports/generated/nimble",
-
-    "reports/release_certification":
-        "reports/generated/release_certification",
+    "reports/guardian": "reports/generated/guardian",
+    "reports/sentinel": "reports/generated/sentinel",
+    "reports/council": "reports/generated/council",
+    "reports/conclave": "reports/generated/conclave",
+    "reports/atlas": "reports/generated/atlas",
+    "reports/lighthouse": "reports/generated/lighthouse",
+    "reports/platform": "reports/generated/platform",
+    "reports/platform_census": "reports/generated/platform_census",
+    "reports/platform_inspection": "reports/generated/platform_inspection",
+    "reports/spectrum": "reports/generated/spectrum",
+    "reports/nimble": "reports/generated/nimble",
+    "reports/release_certification": "reports/generated/release_certification",
 }
 
 

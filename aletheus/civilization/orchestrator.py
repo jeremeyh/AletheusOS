@@ -108,11 +108,7 @@ class CivilizationOrchestrator:
                 SecurityEventType.INTEGRITY_FINDING_CREATED,
                 "aletheus.watch_tower",
                 correlation_id=case.correlation_id,
-                causation_id=(
-                    case.event_ids[-1]
-                    if case.event_ids
-                    else None
-                ),
+                causation_id=(case.event_ids[-1] if case.event_ids else None),
                 payload={
                     "case_id": case.case_id,
                     "mission_id": mission.mission_id,
@@ -132,25 +128,16 @@ class CivilizationOrchestrator:
             self.time.fabric.publish(integrity_event)
 
             self.mission_engine.create(mission)
-            self.mission_engine.authorize(
-                mission.mission_id
-            )
+            self.mission_engine.authorize(mission.mission_id)
 
-            for institution_id in (
-                mission.contract.required_institutions
-            ):
+            for institution_id in mission.contract.required_institutions:
                 self.mission_engine.join(
                     mission.mission_id,
                     institution_id,
                 )
 
-                if (
-                    institution_id
-                    not in case.participating_institutions
-                ):
-                    case.participating_institutions.append(
-                        institution_id
-                    )
+                if institution_id not in case.participating_institutions:
+                    case.participating_institutions.append(institution_id)
 
             self.case_engine.attach_mission(
                 case.case_id,
@@ -158,9 +145,7 @@ class CivilizationOrchestrator:
                 mission_type=mission.mission_type,
             )
 
-            self.mission_engine.start(
-                mission.mission_id
-            )
+            self.mission_engine.start(mission.mission_id)
 
             self.time.attach_graph(
                 mission_id=mission.mission_id,
@@ -175,9 +160,7 @@ class CivilizationOrchestrator:
                     "entity_id": entity_id,
                     "severity": severity,
                     "finding": dict(finding),
-                    "integrity_event_id": (
-                        integrity_event.event_id
-                    ),
+                    "integrity_event_id": (integrity_event.event_id),
                 },
             )
 
@@ -187,12 +170,8 @@ class CivilizationOrchestrator:
                 phase = temporal_state.phases[phase_id]
 
                 for record in phase.evidence:
-                    evidence_type = record[
-                        "evidence_type"
-                    ]
-                    source_identity = record[
-                        "source_identity"
-                    ]
+                    evidence_type = record["evidence_type"]
+                    source_identity = record["source_identity"]
                     evidence = record["evidence"]
 
                     self.mission_engine.attach_evidence(
@@ -211,17 +190,13 @@ class CivilizationOrchestrator:
 
             self.case_engine.contain(case.case_id)
 
-            self.mission_engine.complete(
-                mission.mission_id
-            )
+            self.mission_engine.complete(mission.mission_id)
 
             self.case_engine.resolve(case.case_id)
             self.case_engine.verify(case.case_id)
             self.case_engine.close(case.case_id)
 
-            history = self.ledger.replay_events(
-                correlation_id=case.correlation_id
-            )
+            history = self.ledger.replay_events(correlation_id=case.correlation_id)
 
             self._responses += 1
 
@@ -234,9 +209,7 @@ class CivilizationOrchestrator:
                 mission_status=mission.status.value,
                 security_status=(
                     "stabilized"
-                    if self.time.sequence_completed(
-                        mission.mission_id
-                    )
+                    if self.time.sequence_completed(mission.mission_id)
                     else "incomplete"
                 ),
                 evidence_count=len(case.evidence),
@@ -244,43 +217,26 @@ class CivilizationOrchestrator:
                 metadata={
                     "entity_id": entity_id,
                     "severity": severity,
-                    "integrity_event_id": (
-                        integrity_event.event_id
-                    ),
-                    "case_missions": list(
-                        case.mission_ids
-                    ),
-                    "institutions": list(
-                        case.participating_institutions
-                    ),
-                    "phase_order": list(
-                        temporal_state.completed_order
-                    ),
+                    "integrity_event_id": (integrity_event.event_id),
+                    "case_missions": list(case.mission_ids),
+                    "institutions": list(case.participating_institutions),
+                    "phase_order": list(temporal_state.completed_order),
                 },
             )
 
         except Exception:
             self._failures += 1
 
-            current = self.mission_engine.registry.get(
-                mission.mission_id
-            )
+            current = self.mission_engine.registry.get(mission.mission_id)
 
-            if (
-                current is not None
-                and current.status.value
-                not in {
-                    "completed",
-                    "archived",
-                    "failed",
-                }
-            ):
+            if current is not None and current.status.value not in {
+                "completed",
+                "archived",
+                "failed",
+            }:
                 self.mission_engine.fail(
                     mission.mission_id,
-                    (
-                        "TIME-driven civilization "
-                        "orchestration failed."
-                    ),
+                    ("TIME-driven civilization orchestration failed."),
                 )
 
             raise
@@ -291,9 +247,7 @@ class CivilizationOrchestrator:
     ):
         """Return authoritative correlated Ledger history."""
 
-        return self.ledger.replay_events(
-            correlation_id=correlation_id
-        )
+        return self.ledger.replay_events(correlation_id=correlation_id)
 
     def provenance(
         self,
@@ -301,9 +255,7 @@ class CivilizationOrchestrator:
     ):
         """Return Transtemporal provenance for one event."""
 
-        return self.ledger.temporal_provenance(
-            event_id
-        )
+        return self.ledger.temporal_provenance(event_id)
 
     def health(self) -> dict[str, Any]:
         """Return composed Civilization Orchestrator health."""
@@ -311,17 +263,11 @@ class CivilizationOrchestrator:
         return {
             "name": "Civilization Orchestrator™",
             "version": self.VERSION,
-            "status": (
-                "degraded"
-                if self._failures
-                else "online"
-            ),
+            "status": ("degraded" if self._failures else "online"),
             "responses": self._responses,
             "failures": self._failures,
             "case_engine": self.case_engine.health(),
             "mission_engine": self.mission_engine.health(),
             "time": self.time.health(),
-            "mission_runtime": (
-                self.mission_runtime.health()
-            ),
+            "mission_runtime": (self.mission_runtime.health()),
         }

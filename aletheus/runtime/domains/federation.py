@@ -14,9 +14,7 @@ class FederationDomain:
         )
 
     def leave(self, payload):
-        return self.runtime.federation_v3.leave(
-            payload.get("node_id", "")
-        )
+        return self.runtime.federation_v3.leave(payload.get("node_id", ""))
 
     def discover(self, payload=None):
         return self.runtime.federation_v3.discover()
@@ -25,9 +23,7 @@ class FederationDomain:
         return self.runtime.federation_v3.query()
 
     def broadcast(self, payload):
-        return self.runtime.federation_v3.broadcast(
-            payload.get("message", "")
-        )
+        return self.runtime.federation_v3.broadcast(payload.get("message", ""))
 
     def statistics(self, payload=None):
         return self.runtime.federation_v3.statistics()

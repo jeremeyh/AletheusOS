@@ -7,7 +7,6 @@ from .intent import intent_engine
 
 @dataclass(slots=True)
 class ExecutionPlan:
-
     name: str
 
     providers: list[str] = field(default_factory=list)
@@ -37,7 +36,6 @@ class ExecutionPlan:
 
 
 class SearchPlanner:
-
     GENESIS = "21.8.2"
     VERSION = "1.1.0"
 
@@ -46,7 +44,6 @@ class SearchPlanner:
         intent = intent_engine.classify(query)
 
         if intent.intent == "marketplace_analysis":
-
             return ExecutionPlan(
                 name="Marketplace Intelligence",
                 providers=[
@@ -65,7 +62,6 @@ class SearchPlanner:
             )
 
         if intent.intent == "inventory_lookup":
-
             return ExecutionPlan(
                 name="Enterprise Inventory",
                 providers=[

@@ -83,7 +83,6 @@ class AletheumOrchestrator:
         report = {}
 
         for subsystem in self._subsystems:
-
             if hasattr(subsystem.instance, "health"):
                 try:
                     report[subsystem.name] = subsystem.instance.health()

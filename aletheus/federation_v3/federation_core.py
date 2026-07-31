@@ -15,9 +15,9 @@ def utc_now():
 # Federation Node
 # ============================================================
 
+
 @dataclass
 class FederationNode:
-
     node_id: str
     name: str
     address: str
@@ -38,9 +38,9 @@ class FederationNode:
 # Federation
 # ============================================================
 
+
 @dataclass
 class Federation:
-
     federation_id: str
 
     name: str
@@ -56,8 +56,8 @@ class Federation:
 # Engine
 # ============================================================
 
-class AletheusFederationEngine:
 
+class AletheusFederationEngine:
     VERSION = "3.4.0"
 
     def __init__(self):
@@ -73,17 +73,12 @@ class AletheusFederationEngine:
     def bootstrap(self):
 
         if self.federation:
-
             return self.statistics()
 
         local = FederationNode(
-
             node_id=str(uuid.uuid4()),
-
             name="Local Runtime",
-
             address="localhost",
-
             capabilities=[
                 "reasoning",
                 "planning",
@@ -92,18 +87,13 @@ class AletheusFederationEngine:
                 "plugins",
                 "event_bus",
             ],
-
             services=[],
         )
 
         self.federation = Federation(
-
             federation_id=str(uuid.uuid4()),
-
             name="Aletheus Federation",
-
             created_at=utc_now(),
-
             local_node=local,
         )
 
@@ -112,31 +102,20 @@ class AletheusFederationEngine:
     # --------------------------------------------------------
 
     def join(
-
         self,
-
         name,
-
         address,
-
         capabilities=None,
-
         services=None,
-
     ):
 
         self.bootstrap()
 
         node = FederationNode(
-
             node_id=str(uuid.uuid4()),
-
             name=name,
-
             address=address,
-
             capabilities=capabilities or [],
-
             services=services or [],
         )
 
@@ -160,13 +139,7 @@ class AletheusFederationEngine:
 
         self.bootstrap()
 
-        return [
-
-            asdict(node)
-
-            for node in self.federation.remote_nodes.values()
-
-        ]
+        return [asdict(node) for node in self.federation.remote_nodes.values()]
 
     # --------------------------------------------------------
 
@@ -175,16 +148,8 @@ class AletheusFederationEngine:
         self.bootstrap()
 
         return {
-
             "local": asdict(self.federation.local_node),
-
-            "remote": [
-
-                asdict(node)
-
-                for node in self.federation.remote_nodes.values()
-
-            ],
+            "remote": [asdict(node) for node in self.federation.remote_nodes.values()],
         }
 
     # --------------------------------------------------------
@@ -194,13 +159,9 @@ class AletheusFederationEngine:
         self.bootstrap()
 
         return {
-
             "message": message,
-
             "recipients": len(self.federation.remote_nodes),
-
             "status": "broadcast",
-
         }
 
     # --------------------------------------------------------

@@ -6,17 +6,6 @@ Post-Genesis 15
 
 
 class OutcomeCapture:
-
-
     def capture(self, outcome):
 
-        return {
-
-            "outcome":
-            outcome,
-
-            "captured":
-            True
-
-        }
-
+        return {"outcome": outcome, "captured": True}

@@ -15,4 +15,3 @@ class LifecycleState(StrEnum):
     STOPPING = "stopping"
     STOPPED = "stopped"
     FAILED = "failed"
-

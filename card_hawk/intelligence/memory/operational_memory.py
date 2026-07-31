@@ -10,19 +10,6 @@ Store intelligence operations
 
 
 class OperationalMemory:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.9"
-
-        }
-
+        return {"status": "ready", "genesis": "23.9"}

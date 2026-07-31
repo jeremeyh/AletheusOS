@@ -12,7 +12,6 @@ from pathlib import Path
 
 
 class DependencyAnalyzer:
-
     VERSION = "1.0.0"
 
     GENESIS = "54.0"
@@ -24,21 +23,17 @@ class DependencyAnalyzer:
         results: list[Path] = []
 
         for current, dirs, files in os.walk(root_path):
-
             dirs[:] = [
-                d for d in dirs
+                d
+                for d in dirs
                 if d != "__pycache__"
                 and not d.startswith(".")
                 and d not in {"venv", "venv_backup", "node_modules"}
             ]
 
             for file in files:
-
                 if file.endswith(".py"):
-
-                    results.append(
-                        Path(current) / file
-                    )
+                    results.append(Path(current) / file)
 
         return sorted(results)
 
@@ -55,7 +50,6 @@ class DependencyAnalyzer:
         parts = list(relative.with_suffix("").parts)
 
         if parts[-1] == "__init__":
-
             parts = parts[:-1]
 
         return ".".join(parts)
@@ -68,27 +62,18 @@ class DependencyAnalyzer:
         imports: set[str] = set()
 
         try:
-
-            tree = ast.parse(
-                file_path.read_text(encoding="utf-8")
-            )
+            tree = ast.parse(file_path.read_text(encoding="utf-8"))
 
         except Exception:
-
             return []
 
         for node in ast.walk(tree):
-
             if isinstance(node, ast.Import):
-
                 for alias in node.names:
-
                     imports.add(alias.name)
 
             elif isinstance(node, ast.ImportFrom):
-
                 if node.module:
-
                     imports.add(node.module)
 
         return sorted(imports)
@@ -101,15 +86,12 @@ class DependencyAnalyzer:
         graph: dict[str, list[str]] = {}
 
         for file_path in self.python_files(root):
-
             module = self.module_name(
                 file_path,
                 root,
             )
 
-            graph[module] = self.imports_for_file(
-                file_path
-            )
+            graph[module] = self.imports_for_file(file_path)
 
         return graph
 
@@ -124,12 +106,10 @@ class DependencyAnalyzer:
         internal: dict[str, list[str]] = {}
 
         for module, imports in graph.items():
-
             internal[module] = [
                 imp
                 for imp in imports
-                if imp == package_prefix
-                or imp.startswith(f"{package_prefix}.")
+                if imp == package_prefix or imp.startswith(f"{package_prefix}.")
             ]
 
         return internal
@@ -141,10 +121,7 @@ class DependencyAnalyzer:
 
         graph = self.internal_import_graph(root)
 
-        return {
-            module: len(imports)
-            for module, imports in graph.items()
-        }
+        return {module: len(imports) for module, imports in graph.items()}
 
     def top_fan_out(
         self,
@@ -178,9 +155,7 @@ class DependencyAnalyzer:
         counts: dict[str, int] = {}
 
         for imports in graph.values():
-
             for imported in imports:
-
                 counts[imported] = counts.get(imported, 0) + 1
 
         return counts

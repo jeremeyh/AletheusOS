@@ -98,9 +98,7 @@ def copy_runtime(temporary_root: Path) -> None:
 
         if result.returncode != 0:
             raise RuntimeError(
-                "Temporary Git initialization failed: "
-                + result.stdout
-                + result.stderr
+                "Temporary Git initialization failed: " + result.stdout + result.stderr
             )
 
 
@@ -127,9 +125,7 @@ def append_event(
     )
 
     if result.returncode != 0:
-        raise RuntimeError(
-            result.stdout + result.stderr
-        )
+        raise RuntimeError(result.stdout + result.stderr)
 
 
 def main() -> int:
@@ -139,15 +135,10 @@ def main() -> int:
         copy_runtime(temporary_root)
 
         ledger_path = (
-            temporary_root
-            / "nimble/governance/audit/"
-            "deployment-audit-ledger.jsonl"
+            temporary_root / "nimble/governance/audit/deployment-audit-ledger.jsonl"
         )
 
-        checkpoint_directory = (
-            temporary_root
-            / "nimble/governance/audit/checkpoints"
-        )
+        checkpoint_directory = temporary_root / "nimble/governance/audit/checkpoints"
 
         ledger_path.write_text(
             "",
@@ -196,16 +187,12 @@ def main() -> int:
         )
 
         if valid_result.returncode != 0:
-            print(
-                "FAIL: valid checkpoint chain did not validate."
-            )
+            print("FAIL: valid checkpoint chain did not validate.")
             print(valid_result.stdout)
             print(valid_result.stderr)
             return 1
 
-        original_ledger = ledger_path.read_text(
-            encoding="utf-8"
-        )
+        original_ledger = ledger_path.read_text(encoding="utf-8")
 
         ledger_lines = original_ledger.splitlines()
 
@@ -223,21 +210,13 @@ def main() -> int:
         )
 
         if truncated_result.returncode == 0:
-            print(
-                "FAIL: truncated ledger unexpectedly passed."
-            )
+            print("FAIL: truncated ledger unexpectedly passed.")
             return 1
 
-        truncated_output = (
-            truncated_result.stdout
-            + truncated_result.stderr
-        )
+        truncated_output = truncated_result.stdout + truncated_result.stderr
 
         if "Ledger truncation detected" not in truncated_output:
-            print(
-                "FAIL: truncation was rejected without "
-                "the expected diagnostic."
-            )
+            print("FAIL: truncation was rejected without the expected diagnostic.")
             print(truncated_output)
             return 1
 
@@ -247,9 +226,7 @@ def main() -> int:
         )
 
         entries = [
-            json.loads(line)
-            for line in original_ledger.splitlines()
-            if line.strip()
+            json.loads(line) for line in original_ledger.splitlines() if line.strip()
         ]
 
         entries[0]["release"] = "rollback-replacement"
@@ -276,15 +253,10 @@ def main() -> int:
         )
 
         if rollback_result.returncode == 0:
-            print(
-                "FAIL: divergent ledger unexpectedly passed."
-            )
+            print("FAIL: divergent ledger unexpectedly passed.")
             return 1
 
-        rollback_output = (
-            rollback_result.stdout
-            + rollback_result.stderr
-        )
+        rollback_output = rollback_result.stdout + rollback_result.stderr
 
         expected_messages = [
             "event_hash mismatch",
@@ -293,10 +265,7 @@ def main() -> int:
             "history diverges",
         ]
 
-        if not any(
-            message in rollback_output
-            for message in expected_messages
-        ):
+        if not any(message in rollback_output for message in expected_messages):
             print(
                 "FAIL: rollback/replacement was rejected "
                 "without the expected diagnostic."
@@ -304,32 +273,19 @@ def main() -> int:
             print(rollback_output)
             return 1
 
-        canonical_checkpoint_directory = (
-            ROOT
-            / "nimble/governance/audit/checkpoints"
-        )
+        canonical_checkpoint_directory = ROOT / "nimble/governance/audit/checkpoints"
 
         canonical_contents = sorted(
             path.name
-            for path in canonical_checkpoint_directory.glob(
-                "checkpoint-*.json"
-            )
+            for path in canonical_checkpoint_directory.glob("checkpoint-*.json")
         )
 
         temporary_contents = sorted(
-            path.name
-            for path in checkpoint_directory.glob(
-                "checkpoint-*.json"
-            )
+            path.name for path in checkpoint_directory.glob("checkpoint-*.json")
         )
 
-        if (
-            temporary_contents
-            and temporary_contents == canonical_contents
-        ):
-            print(
-                "FAIL: temporary checkpoint chain was not isolated."
-            )
+        if temporary_contents and temporary_contents == canonical_contents:
+            print("FAIL: temporary checkpoint chain was not isolated.")
             return 1
 
         print("=" * 72)

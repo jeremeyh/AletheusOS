@@ -23,11 +23,13 @@ class PlatformVerificationReporter:
                     lines.append(f"  ERROR: {error}")
             lines.append("")
 
-        lines.extend([
-            "-" * 56,
-            f"Platform Health Score: {report.health_score()}%",
-            f"Overall Status: {'PASS' if report.passed() else 'FAIL'}",
-            "=" * 56,
-        ])
+        lines.extend(
+            [
+                "-" * 56,
+                f"Platform Health Score: {report.health_score()}%",
+                f"Overall Status: {'PASS' if report.passed() else 'FAIL'}",
+                "=" * 56,
+            ]
+        )
 
         return "\n".join(lines)

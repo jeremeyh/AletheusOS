@@ -1,8 +1,3 @@
 from .engine import StrategicPlanningEngine
 
-__all__=[
-
-"StrategicPlanningEngine"
-
-]
-
+__all__ = ["StrategicPlanningEngine"]

@@ -10,10 +10,8 @@ Owns mission command execution boundary.
 
 
 class MissionCommandAdapter:
-
     def __init__(self, runtime):
         self.runtime = runtime
-
 
     def create(self, context):
 
@@ -74,7 +72,6 @@ class MissionCommandAdapter:
 
         return context
 
-
     def from_goal(self, context):
 
         payload = context.payload
@@ -123,20 +120,14 @@ class MissionCommandAdapter:
 
         return context
 
-
     def list(self, context):
 
         context.add_result(
             "missions",
-            self.runtime.mission.list_missions(
-                context.payload.get(
-                    "status"
-                )
-            ),
+            self.runtime.mission.list_missions(context.payload.get("status")),
         )
 
         return context
-
 
     def run(self, context):
 
@@ -166,7 +157,6 @@ class MissionCommandAdapter:
 
         return context
 
-
     def complete(self, context):
 
         result = self.runtime.mission.complete_mission(
@@ -182,7 +172,6 @@ class MissionCommandAdapter:
         )
 
         return context
-
 
     def task_complete(self, context):
 
@@ -204,7 +193,6 @@ class MissionCommandAdapter:
 
         return context
 
-
     def history(self, context):
 
         context.add_result(
@@ -213,7 +201,6 @@ class MissionCommandAdapter:
         )
 
         return context
-
 
     def stats(self, context):
 
@@ -230,9 +217,7 @@ class MissionCommandAdapter:
             result = self.runtime.mission.statistics()
 
         else:
-            result = {
-                "status": "unknown"
-            }
+            result = {"status": "unknown"}
 
         context.add_result(
             "mission_stats",

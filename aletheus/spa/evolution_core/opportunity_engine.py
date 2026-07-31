@@ -6,26 +6,13 @@ Genesis 160
 
 
 class OpportunityEngine:
-
-
     def discover(self):
 
         return {
-
-            "opportunities":
-
-            [
-
+            "opportunities": [
                 "Knowledge Graph Expansion",
-
                 "Agent Intelligence Growth",
-
-                "Runtime Optimization"
-
+                "Runtime Optimization",
             ],
-
-            "status":
-            "discovered"
-
+            "status": "discovered",
         }
-

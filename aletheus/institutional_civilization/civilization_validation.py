@@ -28,21 +28,13 @@ class CivilizationValidationError(ValueError):
     ) -> None:
         self.issues = tuple(issues)
 
-        detail = "; ".join(
-            f"{issue.field}: {issue.message}"
-            for issue in self.issues
-        )
+        detail = "; ".join(f"{issue.field}: {issue.message}" for issue in self.issues)
 
-        super().__init__(
-            f"Invalid civilization record: {detail}"
-        )
+        super().__init__(f"Invalid civilization record: {detail}")
 
 
 def _has_duplicates(values: tuple[str, ...]) -> bool:
-    normalized = [
-        value.strip().casefold()
-        for value in values
-    ]
+    normalized = [value.strip().casefold() for value in values]
     return len(normalized) != len(set(normalized))
 
 
@@ -71,8 +63,7 @@ def validate_civilization(
         issues.append(
             CivilizationValidationIssue(
                 "civilization_id",
-                "Use a namespaced identifier such as "
-                "'aletheus.civilization.security'.",
+                "Use a namespaced identifier such as 'aletheus.civilization.security'.",
             )
         )
 
@@ -128,9 +119,7 @@ def validate_civilization(
                 )
             )
 
-    overlap = set(record.responsibilities).intersection(
-        record.non_responsibilities
-    )
+    overlap = set(record.responsibilities).intersection(record.non_responsibilities)
 
     if overlap:
         issues.append(

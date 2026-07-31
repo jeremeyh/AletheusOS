@@ -6,20 +6,6 @@ Genesis 156
 
 
 class GrowthModel:
-
-
     def analyze(self):
 
-        return {
-
-            "growth":
-            "stable",
-
-            "trend":
-            "expanding",
-
-            "confidence":
-            92
-
-        }
-
+        return {"growth": "stable", "trend": "expanding", "confidence": 92}

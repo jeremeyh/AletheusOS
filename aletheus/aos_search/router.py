@@ -4,7 +4,6 @@ from collections.abc import Callable
 
 
 class SearchRouter:
-
     GENESIS = "21.8"
     VERSION = "1.0.0"
 
@@ -35,30 +34,21 @@ class SearchRouter:
         results = {}
 
         for provider in execution_plan.providers:
-
             if provider not in self._providers:
                 continue
 
-            results[
-                provider
-            ] = self._providers[
-                provider
-            ](query)
+            results[provider] = self._providers[provider](query)
 
         return results
 
     def providers(self):
 
-        return sorted(
-            self._providers.keys()
-        )
+        return sorted(self._providers.keys())
 
     def statistics(self):
 
         return {
-            "providers": len(
-                self._providers
-            ),
+            "providers": len(self._providers),
             "genesis": self.GENESIS,
             "version": self.VERSION,
         }

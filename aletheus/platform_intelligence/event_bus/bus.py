@@ -41,9 +41,7 @@ class ConstitutionalEventBus:
         strict_dispatch: bool = False,
     ) -> None:
         if history_limit < 0:
-            raise ValueError(
-                "history_limit cannot be negative."
-            )
+            raise ValueError("history_limit cannot be negative.")
 
         self._history_limit = history_limit
         self._strict_dispatch = strict_dispatch
@@ -53,14 +51,8 @@ class ConstitutionalEventBus:
             ConstitutionalSubscription,
         ] = {}
 
-        self._history: deque[
-            ConstitutionalEvent
-        ] = deque(
-            maxlen=(
-                history_limit
-                if history_limit > 0
-                else None
-            )
+        self._history: deque[ConstitutionalEvent] = deque(
+            maxlen=(history_limit if history_limit > 0 else None)
         )
 
         self._published = 0
@@ -82,15 +74,10 @@ class ConstitutionalEventBus:
 
     def subscribe(
         self,
-        handler: (
-            ConstitutionalEventHandler
-            | ConstitutionalSubscriber
-        ),
+        handler: (ConstitutionalEventHandler | ConstitutionalSubscriber),
         *,
         kinds: (
-            set[ConstitutionalEventKind]
-            | frozenset[ConstitutionalEventKind]
-            | None
+            set[ConstitutionalEventKind] | frozenset[ConstitutionalEventKind] | None
         ) = None,
         source_prefix: str | None = None,
         subject_prefix: str | None = None,
@@ -109,18 +96,14 @@ class ConstitutionalEventBus:
                 if (
                     current.handler == subscription.handler
                     and current.kinds == subscription.kinds
-                    and current.source_prefix
-                    == subscription.source_prefix
-                    and current.subject_prefix
-                    == subscription.subject_prefix
+                    and current.source_prefix == subscription.source_prefix
+                    and current.subject_prefix == subscription.subject_prefix
                 ):
                     raise DuplicateSubscriptionError(
                         "An identical subscription already exists."
                     )
 
-            self._subscriptions[
-                subscription.subscription_id
-            ] = subscription
+            self._subscriptions[subscription.subscription_id] = subscription
 
         return subscription.subscription_id
 
@@ -131,8 +114,7 @@ class ConstitutionalEventBus:
         with self._lock:
             if subscription_id not in self._subscriptions:
                 raise SubscriptionNotFoundError(
-                    f"Subscription not found: "
-                    f"{subscription_id}"
+                    f"Subscription not found: {subscription_id}"
                 )
 
             del self._subscriptions[subscription_id]
@@ -142,23 +124,17 @@ class ConstitutionalEventBus:
         event: ConstitutionalEvent,
     ) -> ConstitutionalEvent:
         with self._lock:
-            published_event = event.with_sequence(
-                self._next_sequence
-            )
+            published_event = event.with_sequence(self._next_sequence)
             self._next_sequence += 1
 
             self._published += 1
-            self._events_by_kind[
-                published_event.kind.value
-            ] += 1
+            self._events_by_kind[published_event.kind.value] += 1
             self._last_event = published_event
 
             if self._history_limit > 0:
                 self._history.append(published_event)
 
-            subscriptions = tuple(
-                self._subscriptions.values()
-            )
+            subscriptions = tuple(self._subscriptions.values())
 
         failures: list[Exception] = []
 
@@ -196,22 +172,14 @@ class ConstitutionalEventBus:
         self,
         events: Iterable[ConstitutionalEvent],
     ) -> tuple[ConstitutionalEvent, ...]:
-        return tuple(
-            self.publish(event)
-            for event in events
-        )
+        return tuple(self.publish(event) for event in events)
 
     def replay(
         self,
-        handler: (
-            ConstitutionalEventHandler
-            | ConstitutionalSubscriber
-        ),
+        handler: (ConstitutionalEventHandler | ConstitutionalSubscriber),
         *,
         kinds: (
-            set[ConstitutionalEventKind]
-            | frozenset[ConstitutionalEventKind]
-            | None
+            set[ConstitutionalEventKind] | frozenset[ConstitutionalEventKind] | None
         ) = None,
         source_prefix: str | None = None,
         subject_prefix: str | None = None,
@@ -251,9 +219,7 @@ class ConstitutionalEventBus:
         self,
         *,
         kinds: (
-            set[ConstitutionalEventKind]
-            | frozenset[ConstitutionalEventKind]
-            | None
+            set[ConstitutionalEventKind] | frozenset[ConstitutionalEventKind] | None
         ) = None,
         after_sequence: int | None = None,
     ) -> tuple[ConstitutionalEvent, ...]:
@@ -268,10 +234,7 @@ class ConstitutionalEventBus:
         return tuple(
             event
             for event in events
-            if (
-                not kind_filter
-                or event.kind in kind_filter
-            )
+            if (not kind_filter or event.kind in kind_filter)
             and (
                 after_sequence is None
                 or event.sequence is None
@@ -290,26 +253,16 @@ class ConstitutionalEventBus:
             return EventBusStatistics(
                 published=self._published,
                 delivered=self._delivered,
-                failed_deliveries=(
-                    self._failed_deliveries
-                ),
-                subscriber_count=len(
-                    self._subscriptions
-                ),
+                failed_deliveries=(self._failed_deliveries),
+                subscriber_count=len(self._subscriptions),
                 history_size=len(self._history),
                 next_sequence=self._next_sequence,
-                events_by_kind=MappingProxyType(
-                    dict(self._events_by_kind)
-                ),
+                events_by_kind=MappingProxyType(dict(self._events_by_kind)),
                 last_event_id=(
-                    str(last_event.event_id)
-                    if last_event is not None
-                    else None
+                    str(last_event.event_id) if last_event is not None else None
                 ),
                 last_event_kind=(
-                    last_event.kind.value
-                    if last_event is not None
-                    else None
+                    last_event.kind.value if last_event is not None else None
                 ),
             )
 
@@ -326,10 +279,7 @@ class ConstitutionalEventBus:
 
     @staticmethod
     def _resolve_handler(
-        handler: (
-            ConstitutionalEventHandler
-            | ConstitutionalSubscriber
-        ),
+        handler: (ConstitutionalEventHandler | ConstitutionalSubscriber),
     ) -> ConstitutionalEventHandler:
         if callable(handler):
             return handler
@@ -344,6 +294,5 @@ class ConstitutionalEventBus:
             return object_handler
 
         raise TypeError(
-            "Subscriber must be callable or expose "
-            "a callable handle(event) method."
+            "Subscriber must be callable or expose a callable handle(event) method."
         )

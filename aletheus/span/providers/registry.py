@@ -11,7 +11,9 @@ from .base import Provider, ProviderContext
 class RegistryProvider(Provider):
     name = "registry"
     version = "1.0.0"
-    description = "Collect static service, engine, capability, and plugin registry evidence."
+    description = (
+        "Collect static service, engine, capability, and plugin registry evidence."
+    )
 
     def collect(self, context: ProviderContext):
         root = context.root.resolve()
@@ -22,7 +24,10 @@ class RegistryProvider(Provider):
                 part.lower() for part in relative.parts
             }:
                 continue
-            if any(part in {".git", ".venv", "venv", "__pycache__"} for part in relative.parts):
+            if any(
+                part in {".git", ".venv", "venv", "__pycache__"}
+                for part in relative.parts
+            ):
                 continue
 
             try:

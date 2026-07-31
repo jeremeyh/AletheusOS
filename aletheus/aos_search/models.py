@@ -16,7 +16,6 @@ def new_query_id():
 
 @dataclass(slots=True)
 class SearchRequest:
-
     query_id: str
     query: str
 
@@ -43,7 +42,6 @@ class SearchRequest:
 
 @dataclass(slots=True)
 class SearchResponse:
-
     query_id: str
 
     answer: str = ""

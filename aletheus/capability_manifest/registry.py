@@ -2,7 +2,6 @@ from .models import CapabilityManifest
 
 
 class CapabilityManifestRegistry:
-
     def __init__(self):
         self.manifests = {}
 

@@ -44,9 +44,7 @@ class ConstitutionalRuntimeCouncil:
         quorum_ratio: float = 0.5,
     ) -> None:
         if not 0.0 < quorum_ratio <= 1.0:
-            raise ValueError(
-                "quorum_ratio must be between 0 and 1."
-            )
+            raise ValueError("quorum_ratio must be between 0 and 1.")
 
         self._quorum_ratio = quorum_ratio
         self._members: dict[
@@ -61,9 +59,7 @@ class ConstitutionalRuntimeCouncil:
             UUID,
             CouncilDecision,
         ] = {}
-        self._history: list[
-            dict[str, Any]
-        ] = []
+        self._history: list[dict[str, Any]] = []
         self._lock = RLock()
 
     @property
@@ -77,13 +73,10 @@ class ConstitutionalRuntimeCouncil:
         with self._lock:
             if member.member_id in self._members:
                 raise CouncilMemberAlreadyExistsError(
-                    "Council member already exists: "
-                    f"{member.member_id}"
+                    f"Council member already exists: {member.member_id}"
                 )
 
-            self._members[
-                member.member_id
-            ] = member
+            self._members[member.member_id] = member
 
             self._append_history(
                 "member_registered",
@@ -99,15 +92,10 @@ class ConstitutionalRuntimeCouncil:
         resolved = member_id.strip().lower()
 
         with self._lock:
-            member = self._members.get(
-                resolved
-            )
+            member = self._members.get(resolved)
 
         if member is None:
-            raise CouncilMemberNotFoundError(
-                "Council member not found: "
-                f"{resolved}"
-            )
+            raise CouncilMemberNotFoundError(f"Council member not found: {resolved}")
 
         return member
 
@@ -119,9 +107,7 @@ class ConstitutionalRuntimeCouncil:
     ]:
         with self._lock:
             return tuple(
-                self._members[member_id]
-                for member_id
-                in sorted(self._members)
+                self._members[member_id] for member_id in sorted(self._members)
             )
 
     def submit(
@@ -131,13 +117,10 @@ class ConstitutionalRuntimeCouncil:
         with self._lock:
             if proposal.proposal_id in self._proposals:
                 raise CouncilProposalAlreadyExistsError(
-                    "Council proposal already exists: "
-                    f"{proposal.proposal_id}"
+                    f"Council proposal already exists: {proposal.proposal_id}"
                 )
 
-            self._proposals[
-                proposal.proposal_id
-            ] = proposal
+            self._proposals[proposal.proposal_id] = proposal
 
             self._append_history(
                 "proposal_submitted",
@@ -151,14 +134,11 @@ class ConstitutionalRuntimeCouncil:
         proposal_id: UUID,
     ) -> CouncilProposal:
         with self._lock:
-            proposal = self._proposals.get(
-                proposal_id
-            )
+            proposal = self._proposals.get(proposal_id)
 
         if proposal is None:
             raise CouncilProposalNotFoundError(
-                "Council proposal not found: "
-                f"{proposal_id}"
+                f"Council proposal not found: {proposal_id}"
             )
 
         return proposal
@@ -188,19 +168,13 @@ class ConstitutionalRuntimeCouncil:
         member = self.get_member(member_id)
 
         if not member.active:
-            raise CouncilVotingError(
-                "Inactive council members cannot vote."
-            )
+            raise CouncilVotingError("Inactive council members cannot vote.")
 
         with self._lock:
-            proposal = self.get_proposal(
-                proposal_id
-            )
+            proposal = self.get_proposal(proposal_id)
 
             if proposal.state is not CouncilProposalState.OPEN:
-                raise CouncilVotingError(
-                    "Votes may only be cast on open proposals."
-                )
+                raise CouncilVotingError("Votes may only be cast on open proposals.")
 
             vote = CouncilVote.create(
                 proposal_id=proposal_id,
@@ -209,9 +183,7 @@ class ConstitutionalRuntimeCouncil:
                 rationale=rationale,
             )
 
-            self._proposals[
-                proposal_id
-            ] = proposal.with_vote(vote)
+            self._proposals[proposal_id] = proposal.with_vote(vote)
 
             self._append_history(
                 "vote_cast",
@@ -225,25 +197,16 @@ class ConstitutionalRuntimeCouncil:
         proposal_id: UUID,
     ) -> CouncilDecision:
         with self._lock:
-            proposal = self.get_proposal(
-                proposal_id
-            )
+            proposal = self.get_proposal(proposal_id)
 
             if proposal.state is not CouncilProposalState.OPEN:
-                raise CouncilDecisionError(
-                    "Only open proposals may be decided."
-                )
+                raise CouncilDecisionError("Only open proposals may be decided.")
 
             active_members = tuple(
-                member
-                for member in self._members.values()
-                if member.active
+                member for member in self._members.values() if member.active
             )
 
-            eligible_weight = sum(
-                member.voting_weight
-                for member in active_members
-            )
+            eligible_weight = sum(member.voting_weight for member in active_members)
 
             if eligible_weight == 0:
                 raise CouncilDecisionError(
@@ -265,63 +228,32 @@ class ConstitutionalRuntimeCouncil:
                 for vote in proposal.votes
                 if vote.choice is CouncilVoteChoice.ABSTAIN
             )
-            participating_weight = (
-                approve_weight
-                + reject_weight
-                + abstain_weight
-            )
+            participating_weight = approve_weight + reject_weight + abstain_weight
 
-            quorum_met = (
-                participating_weight
-                / eligible_weight
-                >= self._quorum_ratio
-            )
+            quorum_met = participating_weight / eligible_weight >= self._quorum_ratio
 
             if not quorum_met:
-                outcome = (
-                    CouncilDecisionOutcome
-                    .INSUFFICIENT_QUORUM
-                )
+                outcome = CouncilDecisionOutcome.INSUFFICIENT_QUORUM
                 approved = False
-                rationale = (
-                    "Council quorum was not met."
-                )
-                next_state = (
-                    CouncilProposalState.REJECTED
-                )
+                rationale = "Council quorum was not met."
+                next_state = CouncilProposalState.REJECTED
             else:
                 approved = self._is_approved(
                     proposal.strategy,
                     approve_weight=approve_weight,
                     reject_weight=reject_weight,
-                    participating_weight=(
-                        participating_weight
-                    ),
+                    participating_weight=(participating_weight),
                     eligible_weight=eligible_weight,
                 )
 
                 if approved:
-                    outcome = (
-                        CouncilDecisionOutcome.APPROVED
-                    )
-                    rationale = (
-                        "Proposal satisfied its "
-                        "voting strategy."
-                    )
-                    next_state = (
-                        CouncilProposalState.APPROVED
-                    )
+                    outcome = CouncilDecisionOutcome.APPROVED
+                    rationale = "Proposal satisfied its voting strategy."
+                    next_state = CouncilProposalState.APPROVED
                 else:
-                    outcome = (
-                        CouncilDecisionOutcome.REJECTED
-                    )
-                    rationale = (
-                        "Proposal did not satisfy its "
-                        "voting strategy."
-                    )
-                    next_state = (
-                        CouncilProposalState.REJECTED
-                    )
+                    outcome = CouncilDecisionOutcome.REJECTED
+                    rationale = "Proposal did not satisfy its voting strategy."
+                    next_state = CouncilProposalState.REJECTED
 
             decision = CouncilDecision.create(
                 proposal_id=proposal_id,
@@ -332,20 +264,12 @@ class ConstitutionalRuntimeCouncil:
                 reject_weight=reject_weight,
                 abstain_weight=abstain_weight,
                 eligible_weight=eligible_weight,
-                participating_weight=(
-                    participating_weight
-                ),
+                participating_weight=(participating_weight),
                 quorum_met=quorum_met,
             )
 
-            self._proposals[
-                proposal_id
-            ] = proposal.with_state(
-                next_state
-            )
-            self._decisions[
-                proposal_id
-            ] = decision
+            self._proposals[proposal_id] = proposal.with_state(next_state)
+            self._decisions[proposal_id] = decision
 
             self._append_history(
                 "proposal_decided",
@@ -359,14 +283,11 @@ class ConstitutionalRuntimeCouncil:
         proposal_id: UUID,
     ) -> CouncilDecision:
         with self._lock:
-            decision = self._decisions.get(
-                proposal_id
-            )
+            decision = self._decisions.get(proposal_id)
 
         if decision is None:
             raise CouncilDecisionError(
-                "No decision exists for proposal: "
-                f"{proposal_id}"
+                f"No decision exists for proposal: {proposal_id}"
             )
 
         return decision
@@ -376,31 +297,21 @@ class ConstitutionalRuntimeCouncil:
 
         return CouncilStatistics(
             members=len(self._members),
-            active_members=sum(
-                member.active
-                for member in self._members.values()
-            ),
+            active_members=sum(member.active for member in self._members.values()),
             proposals=len(proposals),
             open_proposals=sum(
-                proposal.state
-                is CouncilProposalState.OPEN
-                for proposal in proposals
+                proposal.state is CouncilProposalState.OPEN for proposal in proposals
             ),
             approved_proposals=sum(
-                proposal.state
-                is CouncilProposalState.APPROVED
+                proposal.state is CouncilProposalState.APPROVED
                 for proposal in proposals
             ),
             rejected_proposals=sum(
-                proposal.state
-                is CouncilProposalState.REJECTED
+                proposal.state is CouncilProposalState.REJECTED
                 for proposal in proposals
             ),
             decisions=len(self._decisions),
-            votes=sum(
-                len(proposal.votes)
-                for proposal in proposals
-            ),
+            votes=sum(len(proposal.votes) for proposal in proposals),
         )
 
     def history(
@@ -421,26 +332,16 @@ class ConstitutionalRuntimeCouncil:
         return {
             "version": self.VERSION,
             "quorum_ratio": self._quorum_ratio,
-            "members": [
-                member.to_dict()
-                for member in self.members()
-            ],
-            "proposals": [
-                proposal.to_dict()
-                for proposal in self.proposals()
-            ],
+            "members": [member.to_dict() for member in self.members()],
+            "proposals": [proposal.to_dict() for proposal in self.proposals()],
             "decisions": [
                 decision.to_dict()
                 for _, decision in sorted(
                     self._decisions.items(),
-                    key=lambda item: str(
-                        item[0]
-                    ),
+                    key=lambda item: str(item[0]),
                 )
             ],
-            "statistics": (
-                self.statistics().to_dict()
-            ),
+            "statistics": (self.statistics().to_dict()),
             "history": list(self.history()),
         }
 
@@ -456,9 +357,7 @@ class ConstitutionalRuntimeCouncil:
         participating_weight: int,
         eligible_weight: int,
     ) -> bool:
-        decisive_weight = (
-            approve_weight + reject_weight
-        )
+        decisive_weight = approve_weight + reject_weight
 
         if decisive_weight == 0:
             return False
@@ -467,16 +366,12 @@ class ConstitutionalRuntimeCouncil:
             return approve_weight > reject_weight
 
         if strategy is CouncilVotingStrategy.SUPERMAJORITY:
-            return (
-                approve_weight / decisive_weight
-                >= (2 / 3)
-            )
+            return approve_weight / decisive_weight >= (2 / 3)
 
         if strategy is CouncilVotingStrategy.UNANIMOUS:
             return (
                 approve_weight == eligible_weight
-                and participating_weight
-                == eligible_weight
+                and participating_weight == eligible_weight
             )
 
         return False
@@ -489,9 +384,7 @@ class ConstitutionalRuntimeCouncil:
         self._history.append(
             {
                 "sequence": len(self._history),
-                "recorded_at": (
-                    datetime.now(UTC).isoformat()
-                ),
+                "recorded_at": (datetime.now(UTC).isoformat()),
                 "event_type": event_type,
                 "payload": dict(payload),
             }

@@ -20,5 +20,7 @@ class GenesisService:
     def __init__(self, builder: GenesisPackageBuilder | None = None) -> None:
         self.builder = builder or GenesisPackageBuilder()
 
-    def build_package(self, spec: GenesisPackageSpec, output_root: Path) -> GenesisPackageResult:
+    def build_package(
+        self, spec: GenesisPackageSpec, output_root: Path
+    ) -> GenesisPackageResult:
         return self.builder.build(spec, output_root)

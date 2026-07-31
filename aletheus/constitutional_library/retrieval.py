@@ -87,9 +87,7 @@ class ConstitutionalLibraryRetrieval:
 
     def canonical(self) -> list[KnowledgeObject]:
 
-        return constitutional_library_registry.by_status(
-            KnowledgeStatus.CANONICAL
-        )
+        return constitutional_library_registry.by_status(KnowledgeStatus.CANONICAL)
 
     def health(self) -> dict:
 
@@ -101,6 +99,4 @@ class ConstitutionalLibraryRetrieval:
         }
 
 
-constitutional_library_retrieval = (
-    ConstitutionalLibraryRetrieval()
-)
+constitutional_library_retrieval = ConstitutionalLibraryRetrieval()

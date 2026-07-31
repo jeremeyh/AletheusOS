@@ -6,18 +6,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 
-ADAPTER = (
-    ROOT
-    / "aletheus/runtime/adapters/prediction_adapter.py"
-)
+ADAPTER = ROOT / "aletheus/runtime/adapters/prediction_adapter.py"
 
 CORE = ROOT / "aletheus/runtime/core.py"
 
 stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 backup_dir = (
-    ROOT
-    / "reports/genesis_8_command_dispatch"
-    / f"prediction_adapter_backup_{stamp}"
+    ROOT / "reports/genesis_8_command_dispatch" / f"prediction_adapter_backup_{stamp}"
 )
 backup_dir.mkdir(parents=True, exist_ok=True)
 
@@ -301,18 +296,13 @@ class PredictionAdapter:
 
 core_text = CORE.read_text(encoding="utf-8")
 
-old_import = (
-    "from aletheus.prediction import prediction_core"
-)
+old_import = "from aletheus.prediction import prediction_core"
 new_import = (
-    "from aletheus.runtime.adapters.prediction_adapter "
-    "import PredictionAdapter"
+    "from aletheus.runtime.adapters.prediction_adapter import PredictionAdapter"
 )
 
 if old_import not in core_text:
-    raise RuntimeError(
-        "Prediction compatibility import was not found in core.py."
-    )
+    raise RuntimeError("Prediction compatibility import was not found in core.py.")
 
 core_text = core_text.replace(
     old_import,
@@ -324,9 +314,7 @@ old_binding = "        self.prediction = prediction_core"
 new_binding = "        self.prediction = PredictionAdapter()"
 
 if old_binding not in core_text:
-    raise RuntimeError(
-        "Prediction runtime binding was not found in core.py."
-    )
+    raise RuntimeError("Prediction runtime binding was not found in core.py.")
 
 core_text = core_text.replace(
     old_binding,

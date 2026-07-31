@@ -6,6 +6,4 @@ Genesis 40
 
 from .engine import AutonomousIntelligenceEngine
 
-__all__ = [
-    "AutonomousIntelligenceEngine"
-]
+__all__ = ["AutonomousIntelligenceEngine"]

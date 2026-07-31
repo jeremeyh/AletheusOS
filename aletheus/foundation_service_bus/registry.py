@@ -31,17 +31,39 @@ def appraisal_plan() -> FoundationExecutionPlan:
             "reasoning",
         ],
         stages=[
-            FoundationExecutionStage(1, "intent", "Resolve Intent", "foundation.intent"),
-            FoundationExecutionStage(2, "identity", "Resolve Identity", "identity_engine"),
-            FoundationExecutionStage(3, "capability", "Verify Capability", "capability_engine"),
-            FoundationExecutionStage(4, "observation", "Collect Observations", "foundation.observation"),
-            FoundationExecutionStage(5, "evidence", "Weigh Evidence", "foundation.evidence"),
-            FoundationExecutionStage(6, "marketplace", "Analyze Marketplace", "foundation.marketplace"),
-            FoundationExecutionStage(7, "portfolio", "Analyze Portfolio", "foundation.portfolio"),
-            FoundationExecutionStage(8, "forecast", "Forecast Value", "foundation.forecast"),
-            FoundationExecutionStage(9, "thorx", "THORᵡ Evaluation", "foundation.evaluation"),
-            FoundationExecutionStage(10, "council", "Council Review", "foundation.council"),
-            FoundationExecutionStage(11, "appraiserx", "Generate Appraisal", "foundation.appraiserx"),
+            FoundationExecutionStage(
+                1, "intent", "Resolve Intent", "foundation.intent"
+            ),
+            FoundationExecutionStage(
+                2, "identity", "Resolve Identity", "identity_engine"
+            ),
+            FoundationExecutionStage(
+                3, "capability", "Verify Capability", "capability_engine"
+            ),
+            FoundationExecutionStage(
+                4, "observation", "Collect Observations", "foundation.observation"
+            ),
+            FoundationExecutionStage(
+                5, "evidence", "Weigh Evidence", "foundation.evidence"
+            ),
+            FoundationExecutionStage(
+                6, "marketplace", "Analyze Marketplace", "foundation.marketplace"
+            ),
+            FoundationExecutionStage(
+                7, "portfolio", "Analyze Portfolio", "foundation.portfolio"
+            ),
+            FoundationExecutionStage(
+                8, "forecast", "Forecast Value", "foundation.forecast"
+            ),
+            FoundationExecutionStage(
+                9, "thorx", "THORᵡ Evaluation", "foundation.evaluation"
+            ),
+            FoundationExecutionStage(
+                10, "council", "Council Review", "foundation.council"
+            ),
+            FoundationExecutionStage(
+                11, "appraiserx", "Generate Appraisal", "foundation.appraiserx"
+            ),
         ],
     )
 
@@ -80,8 +102,17 @@ class FoundationServiceRegistry:
                 name="APPRAISERᵡ™",
                 engine_id="foundation.appraiserx",
                 description="Constitutional valuation intelligence for collectible assets and portfolios.",
-                aliases=["appraiser", "appraiserx", "valuation", "collection appraisal", "portfolio appraisal"],
-                constitutional_articles=["Evidence Before Conclusion", "Canonical Intelligence Objects"],
+                aliases=[
+                    "appraiser",
+                    "appraiserx",
+                    "valuation",
+                    "collection appraisal",
+                    "portfolio appraisal",
+                ],
+                constitutional_articles=[
+                    "Evidence Before Conclusion",
+                    "Canonical Intelligence Objects",
+                ],
                 execution_plan=appraisal_plan(),
             ),
             FoundationCapability(

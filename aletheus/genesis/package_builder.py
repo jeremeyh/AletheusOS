@@ -21,7 +21,9 @@ class GenesisPackageBuilder:
         self.constructor = constructor or GenesisConstructor()
         self.validator = validator or GenesisValidator()
 
-    def build(self, spec: GenesisPackageSpec, output_root: Path) -> GenesisPackageResult:
+    def build(
+        self, spec: GenesisPackageSpec, output_root: Path
+    ) -> GenesisPackageResult:
         errors = self.validator.validate(spec)
         if errors:
             raise ValueError("; ".join(errors))

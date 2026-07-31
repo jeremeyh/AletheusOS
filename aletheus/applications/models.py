@@ -74,7 +74,9 @@ class NativeApplication:
     def commands(self) -> list[str]:
         return self.manifest.commands
 
-    def emit(self, event_type: str, message: str, payload: dict[str, Any] | None = None) -> ApplicationEvent:
+    def emit(
+        self, event_type: str, message: str, payload: dict[str, Any] | None = None
+    ) -> ApplicationEvent:
         event = ApplicationEvent(
             app_id=self.manifest.app_id,
             event_type=event_type,

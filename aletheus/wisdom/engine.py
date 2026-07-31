@@ -6,54 +6,26 @@ Post-Genesis 451-475
 
 
 class WisdomEngine:
-
-
     def __init__(self):
 
         self.wisdom_patterns = []
 
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_civilization_wisdom",
-
-            "range":
-            "451-475",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_civilization_wisdom",
+            "range": "451-475",
+            "status": "operational",
         }
-
-
 
     def create_wisdom(self, principle):
 
-        wisdom = {
+        wisdom = {"principle": principle, "status": "validated"}
 
-            "principle":
-            principle,
-
-            "status":
-            "validated"
-
-        }
-
-
-        self.wisdom_patterns.append(
-            wisdom
-        )
-
+        self.wisdom_patterns.append(wisdom)
 
         return wisdom
-
-
 
     def list_wisdom(self):
 
         return self.wisdom_patterns
-

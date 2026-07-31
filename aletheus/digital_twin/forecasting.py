@@ -6,19 +6,6 @@ Genesis 13.49
 
 
 class SimulationForecastEngine:
+    def predict(self, results):
 
-
-    def predict(
-        self,
-        results
-    ):
-
-
-        return {
-
-            "forecast":
-
-                results
-
-        }
-
+        return {"forecast": results}

@@ -29,7 +29,9 @@ class SPANIntegration:
     def register_rule(self, rule) -> None:
         self.rule_engine.register(rule)
 
-    def run(self, project_root: str | Path, context: dict[str, Any] | None = None) -> SPANIntegrationResult:
+    def run(
+        self, project_root: str | Path, context: dict[str, Any] | None = None
+    ) -> SPANIntegrationResult:
         boot = self.bootstrap.run(project_root)
         findings = self.rule_engine.evaluate(context or {})
         return SPANIntegrationResult(

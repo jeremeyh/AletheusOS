@@ -26,44 +26,24 @@ def _find_repo_root() -> Path:
             return current
 
         if current.parent == current:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         current = current.parent
 
 
 ROOT = _find_repo_root()
 
-CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/audit/"
-    "signed-audit-anchor-contract.json"
-)
+CONTRACT_PATH = ROOT / "nimble/governance/audit/signed-audit-anchor-contract.json"
 
-LATEST_POINTER = (
-    ROOT
-    / "nimble/governance/audit/checkpoints/"
-    "latest.json"
-)
+LATEST_POINTER = ROOT / "nimble/governance/audit/checkpoints/latest.json"
 
-ANCHOR_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "signed-audit-anchor.json"
-)
+ANCHOR_PATH = ROOT / "reports/nimble/signed-audit-anchor.json"
 
-CHECKSUM_PATH = (
-    ROOT
-    / "reports/nimble/"
-    "signed-audit-anchor.sha256"
-)
+CHECKSUM_PATH = ROOT / "reports/nimble/signed-audit-anchor.sha256"
 
 
 def load_json(path: Path) -> dict[str, Any]:
-    return json.loads(
-        path.read_text(encoding="utf-8")
-    )
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def canonical_bytes(
@@ -103,38 +83,26 @@ def resolve_checkpoint_path(
     relative_value = pointer.get("checkpoint_path")
 
     if not isinstance(relative_value, str):
-        raise RuntimeError(
-            "Latest checkpoint pointer has no valid path."
-        )
+        raise RuntimeError("Latest checkpoint pointer has no valid path.")
 
     relative_path = Path(relative_value)
 
     if relative_path.is_absolute():
-        raise RuntimeError(
-            "Absolute checkpoint paths are forbidden."
-        )
+        raise RuntimeError("Absolute checkpoint paths are forbidden.")
 
     if ".." in relative_path.parts:
-        raise RuntimeError(
-            "Checkpoint path traversal is forbidden."
-        )
+        raise RuntimeError("Checkpoint path traversal is forbidden.")
 
     checkpoint_path = (ROOT / relative_path).resolve()
-    checkpoint_root = (
-        ROOT
-        / "nimble/governance/audit/checkpoints"
-    ).resolve()
+    checkpoint_root = (ROOT / "nimble/governance/audit/checkpoints").resolve()
 
     if checkpoint_root not in checkpoint_path.parents:
         raise RuntimeError(
-            "Checkpoint must remain inside the "
-            "governed checkpoint directory."
+            "Checkpoint must remain inside the governed checkpoint directory."
         )
 
     if not checkpoint_path.is_file():
-        raise RuntimeError(
-            "Latest checkpoint target is missing."
-        )
+        raise RuntimeError("Latest checkpoint target is missing.")
 
     return checkpoint_path
 
@@ -142,74 +110,40 @@ def resolve_checkpoint_path(
 def main() -> int:
     contract = load_json(CONTRACT_PATH)
     pointer = load_json(LATEST_POINTER)
-    checkpoint_path = resolve_checkpoint_path(
-        pointer
-    )
+    checkpoint_path = resolve_checkpoint_path(pointer)
     checkpoint = load_json(checkpoint_path)
 
     pointer_hash = pointer.get("checkpoint_hash")
-    checkpoint_hash = checkpoint.get(
-        "checkpoint_hash"
-    )
+    checkpoint_hash = checkpoint.get("checkpoint_hash")
 
     if pointer_hash != checkpoint_hash:
-        raise RuntimeError(
-            "Latest pointer and checkpoint hash differ."
-        )
+        raise RuntimeError("Latest pointer and checkpoint hash differ.")
 
-    checkpoint_digest = sha256_file(
-        checkpoint_path
-    )
+    checkpoint_digest = sha256_file(checkpoint_path)
 
     payload_without_hash: dict[str, Any] = {
         "schema_version": "1.0",
         "anchor_id": "nimble-signed-audit-anchor-v0.1",
-        "created_at": datetime.now(
-            UTC
-        ).isoformat(),
+        "created_at": datetime.now(UTC).isoformat(),
         "subject": {
-            "checkpoint_path": (
-                checkpoint_path.relative_to(
-                    ROOT
-                ).as_posix()
-            ),
-            "checkpoint_sequence": checkpoint.get(
-                "checkpoint_sequence"
-            ),
+            "checkpoint_path": (checkpoint_path.relative_to(ROOT).as_posix()),
+            "checkpoint_sequence": checkpoint.get("checkpoint_sequence"),
             "checkpoint_hash": checkpoint_hash,
-            "checkpoint_file_sha256": (
-                checkpoint_digest
-            ),
-            "ledger_entry_count": checkpoint.get(
-                "ledger_entry_count"
-            ),
-            "ledger_head_hash": checkpoint.get(
-                "ledger_head_hash"
-            ),
-            "git_revision": checkpoint.get(
-                "git_revision"
-            ),
-            "release_identity": checkpoint.get(
-                "release_identity"
-            ),
+            "checkpoint_file_sha256": (checkpoint_digest),
+            "ledger_entry_count": checkpoint.get("ledger_entry_count"),
+            "ledger_head_hash": checkpoint.get("ledger_head_hash"),
+            "git_revision": checkpoint.get("git_revision"),
+            "release_identity": checkpoint.get("release_identity"),
         },
         "signing_identity": {
-            "provider": contract[
-                "signing"
-            ]["provider"],
+            "provider": contract["signing"]["provider"],
             "expected_repository": os.environ.get(
                 "GITHUB_REPOSITORY",
                 "local",
             ),
-            "expected_workflow": contract[
-                "signing"
-            ]["expected_workflow"],
-            "workflow_run_id": os.environ.get(
-                "GITHUB_RUN_ID"
-            ),
-            "workflow_run_attempt": os.environ.get(
-                "GITHUB_RUN_ATTEMPT"
-            ),
+            "expected_workflow": contract["signing"]["expected_workflow"],
+            "workflow_run_id": os.environ.get("GITHUB_RUN_ID"),
+            "workflow_run_attempt": os.environ.get("GITHUB_RUN_ATTEMPT"),
         },
         "integrity": {
             "algorithm": "sha256",
@@ -217,9 +151,7 @@ def main() -> int:
         },
     }
 
-    anchor_hash = sha256_bytes(
-        canonical_bytes(payload_without_hash)
-    )
+    anchor_hash = sha256_bytes(canonical_bytes(payload_without_hash))
 
     payload = {
         **payload_without_hash,
@@ -235,13 +167,10 @@ def main() -> int:
 
     ANCHOR_PATH.write_bytes(anchor_bytes)
 
-    anchor_file_digest = sha256_bytes(
-        anchor_bytes
-    )
+    anchor_file_digest = sha256_bytes(anchor_bytes)
 
     CHECKSUM_PATH.write_text(
-        f"{anchor_file_digest}  "
-        f"{ANCHOR_PATH.name}\n",
+        f"{anchor_file_digest}  {ANCHOR_PATH.name}\n",
         encoding="utf-8",
     )
 

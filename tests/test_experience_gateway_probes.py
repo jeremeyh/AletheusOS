@@ -8,12 +8,9 @@ from fastapi.testclient import TestClient
 MODULE = "aletheus.experience_gateway.fastapi_app"
 
 OIDC_ENVIRONMENT = {
-    "ALETHEUS_OIDC_ISSUER":
-        "https://identity.example.test",
-    "ALETHEUS_OIDC_AUDIENCE":
-        "nimble",
-    "ALETHEUS_OIDC_JWKS_URL":
-        "https://identity.example.test/.well-known/jwks.json",
+    "ALETHEUS_OIDC_ISSUER": "https://identity.example.test",
+    "ALETHEUS_OIDC_AUDIENCE": "nimble",
+    "ALETHEUS_OIDC_JWKS_URL": "https://identity.example.test/.well-known/jwks.json",
 }
 
 
@@ -65,10 +62,7 @@ def test_healthz_reports_process_alive(
     payload = response.json()
 
     assert payload["status"] == "alive"
-    assert (
-        payload["service"]
-        == "nimble-experience-gateway"
-    )
+    assert payload["service"] == "nimble-experience-gateway"
     assert payload["timestamp"]
 
 
@@ -88,9 +82,7 @@ def test_readyz_passes_in_local_mode(
 
     assert payload["status"] == "ready"
     assert payload["auth_mode"] == "local"
-    assert payload["checks"][
-        "auth_mode_supported"
-    ] is True
+    assert payload["checks"]["auth_mode_supported"] is True
 
 
 def test_readyz_passes_with_oidc_configuration(
@@ -110,9 +102,7 @@ def test_readyz_passes_with_oidc_configuration(
 
     assert payload["status"] == "ready"
     assert payload["auth_mode"] == "oidc"
-    assert payload["checks"][
-        "oidc_configuration_present"
-    ] is True
+    assert payload["checks"]["oidc_configuration_present"] is True
 
 
 def test_readiness_evaluator_reports_missing_oidc_configuration(
@@ -133,12 +123,8 @@ def test_readiness_evaluator_reports_missing_oidc_configuration(
 
     assert result["status"] == "not_ready"
     assert result["auth_mode"] == "oidc"
-    assert result["checks"][
-        "auth_mode_supported"
-    ] is True
-    assert result["checks"][
-        "oidc_configuration_present"
-    ] is False
+    assert result["checks"]["auth_mode_supported"] is True
+    assert result["checks"]["oidc_configuration_present"] is False
 
 
 def test_readiness_evaluator_rejects_unknown_auth_mode(
@@ -159,6 +145,4 @@ def test_readiness_evaluator_rejects_unknown_auth_mode(
 
     assert result["status"] == "not_ready"
     assert result["auth_mode"] == "unsupported"
-    assert result["checks"][
-        "auth_mode_supported"
-    ] is False
+    assert result["checks"]["auth_mode_supported"] is False

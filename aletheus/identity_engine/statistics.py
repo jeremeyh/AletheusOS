@@ -2,7 +2,6 @@ from __future__ import annotations
 
 
 class IdentityStatistics:
-
     GENESIS = "21.7"
     VERSION = "1.0.0"
 

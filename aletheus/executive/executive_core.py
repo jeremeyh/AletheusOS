@@ -48,7 +48,9 @@ class AletheusExecutiveCore:
 
         return {
             "title": "Aletheus Executive Summary",
-            "overall_status": "healthy" if runtime_health.get("status") == "online" else "attention_required",
+            "overall_status": "healthy"
+            if runtime_health.get("status") == "online"
+            else "attention_required",
             "highlights": highlights,
             "snapshot": snap,
         }

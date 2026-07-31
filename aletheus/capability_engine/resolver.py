@@ -5,7 +5,6 @@ from .profiles import foundation_profiles
 
 
 class CapabilityResolver:
-
     GENESIS = "21.6"
     VERSION = "1.0.0"
 
@@ -61,7 +60,6 @@ class CapabilityResolver:
         profile = self.profile(identity_id)
 
         for pid in self.resolve_profiles(profile):
-
             p = foundation_profiles.get(pid)
 
             if p:
@@ -78,9 +76,7 @@ class CapabilityResolver:
         capability_id: str,
     ):
 
-        return capability_id in self.effective_capabilities(
-            identity_id
-        )
+        return capability_id in self.effective_capabilities(identity_id)
 
     def health(self):
 

@@ -12,28 +12,18 @@ def _find_repo_root() -> Path:
     current = Path(__file__).resolve().parent
 
     while True:
-        if (
-            current / "pyproject.toml"
-        ).is_file():
+        if (current / "pyproject.toml").is_file():
             return current
 
         if current.parent == current:
-            raise RuntimeError(
-                "Unable to locate repository root."
-            )
+            raise RuntimeError("Unable to locate repository root.")
 
         current = current.parent
 
 
 ROOT = _find_repo_root()
 
-REPORT = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "orchestrator"
-    / "build-state-latest.json"
-)
+REPORT = ROOT / "reports" / "nimble" / "orchestrator" / "build-state-latest.json"
 
 
 def main() -> int:
@@ -55,10 +45,7 @@ def main() -> int:
 
     for relative in required:
         if not (ROOT / relative).is_file():
-            failures.append(
-                "Missing orchestrator file: "
-                f"{relative}"
-            )
+            failures.append(f"Missing orchestrator file: {relative}")
 
     REPORT.parent.mkdir(
         parents=True,
@@ -83,42 +70,23 @@ def main() -> int:
     )
 
     if result.returncode != 0:
-        failures.append(
-            "Nimble Build Orchestrator "
-            "execution failed."
-        )
+        failures.append("Nimble Build Orchestrator execution failed.")
 
     if not REPORT.is_file():
-        failures.append(
-            "Orchestrator state report "
-            "was not generated."
-        )
+        failures.append("Orchestrator state report was not generated.")
         report: dict[str, object] = {}
     else:
         try:
-            report = json.loads(
-                REPORT.read_text(
-                    encoding="utf-8"
-                )
-            )
+            report = json.loads(REPORT.read_text(encoding="utf-8"))
         except (
             OSError,
             json.JSONDecodeError,
         ) as error:
-            failures.append(
-                "Unable to read orchestrator "
-                f"state report: {error}"
-            )
+            failures.append(f"Unable to read orchestrator state report: {error}")
             report = {}
 
-        if (
-            report.get("schema_version")
-            != "1.0"
-        ):
-            failures.append(
-                "Invalid orchestrator "
-                "report schema."
-            )
+        if report.get("schema_version") != "1.0":
+            failures.append("Invalid orchestrator report schema.")
 
         capabilities = report.get(
             "capabilities",
@@ -129,16 +97,11 @@ def main() -> int:
             capabilities,
             list,
         ):
-            failures.append(
-                "Invalid capabilities section "
-                "in orchestrator report."
-            )
+            failures.append("Invalid capabilities section in orchestrator report.")
             capabilities = []
 
         capability_ids = {
-            item.get("capability_id")
-            for item in capabilities
-            if isinstance(item, dict)
+            item.get("capability_id") for item in capabilities if isinstance(item, dict)
         }
 
         expected = {
@@ -152,24 +115,13 @@ def main() -> int:
 
         if missing:
             failures.append(
-                "Missing orchestrator "
-                "capabilities: "
-                + ", ".join(
-                    sorted(missing)
-                )
+                "Missing orchestrator capabilities: " + ", ".join(sorted(missing))
             )
 
-    status = (
-        "PASS"
-        if not failures
-        else "FAIL"
-    )
+    status = "PASS" if not failures else "FAIL"
 
     print("=" * 72)
-    print(
-        "NIMBLE™ BUILD ORCHESTRATOR "
-        "VALIDATION"
-    )
+    print("NIMBLE™ BUILD ORCHESTRATOR VALIDATION")
     print("=" * 72)
     print(f"Failures: {len(failures)}")
     print(f"Status: {status}")

@@ -53,21 +53,31 @@ class AnalyzerLoader:
         package = importlib.import_module(self.package)
         modules = []
         for info in pkgutil.iter_modules(package.__path__):
-            if info.ispkg or info.name.startswith("_") or info.name in self.excluded_modules:
+            if (
+                info.ispkg
+                or info.name.startswith("_")
+                or info.name in self.excluded_modules
+            ):
                 continue
             modules.append(f"{self.package}.{info.name}")
         return tuple(sorted(modules))
 
-    def load(self, *, registry: AnalyzerRegistry | None = None,
-             modules: Sequence[str] | None = None) -> AnalyzerLoadResult:
+    def load(
+        self,
+        *,
+        registry: AnalyzerRegistry | None = None,
+        modules: Sequence[str] | None = None,
+    ) -> AnalyzerLoadResult:
         registry = registry or AnalyzerRegistry()
         diagnostics: list[AnalyzerLoadDiagnostic] = []
 
-        for module_name in (tuple(modules) if modules else self.discover_modules()):
+        for module_name in tuple(modules) if modules else self.discover_modules():
             try:
                 module = importlib.import_module(module_name)
             except Exception as exc:
-                diagnostics.append(AnalyzerLoadDiagnostic(module_name, None, "failed", str(exc)))
+                diagnostics.append(
+                    AnalyzerLoadDiagnostic(module_name, None, "failed", str(exc))
+                )
                 if self.fail_fast:
                     raise
                 continue
@@ -87,21 +97,42 @@ class AnalyzerLoader:
             if not issubclass(cls, Analyzer):
                 continue
             if inspect.isabstract(cls):
-                out.append(AnalyzerLoadDiagnostic(module.__name__, cls.__name__, "skipped", "abstract"))
+                out.append(
+                    AnalyzerLoadDiagnostic(
+                        module.__name__, cls.__name__, "skipped", "abstract"
+                    )
+                )
                 continue
             sig = inspect.signature(cls)
-            req = [p for p in sig.parameters.values()
-                   if p.default is inspect.Parameter.empty
-                   and p.kind not in (inspect.Parameter.VAR_POSITIONAL, inspect.Parameter.VAR_KEYWORD)]
+            req = [
+                p
+                for p in sig.parameters.values()
+                if p.default is inspect.Parameter.empty
+                and p.kind
+                not in (inspect.Parameter.VAR_POSITIONAL, inspect.Parameter.VAR_KEYWORD)
+            ]
             if req:
-                out.append(AnalyzerLoadDiagnostic(module.__name__, cls.__name__, "skipped", "constructor requires arguments"))
+                out.append(
+                    AnalyzerLoadDiagnostic(
+                        module.__name__,
+                        cls.__name__,
+                        "skipped",
+                        "constructor requires arguments",
+                    )
+                )
                 continue
             try:
                 inst = cls()
                 registry.register(inst, name=getattr(inst, "name", cls.__name__))
-                out.append(AnalyzerLoadDiagnostic(module.__name__, cls.__name__, "loaded", ""))
+                out.append(
+                    AnalyzerLoadDiagnostic(module.__name__, cls.__name__, "loaded", "")
+                )
             except Exception as exc:
-                out.append(AnalyzerLoadDiagnostic(module.__name__, cls.__name__, "failed", str(exc)))
+                out.append(
+                    AnalyzerLoadDiagnostic(
+                        module.__name__, cls.__name__, "failed", str(exc)
+                    )
+                )
                 if self.fail_fast:
                     raise
         return out

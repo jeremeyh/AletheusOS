@@ -8,7 +8,6 @@ from collections import defaultdict
 
 
 class AssetIndex:
-
     def __init__(self):
 
         self.clear()
@@ -27,7 +26,6 @@ class AssetIndex:
         self.clear()
 
         for asset in assets:
-
             if asset.player:
                 self.players[asset.player].append(asset)
 
@@ -49,12 +47,10 @@ class AssetIndex:
     def statistics(self):
 
         return {
-
             "players": len(self.players),
             "teams": len(self.teams),
             "sports": len(self.sports),
             "years": len(self.years),
             "sets": len(self.sets),
             "categories": len(self.categories),
-
         }

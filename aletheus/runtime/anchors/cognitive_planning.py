@@ -5,19 +5,6 @@ Cognitive Planning Engine
 
 
 class CognitivePlanningEngine:
+    def plan(self, objective):
 
-
-    def plan(
-        self,
-        objective
-    ):
-
-        return {
-
-            "objective":
-                objective,
-
-            "plan_created":
-                True
-
-        }
+        return {"objective": objective, "plan_created": True}

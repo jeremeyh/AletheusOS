@@ -104,9 +104,7 @@ class ConstitutionalMission:
             "criticality": self.criticality.value,
             "correlation_id": self.correlation_id,
             "case_id": self.case_id,
-            "participating_institutions": list(
-                self.participating_institutions
-            ),
+            "participating_institutions": list(self.participating_institutions),
             "evidence": list(self.evidence),
             "event_ids": list(self.event_ids),
             "failures": list(self.failures),

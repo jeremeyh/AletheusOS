@@ -9,7 +9,9 @@ def render(state):
 
     c1, c2 = st.columns([1, 2])
     with c1:
-        workflow_type = st.selectbox("Workflow", list(WorkflowAutomationService.TEMPLATES.keys()))
+        workflow_type = st.selectbox(
+            "Workflow", list(WorkflowAutomationService.TEMPLATES.keys())
+        )
         subject = st.text_input("Subject / Asset / Listing")
         if st.button("Start Workflow"):
             WorkflowAutomationService.start(workflow_type, subject)

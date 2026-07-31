@@ -6,6 +6,4 @@ Post-Genesis 256-275
 
 from .engine import IntelligenceInfrastructureEngine
 
-__all__ = [
-"IntelligenceInfrastructureEngine"
-]
+__all__ = ["IntelligenceInfrastructureEngine"]

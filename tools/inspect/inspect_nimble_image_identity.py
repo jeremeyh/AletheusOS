@@ -11,21 +11,9 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parent
-CONTRACT_PATH = (
-    ROOT
-    / "nimble/governance/deployment/"
-    "image-provenance-contract.json"
-)
-IDENTITY_REPORT = (
-    ROOT
-    / "reports/nimble/"
-    "image-identity-latest.json"
-)
-DIGEST_REPORT = (
-    ROOT
-    / "reports/nimble/"
-    "image-digest-latest.json"
-)
+CONTRACT_PATH = ROOT / "nimble/governance/deployment/image-provenance-contract.json"
+IDENTITY_REPORT = ROOT / "reports/nimble/image-identity-latest.json"
+DIGEST_REPORT = ROOT / "reports/nimble/image-digest-latest.json"
 
 
 def run_json(command: list[str]) -> Any:
@@ -64,10 +52,7 @@ def main() -> int:
 
     parser.add_argument(
         "--image",
-        default=(
-            "aletheus/"
-            "nimble-experience-gateway:ci"
-        ),
+        default=("aletheus/nimble-experience-gateway:ci"),
     )
 
     parser.add_argument(
@@ -79,16 +64,10 @@ def main() -> int:
 
     docker = shutil.which("docker")
 
-    generated_at = datetime.now(
-        UTC
-    ).isoformat()
+    generated_at = datetime.now(UTC).isoformat()
 
     if docker is None:
-        status = (
-            "FAIL"
-            if arguments.require_runtime
-            else "SKIP"
-        )
+        status = "FAIL" if arguments.require_runtime else "SKIP"
 
         payload = {
             "schema_version": "1.0",
@@ -96,13 +75,9 @@ def main() -> int:
             "image": arguments.image,
             "status": status,
             "failures": (
-                ["Docker runtime is unavailable."]
-                if arguments.require_runtime
-                else []
+                ["Docker runtime is unavailable."] if arguments.require_runtime else []
             ),
-            "skip_reason": (
-                "Docker runtime is unavailable."
-            ),
+            "skip_reason": ("Docker runtime is unavailable."),
         }
 
         write_report(
@@ -121,11 +96,7 @@ def main() -> int:
         print("Docker runtime: unavailable")
         print(f"Status: {status}")
 
-        return (
-            1
-            if arguments.require_runtime
-            else 0
-        )
+        return 1 if arguments.require_runtime else 0
 
     contract = json.loads(
         CONTRACT_PATH.read_text(
@@ -143,63 +114,36 @@ def main() -> int:
     )
 
     if not inspect_data:
-        raise RuntimeError(
-            "Docker returned no image inspection data."
-        )
+        raise RuntimeError("Docker returned no image inspection data.")
 
     image = inspect_data[0]
-    labels = (
-        image.get("Config", {}).get("Labels")
-        or {}
-    )
+    labels = image.get("Config", {}).get("Labels") or {}
 
     failures: list[str] = []
 
-    for label in contract["image"][
-        "required_oci_labels"
-    ]:
+    for label in contract["image"]["required_oci_labels"]:
         value = labels.get(label)
 
         if not value:
-            failures.append(
-                f"Missing or empty OCI label: {label}"
-            )
+            failures.append(f"Missing or empty OCI label: {label}")
 
-    configured_user = (
-        image.get("Config", {}).get("User")
-        or ""
-    )
+    configured_user = image.get("Config", {}).get("User") or ""
 
-    expected_user = contract["image"][
-        "runtime_user"
-    ]
+    expected_user = contract["image"]["runtime_user"]
 
     if configured_user != expected_user:
         failures.append(
-            "Unexpected runtime user: "
-            f"{configured_user!r}; "
-            f"expected {expected_user!r}."
+            f"Unexpected runtime user: {configured_user!r}; expected {expected_user!r}."
         )
 
-    image_id = str(
-        image.get("Id", "")
-    )
+    image_id = str(image.get("Id", ""))
 
     if not image_id.startswith("sha256:"):
-        failures.append(
-            f"Image ID is not a sha256 digest: {image_id}"
-        )
+        failures.append(f"Image ID is not a sha256 digest: {image_id}")
 
-    repository_digests = (
-        image.get("RepoDigests")
-        or []
-    )
+    repository_digests = image.get("RepoDigests") or []
 
-    identity_status = (
-        "PASS"
-        if not failures
-        else "FAIL"
-    )
+    identity_status = "PASS" if not failures else "FAIL"
 
     identity_payload = {
         "schema_version": "1.0",
@@ -216,11 +160,7 @@ def main() -> int:
         "schema_version": "1.0",
         "generated_at": generated_at,
         "image": arguments.image,
-        "status": (
-            "PASS"
-            if image_id.startswith("sha256:")
-            else "FAIL"
-        ),
+        "status": ("PASS" if image_id.startswith("sha256:") else "FAIL"),
         "image_id": image_id,
         "repository_digests": repository_digests,
         "algorithm": "sha256",
@@ -247,11 +187,7 @@ def main() -> int:
     for failure in failures:
         print(f"- {failure}")
 
-    return (
-        0
-        if identity_status == "PASS"
-        else 1
-    )
+    return 0 if identity_status == "PASS" else 1
 
 
 if __name__ == "__main__":

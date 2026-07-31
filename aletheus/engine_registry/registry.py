@@ -4,7 +4,6 @@ from .models import IntelligenceEngine
 
 
 class EngineRegistry:
-
     GENESIS = "16.3"
     VERSION = "0.1.0"
 
@@ -24,10 +23,7 @@ class EngineRegistry:
 
     def list(self):
 
-        return [
-            engine.to_dict()
-            for engine in self._engines.values()
-        ]
+        return [engine.to_dict() for engine in self._engines.values()]
 
     def count(self):
 

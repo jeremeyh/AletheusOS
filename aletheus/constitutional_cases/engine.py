@@ -43,13 +43,9 @@ class ConstitutionalCaseEngine:
         registry: ConstitutionalCaseRegistry | None = None,
     ) -> None:
         self.fabric = fabric
-        self.registry = (
-            registry or ConstitutionalCaseRegistry()
-        )
+        self.registry = registry or ConstitutionalCaseRegistry()
 
-        register_case_event_types(
-            self.fabric.registry
-        )
+        register_case_event_types(self.fabric.registry)
 
     def detect(
         self,
@@ -152,8 +148,7 @@ class ConstitutionalCaseEngine:
 
         if evidence_type not in case.contract.required_evidence_types:
             raise ValueError(
-                f"Evidence type {evidence_type!r} is not declared "
-                "by the case contract."
+                f"Evidence type {evidence_type!r} is not declared by the case contract."
             )
 
         record = {
@@ -216,18 +211,11 @@ class ConstitutionalCaseEngine:
             CaseStatus.RECOVERING,
             CaseStatus.INVESTIGATING,
         }:
-            raise InvalidCaseTransitionError(
-                "Case is not eligible for resolution."
-            )
+            raise InvalidCaseTransitionError("Case is not eligible for resolution.")
 
-        evidence_types = {
-            item["evidence_type"]
-            for item in case.evidence
-        }
+        evidence_types = {item["evidence_type"] for item in case.evidence}
 
-        missing = set(
-            case.contract.required_evidence_types
-        ) - evidence_types
+        missing = set(case.contract.required_evidence_types) - evidence_types
 
         if missing:
             raise ValueError(
@@ -244,9 +232,7 @@ class ConstitutionalCaseEngine:
             source_identity=authority,
             payload={
                 "case_id": case.case_id,
-                "closure_criteria": (
-                    case.contract.closure_criteria
-                ),
+                "closure_criteria": (case.contract.closure_criteria),
             },
             certified=True,
         )
@@ -307,9 +293,7 @@ class ConstitutionalCaseEngine:
     ) -> tuple[ConstitutionalEvent, ...]:
         case = self.registry.require(case_id)
 
-        return self.fabric.events(
-            correlation_id=case.correlation_id
-        )
+        return self.fabric.events(correlation_id=case.correlation_id)
 
     def _publish(
         self,
@@ -320,11 +304,7 @@ class ConstitutionalCaseEngine:
         payload: dict[str, Any],
         certified: bool = False,
     ) -> ConstitutionalEvent:
-        causation_id = (
-            case.event_ids[-1]
-            if case.event_ids
-            else None
-        )
+        causation_id = case.event_ids[-1] if case.event_ids else None
 
         event = ConstitutionalEvent.create(
             event_type,

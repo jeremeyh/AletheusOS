@@ -7,7 +7,5 @@ class ConstitutionalEventError(Exception):
     """Base exception for constitutional event failures."""
 
 
-class ConstitutionalEventValidationError(
-    ConstitutionalEventError
-):
+class ConstitutionalEventValidationError(ConstitutionalEventError):
     """Raised when an event violates its constitutional contract."""

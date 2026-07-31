@@ -6,18 +6,6 @@ Genesis 13.44
 
 
 class PermissionEngine:
+    def check(self, identity, capability):
 
-
-    def check(
-        self,
-        identity,
-        capability
-    ):
-
-
-        return capability in (
-
-            identity.capabilities
-
-        )
-
+        return capability in (identity.capabilities)

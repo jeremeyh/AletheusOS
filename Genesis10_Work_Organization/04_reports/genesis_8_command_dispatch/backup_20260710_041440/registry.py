@@ -43,7 +43,6 @@ class RuntimeCommandRegistry:
         # Genesis 7 compatibility
         #
         if normalized_name in self.commands:
-
             if replace:
                 self.unregister(normalized_name)
 
@@ -83,27 +82,21 @@ class RuntimeCommandRegistry:
             return CommandResult(
                 command=name,
                 status="missing",
-                response={
-                    "error": f"Command '{name}' is not registered."
-                },
+                response={"error": f"Command '{name}' is not registered."},
             )
 
         try:
-
             response = record.handler(payload)
 
             return CommandResult(
                 command=name,
                 status="completed",
                 response=(
-                    response
-                    if isinstance(response, dict)
-                    else {"result": response}
+                    response if isinstance(response, dict) else {"result": response}
                 ),
             )
 
         except Exception as exc:
-
             return CommandResult(
                 command=name,
                 status="failed",
@@ -120,12 +113,7 @@ class RuntimeCommandRegistry:
         return sorted(self.commands)
 
     def categories(self):
-        return sorted(
-            {
-                record.category
-                for record in self.commands.values()
-            }
-        )
+        return sorted({record.category for record in self.commands.values()})
 
     def health(self):
         return {

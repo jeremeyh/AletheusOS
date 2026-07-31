@@ -43,9 +43,7 @@ class UnifiedCognitiveIndexService:
         relationship: UCIRelationship,
     ) -> None:
 
-        self.registry.register_relationship(
-            relationship
-        )
+        self.registry.register_relationship(relationship)
 
     # -------------------------------------------------------
     # Lookup

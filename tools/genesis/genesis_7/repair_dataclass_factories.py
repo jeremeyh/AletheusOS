@@ -131,8 +131,7 @@ def discover_repairs(source: str, path: Path) -> list[Repair]:
         tree = ast.parse(source, filename=str(path))
     except SyntaxError as exc:
         print(
-            f"SKIP  {path}: existing SyntaxError: "
-            f"{exc.msg} at line {exc.lineno}",
+            f"SKIP  {path}: existing SyntaxError: {exc.msg} at line {exc.lineno}",
             file=sys.stderr,
         )
         return []
@@ -175,8 +174,7 @@ def discover_repairs(source: str, path: Path) -> list[Repair]:
 
         if expression_source is None:
             print(
-                f"SKIP  {path}:{node.lineno}: "
-                "could not recover factory expression",
+                f"SKIP  {path}:{node.lineno}: could not recover factory expression",
                 file=sys.stderr,
             )
             continue
@@ -191,8 +189,7 @@ def discover_repairs(source: str, path: Path) -> list[Repair]:
             )
         ):
             print(
-                f"SKIP  {path}:{node.lineno}: "
-                "AST location information is incomplete",
+                f"SKIP  {path}:{node.lineno}: AST location information is incomplete",
                 file=sys.stderr,
             )
             continue
@@ -234,11 +231,7 @@ def apply_repairs(source: str, repairs: list[Repair]) -> str:
     updated = source
 
     for repair in repairs:
-        updated = (
-            updated[: repair.start]
-            + repair.replacement
-            + updated[repair.end :]
-        )
+        updated = updated[: repair.start] + repair.replacement + updated[repair.end :]
 
     return updated
 
@@ -309,18 +302,14 @@ def main() -> int:
         try:
             source = path.read_text(encoding="utf-8")
         except (OSError, UnicodeError) as exc:
-            report_lines.append(
-                f"READ-FAIL {path}: {type(exc).__name__}: {exc}"
-            )
+            report_lines.append(f"READ-FAIL {path}: {type(exc).__name__}: {exc}")
             continue
 
         try:
             ast.parse(source, filename=str(path))
         except SyntaxError as exc:
             syntax_skip_count += 1
-            report_lines.append(
-                f"SYNTAX-SKIP {path}:{exc.lineno}: {exc.msg}"
-            )
+            report_lines.append(f"SYNTAX-SKIP {path}:{exc.lineno}: {exc.msg}")
             continue
 
         repairs = discover_repairs(source, path)
@@ -362,9 +351,7 @@ def main() -> int:
             shutil.copy2(backup_path, path)
 
             rollback_count += 1
-            report_lines.append(
-                f"  STATUS WRITE-FAIL / ROLLED-BACK: {exc}"
-            )
+            report_lines.append(f"  STATUS WRITE-FAIL / ROLLED-BACK: {exc}")
             report_lines.append("")
             continue
 
@@ -374,9 +361,7 @@ def main() -> int:
             shutil.copy2(backup_path, path)
 
             rollback_count += 1
-            report_lines.append(
-                "  STATUS COMPILE-FAIL / ROLLED-BACK"
-            )
+            report_lines.append("  STATUS COMPILE-FAIL / ROLLED-BACK")
             report_lines.append(f"  ERROR {compile_error}")
             report_lines.append("")
             continue

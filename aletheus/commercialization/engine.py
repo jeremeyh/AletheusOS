@@ -6,52 +6,26 @@ Post-Genesis 1026-1050
 
 
 class CommercializationEngine:
-
-
     def __init__(self):
 
         self.products = []
 
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_commercialization",
-
-            "range":
-            "1026-1050",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_commercialization",
+            "range": "1026-1050",
+            "status": "operational",
         }
-
 
     def commercialize(self, civilization):
 
-        product = {
+        product = {"civilization": civilization, "status": "commercialized"}
 
-            "civilization":
-            civilization,
-
-            "status":
-            "commercialized"
-
-        }
-
-
-        self.products.append(
-            product
-        )
-
+        self.products.append(product)
 
         return product
-
-
 
     def list_products(self):
 
         return self.products
-

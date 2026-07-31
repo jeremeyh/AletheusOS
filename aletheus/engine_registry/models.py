@@ -6,7 +6,6 @@ from typing import Any
 
 @dataclass(slots=True)
 class IntelligenceEngine:
-
     engine_id: str
     name: str
     version: str

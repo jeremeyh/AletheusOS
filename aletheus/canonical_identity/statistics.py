@@ -34,7 +34,6 @@ def statistics() -> dict:
     statuses = Counter()
 
     for identity in identities:
-
         identity_types[identity.identity_type.value] += 1
         trust_levels[identity.trust_level.value] += 1
         statuses[identity.status.value] += 1
@@ -43,12 +42,8 @@ def statistics() -> dict:
         "name": "Canonical Identity Framework",
         "genesis": "47.0",
         "version": "1.0.0",
-
         "registered_identities": len(identities),
-
         "identity_types": dict(identity_types),
-
         "trust_levels": dict(trust_levels),
-
         "statuses": dict(statuses),
     }

@@ -21,9 +21,7 @@ class ConstitutionalCaseRegistry:
         validate_case(case)
 
         if case.case_id in self._cases:
-            raise DuplicateCaseError(
-                f"Case {case.case_id!r} already exists."
-            )
+            raise DuplicateCaseError(f"Case {case.case_id!r} already exists.")
 
         self._cases[case.case_id] = case
         return case
@@ -41,9 +39,7 @@ class ConstitutionalCaseRegistry:
         case = self.get(case_id)
 
         if case is None:
-            raise KeyError(
-                f"Unknown case: {case_id}"
-            )
+            raise KeyError(f"Unknown case: {case_id}")
 
         return case
 
@@ -56,18 +52,13 @@ class ConstitutionalCaseRegistry:
         self,
         status: CaseStatus,
     ) -> tuple[ConstitutionalCase, ...]:
-        return tuple(
-            case
-            for case in self._cases.values()
-            if case.status == status
-        )
+        return tuple(case for case in self._cases.values() if case.status == status)
 
     def statistics(self) -> dict:
         return {
             "cases": len(self._cases),
             "statuses": {
-                status.value: len(self.by_status(status))
-                for status in CaseStatus
+                status.value: len(self.by_status(status)) for status in CaseStatus
             },
         }
 

@@ -6,19 +6,6 @@ Genesis 13.34
 
 
 class ValuationForecastEngine:
+    def predict(self, asset):
 
-
-    def predict(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "trend":
-
-                "unknown"
-
-        }
-
+        return {"trend": "unknown"}

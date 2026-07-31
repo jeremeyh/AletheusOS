@@ -21,21 +21,19 @@ def canonical_institutions() -> tuple[InstitutionRecord, ...]:
         *canonical_security_institutions(),
     )
 
-    institution_ids = [
-        record.institution_id
-        for record in records
-    ]
+    institution_ids = [record.institution_id for record in records]
 
     if len(institution_ids) != len(set(institution_ids)):
-        duplicates = sorted({
-            institution_id
-            for institution_id in institution_ids
-            if institution_ids.count(institution_id) > 1
-        })
+        duplicates = sorted(
+            {
+                institution_id
+                for institution_id in institution_ids
+                if institution_ids.count(institution_id) > 1
+            }
+        )
 
         raise ValueError(
-            "Duplicate canonical institution IDs: "
-            + ", ".join(duplicates)
+            "Duplicate canonical institution IDs: " + ", ".join(duplicates)
         )
 
     return tuple(records)

@@ -6,19 +6,6 @@ Genesis 14.7
 
 
 class AgentDispatcher:
+    def dispatch(self, task):
 
-
-    def dispatch(
-        self,
-        task
-    ):
-
-
-        return {
-
-            "assigned":
-
-                True
-
-        }
-
+        return {"assigned": True}

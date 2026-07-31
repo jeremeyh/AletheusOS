@@ -10,36 +10,13 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parent
 
-DIST = (
-    ROOT
-    / "nimble"
-    / "apps"
-    / "platform-shell"
-    / "dist"
-)
+DIST = ROOT / "nimble" / "apps" / "platform-shell" / "dist"
 
-CONTRACT = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "deployment"
-    / "deployment-contract.json"
-)
+CONTRACT = ROOT / "nimble" / "governance" / "deployment" / "deployment-contract.json"
 
-OUTPUT = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "deployment"
-    / "build-metadata.json"
-)
+OUTPUT = ROOT / "nimble" / "governance" / "deployment" / "build-metadata.json"
 
-REPORT = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "build-metadata-latest.md"
-)
+REPORT = ROOT / "reports" / "nimble" / "build-metadata-latest.md"
 
 
 def command_output(
@@ -73,8 +50,7 @@ def sha256_file(path: Path) -> str:
 def collect_artifacts() -> list[dict[str, Any]]:
     if not DIST.exists():
         raise FileNotFoundError(
-            "Frontend distribution is missing. "
-            "Run the Nimble production build first."
+            "Frontend distribution is missing. Run the Nimble production build first."
         )
 
     artifacts: list[dict[str, Any]] = []
@@ -103,29 +79,17 @@ def main() -> int:
 
     metadata = {
         "schema_version": "1.0",
-        "generated_at": datetime.now(
-            UTC
-        ).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "source": {
-            "commit": command_output(
-                ["git", "rev-parse", "HEAD"]
-            ),
-            "short_commit": command_output(
-                ["git", "rev-parse", "--short", "HEAD"]
-            ),
-            "branch": command_output(
-                ["git", "branch", "--show-current"]
-            ),
+            "commit": command_output(["git", "rev-parse", "HEAD"]),
+            "short_commit": command_output(["git", "rev-parse", "--short", "HEAD"]),
+            "branch": command_output(["git", "branch", "--show-current"]),
         },
         "runtime": {
             "python": platform.python_version(),
             "platform": platform.platform(),
-            "node": command_output(
-                ["node", "--version"]
-            ),
-            "npm": command_output(
-                ["npm", "--version"]
-            ),
+            "node": command_output(["node", "--version"]),
+            "npm": command_output(["npm", "--version"]),
         },
         "deployment_contract": {
             "path": str(CONTRACT.relative_to(ROOT)),
@@ -134,10 +98,7 @@ def main() -> int:
         "frontend": {
             "distribution": str(DIST.relative_to(ROOT)),
             "file_count": len(artifacts),
-            "total_bytes": sum(
-                item["bytes"]
-                for item in artifacts
-            ),
+            "total_bytes": sum(item["bytes"] for item in artifacts),
             "artifacts": artifacts,
         },
     }
@@ -158,40 +119,19 @@ def main() -> int:
                 "# Nimble Build Metadata",
                 "",
                 f"Generated: `{metadata['generated_at']}`",
-                (
-                    "Commit: "
-                    f"`{metadata['source']['commit']}`"
-                ),
-                (
-                    "Branch: "
-                    f"`{metadata['source']['branch']}`"
-                ),
+                (f"Commit: `{metadata['source']['commit']}`"),
+                (f"Branch: `{metadata['source']['branch']}`"),
                 "",
                 "## Runtime",
                 "",
-                (
-                    "- Python: "
-                    f"`{metadata['runtime']['python']}`"
-                ),
-                (
-                    "- Node: "
-                    f"`{metadata['runtime']['node']}`"
-                ),
-                (
-                    "- npm: "
-                    f"`{metadata['runtime']['npm']}`"
-                ),
+                (f"- Python: `{metadata['runtime']['python']}`"),
+                (f"- Node: `{metadata['runtime']['node']}`"),
+                (f"- npm: `{metadata['runtime']['npm']}`"),
                 "",
                 "## Frontend distribution",
                 "",
-                (
-                    "- Files: "
-                    f"`{metadata['frontend']['file_count']}`"
-                ),
-                (
-                    "- Total bytes: "
-                    f"`{metadata['frontend']['total_bytes']}`"
-                ),
+                (f"- Files: `{metadata['frontend']['file_count']}`"),
+                (f"- Total bytes: `{metadata['frontend']['total_bytes']}`"),
                 (
                     "- Deployment contract SHA-256: "
                     f"`{metadata['deployment_contract']['sha256']}`"

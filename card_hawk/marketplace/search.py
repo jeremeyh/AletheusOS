@@ -6,12 +6,6 @@ Genesis 14.3
 
 
 class MarketplaceSearchEngine:
-
-
-    def search(
-        self,
-        query
-    ):
+    def search(self, query):
 
         return []
-

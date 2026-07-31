@@ -40,7 +40,10 @@ class ASTProvider(Provider):
         root = context.root.resolve()
         for path in sorted(root.rglob("*.py")):
             relative = path.relative_to(root)
-            if any(part in {".git", ".venv", "venv", "__pycache__"} for part in relative.parts):
+            if any(
+                part in {".git", ".venv", "venv", "__pycache__"}
+                for part in relative.parts
+            ):
                 continue
             if not self.include_tests and "tests" in relative.parts:
                 continue
@@ -91,7 +94,9 @@ class ASTProvider(Provider):
                             "qualified_name": _qualified_name(module, node.name),
                             "line": node.lineno,
                             "async": isinstance(node, ast.AsyncFunctionDef),
-                            "decorators": [_decorator_name(item) for item in node.decorator_list],
+                            "decorators": [
+                                _decorator_name(item) for item in node.decorator_list
+                            ],
                             "docstring": ast.get_docstring(node),
                         },
                         tags=("python", "ast", "function"),
@@ -115,7 +120,9 @@ class ASTProvider(Provider):
                             "qualified_name": _qualified_name(module, node.name),
                             "line": node.lineno,
                             "bases": bases,
-                            "decorators": [_decorator_name(item) for item in node.decorator_list],
+                            "decorators": [
+                                _decorator_name(item) for item in node.decorator_list
+                            ],
                             "docstring": ast.get_docstring(node),
                         },
                         tags=("python", "ast", "class"),

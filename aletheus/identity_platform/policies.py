@@ -6,19 +6,6 @@ Genesis 13.44
 
 
 class PolicyEngine:
+    def evaluate(self, request):
 
-
-    def evaluate(
-        self,
-        request
-    ):
-
-
-        return {
-
-            "allowed":
-
-                True
-
-        }
-
+        return {"allowed": True}

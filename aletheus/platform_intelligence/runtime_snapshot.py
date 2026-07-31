@@ -38,13 +38,9 @@ class RuntimeSnapshotService:
 
     def collect(self, runtime):
 
-        snapshot = {
-            "diagnostics": runtime.diagnostics.report()
-        }
+        snapshot = {"diagnostics": runtime.diagnostics.report()}
 
         for output_name, attribute in self.COMPONENTS:
-            snapshot[output_name] = self._statistics(
-                getattr(runtime, attribute, None)
-            )
+            snapshot[output_name] = self._statistics(getattr(runtime, attribute, None))
 
         return snapshot

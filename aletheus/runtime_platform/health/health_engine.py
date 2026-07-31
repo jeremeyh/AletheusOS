@@ -9,8 +9,7 @@ from .health_model import (
 
 
 class HealthEngine:
-
-    VERSION="1.0.0"
+    VERSION = "1.0.0"
 
     def evaluate(
         self,
@@ -18,46 +17,31 @@ class HealthEngine:
         providers,
     ) -> RuntimeHealth:
 
-        evidence=[]
+        evidence = []
 
-        snapshot=providers.health()
+        snapshot = providers.health()
 
-        for name,data in snapshot.items():
-
+        for name, data in snapshot.items():
             evidence.append(
-
                 HealthEvidence(
-
                     source=name,
-
                     category="provider",
-
                     healthy=data.get(
                         "healthy",
                         False,
                     ),
-
                     message=data.get(
                         "status",
                         "unknown",
                     ),
-
                     metadata=data,
                 )
             )
 
-        healthy=all(
-            item.healthy
-            for item in evidence
-        )
+        healthy = all(item.healthy for item in evidence)
 
         return RuntimeHealth(
-
             healthy=healthy,
-
             evidence=tuple(evidence),
-
-            timestamp=datetime.now(
-                UTC
-            ).isoformat(),
+            timestamp=datetime.now(UTC).isoformat(),
         )

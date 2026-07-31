@@ -120,8 +120,7 @@ class ExecutiveBootstrap:
 
         if not result.success:
             raise RuntimeError(
-                "Executive Bootstrap failed: "
-                + "; ".join(result.errors)
+                "Executive Bootstrap failed: " + "; ".join(result.errors)
             )
 
         return result.components["executive_context"]

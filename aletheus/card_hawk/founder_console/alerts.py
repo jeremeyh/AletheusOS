@@ -6,23 +6,6 @@ Genesis 13.32
 
 
 class FounderAlertEngine:
+    def create(self, message):
 
-
-    def create(
-        self,
-        message
-    ):
-
-
-        return {
-
-            "alert":
-
-                message,
-
-            "priority":
-
-                "normal"
-
-        }
-
+        return {"alert": message, "priority": "normal"}

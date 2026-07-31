@@ -234,8 +234,7 @@ def namespace_findings(
     ]
 
     approved_pairs = {
-        tuple(pair)
-        for pair in policy.get("approved_namespace_pairs", [])
+        tuple(pair) for pair in policy.get("approved_namespace_pairs", [])
     }
 
     for left, right in duplicate_pairs:
@@ -343,8 +342,7 @@ def calculate_dimensions(findings: list[Finding]) -> dict[str, float]:
         categories[dimension] -= penalties.get(finding.severity, 1.0)
 
     return {
-        key: round(max(0.0, min(100.0, value)), 2)
-        for key, value in categories.items()
+        key: round(max(0.0, min(100.0, value)), 2) for key, value in categories.items()
     }
 
 
@@ -362,8 +360,7 @@ def weighted_score(
     }
 
     weights = {
-        key: float(configured.get(key, default))
-        for key, default in defaults.items()
+        key: float(configured.get(key, default)) for key, default in defaults.items()
     }
 
     total_weight = sum(weights.values()) or 1.0
@@ -438,8 +435,7 @@ def compare_snapshots(
         "root_entries_added": sorted(current_root - previous_root),
         "root_entries_removed": sorted(previous_root - current_root),
         "manifest_changed": (
-            current.get("manifest_sha256")
-            != previous.get("manifest_sha256")
+            current.get("manifest_sha256") != previous.get("manifest_sha256")
         ),
     }
 
@@ -455,7 +451,9 @@ def write_snapshot(snapshot: dict[str, Any]) -> Path:
     return path
 
 
-def write_reports(result: HealthResult, snapshot_path: Path | None) -> tuple[Path, Path]:
+def write_reports(
+    result: HealthResult, snapshot_path: Path | None
+) -> tuple[Path, Path]:
     REPORT_DIRECTORY.mkdir(parents=True, exist_ok=True)
 
     json_path = REPORT_DIRECTORY / "repository-health.json"
@@ -613,10 +611,7 @@ def run_doctor(
     for finding in result.findings:
         if finding.severity == "info":
             continue
-        print(
-            f"[{finding.severity.upper()}] "
-            f"{finding.path}: {finding.message}"
-        )
+        print(f"[{finding.severity.upper()}] {finding.path}: {finding.message}")
 
     return result
 
@@ -652,8 +647,7 @@ def main() -> int:
     )
 
     if args.strict and (
-        result.counts.get("critical", 0) > 0
-        or result.counts.get("error", 0) > 0
+        result.counts.get("critical", 0) > 0 or result.counts.get("error", 0) > 0
     ):
         return 1
 

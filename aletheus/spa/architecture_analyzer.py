@@ -6,31 +6,17 @@ Genesis 151
 
 
 class ArchitectureAnalyzer:
-
-
     def analyze(self):
 
         return {
-
-            "architecture":
-
-            {
-
+            "architecture": {
                 "layers_detected": [
-
                     "Runtime",
                     "Intelligence",
                     "Agents",
                     "Platform",
-                    "Applications"
-
+                    "Applications",
                 ],
-
-                "risk":
-
-                "low"
-
+                "risk": "low",
             }
-
         }
-

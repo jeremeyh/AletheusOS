@@ -75,11 +75,7 @@ REQUIRED_ENGINES = {
 
 
 def main() -> None:
-    missing = [
-        path
-        for path in REQUIRED_FILES
-        if not path.exists()
-    ]
+    missing = [path for path in REQUIRED_FILES if not path.exists()]
 
     if missing:
         for path in missing:
@@ -89,69 +85,45 @@ def main() -> None:
     html = HTML.read_text(encoding="utf-8")
     css = CSS.read_text(encoding="utf-8")
     js = JS.read_text(encoding="utf-8")
-    manifest = json.loads(
-        MANIFEST.read_text(encoding="utf-8")
-    )
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
 
     for marker in REQUIRED_HTML_MARKERS:
         if marker not in html and marker not in css:
-            raise ValueError(
-                f"Missing shell accessibility marker: {marker}"
-            )
+            raise ValueError(f"Missing shell accessibility marker: {marker}")
 
     for behavior in REQUIRED_JS_BEHAVIORS:
         if behavior not in js:
-            raise ValueError(
-                f"Missing shell behavior: {behavior}"
-            )
+            raise ValueError(f"Missing shell behavior: {behavior}")
 
     for feature in REQUIRED_CSS_FEATURES:
         if feature not in css:
-            raise ValueError(
-                f"Missing shell visual feature: {feature}"
-            )
+            raise ValueError(f"Missing shell visual feature: {feature}")
 
-    implemented_engines = set(
-        manifest["implemented_engines"]
-    )
+    implemented_engines = set(manifest["implemented_engines"])
 
-    missing_engines = (
-        REQUIRED_ENGINES
-        - implemented_engines
-    )
+    missing_engines = REQUIRED_ENGINES - implemented_engines
 
     if missing_engines:
         raise ValueError(
-            "Reference shell missing engines: "
-            + ", ".join(sorted(missing_engines))
+            "Reference shell missing engines: " + ", ".join(sorted(missing_engines))
         )
 
     principle_x = manifest["principle_x"]
 
-    concealed = [
-        name
-        for name, visible in principle_x.items()
-        if visible is not True
-    ]
+    concealed = [name for name, visible in principle_x.items() if visible is not True]
 
     if concealed:
-        raise ValueError(
-            "Principle X violations: "
-            + ", ".join(sorted(concealed))
-        )
+        raise ValueError("Principle X violations: " + ", ".join(sorted(concealed)))
 
     accessibility = manifest["accessibility"]
 
     unsupported = [
-        name
-        for name, supported in accessibility.items()
-        if supported is not True
+        name for name, supported in accessibility.items() if supported is not True
     ]
 
     if unsupported:
         raise ValueError(
-            "Accessibility requirements missing: "
-            + ", ".join(sorted(unsupported))
+            "Accessibility requirements missing: " + ", ".join(sorted(unsupported))
         )
 
     print("=" * 72)

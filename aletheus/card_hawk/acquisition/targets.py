@@ -6,39 +6,18 @@ Genesis 13.6
 
 
 class AcquisitionTargetLibrary:
-
-
     def __init__(self):
 
         self.targets = {}
 
+    def add(self, target):
 
-
-    def add(
-        self,
-        target
-    ):
-
-        self.targets[
-            target.target_id
-        ] = target
-
-
+        self.targets[target.target_id] = target
 
     def list(self):
 
-        return list(
-            self.targets.values()
-        )
-
-
+        return list(self.targets.values())
 
     def snapshot(self):
 
-        return {
-
-            "target_count":
-                len(self.targets)
-
-        }
-
+        return {"target_count": len(self.targets)}

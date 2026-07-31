@@ -42,12 +42,9 @@ class CTFRouter:
         request: CTFRouteRequest,
     ) -> CTFRouteResult:
 
-        handler: Callable | None = self.registry.resolve(
-            request.route_key
-        )
+        handler: Callable | None = self.registry.resolve(request.route_key)
 
         if handler is None:
-
             return CTFRouteResult(
                 request_id=request.request_id,
                 route_key=request.route_key,
@@ -59,12 +56,9 @@ class CTFRouter:
         start = time.perf_counter()
 
         try:
-
             result = handler(request.payload)
 
-            elapsed_ms = (
-                time.perf_counter() - start
-            ) * 1000.0
+            elapsed_ms = (time.perf_counter() - start) * 1000.0
 
             pathway = CTFPathway(
                 pathway_id=str(uuid.uuid4()),
@@ -99,10 +93,7 @@ class CTFRouter:
             )
 
         except Exception as ex:
-
-            elapsed_ms = (
-                time.perf_counter() - start
-            ) * 1000.0
+            elapsed_ms = (time.perf_counter() - start) * 1000.0
 
             pathway = CTFPathway(
                 pathway_id=str(uuid.uuid4()),

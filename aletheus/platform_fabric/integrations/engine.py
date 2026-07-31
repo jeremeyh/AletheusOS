@@ -4,18 +4,6 @@ Integration Fabric Engine
 
 
 class IntegrationEngine:
+    def connect(self, source):
 
-
-    def connect(
-        self,
-        source
-    ):
-
-        return {
-
-            "connected":
-
-                True
-
-        }
-
+        return {"connected": True}

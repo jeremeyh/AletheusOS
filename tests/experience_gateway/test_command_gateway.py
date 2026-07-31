@@ -16,9 +16,7 @@ from aletheus.experience_gateway.commands.service import (
 
 
 def test_read_only_command_executes_without_authorization() -> None:
-    service = CommandGatewayService(
-        create_default_command_registry()
-    )
+    service = CommandGatewayService(create_default_command_registry())
 
     preview = service.preview(
         CommandRequest(
@@ -36,15 +34,11 @@ def test_read_only_command_executes_without_authorization() -> None:
 
 
 def test_authorized_command_requires_authorization() -> None:
-    service = CommandGatewayService(
-        create_default_command_registry()
-    )
+    service = CommandGatewayService(create_default_command_registry())
 
     preview = service.preview(
         CommandRequest(
-            command_id=(
-                "experience.inspector.set"
-            ),
+            command_id=("experience.inspector.set"),
             arguments={
                 "open": False,
             },
@@ -59,15 +53,11 @@ def test_authorized_command_requires_authorization() -> None:
 
 
 def test_reversible_command_can_be_reversed() -> None:
-    service = CommandGatewayService(
-        create_default_command_registry()
-    )
+    service = CommandGatewayService(create_default_command_registry())
 
     preview = service.preview(
         CommandRequest(
-            command_id=(
-                "experience.inspector.set"
-            ),
+            command_id=("experience.inspector.set"),
             arguments={
                 "open": False,
             },
@@ -81,9 +71,7 @@ def test_reversible_command_can_be_reversed() -> None:
 
     execution = service.execute(
         preview_id=preview.preview_id,
-        authorization_id=(
-            authorization.authorization_id
-        ),
+        authorization_id=(authorization.authorization_id),
     )
 
     assert execution.state == "executed"
@@ -91,23 +79,15 @@ def test_reversible_command_can_be_reversed() -> None:
 
     reversed_execution = service.reverse(
         execution_id=execution.execution_id,
-        reversal_token=(
-            execution.reversal_token
-        ),
+        reversal_token=(execution.reversal_token),
     )
 
     assert reversed_execution.state == "reversed"
-    assert (
-        reversed_execution
-        .result["reversal"]["restored"]
-        is True
-    )
+    assert reversed_execution.result["reversal"]["restored"] is True
 
 
 def test_idempotency_returns_original_execution() -> None:
-    service = CommandGatewayService(
-        create_default_command_registry()
-    )
+    service = CommandGatewayService(create_default_command_registry())
 
     preview = service.preview(
         CommandRequest(
@@ -127,10 +107,7 @@ def test_idempotency_returns_original_execution() -> None:
         idempotency_key="same-request",
     )
 
-    assert (
-        first.execution_id
-        == second.execution_id
-    )
+    assert first.execution_id == second.execution_id
 
 
 def test_registry_rejects_duplicate_command() -> None:

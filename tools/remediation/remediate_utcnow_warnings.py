@@ -9,11 +9,7 @@ ROOT = Path(__file__).resolve().parent
 ALETHEUS = ROOT / "aletheus"
 UTILITY = ALETHEUS / "time_utils.py"
 
-REPORT_DIR = (
-    ROOT
-    / "reports"
-    / "repository_hygiene"
-)
+REPORT_DIR = ROOT / "reports" / "repository_hygiene"
 
 REPORT = REPORT_DIR / "utcnow_remediation.json"
 
@@ -23,9 +19,7 @@ EXCLUDED_PARTS = {
     ".pytest_cache",
 }
 
-IMPORT_LINE = (
-    "from aletheus.time_utils import utc_now, utc_now_iso\n"
-)
+IMPORT_LINE = "from aletheus.time_utils import utc_now, utc_now_iso\n"
 
 REPLACEMENTS = (
     (
@@ -45,10 +39,7 @@ def active_python_files() -> list[Path]:
     for path in ALETHEUS.rglob("*.py"):
         relative = path.relative_to(ROOT)
 
-        if any(
-            part in EXCLUDED_PARTS
-            for part in relative.parts
-        ):
+        if any(part in EXCLUDED_PARTS for part in relative.parts):
             continue
 
         if path == UTILITY:
@@ -86,10 +77,7 @@ def import_insertion_offset(text: str) -> int:
     while index < len(body):
         node = body[index]
 
-        if (
-            isinstance(node, ast.ImportFrom)
-            and node.module == "__future__"
-        ):
+        if isinstance(node, ast.ImportFrom) and node.module == "__future__":
             insertion_line = node.end_lineno or insertion_line
             index += 1
             continue
@@ -202,9 +190,7 @@ def main() -> None:
         except (OSError, UnicodeDecodeError):
             continue
 
-        updated, counts = transformed_text(
-            original
-        )
+        updated, counts = transformed_text(original)
 
         replacements = sum(counts.values())
 
@@ -219,14 +205,10 @@ def main() -> None:
 
         changes.append(
             {
-                "path": str(
-                    path.relative_to(ROOT)
-                ),
+                "path": str(path.relative_to(ROOT)),
                 "replacements": replacements,
                 "patterns": {
-                    pattern: count
-                    for pattern, count in counts.items()
-                    if count
+                    pattern: count for pattern, count in counts.items() if count
                 },
             }
         )
@@ -236,14 +218,8 @@ def main() -> None:
     utility_created = write_utility(args.apply)
 
     report = {
-        "mode": (
-            "apply"
-            if args.apply
-            else "dry_run"
-        ),
-        "utility": str(
-            UTILITY.relative_to(ROOT)
-        ),
+        "mode": ("apply" if args.apply else "dry_run"),
+        "utility": str(UTILITY.relative_to(ROOT)),
         "utility_created": utility_created,
         "files_changed": len(changes),
         "total_replacements": total_replacements,
@@ -261,10 +237,7 @@ def main() -> None:
     )
 
     print("=" * 72)
-    print(
-        "UTCNOW Remediation — "
-        + ("APPLY" if args.apply else "DRY RUN")
-    )
+    print("UTCNOW Remediation — " + ("APPLY" if args.apply else "DRY RUN"))
     print("=" * 72)
     print(
         "Utility:",
@@ -280,10 +253,7 @@ def main() -> None:
     )
 
     for change in changes:
-        print(
-            f'{change["replacements"]:3}  '
-            f'{change["path"]}'
-        )
+        print(f"{change['replacements']:3}  {change['path']}")
 
     print()
     print(
@@ -292,9 +262,7 @@ def main() -> None:
     )
 
     if not args.apply:
-        print(
-            "No source files were modified."
-        )
+        print("No source files were modified.")
 
 
 if __name__ == "__main__":

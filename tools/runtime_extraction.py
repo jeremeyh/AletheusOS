@@ -10,11 +10,7 @@ def main():
 
     plan = planner.build()
 
-    print(
-        RuntimeExtractionReporter().render(
-            plan
-        )
-    )
+    print(RuntimeExtractionReporter().render(plan))
 
 
 if __name__ == "__main__":

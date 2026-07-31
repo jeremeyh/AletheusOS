@@ -86,7 +86,6 @@ class CanonicalIdentityRegistry:
         counts: dict[str, int] = {}
 
         for identity in self._identities.values():
-
             identity_type = identity.identity_type.value
 
             counts.setdefault(identity_type, 0)

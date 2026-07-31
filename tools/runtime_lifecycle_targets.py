@@ -51,11 +51,7 @@ def main():
     print("Targets")
 
     for target in targets:
-        print(
-            f"  - {target['name']} "
-            f"at line {target['line']} "
-            f"({target['size']} lines)"
-        )
+        print(f"  - {target['name']} at line {target['line']} ({target['size']} lines)")
 
     print()
     print("========================================================")

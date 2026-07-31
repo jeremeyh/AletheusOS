@@ -1,5 +1,4 @@
 class CapabilityManifestReporter:
-
     def render(self, registry):
 
         health = registry.health()
@@ -16,13 +15,13 @@ class CapabilityManifestReporter:
         ]
 
         for manifest in registry.all():
-            lines.append(
-                f"  - {manifest.id} ({manifest.provider})"
-            )
+            lines.append(f"  - {manifest.id} ({manifest.provider})")
 
-        lines.extend([
-            "",
-            "========================================================",
-        ])
+        lines.extend(
+            [
+                "",
+                "========================================================",
+            ]
+        )
 
         return "\n".join(lines)

@@ -6,19 +6,6 @@ Genesis 13.38
 
 
 class TimingEngine:
+    def evaluate(self, asset):
 
-
-    def evaluate(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "timing":
-
-                "monitor"
-
-        }
-
+        return {"timing": "monitor"}

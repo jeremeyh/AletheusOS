@@ -9,13 +9,8 @@ from dataclasses import dataclass, field
 
 @dataclass
 class ProtectedAsset:
-
-
     asset_id: str
 
     value: float
 
-    metadata: dict = field(
-        default_factory=dict
-    )
-
+    metadata: dict = field(default_factory=dict)

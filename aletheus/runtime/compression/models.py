@@ -9,9 +9,7 @@ class CompressionReport:
     responsibilities_total: int
     responsibilities_complete: int
     platform_health: float = 100.0
-    created_at: str = field(
-        default_factory=lambda: datetime.now(UTC).isoformat()
-    )
+    created_at: str = field(default_factory=lambda: datetime.now(UTC).isoformat())
 
     @property
     def lines_removed(self):
@@ -33,7 +31,6 @@ class CompressionReport:
             return 0.0
 
         return round(
-            self.responsibilities_complete /
-            self.responsibilities_total * 100,
+            self.responsibilities_complete / self.responsibilities_total * 100,
             1,
         )

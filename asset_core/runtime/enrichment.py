@@ -29,7 +29,6 @@ class AssetEnrichmentEngine:
         updated = 0
 
         for row in rows:
-
             card = dict(row)
 
             market = MarketplaceValue.estimate(card)

@@ -11,17 +11,13 @@ def status_badge(
     status = status.upper()
 
     if status == "ONLINE":
-
         st.success("🟢 ONLINE")
 
     elif status == "READY":
-
         st.success("🟢 READY")
 
     elif status == "WARNING":
-
         st.warning("🟡 WARNING")
 
     else:
-
         st.error("🔴 OFFLINE")

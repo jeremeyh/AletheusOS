@@ -15,14 +15,11 @@ class MissionStep:
 
 @dataclass(slots=True)
 class MissionExecution:
-
     id: UUID = field(default_factory=uuid4)
 
     state: MissionState = MissionState.CREATED
 
-    created_at: datetime = field(
-        default_factory=lambda: datetime.now(UTC)
-    )
+    created_at: datetime = field(default_factory=lambda: datetime.now(UTC))
 
     started_at: datetime | None = None
 

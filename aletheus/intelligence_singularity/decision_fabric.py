@@ -6,20 +6,6 @@ Post-Genesis 160
 
 
 class DecisionFabric:
-
-
     def decide(self, objective):
 
-        return {
-
-            "objective":
-            objective,
-
-            "decision":
-            "recommended",
-
-            "confidence":
-            95
-
-        }
-
+        return {"objective": objective, "decision": "recommended", "confidence": 95}

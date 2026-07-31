@@ -27,9 +27,7 @@ class HealthProbeResult:
     state: ProbeState
     detail: str
     latency_ms: int | None = None
-    metadata: dict[str, Any] = field(
-        default_factory=dict
-    )
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 HealthProbe = Callable[[], HealthProbeResult]
@@ -86,22 +84,14 @@ class ProviderRegistry:
         )
 
         with self._lock:
-            if (
-                normalized_id in self._health_probes
-                and not replace
-            ):
-                raise ValueError(
-                    "Health probe already registered: "
-                    f"{normalized_id}"
-                )
+            if normalized_id in self._health_probes and not replace:
+                raise ValueError(f"Health probe already registered: {normalized_id}")
 
-            self._health_probes[normalized_id] = (
-                RegisteredHealthProbe(
-                    id=normalized_id,
-                    name=normalized_name,
-                    probe=probe,
-                    required=required,
-                )
+            self._health_probes[normalized_id] = RegisteredHealthProbe(
+                id=normalized_id,
+                name=normalized_name,
+                probe=probe,
+                required=required,
             )
 
     def register_mission_source(
@@ -119,38 +109,26 @@ class ProviderRegistry:
         )
 
         with self._lock:
-            if (
-                normalized_id in self._mission_sources
-                and not replace
-            ):
-                raise ValueError(
-                    "Mission source already registered: "
-                    f"{normalized_id}"
-                )
+            if normalized_id in self._mission_sources and not replace:
+                raise ValueError(f"Mission source already registered: {normalized_id}")
 
-            self._mission_sources[normalized_id] = (
-                RegisteredMissionSource(
-                    id=normalized_id,
-                    name=normalized_name,
-                    source=source,
-                )
+            self._mission_sources[normalized_id] = RegisteredMissionSource(
+                id=normalized_id,
+                name=normalized_name,
+                source=source,
             )
 
     def health_probes(
         self,
     ) -> tuple[RegisteredHealthProbe, ...]:
         with self._lock:
-            return tuple(
-                self._health_probes.values()
-            )
+            return tuple(self._health_probes.values())
 
     def mission_sources(
         self,
     ) -> tuple[RegisteredMissionSource, ...]:
         with self._lock:
-            return tuple(
-                self._mission_sources.values()
-            )
+            return tuple(self._mission_sources.values())
 
     def describe(self) -> dict[str, Any]:
         with self._lock:
@@ -177,9 +155,7 @@ def _require_identifier(value: str) -> str:
     normalized = value.strip()
 
     if not normalized:
-        raise ValueError(
-            "Provider identifier cannot be empty."
-        )
+        raise ValueError("Provider identifier cannot be empty.")
 
     return normalized
 
@@ -191,8 +167,6 @@ def _require_text(
     normalized = value.strip()
 
     if not normalized:
-        raise ValueError(
-            f"{label} cannot be empty."
-        )
+        raise ValueError(f"{label} cannot be empty.")
 
     return normalized

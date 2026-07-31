@@ -11,4 +11,6 @@ def test_generated_artifacts_warning_mode():
         if path.is_dir() and path.name in FORBIDDEN_DIR_NAMES:
             found.append(str(path.relative_to(ROOT)))
     if found:
-        warnings.warn("Generated artifacts remain: " + ", ".join(found[:30]), stacklevel=2)
+        warnings.warn(
+            "Generated artifacts remain: " + ", ".join(found[:30]), stacklevel=2
+        )

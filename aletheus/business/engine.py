@@ -4,7 +4,6 @@ Aletheus Autonomous Business Engine
 Post-Genesis 9
 """
 
-
 from .decision_engine import AutonomousDecisionEngine
 from .intelligence import BusinessIntelligenceEngine
 from .operations import BusinessOperationsEngine
@@ -14,8 +13,6 @@ from .workflows import WorkflowOrchestrationEngine
 
 
 class AutonomousBusinessEngine:
-
-
     def __init__(self):
 
         self.intelligence = BusinessIntelligenceEngine()
@@ -30,43 +27,19 @@ class AutonomousBusinessEngine:
 
         self.decisions = AutonomousDecisionEngine()
 
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "aletheus_autonomous_business",
-
-            "phase":
-            "post_genesis_9",
-
-            "status":
-            "operational"
-
+            "system": "aletheus_autonomous_business",
+            "phase": "post_genesis_9",
+            "status": "operational",
         }
 
-
-
-    def run_business_workflow(
-        self,
-        workflow
-    ):
+    def run_business_workflow(self, workflow):
 
         return {
-
-            "workflow":
-            workflow,
-
-            "agents":
-            "assigned",
-
-            "decision":
-            "automated",
-
-            "status":
-            "completed"
-
+            "workflow": workflow,
+            "agents": "assigned",
+            "decision": "automated",
+            "status": "completed",
         }
-

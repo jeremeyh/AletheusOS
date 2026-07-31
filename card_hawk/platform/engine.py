@@ -6,36 +6,14 @@ Genesis 50
 
 
 class PublicPlatformEngine:
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "card_hawk_public_platform",
-
-            "status":
-            "operational",
-
-            "genesis":
-            "50"
-
+            "system": "card_hawk_public_platform",
+            "status": "operational",
+            "genesis": "50",
         }
-
 
     def execute(self, request=None):
 
-        return {
-
-            "request":
-            request,
-
-            "status":
-            "completed",
-
-            "genesis":
-            "50"
-
-        }
-
+        return {"request": request, "status": "completed", "genesis": "50"}

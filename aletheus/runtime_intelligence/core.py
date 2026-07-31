@@ -5,7 +5,6 @@ from .integration import runtime_intelligence
 
 
 class RuntimeIntelligence:
-
     GENESIS = "16.5"
     VERSION = "0.1.0"
 

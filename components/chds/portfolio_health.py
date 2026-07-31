@@ -15,9 +15,7 @@ def render_portfolio_health(snapshot):
     total_assets = len(assets)
 
     high_thorx = [
-        asset
-        for asset in assets
-        if float(asset.get("thorx_score") or 0) >= 80
+        asset for asset in assets if float(asset.get("thorx_score") or 0) >= 80
     ]
 
     undervalued = [
@@ -28,11 +26,7 @@ def render_portfolio_health(snapshot):
         and float(asset.get("purchase_price") or 0) > 0
     ]
 
-    graded = [
-        asset
-        for asset in assets
-        if asset.get("grade")
-    ]
+    graded = [asset for asset in assets if asset.get("grade")]
 
     high_thorx_pct = 0
     undervalued_pct = 0

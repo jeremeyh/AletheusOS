@@ -6,6 +6,4 @@ Genesis 55
 
 from .engine import IntelligenceDashboardEngine
 
-__all__ = [
-    "IntelligenceDashboardEngine"
-]
+__all__ = ["IntelligenceDashboardEngine"]

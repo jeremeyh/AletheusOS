@@ -21,9 +21,7 @@ def build_security_projection():
         platform_registry=platform_registry,
         constitutional_graph=graph,
     )
-    institution_projector.project_all(
-        canonical_institutions()
-    )
+    institution_projector.project_all(canonical_institutions())
 
     security_projector = SecurityCivilizationProjector(
         institution_projector=institution_projector,
@@ -40,10 +38,7 @@ def build_security_projection():
 
 
 def test_security_institutions_are_canonical():
-    records = {
-        record.institution_id: record
-        for record in canonical_institutions()
-    }
+    records = {record.institution_id: record for record in canonical_institutions()}
 
     assert "aletheus.watch_tower" in records
     assert "aletheus.guardian" in records
@@ -53,10 +48,7 @@ def test_security_institutions_are_canonical():
 
     assert records["aletheus.guardian"].canonical_name == "Guardian™"
     assert records["aletheus.conclave"].canonical_name == "Conclave™"
-    assert (
-        records["aletheus.containment_vault"].canonical_name
-        == "Containment Vault™"
-    )
+    assert records["aletheus.containment_vault"].canonical_name == "Containment Vault™"
     assert records["aletheus.sentinel"].canonical_name == "Sentinel™"
 
 
@@ -75,14 +67,9 @@ def test_projects_complete_security_defense_chain():
 
     edges = security_projector.project()
 
-    assert len(edges) == len(
-        CANONICAL_SECURITY_RELATIONSHIPS
-    )
+    assert len(edges) == len(CANONICAL_SECURITY_RELATIONSHIPS)
 
-    relationships = {
-        edge["relationship"]
-        for edge in edges
-    }
+    relationships = {edge["relationship"] for edge in edges}
 
     assert "ESCALATES_TO" in relationships
     assert "REQUESTS_CONTAINMENT_FROM" in relationships
@@ -102,17 +89,14 @@ def test_watch_tower_escalates_to_guardian():
 
     security_projector.project()
 
-    watch_tower_node = institution_projector.graph_node_id(
-        "aletheus.watch_tower"
-    )
+    watch_tower_node = institution_projector.graph_node_id("aletheus.watch_tower")
     assert watch_tower_node is not None
 
     neighbors = graph.neighbors(watch_tower_node)
 
     assert any(
         item["edge"]["relationship"] == "ESCALATES_TO"
-        and item["node"]["data"]["institution_id"]
-        == "aletheus.guardian"
+        and item["node"]["data"]["institution_id"] == "aletheus.guardian"
         for item in neighbors
     )
 
@@ -128,17 +112,14 @@ def test_conclave_quarantines_in_containment_vault():
 
     security_projector.project()
 
-    conclave_node = institution_projector.graph_node_id(
-        "aletheus.conclave"
-    )
+    conclave_node = institution_projector.graph_node_id("aletheus.conclave")
     assert conclave_node is not None
 
     neighbors = graph.neighbors(conclave_node)
 
     assert any(
         item["edge"]["relationship"] == "QUARANTINES_IN"
-        and item["node"]["data"]["institution_id"]
-        == "aletheus.containment_vault"
+        and item["node"]["data"]["institution_id"] == "aletheus.containment_vault"
         for item in neighbors
     )
 
@@ -155,7 +136,5 @@ def test_security_projection_is_idempotent():
     first = security_projector.project()
     second = security_projector.project()
 
-    assert len(first) == len(
-        CANONICAL_SECURITY_RELATIONSHIPS
-    )
+    assert len(first) == len(CANONICAL_SECURITY_RELATIONSHIPS)
     assert second == ()

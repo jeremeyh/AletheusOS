@@ -4,7 +4,6 @@ Digital Twin Intelligence Engine
 Genesis 13.49
 """
 
-
 from .asset_twin import AssetTwinEngine
 from .portfolio_twin import PortfolioTwinEngine
 from .scenarios import ScenarioEngine
@@ -12,8 +11,6 @@ from .simulator import SimulationEngine
 
 
 class DigitalTwinEngine:
-
-
     def __init__(self):
 
         self.assets = AssetTwinEngine()
@@ -24,28 +21,8 @@ class DigitalTwinEngine:
 
         self.simulator = SimulationEngine()
 
+    def simulate(self, entity):
 
+        scenarios = self.scenarios.generate(entity)
 
-    def simulate(
-        self,
-        entity
-    ):
-
-
-        scenarios = (
-
-            self.scenarios.generate(
-                entity
-            )
-
-        )
-
-
-        return {
-
-            "scenarios":
-
-                scenarios
-
-        }
-
+        return {"scenarios": scenarios}

@@ -8,14 +8,12 @@ ROOT = Path(__file__).resolve().parent
 REGISTRY_DIR = ROOT / "aletheus/runtime/commands_v2"
 REGISTRY_FILE = REGISTRY_DIR / "registry.py"
 DISPATCHER_FILE = REGISTRY_DIR / "dispatcher.py"
-TEST_FILE = ROOT / "aletheus/runtime/commands/tests/test_compiled_registry_dispatcher.py"
+TEST_FILE = (
+    ROOT / "aletheus/runtime/commands/tests/test_compiled_registry_dispatcher.py"
+)
 
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-backup_dir = (
-    ROOT
-    / "reports/genesis_8_command_dispatch"
-    / f"backup_{timestamp}"
-)
+backup_dir = ROOT / "reports/genesis_8_command_dispatch" / f"backup_{timestamp}"
 backup_dir.mkdir(parents=True, exist_ok=True)
 
 if REGISTRY_FILE.exists():
@@ -335,7 +333,7 @@ __all__ = [
 ]
 '''
 
-TEST_SOURCE = '''\
+TEST_SOURCE = """\
 from __future__ import annotations
 
 from aletheus.runtime.commands_v2.registry import (
@@ -522,7 +520,7 @@ def test_health_exposes_generation_and_fingerprint():
     assert health["fingerprint"] == registry.fingerprint
     assert len(health["fingerprint"]) == 64
     assert health["dispatcher"]["mode"] == "compiled"
-'''
+"""
 
 DISPATCHER_FILE.write_text(
     DISPATCHER_SOURCE,

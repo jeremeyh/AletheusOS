@@ -10,10 +10,8 @@ Owns EventBus command execution boundary.
 
 
 class EventCommandAdapter:
-
     def __init__(self, runtime):
         self.runtime = runtime
-
 
     def bootstrap(self, context):
 
@@ -23,7 +21,6 @@ class EventCommandAdapter:
         )
 
         return context
-
 
     def publish(self, context):
 
@@ -53,7 +50,6 @@ class EventCommandAdapter:
 
         return context
 
-
     def subscribe(self, context):
 
         payload = context.payload
@@ -73,7 +69,6 @@ class EventCommandAdapter:
         )
 
         return context
-
 
     def unsubscribe(self, context):
 
@@ -95,20 +90,14 @@ class EventCommandAdapter:
 
         return context
 
-
     def history(self, context):
 
         context.add_result(
             "history",
-            self.runtime.event_bus_v3.history(
-                context.payload.get(
-                    "topic"
-                )
-            ),
+            self.runtime.event_bus_v3.history(context.payload.get("topic")),
         )
 
         return context
-
 
     def replay(self, context):
 
@@ -123,7 +112,6 @@ class EventCommandAdapter:
         )
 
         return context
-
 
     def statistics(self, context):
 

@@ -41,9 +41,7 @@ class ScenarioSurface:
         description: str = "",
         horizon: str | None = None,
         parent_scenario_id: str | None = None,
-        assumption_kind: (
-            AssumptionKind
-        ) = AssumptionKind.HYPOTHESIS,
+        assumption_kind: (AssumptionKind) = AssumptionKind.HYPOTHESIS,
     ) -> ScenarioDefinition:
         return create_scenario(
             canonical_name=canonical_name,
@@ -51,9 +49,7 @@ class ScenarioSurface:
             assumptions=assumptions,
             description=description,
             horizon=horizon,
-            parent_scenario_id=(
-                parent_scenario_id
-            ),
+            parent_scenario_id=(parent_scenario_id),
             assumption_kind=assumption_kind,
         )
 
@@ -61,9 +57,7 @@ class ScenarioSurface:
         self,
         definition: ScenarioDefinition,
     ) -> ScenarioDefinition:
-        return self._engine.register(
-            definition
-        )
+        return self._engine.register(definition)
 
     def create_and_register(
         self,
@@ -74,9 +68,7 @@ class ScenarioSurface:
         description: str = "",
         horizon: str | None = None,
         parent_scenario_id: str | None = None,
-        assumption_kind: (
-            AssumptionKind
-        ) = AssumptionKind.HYPOTHESIS,
+        assumption_kind: (AssumptionKind) = AssumptionKind.HYPOTHESIS,
     ) -> ScenarioDefinition:
         definition = self.create(
             canonical_name=canonical_name,
@@ -84,9 +76,7 @@ class ScenarioSurface:
             assumptions=assumptions,
             description=description,
             horizon=horizon,
-            parent_scenario_id=(
-                parent_scenario_id
-            ),
+            parent_scenario_id=(parent_scenario_id),
             assumption_kind=assumption_kind,
         )
 
@@ -96,17 +86,13 @@ class ScenarioSurface:
         self,
         scenario_id: str,
     ) -> ScenarioDefinition | None:
-        return self._engine.registry.get(
-            scenario_id
-        )
+        return self._engine.registry.get(scenario_id)
 
     def require(
         self,
         scenario_id: str,
     ) -> ScenarioDefinition:
-        return self._engine.registry.require(
-            scenario_id
-        )
+        return self._engine.registry.require(scenario_id)
 
     def list(
         self,
@@ -133,33 +119,21 @@ class ScenarioSurface:
         compared_scenario_id: str,
     ):
         return self._engine.compare(
-            baseline_scenario_id=(
-                baseline_scenario_id
-            ),
-            compared_scenario_id=(
-                compared_scenario_id
-            ),
+            baseline_scenario_id=(baseline_scenario_id),
+            compared_scenario_id=(compared_scenario_id),
         )
 
     def outcomes(
         self,
         scenario_id: str,
     ):
-        return self._engine.registry.outcomes(
-            scenario_id
-        )
+        return self._engine.registry.outcomes(scenario_id)
 
     def latest_outcome(
         self,
         scenario_id: str,
     ):
-        return (
-            self._engine
-            .registry
-            .latest_outcome(
-                scenario_id
-            )
-        )
+        return self._engine.registry.latest_outcome(scenario_id)
 
     def health(self) -> dict[str, Any]:
         return self._engine.health()

@@ -63,8 +63,12 @@ class AletheusTelemetryEngine:
         self.timeline("Telemetry Engine bootstrapped", source="telemetry")
         return self.statistics()
 
-    def record(self, name: str, value: Any = None, category: str = "runtime", metadata=None):
-        return self.metric(name=name, value=value, category=category, metadata=metadata or {})
+    def record(
+        self, name: str, value: Any = None, category: str = "runtime", metadata=None
+    ):
+        return self.metric(
+            name=name, value=value, category=category, metadata=metadata or {}
+        )
 
     def metric(self, name: str, value: Any, category: str = "runtime", metadata=None):
         item = TelemetryMetric(
@@ -89,7 +93,14 @@ class AletheusTelemetryEngine:
         self.timeline(message, source=source)
         return asdict(item)
 
-    def trace(self, name: str, status: str = "completed", parent_span=None, correlation_id=None, metadata=None):
+    def trace(
+        self,
+        name: str,
+        status: str = "completed",
+        parent_span=None,
+        correlation_id=None,
+        metadata=None,
+    ):
         item = TelemetryTrace(
             trace_id=str(uuid.uuid4()),
             span_id=str(uuid.uuid4()),
@@ -123,7 +134,8 @@ class AletheusTelemetryEngine:
 
     def statistics(self):
         unhealthy = [
-            name for name, status in self.health_registry.items()
+            name
+            for name, status in self.health_registry.items()
             if status not in {"healthy", "online"}
         ]
 

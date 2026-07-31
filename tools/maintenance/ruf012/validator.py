@@ -1,4 +1,5 @@
 """Validation for transformed Python source."""
+
 from __future__ import annotations
 
 import ast
@@ -10,6 +11,7 @@ from pathlib import Path
 class ValidationResult:
     valid: bool
     error: str | None = None
+
 
 class SourceValidator:
     def validate(self, source: str, path: Path) -> ValidationResult:

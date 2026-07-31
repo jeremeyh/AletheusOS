@@ -25,10 +25,7 @@ class RuntimeInvariantEngine:
                 self.runtime.compat.statistics().get("registered", 0) >= 10
             )
 
-        failed: list[str] = [
-            name for name, passed in checks.items()
-            if not passed
-        ]
+        failed: list[str] = [name for name, passed in checks.items() if not passed]
 
         return {
             "version": self.VERSION,

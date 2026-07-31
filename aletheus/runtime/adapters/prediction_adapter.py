@@ -33,9 +33,7 @@ class PredictionAdapter:
         self._scenarios: list[Scenario] = []
         self._risks: list[PredictiveRisk] = []
         self._opportunities: list[PredictiveOpportunity] = []
-        self._recommendations: list[
-            PredictiveRecommendation
-        ] = []
+        self._recommendations: list[PredictiveRecommendation] = []
 
     @staticmethod
     def _runtime_signals(runtime: Any) -> list[str]:
@@ -48,9 +46,7 @@ class PredictionAdapter:
 
         if commands is not None:
             try:
-                signals.append(
-                    f"{commands.count()} runtime commands registered."
-                )
+                signals.append(f"{commands.count()} runtime commands registered.")
             except Exception:
                 pass
 
@@ -160,9 +156,7 @@ class PredictionAdapter:
                 ),
                 score=0.94,
                 confidence=0.9,
-                next_action=(
-                    "Complete the remaining bounded domain adapters."
-                ),
+                next_action=("Complete the remaining bounded domain adapters."),
             ),
             PredictiveOpportunity(
                 title="Architecture-aware capability validation",
@@ -172,17 +166,12 @@ class PredictionAdapter:
                 ),
                 score=0.9,
                 confidence=0.88,
-                next_action=(
-                    "Add interface manifests to registration preflight."
-                ),
+                next_action=("Add interface manifests to registration preflight."),
             ),
         ]
 
         self._opportunities = opportunities
-        return [
-            opportunity.to_dict()
-            for opportunity in opportunities
-        ]
+        return [opportunity.to_dict() for opportunity in opportunities]
 
     def recommend(
         self,
@@ -212,10 +201,7 @@ class PredictionAdapter:
         ]
 
         self._recommendations = recommendations
-        return [
-            recommendation.to_dict()
-            for recommendation in recommendations
-        ]
+        return [recommendation.to_dict() for recommendation in recommendations]
 
     def timeline(self, runtime: Any) -> list[dict[str, Any]]:
         events = []
@@ -250,12 +236,8 @@ class PredictionAdapter:
             "scenarios": len(self._scenarios),
             "risks": len(self._risks),
             "opportunities": len(self._opportunities),
-            "recommendations": len(
-                self._recommendations
-            ),
-            "engine_predictions": len(
-                self.engine.list_predictions()
-            ),
+            "recommendations": len(self._recommendations),
+            "engine_predictions": len(self.engine.list_predictions()),
             "status": "operational",
         }
 

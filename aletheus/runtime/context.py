@@ -20,12 +20,31 @@ class RuntimeContext:
     trace: list[dict[str, Any]] = field(default_factory=list)
     metadata: dict[str, Any] = field(default_factory=dict)
 
-    def add_result(self, key: str, value: Any) -> None: self.results[key] = value
-    def add_error(self, error: Any) -> None: self.errors.append(str(error))
+    def add_result(self, key: str, value: Any) -> None:
+        self.results[key] = value
+
+    def add_error(self, error: Any) -> None:
+        self.errors.append(str(error))
+
     def add_trace(self, stage: str, detail: Any) -> None:
-        self.trace.append({"stage": stage, "detail": detail, "timestamp": utc_now_iso()})
+        self.trace.append(
+            {"stage": stage, "detail": detail, "timestamp": utc_now_iso()}
+        )
+
     def to_dict(self) -> dict[str, Any]:
-        return {"request_id": self.request_id, "command": self.command, "application": self.application, "founder": self.founder, "payload": self.payload, "created_at": self.created_at, "results": self.results, "errors": self.errors, "trace": self.trace, "metadata": self.metadata}
+        return {
+            "request_id": self.request_id,
+            "command": self.command,
+            "application": self.application,
+            "founder": self.founder,
+            "payload": self.payload,
+            "created_at": self.created_at,
+            "results": self.results,
+            "errors": self.errors,
+            "trace": self.trace,
+            "metadata": self.metadata,
+        }
+
 
 # -------------------------------------------------------------------
 # Compatibility Alias

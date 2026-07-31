@@ -20,29 +20,13 @@ def find_repo_root(start: Path) -> Path:
 
 ROOT = find_repo_root(Path(__file__).parent)
 
-LATEST_REPORT = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "production-gate-latest.json"
-)
-BASELINE_PATH = (
-    ROOT
-    / "nimble"
-    / "governance"
-    / "performance-baseline.json"
-)
+LATEST_REPORT = ROOT / "reports" / "nimble" / "production-gate-latest.json"
+BASELINE_PATH = ROOT / "nimble" / "governance" / "performance-baseline.json"
 LATEST_REGRESSION_JSON = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "performance-regression-latest.json"
+    ROOT / "reports" / "nimble" / "performance-regression-latest.json"
 )
 LATEST_REGRESSION_MARKDOWN = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "performance-regression-latest.md"
+    ROOT / "reports" / "nimble" / "performance-regression-latest.md"
 )
 
 
@@ -53,11 +37,7 @@ def percent_change(
     if baseline == 0:
         return 0.0 if current == 0 else 100.0
 
-    return (
-        (current - baseline)
-        / baseline
-        * 100.0
-    )
+    return (current - baseline) / baseline * 100.0
 
 
 def metric_result(
@@ -75,22 +55,12 @@ def metric_result(
 
     failures: list[str] = []
 
-    if (
-        allowed_growth_percent is not None
-        and growth > allowed_growth_percent
-    ):
-        failures.append(
-            f"growth {growth:.2f}% exceeds "
-            f"{allowed_growth_percent:.2f}%"
-        )
+    if allowed_growth_percent is not None and growth > allowed_growth_percent:
+        failures.append(f"growth {growth:.2f}% exceeds {allowed_growth_percent:.2f}%")
 
-    if (
-        absolute_limit is not None
-        and current > absolute_limit
-    ):
+    if absolute_limit is not None and current > absolute_limit:
         failures.append(
-            f"value {current:.2f} exceeds "
-            f"absolute limit {absolute_limit:.2f}"
+            f"value {current:.2f} exceeds absolute limit {absolute_limit:.2f}"
         )
 
     return {
@@ -99,14 +69,9 @@ def metric_result(
         "current": current,
         "change": current - baseline,
         "change_percent": round(growth, 4),
-        "allowed_growth_percent":
-            allowed_growth_percent,
+        "allowed_growth_percent": allowed_growth_percent,
         "absolute_limit": absolute_limit,
-        "status": (
-            "PASS"
-            if not failures
-            else "FAIL"
-        ),
+        "status": ("PASS" if not failures else "FAIL"),
         "failures": failures,
     }
 
@@ -172,24 +137,16 @@ def write_markdown(
 
 def main() -> int:
     if not LATEST_REPORT.exists():
-        print(
-            "FAIL: Current production telemetry is missing."
-        )
+        print("FAIL: Current production telemetry is missing.")
         return 1
 
     if not BASELINE_PATH.exists():
-        print(
-            "FAIL: Performance baseline is missing."
-        )
+        print("FAIL: Performance baseline is missing.")
         return 1
 
-    report: dict[str, Any] = json.loads(
-        LATEST_REPORT.read_text(encoding="utf-8")
-    )
+    report: dict[str, Any] = json.loads(LATEST_REPORT.read_text(encoding="utf-8"))
 
-    baseline: dict[str, Any] = json.loads(
-        BASELINE_PATH.read_text(encoding="utf-8")
-    )
+    baseline: dict[str, Any] = json.loads(BASELINE_PATH.read_text(encoding="utf-8"))
 
     bundle = report["bundle"]
     gate = report["gate"]
@@ -199,134 +156,74 @@ def main() -> int:
     primary = bundle.get("primary")
 
     if primary is None:
-        print(
-            "FAIL: Current report has no primary bundle."
-        )
+        print("FAIL: Current report has no primary bundle.")
         return 1
 
     secondary_chunks = [
-        chunk
-        for chunk in bundle["chunks"]
-        if chunk["kind"] == "secondary"
+        chunk for chunk in bundle["chunks"] if chunk["kind"] == "secondary"
     ]
 
     current_metrics = {
         "primary_bundle_bytes": primary["bytes"],
-        "secondary_chunk_count": bundle[
-            "secondary_chunk_count"
-        ],
-        "total_javascript_bytes": sum(
-            chunk["bytes"]
-            for chunk in bundle["chunks"]
-        ),
+        "secondary_chunk_count": bundle["secondary_chunk_count"],
+        "total_javascript_bytes": sum(chunk["bytes"] for chunk in bundle["chunks"]),
         "largest_secondary_chunk_bytes": max(
-            (
-                chunk["bytes"]
-                for chunk in secondary_chunks
-            ),
+            (chunk["bytes"] for chunk in secondary_chunks),
             default=0,
         ),
-        "gate_duration_seconds": gate[
-            "duration_seconds"
-        ],
+        "gate_duration_seconds": gate["duration_seconds"],
     }
 
     metric_results = [
         metric_result(
             name="Primary bundle bytes",
-            current=current_metrics[
-                "primary_bundle_bytes"
-            ],
-            baseline=baseline_metrics[
-                "primary_bundle_bytes"
-            ],
-            allowed_growth_percent=thresholds[
-                "primary_bundle_growth_percent"
-            ],
-            absolute_limit=thresholds[
-                "primary_bundle_absolute_limit_bytes"
-            ],
+            current=current_metrics["primary_bundle_bytes"],
+            baseline=baseline_metrics["primary_bundle_bytes"],
+            allowed_growth_percent=thresholds["primary_bundle_growth_percent"],
+            absolute_limit=thresholds["primary_bundle_absolute_limit_bytes"],
         ),
         metric_result(
             name="Total JavaScript bytes",
-            current=current_metrics[
-                "total_javascript_bytes"
-            ],
-            baseline=baseline_metrics[
-                "total_javascript_bytes"
-            ],
-            allowed_growth_percent=thresholds[
-                "total_javascript_growth_percent"
-            ],
+            current=current_metrics["total_javascript_bytes"],
+            baseline=baseline_metrics["total_javascript_bytes"],
+            allowed_growth_percent=thresholds["total_javascript_growth_percent"],
         ),
         metric_result(
             name="Largest secondary chunk bytes",
-            current=current_metrics[
-                "largest_secondary_chunk_bytes"
-            ],
-            baseline=baseline_metrics[
-                "largest_secondary_chunk_bytes"
-            ],
-            allowed_growth_percent=thresholds[
-                "largest_secondary_growth_percent"
-            ],
+            current=current_metrics["largest_secondary_chunk_bytes"],
+            baseline=baseline_metrics["largest_secondary_chunk_bytes"],
+            allowed_growth_percent=thresholds["largest_secondary_growth_percent"],
         ),
         metric_result(
             name="Production gate duration seconds",
-            current=current_metrics[
-                "gate_duration_seconds"
-            ],
-            baseline=baseline_metrics[
-                "gate_duration_seconds"
-            ],
-            allowed_growth_percent=thresholds[
-                "gate_duration_growth_percent"
-            ],
-            absolute_limit=thresholds[
-                "gate_duration_absolute_limit_seconds"
-            ],
+            current=current_metrics["gate_duration_seconds"],
+            baseline=baseline_metrics["gate_duration_seconds"],
+            allowed_growth_percent=thresholds["gate_duration_growth_percent"],
+            absolute_limit=thresholds["gate_duration_absolute_limit_seconds"],
         ),
     ]
 
-    baseline_chunks = baseline_metrics[
-        "secondary_chunk_count"
-    ]
-    current_chunks = current_metrics[
-        "secondary_chunk_count"
-    ]
-    chunk_change = (
-        current_chunks - baseline_chunks
-    )
+    baseline_chunks = baseline_metrics["secondary_chunk_count"]
+    current_chunks = current_metrics["secondary_chunk_count"]
+    chunk_change = current_chunks - baseline_chunks
 
     minimum_chunks = (
-        baseline_chunks
-        - thresholds[
-            "secondary_chunk_count_decrease_allowed"
-        ]
+        baseline_chunks - thresholds["secondary_chunk_count_decrease_allowed"]
     )
 
     maximum_chunks = (
-        baseline_chunks
-        + thresholds[
-            "secondary_chunk_count_increase_allowed"
-        ]
+        baseline_chunks + thresholds["secondary_chunk_count_increase_allowed"]
     )
 
     chunk_status = (
-        "PASS"
-        if minimum_chunks
-        <= current_chunks
-        <= maximum_chunks
-        else "FAIL"
+        "PASS" if minimum_chunks <= current_chunks <= maximum_chunks else "FAIL"
     )
 
     failures: list[str] = []
 
     for metric in metric_results:
         for failure in metric["failures"]:
-            failures.append(
-                f"{metric['name']}: {failure}"
-            )
+            failures.append(f"{metric['name']}: {failure}")
 
     if chunk_status == "FAIL":
         failures.append(
@@ -338,11 +235,7 @@ def main() -> int:
 
     result = {
         "schema_version": "1.0",
-        "status": (
-            "PASS"
-            if not failures
-            else "FAIL"
-        ),
+        "status": ("PASS" if not failures else "FAIL"),
         "baseline_source": baseline["source"],
         "current_source": report["git"],
         "metrics": metric_results,

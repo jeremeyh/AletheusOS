@@ -4,7 +4,6 @@ SPA Autonomous Architecture Council
 Genesis 155
 """
 
-
 from .constitution_validator import ConstitutionValidator
 from .decision_engine import DecisionEngine
 from .proposal_engine import ProposalEngine
@@ -13,8 +12,6 @@ from .risk_engine import RiskEngine
 
 
 class ArchitectureCouncil:
-
-
     def __init__(self):
 
         self.proposals = ProposalEngine()
@@ -27,24 +24,13 @@ class ArchitectureCouncil:
 
         self.decision = DecisionEngine()
 
-
-
     def initialize(self):
 
         return {
-
-            "system":
-            "spa_architecture_council",
-
-            "genesis":
-            "155",
-
-            "status":
-            "operational"
-
+            "system": "spa_architecture_council",
+            "genesis": "155",
+            "status": "operational",
         }
-
-
 
     def evaluate(self, proposal):
 
@@ -54,34 +40,12 @@ class ArchitectureCouncil:
 
         constitution = self.constitution.validate(proposal)
 
-
-        decision = self.decision.decide(
-
-            review,
-
-            risk,
-
-            constitution
-
-        )
-
+        decision = self.decision.decide(review, risk, constitution)
 
         return {
-
-            "proposal":
-            proposal,
-
-            "review":
-            review,
-
-            "risk":
-            risk,
-
-            "constitution":
-            constitution,
-
-            "decision":
-            decision
-
+            "proposal": proposal,
+            "review": review,
+            "risk": risk,
+            "constitution": constitution,
+            "decision": decision,
         }
-

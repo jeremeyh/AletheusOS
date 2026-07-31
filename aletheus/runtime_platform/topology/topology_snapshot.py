@@ -15,9 +15,7 @@ class TopologySnapshot:
     providers: tuple[str, ...]
     capabilities: tuple[str, ...]
     dependencies: Mapping[str, tuple[str, ...]]
-    metadata: Mapping[str, Any] = field(
-        default_factory=lambda: MappingProxyType({})
-    )
+    metadata: Mapping[str, Any] = field(default_factory=lambda: MappingProxyType({}))
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -28,8 +26,7 @@ class TopologySnapshot:
             "providers": list(self.providers),
             "capabilities": list(self.capabilities),
             "dependencies": {
-                name: list(values)
-                for name, values in self.dependencies.items()
+                name: list(values) for name, values in self.dependencies.items()
             },
             "metadata": dict(self.metadata),
         }

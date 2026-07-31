@@ -2,21 +2,15 @@ from __future__ import annotations
 
 
 class RegistryCompatibility:
-
     CURRENT_VERSION = "2.0.0"
-
 
     def validate(self, registry):
 
         snapshot = registry.snapshot()
 
-        version = snapshot.get(
-            "version"
-        )
+        version = snapshot.get("version")
 
-        compatible = (
-            version == self.CURRENT_VERSION
-        )
+        compatible = version == self.CURRENT_VERSION
 
         return {
             "compatible": compatible,
@@ -24,7 +18,6 @@ class RegistryCompatibility:
             "registry_version": version,
             "snapshot": snapshot,
         }
-
 
     def migrate(self, registry):
 

@@ -6,23 +6,6 @@ Genesis 13.36
 
 
 class VisualMatchingEngine:
+    def match(self, image):
 
-
-    def match(
-        self,
-        image
-    ):
-
-
-        return {
-
-            "matches":
-
-                [],
-
-            "confidence":
-
-                0
-
-        }
-
+        return {"matches": [], "confidence": 0}

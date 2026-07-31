@@ -22,9 +22,7 @@ from aletheus.platform_intelligence import (
 def node(
     address: str,
     *,
-    kind: ConstitutionalKind = (
-        ConstitutionalKind.PLATFORM_SERVICE
-    ),
+    kind: ConstitutionalKind = (ConstitutionalKind.PLATFORM_SERVICE),
 ) -> ConstitutionalObject:
     return ConstitutionalObject.create(
         address=address,
@@ -78,9 +76,7 @@ def test_duplicate_node_is_rejected() -> None:
 
     graph.add_node(runtime)
 
-    with pytest.raises(
-        GraphNodeAlreadyExistsError
-    ):
+    with pytest.raises(GraphNodeAlreadyExistsError):
         graph.add_node(runtime)
 
 
@@ -96,18 +92,11 @@ def test_update_node_preserves_address() -> None:
     runtime = node("service.runtime")
     graph.add_node(runtime)
 
-    updated = runtime.with_attributes(
-        role="composition-root"
-    )
+    updated = runtime.with_attributes(role="composition-root")
 
     graph.update_node(updated)
 
-    assert (
-        graph.get_node(
-            "service.runtime"
-        ).attributes["role"]
-        == "composition-root"
-    )
+    assert graph.get_node("service.runtime").attributes["role"] == "composition-root"
 
 
 def test_add_relationship() -> None:
@@ -129,9 +118,7 @@ def test_add_relationship() -> None:
         relationship.relationship_id,
         UUID,
     )
-    assert graph.get_relationship(
-        relationship.relationship_id
-    ) == relationship
+    assert graph.get_relationship(relationship.relationship_id) == relationship
 
 
 def test_relationship_requires_existing_nodes() -> None:
@@ -161,9 +148,7 @@ def test_duplicate_relationship_is_rejected() -> None:
         kind=RelationshipKind.DEPENDS_ON,
     )
 
-    with pytest.raises(
-        GraphRelationshipAlreadyExistsError
-    ):
+    with pytest.raises(GraphRelationshipAlreadyExistsError):
         graph.connect(
             source="service.workspace",
             target="service.runtime",
@@ -175,18 +160,12 @@ def test_remove_relationship() -> None:
     graph = build_dependency_graph()
     relationship = graph.relationships()[0]
 
-    removed = graph.remove_relationship(
-        relationship.relationship_id
-    )
+    removed = graph.remove_relationship(relationship.relationship_id)
 
     assert removed == relationship
 
-    with pytest.raises(
-        GraphRelationshipNotFoundError
-    ):
-        graph.get_relationship(
-            relationship.relationship_id
-        )
+    with pytest.raises(GraphRelationshipNotFoundError):
+        graph.get_relationship(relationship.relationship_id)
 
 
 def test_connected_node_cannot_be_removed() -> None:
@@ -211,19 +190,13 @@ def test_force_remove_node_removes_edges() -> None:
 def test_dependencies_and_dependents() -> None:
     graph = build_dependency_graph()
 
-    assert [
-        item.address
-        for item in graph.dependencies(
-            "service.workspace"
-        )
-    ] == ["service.runtime"]
+    assert [item.address for item in graph.dependencies("service.workspace")] == [
+        "service.runtime"
+    ]
 
-    assert [
-        item.address
-        for item in graph.dependents(
-            "service.workspace"
-        )
-    ] == ["application.cardhawk"]
+    assert [item.address for item in graph.dependents("service.workspace")] == [
+        "application.cardhawk"
+    ]
 
 
 def test_downstream_traversal() -> None:
@@ -275,10 +248,13 @@ def test_shortest_path() -> None:
 def test_unreachable_path_is_empty() -> None:
     graph = build_dependency_graph()
 
-    assert graph.shortest_path(
-        "service.runtime",
-        "service.orphan",
-    ) == ()
+    assert (
+        graph.shortest_path(
+            "service.runtime",
+            "service.orphan",
+        )
+        == ()
+    )
 
 
 def test_reachability() -> None:
@@ -297,26 +273,17 @@ def test_reachability() -> None:
 def test_roots_leaves_and_orphans() -> None:
     graph = build_dependency_graph()
 
-    assert [
-        item.address
-        for item in graph.roots()
-    ] == [
+    assert [item.address for item in graph.roots()] == [
         "application.cardhawk",
         "service.orphan",
     ]
 
-    assert [
-        item.address
-        for item in graph.leaves()
-    ] == [
+    assert [item.address for item in graph.leaves()] == [
         "service.orphan",
         "service.runtime",
     ]
 
-    assert [
-        item.address
-        for item in graph.orphans()
-    ] == ["service.orphan"]
+    assert [item.address for item in graph.orphans()] == ["service.orphan"]
 
 
 def test_cycle_detection() -> None:
@@ -349,10 +316,7 @@ def test_cycle_detection() -> None:
     cycles = graph.cycles()
 
     assert len(cycles) == 1
-    assert {
-        str(item)
-        for item in cycles[0]
-    } == {
+    assert {str(item) for item in cycles[0]} == {
         "service.a",
         "service.b",
         "service.c",
@@ -360,9 +324,7 @@ def test_cycle_detection() -> None:
 
 
 def test_acyclic_policy_rejects_cycle() -> None:
-    graph = ConstitutionalGraph(
-        reject_cycles=True
-    )
+    graph = ConstitutionalGraph(reject_cycles=True)
 
     graph.add_nodes(
         [
@@ -391,10 +353,7 @@ def test_connected_components() -> None:
     components = graph.connected_components()
 
     assert len(components) == 2
-    assert [
-        [node.address for node in component]
-        for component in components
-    ] == [
+    assert [[node.address for node in component] for component in components] == [
         [
             "application.cardhawk",
             "service.runtime",
@@ -419,9 +378,7 @@ def test_statistics_are_consistent() -> None:
     assert stats.maximum_depth == 2
     assert stats.average_out_degree == 0.5
     assert stats.average_in_degree == 0.5
-    assert stats.relationships_by_kind[
-        "depends_on"
-    ] == 2
+    assert stats.relationships_by_kind["depends_on"] == 2
 
 
 def test_snapshot_is_deterministic() -> None:
@@ -432,9 +389,7 @@ def test_snapshot_is_deterministic() -> None:
 
     assert first == second
     assert first["statistics"]["nodes"] == 4
-    assert first["topology"]["orphans"] == [
-        "service.orphan"
-    ]
+    assert first["topology"]["orphans"] == ["service.orphan"]
 
 
 def test_relationship_object_can_be_added() -> None:
@@ -453,6 +408,4 @@ def test_relationship_object_can_be_added() -> None:
         kind=RelationshipKind.DEPENDS_ON,
     )
 
-    assert graph.add_relationship(
-        relationship
-    ) == relationship
+    assert graph.add_relationship(relationship) == relationship

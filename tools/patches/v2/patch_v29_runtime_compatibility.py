@@ -4,8 +4,7 @@ path = Path("aletheus/planning_v2/planning_core.py")
 text = path.read_text()
 
 if "def register_default_plans" not in text:
-
-    insert = '''
+    insert = """
 
     # ----------------------------------------------------
     # Runtime Compatibility API
@@ -23,7 +22,7 @@ if "def register_default_plans" not in text:
             for plan in self.plans.values()
         ]
 
-'''
+"""
 
     anchor = "    def statistics(self):"
 

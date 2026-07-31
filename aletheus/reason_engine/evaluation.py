@@ -43,10 +43,7 @@ class ReasonEvaluation:
         #
 
         if not reason.evidence:
-
-            reason.set_status(
-                ReasonStatus.REJECTED
-            )
+            reason.set_status(ReasonStatus.REJECTED)
 
             return reason
 
@@ -55,10 +52,7 @@ class ReasonEvaluation:
         #
 
         if not reason.constitutional_articles:
-
-            reason.set_status(
-                ReasonStatus.REJECTED
-            )
+            reason.set_status(ReasonStatus.REJECTED)
 
             return reason
 
@@ -67,10 +61,7 @@ class ReasonEvaluation:
         #
 
         if reason.confidence < self.MINIMUM_CONFIDENCE:
-
-            reason.set_status(
-                ReasonStatus.REJECTED
-            )
+            reason.set_status(ReasonStatus.REJECTED)
 
             return reason
 
@@ -79,10 +70,7 @@ class ReasonEvaluation:
         #
 
         if not reason.reason_chain:
-
-            reason.set_status(
-                ReasonStatus.REJECTED
-            )
+            reason.set_status(ReasonStatus.REJECTED)
 
             return reason
 
@@ -90,9 +78,7 @@ class ReasonEvaluation:
         # Constitutional evaluation passed.
         #
 
-        reason.set_status(
-            ReasonStatus.EVALUATED
-        )
+        reason.set_status(ReasonStatus.EVALUATED)
 
         return reason
 

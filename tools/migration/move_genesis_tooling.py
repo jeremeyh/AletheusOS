@@ -39,17 +39,14 @@ def main():
     count = 0
 
     for item in ROOT.iterdir():
-
         if not item.is_file():
             continue
 
         name = item.name
 
         for prefix, folder in PREFIXES.items():
-
             if name.startswith(prefix):
-
-                new_name = name[len(prefix):]
+                new_name = name[len(prefix) :]
 
                 destination = TOOLS / folder / new_name
 

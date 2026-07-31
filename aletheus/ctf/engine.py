@@ -113,9 +113,7 @@ class CognitiveTransitFabric:
 
         return {
             "routes": self.registry.routes(),
-            "pathways": len(
-                self.registry.pathways()
-            ),
+            "pathways": len(self.registry.pathways()),
         }
 
     def boot_summary(self):
@@ -124,10 +122,6 @@ class CognitiveTransitFabric:
 
         return {
             "component": "CTF",
-            "registered_routes": len(
-                stats["routes"]
-            ),
-            "recorded_pathways": stats[
-                "pathways"
-            ],
+            "registered_routes": len(stats["routes"]),
+            "recorded_pathways": stats["pathways"],
         }

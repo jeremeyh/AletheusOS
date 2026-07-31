@@ -6,29 +6,14 @@ Genesis 13.24
 
 
 class ConnectorLifecycleManager:
+    def start(self, connector):
 
-
-    def start(
-        self,
-        connector
-    ):
-
-        connector.status = (
-            "active"
-        )
+        connector.status = "active"
 
         return connector
 
+    def stop(self, connector):
 
-
-    def stop(
-        self,
-        connector
-    ):
-
-        connector.status = (
-            "disabled"
-        )
+        connector.status = "disabled"
 
         return connector
-

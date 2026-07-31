@@ -8,20 +8,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 
 REGISTRY_PATH = (
-    ROOT
-    / "nimble/governance/environments/"
-    "deployment-provider-registry.json"
+    ROOT / "nimble/governance/environments/deployment-provider-registry.json"
 )
 
-DISPATCHER = (
-    ROOT / "scripts/nimble_provider_dispatch.py"
-)
+DISPATCHER = ROOT / "scripts/nimble_provider_dispatch.py"
 
 
 def load_registry() -> dict:
-    return json.loads(
-        REGISTRY_PATH.read_text(encoding="utf-8")
-    )
+    return json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
 
 
 def run_dispatcher(
@@ -67,10 +61,7 @@ def test_registry_exists() -> None:
 def test_default_provider_is_registered() -> None:
     registry = load_registry()
 
-    assert (
-        registry["default_provider"]
-        in registry["providers"]
-    )
+    assert registry["default_provider"] in registry["providers"]
 
 
 def test_provider_executables_are_repository_relative() -> None:

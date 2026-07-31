@@ -8,7 +8,7 @@ def render(state):
     hero()
     st.title("🧠 Live Intelligence Layer™")
 
-    c1,c2 = st.columns(2)
+    c1, c2 = st.columns(2)
     with c1:
         panel("Activity Feed™", activity_rows(data["activity"]))
     with c2:

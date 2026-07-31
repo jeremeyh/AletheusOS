@@ -6,17 +6,6 @@ Post-Genesis 14
 
 
 class OutcomeTracker:
-
-
     def record(self, outcome):
 
-        return {
-
-            "outcome":
-            outcome,
-
-            "tracked":
-            True
-
-        }
-
+        return {"outcome": outcome, "tracked": True}

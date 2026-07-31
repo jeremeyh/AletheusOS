@@ -2,7 +2,6 @@ from __future__ import annotations
 
 
 class CapabilityStatistics:
-
     GENESIS = "21.6"
     VERSION = "1.0.0"
 

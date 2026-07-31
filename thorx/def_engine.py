@@ -27,4 +27,6 @@ class DEFEngine:
 
     @staticmethod
     def strike_zone(score, ni, market_strength, scarcity):
-        return bool(score >= 9.0 and ni >= 4.0 and scarcity >= 8.0 and market_strength >= 7.0)
+        return bool(
+            score >= 9.0 and ni >= 4.0 and scarcity >= 8.0 and market_strength >= 7.0
+        )

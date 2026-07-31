@@ -106,9 +106,7 @@ class RuntimeCircuitManager:
 
     def active_circuits(self):
         return [
-            circuit
-            for circuit in self.circuits.values()
-            if circuit.status == "active"
+            circuit for circuit in self.circuits.values() if circuit.status == "active"
         ]
 
     def health(self):

@@ -10,19 +10,6 @@ Monitor intelligence activity
 
 
 class IntelligenceMonitoring:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.3"
-
-        }
-
+        return {"status": "ready", "genesis": "23.3"}

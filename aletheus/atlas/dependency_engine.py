@@ -9,7 +9,9 @@ from .models import ArchitectureGraph, AtlasEdge, AtlasEdgeType
 class DependencyEngine:
     """Extracts lightweight import-based dependency edges."""
 
-    def enrich_from_imports(self, graph: ArchitectureGraph, aletheus_root: Path) -> ArchitectureGraph:
+    def enrich_from_imports(
+        self, graph: ArchitectureGraph, aletheus_root: Path
+    ) -> ArchitectureGraph:
         known = {node.name for node in graph.nodes.values()}
 
         for py_file in aletheus_root.rglob("*.py"):

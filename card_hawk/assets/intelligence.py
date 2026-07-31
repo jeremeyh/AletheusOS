@@ -6,19 +6,6 @@ Genesis 14.1
 
 
 class AssetIntelligence:
+    def analyze(self, asset):
 
-
-    def analyze(
-        self,
-        asset
-    ):
-
-
-        return {
-
-            "score":
-
-                0
-
-        }
-
+        return {"score": 0}

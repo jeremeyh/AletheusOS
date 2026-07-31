@@ -4,8 +4,8 @@ AletheusOS Universal Intelligence Harmony Core
 Post-Genesis 10351-10450
 """
 
-class HarmonyIntelligenceCivilizationEngine:
 
+class HarmonyIntelligenceCivilizationEngine:
     def __init__(self):
         self.harmonies = []
 
@@ -13,15 +13,12 @@ class HarmonyIntelligenceCivilizationEngine:
         return {
             "system": "aletheus_harmony_intelligence_civilization",
             "range": "10351-10450",
-            "status": "operational"
+            "status": "operational",
         }
 
     def harmonize(self, ecosystem):
 
-        harmony = {
-            "ecosystem": ecosystem,
-            "status": "balanced"
-        }
+        harmony = {"ecosystem": ecosystem, "status": "balanced"}
 
         self.harmonies.append(harmony)
 

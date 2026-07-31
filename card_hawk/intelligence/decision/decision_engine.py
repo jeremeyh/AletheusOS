@@ -10,19 +10,6 @@ Generate strategic decisions
 
 
 class DecisionEngine:
-
-
     def initialize(self):
 
-        return {
-
-            "status":
-
-            "ready",
-
-            "genesis":
-
-            "23.6"
-
-        }
-
+        return {"status": "ready", "genesis": "23.6"}

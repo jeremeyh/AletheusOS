@@ -129,8 +129,7 @@ class ConstitutionalTransitionPolicy:
 
         if not self.permits(current_state, target_state):
             allowed = sorted(
-                state.value
-                for state in self.allowed_targets(current_state)
+                state.value for state in self.allowed_targets(current_state)
             )
 
             raise ConstitutionalTransitionError(

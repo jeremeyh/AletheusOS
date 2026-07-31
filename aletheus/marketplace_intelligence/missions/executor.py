@@ -6,40 +6,16 @@ Genesis 13.25
 
 
 class DiscoveryMissionExecutor:
+    def __init__(self, connector_runtime=None):
 
+        self.connector_runtime = connector_runtime
 
-    def __init__(
-        self,
-        connector_runtime=None
-    ):
+    def execute(self, mission):
 
-        self.connector_runtime = (
-            connector_runtime
-        )
-
-
-
-    def execute(
-        self,
-        mission
-    ):
-
-
-        mission.status = (
-            "running"
-        )
-
+        mission.status = "running"
 
         return {
-
-            "mission":
-                mission.name,
-
-            "status":
-                mission.status,
-
-            "sources":
-                mission.sources
-
+            "mission": mission.name,
+            "status": mission.status,
+            "sources": mission.sources,
         }
-

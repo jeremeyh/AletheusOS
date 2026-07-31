@@ -6,13 +6,6 @@ Genesis 14.21
 
 
 class RevenueEngine:
-
-
-    def calculate(
-        self,
-        transaction
-    ):
-
+    def calculate(self, transaction):
 
         return {}
-

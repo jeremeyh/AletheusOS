@@ -42,9 +42,7 @@ class CompiledRuntimeCommandDispatcher:
     ) -> None:
         snapshot = dict(commands)
 
-        self._commands: Mapping[str, CommandRecord] = (
-            MappingProxyType(snapshot)
-        )
+        self._commands: Mapping[str, CommandRecord] = MappingProxyType(snapshot)
         self._generation = generation
         self._fingerprint = self._build_fingerprint(snapshot)
 
@@ -72,10 +70,7 @@ class CompiledRuntimeCommandDispatcher:
 
         closure = getattr(handler, "__closure__", None) or ()
 
-        closure_values = tuple(
-            repr(cell.cell_contents)
-            for cell in closure
-        )
+        closure_values = tuple(repr(cell.cell_contents) for cell in closure)
 
         return repr(
             (
@@ -149,11 +144,7 @@ class CompiledRuntimeCommandDispatcher:
             return CommandResult(
                 command=name,
                 status="missing",
-                response={
-                    "error": (
-                        f"Command '{name}' is not registered."
-                    )
-                },
+                response={"error": (f"Command '{name}' is not registered.")},
             )
 
         try:
@@ -163,9 +154,7 @@ class CompiledRuntimeCommandDispatcher:
                 command=name,
                 status="completed",
                 response=(
-                    response
-                    if isinstance(response, dict)
-                    else {"result": response}
+                    response if isinstance(response, dict) else {"result": response}
                 ),
             )
 

@@ -4,80 +4,31 @@ Card Hawk Intelligence Reports Engine
 Genesis 13.18
 """
 
-
 from .generators import ReportGenerator
 from .templates import ReportTemplates
 
 
 class CardHawkReportsEngine:
+    def __init__(self):
 
+        self.templates = ReportTemplates()
 
-    def __init__(
-        self
-    ):
+        self.generator = ReportGenerator()
 
-        self.templates = (
-            ReportTemplates()
-        )
-
-        self.generator = (
-            ReportGenerator()
-        )
-
-
-
-    def daily(
-        self,
-        data
-    ):
+    def daily(self, data):
 
         return self.generator.create(
-
-            "daily",
-
-            "Card Hawk Daily Intelligence",
-
-            self.templates.daily_brief(
-                data
-            )
-
+            "daily", "Card Hawk Daily Intelligence", self.templates.daily_brief(data)
         )
 
-
-
-    def opportunity(
-        self,
-        data
-    ):
+    def opportunity(self, data):
 
         return self.generator.create(
-
-            "opportunity",
-
-            "Acquisition Opportunity",
-
-            self.templates.opportunity(
-                data
-            )
-
+            "opportunity", "Acquisition Opportunity", self.templates.opportunity(data)
         )
 
-
-
-    def portfolio(
-        self,
-        data
-    ):
+    def portfolio(self, data):
 
         return self.generator.create(
-
-            "portfolio",
-
-            "Portfolio Intelligence",
-
-            self.templates.portfolio(
-                data
-            )
-
+            "portfolio", "Portfolio Intelligence", self.templates.portfolio(data)
         )
-

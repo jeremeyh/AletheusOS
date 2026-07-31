@@ -6,12 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 
-INPUT = (
-    ROOT
-    / "reports"
-    / "repository_hygiene"
-    / "empty_module_text_references.csv"
-)
+INPUT = ROOT / "reports" / "repository_hygiene" / "empty_module_text_references.csv"
 
 OUTPUT = (
     ROOT
@@ -93,21 +88,15 @@ def main() -> None:
         newline="",
     ) as handle:
         for row in csv.DictReader(handle):
-            if (
-                row.get("classification")
-                != "REVIEW_ACTIVE_TEXT_REFERENCE"
-            ):
+            if row.get("classification") != "REVIEW_ACTIVE_TEXT_REFERENCE":
                 continue
 
             references = [
-                item.strip()
-                for item in row["references"].split("|")
-                if item.strip()
+                item.strip() for item in row["references"].split("|") if item.strip()
             ]
 
             reference_types = {
-                classify_reference(reference)
-                for reference in references
+                classify_reference(reference) for reference in references
             }
 
             rows.append(
@@ -115,13 +104,9 @@ def main() -> None:
                     "module": row["module"],
                     "path": row["path"],
                     "reference_count": len(references),
-                    "reference_types": " | ".join(
-                        sorted(reference_types)
-                    ),
+                    "reference_types": " | ".join(sorted(reference_types)),
                     "references": " | ".join(references),
-                    "classification": overall_classification(
-                        reference_types
-                    ),
+                    "classification": overall_classification(reference_types),
                 }
             )
 
@@ -149,16 +134,11 @@ def main() -> None:
         writer.writeheader()
         writer.writerows(rows)
 
-    counts = Counter(
-        row["classification"]
-        for row in rows
-    )
+    counts = Counter(row["classification"] for row in rows)
 
     print(f"Modules classified: {len(rows)}")
 
-    for classification, count in sorted(
-        counts.items()
-    ):
+    for classification, count in sorted(counts.items()):
         print(f"{classification}: {count}")
 
     print(

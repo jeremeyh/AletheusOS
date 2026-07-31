@@ -31,7 +31,7 @@ if "Aletheus Event Bus" not in text:
 
     if idx != -1:
         end = text.find("\n", idx)
-        service = '''
+        service = """
 
         self.services.register(
             "Aletheus Event Bus",
@@ -40,8 +40,8 @@ if "Aletheus Event Bus" not in text:
                 "version": self.event_bus_v3.VERSION,
             },
         )
-'''
-        text = text[:end+1] + service + text[end+1:]
+"""
+        text = text[: end + 1] + service + text[end + 1 :]
 
 # Commands
 if 'self.commands.register("event.bootstrap"' not in text:
@@ -52,7 +52,8 @@ if 'self.commands.register("event.bootstrap"' not in text:
 
     text = text.replace(
         anchor,
-        anchor + '''
+        anchor
+        + """
 
         # v3.3 Event Bus
         self.commands.register("event.bootstrap", self._cmd_event_bootstrap)
@@ -62,7 +63,7 @@ if 'self.commands.register("event.bootstrap"' not in text:
         self.commands.register("event.history", self._cmd_event_history)
         self.commands.register("event.replay", self._cmd_event_replay)
         self.commands.register("event.statistics", self._cmd_event_statistics)
-''',
+""",
         1,
     )
 

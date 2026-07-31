@@ -14,27 +14,19 @@ def render_intelligence_panel(
     """
 
     with st.container(border=True):
-
         left, right = st.columns([5, 1])
 
         with left:
-
-            st.subheader(
-                f"{icon} {title}"
-            )
+            st.subheader(f"{icon} {title}")
 
         with right:
-
             if status == "ONLINE":
-
                 st.success("●")
 
             elif status == "WARNING":
-
                 st.warning("●")
 
             else:
-
                 st.error("●")
 
         st.write(body)

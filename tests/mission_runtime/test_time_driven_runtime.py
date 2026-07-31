@@ -92,10 +92,7 @@ def test_time_events_are_preserved_in_ledger():
     )
 
     event_types = [
-        event.event_type
-        for event in orchestrator.history(
-            response.correlation_id
-        )
+        event.event_type for event in orchestrator.history(response.correlation_id)
     ]
 
     assert "MissionPhaseGraphAttached" in event_types
@@ -103,10 +100,7 @@ def test_time_events_are_preserved_in_ledger():
     assert "MissionPhaseStarted" in event_types
     assert "MissionPhaseEvidenceAttached" in event_types
     assert "MissionPhaseCompleted" in event_types
-    assert (
-        "MissionTemporalSequenceCompleted"
-        in event_types
-    )
+    assert "MissionTemporalSequenceCompleted" in event_types
 
 
 def test_phase_evidence_reaches_case_and_mission():
@@ -120,14 +114,8 @@ def test_phase_evidence_reaches_case_and_mission():
         },
     )
 
-    case = orchestrator.case_engine.registry.require(
-        response.case_id
-    )
-    mission = (
-        orchestrator.mission_engine.registry.require(
-            response.mission_id
-        )
-    )
+    case = orchestrator.case_engine.registry.require(response.case_id)
+    mission = orchestrator.mission_engine.registry.require(response.mission_id)
 
     expected = {
         "integrity_finding",
@@ -137,15 +125,9 @@ def test_phase_evidence_reaches_case_and_mission():
         "stabilization_result",
     }
 
-    assert {
-        item["evidence_type"]
-        for item in case.evidence
-    } == expected
+    assert {item["evidence_type"] for item in case.evidence} == expected
 
-    assert {
-        item["evidence_type"]
-        for item in mission.evidence
-    } == expected
+    assert {item["evidence_type"] for item in mission.evidence} == expected
 
 
 def test_default_executors_support_time_runtime():
@@ -161,11 +143,7 @@ def test_default_executors_support_time_runtime():
 
     assert response.case_status == "closed"
     assert response.mission_status == "completed"
-    assert (
-        orchestrator.time.sequence_completed(
-            response.mission_id
-        )
-    )
+    assert orchestrator.time.sequence_completed(response.mission_id)
 
 
 def test_runtime_reports_execution_health():
@@ -182,18 +160,8 @@ def test_runtime_reports_execution_health():
     health = orchestrator.health()
 
     assert health["failures"] == 0
-    assert (
-        health["mission_runtime"][
-            "missions_executed"
-        ]
-        == 1
-    )
-    assert (
-        health["mission_runtime"][
-            "phases_executed"
-        ]
-        == 5
-    )
+    assert health["mission_runtime"]["missions_executed"] == 1
+    assert health["mission_runtime"]["phases_executed"] == 5
 
 
 def test_runtime_publishes_security_domain_events():
@@ -203,31 +171,18 @@ def test_runtime_publishes_security_domain_events():
         entity_id="runtime.semantic-events",
         severity="critical",
         finding={
-            "finding": (
-                "Verify semantic Security Civilization events."
-            ),
+            "finding": ("Verify semantic Security Civilization events."),
         },
     )
 
     event_types = [
-        event.event_type
-        for event in orchestrator.history(
-            response.correlation_id
-        )
+        event.event_type for event in orchestrator.history(response.correlation_id)
     ]
 
     assert "IntegrityFindingCreated" in event_types
     assert "ThreatClassified" in event_types
     assert "EntityQuarantined" in event_types
     assert "EvidencePreserved" in event_types
-    assert (
-        "SecurityIncidentStabilized"
-        in event_types
-    )
+    assert "SecurityIncidentStabilized" in event_types
 
-    assert (
-        orchestrator.health()[
-            "mission_runtime"
-        ]["domain_events_published"]
-        == 4
-    )
+    assert orchestrator.health()["mission_runtime"]["domain_events_published"] == 4

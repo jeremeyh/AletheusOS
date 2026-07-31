@@ -55,21 +55,14 @@ class SPARTANNetwork:
             raise RuntimeError("SPARTAN must be started before analysis")
 
         selected = (
-            tuple(domains)
-            if domains is not None
-            else tuple(self.registry.names())
+            tuple(domains) if domains is not None else tuple(self.registry.names())
         )
 
         analyses = tuple(
-            self.registry.resolve(name).analyze(context)
-            for name in selected
+            self.registry.resolve(name).analyze(context) for name in selected
         )
 
-        confidence = (
-            fmean(item.confidence for item in analyses)
-            if analyses
-            else 0.0
-        )
+        confidence = fmean(item.confidence for item in analyses) if analyses else 0.0
 
         return NetworkAnalysis(
             subject=context.subject,

@@ -10,10 +10,30 @@ def render(state):
 
     recommendations = []
     if data["strike"]:
-        recommendations.append(("Review Strike Zone™", "<span class='ch-pill'>Now</span>", "Actionable alert exists"))
+        recommendations.append(
+            (
+                "Review Strike Zone™",
+                "<span class='ch-pill'>Now</span>",
+                "Actionable alert exists",
+            )
+        )
     if data["ranked"]:
-        recommendations.append(("Reprice THORᵡ leader", "<span class='ch-pill'>Today</span>", "Highest conviction needs current market check"))
-    recommendations.append(("Run Scout™", "<span class='ch-pill'>Daily</span>", "Find new opportunities"))
-    recommendations.append(("Simulate acquisition", "<span class='ch-pill'>Before bid</span>", "Protect portfolio fit"))
+        recommendations.append(
+            (
+                "Reprice THORᵡ leader",
+                "<span class='ch-pill'>Today</span>",
+                "Highest conviction needs current market check",
+            )
+        )
+    recommendations.append(
+        ("Run Scout™", "<span class='ch-pill'>Daily</span>", "Find new opportunities")
+    )
+    recommendations.append(
+        (
+            "Simulate acquisition",
+            "<span class='ch-pill'>Before bid</span>",
+            "Protect portfolio fit",
+        )
+    )
 
     panel("Recommendations™", recommendations)

@@ -6,17 +6,6 @@ Post-Genesis 21
 
 
 class AnomalyDetector:
-
-
     def detect(self, system):
 
-        return {
-
-            "system":
-            system,
-
-            "anomalies":
-            []
-
-        }
-
+        return {"system": system, "anomalies": []}

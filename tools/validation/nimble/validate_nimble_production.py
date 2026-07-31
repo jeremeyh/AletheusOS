@@ -76,16 +76,9 @@ def run_check(
 
     elapsed = time.perf_counter() - started
 
-    status = (
-        "PASS"
-        if completed.returncode == 0
-        else "FAIL"
-    )
+    status = "PASS" if completed.returncode == 0 else "FAIL"
 
-    print(
-        f"{status}: {check.name} "
-        f"({elapsed:.2f}s)"
-    )
+    print(f"{status}: {check.name} ({elapsed:.2f}s)")
 
     return CheckResult(
         name=check.name,
@@ -100,10 +93,7 @@ def require_path(
     label: str,
 ) -> None:
     if not path.exists():
-        raise RuntimeError(
-            f"Missing {label}: "
-            f"{path.relative_to(ROOT)}"
-        )
+        raise RuntimeError(f"Missing {label}: {path.relative_to(ROOT)}")
 
 
 def locate_primary_bundle() -> Path:
@@ -114,9 +104,7 @@ def locate_primary_bundle() -> Path:
     )
 
     if not candidates:
-        raise RuntimeError(
-            "No primary Nimble JavaScript bundle found."
-        )
+        raise RuntimeError("No primary Nimble JavaScript bundle found.")
 
     return candidates[0]
 
@@ -148,11 +136,7 @@ def validate_bundle_budget() -> None:
             f"{PRIMARY_BUNDLE_LIMIT_BYTES:,}-byte budget."
         )
 
-    secondary = [
-        path
-        for path in ASSET_ROOT.glob("*.js")
-        if path != primary
-    ]
+    secondary = [path for path in ASSET_ROOT.glob("*.js") if path != primary]
 
     print(
         "Secondary chunks:",
@@ -226,9 +210,7 @@ def main() -> int:
     npm = shutil.which("npm")
 
     if npm is None:
-        print(
-            "FAIL: npm is not available on PATH."
-        )
+        print("FAIL: npm is not available on PATH.")
         return 1
 
     python = sys.executable
@@ -338,9 +320,7 @@ def main() -> int:
             print("=" * 72)
             print("NIMBLE PRODUCTION GATE")
             print("=" * 72)
-            print(
-                "Status: FAIL"
-            )
+            print("Status: FAIL")
             print(
                 "Failed check:",
                 result.name,
@@ -357,10 +337,7 @@ def main() -> int:
         )
         return 1
 
-    total_seconds = sum(
-        result.elapsed_seconds
-        for result in results
-    )
+    total_seconds = sum(result.elapsed_seconds for result in results)
 
     print()
     print("=" * 72)
@@ -370,37 +347,19 @@ def main() -> int:
         "Checks completed:",
         len(results) + 1,
     )
-    print(
-        "Frontend type safety: PASS"
-    )
-    print(
-        "Frontend tests: PASS"
-    )
-    print(
-        "Production build: PASS"
-    )
-    print(
-        "Architecture contracts: PASS"
-    )
-    print(
-        "Reference implementation: PASS"
-    )
-    print(
-        "OIDC bundle isolation: PASS"
-    )
-    print(
-        "Route splitting: PASS"
-    )
-    print(
-        "Primary bundle budget: PASS"
-    )
+    print("Frontend type safety: PASS")
+    print("Frontend tests: PASS")
+    print("Production build: PASS")
+    print("Architecture contracts: PASS")
+    print("Reference implementation: PASS")
+    print("OIDC bundle isolation: PASS")
+    print("Route splitting: PASS")
+    print("Primary bundle budget: PASS")
     print(
         "Elapsed:",
         f"{total_seconds:.2f}s",
     )
-    print(
-        "Status: PASS"
-    )
+    print("Status: PASS")
 
     return 0
 

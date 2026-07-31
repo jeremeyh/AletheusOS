@@ -23,20 +23,15 @@ class LiveProviderAggregator:
         registered = self._registry.health_probes()
         checked_at = utc_now_iso()
 
-        results = tuple(
-            self._execute_probe(probe)
-            for probe in registered
-        )
+        results = tuple(self._execute_probe(probe) for probe in registered)
 
         total_checks = len(results)
 
-        passing_checks = sum(
-            result.state == "healthy"
-            for result in results
-        )
+        passing_checks = sum(result.state == "healthy" for result in results)
 
         warning_count = sum(
-            result.state in {
+            result.state
+            in {
                 "degraded",
                 "unknown",
             }
@@ -62,9 +57,7 @@ class LiveProviderAggregator:
 
         state = self._aggregate_health_state(
             results=results,
-            required_failure_count=len(
-                required_failures
-            ),
+            required_failure_count=len(required_failures),
         )
 
         return {
@@ -73,16 +66,12 @@ class LiveProviderAggregator:
                 state=state,
                 total_checks=total_checks,
                 passing_checks=passing_checks,
-                required_failure_count=len(
-                    required_failures
-                ),
+                required_failure_count=len(required_failures),
             ),
             "passing_checks": passing_checks,
             "total_checks": total_checks,
             "warning_count": warning_count,
-            "confidence": self._confidence(
-                results
-            ),
+            "confidence": self._confidence(results),
             "checks": [
                 {
                     "id": result.id,
@@ -102,22 +91,16 @@ class LiveProviderAggregator:
     ) -> list[dict[str, Any]]:
         missions: list[dict[str, Any]] = []
 
-        for registered in (
-            self._registry.mission_sources()
-        ):
+        for registered in self._registry.mission_sources():
             try:
                 source_missions = registered.source()
             except Exception as error:
                 missions.append(
                     {
-                        "id": (
-                            f"{registered.id}-source-failure"
-                        ),
+                        "id": (f"{registered.id}-source-failure"),
                         "name": registered.name,
                         "description": (
-                            "Mission source failed: "
-                            f"{type(error).__name__}: "
-                            f"{error}"
+                            f"Mission source failed: {type(error).__name__}: {error}"
                         ),
                         "state": "blocked",
                         "progress": 0,
@@ -145,31 +128,21 @@ class LiveProviderAggregator:
         try:
             result = registered.probe()
         except Exception as error:
-            elapsed_ms = round(
-                (perf_counter() - started_at)
-                * 1000
-            )
+            elapsed_ms = round((perf_counter() - started_at) * 1000)
 
             return HealthProbeResult(
                 id=registered.id,
                 name=registered.name,
                 state="unavailable",
-                detail=(
-                    f"{type(error).__name__}: {error}"
-                ),
+                detail=(f"{type(error).__name__}: {error}"),
                 latency_ms=elapsed_ms,
                 metadata={
                     "required": registered.required,
-                    "failureType": type(
-                        error
-                    ).__name__,
+                    "failureType": type(error).__name__,
                 },
             )
 
-        elapsed_ms = round(
-            (perf_counter() - started_at)
-            * 1000
-        )
+        elapsed_ms = round((perf_counter() - started_at) * 1000)
 
         return HealthProbeResult(
             id=result.id or registered.id,
@@ -177,9 +150,7 @@ class LiveProviderAggregator:
             state=result.state,
             detail=result.detail,
             latency_ms=(
-                result.latency_ms
-                if result.latency_ms is not None
-                else elapsed_ms
+                result.latency_ms if result.latency_ms is not None else elapsed_ms
             ),
             metadata={
                 "required": registered.required,
@@ -224,16 +195,10 @@ class LiveProviderAggregator:
         required_failure_count: int,
     ) -> str:
         if total_checks == 0:
-            return (
-                "No live runtime health providers "
-                "are currently registered."
-            )
+            return "No live runtime health providers are currently registered."
 
         if state == "healthy":
-            return (
-                f"All {total_checks} registered runtime "
-                "providers are healthy."
-            )
+            return f"All {total_checks} registered runtime providers are healthy."
 
         if state == "unavailable":
             return (
@@ -256,16 +221,10 @@ class LiveProviderAggregator:
         if not results:
             return 0.2
 
-        observable = sum(
-            result.state != "unknown"
-            for result in results
-        )
+        observable = sum(result.state != "unknown" for result in results)
 
         return round(
-            0.5 + (
-                observable
-                / len(results)
-            ) * 0.49,
+            0.5 + (observable / len(results)) * 0.49,
             2,
         )
 

@@ -44,9 +44,7 @@ def build_platform():
     return build_aletheus_platform(
         guardian=FakeGuardian(),
         conclave=FakeConclave(),
-        containment_vault=(
-            FakeContainmentVault()
-        ),
+        containment_vault=(FakeContainmentVault()),
         sentinel=FakeSentinel(),
     )
 
@@ -68,18 +66,12 @@ def test_builds_stable_platform_facade():
 def test_security_surface_executes_complete_response():
     platform = build_platform()
 
-    response = (
-        platform
-        .security
-        .respond_to_integrity_finding(
-            entity_id="platform.plugin",
-            severity="critical",
-            finding={
-                "finding": (
-                    "Platform Surface security proof."
-                ),
-            },
-        )
+    response = platform.security.respond_to_integrity_finding(
+        entity_id="platform.plugin",
+        severity="critical",
+        finding={
+            "finding": ("Platform Surface security proof."),
+        },
     )
 
     assert response.case_status == "closed"
@@ -90,29 +82,19 @@ def test_security_surface_executes_complete_response():
 def test_case_and_mission_surfaces_resolve_response():
     platform = build_platform()
 
-    response = (
-        platform
-        .security
-        .respond_to_integrity_finding(
-            entity_id="platform.runtime",
-            severity="high",
-            finding={
-                "finding": "Runtime mutation.",
-            },
-        )
+    response = platform.security.respond_to_integrity_finding(
+        entity_id="platform.runtime",
+        severity="high",
+        finding={
+            "finding": "Runtime mutation.",
+        },
     )
 
-    case = platform.cases.require(
-        response.case_id
-    )
-    mission = platform.missions.require(
-        response.mission_id
-    )
+    case = platform.cases.require(response.case_id)
+    mission = platform.missions.require(response.mission_id)
 
     assert case.case_id == response.case_id
-    assert mission.mission_id == (
-        response.mission_id
-    )
+    assert mission.mission_id == (response.mission_id)
     assert mission.case_id == case.case_id
 
 
@@ -143,39 +125,24 @@ def test_platform_runtime_snapshot_is_read_only_projection():
 def test_ledger_surface_exposes_correlated_history():
     platform = build_platform()
 
-    response = (
-        platform
-        .security
-        .respond_to_integrity_finding(
-            entity_id="platform.history",
-            severity="critical",
-            finding={
-                "finding": (
-                    "Ledger Surface proof."
-                ),
-            },
-        )
+    response = platform.security.respond_to_integrity_finding(
+        entity_id="platform.history",
+        severity="critical",
+        finding={
+            "finding": ("Ledger Surface proof."),
+        },
     )
 
-    history = platform.ledger.history(
-        correlation_id=(
-            response.correlation_id
-        )
-    )
+    history = platform.ledger.history(correlation_id=(response.correlation_id))
 
-    event_types = {
-        event.event_type
-        for event in history
-    }
+    event_types = {event.event_type for event in history}
 
     assert "CaseDetected" in event_types
     assert "MissionCreated" in event_types
     assert "IntegrityFindingCreated" in event_types
     assert "ThreatClassified" in event_types
     assert "EntityQuarantined" in event_types
-    assert "MissionTemporalSequenceCompleted" in (
-        event_types
-    )
+    assert "MissionTemporalSequenceCompleted" in (event_types)
     assert "CaseClosed" in event_types
 
 

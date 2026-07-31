@@ -6,19 +6,6 @@ Genesis 14.3
 
 
 class PriceDiscoveryEngine:
+    def evaluate(self, listing):
 
-
-    def evaluate(
-        self,
-        listing
-    ):
-
-
-        return {
-
-            "fair_value":
-
-                0
-
-        }
-
+        return {"fair_value": 0}

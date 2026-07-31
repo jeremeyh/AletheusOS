@@ -18,7 +18,6 @@ print("========================================================")
 print()
 
 for event in manager.history():
-
     print(event)
 
 print()

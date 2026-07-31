@@ -22,12 +22,7 @@ def find_repo_root(start: Path) -> Path:
 ROOT = find_repo_root(Path(__file__).parent)
 
 
-LATEST_ATTESTATION = (
-    ROOT
-    / "reports"
-    / "nimble"
-    / "release-attestation-latest.json"
-)
+LATEST_ATTESTATION = ROOT / "reports" / "nimble" / "release-attestation-latest.json"
 
 REQUIRED_TOP_LEVEL_KEYS = {
     "schema_version",
@@ -50,9 +45,7 @@ def canonical_digest(
         separators=(",", ":"),
     ).encode("utf-8")
 
-    return hashlib.sha256(
-        payload
-    ).hexdigest()
+    return hashlib.sha256(payload).hexdigest()
 
 
 def sha256_file(
@@ -65,9 +58,7 @@ def sha256_file(
 
 def main() -> int:
     if not LATEST_ATTESTATION.exists():
-        print(
-            "FAIL: Release attestation is missing."
-        )
+        print("FAIL: Release attestation is missing.")
         return 1
 
     attestation: dict[str, Any] = json.loads(
@@ -76,10 +67,7 @@ def main() -> int:
         )
     )
 
-    missing = (
-        REQUIRED_TOP_LEVEL_KEYS
-        - set(attestation)
-    )
+    missing = REQUIRED_TOP_LEVEL_KEYS - set(attestation)
 
     if missing:
         print(
@@ -88,38 +76,24 @@ def main() -> int:
         )
         return 1
 
-    expected_digest = attestation[
-        "attestation_sha256"
-    ]
+    expected_digest = attestation["attestation_sha256"]
 
     unsigned = {
-        key: value
-        for key, value in attestation.items()
-        if key != "attestation_sha256"
+        key: value for key, value in attestation.items() if key != "attestation_sha256"
     }
 
-    actual_digest = canonical_digest(
-        unsigned
-    )
+    actual_digest = canonical_digest(unsigned)
 
     if actual_digest != expected_digest:
-        print(
-            "FAIL: Attestation digest mismatch."
-        )
+        print("FAIL: Attestation digest mismatch.")
         return 1
 
-    if not attestation["source"][
-        "working_tree_clean"
-    ]:
-        print(
-            "FAIL: Attested working tree was not clean."
-        )
+    if not attestation["source"]["working_tree_clean"]:
+        print("FAIL: Attested working tree was not clean.")
         return 1
 
     validator_failures = [
-        item
-        for item in attestation["validators"]
-        if item["status"] != "PASS"
+        item for item in attestation["validators"] if item["status"] != "PASS"
     ]
 
     if validator_failures:
@@ -130,9 +104,7 @@ def main() -> int:
             )
         return 1
 
-    for evidence in attestation[
-        "evidence"
-    ].values():
+    for evidence in attestation["evidence"].values():
         path = ROOT / evidence["path"]
 
         if not path.exists():
@@ -149,11 +121,7 @@ def main() -> int:
             )
             return 1
 
-    artifact = attestation[
-        "artifacts"
-    ][
-        "platform_shell_dist"
-    ]
+    artifact = attestation["artifacts"]["platform_shell_dist"]
 
     for file_record in artifact["files"]:
         path = ROOT / file_record["path"]
@@ -165,10 +133,7 @@ def main() -> int:
             )
             return 1
 
-        if (
-            sha256_file(path)
-            != file_record["sha256"]
-        ):
+        if sha256_file(path) != file_record["sha256"]:
             print(
                 "FAIL: Artifact hash mismatch:",
                 file_record["path"],
