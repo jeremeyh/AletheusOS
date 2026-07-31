@@ -1,0 +1,3428 @@
+{
+  "cycles": [],
+  "edges": [
+    {
+      "source": "aletheus.runtime",
+      "target": "aletheus.runtime.context"
+    },
+    {
+      "source": "aletheus.runtime",
+      "target": "aletheus.runtime.core"
+    },
+    {
+      "source": "aletheus.runtime",
+      "target": "aletheus.runtime.pipeline"
+    },
+    {
+      "source": "aletheus.runtime",
+      "target": "aletheus.runtime.workflow"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.analytics"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.application"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.architecture_council"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.architecture_discovery"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.architecture_evolution"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.architecture_experiment"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.architecture_hypothesis"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.architecture_innovation"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.architecture_intelligence"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.architecture_optimization"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.architecture_proof"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.architecture_research"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.architecture_selection"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.architecture_simulator"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.architecture_steward"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.architecture_synthesis"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.autonomous_architect"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.autonomous_validation"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.base"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_adaptation"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_architect"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_architecture"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_conflict"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_consolidation"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_creativity"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_dependency_graph"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_forecasting"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_governance"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_learning"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_memory_optimizer"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_metrics"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_monitoring"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_optimization"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_pattern_mining"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_planning"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_registry"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_resources"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_rollback"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_selection"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_self_improvement"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_simulation"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_strategy"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_transfer"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.cognitive_verification"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.consensus_memory"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.constitution"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.constitutional_intelligence"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.constitutional_reasoning"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.continuity"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.contracts"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.decision_intelligence"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.dependency"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.deployment_governor"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.discovery"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.emergent_detection"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.ethical_alignment"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.evolution_certification"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.evolution_graph"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.execution"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.genesis_transition"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.governance"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.governance_intelligence"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.healing"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.improvement_loop"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.institutional_memory"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.intelligence"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.intelligence_boundary"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.intelligence_continuity"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.judgment_optimization"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.judgment_refinement"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.knowledge"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.learning"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.lifecycle"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.long_term_planning"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.memory"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.meta_reasoning"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.migration"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.negotiation"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.optimization"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.pattern_forecasting"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.pattern_intelligence"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.performance"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.portfolio"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.predictive"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.proposals"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.purpose_alignment"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.registry"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.research"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.resource_allocation"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.self_identity"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.simulation"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.strategic_intelligence"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.strategic_planning"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.verification"
+    },
+    {
+      "source": "aletheus.runtime.anchors",
+      "target": "aletheus.runtime.anchors.wisdom_accumulation"
+    },
+    {
+      "source": "aletheus.runtime.anchors.application",
+      "target": "aletheus.runtime.anchors.base"
+    },
+    {
+      "source": "aletheus.runtime.anchors.intelligence",
+      "target": "aletheus.runtime.anchors.base"
+    },
+    {
+      "source": "aletheus.runtime.anchors.knowledge",
+      "target": "aletheus.runtime.anchors.base"
+    },
+    {
+      "source": "aletheus.runtime.anchors.memory",
+      "target": "aletheus.runtime.anchors.base"
+    },
+    {
+      "source": "aletheus.runtime.applications",
+      "target": "aletheus.runtime.applications.application_runtime"
+    },
+    {
+      "source": "aletheus.runtime.architecture",
+      "target": "aletheus.runtime.architecture.validator"
+    },
+    {
+      "source": "aletheus.runtime.boot_director",
+      "target": "aletheus.runtime.boot_director.director"
+    },
+    {
+      "source": "aletheus.runtime.boot_director",
+      "target": "aletheus.runtime.boot_director.reporter"
+    },
+    {
+      "source": "aletheus.runtime.boot_phases",
+      "target": "aletheus.runtime.boot_phases.agent_boot"
+    },
+    {
+      "source": "aletheus.runtime.boot_phases",
+      "target": "aletheus.runtime.boot_phases.application_boot"
+    },
+    {
+      "source": "aletheus.runtime.boot_phases",
+      "target": "aletheus.runtime.boot_phases.command_bootstrap"
+    },
+    {
+      "source": "aletheus.runtime.boot_phases",
+      "target": "aletheus.runtime.boot_phases.memory_initialization"
+    },
+    {
+      "source": "aletheus.runtime.boot_phases",
+      "target": "aletheus.runtime.boot_phases.runtime_state"
+    },
+    {
+      "source": "aletheus.runtime.boot_phases",
+      "target": "aletheus.runtime.boot_phases.scheduler"
+    },
+    {
+      "source": "aletheus.runtime.boot_phases",
+      "target": "aletheus.runtime.boot_phases.service_registration"
+    },
+    {
+      "source": "aletheus.runtime.boot_phases.command_bootstrap",
+      "target": "aletheus.runtime.command_bootstrap.bootstrapper"
+    },
+    {
+      "source": "aletheus.runtime.boot_phases.service_groups",
+      "target": "aletheus.runtime.boot_phases.service_groups.ai_platform"
+    },
+    {
+      "source": "aletheus.runtime.boot_phases.service_groups",
+      "target": "aletheus.runtime.boot_phases.service_groups.core"
+    },
+    {
+      "source": "aletheus.runtime.boot_phases.service_groups",
+      "target": "aletheus.runtime.boot_phases.service_groups.foundation"
+    },
+    {
+      "source": "aletheus.runtime.boot_phases.service_groups",
+      "target": "aletheus.runtime.boot_phases.service_groups.intelligence"
+    },
+    {
+      "source": "aletheus.runtime.boot_phases.service_registration",
+      "target": "aletheus.runtime.boot_phases.service_groups"
+    },
+    {
+      "source": "aletheus.runtime.boot_pipeline",
+      "target": "aletheus.runtime.boot_pipeline.default_pipeline"
+    },
+    {
+      "source": "aletheus.runtime.boot_pipeline",
+      "target": "aletheus.runtime.boot_pipeline.pipeline"
+    },
+    {
+      "source": "aletheus.runtime.boot_pipeline.context",
+      "target": "aletheus.runtime.boot_pipeline.report"
+    },
+    {
+      "source": "aletheus.runtime.boot_pipeline.default_pipeline",
+      "target": "aletheus.runtime.boot_phases"
+    },
+    {
+      "source": "aletheus.runtime.boot_pipeline.default_pipeline",
+      "target": "aletheus.runtime.boot_pipeline.pipeline"
+    },
+    {
+      "source": "aletheus.runtime.boot_pipeline.pipeline",
+      "target": "aletheus.runtime.boot_pipeline.conditions"
+    },
+    {
+      "source": "aletheus.runtime.boot_pipeline.pipeline",
+      "target": "aletheus.runtime.boot_pipeline.context"
+    },
+    {
+      "source": "aletheus.runtime.boot_pipeline.pipeline",
+      "target": "aletheus.runtime.boot_pipeline.timing"
+    },
+    {
+      "source": "aletheus.runtime.bootstrap",
+      "target": "aletheus.runtime.bootstrap.runtime_bootstrap"
+    },
+    {
+      "source": "aletheus.runtime.bootstrap",
+      "target": "aletheus.runtime.bootstrap.runtime_manifest_builder"
+    },
+    {
+      "source": "aletheus.runtime.bootstrap.bootstrap_engine",
+      "target": "aletheus.runtime.managers"
+    },
+    {
+      "source": "aletheus.runtime.builder",
+      "target": "aletheus.runtime.builder.builder"
+    },
+    {
+      "source": "aletheus.runtime.builder.builder",
+      "target": "aletheus.runtime.container"
+    },
+    {
+      "source": "aletheus.runtime.capabilities",
+      "target": "aletheus.runtime.capabilities.registry"
+    },
+    {
+      "source": "aletheus.runtime.capabilities",
+      "target": "aletheus.runtime.capabilities.synchronizer"
+    },
+    {
+      "source": "aletheus.runtime.capabilities.synchronizer",
+      "target": "aletheus.runtime.discovery"
+    },
+    {
+      "source": "aletheus.runtime.catalyst",
+      "target": "aletheus.runtime.catalyst.models"
+    },
+    {
+      "source": "aletheus.runtime.catalyst",
+      "target": "aletheus.runtime.catalyst.optimizer"
+    },
+    {
+      "source": "aletheus.runtime.catalyst",
+      "target": "aletheus.runtime.catalyst.reporter"
+    },
+    {
+      "source": "aletheus.runtime.catalyst.optimizer",
+      "target": "aletheus.runtime.catalyst.models"
+    },
+    {
+      "source": "aletheus.runtime.circuits",
+      "target": "aletheus.runtime.circuits.manager"
+    },
+    {
+      "source": "aletheus.runtime.circuits",
+      "target": "aletheus.runtime.circuits.models"
+    },
+    {
+      "source": "aletheus.runtime.circuits",
+      "target": "aletheus.runtime.circuits.reporter"
+    },
+    {
+      "source": "aletheus.runtime.circuits.manager",
+      "target": "aletheus.runtime.circuits.models"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap",
+      "target": "aletheus.runtime.command_bootstrap.bootstrapper"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.agent_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.application_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.architecture_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.cluster_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.compatibility_alias_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.compatibility_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.copilot_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.decision_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.enterprise_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.event_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.executive_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.federation_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.governance_architecture_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.governance_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.graph_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.ha_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.kernel_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.kernel_compatibility_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.knowledge_graph_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.learning_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.memory_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.memory_mesh_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.mission_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.mission_v2_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.planning_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.plugin_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.prediction_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.reasoning_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.registry_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.release_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.runtime_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.security_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.semantic_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.state_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.telemetry_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.tenancy_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.uil_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.workflow_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.workflow_v2_commands"
+    },
+    {
+      "source": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "target": "aletheus.runtime.registrations.workspace_commands"
+    },
+    {
+      "source": "aletheus.runtime.commands",
+      "target": "aletheus.runtime.commands.command_bus"
+    },
+    {
+      "source": "aletheus.runtime.commands",
+      "target": "aletheus.runtime.commands.contracts"
+    },
+    {
+      "source": "aletheus.runtime.commands",
+      "target": "aletheus.runtime.commands.dispatcher"
+    },
+    {
+      "source": "aletheus.runtime.commands",
+      "target": "aletheus.runtime.commands.errors"
+    },
+    {
+      "source": "aletheus.runtime.commands",
+      "target": "aletheus.runtime.commands.models"
+    },
+    {
+      "source": "aletheus.runtime.commands",
+      "target": "aletheus.runtime.commands.registry"
+    },
+    {
+      "source": "aletheus.runtime.commands.command_bus",
+      "target": "aletheus.runtime.commands.runtime_commands"
+    },
+    {
+      "source": "aletheus.runtime.commands.command_bus",
+      "target": "aletheus.runtime.commands_v2.registry"
+    },
+    {
+      "source": "aletheus.runtime.commands.command_bus",
+      "target": "aletheus.runtime.context"
+    },
+    {
+      "source": "aletheus.runtime.commands.dispatcher",
+      "target": "aletheus.runtime.commands.contracts"
+    },
+    {
+      "source": "aletheus.runtime.commands.dispatcher",
+      "target": "aletheus.runtime.commands.errors"
+    },
+    {
+      "source": "aletheus.runtime.commands.dispatcher",
+      "target": "aletheus.runtime.commands.models"
+    },
+    {
+      "source": "aletheus.runtime.commands.dispatcher",
+      "target": "aletheus.runtime.commands.registry"
+    },
+    {
+      "source": "aletheus.runtime.commands.middleware",
+      "target": "aletheus.runtime.commands.contracts"
+    },
+    {
+      "source": "aletheus.runtime.commands.middleware",
+      "target": "aletheus.runtime.commands.errors"
+    },
+    {
+      "source": "aletheus.runtime.commands.models",
+      "target": "aletheus.runtime.commands.contracts"
+    },
+    {
+      "source": "aletheus.runtime.commands.registry",
+      "target": "aletheus.runtime.commands.errors"
+    },
+    {
+      "source": "aletheus.runtime.commands.registry",
+      "target": "aletheus.runtime.commands.models"
+    },
+    {
+      "source": "aletheus.runtime.commands.tests.test_compiled_registry_dispatcher",
+      "target": "aletheus.runtime.commands_v2.registry"
+    },
+    {
+      "source": "aletheus.runtime.commands.tests.test_dispatcher",
+      "target": "aletheus.runtime.commands"
+    },
+    {
+      "source": "aletheus.runtime.commands_v2",
+      "target": "aletheus.runtime.commands_v2.models"
+    },
+    {
+      "source": "aletheus.runtime.commands_v2",
+      "target": "aletheus.runtime.commands_v2.registry"
+    },
+    {
+      "source": "aletheus.runtime.commands_v2",
+      "target": "aletheus.runtime.commands_v2.reporter"
+    },
+    {
+      "source": "aletheus.runtime.commands_v2.dispatcher",
+      "target": "aletheus.runtime.commands_v2.models"
+    },
+    {
+      "source": "aletheus.runtime.commands_v2.dispatcher",
+      "target": "aletheus.runtime.context"
+    },
+    {
+      "source": "aletheus.runtime.commands_v2.registry",
+      "target": "aletheus.runtime.commands_v2.dispatcher"
+    },
+    {
+      "source": "aletheus.runtime.commands_v2.registry",
+      "target": "aletheus.runtime.commands_v2.models"
+    },
+    {
+      "source": "aletheus.runtime.compat",
+      "target": "aletheus.runtime.compat.contracts"
+    },
+    {
+      "source": "aletheus.runtime.compat",
+      "target": "aletheus.runtime.compat.registry"
+    },
+    {
+      "source": "aletheus.runtime.compat",
+      "target": "aletheus.runtime.compat.resolver"
+    },
+    {
+      "source": "aletheus.runtime.compat.resolver",
+      "target": "aletheus.runtime.compat.registry"
+    },
+    {
+      "source": "aletheus.runtime.compatibility_layer",
+      "target": "aletheus.runtime.compatibility_layer.layer"
+    },
+    {
+      "source": "aletheus.runtime.composition",
+      "target": "aletheus.runtime.composition.root"
+    },
+    {
+      "source": "aletheus.runtime.composition.root",
+      "target": "aletheus.runtime.boot_pipeline"
+    },
+    {
+      "source": "aletheus.runtime.composition.root",
+      "target": "aletheus.runtime.capabilities"
+    },
+    {
+      "source": "aletheus.runtime.composition.root",
+      "target": "aletheus.runtime.health"
+    },
+    {
+      "source": "aletheus.runtime.composition.root",
+      "target": "aletheus.runtime.kernel"
+    },
+    {
+      "source": "aletheus.runtime.composition.root",
+      "target": "aletheus.runtime.lifecycle"
+    },
+    {
+      "source": "aletheus.runtime.composition.root",
+      "target": "aletheus.runtime.orchestration"
+    },
+    {
+      "source": "aletheus.runtime.composition.root",
+      "target": "aletheus.runtime.policy"
+    },
+    {
+      "source": "aletheus.runtime.composition.root",
+      "target": "aletheus.runtime.providers"
+    },
+    {
+      "source": "aletheus.runtime.composition.root",
+      "target": "aletheus.runtime.recovery"
+    },
+    {
+      "source": "aletheus.runtime.compression",
+      "target": "aletheus.runtime.compression.dashboard"
+    },
+    {
+      "source": "aletheus.runtime.compression",
+      "target": "aletheus.runtime.compression.reporter"
+    },
+    {
+      "source": "aletheus.runtime.compression.dashboard",
+      "target": "aletheus.runtime.compression.models"
+    },
+    {
+      "source": "aletheus.runtime.container",
+      "target": "aletheus.runtime.container.container"
+    },
+    {
+      "source": "aletheus.runtime.contracts.component",
+      "target": "aletheus.runtime.contracts.health"
+    },
+    {
+      "source": "aletheus.runtime.contracts.component",
+      "target": "aletheus.runtime.contracts.manifest"
+    },
+    {
+      "source": "aletheus.runtime.contracts.components.base",
+      "target": "aletheus.runtime.contracts.component"
+    },
+    {
+      "source": "aletheus.runtime.contracts.components.base",
+      "target": "aletheus.runtime.contracts.health"
+    },
+    {
+      "source": "aletheus.runtime.contracts.components.base",
+      "target": "aletheus.runtime.contracts.lifecycle"
+    },
+    {
+      "source": "aletheus.runtime.contracts.components.base",
+      "target": "aletheus.runtime.contracts.manifest"
+    },
+    {
+      "source": "aletheus.runtime.contracts.lifecycle_manager",
+      "target": "aletheus.runtime.contracts.component"
+    },
+    {
+      "source": "aletheus.runtime.contracts.managers.registration_manager",
+      "target": "aletheus.runtime.contracts.component"
+    },
+    {
+      "source": "aletheus.runtime.contracts.managers.registration_manager",
+      "target": "aletheus.runtime.contracts.errors"
+    },
+    {
+      "source": "aletheus.runtime.contracts.managers.registration_manager",
+      "target": "aletheus.runtime.contracts.registration"
+    },
+    {
+      "source": "aletheus.runtime.contracts.registration",
+      "target": "aletheus.runtime.contracts.component"
+    },
+    {
+      "source": "aletheus.runtime.convergence",
+      "target": "aletheus.runtime.convergence.engine"
+    },
+    {
+      "source": "aletheus.runtime.convergence.engine",
+      "target": "aletheus.runtime.convergence.application_registry"
+    },
+    {
+      "source": "aletheus.runtime.convergence.engine",
+      "target": "aletheus.runtime.convergence.capability_topology"
+    },
+    {
+      "source": "aletheus.runtime.convergence.engine",
+      "target": "aletheus.runtime.convergence.genesis_registry"
+    },
+    {
+      "source": "aletheus.runtime.convergence.engine",
+      "target": "aletheus.runtime.convergence.health_matrix"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.adapters.compatibility_adapter"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.adapters.event_adapter"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.adapters.graph_adapter"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.adapters.mission_adapter"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.adapters.prediction_adapter"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.adapters.runtime_adapter"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.adapters.universal_intelligence_adapter"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.anchors"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.architecture.validator"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.audit.command_surface"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.boot_pipeline"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.certification.boot_certification"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.command_bootstrap.bootstrapper"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.commands"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.compat"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.compatibility_layer"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.context"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.diagnostics"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.events"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.governance"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.governance.architecture_rules"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.governance.history"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.governance.registry_rules"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.hardening"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.integrity"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.intelligence.spa_bridge"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.job_queue"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.kernel"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.managers"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.managers.runtime_facade"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.metrics"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.pipeline"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.providers"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.readiness.snapshot"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.registries"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.registry.compatibility"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.registry.runtime_registry"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.release.genesis6_report"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.release.genesis6_review"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.release.genesis6_validator"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.scheduler"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.services"
+    },
+    {
+      "source": "aletheus.runtime.core",
+      "target": "aletheus.runtime.workflow"
+    },
+    {
+      "source": "aletheus.runtime.dashboard",
+      "target": "aletheus.runtime.dashboard.dashboard"
+    },
+    {
+      "source": "aletheus.runtime.decomposition",
+      "target": "aletheus.runtime.decomposition.analyzer"
+    },
+    {
+      "source": "aletheus.runtime.decomposition",
+      "target": "aletheus.runtime.decomposition.models"
+    },
+    {
+      "source": "aletheus.runtime.decomposition",
+      "target": "aletheus.runtime.decomposition.planner"
+    },
+    {
+      "source": "aletheus.runtime.decomposition",
+      "target": "aletheus.runtime.decomposition.reporter"
+    },
+    {
+      "source": "aletheus.runtime.decomposition",
+      "target": "aletheus.runtime.decomposition.responsibility"
+    },
+    {
+      "source": "aletheus.runtime.decomposition.analyzer",
+      "target": "aletheus.runtime.decomposition.models"
+    },
+    {
+      "source": "aletheus.runtime.decomposition.planner",
+      "target": "aletheus.runtime.decomposition.analyzer"
+    },
+    {
+      "source": "aletheus.runtime.decomposition.planner",
+      "target": "aletheus.runtime.decomposition.models"
+    },
+    {
+      "source": "aletheus.runtime.decomposition.planner",
+      "target": "aletheus.runtime.decomposition.responsibility"
+    },
+    {
+      "source": "aletheus.runtime.decomposition.responsibility",
+      "target": "aletheus.runtime.decomposition.models"
+    },
+    {
+      "source": "aletheus.runtime.discovery",
+      "target": "aletheus.runtime.discovery.discovery"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.agent"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.cluster"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.copilot"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.decision"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.enterprise"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.event_bus"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.federation"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.high_availability"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.kernel"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.knowledge_graph"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.learning"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.memory"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.memory_mesh"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.mission"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.persistence"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.planning"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.plugin"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.prediction"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.reasoning"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.runtime"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.security"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.telemetry"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.tenancy"
+    },
+    {
+      "source": "aletheus.runtime.domains",
+      "target": "aletheus.runtime.domains.workflow"
+    },
+    {
+      "source": "aletheus.runtime.executive",
+      "target": "aletheus.runtime.executive.kernel"
+    },
+    {
+      "source": "aletheus.runtime.executive",
+      "target": "aletheus.runtime.executive.models"
+    },
+    {
+      "source": "aletheus.runtime.executive",
+      "target": "aletheus.runtime.executive.reporter"
+    },
+    {
+      "source": "aletheus.runtime.executive.kernel",
+      "target": "aletheus.runtime.executive.models"
+    },
+    {
+      "source": "aletheus.runtime.extraction",
+      "target": "aletheus.runtime.extraction.planner"
+    },
+    {
+      "source": "aletheus.runtime.extraction",
+      "target": "aletheus.runtime.extraction.reporter"
+    },
+    {
+      "source": "aletheus.runtime.extraction.planner",
+      "target": "aletheus.runtime.extraction.models"
+    },
+    {
+      "source": "aletheus.runtime.extraction_missions",
+      "target": "aletheus.runtime.extraction_missions.manager"
+    },
+    {
+      "source": "aletheus.runtime.extraction_missions",
+      "target": "aletheus.runtime.extraction_missions.reporter"
+    },
+    {
+      "source": "aletheus.runtime.extraction_missions.manager",
+      "target": "aletheus.runtime.extraction_missions.models"
+    },
+    {
+      "source": "aletheus.runtime.governance",
+      "target": "aletheus.runtime.governance.governance_core"
+    },
+    {
+      "source": "aletheus.runtime.governance",
+      "target": "aletheus.runtime.governance.principle_x"
+    },
+    {
+      "source": "aletheus.runtime.handlers",
+      "target": "aletheus.runtime.handlers.compatibility_handlers"
+    },
+    {
+      "source": "aletheus.runtime.handlers.compatibility_handlers",
+      "target": "aletheus.runtime.context"
+    },
+    {
+      "source": "aletheus.runtime.handlers.event_handlers",
+      "target": "aletheus.runtime.context"
+    },
+    {
+      "source": "aletheus.runtime.handlers.graph_handlers",
+      "target": "aletheus.runtime.context"
+    },
+    {
+      "source": "aletheus.runtime.handlers.mission_handlers",
+      "target": "aletheus.runtime.context"
+    },
+    {
+      "source": "aletheus.runtime.health",
+      "target": "aletheus.runtime.health.monitor"
+    },
+    {
+      "source": "aletheus.runtime.inspector",
+      "target": "aletheus.runtime.inspector.runtime_inspector"
+    },
+    {
+      "source": "aletheus.runtime.integrity",
+      "target": "aletheus.runtime.integrity.boot_validator"
+    },
+    {
+      "source": "aletheus.runtime.integrity",
+      "target": "aletheus.runtime.integrity.doctor"
+    },
+    {
+      "source": "aletheus.runtime.integrity",
+      "target": "aletheus.runtime.integrity.invariants"
+    },
+    {
+      "source": "aletheus.runtime.kernel",
+      "target": "aletheus.runtime.kernel.dispatcher"
+    },
+    {
+      "source": "aletheus.runtime.kernel",
+      "target": "aletheus.runtime.kernel.executor"
+    },
+    {
+      "source": "aletheus.runtime.kernel",
+      "target": "aletheus.runtime.kernel.kernel"
+    },
+    {
+      "source": "aletheus.runtime.kernel",
+      "target": "aletheus.runtime.kernel.orchestrator"
+    },
+    {
+      "source": "aletheus.runtime.kernel",
+      "target": "aletheus.runtime.kernel.scheduler"
+    },
+    {
+      "source": "aletheus.runtime.kernel",
+      "target": "aletheus.runtime.kernel.supervisor"
+    },
+    {
+      "source": "aletheus.runtime.lifecycle",
+      "target": "aletheus.runtime.lifecycle.event_bus"
+    },
+    {
+      "source": "aletheus.runtime.lifecycle",
+      "target": "aletheus.runtime.lifecycle.events"
+    },
+    {
+      "source": "aletheus.runtime.lifecycle",
+      "target": "aletheus.runtime.lifecycle.manager"
+    },
+    {
+      "source": "aletheus.runtime.lifecycle",
+      "target": "aletheus.runtime.lifecycle.state"
+    },
+    {
+      "source": "aletheus.runtime.lifecycle.event_bus",
+      "target": "aletheus.runtime.lifecycle.events"
+    },
+    {
+      "source": "aletheus.runtime.lifecycle.manager",
+      "target": "aletheus.runtime.lifecycle.state"
+    },
+    {
+      "source": "aletheus.runtime.managers",
+      "target": "aletheus.runtime.managers.certification_manager"
+    },
+    {
+      "source": "aletheus.runtime.managers",
+      "target": "aletheus.runtime.managers.command_manager"
+    },
+    {
+      "source": "aletheus.runtime.managers",
+      "target": "aletheus.runtime.managers.governance_manager"
+    },
+    {
+      "source": "aletheus.runtime.managers",
+      "target": "aletheus.runtime.managers.health_manager"
+    },
+    {
+      "source": "aletheus.runtime.managers",
+      "target": "aletheus.runtime.managers.invariant_manager"
+    },
+    {
+      "source": "aletheus.runtime.managers",
+      "target": "aletheus.runtime.managers.registration_manager"
+    },
+    {
+      "source": "aletheus.runtime.managers",
+      "target": "aletheus.runtime.managers.registry_manager"
+    },
+    {
+      "source": "aletheus.runtime.managers",
+      "target": "aletheus.runtime.managers.snapshot_manager"
+    },
+    {
+      "source": "aletheus.runtime.managers",
+      "target": "aletheus.runtime.managers.validation_manager"
+    },
+    {
+      "source": "aletheus.runtime.managers.command_manager",
+      "target": "aletheus.runtime.command_bootstrap.bootstrapper"
+    },
+    {
+      "source": "aletheus.runtime.managers.health_manager",
+      "target": "aletheus.runtime.lifecycle.resolver"
+    },
+    {
+      "source": "aletheus.runtime.managers.registration_manager",
+      "target": "aletheus.runtime.command_bootstrap.bootstrapper"
+    },
+    {
+      "source": "aletheus.runtime.managers.registry_federation_manager",
+      "target": "aletheus.runtime.services.registry_federation_bootstrap"
+    },
+    {
+      "source": "aletheus.runtime.migration",
+      "target": "aletheus.runtime.migration.reporter"
+    },
+    {
+      "source": "aletheus.runtime.migration",
+      "target": "aletheus.runtime.migration.tracker"
+    },
+    {
+      "source": "aletheus.runtime.migration.tracker",
+      "target": "aletheus.runtime.migration.models"
+    },
+    {
+      "source": "aletheus.runtime.modules",
+      "target": "aletheus.runtime.services.service_registry"
+    },
+    {
+      "source": "aletheus.runtime.orchestration",
+      "target": "aletheus.runtime.orchestration.orchestrator"
+    },
+    {
+      "source": "aletheus.runtime.pipeline",
+      "target": "aletheus.runtime.context"
+    },
+    {
+      "source": "aletheus.runtime.policy",
+      "target": "aletheus.runtime.policy.engine"
+    },
+    {
+      "source": "aletheus.runtime.providers",
+      "target": "aletheus.runtime.providers.service_provider"
+    },
+    {
+      "source": "aletheus.runtime.recovery",
+      "target": "aletheus.runtime.recovery.manager"
+    },
+    {
+      "source": "aletheus.runtime.registration",
+      "target": "aletheus.runtime.registration.manager"
+    },
+    {
+      "source": "aletheus.runtime.registration",
+      "target": "aletheus.runtime.registration.reporter"
+    },
+    {
+      "source": "aletheus.runtime.registration.manager",
+      "target": "aletheus.runtime.registration.models"
+    },
+    {
+      "source": "aletheus.runtime.registrations",
+      "target": "aletheus.runtime.registrations.agent_commands"
+    },
+    {
+      "source": "aletheus.runtime.registrations",
+      "target": "aletheus.runtime.registrations.application_commands"
+    },
+    {
+      "source": "aletheus.runtime.registrations",
+      "target": "aletheus.runtime.registrations.copilot_commands"
+    },
+    {
+      "source": "aletheus.runtime.registrations",
+      "target": "aletheus.runtime.registrations.decision_commands"
+    },
+    {
+      "source": "aletheus.runtime.registrations",
+      "target": "aletheus.runtime.registrations.executive_commands"
+    },
+    {
+      "source": "aletheus.runtime.registrations",
+      "target": "aletheus.runtime.registrations.graph_commands"
+    },
+    {
+      "source": "aletheus.runtime.registrations",
+      "target": "aletheus.runtime.registrations.memory_commands"
+    },
+    {
+      "source": "aletheus.runtime.registrations",
+      "target": "aletheus.runtime.registrations.mission_commands"
+    },
+    {
+      "source": "aletheus.runtime.registrations",
+      "target": "aletheus.runtime.registrations.planning_commands"
+    },
+    {
+      "source": "aletheus.runtime.registrations",
+      "target": "aletheus.runtime.registrations.reasoning_commands"
+    },
+    {
+      "source": "aletheus.runtime.registrations",
+      "target": "aletheus.runtime.registrations.runtime_commands"
+    },
+    {
+      "source": "aletheus.runtime.registrations",
+      "target": "aletheus.runtime.registrations.semantic_commands"
+    },
+    {
+      "source": "aletheus.runtime.registrations",
+      "target": "aletheus.runtime.registrations.uil_commands"
+    },
+    {
+      "source": "aletheus.runtime.registrations",
+      "target": "aletheus.runtime.registrations.workspace_commands"
+    },
+    {
+      "source": "aletheus.runtime.registrations.agent_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.copilot_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.decision_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.enterprise_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.federation_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.ha_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.kernel_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.knowledge_graph_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.learning_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.memory_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.memory_mesh_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.plugin_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.prediction_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.reasoning_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.security_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.state_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.telemetry_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.tenancy_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registrations.workflow_commands",
+      "target": "aletheus.runtime.domains"
+    },
+    {
+      "source": "aletheus.runtime.registries",
+      "target": "aletheus.runtime.context"
+    },
+    {
+      "source": "aletheus.runtime.registry",
+      "target": "aletheus.runtime.registry.runtime_registry"
+    },
+    {
+      "source": "aletheus.runtime.relay",
+      "target": "aletheus.runtime.relay.models"
+    },
+    {
+      "source": "aletheus.runtime.relay",
+      "target": "aletheus.runtime.relay.network"
+    },
+    {
+      "source": "aletheus.runtime.relay",
+      "target": "aletheus.runtime.relay.reporter"
+    },
+    {
+      "source": "aletheus.runtime.relay.network",
+      "target": "aletheus.runtime.relay.models"
+    },
+    {
+      "source": "aletheus.runtime.service_mesh",
+      "target": "aletheus.runtime.service_mesh.mesh"
+    },
+    {
+      "source": "aletheus.runtime.service_mesh",
+      "target": "aletheus.runtime.service_mesh.models"
+    },
+    {
+      "source": "aletheus.runtime.service_mesh",
+      "target": "aletheus.runtime.service_mesh.reporter"
+    },
+    {
+      "source": "aletheus.runtime.service_mesh.mesh",
+      "target": "aletheus.runtime.service_mesh.models"
+    },
+    {
+      "source": "aletheus.runtime.services",
+      "target": "aletheus.runtime.services.service_registry"
+    },
+    {
+      "source": "aletheus.runtime.services.registry_federation_bootstrap",
+      "target": "aletheus.runtime.services.registry_federation_registration"
+    },
+    {
+      "source": "aletheus.runtime.services.registry_federation_registration",
+      "target": "aletheus.runtime.services.registry_federation_service"
+    },
+    {
+      "source": "aletheus.runtime.spa",
+      "target": "aletheus.runtime.spa.anchor_analysis"
+    },
+    {
+      "source": "aletheus.runtime.universal",
+      "target": "aletheus.runtime.universal.engine"
+    },
+    {
+      "source": "aletheus.runtime.universal.engine",
+      "target": "aletheus.runtime.universal.application_binding"
+    },
+    {
+      "source": "aletheus.runtime.universal.engine",
+      "target": "aletheus.runtime.universal.capability_registry"
+    },
+    {
+      "source": "aletheus.runtime.universal.engine",
+      "target": "aletheus.runtime.universal.runtime_topology"
+    },
+    {
+      "source": "aletheus.runtime.workflow",
+      "target": "aletheus.runtime.context"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "aletheus.runtime",
+      "label": "aletheus.runtime"
+    },
+    {
+      "id": "aletheus.runtime.adapter",
+      "label": "aletheus.runtime.adapter"
+    },
+    {
+      "id": "aletheus.runtime.adapters",
+      "label": "aletheus.runtime.adapters"
+    },
+    {
+      "id": "aletheus.runtime.adapters.compatibility_adapter",
+      "label": "aletheus.runtime.adapters.compatibility_adapter"
+    },
+    {
+      "id": "aletheus.runtime.adapters.event_adapter",
+      "label": "aletheus.runtime.adapters.event_adapter"
+    },
+    {
+      "id": "aletheus.runtime.adapters.graph_adapter",
+      "label": "aletheus.runtime.adapters.graph_adapter"
+    },
+    {
+      "id": "aletheus.runtime.adapters.mission_adapter",
+      "label": "aletheus.runtime.adapters.mission_adapter"
+    },
+    {
+      "id": "aletheus.runtime.adapters.prediction_adapter",
+      "label": "aletheus.runtime.adapters.prediction_adapter"
+    },
+    {
+      "id": "aletheus.runtime.adapters.runtime_adapter",
+      "label": "aletheus.runtime.adapters.runtime_adapter"
+    },
+    {
+      "id": "aletheus.runtime.adapters.topology_registry_adapter",
+      "label": "aletheus.runtime.adapters.topology_registry_adapter"
+    },
+    {
+      "id": "aletheus.runtime.adapters.universal_intelligence_adapter",
+      "label": "aletheus.runtime.adapters.universal_intelligence_adapter"
+    },
+    {
+      "id": "aletheus.runtime.anchors",
+      "label": "aletheus.runtime.anchors"
+    },
+    {
+      "id": "aletheus.runtime.anchors.analytics",
+      "label": "aletheus.runtime.anchors.analytics"
+    },
+    {
+      "id": "aletheus.runtime.anchors.application",
+      "label": "aletheus.runtime.anchors.application"
+    },
+    {
+      "id": "aletheus.runtime.anchors.architecture_council",
+      "label": "aletheus.runtime.anchors.architecture_council"
+    },
+    {
+      "id": "aletheus.runtime.anchors.architecture_discovery",
+      "label": "aletheus.runtime.anchors.architecture_discovery"
+    },
+    {
+      "id": "aletheus.runtime.anchors.architecture_evolution",
+      "label": "aletheus.runtime.anchors.architecture_evolution"
+    },
+    {
+      "id": "aletheus.runtime.anchors.architecture_experiment",
+      "label": "aletheus.runtime.anchors.architecture_experiment"
+    },
+    {
+      "id": "aletheus.runtime.anchors.architecture_hypothesis",
+      "label": "aletheus.runtime.anchors.architecture_hypothesis"
+    },
+    {
+      "id": "aletheus.runtime.anchors.architecture_innovation",
+      "label": "aletheus.runtime.anchors.architecture_innovation"
+    },
+    {
+      "id": "aletheus.runtime.anchors.architecture_intelligence",
+      "label": "aletheus.runtime.anchors.architecture_intelligence"
+    },
+    {
+      "id": "aletheus.runtime.anchors.architecture_optimization",
+      "label": "aletheus.runtime.anchors.architecture_optimization"
+    },
+    {
+      "id": "aletheus.runtime.anchors.architecture_proof",
+      "label": "aletheus.runtime.anchors.architecture_proof"
+    },
+    {
+      "id": "aletheus.runtime.anchors.architecture_research",
+      "label": "aletheus.runtime.anchors.architecture_research"
+    },
+    {
+      "id": "aletheus.runtime.anchors.architecture_selection",
+      "label": "aletheus.runtime.anchors.architecture_selection"
+    },
+    {
+      "id": "aletheus.runtime.anchors.architecture_simulator",
+      "label": "aletheus.runtime.anchors.architecture_simulator"
+    },
+    {
+      "id": "aletheus.runtime.anchors.architecture_steward",
+      "label": "aletheus.runtime.anchors.architecture_steward"
+    },
+    {
+      "id": "aletheus.runtime.anchors.architecture_synthesis",
+      "label": "aletheus.runtime.anchors.architecture_synthesis"
+    },
+    {
+      "id": "aletheus.runtime.anchors.autonomous_architect",
+      "label": "aletheus.runtime.anchors.autonomous_architect"
+    },
+    {
+      "id": "aletheus.runtime.anchors.autonomous_validation",
+      "label": "aletheus.runtime.anchors.autonomous_validation"
+    },
+    {
+      "id": "aletheus.runtime.anchors.base",
+      "label": "aletheus.runtime.anchors.base"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_adaptation",
+      "label": "aletheus.runtime.anchors.cognitive_adaptation"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_architect",
+      "label": "aletheus.runtime.anchors.cognitive_architect"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_architecture",
+      "label": "aletheus.runtime.anchors.cognitive_architecture"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_conflict",
+      "label": "aletheus.runtime.anchors.cognitive_conflict"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_consolidation",
+      "label": "aletheus.runtime.anchors.cognitive_consolidation"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_creativity",
+      "label": "aletheus.runtime.anchors.cognitive_creativity"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_dependency_graph",
+      "label": "aletheus.runtime.anchors.cognitive_dependency_graph"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_forecasting",
+      "label": "aletheus.runtime.anchors.cognitive_forecasting"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_governance",
+      "label": "aletheus.runtime.anchors.cognitive_governance"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_learning",
+      "label": "aletheus.runtime.anchors.cognitive_learning"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_memory_optimizer",
+      "label": "aletheus.runtime.anchors.cognitive_memory_optimizer"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_metrics",
+      "label": "aletheus.runtime.anchors.cognitive_metrics"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_monitoring",
+      "label": "aletheus.runtime.anchors.cognitive_monitoring"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_optimization",
+      "label": "aletheus.runtime.anchors.cognitive_optimization"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_pattern_mining",
+      "label": "aletheus.runtime.anchors.cognitive_pattern_mining"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_planning",
+      "label": "aletheus.runtime.anchors.cognitive_planning"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_registry",
+      "label": "aletheus.runtime.anchors.cognitive_registry"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_resources",
+      "label": "aletheus.runtime.anchors.cognitive_resources"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_rollback",
+      "label": "aletheus.runtime.anchors.cognitive_rollback"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_selection",
+      "label": "aletheus.runtime.anchors.cognitive_selection"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_self_improvement",
+      "label": "aletheus.runtime.anchors.cognitive_self_improvement"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_simulation",
+      "label": "aletheus.runtime.anchors.cognitive_simulation"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_strategy",
+      "label": "aletheus.runtime.anchors.cognitive_strategy"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_transfer",
+      "label": "aletheus.runtime.anchors.cognitive_transfer"
+    },
+    {
+      "id": "aletheus.runtime.anchors.cognitive_verification",
+      "label": "aletheus.runtime.anchors.cognitive_verification"
+    },
+    {
+      "id": "aletheus.runtime.anchors.consensus_memory",
+      "label": "aletheus.runtime.anchors.consensus_memory"
+    },
+    {
+      "id": "aletheus.runtime.anchors.constitution",
+      "label": "aletheus.runtime.anchors.constitution"
+    },
+    {
+      "id": "aletheus.runtime.anchors.constitutional_intelligence",
+      "label": "aletheus.runtime.anchors.constitutional_intelligence"
+    },
+    {
+      "id": "aletheus.runtime.anchors.constitutional_reasoning",
+      "label": "aletheus.runtime.anchors.constitutional_reasoning"
+    },
+    {
+      "id": "aletheus.runtime.anchors.continuity",
+      "label": "aletheus.runtime.anchors.continuity"
+    },
+    {
+      "id": "aletheus.runtime.anchors.contracts",
+      "label": "aletheus.runtime.anchors.contracts"
+    },
+    {
+      "id": "aletheus.runtime.anchors.decision_intelligence",
+      "label": "aletheus.runtime.anchors.decision_intelligence"
+    },
+    {
+      "id": "aletheus.runtime.anchors.dependency",
+      "label": "aletheus.runtime.anchors.dependency"
+    },
+    {
+      "id": "aletheus.runtime.anchors.deployment_governor",
+      "label": "aletheus.runtime.anchors.deployment_governor"
+    },
+    {
+      "id": "aletheus.runtime.anchors.discovery",
+      "label": "aletheus.runtime.anchors.discovery"
+    },
+    {
+      "id": "aletheus.runtime.anchors.emergent_detection",
+      "label": "aletheus.runtime.anchors.emergent_detection"
+    },
+    {
+      "id": "aletheus.runtime.anchors.ethical_alignment",
+      "label": "aletheus.runtime.anchors.ethical_alignment"
+    },
+    {
+      "id": "aletheus.runtime.anchors.evolution_certification",
+      "label": "aletheus.runtime.anchors.evolution_certification"
+    },
+    {
+      "id": "aletheus.runtime.anchors.evolution_graph",
+      "label": "aletheus.runtime.anchors.evolution_graph"
+    },
+    {
+      "id": "aletheus.runtime.anchors.execution",
+      "label": "aletheus.runtime.anchors.execution"
+    },
+    {
+      "id": "aletheus.runtime.anchors.genesis_transition",
+      "label": "aletheus.runtime.anchors.genesis_transition"
+    },
+    {
+      "id": "aletheus.runtime.anchors.governance",
+      "label": "aletheus.runtime.anchors.governance"
+    },
+    {
+      "id": "aletheus.runtime.anchors.governance_intelligence",
+      "label": "aletheus.runtime.anchors.governance_intelligence"
+    },
+    {
+      "id": "aletheus.runtime.anchors.healing",
+      "label": "aletheus.runtime.anchors.healing"
+    },
+    {
+      "id": "aletheus.runtime.anchors.improvement_loop",
+      "label": "aletheus.runtime.anchors.improvement_loop"
+    },
+    {
+      "id": "aletheus.runtime.anchors.institutional_memory",
+      "label": "aletheus.runtime.anchors.institutional_memory"
+    },
+    {
+      "id": "aletheus.runtime.anchors.intelligence",
+      "label": "aletheus.runtime.anchors.intelligence"
+    },
+    {
+      "id": "aletheus.runtime.anchors.intelligence_boundary",
+      "label": "aletheus.runtime.anchors.intelligence_boundary"
+    },
+    {
+      "id": "aletheus.runtime.anchors.intelligence_continuity",
+      "label": "aletheus.runtime.anchors.intelligence_continuity"
+    },
+    {
+      "id": "aletheus.runtime.anchors.judgment_optimization",
+      "label": "aletheus.runtime.anchors.judgment_optimization"
+    },
+    {
+      "id": "aletheus.runtime.anchors.judgment_refinement",
+      "label": "aletheus.runtime.anchors.judgment_refinement"
+    },
+    {
+      "id": "aletheus.runtime.anchors.knowledge",
+      "label": "aletheus.runtime.anchors.knowledge"
+    },
+    {
+      "id": "aletheus.runtime.anchors.learning",
+      "label": "aletheus.runtime.anchors.learning"
+    },
+    {
+      "id": "aletheus.runtime.anchors.lifecycle",
+      "label": "aletheus.runtime.anchors.lifecycle"
+    },
+    {
+      "id": "aletheus.runtime.anchors.long_term_planning",
+      "label": "aletheus.runtime.anchors.long_term_planning"
+    },
+    {
+      "id": "aletheus.runtime.anchors.memory",
+      "label": "aletheus.runtime.anchors.memory"
+    },
+    {
+      "id": "aletheus.runtime.anchors.meta_reasoning",
+      "label": "aletheus.runtime.anchors.meta_reasoning"
+    },
+    {
+      "id": "aletheus.runtime.anchors.migration",
+      "label": "aletheus.runtime.anchors.migration"
+    },
+    {
+      "id": "aletheus.runtime.anchors.negotiation",
+      "label": "aletheus.runtime.anchors.negotiation"
+    },
+    {
+      "id": "aletheus.runtime.anchors.optimization",
+      "label": "aletheus.runtime.anchors.optimization"
+    },
+    {
+      "id": "aletheus.runtime.anchors.pattern_forecasting",
+      "label": "aletheus.runtime.anchors.pattern_forecasting"
+    },
+    {
+      "id": "aletheus.runtime.anchors.pattern_intelligence",
+      "label": "aletheus.runtime.anchors.pattern_intelligence"
+    },
+    {
+      "id": "aletheus.runtime.anchors.performance",
+      "label": "aletheus.runtime.anchors.performance"
+    },
+    {
+      "id": "aletheus.runtime.anchors.portfolio",
+      "label": "aletheus.runtime.anchors.portfolio"
+    },
+    {
+      "id": "aletheus.runtime.anchors.predictive",
+      "label": "aletheus.runtime.anchors.predictive"
+    },
+    {
+      "id": "aletheus.runtime.anchors.proposals",
+      "label": "aletheus.runtime.anchors.proposals"
+    },
+    {
+      "id": "aletheus.runtime.anchors.purpose_alignment",
+      "label": "aletheus.runtime.anchors.purpose_alignment"
+    },
+    {
+      "id": "aletheus.runtime.anchors.registry",
+      "label": "aletheus.runtime.anchors.registry"
+    },
+    {
+      "id": "aletheus.runtime.anchors.research",
+      "label": "aletheus.runtime.anchors.research"
+    },
+    {
+      "id": "aletheus.runtime.anchors.resource_allocation",
+      "label": "aletheus.runtime.anchors.resource_allocation"
+    },
+    {
+      "id": "aletheus.runtime.anchors.self_identity",
+      "label": "aletheus.runtime.anchors.self_identity"
+    },
+    {
+      "id": "aletheus.runtime.anchors.simulation",
+      "label": "aletheus.runtime.anchors.simulation"
+    },
+    {
+      "id": "aletheus.runtime.anchors.strategic_intelligence",
+      "label": "aletheus.runtime.anchors.strategic_intelligence"
+    },
+    {
+      "id": "aletheus.runtime.anchors.strategic_planning",
+      "label": "aletheus.runtime.anchors.strategic_planning"
+    },
+    {
+      "id": "aletheus.runtime.anchors.verification",
+      "label": "aletheus.runtime.anchors.verification"
+    },
+    {
+      "id": "aletheus.runtime.anchors.wisdom_accumulation",
+      "label": "aletheus.runtime.anchors.wisdom_accumulation"
+    },
+    {
+      "id": "aletheus.runtime.applications",
+      "label": "aletheus.runtime.applications"
+    },
+    {
+      "id": "aletheus.runtime.applications.application_runtime",
+      "label": "aletheus.runtime.applications.application_runtime"
+    },
+    {
+      "id": "aletheus.runtime.architecture",
+      "label": "aletheus.runtime.architecture"
+    },
+    {
+      "id": "aletheus.runtime.architecture.validator",
+      "label": "aletheus.runtime.architecture.validator"
+    },
+    {
+      "id": "aletheus.runtime.audit.command_surface",
+      "label": "aletheus.runtime.audit.command_surface"
+    },
+    {
+      "id": "aletheus.runtime.audit.registry_snapshot",
+      "label": "aletheus.runtime.audit.registry_snapshot"
+    },
+    {
+      "id": "aletheus.runtime.boot",
+      "label": "aletheus.runtime.boot"
+    },
+    {
+      "id": "aletheus.runtime.boot_director",
+      "label": "aletheus.runtime.boot_director"
+    },
+    {
+      "id": "aletheus.runtime.boot_director.director",
+      "label": "aletheus.runtime.boot_director.director"
+    },
+    {
+      "id": "aletheus.runtime.boot_director.reporter",
+      "label": "aletheus.runtime.boot_director.reporter"
+    },
+    {
+      "id": "aletheus.runtime.boot_phases",
+      "label": "aletheus.runtime.boot_phases"
+    },
+    {
+      "id": "aletheus.runtime.boot_phases.agent_boot",
+      "label": "aletheus.runtime.boot_phases.agent_boot"
+    },
+    {
+      "id": "aletheus.runtime.boot_phases.application_boot",
+      "label": "aletheus.runtime.boot_phases.application_boot"
+    },
+    {
+      "id": "aletheus.runtime.boot_phases.command_bootstrap",
+      "label": "aletheus.runtime.boot_phases.command_bootstrap"
+    },
+    {
+      "id": "aletheus.runtime.boot_phases.memory_initialization",
+      "label": "aletheus.runtime.boot_phases.memory_initialization"
+    },
+    {
+      "id": "aletheus.runtime.boot_phases.runtime_state",
+      "label": "aletheus.runtime.boot_phases.runtime_state"
+    },
+    {
+      "id": "aletheus.runtime.boot_phases.scheduler",
+      "label": "aletheus.runtime.boot_phases.scheduler"
+    },
+    {
+      "id": "aletheus.runtime.boot_phases.service_groups",
+      "label": "aletheus.runtime.boot_phases.service_groups"
+    },
+    {
+      "id": "aletheus.runtime.boot_phases.service_groups.ai_platform",
+      "label": "aletheus.runtime.boot_phases.service_groups.ai_platform"
+    },
+    {
+      "id": "aletheus.runtime.boot_phases.service_groups.core",
+      "label": "aletheus.runtime.boot_phases.service_groups.core"
+    },
+    {
+      "id": "aletheus.runtime.boot_phases.service_groups.foundation",
+      "label": "aletheus.runtime.boot_phases.service_groups.foundation"
+    },
+    {
+      "id": "aletheus.runtime.boot_phases.service_groups.intelligence",
+      "label": "aletheus.runtime.boot_phases.service_groups.intelligence"
+    },
+    {
+      "id": "aletheus.runtime.boot_phases.service_registration",
+      "label": "aletheus.runtime.boot_phases.service_registration"
+    },
+    {
+      "id": "aletheus.runtime.boot_pipeline",
+      "label": "aletheus.runtime.boot_pipeline"
+    },
+    {
+      "id": "aletheus.runtime.boot_pipeline.conditions",
+      "label": "aletheus.runtime.boot_pipeline.conditions"
+    },
+    {
+      "id": "aletheus.runtime.boot_pipeline.context",
+      "label": "aletheus.runtime.boot_pipeline.context"
+    },
+    {
+      "id": "aletheus.runtime.boot_pipeline.default_pipeline",
+      "label": "aletheus.runtime.boot_pipeline.default_pipeline"
+    },
+    {
+      "id": "aletheus.runtime.boot_pipeline.dependencies",
+      "label": "aletheus.runtime.boot_pipeline.dependencies"
+    },
+    {
+      "id": "aletheus.runtime.boot_pipeline.executor",
+      "label": "aletheus.runtime.boot_pipeline.executor"
+    },
+    {
+      "id": "aletheus.runtime.boot_pipeline.manifest",
+      "label": "aletheus.runtime.boot_pipeline.manifest"
+    },
+    {
+      "id": "aletheus.runtime.boot_pipeline.models",
+      "label": "aletheus.runtime.boot_pipeline.models"
+    },
+    {
+      "id": "aletheus.runtime.boot_pipeline.pipeline",
+      "label": "aletheus.runtime.boot_pipeline.pipeline"
+    },
+    {
+      "id": "aletheus.runtime.boot_pipeline.report",
+      "label": "aletheus.runtime.boot_pipeline.report"
+    },
+    {
+      "id": "aletheus.runtime.boot_pipeline.reporter",
+      "label": "aletheus.runtime.boot_pipeline.reporter"
+    },
+    {
+      "id": "aletheus.runtime.boot_pipeline.timing",
+      "label": "aletheus.runtime.boot_pipeline.timing"
+    },
+    {
+      "id": "aletheus.runtime.bootstrap",
+      "label": "aletheus.runtime.bootstrap"
+    },
+    {
+      "id": "aletheus.runtime.bootstrap.bootstrap_engine",
+      "label": "aletheus.runtime.bootstrap.bootstrap_engine"
+    },
+    {
+      "id": "aletheus.runtime.bootstrap.runtime_bootstrap",
+      "label": "aletheus.runtime.bootstrap.runtime_bootstrap"
+    },
+    {
+      "id": "aletheus.runtime.bootstrap.runtime_manifest_builder",
+      "label": "aletheus.runtime.bootstrap.runtime_manifest_builder"
+    },
+    {
+      "id": "aletheus.runtime.builder",
+      "label": "aletheus.runtime.builder"
+    },
+    {
+      "id": "aletheus.runtime.builder.builder",
+      "label": "aletheus.runtime.builder.builder"
+    },
+    {
+      "id": "aletheus.runtime.capabilities",
+      "label": "aletheus.runtime.capabilities"
+    },
+    {
+      "id": "aletheus.runtime.capabilities.registry",
+      "label": "aletheus.runtime.capabilities.registry"
+    },
+    {
+      "id": "aletheus.runtime.capabilities.synchronizer",
+      "label": "aletheus.runtime.capabilities.synchronizer"
+    },
+    {
+      "id": "aletheus.runtime.catalyst",
+      "label": "aletheus.runtime.catalyst"
+    },
+    {
+      "id": "aletheus.runtime.catalyst.models",
+      "label": "aletheus.runtime.catalyst.models"
+    },
+    {
+      "id": "aletheus.runtime.catalyst.optimizer",
+      "label": "aletheus.runtime.catalyst.optimizer"
+    },
+    {
+      "id": "aletheus.runtime.catalyst.reporter",
+      "label": "aletheus.runtime.catalyst.reporter"
+    },
+    {
+      "id": "aletheus.runtime.certification.boot_certification",
+      "label": "aletheus.runtime.certification.boot_certification"
+    },
+    {
+      "id": "aletheus.runtime.certification.certifier",
+      "label": "aletheus.runtime.certification.certifier"
+    },
+    {
+      "id": "aletheus.runtime.certification.federation_certifier",
+      "label": "aletheus.runtime.certification.federation_certifier"
+    },
+    {
+      "id": "aletheus.runtime.circuits",
+      "label": "aletheus.runtime.circuits"
+    },
+    {
+      "id": "aletheus.runtime.circuits.manager",
+      "label": "aletheus.runtime.circuits.manager"
+    },
+    {
+      "id": "aletheus.runtime.circuits.models",
+      "label": "aletheus.runtime.circuits.models"
+    },
+    {
+      "id": "aletheus.runtime.circuits.reporter",
+      "label": "aletheus.runtime.circuits.reporter"
+    },
+    {
+      "id": "aletheus.runtime.command_bootstrap",
+      "label": "aletheus.runtime.command_bootstrap"
+    },
+    {
+      "id": "aletheus.runtime.command_bootstrap.bootstrapper",
+      "label": "aletheus.runtime.command_bootstrap.bootstrapper"
+    },
+    {
+      "id": "aletheus.runtime.command_handlers",
+      "label": "aletheus.runtime.command_handlers"
+    },
+    {
+      "id": "aletheus.runtime.commands",
+      "label": "aletheus.runtime.commands"
+    },
+    {
+      "id": "aletheus.runtime.commands.command_bus",
+      "label": "aletheus.runtime.commands.command_bus"
+    },
+    {
+      "id": "aletheus.runtime.commands.contracts",
+      "label": "aletheus.runtime.commands.contracts"
+    },
+    {
+      "id": "aletheus.runtime.commands.dispatcher",
+      "label": "aletheus.runtime.commands.dispatcher"
+    },
+    {
+      "id": "aletheus.runtime.commands.errors",
+      "label": "aletheus.runtime.commands.errors"
+    },
+    {
+      "id": "aletheus.runtime.commands.middleware",
+      "label": "aletheus.runtime.commands.middleware"
+    },
+    {
+      "id": "aletheus.runtime.commands.models",
+      "label": "aletheus.runtime.commands.models"
+    },
+    {
+      "id": "aletheus.runtime.commands.registry",
+      "label": "aletheus.runtime.commands.registry"
+    },
+    {
+      "id": "aletheus.runtime.commands.runtime_commands",
+      "label": "aletheus.runtime.commands.runtime_commands"
+    },
+    {
+      "id": "aletheus.runtime.commands.tests.test_compiled_registry_dispatcher",
+      "label": "aletheus.runtime.commands.tests.test_compiled_registry_dispatcher"
+    },
+    {
+      "id": "aletheus.runtime.commands.tests.test_dispatcher",
+      "label": "aletheus.runtime.commands.tests.test_dispatcher"
+    },
+    {
+      "id": "aletheus.runtime.commands_v2",
+      "label": "aletheus.runtime.commands_v2"
+    },
+    {
+      "id": "aletheus.runtime.commands_v2.dispatcher",
+      "label": "aletheus.runtime.commands_v2.dispatcher"
+    },
+    {
+      "id": "aletheus.runtime.commands_v2.models",
+      "label": "aletheus.runtime.commands_v2.models"
+    },
+    {
+      "id": "aletheus.runtime.commands_v2.registry",
+      "label": "aletheus.runtime.commands_v2.registry"
+    },
+    {
+      "id": "aletheus.runtime.commands_v2.reporter",
+      "label": "aletheus.runtime.commands_v2.reporter"
+    },
+    {
+      "id": "aletheus.runtime.compat",
+      "label": "aletheus.runtime.compat"
+    },
+    {
+      "id": "aletheus.runtime.compat.contracts",
+      "label": "aletheus.runtime.compat.contracts"
+    },
+    {
+      "id": "aletheus.runtime.compat.registry",
+      "label": "aletheus.runtime.compat.registry"
+    },
+    {
+      "id": "aletheus.runtime.compat.resolver",
+      "label": "aletheus.runtime.compat.resolver"
+    },
+    {
+      "id": "aletheus.runtime.compatibility_layer",
+      "label": "aletheus.runtime.compatibility_layer"
+    },
+    {
+      "id": "aletheus.runtime.compatibility_layer.layer",
+      "label": "aletheus.runtime.compatibility_layer.layer"
+    },
+    {
+      "id": "aletheus.runtime.composition",
+      "label": "aletheus.runtime.composition"
+    },
+    {
+      "id": "aletheus.runtime.composition.models",
+      "label": "aletheus.runtime.composition.models"
+    },
+    {
+      "id": "aletheus.runtime.composition.reporter",
+      "label": "aletheus.runtime.composition.reporter"
+    },
+    {
+      "id": "aletheus.runtime.composition.root",
+      "label": "aletheus.runtime.composition.root"
+    },
+    {
+      "id": "aletheus.runtime.compression",
+      "label": "aletheus.runtime.compression"
+    },
+    {
+      "id": "aletheus.runtime.compression.dashboard",
+      "label": "aletheus.runtime.compression.dashboard"
+    },
+    {
+      "id": "aletheus.runtime.compression.models",
+      "label": "aletheus.runtime.compression.models"
+    },
+    {
+      "id": "aletheus.runtime.compression.reporter",
+      "label": "aletheus.runtime.compression.reporter"
+    },
+    {
+      "id": "aletheus.runtime.container",
+      "label": "aletheus.runtime.container"
+    },
+    {
+      "id": "aletheus.runtime.container.container",
+      "label": "aletheus.runtime.container.container"
+    },
+    {
+      "id": "aletheus.runtime.context",
+      "label": "aletheus.runtime.context"
+    },
+    {
+      "id": "aletheus.runtime.contracts",
+      "label": "aletheus.runtime.contracts"
+    },
+    {
+      "id": "aletheus.runtime.contracts.component",
+      "label": "aletheus.runtime.contracts.component"
+    },
+    {
+      "id": "aletheus.runtime.contracts.components",
+      "label": "aletheus.runtime.contracts.components"
+    },
+    {
+      "id": "aletheus.runtime.contracts.components.base",
+      "label": "aletheus.runtime.contracts.components.base"
+    },
+    {
+      "id": "aletheus.runtime.contracts.errors",
+      "label": "aletheus.runtime.contracts.errors"
+    },
+    {
+      "id": "aletheus.runtime.contracts.health",
+      "label": "aletheus.runtime.contracts.health"
+    },
+    {
+      "id": "aletheus.runtime.contracts.lifecycle",
+      "label": "aletheus.runtime.contracts.lifecycle"
+    },
+    {
+      "id": "aletheus.runtime.contracts.lifecycle_manager",
+      "label": "aletheus.runtime.contracts.lifecycle_manager"
+    },
+    {
+      "id": "aletheus.runtime.contracts.managers",
+      "label": "aletheus.runtime.contracts.managers"
+    },
+    {
+      "id": "aletheus.runtime.contracts.managers.registration_manager",
+      "label": "aletheus.runtime.contracts.managers.registration_manager"
+    },
+    {
+      "id": "aletheus.runtime.contracts.manifest",
+      "label": "aletheus.runtime.contracts.manifest"
+    },
+    {
+      "id": "aletheus.runtime.contracts.registration",
+      "label": "aletheus.runtime.contracts.registration"
+    },
+    {
+      "id": "aletheus.runtime.convergence",
+      "label": "aletheus.runtime.convergence"
+    },
+    {
+      "id": "aletheus.runtime.convergence.application_registry",
+      "label": "aletheus.runtime.convergence.application_registry"
+    },
+    {
+      "id": "aletheus.runtime.convergence.capability_topology",
+      "label": "aletheus.runtime.convergence.capability_topology"
+    },
+    {
+      "id": "aletheus.runtime.convergence.engine",
+      "label": "aletheus.runtime.convergence.engine"
+    },
+    {
+      "id": "aletheus.runtime.convergence.genesis_registry",
+      "label": "aletheus.runtime.convergence.genesis_registry"
+    },
+    {
+      "id": "aletheus.runtime.convergence.health_matrix",
+      "label": "aletheus.runtime.convergence.health_matrix"
+    },
+    {
+      "id": "aletheus.runtime.core",
+      "label": "aletheus.runtime.core"
+    },
+    {
+      "id": "aletheus.runtime.council.council",
+      "label": "aletheus.runtime.council.council"
+    },
+    {
+      "id": "aletheus.runtime.dashboard",
+      "label": "aletheus.runtime.dashboard"
+    },
+    {
+      "id": "aletheus.runtime.dashboard.dashboard",
+      "label": "aletheus.runtime.dashboard.dashboard"
+    },
+    {
+      "id": "aletheus.runtime.decomposition",
+      "label": "aletheus.runtime.decomposition"
+    },
+    {
+      "id": "aletheus.runtime.decomposition.analyzer",
+      "label": "aletheus.runtime.decomposition.analyzer"
+    },
+    {
+      "id": "aletheus.runtime.decomposition.models",
+      "label": "aletheus.runtime.decomposition.models"
+    },
+    {
+      "id": "aletheus.runtime.decomposition.planner",
+      "label": "aletheus.runtime.decomposition.planner"
+    },
+    {
+      "id": "aletheus.runtime.decomposition.reporter",
+      "label": "aletheus.runtime.decomposition.reporter"
+    },
+    {
+      "id": "aletheus.runtime.decomposition.responsibility",
+      "label": "aletheus.runtime.decomposition.responsibility"
+    },
+    {
+      "id": "aletheus.runtime.diagnostics",
+      "label": "aletheus.runtime.diagnostics"
+    },
+    {
+      "id": "aletheus.runtime.discovery",
+      "label": "aletheus.runtime.discovery"
+    },
+    {
+      "id": "aletheus.runtime.discovery.discovery",
+      "label": "aletheus.runtime.discovery.discovery"
+    },
+    {
+      "id": "aletheus.runtime.domains",
+      "label": "aletheus.runtime.domains"
+    },
+    {
+      "id": "aletheus.runtime.domains.agent",
+      "label": "aletheus.runtime.domains.agent"
+    },
+    {
+      "id": "aletheus.runtime.domains.application",
+      "label": "aletheus.runtime.domains.application"
+    },
+    {
+      "id": "aletheus.runtime.domains.cluster",
+      "label": "aletheus.runtime.domains.cluster"
+    },
+    {
+      "id": "aletheus.runtime.domains.copilot",
+      "label": "aletheus.runtime.domains.copilot"
+    },
+    {
+      "id": "aletheus.runtime.domains.decision",
+      "label": "aletheus.runtime.domains.decision"
+    },
+    {
+      "id": "aletheus.runtime.domains.enterprise",
+      "label": "aletheus.runtime.domains.enterprise"
+    },
+    {
+      "id": "aletheus.runtime.domains.event_bus",
+      "label": "aletheus.runtime.domains.event_bus"
+    },
+    {
+      "id": "aletheus.runtime.domains.executive",
+      "label": "aletheus.runtime.domains.executive"
+    },
+    {
+      "id": "aletheus.runtime.domains.federation",
+      "label": "aletheus.runtime.domains.federation"
+    },
+    {
+      "id": "aletheus.runtime.domains.high_availability",
+      "label": "aletheus.runtime.domains.high_availability"
+    },
+    {
+      "id": "aletheus.runtime.domains.kernel",
+      "label": "aletheus.runtime.domains.kernel"
+    },
+    {
+      "id": "aletheus.runtime.domains.knowledge_graph",
+      "label": "aletheus.runtime.domains.knowledge_graph"
+    },
+    {
+      "id": "aletheus.runtime.domains.learning",
+      "label": "aletheus.runtime.domains.learning"
+    },
+    {
+      "id": "aletheus.runtime.domains.memory",
+      "label": "aletheus.runtime.domains.memory"
+    },
+    {
+      "id": "aletheus.runtime.domains.memory_mesh",
+      "label": "aletheus.runtime.domains.memory_mesh"
+    },
+    {
+      "id": "aletheus.runtime.domains.mission",
+      "label": "aletheus.runtime.domains.mission"
+    },
+    {
+      "id": "aletheus.runtime.domains.persistence",
+      "label": "aletheus.runtime.domains.persistence"
+    },
+    {
+      "id": "aletheus.runtime.domains.planning",
+      "label": "aletheus.runtime.domains.planning"
+    },
+    {
+      "id": "aletheus.runtime.domains.plugin",
+      "label": "aletheus.runtime.domains.plugin"
+    },
+    {
+      "id": "aletheus.runtime.domains.prediction",
+      "label": "aletheus.runtime.domains.prediction"
+    },
+    {
+      "id": "aletheus.runtime.domains.reasoning",
+      "label": "aletheus.runtime.domains.reasoning"
+    },
+    {
+      "id": "aletheus.runtime.domains.runtime",
+      "label": "aletheus.runtime.domains.runtime"
+    },
+    {
+      "id": "aletheus.runtime.domains.security",
+      "label": "aletheus.runtime.domains.security"
+    },
+    {
+      "id": "aletheus.runtime.domains.semantic",
+      "label": "aletheus.runtime.domains.semantic"
+    },
+    {
+      "id": "aletheus.runtime.domains.state",
+      "label": "aletheus.runtime.domains.state"
+    },
+    {
+      "id": "aletheus.runtime.domains.telemetry",
+      "label": "aletheus.runtime.domains.telemetry"
+    },
+    {
+      "id": "aletheus.runtime.domains.tenancy",
+      "label": "aletheus.runtime.domains.tenancy"
+    },
+    {
+      "id": "aletheus.runtime.domains.workflow",
+      "label": "aletheus.runtime.domains.workflow"
+    },
+    {
+      "id": "aletheus.runtime.events",
+      "label": "aletheus.runtime.events"
+    },
+    {
+      "id": "aletheus.runtime.executive",
+      "label": "aletheus.runtime.executive"
+    },
+    {
+      "id": "aletheus.runtime.executive.kernel",
+      "label": "aletheus.runtime.executive.kernel"
+    },
+    {
+      "id": "aletheus.runtime.executive.models",
+      "label": "aletheus.runtime.executive.models"
+    },
+    {
+      "id": "aletheus.runtime.executive.reporter",
+      "label": "aletheus.runtime.executive.reporter"
+    },
+    {
+      "id": "aletheus.runtime.extraction",
+      "label": "aletheus.runtime.extraction"
+    },
+    {
+      "id": "aletheus.runtime.extraction.models",
+      "label": "aletheus.runtime.extraction.models"
+    },
+    {
+      "id": "aletheus.runtime.extraction.planner",
+      "label": "aletheus.runtime.extraction.planner"
+    },
+    {
+      "id": "aletheus.runtime.extraction.reporter",
+      "label": "aletheus.runtime.extraction.reporter"
+    },
+    {
+      "id": "aletheus.runtime.extraction_missions",
+      "label": "aletheus.runtime.extraction_missions"
+    },
+    {
+      "id": "aletheus.runtime.extraction_missions.manager",
+      "label": "aletheus.runtime.extraction_missions.manager"
+    },
+    {
+      "id": "aletheus.runtime.extraction_missions.models",
+      "label": "aletheus.runtime.extraction_missions.models"
+    },
+    {
+      "id": "aletheus.runtime.extraction_missions.reporter",
+      "label": "aletheus.runtime.extraction_missions.reporter"
+    },
+    {
+      "id": "aletheus.runtime.governance",
+      "label": "aletheus.runtime.governance"
+    },
+    {
+      "id": "aletheus.runtime.governance.architecture_rules",
+      "label": "aletheus.runtime.governance.architecture_rules"
+    },
+    {
+      "id": "aletheus.runtime.governance.governance_core",
+      "label": "aletheus.runtime.governance.governance_core"
+    },
+    {
+      "id": "aletheus.runtime.governance.history",
+      "label": "aletheus.runtime.governance.history"
+    },
+    {
+      "id": "aletheus.runtime.governance.principle_x",
+      "label": "aletheus.runtime.governance.principle_x"
+    },
+    {
+      "id": "aletheus.runtime.governance.registry_rules",
+      "label": "aletheus.runtime.governance.registry_rules"
+    },
+    {
+      "id": "aletheus.runtime.handlers",
+      "label": "aletheus.runtime.handlers"
+    },
+    {
+      "id": "aletheus.runtime.handlers.compatibility_handlers",
+      "label": "aletheus.runtime.handlers.compatibility_handlers"
+    },
+    {
+      "id": "aletheus.runtime.handlers.event_handlers",
+      "label": "aletheus.runtime.handlers.event_handlers"
+    },
+    {
+      "id": "aletheus.runtime.handlers.graph_handlers",
+      "label": "aletheus.runtime.handlers.graph_handlers"
+    },
+    {
+      "id": "aletheus.runtime.handlers.mission_handlers",
+      "label": "aletheus.runtime.handlers.mission_handlers"
+    },
+    {
+      "id": "aletheus.runtime.hardening",
+      "label": "aletheus.runtime.hardening"
+    },
+    {
+      "id": "aletheus.runtime.health",
+      "label": "aletheus.runtime.health"
+    },
+    {
+      "id": "aletheus.runtime.health.monitor",
+      "label": "aletheus.runtime.health.monitor"
+    },
+    {
+      "id": "aletheus.runtime.inspector",
+      "label": "aletheus.runtime.inspector"
+    },
+    {
+      "id": "aletheus.runtime.inspector.runtime_inspector",
+      "label": "aletheus.runtime.inspector.runtime_inspector"
+    },
+    {
+      "id": "aletheus.runtime.integrity",
+      "label": "aletheus.runtime.integrity"
+    },
+    {
+      "id": "aletheus.runtime.integrity.boot_validator",
+      "label": "aletheus.runtime.integrity.boot_validator"
+    },
+    {
+      "id": "aletheus.runtime.integrity.doctor",
+      "label": "aletheus.runtime.integrity.doctor"
+    },
+    {
+      "id": "aletheus.runtime.integrity.invariants",
+      "label": "aletheus.runtime.integrity.invariants"
+    },
+    {
+      "id": "aletheus.runtime.intelligence.spa_bridge",
+      "label": "aletheus.runtime.intelligence.spa_bridge"
+    },
+    {
+      "id": "aletheus.runtime.job_queue",
+      "label": "aletheus.runtime.job_queue"
+    },
+    {
+      "id": "aletheus.runtime.kernel",
+      "label": "aletheus.runtime.kernel"
+    },
+    {
+      "id": "aletheus.runtime.kernel.dispatcher",
+      "label": "aletheus.runtime.kernel.dispatcher"
+    },
+    {
+      "id": "aletheus.runtime.kernel.executor",
+      "label": "aletheus.runtime.kernel.executor"
+    },
+    {
+      "id": "aletheus.runtime.kernel.kernel",
+      "label": "aletheus.runtime.kernel.kernel"
+    },
+    {
+      "id": "aletheus.runtime.kernel.orchestrator",
+      "label": "aletheus.runtime.kernel.orchestrator"
+    },
+    {
+      "id": "aletheus.runtime.kernel.scheduler",
+      "label": "aletheus.runtime.kernel.scheduler"
+    },
+    {
+      "id": "aletheus.runtime.kernel.supervisor",
+      "label": "aletheus.runtime.kernel.supervisor"
+    },
+    {
+      "id": "aletheus.runtime.lifecycle",
+      "label": "aletheus.runtime.lifecycle"
+    },
+    {
+      "id": "aletheus.runtime.lifecycle.event_bus",
+      "label": "aletheus.runtime.lifecycle.event_bus"
+    },
+    {
+      "id": "aletheus.runtime.lifecycle.events",
+      "label": "aletheus.runtime.lifecycle.events"
+    },
+    {
+      "id": "aletheus.runtime.lifecycle.manager",
+      "label": "aletheus.runtime.lifecycle.manager"
+    },
+    {
+      "id": "aletheus.runtime.lifecycle.models",
+      "label": "aletheus.runtime.lifecycle.models"
+    },
+    {
+      "id": "aletheus.runtime.lifecycle.reporter",
+      "label": "aletheus.runtime.lifecycle.reporter"
+    },
+    {
+      "id": "aletheus.runtime.lifecycle.resolver",
+      "label": "aletheus.runtime.lifecycle.resolver"
+    },
+    {
+      "id": "aletheus.runtime.lifecycle.state",
+      "label": "aletheus.runtime.lifecycle.state"
+    },
+    {
+      "id": "aletheus.runtime.managers",
+      "label": "aletheus.runtime.managers"
+    },
+    {
+      "id": "aletheus.runtime.managers.certification_manager",
+      "label": "aletheus.runtime.managers.certification_manager"
+    },
+    {
+      "id": "aletheus.runtime.managers.command_manager",
+      "label": "aletheus.runtime.managers.command_manager"
+    },
+    {
+      "id": "aletheus.runtime.managers.governance_manager",
+      "label": "aletheus.runtime.managers.governance_manager"
+    },
+    {
+      "id": "aletheus.runtime.managers.health_manager",
+      "label": "aletheus.runtime.managers.health_manager"
+    },
+    {
+      "id": "aletheus.runtime.managers.invariant_manager",
+      "label": "aletheus.runtime.managers.invariant_manager"
+    },
+    {
+      "id": "aletheus.runtime.managers.lifecycle_manager",
+      "label": "aletheus.runtime.managers.lifecycle_manager"
+    },
+    {
+      "id": "aletheus.runtime.managers.observability_manager",
+      "label": "aletheus.runtime.managers.observability_manager"
+    },
+    {
+      "id": "aletheus.runtime.managers.registration_manager",
+      "label": "aletheus.runtime.managers.registration_manager"
+    },
+    {
+      "id": "aletheus.runtime.managers.registry_federation_manager",
+      "label": "aletheus.runtime.managers.registry_federation_manager"
+    },
+    {
+      "id": "aletheus.runtime.managers.registry_manager",
+      "label": "aletheus.runtime.managers.registry_manager"
+    },
+    {
+      "id": "aletheus.runtime.managers.runtime_facade",
+      "label": "aletheus.runtime.managers.runtime_facade"
+    },
+    {
+      "id": "aletheus.runtime.managers.runtime_inspector",
+      "label": "aletheus.runtime.managers.runtime_inspector"
+    },
+    {
+      "id": "aletheus.runtime.managers.snapshot_manager",
+      "label": "aletheus.runtime.managers.snapshot_manager"
+    },
+    {
+      "id": "aletheus.runtime.managers.validation_manager",
+      "label": "aletheus.runtime.managers.validation_manager"
+    },
+    {
+      "id": "aletheus.runtime.manifest",
+      "label": "aletheus.runtime.manifest"
+    },
+    {
+      "id": "aletheus.runtime.metrics",
+      "label": "aletheus.runtime.metrics"
+    },
+    {
+      "id": "aletheus.runtime.migration",
+      "label": "aletheus.runtime.migration"
+    },
+    {
+      "id": "aletheus.runtime.migration.models",
+      "label": "aletheus.runtime.migration.models"
+    },
+    {
+      "id": "aletheus.runtime.migration.reporter",
+      "label": "aletheus.runtime.migration.reporter"
+    },
+    {
+      "id": "aletheus.runtime.migration.tracker",
+      "label": "aletheus.runtime.migration.tracker"
+    },
+    {
+      "id": "aletheus.runtime.modules",
+      "label": "aletheus.runtime.modules"
+    },
+    {
+      "id": "aletheus.runtime.orchestration",
+      "label": "aletheus.runtime.orchestration"
+    },
+    {
+      "id": "aletheus.runtime.orchestration.orchestrator",
+      "label": "aletheus.runtime.orchestration.orchestrator"
+    },
+    {
+      "id": "aletheus.runtime.patches.core.goal_list_fix",
+      "label": "aletheus.runtime.patches.core.goal_list_fix"
+    },
+    {
+      "id": "aletheus.runtime.pipeline",
+      "label": "aletheus.runtime.pipeline"
+    },
+    {
+      "id": "aletheus.runtime.policy",
+      "label": "aletheus.runtime.policy"
+    },
+    {
+      "id": "aletheus.runtime.policy.engine",
+      "label": "aletheus.runtime.policy.engine"
+    },
+    {
+      "id": "aletheus.runtime.providers",
+      "label": "aletheus.runtime.providers"
+    },
+    {
+      "id": "aletheus.runtime.providers.service_provider",
+      "label": "aletheus.runtime.providers.service_provider"
+    },
+    {
+      "id": "aletheus.runtime.readiness.federation_readiness_check",
+      "label": "aletheus.runtime.readiness.federation_readiness_check"
+    },
+    {
+      "id": "aletheus.runtime.readiness.snapshot",
+      "label": "aletheus.runtime.readiness.snapshot"
+    },
+    {
+      "id": "aletheus.runtime.recovery",
+      "label": "aletheus.runtime.recovery"
+    },
+    {
+      "id": "aletheus.runtime.recovery.manager",
+      "label": "aletheus.runtime.recovery.manager"
+    },
+    {
+      "id": "aletheus.runtime.registration",
+      "label": "aletheus.runtime.registration"
+    },
+    {
+      "id": "aletheus.runtime.registration.manager",
+      "label": "aletheus.runtime.registration.manager"
+    },
+    {
+      "id": "aletheus.runtime.registration.models",
+      "label": "aletheus.runtime.registration.models"
+    },
+    {
+      "id": "aletheus.runtime.registration.reporter",
+      "label": "aletheus.runtime.registration.reporter"
+    },
+    {
+      "id": "aletheus.runtime.registrations",
+      "label": "aletheus.runtime.registrations"
+    },
+    {
+      "id": "aletheus.runtime.registrations.agent_commands",
+      "label": "aletheus.runtime.registrations.agent_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.application_commands",
+      "label": "aletheus.runtime.registrations.application_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.architecture_commands",
+      "label": "aletheus.runtime.registrations.architecture_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.cluster_commands",
+      "label": "aletheus.runtime.registrations.cluster_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.compatibility_alias_commands",
+      "label": "aletheus.runtime.registrations.compatibility_alias_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.compatibility_commands",
+      "label": "aletheus.runtime.registrations.compatibility_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.copilot_commands",
+      "label": "aletheus.runtime.registrations.copilot_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.decision_commands",
+      "label": "aletheus.runtime.registrations.decision_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.enterprise_commands",
+      "label": "aletheus.runtime.registrations.enterprise_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.event_commands",
+      "label": "aletheus.runtime.registrations.event_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.executive_commands",
+      "label": "aletheus.runtime.registrations.executive_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.federation_commands",
+      "label": "aletheus.runtime.registrations.federation_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.governance_architecture_commands",
+      "label": "aletheus.runtime.registrations.governance_architecture_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.governance_commands",
+      "label": "aletheus.runtime.registrations.governance_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.graph_commands",
+      "label": "aletheus.runtime.registrations.graph_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.ha_commands",
+      "label": "aletheus.runtime.registrations.ha_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.kernel_commands",
+      "label": "aletheus.runtime.registrations.kernel_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.kernel_compatibility_commands",
+      "label": "aletheus.runtime.registrations.kernel_compatibility_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.knowledge_graph_commands",
+      "label": "aletheus.runtime.registrations.knowledge_graph_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.learning_commands",
+      "label": "aletheus.runtime.registrations.learning_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.memory_commands",
+      "label": "aletheus.runtime.registrations.memory_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.memory_mesh_commands",
+      "label": "aletheus.runtime.registrations.memory_mesh_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.mission_commands",
+      "label": "aletheus.runtime.registrations.mission_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.mission_v2_commands",
+      "label": "aletheus.runtime.registrations.mission_v2_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.planning_commands",
+      "label": "aletheus.runtime.registrations.planning_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.plugin_commands",
+      "label": "aletheus.runtime.registrations.plugin_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.prediction_commands",
+      "label": "aletheus.runtime.registrations.prediction_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.reasoning_commands",
+      "label": "aletheus.runtime.registrations.reasoning_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.registry_commands",
+      "label": "aletheus.runtime.registrations.registry_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.release_commands",
+      "label": "aletheus.runtime.registrations.release_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.runtime_commands",
+      "label": "aletheus.runtime.registrations.runtime_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.security_commands",
+      "label": "aletheus.runtime.registrations.security_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.semantic_commands",
+      "label": "aletheus.runtime.registrations.semantic_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.state_commands",
+      "label": "aletheus.runtime.registrations.state_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.telemetry_commands",
+      "label": "aletheus.runtime.registrations.telemetry_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.tenancy_commands",
+      "label": "aletheus.runtime.registrations.tenancy_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.uil_commands",
+      "label": "aletheus.runtime.registrations.uil_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.workflow_commands",
+      "label": "aletheus.runtime.registrations.workflow_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.workflow_v2_commands",
+      "label": "aletheus.runtime.registrations.workflow_v2_commands"
+    },
+    {
+      "id": "aletheus.runtime.registrations.workspace_commands",
+      "label": "aletheus.runtime.registrations.workspace_commands"
+    },
+    {
+      "id": "aletheus.runtime.registries",
+      "label": "aletheus.runtime.registries"
+    },
+    {
+      "id": "aletheus.runtime.registry",
+      "label": "aletheus.runtime.registry"
+    },
+    {
+      "id": "aletheus.runtime.registry.compatibility",
+      "label": "aletheus.runtime.registry.compatibility"
+    },
+    {
+      "id": "aletheus.runtime.registry.runtime_registry",
+      "label": "aletheus.runtime.registry.runtime_registry"
+    },
+    {
+      "id": "aletheus.runtime.relay",
+      "label": "aletheus.runtime.relay"
+    },
+    {
+      "id": "aletheus.runtime.relay.models",
+      "label": "aletheus.runtime.relay.models"
+    },
+    {
+      "id": "aletheus.runtime.relay.network",
+      "label": "aletheus.runtime.relay.network"
+    },
+    {
+      "id": "aletheus.runtime.relay.reporter",
+      "label": "aletheus.runtime.relay.reporter"
+    },
+    {
+      "id": "aletheus.runtime.release.genesis6_report",
+      "label": "aletheus.runtime.release.genesis6_report"
+    },
+    {
+      "id": "aletheus.runtime.release.genesis6_review",
+      "label": "aletheus.runtime.release.genesis6_review"
+    },
+    {
+      "id": "aletheus.runtime.release.genesis6_validator",
+      "label": "aletheus.runtime.release.genesis6_validator"
+    },
+    {
+      "id": "aletheus.runtime.release.manifest",
+      "label": "aletheus.runtime.release.manifest"
+    },
+    {
+      "id": "aletheus.runtime.scheduler",
+      "label": "aletheus.runtime.scheduler"
+    },
+    {
+      "id": "aletheus.runtime.service_mesh",
+      "label": "aletheus.runtime.service_mesh"
+    },
+    {
+      "id": "aletheus.runtime.service_mesh.mesh",
+      "label": "aletheus.runtime.service_mesh.mesh"
+    },
+    {
+      "id": "aletheus.runtime.service_mesh.models",
+      "label": "aletheus.runtime.service_mesh.models"
+    },
+    {
+      "id": "aletheus.runtime.service_mesh.reporter",
+      "label": "aletheus.runtime.service_mesh.reporter"
+    },
+    {
+      "id": "aletheus.runtime.services",
+      "label": "aletheus.runtime.services"
+    },
+    {
+      "id": "aletheus.runtime.services.registry_federation_bootstrap",
+      "label": "aletheus.runtime.services.registry_federation_bootstrap"
+    },
+    {
+      "id": "aletheus.runtime.services.registry_federation_registration",
+      "label": "aletheus.runtime.services.registry_federation_registration"
+    },
+    {
+      "id": "aletheus.runtime.services.registry_federation_service",
+      "label": "aletheus.runtime.services.registry_federation_service"
+    },
+    {
+      "id": "aletheus.runtime.services.service_registry",
+      "label": "aletheus.runtime.services.service_registry"
+    },
+    {
+      "id": "aletheus.runtime.spa",
+      "label": "aletheus.runtime.spa"
+    },
+    {
+      "id": "aletheus.runtime.spa.anchor_analysis",
+      "label": "aletheus.runtime.spa.anchor_analysis"
+    },
+    {
+      "id": "aletheus.runtime.universal",
+      "label": "aletheus.runtime.universal"
+    },
+    {
+      "id": "aletheus.runtime.universal.application_binding",
+      "label": "aletheus.runtime.universal.application_binding"
+    },
+    {
+      "id": "aletheus.runtime.universal.capability_registry",
+      "label": "aletheus.runtime.universal.capability_registry"
+    },
+    {
+      "id": "aletheus.runtime.universal.engine",
+      "label": "aletheus.runtime.universal.engine"
+    },
+    {
+      "id": "aletheus.runtime.universal.runtime_topology",
+      "label": "aletheus.runtime.universal.runtime_topology"
+    },
+    {
+      "id": "aletheus.runtime.workflow",
+      "label": "aletheus.runtime.workflow"
+    }
+  ],
+  "summary": {
+    "cycle_count": 0,
+    "edge_count": 437,
+    "node_count": 417
+  }
+}
