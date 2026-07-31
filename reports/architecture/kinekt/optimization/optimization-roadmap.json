@@ -1,0 +1,3796 @@
+{
+  "abstentions": [],
+  "candidates": [
+    {
+      "candidate_id": "readiness-recovery",
+      "category": "governance",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Current readiness: not_ready"
+      ],
+      "expected_health_gain": 8.0,
+      "priority_score": 61.85,
+      "risk": "medium",
+      "severity": "high",
+      "title": "Recover constitutional readiness"
+    },
+    {
+      "candidate_id": "normalize-ownership",
+      "category": "ownership",
+      "confidence": 0.92,
+      "effort": "high",
+      "evidence": [
+        ".aletheus_backups.installers.Genesis_12_3_1_20260731_091925.aletheus.tooling",
+        ".aletheus_backups.installers.Genesis_12_3_20260731_090432.aletheus.tooling",
+        ".aletheus_backups.installers.Genesis_12_3_20260731_090724.aletheus.tooling",
+        ".aletheus_restore_points.institutional_civilization_before_framework_20260714_022551",
+        ".aletheus_restore_points.institutional_civilization_before_framework_20260714_022551.engine",
+        ".aletheus_restore_points.repository_conflicts.20260719T065403Z.aletheus",
+        ".aletheus_restore_points.repository_conflicts.20260719T065403Z.aletheus.runtime.core",
+        ".aletheus_restore_points.repository_conflicts.20260719T070434Z.aletheus",
+        ".aletheus_restore_points.repository_conflicts.20260719T070434Z.aletheus.runtime.core",
+        ".repository_backups.root_cleanup_20260730_020845.conftest",
+        ".repository_backups.root_cleanup_20260730_020845.file",
+        ".repository_backups.root_cleanup_20260730_020845.test_file",
+        "AletheusOS_Genesis10_Updates.apply_genesis10_updates",
+        "Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime",
+        "Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.bootstrap",
+        "Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.contracts",
+        "Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.models",
+        "Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.service",
+        "Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_bootstrap",
+        "Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_service",
+        "Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_no_generated_artifacts",
+        "Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_runtime_singleton",
+        "Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_top_level_allowlist",
+        "Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_version_consistency",
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor",
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks",
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.architecture",
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.git",
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.imports",
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.repository",
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.runtime",
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.versions",
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.doctor",
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.genesis10_repository_normalization",
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.repository.doctor",
+        "Genesis10_Work_Organization.03_platform_updates.AletheusOS_Genesis10_Updates.apply_genesis10_updates",
+        "Genesis10_Work_Organization.03_platform_updates.version",
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.backup_20260710_041440.registry",
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.contract_repair_backup_20260710_042036.command_bus",
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.contract_repair_backup_20260710_042036.dispatcher",
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.guarded_registration_backup_20260710_044725.bootstrapper",
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.prediction_adapter_backup_20260710_050230.core",
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.registration_catalog_backup_20260710_044531.bootstrapper",
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.result_contract_backup_20260710_042429.command_bus",
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.result_contract_backup_20260710_042429.dispatcher",
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.runtime_integrity_backup_20260710_042659.runtime_adapter",
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.runtime_integrity_backup_20260710_042659.runtime_commands",
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.safe_alias_backup_20260710_045355.bootstrapper",
+        "Genesis10_Work_Organization.04_reports.reports",
+        "Genesis10_Work_Organization.04_reports.reports.build_report",
+        "Genesis10_Work_Organization.04_reports.reports.engine",
+        "Genesis10_Work_Organization.04_reports.reports.generators",
+        "Genesis10_Work_Organization.04_reports.reports.models",
+        "Genesis10_Work_Organization.04_reports.reports.templates",
+        "Genesis14_SPAN_Constitutional_Intelligence.examples.sample_project.bad_module",
+        "Genesis14_SPAN_Constitutional_Intelligence.examples.sample_project.good_module",
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.api",
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.constitutional_context",
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.profiles",
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.reporter",
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules",
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.api",
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.architecture",
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.constitutional",
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.dependency",
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.documentation",
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.governance",
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.naming",
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.quality",
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.runtime",
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.rules.security",
+        "Genesis14_SPAN_Constitutional_Intelligence.tests.test_genesis14",
+        "acquisition_simulator",
+        "acquisition_simulator.acquisition_simulator",
+        "actual.directory.file",
+        "adaptive_intelligence",
+        "adaptive_intelligence.adaptive_service",
+        "adaptive_intelligence.deployment.deployment_profiles",
+        "adaptive_intelligence.explainability.explainer",
+        "adaptive_intelligence.feedback.feedback_loop",
+        "adaptive_intelligence.governance.platform_governance",
+        "adaptive_intelligence.pages.adaptive_dashboard",
+        "adaptive_intelligence.plugins.plugin_framework",
+        "adaptive_intelligence.quality.quality_dashboard",
+        "adaptive_intelligence.research.research_workspace",
+        "adaptive_intelligence.simulation.simulation_lab",
+        "ai",
+        "ai.agents",
+        "ai.models",
+        "ai.rag",
+        "ai.vision",
+        "aletheus.applications",
+        "aletheus.applications.application_core",
+        "aletheus.applications.models",
+        "aletheus.tooling",
+        "aletheusos_kernel_sprint1.main",
+        "aletheusos_kernel_sprint1.src.aletheus",
+        "aletheusos_kernel_sprint1.src.aletheus.constitution",
+        "aletheusos_kernel_sprint1.src.aletheus.constitution.constitution",
+        "aletheusos_kernel_sprint1.src.aletheus.core"
+      ],
+      "expected_health_gain": 8.64,
+      "priority_score": 51.19,
+      "risk": "low",
+      "severity": "high",
+      "title": "Classify 2591 unresolved modules"
+    },
+    {
+      "candidate_id": "resolution-0",
+      "category": "reachability",
+      "confidence": 0.98,
+      "effort": "medium",
+      "evidence": [
+        "aletheus/runtime/core.py",
+        "aletheus.applications"
+      ],
+      "expected_health_gain": 2.5,
+      "priority_score": 45.23,
+      "risk": "medium",
+      "severity": "high",
+      "title": "Resolve BOUNDARY_VIOLATION: aletheus.runtime.core"
+    },
+    {
+      "candidate_id": "cohesion-hotspots",
+      "category": "cohesion",
+      "confidence": 0.85,
+      "effort": "high",
+      "evidence": [
+        "archive",
+        "card_hawk",
+        "",
+        "AletheusOS_Genesis10_Updates",
+        "actual",
+        "ai",
+        "aletheus.autonomic",
+        "aletheus.boot_registry",
+        "aletheus.cognitive_mesh",
+        "aletheus.constitutional_audit",
+        "aletheus.constitutional_enforcement",
+        "aletheus.constitutional_reasoning",
+        "aletheus.constitutional_runtime",
+        "aletheus.council_deliberation",
+        "aletheus.foundation_certification",
+        "aletheus.integration",
+        "aletheus.localization",
+        "aletheus.nervous_system",
+        "aletheus.neural_map",
+        "aletheus.opinion_framework",
+        "aletheus.platform_analyzer",
+        "aletheus.platform_api",
+        "aletheus.platform_governor",
+        "aletheus.production",
+        "aletheus.thorx_runtime",
+        "aletheus.working_memory",
+        "append_nimble_audit_event",
+        "bin",
+        "cardhawk_platform",
+        "collect_nimble_production_telemetry",
+        "conftest",
+        "data_providers",
+        "database",
+        "deal_finder",
+        "generate_nimble_dependency_manifest",
+        "generate_nimble_release_attestation",
+        "integrations",
+        "plan_nimble_audit_recovery",
+        "platform",
+        "promote_nimble_performance_baseline",
+        "reconcile_nimble_dependency_exceptions",
+        "run_aletheus_founder_console",
+        "scan_nimble_dependency_risk",
+        "styles",
+        "test_nimble_audit_ledger_tamper",
+        "themes",
+        "thesis",
+        "validate_nimble_baseline_governance",
+        "validate_nimble_container_contract",
+        "validate_nimble_credential_isolation",
+        "validate_nimble_credential_rotation",
+        "validate_nimble_dependency_exceptions",
+        "validate_nimble_dependency_manifest",
+        "validate_nimble_dependency_risk",
+        "validate_nimble_experience_core",
+        "validate_nimble_instrumentation_preview",
+        "validate_nimble_performance_regression",
+        "validate_nimble_primitive_experience",
+        "validate_nimble_provider_preflight",
+        "validate_nimble_release_attestation",
+        "validate_nimble_workspace_engine",
+        "workflow",
+        "tools",
+        "diagnostics",
+        "Genesis10_Work_Organization",
+        "Genesis14_SPAN_Constitutional_Intelligence",
+        "aletheus.ecosystem",
+        "aletheus.marketplace",
+        "aletheus.hawk_eye",
+        "aletheus.opportunity_intelligence",
+        "aletheus.self_assembly",
+        "aletheus.discovery",
+        "aletheus.platform_fabric",
+        "aletheus.execution_engine",
+        "aletheus.valuation_intelligence",
+        "aletheus.market_intelligence",
+        "aletheus.memory_fabric",
+        "aletheus.reality_interface",
+        "aletheus.trust_network",
+        "aletheus.agent_society",
+        "aletheus.cognitive_reasoning",
+        "aletheus.collectible_automation",
+        "aletheus.collection_guardian",
+        "aletheus.consciousness_awareness",
+        "aletheus.constitutional_intelligence",
+        "aletheus.decision",
+        "aletheus.digital_twin",
+        "aletheus.execution",
+        "aletheus.goals",
+        "aletheus.identity_platform",
+        "aletheus.innovation",
+        "aletheus.intelligence_singularity",
+        "aletheus.marketplace_network",
+        "aletheus.orchestration",
+        "aletheus.research",
+        "aletheus.strategic_planning",
+        "aletheus.authentication_intelligence",
+        "aletheus.collectible_knowledge_graph",
+        "aletheus.intelligence_fabric",
+        "aletheus.intelligence_gateway"
+      ],
+      "expected_health_gain": 8.0,
+      "priority_score": 35.05,
+      "risk": "medium",
+      "severity": "high",
+      "title": "Remediate 400 cohesion hotspots"
+    },
+    {
+      "candidate_id": "boundary-remediation",
+      "category": "boundary",
+      "confidence": 0.95,
+      "effort": "high",
+      "evidence": [
+        ".aletheus_restore_points.repository_conflicts.20260719T065403Z.aletheus.runtime.core -> aletheus.applications",
+        ".aletheus_restore_points.repository_conflicts.20260719T070434Z.aletheus.runtime.core -> aletheus.applications",
+        "aletheus.runtime.core -> aletheus.applications",
+        "backups.runtime.core_v4.6.2_stable -> aletheus.applications",
+        "components.chds.runtime_monitor -> cardhawkos.boot.boot_manager",
+        "components.chds.runtime_status -> cardhawkos.config.settings"
+      ],
+      "expected_health_gain": 9.0,
+      "priority_score": 32.68,
+      "risk": "high",
+      "severity": "critical",
+      "title": "Resolve 6 high boundary findings"
+    },
+    {
+      "candidate_id": "resolution-3327",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        ".aletheus_restore_points.repository_conflicts.20260719T065403Z.aletheus.runtime.core.AletheusRuntime",
+        ".aletheus_restore_points.repository_conflicts.20260719T070434Z.aletheus.runtime.core.AletheusRuntime"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: .aletheus_restore_points.repository_conflicts.20260719T065403Z.aletheus.runtime.core.AletheusRuntime"
+    },
+    {
+      "candidate_id": "resolution-3328",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "AletheusOS_Genesis10_Updates.apply_genesis10_updates.Manifest",
+        "Genesis10_Work_Organization.03_platform_updates.AletheusOS_Genesis10_Updates.apply_genesis10_updates.Manifest"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: AletheusOS_Genesis10_Updates.apply_genesis10_updates.Manifest"
+    },
+    {
+      "candidate_id": "resolution-3329",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "AletheusOS_Genesis10_Updates.apply_genesis10_updates.main",
+        "Genesis10_Work_Organization.03_platform_updates.AletheusOS_Genesis10_Updates.apply_genesis10_updates.main"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: AletheusOS_Genesis10_Updates.apply_genesis10_updates.main"
+    },
+    {
+      "candidate_id": "resolution-3330",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "AletheusOS_Genesis10_Updates.apply_genesis10_updates.merge_directory",
+        "Genesis10_Work_Organization.03_platform_updates.AletheusOS_Genesis10_Updates.apply_genesis10_updates.merge_directory"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: AletheusOS_Genesis10_Updates.apply_genesis10_updates.merge_directory"
+    },
+    {
+      "candidate_id": "resolution-3331",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "AletheusOS_Genesis10_Updates.apply_genesis10_updates.merge_gitignore",
+        "Genesis10_Work_Organization.03_platform_updates.AletheusOS_Genesis10_Updates.apply_genesis10_updates.merge_gitignore"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: AletheusOS_Genesis10_Updates.apply_genesis10_updates.merge_gitignore"
+    },
+    {
+      "candidate_id": "resolution-3332",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "AletheusOS_Genesis10_Updates.apply_genesis10_updates.sha256",
+        "Genesis10_Work_Organization.03_platform_updates.AletheusOS_Genesis10_Updates.apply_genesis10_updates.sha256"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: AletheusOS_Genesis10_Updates.apply_genesis10_updates.sha256"
+    },
+    {
+      "candidate_id": "resolution-3333",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "AletheusOS_Genesis10_Updates.apply_genesis10_updates.verify",
+        "Genesis10_Work_Organization.03_platform_updates.AletheusOS_Genesis10_Updates.apply_genesis10_updates.verify"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: AletheusOS_Genesis10_Updates.apply_genesis10_updates.verify"
+    },
+    {
+      "candidate_id": "resolution-3334",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "AletheusOS_Genesis10_Updates.apply_genesis10_updates.write_file",
+        "Genesis10_Work_Organization.03_platform_updates.AletheusOS_Genesis10_Updates.apply_genesis10_updates.write_file"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: AletheusOS_Genesis10_Updates.apply_genesis10_updates.write_file"
+    },
+    {
+      "candidate_id": "resolution-3335",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.bootstrap.install_span_runtime",
+        "aletheus.strategic.runtime.bootstrap.install_span_runtime"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.bootstrap.install_span_runtime"
+    },
+    {
+      "candidate_id": "resolution-3336",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.contracts.CouncilAuthority",
+        "aletheus.strategic.runtime.contracts.CouncilAuthority"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.contracts.CouncilAuthority"
+    },
+    {
+      "candidate_id": "resolution-3337",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.contracts.EventAuthority",
+        "aletheus.strategic.runtime.contracts.EventAuthority"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.contracts.EventAuthority"
+    },
+    {
+      "candidate_id": "resolution-3338",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.contracts.LedgerAuthority",
+        "aletheus.strategic.runtime.contracts.LedgerAuthority"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.contracts.LedgerAuthority"
+    },
+    {
+      "candidate_id": "resolution-3339",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.contracts.RegistryAuthority",
+        "aletheus.strategic.runtime.contracts.RegistryAuthority"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.contracts.RegistryAuthority"
+    },
+    {
+      "candidate_id": "resolution-3340",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.contracts.TelemetryAuthority",
+        "aletheus.strategic.runtime.contracts.TelemetryAuthority"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.contracts.TelemetryAuthority"
+    },
+    {
+      "candidate_id": "resolution-3341",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.models.RuntimeCapabilityStatus",
+        "aletheus.strategic.runtime.models.RuntimeCapabilityStatus"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.models.RuntimeCapabilityStatus"
+    },
+    {
+      "candidate_id": "resolution-3342",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.models.StrategicProposalEnvelope",
+        "aletheus.strategic.runtime.models.StrategicProposalEnvelope"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.models.StrategicProposalEnvelope"
+    },
+    {
+      "candidate_id": "resolution-3343",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.service.SPANRuntimeService",
+        "aletheus.strategic.runtime.service.SPANRuntimeService"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.aletheus.strategic.runtime.service.SPANRuntimeService"
+    },
+    {
+      "candidate_id": "resolution-3344",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_bootstrap.Registry",
+        "tests.strategic.runtime.test_runtime_bootstrap.Registry"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_bootstrap.Registry"
+    },
+    {
+      "candidate_id": "resolution-3345",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_bootstrap.test_install_can_leave_service_initialized",
+        "tests.strategic.runtime.test_runtime_bootstrap.test_install_can_leave_service_initialized"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_bootstrap.test_install_can_leave_service_initialized"
+    },
+    {
+      "candidate_id": "resolution-3346",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_bootstrap.test_install_registers_and_starts_span",
+        "tests.strategic.runtime.test_runtime_bootstrap.test_install_registers_and_starts_span"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_bootstrap.test_install_registers_and_starts_span"
+    },
+    {
+      "candidate_id": "resolution-3347",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_service.Recorder",
+        "tests.strategic.runtime.test_runtime_service.Recorder"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_service.Recorder"
+    },
+    {
+      "candidate_id": "resolution-3348",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_service.test_health_reports_initialized_components",
+        "tests.strategic.runtime.test_runtime_service.test_health_reports_initialized_components"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_service.test_health_reports_initialized_components"
+    },
+    {
+      "candidate_id": "resolution-3349",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_service.test_lifecycle",
+        "tests.strategic.runtime.test_runtime_service.test_lifecycle"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_service.test_lifecycle"
+    },
+    {
+      "candidate_id": "resolution-3350",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_service.test_proposal_flows_to_existing_authorities",
+        "tests.strategic.runtime.test_runtime_service.test_proposal_flows_to_existing_authorities"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_service.test_proposal_flows_to_existing_authorities"
+    },
+    {
+      "candidate_id": "resolution-3351",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_service.test_proposal_requires_running_service",
+        "tests.strategic.runtime.test_runtime_service.test_proposal_requires_running_service"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis-012B-SPAN-Runtime-Integration.files.tests.strategic.runtime.test_runtime_service.test_proposal_requires_running_service"
+    },
+    {
+      "candidate_id": "resolution-3352",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_no_generated_artifacts.test_generated_artifacts_warning_mode",
+        "tests.architecture.test_no_generated_artifacts.test_generated_artifacts_warning_mode"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_no_generated_artifacts.test_generated_artifacts_warning_mode"
+    },
+    {
+      "candidate_id": "resolution-3353",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_runtime_singleton.test_runtime_context_has_one_canonical_definition",
+        "tests.architecture.test_runtime_singleton.test_runtime_context_has_one_canonical_definition"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_runtime_singleton.test_runtime_context_has_one_canonical_definition"
+    },
+    {
+      "candidate_id": "resolution-3354",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_runtime_singleton.test_runtime_singleton_is_canonical",
+        "tests.architecture.test_runtime_singleton.test_runtime_singleton_is_canonical"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_runtime_singleton.test_runtime_singleton_is_canonical"
+    },
+    {
+      "candidate_id": "resolution-3355",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_top_level_allowlist.test_top_level_allowlist_warning_mode",
+        "tests.architecture.test_top_level_allowlist.test_top_level_allowlist_warning_mode"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_top_level_allowlist.test_top_level_allowlist_warning_mode"
+    },
+    {
+      "candidate_id": "resolution-3356",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_version_consistency.test_packaging_uses_dynamic_version_source",
+        "tests.architecture.test_version_consistency.test_packaging_uses_dynamic_version_source"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_version_consistency.test_packaging_uses_dynamic_version_source"
+    },
+    {
+      "candidate_id": "resolution-3357",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_version_consistency.test_readme_declares_canonical_version",
+        "tests.architecture.test_version_consistency.test_readme_declares_canonical_version"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_version_consistency.test_readme_declares_canonical_version"
+    },
+    {
+      "candidate_id": "resolution-3358",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_version_consistency.test_runtime_uses_canonical_version",
+        "tests.architecture.test_version_consistency.test_runtime_uses_canonical_version"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tests.architecture.test_version_consistency.test_runtime_uses_canonical_version"
+    },
+    {
+      "candidate_id": "resolution-3359",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.architecture.check",
+        "tools.doctor.checks.architecture.check"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.architecture.check"
+    },
+    {
+      "candidate_id": "resolution-3360",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.git.check",
+        "tools.doctor.checks.git.check"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.git.check"
+    },
+    {
+      "candidate_id": "resolution-3361",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.imports.check",
+        "tools.doctor.checks.imports.check"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.imports.check"
+    },
+    {
+      "candidate_id": "resolution-3362",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.repository.check",
+        "tools.doctor.checks.repository.check"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.repository.check"
+    },
+    {
+      "candidate_id": "resolution-3363",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.runtime.check",
+        "tools.doctor.checks.runtime.check"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.runtime.check"
+    },
+    {
+      "candidate_id": "resolution-3364",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.versions.check",
+        "tools.doctor.checks.versions.check"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.checks.versions.check"
+    },
+    {
+      "candidate_id": "resolution-3365",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.doctor.main",
+        "tools.doctor.doctor.main"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.doctor.main"
+    },
+    {
+      "candidate_id": "resolution-3366",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.doctor.run",
+        "tools.doctor.doctor.run"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tools.doctor.doctor.run"
+    },
+    {
+      "candidate_id": "resolution-3367",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.genesis10_repository_normalization.Result",
+        "tools.migration.genesis10_repository_normalization.Result"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tools.genesis10_repository_normalization.Result"
+    },
+    {
+      "candidate_id": "resolution-3368",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.genesis10_repository_normalization.ensure_parent",
+        "tools.migration.genesis10_repository_normalization.ensure_parent"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tools.genesis10_repository_normalization.ensure_parent"
+    },
+    {
+      "candidate_id": "resolution-3369",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.genesis10_repository_normalization.main",
+        "tools.migration.genesis10_repository_normalization.main"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tools.genesis10_repository_normalization.main"
+    },
+    {
+      "candidate_id": "resolution-3370",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.genesis10_repository_normalization.move_item",
+        "tools.migration.genesis10_repository_normalization.move_item"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tools.genesis10_repository_normalization.move_item"
+    },
+    {
+      "candidate_id": "resolution-3371",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.01_repository_intelligence.tools.genesis10_repository_normalization.write_manifest",
+        "tools.migration.genesis10_repository_normalization.write_manifest"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.01_repository_intelligence.tools.genesis10_repository_normalization.write_manifest"
+    },
+    {
+      "candidate_id": "resolution-3372",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.backup_20260710_041440.registry.RuntimeCommandRegistry",
+        "reports.genesis_8_command_dispatch.backup_20260710_041440.registry.RuntimeCommandRegistry"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.backup_20260710_041440.registry.RuntimeCommandRegistry"
+    },
+    {
+      "candidate_id": "resolution-3373",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.contract_repair_backup_20260710_042036.command_bus.CommandBus",
+        "reports.genesis_8_command_dispatch.contract_repair_backup_20260710_042036.command_bus.CommandBus"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.contract_repair_backup_20260710_042036.command_bus.CommandBus"
+    },
+    {
+      "candidate_id": "resolution-3374",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.contract_repair_backup_20260710_042036.dispatcher.CompiledRuntimeCommandDispatcher",
+        "reports.genesis_8_command_dispatch.contract_repair_backup_20260710_042036.dispatcher.CompiledRuntimeCommandDispatcher"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.contract_repair_backup_20260710_042036.dispatcher.CompiledRuntimeCommandDispatcher"
+    },
+    {
+      "candidate_id": "resolution-3375",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.guarded_registration_backup_20260710_044725.bootstrapper.RuntimeCommandBootstrapper",
+        "reports.genesis_8_command_dispatch.guarded_registration_backup_20260710_044725.bootstrapper.RuntimeCommandBootstrapper"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.guarded_registration_backup_20260710_044725.bootstrapper.RuntimeCommandBootstrapper"
+    },
+    {
+      "candidate_id": "resolution-3376",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.prediction_adapter_backup_20260710_050230.core.AletheusRuntime",
+        "reports.genesis_8_command_dispatch.prediction_adapter_backup_20260710_050230.core.AletheusRuntime"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.prediction_adapter_backup_20260710_050230.core.AletheusRuntime"
+    },
+    {
+      "candidate_id": "resolution-3377",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.prediction_adapter_backup_20260710_050230.core.RuntimeContext",
+        "reports.genesis_8_command_dispatch.prediction_adapter_backup_20260710_050230.core.RuntimeContext"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.prediction_adapter_backup_20260710_050230.core.RuntimeContext"
+    },
+    {
+      "candidate_id": "resolution-3378",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.prediction_adapter_backup_20260710_050230.core.RuntimeContext",
+        "reports.genesis_8_command_dispatch.prediction_adapter_backup_20260710_050230.core.RuntimeContext"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.prediction_adapter_backup_20260710_050230.core.RuntimeContext"
+    },
+    {
+      "candidate_id": "resolution-3379",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.registration_catalog_backup_20260710_044531.bootstrapper.RuntimeCommandBootstrapper",
+        "reports.genesis_8_command_dispatch.registration_catalog_backup_20260710_044531.bootstrapper.RuntimeCommandBootstrapper"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.registration_catalog_backup_20260710_044531.bootstrapper.RuntimeCommandBootstrapper"
+    },
+    {
+      "candidate_id": "resolution-3380",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.result_contract_backup_20260710_042429.command_bus.CommandBus",
+        "aletheus.runtime.commands.command_bus.CommandBus",
+        "reports.genesis_8_command_dispatch.result_contract_backup_20260710_042429.command_bus.CommandBus"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.result_contract_backup_20260710_042429.command_bus.CommandBus"
+    },
+    {
+      "candidate_id": "resolution-3381",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.result_contract_backup_20260710_042429.dispatcher.CompiledCommandEntry",
+        "reports.genesis_8_command_dispatch.result_contract_backup_20260710_042429.dispatcher.CompiledCommandEntry"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.result_contract_backup_20260710_042429.dispatcher.CompiledCommandEntry"
+    },
+    {
+      "candidate_id": "resolution-3382",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.result_contract_backup_20260710_042429.dispatcher.CompiledRuntimeCommandDispatcher",
+        "reports.genesis_8_command_dispatch.result_contract_backup_20260710_042429.dispatcher.CompiledRuntimeCommandDispatcher"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.result_contract_backup_20260710_042429.dispatcher.CompiledRuntimeCommandDispatcher"
+    },
+    {
+      "candidate_id": "resolution-3383",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.runtime_integrity_backup_20260710_042659.runtime_adapter.RuntimeCommandAdapter",
+        "reports.genesis_8_command_dispatch.runtime_integrity_backup_20260710_042659.runtime_adapter.RuntimeCommandAdapter"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.runtime_integrity_backup_20260710_042659.runtime_adapter.RuntimeCommandAdapter"
+    },
+    {
+      "candidate_id": "resolution-3384",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.runtime_integrity_backup_20260710_042659.runtime_commands.register_runtime_commands",
+        "reports.genesis_8_command_dispatch.runtime_integrity_backup_20260710_042659.runtime_commands.register_runtime_commands"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.runtime_integrity_backup_20260710_042659.runtime_commands.register_runtime_commands"
+    },
+    {
+      "candidate_id": "resolution-3385",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.safe_alias_backup_20260710_045355.bootstrapper.RuntimeCommandBootstrapper",
+        "reports.genesis_8_command_dispatch.safe_alias_backup_20260710_045355.bootstrapper.RuntimeCommandBootstrapper"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.genesis_8_command_dispatch.safe_alias_backup_20260710_045355.bootstrapper.RuntimeCommandBootstrapper"
+    },
+    {
+      "candidate_id": "resolution-3386",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.reports.build_report.generate",
+        "aletheus.intelligence.reports.build_report.generate"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.reports.build_report.generate"
+    },
+    {
+      "candidate_id": "resolution-3387",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.reports.engine.CardHawkReportsEngine",
+        "aletheus.card_hawk.reports.engine.CardHawkReportsEngine"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.reports.engine.CardHawkReportsEngine"
+    },
+    {
+      "candidate_id": "resolution-3388",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.reports.generators.ReportGenerator",
+        "aletheus.card_hawk.reports.generators.ReportGenerator"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.reports.generators.ReportGenerator"
+    },
+    {
+      "candidate_id": "resolution-3389",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.reports.models.IntelligenceReport",
+        "aletheus.card_hawk.reports.models.IntelligenceReport"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.reports.models.IntelligenceReport"
+    },
+    {
+      "candidate_id": "resolution-3390",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis10_Work_Organization.04_reports.reports.templates.ReportTemplates",
+        "aletheus.card_hawk.reports.templates.ReportTemplates"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis10_Work_Organization.04_reports.reports.templates.ReportTemplates"
+    },
+    {
+      "candidate_id": "resolution-3391",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.constitutional_context.ProjectContext",
+        "aletheus.span.constitutional_context.ProjectContext"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.constitutional_context.ProjectContext"
+    },
+    {
+      "candidate_id": "resolution-3392",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.profiles.RuleProfile",
+        "aletheus.span.profiles.RuleProfile"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.profiles.RuleProfile"
+    },
+    {
+      "candidate_id": "resolution-3393",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.profiles._minimal_yaml",
+        "aletheus.span.profiles._minimal_yaml"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.profiles._minimal_yaml"
+    },
+    {
+      "candidate_id": "resolution-3394",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.profiles._parse_scalar",
+        "aletheus.span.profiles._parse_scalar"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.profiles._parse_scalar"
+    },
+    {
+      "candidate_id": "resolution-3395",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.profiles.load_profile",
+        "aletheus.span.profiles.load_profile"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.profiles.load_profile"
+    },
+    {
+      "candidate_id": "resolution-3396",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.reporter.SPANReport",
+        "aletheus.span.reporter.SPANReport"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis14_SPAN_Constitutional_Intelligence.package.aletheus.span.reporter.SPANReport"
+    },
+    {
+      "candidate_id": "resolution-3397",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis14_SPAN_Constitutional_Intelligence.tests.test_genesis14.test_end_to_end_analysis",
+        "tests.span.test_genesis14.test_end_to_end_analysis"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis14_SPAN_Constitutional_Intelligence.tests.test_genesis14.test_end_to_end_analysis"
+    },
+    {
+      "candidate_id": "resolution-3398",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "Genesis14_SPAN_Constitutional_Intelligence.tests.test_genesis14.test_profile_loading",
+        "tests.span.test_genesis14.test_profile_loading"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: Genesis14_SPAN_Constitutional_Intelligence.tests.test_genesis14.test_profile_loading"
+    },
+    {
+      "candidate_id": "resolution-3399",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.agents_v2.agent_core.utc_now",
+        "aletheus.distributed_v3.distributed_core.utc_now",
+        "aletheus.persistence_v3.persistence_core.utc_now",
+        "aletheus.planning_v2.planning_core.utc_now",
+        "aletheus.runtime.hardening.utc_now",
+        "aletheus.runtime.integrity.doctor.utc_now",
+        "aletheus.runtime.kernel.orchestrator.utc_now",
+        "aletheus.runtime.kernel.scheduler.utc_now",
+        "aletheus.runtime.kernel.supervisor.utc_now",
+        "aletheus.workflow_v3.workflow_core.utc_now"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.agents_v2.agent_core.utc_now"
+    },
+    {
+      "candidate_id": "resolution-3400",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.aos_search.history.SearchHistoryEntry",
+        "history.SearchHistoryEntry"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.aos_search.history.SearchHistoryEntry"
+    },
+    {
+      "candidate_id": "resolution-3401",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.aos_search.history._timestamp",
+        "aletheus.constitutional_cases.engine._timestamp",
+        "aletheus.constitutional_cases.models._timestamp",
+        "aletheus.constitutional_events.models._timestamp",
+        "aletheus.constitutional_ledger.institutional_events._timestamp",
+        "aletheus.constitutional_missions.engine._timestamp",
+        "aletheus.constitutional_missions.models._timestamp",
+        "aletheus.execution_engine.models._timestamp",
+        "aletheus.execution_engine.timeline._timestamp",
+        "aletheus.foundation.models._timestamp",
+        "aletheus.institutional_civilization.events._timestamp",
+        "aletheus.institutional_civilization.readiness._timestamp",
+        "aletheus.localization.models._timestamp"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.aos_search.history._timestamp"
+    },
+    {
+      "candidate_id": "resolution-3402",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.aos_search.models._timestamp",
+        "aletheus.capability_engine.models._timestamp",
+        "aletheus.constitutional_graph.models._timestamp",
+        "aletheus.constitutional_ledger.models._timestamp",
+        "aletheus.constitutional_memory.models._timestamp",
+        "aletheus.identity_engine.models._timestamp",
+        "capability_engine.models._timestamp",
+        "history._timestamp"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.aos_search.models._timestamp"
+    },
+    {
+      "candidate_id": "resolution-3403",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.application_runtime.validation._has_duplicates",
+        "aletheus.institutional_civilization.civilization_validation._has_duplicates",
+        "aletheus.institutional_civilization.validation._has_duplicates"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.application_runtime.validation._has_duplicates"
+    },
+    {
+      "candidate_id": "resolution-3404",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.applications.models.now",
+        "aletheus.cognition.models.now",
+        "aletheus.copilot.models.now",
+        "aletheus.decision_v2.decision_core.now",
+        "aletheus.enterprise.models.now",
+        "aletheus.executive.models.now",
+        "aletheus.intelligence.models.now",
+        "aletheus.kernel_v2.models.now",
+        "aletheus.knowledge.models.now",
+        "aletheus.knowledge_graph.graph_core.now",
+        "aletheus.learning.models.now",
+        "aletheus.memory_mesh.models.now",
+        "aletheus.mission.models.now",
+        "aletheus.missions_v2.models.now",
+        "aletheus.planning.models.now",
+        "aletheus.prediction.models.now",
+        "aletheus.reasoning.reasoning_core.now",
+        "aletheus.semantic.models.now",
+        "aletheus.workflows_v2.models.now",
+        "aletheus.workspace.models.now"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.applications.models.now"
+    },
+    {
+      "candidate_id": "resolution-3405",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.canonical_identity.models.utc_now",
+        "aletheus.cognitive_kernel.models.utc_now",
+        "aletheus.constitutional_instrumentation.models.utc_now",
+        "aletheus.constitutional_library.models.utc_now",
+        "aletheus.constitutional_scenarios.models.utc_now",
+        "aletheus.ctf.models.utc_now",
+        "aletheus.double_hedron.models.utc_now",
+        "aletheus.execution_graph.models.utc_now",
+        "aletheus.executive_kernel.bus.utc_now",
+        "aletheus.executive_kernel.kernel.utc_now",
+        "aletheus.foundation.capability.metadata.utc_now",
+        "aletheus.intent_runtime.models.utc_now",
+        "aletheus.ontology.models.utc_now",
+        "aletheus.platform_kernel.kernel.utc_now",
+        "aletheus.reason_engine.models.utc_now",
+        "aletheus.repository_self_repair.executor.utc_now",
+        "aletheus.repository_self_repair.planner.utc_now",
+        "aletheus.repository_self_repair.scanner.utc_now",
+        "aletheus.runtime_registry_v2.health.utc_now",
+        "aletheus.runtime_registry_v2.models.utc_now",
+        "aletheus.unified_cognitive_index.models.utc_now",
+        "tools.repository.doctor.utc_now"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.canonical_identity.models.utc_now"
+    },
+    {
+      "candidate_id": "resolution-3406",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.capability_engine.models.Capability",
+        "capability_engine.models.Capability"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.capability_engine.models.Capability"
+    },
+    {
+      "candidate_id": "resolution-3407",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.capability_engine.models.CapabilityBundle",
+        "capability_engine.models.CapabilityBundle"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.capability_engine.models.CapabilityBundle"
+    },
+    {
+      "candidate_id": "resolution-3408",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.capability_engine.models.CapabilityDecision",
+        "capability_engine.models.CapabilityDecision"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.capability_engine.models.CapabilityDecision"
+    },
+    {
+      "candidate_id": "resolution-3409",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.capability_engine.models.CapabilityGrant",
+        "capability_engine.models.CapabilityGrant"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.capability_engine.models.CapabilityGrant"
+    },
+    {
+      "candidate_id": "resolution-3410",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.capability_engine.models.CapabilityProfile",
+        "capability_engine.models.CapabilityProfile"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.capability_engine.models.CapabilityProfile"
+    },
+    {
+      "candidate_id": "resolution-3411",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.capability_engine.models.new_decision_id",
+        "capability_engine.models.new_decision_id"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.capability_engine.models.new_decision_id"
+    },
+    {
+      "candidate_id": "resolution-3412",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.capability_engine.registry.CapabilityRegistry",
+        "capability_engine.registry.CapabilityRegistry"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.capability_engine.registry.CapabilityRegistry"
+    },
+    {
+      "candidate_id": "resolution-3413",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.concept_collision_engine.models.CollisionSeverity",
+        "aletheus.ontology.models.CollisionSeverity"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.concept_collision_engine.models.CollisionSeverity"
+    },
+    {
+      "candidate_id": "resolution-3414",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.constitutional_cases.validation._duplicates",
+        "aletheus.constitutional_missions.validation._duplicates"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.constitutional_cases.validation._duplicates"
+    },
+    {
+      "candidate_id": "resolution-3415",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.constitutional_ledger.institutional_event_store._parse_timestamp",
+        "aletheus.constitutional_ledger.transtemporal._parse_timestamp"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.constitutional_ledger.institutional_event_store._parse_timestamp"
+    },
+    {
+      "candidate_id": "resolution-3416",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.event_bus_v3.event_bus_core.utc_now",
+        "aletheus.federation_v3.federation_core.utc_now",
+        "aletheus.high_availability_v3.high_availability_core.utc_now",
+        "aletheus.plugins_v3.plugin_core.utc_now",
+        "aletheus.security_v3.security_core.utc_now",
+        "aletheus.telemetry_v3.telemetry_core.utc_now",
+        "aletheus.tenancy_v3.tenancy_core.utc_now"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.event_bus_v3.event_bus_core.utc_now"
+    },
+    {
+      "candidate_id": "resolution-3417",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.experience_gateway.api.missions.RouteApplication",
+        "aletheus.experience_gateway.api.providers.RouteApplication"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.experience_gateway.api.missions.RouteApplication"
+    },
+    {
+      "candidate_id": "resolution-3418",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.foundation_service_bus.models.now",
+        "aletheus.intent_engine.models.now"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.foundation_service_bus.models.now"
+    },
+    {
+      "candidate_id": "resolution-3419",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.global_network.collective_learning.CollectiveLearningEngine",
+        "aletheus.global_network.global.collective_learning.CollectiveLearningEngine"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.global_network.collective_learning.CollectiveLearningEngine"
+    },
+    {
+      "candidate_id": "resolution-3420",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.global_network.distributed_agents.DistributedAgentEngine",
+        "aletheus.global_network.global.distributed_agents.DistributedAgentEngine"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.global_network.distributed_agents.DistributedAgentEngine"
+    },
+    {
+      "candidate_id": "resolution-3421",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.global_network.ecosystem_graph.EcosystemGraphEngine",
+        "aletheus.global_network.global.ecosystem_graph.EcosystemGraphEngine"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.global_network.ecosystem_graph.EcosystemGraphEngine"
+    },
+    {
+      "candidate_id": "resolution-3422",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.global_network.federation.FederationEngine",
+        "aletheus.global_network.global.federation.FederationEngine"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.global_network.federation.FederationEngine"
+    },
+    {
+      "candidate_id": "resolution-3423",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.global_network.global.intelligence_exchange.IntelligenceExchangeEngine",
+        "aletheus.global_network.intelligence_exchange.IntelligenceExchangeEngine"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.global_network.global.intelligence_exchange.IntelligenceExchangeEngine"
+    },
+    {
+      "candidate_id": "resolution-3424",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.global_network.global.network.GlobalNetworkEngine",
+        "aletheus.global_network.network.GlobalNetworkEngine"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.global_network.global.network.GlobalNetworkEngine"
+    },
+    {
+      "candidate_id": "resolution-3425",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.platform_intelligence.constitutional.object._freeze_mapping",
+        "aletheus.platform_intelligence.events.event._freeze_mapping"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.platform_intelligence.constitutional.object._freeze_mapping"
+    },
+    {
+      "candidate_id": "resolution-3426",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.platform_intelligence.constitutional.object._utc_now",
+        "aletheus.platform_intelligence.constitutional.relationship._utc_now",
+        "aletheus.platform_intelligence.events.event._utc_now"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.platform_intelligence.constitutional.object._utc_now"
+    },
+    {
+      "candidate_id": "resolution-3427",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.runtime.registrations.application_commands._serialize",
+        "aletheus.runtime.registrations.mission_v2_commands._serialize",
+        "aletheus.runtime.registrations.planning_commands._serialize",
+        "aletheus.runtime.registrations.semantic_commands._serialize",
+        "aletheus.runtime.registrations.workflow_v2_commands._serialize",
+        "aletheus.runtime.registrations.workspace_commands._serialize"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.runtime.registrations.application_commands._serialize"
+    },
+    {
+      "candidate_id": "resolution-3428",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.__getattr__",
+        "reports.span.backups.bootstrap_v2_20260719T115235Z.span___init__.__getattr__",
+        "reports.span.backups.bootstrap_v2_20260719T115601Z.span___init__.__getattr__",
+        "reports.span.backups.bootstrap_v2_20260719T120944Z.span___init__.__getattr__",
+        "reports.span.backups.genesis14_20260719T124827Z.aletheus.span.__getattr__"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.__getattr__"
+    },
+    {
+      "candidate_id": "resolution-3429",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.analyzer.Analyzer",
+        "span_export.aletheus.span.analyzer.Analyzer"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.analyzer.Analyzer"
+    },
+    {
+      "candidate_id": "resolution-3430",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.analyzer.AnalyzerContext",
+        "span_export.aletheus.span.analyzer.AnalyzerContext"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.analyzer.AnalyzerContext"
+    },
+    {
+      "candidate_id": "resolution-3431",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.analyzer.AnalyzerResult",
+        "span_export.aletheus.span.analyzer.AnalyzerResult"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.analyzer.AnalyzerResult"
+    },
+    {
+      "candidate_id": "resolution-3432",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.analyzer.EvidenceReader",
+        "span_export.aletheus.span.analyzer.EvidenceReader"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.analyzer.EvidenceReader"
+    },
+    {
+      "candidate_id": "resolution-3433",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.bootstrap.BootstrapDiagnostic",
+        "reports.span.backups.bootstrap_v2_20260719T115601Z.bootstrap.BootstrapDiagnostic",
+        "reports.span.backups.bootstrap_v2_20260719T120944Z.bootstrap.BootstrapDiagnostic"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.bootstrap.BootstrapDiagnostic"
+    },
+    {
+      "candidate_id": "resolution-3434",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.bootstrap.BootstrapReport",
+        "reports.span.backups.bootstrap_v2_20260719T115601Z.bootstrap.BootstrapReport",
+        "reports.span.backups.bootstrap_v2_20260719T120944Z.bootstrap.BootstrapReport"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.bootstrap.BootstrapReport"
+    },
+    {
+      "candidate_id": "resolution-3435",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.bootstrap.BootstrapState",
+        "reports.span.backups.bootstrap_v2_20260719T115601Z.bootstrap.BootstrapState",
+        "reports.span.backups.bootstrap_v2_20260719T120944Z.bootstrap.BootstrapState"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.bootstrap.BootstrapState"
+    },
+    {
+      "candidate_id": "resolution-3436",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.bootstrap.bootstrap_span",
+        "reports.span.backups.bootstrap_v2_20260719T115601Z.bootstrap.bootstrap_span",
+        "reports.span.backups.bootstrap_v2_20260719T120944Z.bootstrap.bootstrap_span"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.bootstrap.bootstrap_span"
+    },
+    {
+      "candidate_id": "resolution-3437",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.evidence_store.EvidenceRecord",
+        "span_export.aletheus.span.evidence_store.EvidenceRecord"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.evidence_store.EvidenceRecord"
+    },
+    {
+      "candidate_id": "resolution-3438",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.evidence_store.EvidenceStore",
+        "span_export.aletheus.span.evidence_store.EvidenceStore"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.evidence_store.EvidenceStore"
+    },
+    {
+      "candidate_id": "resolution-3439",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.finding.FindingSet",
+        "reports.span.backups.finding_compat_20260719T110726Z.finding.FindingSet",
+        "reports.span.backups.finding_contract_v4_20260719T112335Z.finding.FindingSet",
+        "reports.span.backups.finding_summary_compat_20260719T111029Z.finding.FindingSet"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.finding.FindingSet"
+    },
+    {
+      "candidate_id": "resolution-3440",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.integration.SPANIntegration",
+        "reports.span.backups.bootstrap_v2_20260719T120944Z.integration.SPANIntegration",
+        "reports.span.backups.integration_20260719T110800Z.integration.SPANIntegration",
+        "reports.span.backups.integration_20260719T111438Z.integration.SPANIntegration",
+        "reports.span.backups.integration_20260719T111822Z.integration.SPANIntegration",
+        "reports.span.backups.integration_20260719T112337Z.integration.SPANIntegration",
+        "reports.span.backups.integration_20260719T115237Z.integration.SPANIntegration",
+        "reports.span.backups.integration_20260719T115603Z.integration.SPANIntegration",
+        "reports.span.backups.integration_20260719T115635Z.integration.SPANIntegration"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.integration.SPANIntegration"
+    },
+    {
+      "candidate_id": "resolution-3441",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.integration.SPANIntegrationResult",
+        "reports.span.backups.bootstrap_v2_20260719T120944Z.integration.SPANIntegrationResult",
+        "reports.span.backups.integration_20260719T110800Z.integration.SPANIntegrationResult",
+        "reports.span.backups.integration_20260719T111438Z.integration.SPANIntegrationResult",
+        "reports.span.backups.integration_20260719T111822Z.integration.SPANIntegrationResult",
+        "reports.span.backups.integration_20260719T112337Z.integration.SPANIntegrationResult",
+        "reports.span.backups.integration_20260719T115237Z.integration.SPANIntegrationResult",
+        "reports.span.backups.integration_20260719T115603Z.integration.SPANIntegrationResult",
+        "reports.span.backups.integration_20260719T115635Z.integration.SPANIntegrationResult"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.integration.SPANIntegrationResult"
+    },
+    {
+      "candidate_id": "resolution-3442",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.pipeline.PipelineResult",
+        "span_export.aletheus.span.pipeline.PipelineResult"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.pipeline.PipelineResult"
+    },
+    {
+      "candidate_id": "resolution-3443",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.pipeline.SPANPipeline",
+        "span_export.aletheus.span.pipeline.SPANPipeline"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.pipeline.SPANPipeline"
+    },
+    {
+      "candidate_id": "resolution-3444",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.pipeline.default_providers",
+        "span_export.aletheus.span.pipeline.default_providers"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.pipeline.default_providers"
+    },
+    {
+      "candidate_id": "resolution-3445",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.providers.base.Provider",
+        "span_export.aletheus.span.providers.base.Provider"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.providers.base.Provider"
+    },
+    {
+      "candidate_id": "resolution-3446",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.providers.base.ProviderContext",
+        "span_export.aletheus.span.providers.base.ProviderContext"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.providers.base.ProviderContext"
+    },
+    {
+      "candidate_id": "resolution-3447",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.span.providers.base.ProviderResult",
+        "span_export.aletheus.span.providers.base.ProviderResult"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.span.providers.base.ProviderResult"
+    },
+    {
+      "candidate_id": "resolution-3448",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "aletheus.strategic.span.models.utc_now",
+        "aletheus.strategic.spartan.domain.utc_now",
+        "aletheus.strategic.spartan.recursive.utc_now"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: aletheus.strategic.span.models.utc_now"
+    },
+    {
+      "candidate_id": "resolution-3449",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "backups.runtime.core_v4.6.2_stable.AletheusRuntime",
+        "migrations.genesis6.core_v481_registration_cutover.AletheusRuntime"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: backups.runtime.core_v4.6.2_stable.AletheusRuntime"
+    },
+    {
+      "candidate_id": "resolution-3450",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.append_nimble_audit_event.canonical_payload",
+        "bin.validate_nimble_audit_ledger.canonical_payload",
+        "tools.validation.nimble.validate_nimble_audit_ledger.canonical_payload"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.append_nimble_audit_event.canonical_payload"
+    },
+    {
+      "candidate_id": "resolution-3451",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.apply_nimble_audit_recovery._find_repo_root",
+        "bin.plan_nimble_audit_recovery._find_repo_root",
+        "bin.validate_nimble_audit_ledger._find_repo_root",
+        "bin.validate_nimble_signed_audit_anchor._find_repo_root",
+        "tools.planning.plan_nimble_audit_recovery._find_repo_root"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.apply_nimble_audit_recovery._find_repo_root"
+    },
+    {
+      "candidate_id": "resolution-3452",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.apply_nimble_audit_recovery.calculate_hash",
+        "tools.apply.apply_nimble_audit_recovery.calculate_hash"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.apply_nimble_audit_recovery.calculate_hash"
+    },
+    {
+      "candidate_id": "resolution-3453",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.apply_nimble_audit_recovery.canonical_bytes",
+        "tools.apply.apply_nimble_audit_recovery.canonical_bytes"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.apply_nimble_audit_recovery.canonical_bytes"
+    },
+    {
+      "candidate_id": "resolution-3454",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.apply_nimble_audit_recovery.file_hash",
+        "tools.apply.apply_nimble_audit_recovery.file_hash"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.apply_nimble_audit_recovery.file_hash"
+    },
+    {
+      "candidate_id": "resolution-3455",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.apply_nimble_audit_recovery.load_json",
+        "bin.create_nimble_signed_audit_anchor.load_json",
+        "bin.plan_nimble_audit_recovery.load_json",
+        "bin.validate_nimble_audit_recovery_source.load_json",
+        "bin.validate_nimble_signed_audit_anchor.load_json",
+        "plan_nimble_audit_recovery.load_json",
+        "tools.apply.apply_nimble_audit_recovery.load_json",
+        "tools.compile.compile_nimble_tokens.load_json",
+        "tools.create.create_nimble_signed_audit_anchor.load_json",
+        "tools.planning.plan_nimble_audit_recovery.load_json",
+        "tools.validation.nimble.validate_nimble_audit_recovery_source.load_json",
+        "tools.validation.nimble.validate_nimble_components.load_json",
+        "tools.validation.nimble.validate_nimble_container_contract.load_json",
+        "tools.validation.nimble.validate_nimble_credential_isolation.load_json",
+        "tools.validation.nimble.validate_nimble_credential_rotation.load_json",
+        "tools.validation.nimble.validate_nimble_deployment_readiness.load_json",
+        "tools.validation.nimble.validate_nimble_image_provenance.load_json",
+        "tools.validation.nimble.validate_nimble_provider_preflight.load_json",
+        "tools.validation.nimble.validate_nimble_signed_audit_anchor.load_json",
+        "tools.validation.nimble.validate_nimble_tokens.load_json"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.apply_nimble_audit_recovery.load_json"
+    },
+    {
+      "candidate_id": "resolution-3456",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.apply_nimble_audit_recovery.main",
+        "tools.apply.apply_nimble_audit_recovery.main"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.apply_nimble_audit_recovery.main"
+    },
+    {
+      "candidate_id": "resolution-3457",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.apply_nimble_audit_recovery.run",
+        "tools.apply.apply_nimble_audit_recovery.run"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.apply_nimble_audit_recovery.run"
+    },
+    {
+      "candidate_id": "resolution-3458",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.apply_nimble_audit_recovery.verify_plan",
+        "tools.apply.apply_nimble_audit_recovery.verify_plan"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.apply_nimble_audit_recovery.verify_plan"
+    },
+    {
+      "candidate_id": "resolution-3459",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_audit_checkpoint._find_repo_root",
+        "bin.validate_nimble_audit_checkpoints._find_repo_root"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_audit_checkpoint._find_repo_root"
+    },
+    {
+      "candidate_id": "resolution-3460",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_audit_checkpoint.calculate_hash",
+        "bin.plan_nimble_audit_recovery.calculate_hash",
+        "bin.validate_nimble_audit_checkpoints.calculate_hash",
+        "plan_nimble_audit_recovery.calculate_hash",
+        "tools.create.create_nimble_audit_checkpoint.calculate_hash",
+        "tools.planning.plan_nimble_audit_recovery.calculate_hash",
+        "tools.validation.nimble.validate_nimble_audit_checkpoints.calculate_hash"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_audit_checkpoint.calculate_hash"
+    },
+    {
+      "candidate_id": "resolution-3461",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_audit_checkpoint.canonical_bytes",
+        "bin.plan_nimble_audit_recovery.canonical_bytes",
+        "bin.validate_nimble_audit_checkpoints.canonical_bytes",
+        "plan_nimble_audit_recovery.canonical_bytes",
+        "tools.create.create_nimble_audit_checkpoint.canonical_bytes",
+        "tools.planning.plan_nimble_audit_recovery.canonical_bytes",
+        "tools.validation.nimble.validate_nimble_audit_checkpoints.canonical_bytes"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_audit_checkpoint.canonical_bytes"
+    },
+    {
+      "candidate_id": "resolution-3462",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_audit_checkpoint.git",
+        "tools.create.create_nimble_audit_checkpoint.git",
+        "tools.nimble.generate_promotion_record.git",
+        "tools.nimble.generate_release_manifest.git"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_audit_checkpoint.git"
+    },
+    {
+      "candidate_id": "resolution-3463",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_audit_checkpoint.load_previous_checkpoint",
+        "tools.create.create_nimble_audit_checkpoint.load_previous_checkpoint"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_audit_checkpoint.load_previous_checkpoint"
+    },
+    {
+      "candidate_id": "resolution-3464",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_audit_checkpoint.main",
+        "tools.create.create_nimble_audit_checkpoint.main"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_audit_checkpoint.main"
+    },
+    {
+      "candidate_id": "resolution-3465",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_audit_checkpoint.read_ledger",
+        "tools.create.create_nimble_audit_checkpoint.read_ledger"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_audit_checkpoint.read_ledger"
+    },
+    {
+      "candidate_id": "resolution-3466",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_audit_recovery_source._find_root",
+        "bin.validate_nimble_audit_recovery_source._find_root",
+        "tools.create.create_nimble_audit_recovery_source._find_root"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_audit_recovery_source._find_root"
+    },
+    {
+      "candidate_id": "resolution-3467",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_audit_recovery_source.calculate_hash",
+        "bin.validate_nimble_audit_recovery_source.calculate_hash",
+        "tools.create.create_nimble_audit_recovery_source.calculate_hash",
+        "tools.validation.nimble.validate_nimble_audit_recovery_source.calculate_hash"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_audit_recovery_source.calculate_hash"
+    },
+    {
+      "candidate_id": "resolution-3468",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_audit_recovery_source.canonical_json_bytes",
+        "bin.validate_nimble_audit_recovery_source.canonical_json_bytes",
+        "tools.create.create_nimble_audit_recovery_source.canonical_json_bytes",
+        "tools.validation.nimble.validate_nimble_audit_recovery_source.canonical_json_bytes"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_audit_recovery_source.canonical_json_bytes"
+    },
+    {
+      "candidate_id": "resolution-3469",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_audit_recovery_source.ledger_jsonl_bytes",
+        "bin.validate_nimble_audit_recovery_source.ledger_jsonl_bytes",
+        "tools.create.create_nimble_audit_recovery_source.ledger_jsonl_bytes",
+        "tools.validation.nimble.validate_nimble_audit_recovery_source.ledger_jsonl_bytes"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_audit_recovery_source.ledger_jsonl_bytes"
+    },
+    {
+      "candidate_id": "resolution-3470",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_audit_recovery_source.main",
+        "tools.create.create_nimble_audit_recovery_source.main"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_audit_recovery_source.main"
+    },
+    {
+      "candidate_id": "resolution-3471",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_audit_recovery_source.read_json",
+        "tools.create.create_nimble_audit_recovery_source.read_json"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_audit_recovery_source.read_json"
+    },
+    {
+      "candidate_id": "resolution-3472",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_audit_recovery_source.read_ledger",
+        "tools.create.create_nimble_audit_recovery_source.read_ledger"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_audit_recovery_source.read_ledger"
+    },
+    {
+      "candidate_id": "resolution-3473",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_audit_recovery_source.resolve_checkpoint",
+        "tools.create.create_nimble_audit_recovery_source.resolve_checkpoint"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_audit_recovery_source.resolve_checkpoint"
+    },
+    {
+      "candidate_id": "resolution-3474",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_signed_audit_anchor.canonical_bytes",
+        "bin.validate_nimble_signed_audit_anchor.canonical_bytes",
+        "tools.create.create_nimble_signed_audit_anchor.canonical_bytes",
+        "tools.validation.nimble.validate_nimble_signed_audit_anchor.canonical_bytes"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_signed_audit_anchor.canonical_bytes"
+    },
+    {
+      "candidate_id": "resolution-3475",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_signed_audit_anchor.main",
+        "tools.create.create_nimble_signed_audit_anchor.main"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_signed_audit_anchor.main"
+    },
+    {
+      "candidate_id": "resolution-3476",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_signed_audit_anchor.resolve_checkpoint_path",
+        "tools.create.create_nimble_signed_audit_anchor.resolve_checkpoint_path"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_signed_audit_anchor.resolve_checkpoint_path"
+    },
+    {
+      "candidate_id": "resolution-3477",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_signed_audit_anchor.sha256_bytes",
+        "tools.create.create_nimble_signed_audit_anchor.sha256_bytes"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_signed_audit_anchor.sha256_bytes"
+    },
+    {
+      "candidate_id": "resolution-3478",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.create_nimble_signed_audit_anchor.sha256_file",
+        "bin.validate_nimble_signed_audit_anchor.sha256_file",
+        "tools.create.create_nimble_signed_audit_anchor.sha256_file",
+        "tools.nimble.generate_promotion_record.sha256_file",
+        "tools.nimble.generate_release_manifest.sha256_file",
+        "tools.validation.nimble.validate_nimble_release_integrity.sha256_file",
+        "tools.validation.nimble.validate_nimble_release_promotion.sha256_file",
+        "tools.validation.nimble.validate_nimble_signed_audit_anchor.sha256_file"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.create_nimble_signed_audit_anchor.sha256_file"
+    },
+    {
+      "candidate_id": "resolution-3479",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.plan_nimble_audit_recovery.false_value",
+        "plan_nimble_audit_recovery.false_value",
+        "tools.planning.plan_nimble_audit_recovery.false_value"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.plan_nimble_audit_recovery.false_value"
+    },
+    {
+      "candidate_id": "resolution-3480",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.plan_nimble_audit_recovery.main",
+        "tools.planning.plan_nimble_audit_recovery.main"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.plan_nimble_audit_recovery.main"
+    },
+    {
+      "candidate_id": "resolution-3481",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.plan_nimble_audit_recovery.read_ledger",
+        "plan_nimble_audit_recovery.read_ledger",
+        "tools.planning.plan_nimble_audit_recovery.read_ledger"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.plan_nimble_audit_recovery.read_ledger"
+    },
+    {
+      "candidate_id": "resolution-3482",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.plan_nimble_audit_recovery.resolve_checkpoint_path",
+        "plan_nimble_audit_recovery.resolve_checkpoint_path",
+        "tools.planning.plan_nimble_audit_recovery.resolve_checkpoint_path"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.plan_nimble_audit_recovery.resolve_checkpoint_path"
+    },
+    {
+      "candidate_id": "resolution-3483",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.plan_nimble_audit_recovery.run_validator",
+        "plan_nimble_audit_recovery.run_validator",
+        "tools.planning.plan_nimble_audit_recovery.run_validator"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.plan_nimble_audit_recovery.run_validator"
+    },
+    {
+      "candidate_id": "resolution-3484",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.validate_nimble_audit_checkpoints.main",
+        "tools.validation.nimble.validate_nimble_audit_checkpoints.main"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.validate_nimble_audit_checkpoints.main"
+    },
+    {
+      "candidate_id": "resolution-3485",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.validate_nimble_audit_checkpoints.read_ledger",
+        "tools.validation.nimble.validate_nimble_audit_checkpoints.read_ledger"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.validate_nimble_audit_checkpoints.read_ledger"
+    },
+    {
+      "candidate_id": "resolution-3486",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.validate_nimble_audit_ledger.calculate_hash",
+        "tools.validation.nimble.validate_nimble_audit_ledger.calculate_hash"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.validate_nimble_audit_ledger.calculate_hash"
+    },
+    {
+      "candidate_id": "resolution-3487",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.validate_nimble_audit_ledger.main",
+        "tools.validation.nimble.validate_nimble_audit_ledger.main"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.validate_nimble_audit_ledger.main"
+    },
+    {
+      "candidate_id": "resolution-3488",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.validate_nimble_audit_recovery_source.main",
+        "tools.validation.nimble.validate_nimble_audit_recovery_source.main"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.validate_nimble_audit_recovery_source.main"
+    },
+    {
+      "candidate_id": "resolution-3489",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.validate_nimble_audit_recovery_source.resolve_checkpoint",
+        "tools.validation.nimble.validate_nimble_audit_recovery_source.resolve_checkpoint"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.validate_nimble_audit_recovery_source.resolve_checkpoint"
+    },
+    {
+      "candidate_id": "resolution-3490",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.validate_nimble_audit_recovery_source.validate_chain",
+        "tools.validation.nimble.validate_nimble_audit_recovery_source.validate_chain"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.validate_nimble_audit_recovery_source.validate_chain"
+    },
+    {
+      "candidate_id": "resolution-3491",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "bin.validate_nimble_signed_audit_anchor.main",
+        "tools.validation.nimble.validate_nimble_signed_audit_anchor.main"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: bin.validate_nimble_signed_audit_anchor.main"
+    },
+    {
+      "candidate_id": "resolution-3492",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "card_hawk.collector_identity.engine.CollectorIdentityNetworkEngine",
+        "card_hawk.identity_network.engine.CollectorIdentityNetworkEngine"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: card_hawk.collector_identity.engine.CollectorIdentityNetworkEngine"
+    },
+    {
+      "candidate_id": "resolution-3493",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "card_hawk.community_market_signals.engine.CommunityMarketSignalsEngine",
+        "card_hawk.market_signals.engine.CommunityMarketSignalsEngine"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: card_hawk.community_market_signals.engine.CommunityMarketSignalsEngine"
+    },
+    {
+      "candidate_id": "resolution-3494",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "card_hawk.personal_intelligence.privacy.PrivacyEngine",
+        "card_hawk.security.privacy.PrivacyEngine"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: card_hawk.personal_intelligence.privacy.PrivacyEngine"
+    },
+    {
+      "candidate_id": "resolution-3495",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "engine.cardhawk_engine.quick_def_score",
+        "engine.intelligence_engine.quick_def_score",
+        "engine.market_engine.quick_def_score",
+        "engine.notification_engine.quick_def_score",
+        "engine.thorx.d_def copy.quick_def_score",
+        "engine.valuation_engine.quick_def_score"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: engine.cardhawk_engine.quick_def_score"
+    },
+    {
+      "candidate_id": "resolution-3496",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "engines.def_engine.engine.run",
+        "engines.falcon.engine.run",
+        "engines.hawk_aeye.engine.run",
+        "engines.nest.engine.run",
+        "engines.perch.engine.run",
+        "engines.roost.engine.run",
+        "engines.soar.engine.run",
+        "engines.strike.engine.run",
+        "engines.talon.engine.run"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: engines.def_engine.engine.run"
+    },
+    {
+      "candidate_id": "resolution-3497",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "generate_nimble_dependency_manifest._export_namespace",
+        "generate_nimble_release_attestation._export_namespace",
+        "validate_nimble_container_contract._export_namespace",
+        "validate_nimble_credential_isolation._export_namespace",
+        "validate_nimble_credential_rotation._export_namespace",
+        "validate_nimble_dependency_exceptions._export_namespace",
+        "validate_nimble_dependency_manifest._export_namespace",
+        "validate_nimble_dependency_risk._export_namespace",
+        "validate_nimble_experience_core._export_namespace",
+        "validate_nimble_instrumentation_preview._export_namespace",
+        "validate_nimble_performance_regression._export_namespace",
+        "validate_nimble_primitive_experience._export_namespace",
+        "validate_nimble_provider_preflight._export_namespace",
+        "validate_nimble_release_attestation._export_namespace",
+        "validate_nimble_workspace_engine._export_namespace"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: generate_nimble_dependency_manifest._export_namespace"
+    },
+    {
+      "candidate_id": "resolution-3498",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "generate_nimble_dependency_manifest._require_target",
+        "generate_nimble_release_attestation._require_target"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: generate_nimble_dependency_manifest._require_target"
+    },
+    {
+      "candidate_id": "resolution-3499",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "plan_nimble_audit_recovery._find_repo_root",
+        "tests.nimble.audit.test_nimble_audit_recovery_simulation._find_repo_root",
+        "tools.validation.nimble.validate_nimble_audit_ledger._find_repo_root",
+        "tools.validation.nimble.validate_nimble_orchestrator._find_repo_root",
+        "tools.validation.nimble.validate_nimble_signed_audit_anchor._find_repo_root"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: plan_nimble_audit_recovery._find_repo_root"
+    },
+    {
+      "candidate_id": "resolution-3500",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "proofs.canonical_identity.proof_001_identity.print_header",
+        "proofs.cognitive_kernel.proof_001_cognitive_kernel.print_header",
+        "proofs.foundation_capability.proof_001_foundation_capability.print_header"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: proofs.canonical_identity.proof_001_identity.print_header"
+    },
+    {
+      "candidate_id": "resolution-3501",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "proofs.constitutional_library.proof_001_constitutional_library.header",
+        "proofs.double_hedron.proof_001_double_hedron.header",
+        "proofs.execution_graph.proof_001_execution_graph.header",
+        "proofs.reason_engine.proof_001_reason_engine.header",
+        "proofs.runtime.proof_001_runtime_boot.header",
+        "proofs.spectrum_platform_analyzer.proof_001_spa_baseline.header"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: proofs.constitutional_library.proof_001_constitutional_library.header"
+    },
+    {
+      "candidate_id": "resolution-3502",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "reports.span.backups.bootstrap_v2_20260719T115601Z.bootstrap.SPANBootstrap",
+        "reports.span.backups.bootstrap_v2_20260719T120944Z.bootstrap.SPANBootstrap"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: reports.span.backups.bootstrap_v2_20260719T115601Z.bootstrap.SPANBootstrap"
+    },
+    {
+      "candidate_id": "resolution-3503",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "reports.span.backups.finding_compat_20260719T110726Z.finding.Severity",
+        "reports.span.backups.finding_contract_v4_20260719T112335Z.finding.Severity",
+        "reports.span.backups.finding_summary_compat_20260719T111029Z.finding.Severity"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: reports.span.backups.finding_compat_20260719T110726Z.finding.Severity"
+    },
+    {
+      "candidate_id": "resolution-3504",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "reports.span.backups.finding_contract_v4_20260719T112335Z.finding.Finding",
+        "reports.span.backups.finding_summary_compat_20260719T111029Z.finding.Finding"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: reports.span.backups.finding_contract_v4_20260719T112335Z.finding.Finding"
+    },
+    {
+      "candidate_id": "resolution-3505",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "services.context.utc_now_iso",
+        "services.runtime_events.utc_now_iso",
+        "services.runtime_metrics.utc_now_iso"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: services.context.utc_now_iso"
+    },
+    {
+      "candidate_id": "resolution-3506",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tests.civilization.test_civilization_orchestrator.FakeGuardian",
+        "tests.platform_surface.test_platform_surface.FakeGuardian"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tests.civilization.test_civilization_orchestrator.FakeGuardian"
+    },
+    {
+      "candidate_id": "resolution-3507",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tests.civilization.test_civilization_orchestrator.FakeSentinel",
+        "tests.mission_runtime.test_time_driven_runtime.FakeSentinel",
+        "tests.platform_surface.test_platform_surface.FakeSentinel",
+        "tests.security_civilization.test_security_event_lifecycle.FakeSentinel"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tests.civilization.test_civilization_orchestrator.FakeSentinel"
+    },
+    {
+      "candidate_id": "resolution-3508",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tests.constitutional_instrumentation.test_instrumentation.participant",
+        "tests.platform_surface.test_cognitive_platform_surface.participant"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tests.constitutional_instrumentation.test_instrumentation.participant"
+    },
+    {
+      "candidate_id": "resolution-3509",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tests.nimble.test_audit_recovery.load_contract",
+        "tests.nimble.test_environment_promotion.load_contract",
+        "tests.nimble.test_release_integrity.load_contract",
+        "tests.nimble.test_release_promotion.load_contract",
+        "tests.nimble.test_signed_audit_anchor.load_contract"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tests.nimble.test_audit_recovery.load_contract"
+    },
+    {
+      "candidate_id": "resolution-3510",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tests.nimble.test_baseline_governance.load_module",
+        "tests.nimble.test_dependency_exceptions.load_module",
+        "tests.nimble.test_dependency_manifest.load_module",
+        "tests.nimble.test_release_attestation.load_module"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tests.nimble.test_baseline_governance.load_module"
+    },
+    {
+      "candidate_id": "resolution-3511",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tests.platform_intelligence.intelligence_engine.test_intelligence_engine.definition",
+        "tests.platform_intelligence.orchestrator.test_orchestrator.definition"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tests.platform_intelligence.intelligence_engine.test_intelligence_engine.definition"
+    },
+    {
+      "candidate_id": "resolution-3512",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tests.test_aletheus_genesis_031.sample_engine",
+        "tests.test_aletheus_runtime_a3.sample_engine"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tests.test_aletheus_genesis_031.sample_engine"
+    },
+    {
+      "candidate_id": "resolution-3513",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tests.test_aletheus_genesis_031.test_job_queue",
+        "tests.test_aletheus_runtime_a3.test_job_queue"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tests.test_aletheus_genesis_031.test_job_queue"
+    },
+    {
+      "candidate_id": "resolution-3514",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tests.tools.maintenance.ruf012.test_preview_engine.test_validator_accepts_valid_python",
+        "tests.tools.maintenance.ruf012.test_validator.test_validator_accepts_valid_python"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tests.tools.maintenance.ruf012.test_preview_engine.test_validator_accepts_valid_python"
+    },
+    {
+      "candidate_id": "resolution-3515",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tools.append.append_nimble_audit_event.find_repo_root",
+        "tools.collect.collect_nimble_production_telemetry.find_repo_root",
+        "tools.nimble.generate_dependency_manifest.find_repo_root",
+        "tools.nimble.generate_release_attestation.find_repo_root",
+        "tools.promotion.promote_nimble_performance_baseline.find_repo_root",
+        "tools.reconciliation.reconcile_nimble_dependency_exceptions.find_repo_root",
+        "tools.scanning.scan_nimble_dependency_risk.find_repo_root",
+        "tools.smoke.smoke_test_nimble_container.find_repo_root",
+        "tools.validation.nimble.validate_nimble_attested_release.find_repo_root",
+        "tools.validation.nimble.validate_nimble_audit_checkpoint_contract.find_repo_root",
+        "tools.validation.nimble.validate_nimble_audit_checkpoints.find_repo_root",
+        "tools.validation.nimble.validate_nimble_audit_ledger_contract.find_repo_root",
+        "tools.validation.nimble.validate_nimble_ci.find_repo_root",
+        "tools.validation.nimble.validate_nimble_components.find_repo_root",
+        "tools.validation.nimble.validate_nimble_container_contract.find_repo_root",
+        "tools.validation.nimble.validate_nimble_credential_contract.find_repo_root",
+        "tools.validation.nimble.validate_nimble_credential_isolation.find_repo_root",
+        "tools.validation.nimble.validate_nimble_credential_rotation.find_repo_root",
+        "tools.validation.nimble.validate_nimble_credential_rotation_contract.find_repo_root",
+        "tools.validation.nimble.validate_nimble_dependency_exceptions.find_repo_root",
+        "tools.validation.nimble.validate_nimble_dependency_manifest.find_repo_root",
+        "tools.validation.nimble.validate_nimble_dependency_risk.find_repo_root",
+        "tools.validation.nimble.validate_nimble_deployment_readiness.find_repo_root",
+        "tools.validation.nimble.validate_nimble_environment_automation.find_repo_root",
+        "tools.validation.nimble.validate_nimble_experience_core.find_repo_root",
+        "tools.validation.nimble.validate_nimble_foundation.find_repo_root",
+        "tools.validation.nimble.validate_nimble_image_provenance.find_repo_root",
+        "tools.validation.nimble.validate_nimble_instrumentation_preview.find_repo_root",
+        "tools.validation.nimble.validate_nimble_performance_regression.find_repo_root",
+        "tools.validation.nimble.validate_nimble_primitive_experience.find_repo_root",
+        "tools.validation.nimble.validate_nimble_production.find_repo_root",
+        "tools.validation.nimble.validate_nimble_provider_capabilities.find_repo_root",
+        "tools.validation.nimble.validate_nimble_provider_preflight.find_repo_root",
+        "tools.validation.nimble.validate_nimble_provider_registry.find_repo_root",
+        "tools.validation.nimble.validate_nimble_reference_shell.find_repo_root",
+        "tools.validation.nimble.validate_nimble_release_attestation.find_repo_root",
+        "tools.validation.nimble.validate_nimble_release_integrity.find_repo_root",
+        "tools.validation.nimble.validate_nimble_release_promotion.find_repo_root",
+        "tools.validation.nimble.validate_nimble_signed_anchor_workflow.find_repo_root",
+        "tools.validation.nimble.validate_nimble_telemetry.find_repo_root",
+        "tools.validation.nimble.validate_nimble_tokens.find_repo_root",
+        "tools.validation.nimble.validate_nimble_workspace_engine.find_repo_root"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tools.append.append_nimble_audit_event.find_repo_root"
+    },
+    {
+      "candidate_id": "resolution-3516",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tools.audit.audit_nimble_ui_foundation.relative",
+        "tools.audit.audit_repository_orphans.relative",
+        "tools.fix.nimble.fix_nimble_instrument_status_collision.relative"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tools.audit.audit_nimble_ui_foundation.relative"
+    },
+    {
+      "candidate_id": "resolution-3517",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tools.maintenance.create_restore_point.sha256",
+        "tools.maintenance.detect_drift.sha256"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tools.maintenance.create_restore_point.sha256"
+    },
+    {
+      "candidate_id": "resolution-3518",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tools.nimble.generate_build_metadata.sha256_file",
+        "tools.nimble.generate_dependency_manifest.sha256_file",
+        "tools.nimble.generate_release_attestation.sha256_file"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tools.nimble.generate_build_metadata.sha256_file"
+    },
+    {
+      "candidate_id": "resolution-3519",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tools.nimble.generate_release_attestation.canonical_digest",
+        "tools.validation.nimble.validate_nimble_release_attestation.canonical_digest"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tools.nimble.generate_release_attestation.canonical_digest"
+    },
+    {
+      "candidate_id": "resolution-3520",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tools.reconciliation.reconcile_nimble_dependency_exceptions.load_json",
+        "tools.scanning.scan_nimble_dependency_risk.load_json"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tools.reconciliation.reconcile_nimble_dependency_exceptions.load_json"
+    },
+    {
+      "candidate_id": "resolution-3521",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tools.runtime_boot_conditions.DummyRuntime",
+        "tools.runtime_parallel_boot.DummyRuntime",
+        "tools.runtime_policy_boot_conditions.DummyRuntime"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tools.runtime_boot_conditions.DummyRuntime"
+    },
+    {
+      "candidate_id": "resolution-3522",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tools.validation.nimble.validate_nimble_dependency_manifest.sha256_file",
+        "tools.validation.nimble.validate_nimble_deployment_readiness.sha256_file",
+        "tools.validation.nimble.validate_nimble_release_attestation.sha256_file"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tools.validation.nimble.validate_nimble_dependency_manifest.sha256_file"
+    },
+    {
+      "candidate_id": "resolution-3523",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "tools.validation.nimble.validate_nimble_release_integrity.write_report",
+        "tools.validation.nimble.validate_nimble_release_promotion.write_report"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: tools.validation.nimble.validate_nimble_release_integrity.write_report"
+    },
+    {
+      "candidate_id": "resolution-3524",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "ui.pages.aletheus_founder_workspace.safe_dataframe",
+        "ui.pages.aletheus_runtime_console.safe_dataframe"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: ui.pages.aletheus_founder_workspace.safe_dataframe"
+    },
+    {
+      "candidate_id": "resolution-3525",
+      "category": "duplication",
+      "confidence": 0.9,
+      "effort": "medium",
+      "evidence": [
+        "validate_nimble_container_contract._require_target",
+        "validate_nimble_credential_isolation._require_target",
+        "validate_nimble_credential_rotation._require_target",
+        "validate_nimble_dependency_exceptions._require_target",
+        "validate_nimble_dependency_manifest._require_target",
+        "validate_nimble_dependency_risk._require_target",
+        "validate_nimble_experience_core._require_target",
+        "validate_nimble_instrumentation_preview._require_target",
+        "validate_nimble_performance_regression._require_target",
+        "validate_nimble_primitive_experience._require_target",
+        "validate_nimble_provider_preflight._require_target",
+        "validate_nimble_release_attestation._require_target",
+        "validate_nimble_workspace_engine._require_target"
+      ],
+      "expected_health_gain": 1.0,
+      "priority_score": 22.15,
+      "risk": "medium",
+      "severity": "medium",
+      "title": "Resolve EXACT_STRUCTURAL_DUPLICATE: validate_nimble_container_contract._require_target"
+    }
+  ],
+  "current_health_score": 44.55,
+  "generated_at": "2026-07-31T23:36:03.273103+00:00",
+  "provenance": {
+    "boundary": "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/boundary/runtime-boundaries.json",
+    "cohesion": "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/cohesion/repository-cohesion.json",
+    "dependency": "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/dependency/constitutional-dependency-graph.json",
+    "health": "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/health/constitutional-health.json",
+    "integrity": "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/integrity/platform-integrity.json",
+    "resolution": "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/finding-resolution.json"
+  },
+  "quick_wins": [],
+  "readiness": "not_ready",
+  "work_packages": [
+    {
+      "candidate_ids": [
+        "normalize-ownership"
+      ],
+      "category": "ownership",
+      "estimated_effort": "high",
+      "expected_health_gain": 8.64,
+      "package_id": "wp-ownership",
+      "phase": 1,
+      "risk": "medium",
+      "title": "Ownership Optimization"
+    },
+    {
+      "candidate_ids": [
+        "boundary-remediation"
+      ],
+      "category": "boundary",
+      "estimated_effort": "high",
+      "expected_health_gain": 9.0,
+      "package_id": "wp-boundary",
+      "phase": 2,
+      "risk": "high",
+      "title": "Boundary Optimization"
+    },
+    {
+      "candidate_ids": [
+        "cohesion-hotspots"
+      ],
+      "category": "cohesion",
+      "estimated_effort": "high",
+      "expected_health_gain": 8.0,
+      "package_id": "wp-cohesion",
+      "phase": 3,
+      "risk": "medium",
+      "title": "Cohesion Optimization"
+    },
+    {
+      "candidate_ids": [
+        "resolution-3327",
+        "resolution-3328",
+        "resolution-3329",
+        "resolution-3330",
+        "resolution-3331",
+        "resolution-3332",
+        "resolution-3333",
+        "resolution-3334",
+        "resolution-3335",
+        "resolution-3336",
+        "resolution-3337",
+        "resolution-3338",
+        "resolution-3339",
+        "resolution-3340",
+        "resolution-3341",
+        "resolution-3342",
+        "resolution-3343",
+        "resolution-3344",
+        "resolution-3345",
+        "resolution-3346",
+        "resolution-3347",
+        "resolution-3348",
+        "resolution-3349",
+        "resolution-3350",
+        "resolution-3351",
+        "resolution-3352",
+        "resolution-3353",
+        "resolution-3354",
+        "resolution-3355",
+        "resolution-3356",
+        "resolution-3357",
+        "resolution-3358",
+        "resolution-3359",
+        "resolution-3360",
+        "resolution-3361",
+        "resolution-3362",
+        "resolution-3363",
+        "resolution-3364",
+        "resolution-3365",
+        "resolution-3366",
+        "resolution-3367",
+        "resolution-3368",
+        "resolution-3369",
+        "resolution-3370",
+        "resolution-3371",
+        "resolution-3372",
+        "resolution-3373",
+        "resolution-3374",
+        "resolution-3375",
+        "resolution-3376",
+        "resolution-3377",
+        "resolution-3378",
+        "resolution-3379",
+        "resolution-3380",
+        "resolution-3381",
+        "resolution-3382",
+        "resolution-3383",
+        "resolution-3384",
+        "resolution-3385",
+        "resolution-3386",
+        "resolution-3387",
+        "resolution-3388",
+        "resolution-3389",
+        "resolution-3390",
+        "resolution-3391",
+        "resolution-3392",
+        "resolution-3393",
+        "resolution-3394",
+        "resolution-3395",
+        "resolution-3396",
+        "resolution-3397",
+        "resolution-3398",
+        "resolution-3399",
+        "resolution-3400",
+        "resolution-3401",
+        "resolution-3402",
+        "resolution-3403",
+        "resolution-3404",
+        "resolution-3405",
+        "resolution-3406",
+        "resolution-3407",
+        "resolution-3408",
+        "resolution-3409",
+        "resolution-3410",
+        "resolution-3411",
+        "resolution-3412",
+        "resolution-3413",
+        "resolution-3414",
+        "resolution-3415",
+        "resolution-3416",
+        "resolution-3417",
+        "resolution-3418",
+        "resolution-3419",
+        "resolution-3420",
+        "resolution-3421",
+        "resolution-3422",
+        "resolution-3423",
+        "resolution-3424",
+        "resolution-3425",
+        "resolution-3426",
+        "resolution-3427",
+        "resolution-3428",
+        "resolution-3429",
+        "resolution-3430",
+        "resolution-3431",
+        "resolution-3432",
+        "resolution-3433",
+        "resolution-3434",
+        "resolution-3435",
+        "resolution-3436",
+        "resolution-3437",
+        "resolution-3438",
+        "resolution-3439",
+        "resolution-3440",
+        "resolution-3441",
+        "resolution-3442",
+        "resolution-3443",
+        "resolution-3444",
+        "resolution-3445",
+        "resolution-3446",
+        "resolution-3447",
+        "resolution-3448",
+        "resolution-3449",
+        "resolution-3450",
+        "resolution-3451",
+        "resolution-3452",
+        "resolution-3453",
+        "resolution-3454",
+        "resolution-3455",
+        "resolution-3456",
+        "resolution-3457",
+        "resolution-3458",
+        "resolution-3459",
+        "resolution-3460",
+        "resolution-3461",
+        "resolution-3462",
+        "resolution-3463",
+        "resolution-3464",
+        "resolution-3465",
+        "resolution-3466",
+        "resolution-3467",
+        "resolution-3468",
+        "resolution-3469",
+        "resolution-3470",
+        "resolution-3471",
+        "resolution-3472",
+        "resolution-3473",
+        "resolution-3474",
+        "resolution-3475",
+        "resolution-3476",
+        "resolution-3477",
+        "resolution-3478",
+        "resolution-3479",
+        "resolution-3480",
+        "resolution-3481",
+        "resolution-3482",
+        "resolution-3483",
+        "resolution-3484",
+        "resolution-3485",
+        "resolution-3486",
+        "resolution-3487",
+        "resolution-3488",
+        "resolution-3489",
+        "resolution-3490",
+        "resolution-3491",
+        "resolution-3492",
+        "resolution-3493",
+        "resolution-3494",
+        "resolution-3495",
+        "resolution-3496",
+        "resolution-3497",
+        "resolution-3498",
+        "resolution-3499",
+        "resolution-3500",
+        "resolution-3501",
+        "resolution-3502",
+        "resolution-3503",
+        "resolution-3504",
+        "resolution-3505",
+        "resolution-3506",
+        "resolution-3507",
+        "resolution-3508",
+        "resolution-3509",
+        "resolution-3510",
+        "resolution-3511",
+        "resolution-3512",
+        "resolution-3513",
+        "resolution-3514",
+        "resolution-3515",
+        "resolution-3516",
+        "resolution-3517",
+        "resolution-3518",
+        "resolution-3519",
+        "resolution-3520",
+        "resolution-3521",
+        "resolution-3522",
+        "resolution-3523",
+        "resolution-3524",
+        "resolution-3525"
+      ],
+      "category": "duplication",
+      "estimated_effort": "medium",
+      "expected_health_gain": 199.0,
+      "package_id": "wp-duplication",
+      "phase": 3,
+      "risk": "medium",
+      "title": "Duplication Optimization"
+    },
+    {
+      "candidate_ids": [
+        "resolution-0"
+      ],
+      "category": "reachability",
+      "estimated_effort": "medium",
+      "expected_health_gain": 2.5,
+      "package_id": "wp-reachability",
+      "phase": 4,
+      "risk": "medium",
+      "title": "Reachability Optimization"
+    },
+    {
+      "candidate_ids": [
+        "readiness-recovery"
+      ],
+      "category": "governance",
+      "estimated_effort": "medium",
+      "expected_health_gain": 8.0,
+      "package_id": "wp-governance",
+      "phase": 5,
+      "risk": "medium",
+      "title": "Governance Optimization"
+    }
+  ]
+}
