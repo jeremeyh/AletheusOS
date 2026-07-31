@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-07-31T23:38:51.164756+00:00",
+  "units": [
+    {
+      "rollback_requirements": [
+        "Preserve file backups before mutation.",
+        "Preserve a rollback manifest.",
+        "Restore automatically when validation fails."
+      ],
+      "unit_id": "eu-wp-ownership"
+    },
+    {
+      "rollback_requirements": [
+        "Preserve file backups before mutation.",
+        "Preserve a rollback manifest.",
+        "Restore automatically when validation fails."
+      ],
+      "unit_id": "eu-wp-boundary"
+    },
+    {
+      "rollback_requirements": [
+        "Preserve file backups before mutation.",
+        "Preserve a rollback manifest.",
+        "Restore automatically when validation fails."
+      ],
+      "unit_id": "eu-wp-duplication"
+    },
+    {
+      "rollback_requirements": [
+        "Preserve file backups before mutation.",
+        "Preserve a rollback manifest.",
+        "Restore automatically when validation fails."
+      ],
+      "unit_id": "eu-wp-cohesion"
+    },
+    {
+      "rollback_requirements": [
+        "Preserve file backups before mutation.",
+        "Preserve a rollback manifest.",
+        "Restore automatically when validation fails."
+      ],
+      "unit_id": "eu-wp-reachability"
+    },
+    {
+      "rollback_requirements": [
+        "Preserve file backups before mutation.",
+        "Preserve a rollback manifest.",
+        "Restore automatically when validation fails."
+      ],
+      "unit_id": "eu-wp-governance"
+    }
+  ]
+}

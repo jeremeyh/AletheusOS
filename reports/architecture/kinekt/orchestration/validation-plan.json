@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-07-31T23:38:51.164756+00:00",
+  "units": [
+    {
+      "unit_id": "eu-wp-ownership",
+      "validations": [
+        "Run Ruff on changed targets.",
+        "Compile changed Python packages.",
+        "Run targeted tests.",
+        "Regenerate Kinekt integrity and constitutional health reports."
+      ]
+    },
+    {
+      "unit_id": "eu-wp-boundary",
+      "validations": [
+        "Run Ruff on changed targets.",
+        "Compile changed Python packages.",
+        "Run targeted tests.",
+        "Regenerate Kinekt integrity and constitutional health reports.",
+        "Run full platform test suite before completion."
+      ]
+    },
+    {
+      "unit_id": "eu-wp-duplication",
+      "validations": [
+        "Run Ruff on changed targets.",
+        "Compile changed Python packages.",
+        "Run targeted tests.",
+        "Regenerate Kinekt integrity and constitutional health reports."
+      ]
+    },
+    {
+      "unit_id": "eu-wp-cohesion",
+      "validations": [
+        "Run Ruff on changed targets.",
+        "Compile changed Python packages.",
+        "Run targeted tests.",
+        "Regenerate Kinekt integrity and constitutional health reports."
+      ]
+    },
+    {
+      "unit_id": "eu-wp-reachability",
+      "validations": [
+        "Run Ruff on changed targets.",
+        "Compile changed Python packages.",
+        "Run targeted tests.",
+        "Regenerate Kinekt integrity and constitutional health reports."
+      ]
+    },
+    {
+      "unit_id": "eu-wp-governance",
+      "validations": [
+        "Run Ruff on changed targets.",
+        "Compile changed Python packages.",
+        "Run targeted tests.",
+        "Regenerate Kinekt integrity and constitutional health reports."
+      ]
+    }
+  ]
+}
