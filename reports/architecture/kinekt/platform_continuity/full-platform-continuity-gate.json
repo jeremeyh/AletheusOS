@@ -1,0 +1,12 @@
+{
+  "access_modules": 195,
+  "blockers": [],
+  "decision": "warn",
+  "generated_at": "2026-08-01T07:20:08.069301+00:00",
+  "governance_decision": "warn",
+  "horizontal_continuity": true,
+  "vertical_continuity": true,
+  "warnings": [
+    "Architectural Governance is in warn state."
+  ]
+}
