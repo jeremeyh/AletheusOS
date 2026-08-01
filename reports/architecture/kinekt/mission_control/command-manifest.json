@@ -1,0 +1,36 @@
+{
+  "commands_enabled": false,
+  "missions": [
+    {
+      "approval_required": true,
+      "mission_id": "mission-eu-wp-ownership",
+      "status": "awaiting_approval"
+    },
+    {
+      "approval_required": true,
+      "mission_id": "mission-eu-wp-boundary",
+      "status": "awaiting_approval"
+    },
+    {
+      "approval_required": true,
+      "mission_id": "mission-eu-wp-duplication",
+      "status": "awaiting_approval"
+    },
+    {
+      "approval_required": true,
+      "mission_id": "mission-eu-wp-cohesion",
+      "status": "awaiting_approval"
+    },
+    {
+      "approval_required": true,
+      "mission_id": "mission-eu-wp-reachability",
+      "status": "awaiting_approval"
+    },
+    {
+      "approval_required": true,
+      "mission_id": "mission-eu-wp-governance",
+      "status": "awaiting_approval"
+    }
+  ],
+  "readiness": "not_ready"
+}

@@ -1,0 +1,94 @@
+{
+  "blocked_reasons": [
+    "Platform readiness is not_ready; missions require Council approval."
+  ],
+  "generated_at": "2026-08-01T03:29:07.259786+00:00",
+  "missions": [
+    {
+      "approval_required": true,
+      "execution_units": [
+        "eu-wp-ownership"
+      ],
+      "mission_id": "mission-eu-wp-ownership",
+      "preconditions": [
+        "Repository working tree has no overlapping protected changes.",
+        "Optimization roadmap source exists and is parseable.",
+        "A Git checkpoint can be created."
+      ],
+      "status": "awaiting_approval",
+      "title": "Ownership Optimization"
+    },
+    {
+      "approval_required": true,
+      "execution_units": [
+        "eu-wp-boundary"
+      ],
+      "mission_id": "mission-eu-wp-boundary",
+      "preconditions": [
+        "Repository working tree has no overlapping protected changes.",
+        "Optimization roadmap source exists and is parseable.",
+        "A Git checkpoint can be created.",
+        "High-risk execution unit must be approved independently."
+      ],
+      "status": "awaiting_approval",
+      "title": "Boundary Optimization"
+    },
+    {
+      "approval_required": true,
+      "execution_units": [
+        "eu-wp-duplication"
+      ],
+      "mission_id": "mission-eu-wp-duplication",
+      "preconditions": [
+        "Repository working tree has no overlapping protected changes.",
+        "Optimization roadmap source exists and is parseable.",
+        "A Git checkpoint can be created."
+      ],
+      "status": "awaiting_approval",
+      "title": "Duplication Optimization"
+    },
+    {
+      "approval_required": true,
+      "execution_units": [
+        "eu-wp-cohesion"
+      ],
+      "mission_id": "mission-eu-wp-cohesion",
+      "preconditions": [
+        "Repository working tree has no overlapping protected changes.",
+        "Optimization roadmap source exists and is parseable.",
+        "A Git checkpoint can be created."
+      ],
+      "status": "awaiting_approval",
+      "title": "Cohesion Optimization"
+    },
+    {
+      "approval_required": true,
+      "execution_units": [
+        "eu-wp-reachability"
+      ],
+      "mission_id": "mission-eu-wp-reachability",
+      "preconditions": [
+        "Repository working tree has no overlapping protected changes.",
+        "Optimization roadmap source exists and is parseable.",
+        "A Git checkpoint can be created."
+      ],
+      "status": "awaiting_approval",
+      "title": "Reachability Optimization"
+    },
+    {
+      "approval_required": true,
+      "execution_units": [
+        "eu-wp-governance"
+      ],
+      "mission_id": "mission-eu-wp-governance",
+      "preconditions": [
+        "Repository working tree has no overlapping protected changes.",
+        "Optimization roadmap source exists and is parseable.",
+        "A Git checkpoint can be created."
+      ],
+      "status": "awaiting_approval",
+      "title": "Governance Optimization"
+    }
+  ],
+  "readiness": "not_ready"
+}
