@@ -1,0 +1,42 @@
+{
+  "components": [
+    {
+      "cataloged": true,
+      "name": "SPARTAN",
+      "runtime": "shared_constitutional_runtime",
+      "separate_security_runtime": false
+    },
+    {
+      "cataloged": true,
+      "name": "SPAN",
+      "runtime": "shared_constitutional_runtime",
+      "separate_security_runtime": false
+    },
+    {
+      "cataloged": true,
+      "name": "Watch Tower",
+      "runtime": "shared_constitutional_runtime",
+      "separate_security_runtime": false
+    },
+    {
+      "cataloged": true,
+      "name": "Conclave",
+      "runtime": "shared_constitutional_runtime",
+      "separate_security_runtime": false
+    },
+    {
+      "cataloged": true,
+      "name": "Sentinel",
+      "runtime": "shared_constitutional_runtime",
+      "separate_security_runtime": false
+    },
+    {
+      "cataloged": true,
+      "name": "Security Mesh",
+      "runtime": "shared_constitutional_runtime",
+      "separate_security_runtime": false
+    }
+  ],
+  "integration_mode": "shared_crk_runtime",
+  "service_bus_channels": 195
+}
