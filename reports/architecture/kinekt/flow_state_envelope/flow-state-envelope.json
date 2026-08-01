@@ -1,0 +1,7 @@
+{
+  "claim_envelopes": 0,
+  "envelope_policy": "authority_scope_plus_contract_plus_direction",
+  "flow_state": "full_duplex_bounded",
+  "parallel_enabled": true,
+  "state": "enveloped"
+}
