@@ -1,0 +1,215 @@
+{
+  "binding_count": 35,
+  "bindings": [
+    {
+      "authority": null,
+      "engine_name": "Audit Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Authentication Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Authorization Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Capability Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Compliance Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Decision Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Document Intelligence Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Engine Registry",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Evidence Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Execution Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Federation Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Forensics Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Identity Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Incident Response Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Inspection Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Intelligence Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Knowledge Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Learning Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Memory Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Mission Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Mission Scheduler",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "OCR Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Planning Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Policy Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Predictive Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Reason Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Recognition Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Recovery Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Risk Intelligence Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Runtime Engine Manager",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Semantic Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Threat Intelligence Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Verification Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Vision Engine",
+      "injected": true,
+      "parent": null
+    },
+    {
+      "authority": null,
+      "engine_name": "Vulnerability Intelligence Engine",
+      "injected": true,
+      "parent": null
+    }
+  ]
+}

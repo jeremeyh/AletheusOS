@@ -940,6 +940,8 @@ tests/tooling/kinekt/test_ownership.py::test_runtime_owner
 tests/tooling/kinekt/topology/test_chains.py::test_longest_chain
 tests/tooling/kinekt/topology/test_scc.py::test_cycle_detection
 tests/tooling/kinekt/twin/test_query.py::test_query_node
+tests/tooling/runtime_dependency_injection/test_container.py::test_container_resolves_singleton
+tests/tooling/runtime_dependency_injection/test_container.py::test_injection_builds_bindings
 tests/tools/maintenance/ruf012/executor/test_engine.py::test_execute_ready
 tests/tools/maintenance/ruf012/executor/test_engine.py::test_execute_skipped
 tests/tools/maintenance/ruf012/executor/test_engine.py::test_execute_failed
@@ -1512,4 +1514,4 @@ ERROR tests/tooling/structural_hardening/test_engine.py
 ERROR tests/tooling/validator_composition/test_engine.py
 ERROR tests/tooling/vertical_slice_verifier/test_engine.py
 !!!!!!!!!!!!!!!!!!! Interrupted: 64 errors during collection !!!!!!!!!!!!!!!!!!!
-998 tests collected, 64 errors in 1.47s
+1000 tests collected, 64 errors in 1.78s
