@@ -1,0 +1,191 @@
+{
+  "cycle_group_count": 12,
+  "cycle_groups": [
+    {
+      "intentional": true,
+      "members": [
+        "A\u20223ye",
+        "Card Hawk"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Conclave",
+        "Sentinel"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Decision Engine",
+        "Execution Engine"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Engine Registry",
+        "Runtime Engine Manager"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Evidence Engine",
+        "Knowledge Engine"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Knowledge Engine",
+        "Reason Engine"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Knowledge Engine",
+        "Memory Engine"
+      ],
+      "semantic_class": "learning_feedback"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Mission Engine",
+        "Mission Scheduler"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "SPAN",
+        "SPARTAN"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "SPARTAN",
+        "Sentinel"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Sentinel",
+        "Watch Tower"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    }
+  ],
+  "unclassified_cycles": [
+    {
+      "intentional": true,
+      "members": [
+        "A\u20223ye",
+        "Card Hawk"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Conclave",
+        "Sentinel"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Decision Engine",
+        "Execution Engine"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Engine Registry",
+        "Runtime Engine Manager"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Evidence Engine",
+        "Knowledge Engine"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Knowledge Engine",
+        "Reason Engine"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Mission Engine",
+        "Mission Scheduler"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "SPAN",
+        "SPARTAN"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "SPARTAN",
+        "Sentinel"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    },
+    {
+      "intentional": true,
+      "members": [
+        "Sentinel",
+        "Watch Tower"
+      ],
+      "semantic_class": "bidirectional_collaboration"
+    }
+  ]
+}
