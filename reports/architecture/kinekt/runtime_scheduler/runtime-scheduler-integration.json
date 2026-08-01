@@ -1,0 +1,18 @@
+{
+  "task_count": 1,
+  "tasks": [
+    {
+      "results": [
+        {
+          "accepted": true,
+          "payload": {
+            "source": "cli"
+          }
+        }
+      ],
+      "status": "completed",
+      "task_id": "genesis-19.5-smoke",
+      "trigger": "mission.submitted"
+    }
+  ]
+}
