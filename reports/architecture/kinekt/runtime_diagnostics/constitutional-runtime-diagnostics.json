@@ -1,0 +1,13 @@
+{
+  "diagnostic_count": 2,
+  "diagnostics": [
+    {
+      "code": "RUNTIME_NOT_READY",
+      "severity": "high"
+    },
+    {
+      "code": "GOVERNANCE_ATTENTION_REQUIRED",
+      "severity": "medium"
+    }
+  ]
+}
