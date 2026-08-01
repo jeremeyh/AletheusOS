@@ -1,0 +1,566 @@
+{
+  "resolved_count": 80,
+  "resolved_roots": [
+    {
+      "intentional_root": true,
+      "parent_domain": "platform_support",
+      "resolution_basis": "intentional_root_declaration",
+      "root": "Acquisition AI",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": true,
+      "parent_domain": "platform_support",
+      "resolution_basis": "intentional_root_declaration",
+      "root": "Anomaly Detection",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "product",
+      "resolution_basis": "rule_match",
+      "root": "Asset DNA",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": true,
+      "parent_domain": "platform_support",
+      "resolution_basis": "intentional_root_declaration",
+      "root": "Attack Surface Analysis",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Authorization Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": true,
+      "parent_domain": "platform_support",
+      "resolution_basis": "intentional_root_declaration",
+      "root": "Behavioral Analytics",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Canonical Identity Framework",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "runtime",
+      "resolution_basis": "rule_match",
+      "root": "Capability Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "runtime",
+      "resolution_basis": "rule_match",
+      "root": "Capability Registration Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Chain of Evidence Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Compliance Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "constitutional",
+      "resolution_basis": "rule_match",
+      "root": "Constitutional Audit",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "constitutional",
+      "resolution_basis": "rule_match",
+      "root": "Constitutional Authentication Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "constitutional",
+      "resolution_basis": "rule_match",
+      "root": "Constitutional Authorization Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "constitutional",
+      "resolution_basis": "rule_match",
+      "root": "Constitutional Consensus Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "constitutional",
+      "resolution_basis": "rule_match",
+      "root": "Constitutional Governance Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "constitutional",
+      "resolution_basis": "rule_match",
+      "root": "Constitutional Ledger",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "constitutional",
+      "resolution_basis": "rule_match",
+      "root": "Constitutional Security",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "constitutional",
+      "resolution_basis": "rule_match",
+      "root": "Constitutional Validation Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": true,
+      "parent_domain": "platform_support",
+      "resolution_basis": "intentional_root_declaration",
+      "root": "Continuous Validation",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "product",
+      "resolution_basis": "rule_match",
+      "root": "D-DEF",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Digital Signature Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Document Intelligence Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": true,
+      "parent_domain": "platform_support",
+      "resolution_basis": "intentional_root_declaration",
+      "root": "Drift Detection",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Evidence Vault",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Evidence Verification Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": true,
+      "parent_domain": "platform_support",
+      "resolution_basis": "intentional_root_declaration",
+      "root": "Exit Intelligence",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": true,
+      "parent_domain": "platform_support",
+      "resolution_basis": "intentional_root_declaration",
+      "root": "FALCON",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "runtime",
+      "resolution_basis": "rule_match",
+      "root": "Federation Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Forensics Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "runtime",
+      "resolution_basis": "rule_match",
+      "root": "Identity Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Identity Verification Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Inspection Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Intelligence Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Learning Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "runtime",
+      "resolution_basis": "rule_match",
+      "root": "Mission Authorization Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": true,
+      "parent_domain": "platform_support",
+      "resolution_basis": "intentional_root_declaration",
+      "root": "NEST",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "product",
+      "resolution_basis": "rule_match",
+      "root": "Nuclear Cloud",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "OCR Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": true,
+      "parent_domain": "platform_support",
+      "resolution_basis": "intentional_root_declaration",
+      "root": "PERCH",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Predictive Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "constitutional",
+      "resolution_basis": "rule_match",
+      "root": "Principle X Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Provenance Verification Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "product",
+      "resolution_basis": "rule_match",
+      "root": "Q-DEF",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": true,
+      "parent_domain": "platform_support",
+      "resolution_basis": "intentional_root_declaration",
+      "root": "ROOST",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Recognition Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Recovery Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Repository Integrity Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Risk Intelligence Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "runtime",
+      "resolution_basis": "rule_match",
+      "root": "Runtime Attestation Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "runtime",
+      "resolution_basis": "rule_match",
+      "root": "Runtime Integrity Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "runtime",
+      "resolution_basis": "rule_match",
+      "root": "Runtime Monitoring",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": true,
+      "parent_domain": "platform_support",
+      "resolution_basis": "intentional_root_declaration",
+      "root": "SOAR",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "product",
+      "resolution_basis": "rule_match",
+      "root": "STRIKE",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Secure Communication Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "runtime",
+      "resolution_basis": "rule_match",
+      "root": "Secure Execution Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Secure Session Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Security Circuit",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Security Fabric",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Security Telemetry",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Semantic Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Service Registration Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "product",
+      "resolution_basis": "rule_match",
+      "root": "Strike Zone",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Supply Chain Verification Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": true,
+      "parent_domain": "platform_support",
+      "resolution_basis": "intentional_root_declaration",
+      "root": "TALON",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Tamper Detection Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Threat Attribution",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Threat Containment",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Threat Correlation",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Threat Detection",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Threat Eradication",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Threat Hunting",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Threat Intelligence Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Threat Recovery",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Trust Framework",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "constitutional",
+      "resolution_basis": "rule_match",
+      "root": "Truth Verification Protocol",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Verification Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Vision Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "intelligence",
+      "resolution_basis": "rule_match",
+      "root": "Vulnerability Intelligence Engine",
+      "status": "resolved"
+    },
+    {
+      "intentional_root": false,
+      "parent_domain": "security",
+      "resolution_basis": "rule_match",
+      "root": "Zero Trust Protocol",
+      "status": "resolved"
+    }
+  ],
+  "unresolved_roots": []
+}
