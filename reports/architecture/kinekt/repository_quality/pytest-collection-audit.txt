@@ -908,6 +908,7 @@ tests/test_runtime_service_registry.py::test_service_registry_statistics
 tests/test_runtime_service_registry.py::test_core_runtime_services_registered
 tests/test_runtime_service_registry.py::test_foundational_platform_services_registered
 tests/tooling/access_module_realization/test_engine.py::test_access_modules_require_auth
+tests/tooling/end_to_end_mission/test_mission_execution.py::test_mission_runs_from_evidence_to_certification
 tests/tooling/engine_activation/test_activation.py::test_activation_manager_activates_registered_engines
 tests/tooling/event_pipeline/test_pipeline.py::test_pipeline_publishes_and_subscribes
 tests/tooling/execution_runtime/test_runtime.py::test_runtime_executes_real_steps
@@ -1516,4 +1517,4 @@ ERROR tests/tooling/structural_hardening/test_engine.py
 ERROR tests/tooling/validator_composition/test_engine.py
 ERROR tests/tooling/vertical_slice_verifier/test_engine.py
 !!!!!!!!!!!!!!!!!!! Interrupted: 64 errors during collection !!!!!!!!!!!!!!!!!!!
-1002 tests collected, 64 errors in 1.58s
+1003 tests collected, 64 errors in 1.60s
