@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "catalog_entries": 107,
+  "decision": "warn",
+  "disconnected": 1,
+  "generated_at": "2026-08-01T06:09:22.890766+00:00",
+  "governance_decision": "warn",
+  "ledger_entries": 27,
+  "ledger_realized": 22,
+  "missing_targets": 100,
+  "warnings": [
+    "100 Mesh targets are undeclared.",
+    "1 catalog entries are disconnected."
+  ]
+}
