@@ -1,0 +1,466 @@
+{
+  "brace_count": 71,
+  "braces": [
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Acquisition AI",
+      "priority": "high",
+      "subject": "Acquisition AI"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Anomaly Detection",
+      "priority": "high",
+      "subject": "Anomaly Detection"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Asset DNA",
+      "priority": "high",
+      "subject": "Asset DNA"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Attack Surface Analysis",
+      "priority": "high",
+      "subject": "Attack Surface Analysis"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Behavioral Analytics",
+      "priority": "high",
+      "subject": "Behavioral Analytics"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Canonical Identity Framework",
+      "priority": "high",
+      "subject": "Canonical Identity Framework"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Capability Engine",
+      "priority": "high",
+      "subject": "Capability Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Capability Registration Protocol",
+      "priority": "high",
+      "subject": "Capability Registration Protocol"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Compliance Engine",
+      "priority": "high",
+      "subject": "Compliance Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Continuous Validation",
+      "priority": "high",
+      "subject": "Continuous Validation"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::D-DEF",
+      "priority": "high",
+      "subject": "D-DEF"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Digital Signature Protocol",
+      "priority": "high",
+      "subject": "Digital Signature Protocol"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Document Intelligence Engine",
+      "priority": "high",
+      "subject": "Document Intelligence Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Drift Detection",
+      "priority": "high",
+      "subject": "Drift Detection"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Exit Intelligence",
+      "priority": "high",
+      "subject": "Exit Intelligence"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::FALCON",
+      "priority": "high",
+      "subject": "FALCON"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Federation Engine",
+      "priority": "high",
+      "subject": "Federation Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Forensics Engine",
+      "priority": "high",
+      "subject": "Forensics Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Identity Engine",
+      "priority": "high",
+      "subject": "Identity Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Identity Verification Protocol",
+      "priority": "high",
+      "subject": "Identity Verification Protocol"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Inspection Engine",
+      "priority": "high",
+      "subject": "Inspection Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Intelligence Engine",
+      "priority": "high",
+      "subject": "Intelligence Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Learning Engine",
+      "priority": "high",
+      "subject": "Learning Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::NEST",
+      "priority": "high",
+      "subject": "NEST"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Nuclear Cloud",
+      "priority": "high",
+      "subject": "Nuclear Cloud"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::OCR Engine",
+      "priority": "high",
+      "subject": "OCR Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::PERCH",
+      "priority": "high",
+      "subject": "PERCH"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Provenance Verification Protocol",
+      "priority": "high",
+      "subject": "Provenance Verification Protocol"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Q-DEF",
+      "priority": "high",
+      "subject": "Q-DEF"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::ROOST",
+      "priority": "high",
+      "subject": "ROOST"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Recognition Engine",
+      "priority": "high",
+      "subject": "Recognition Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Recovery Engine",
+      "priority": "high",
+      "subject": "Recovery Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Repository Integrity Protocol",
+      "priority": "high",
+      "subject": "Repository Integrity Protocol"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Risk Intelligence Engine",
+      "priority": "high",
+      "subject": "Risk Intelligence Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::SOAR",
+      "priority": "high",
+      "subject": "SOAR"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::STRIKE",
+      "priority": "high",
+      "subject": "STRIKE"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Secure Communication Protocol",
+      "priority": "high",
+      "subject": "Secure Communication Protocol"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Secure Execution Protocol",
+      "priority": "high",
+      "subject": "Secure Execution Protocol"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Secure Session Protocol",
+      "priority": "high",
+      "subject": "Secure Session Protocol"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Semantic Engine",
+      "priority": "high",
+      "subject": "Semantic Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Service Registration Protocol",
+      "priority": "high",
+      "subject": "Service Registration Protocol"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Strike Zone",
+      "priority": "high",
+      "subject": "Strike Zone"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Supply Chain Verification Protocol",
+      "priority": "high",
+      "subject": "Supply Chain Verification Protocol"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::TALON",
+      "priority": "high",
+      "subject": "TALON"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Tamper Detection Protocol",
+      "priority": "high",
+      "subject": "Tamper Detection Protocol"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Threat Attribution",
+      "priority": "high",
+      "subject": "Threat Attribution"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Threat Containment",
+      "priority": "high",
+      "subject": "Threat Containment"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Threat Correlation",
+      "priority": "high",
+      "subject": "Threat Correlation"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Threat Detection",
+      "priority": "high",
+      "subject": "Threat Detection"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Threat Eradication",
+      "priority": "high",
+      "subject": "Threat Eradication"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Threat Hunting",
+      "priority": "high",
+      "subject": "Threat Hunting"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Threat Intelligence Engine",
+      "priority": "high",
+      "subject": "Threat Intelligence Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Threat Recovery",
+      "priority": "high",
+      "subject": "Threat Recovery"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Trust Framework",
+      "priority": "high",
+      "subject": "Trust Framework"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Truth Verification Protocol",
+      "priority": "high",
+      "subject": "Truth Verification Protocol"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Verification Engine",
+      "priority": "high",
+      "subject": "Verification Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Vision Engine",
+      "priority": "high",
+      "subject": "Vision Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Vulnerability Intelligence Engine",
+      "priority": "high",
+      "subject": "Vulnerability Intelligence Engine"
+    },
+    {
+      "action": "require_semantic_parent_or_explicit_root_declaration",
+      "brace_id": "root::Zero Trust Protocol",
+      "priority": "high",
+      "subject": "Zero Trust Protocol"
+    },
+    {
+      "action": "require_feedback_contract_and_termination_condition",
+      "brace_id": "cycle::A\u20223ye::Card Hawk",
+      "priority": "high",
+      "subject": [
+        "A\u20223ye",
+        "Card Hawk"
+      ]
+    },
+    {
+      "action": "require_feedback_contract_and_termination_condition",
+      "brace_id": "cycle::Card Hawk::THORx",
+      "priority": "high",
+      "subject": [
+        "Card Hawk",
+        "THORx"
+      ]
+    },
+    {
+      "action": "require_feedback_contract_and_termination_condition",
+      "brace_id": "cycle::Conclave::Sentinel",
+      "priority": "high",
+      "subject": [
+        "Conclave",
+        "Sentinel"
+      ]
+    },
+    {
+      "action": "require_feedback_contract_and_termination_condition",
+      "brace_id": "cycle::Decision Engine::Execution Engine",
+      "priority": "high",
+      "subject": [
+        "Decision Engine",
+        "Execution Engine"
+      ]
+    },
+    {
+      "action": "require_feedback_contract_and_termination_condition",
+      "brace_id": "cycle::Engine Registry::Runtime Engine Manager",
+      "priority": "high",
+      "subject": [
+        "Engine Registry",
+        "Runtime Engine Manager"
+      ]
+    },
+    {
+      "action": "require_feedback_contract_and_termination_condition",
+      "brace_id": "cycle::Evidence Engine::Knowledge Engine",
+      "priority": "high",
+      "subject": [
+        "Evidence Engine",
+        "Knowledge Engine"
+      ]
+    },
+    {
+      "action": "require_feedback_contract_and_termination_condition",
+      "brace_id": "cycle::Knowledge Engine::Reason Engine",
+      "priority": "high",
+      "subject": [
+        "Knowledge Engine",
+        "Reason Engine"
+      ]
+    },
+    {
+      "action": "require_feedback_contract_and_termination_condition",
+      "brace_id": "cycle::Mission Engine::Mission Scheduler",
+      "priority": "high",
+      "subject": [
+        "Mission Engine",
+        "Mission Scheduler"
+      ]
+    },
+    {
+      "action": "require_feedback_contract_and_termination_condition",
+      "brace_id": "cycle::SPAN::SPARTAN",
+      "priority": "high",
+      "subject": [
+        "SPAN",
+        "SPARTAN"
+      ]
+    },
+    {
+      "action": "require_feedback_contract_and_termination_condition",
+      "brace_id": "cycle::SPARTAN::Sentinel",
+      "priority": "high",
+      "subject": [
+        "SPARTAN",
+        "Sentinel"
+      ]
+    },
+    {
+      "action": "require_feedback_contract_and_termination_condition",
+      "brace_id": "cycle::Sentinel::Watch Tower",
+      "priority": "high",
+      "subject": [
+        "Sentinel",
+        "Watch Tower"
+      ]
+    },
+    {
+      "action": "preserve_current_routes_and_close_semantic_gaps",
+      "brace_id": "continuity::warning",
+      "priority": "medium",
+      "subject": "platform_continuity"
+    }
+  ],
+  "parallel_layer_created": false,
+  "temporary_scaffolds_allowed": false
+}
