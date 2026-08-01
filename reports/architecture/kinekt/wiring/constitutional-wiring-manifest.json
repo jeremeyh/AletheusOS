@@ -1,0 +1,1761 @@
+{
+  "invalid_routes": [],
+  "route_count": 195,
+  "routes": [
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Acquisition AI::Card Hawk",
+      "source": "Acquisition AI",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Acquisition AI::THORx",
+      "source": "Acquisition AI",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "THORx",
+      "target_category": "card_hawk"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Anomaly Detection::Sentinel",
+      "source": "Anomaly Detection",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Anomaly Detection::Watch Tower",
+      "source": "Anomaly Detection",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Anomaly Detection::Conclave",
+      "source": "Anomaly Detection",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Conclave",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Anomaly Detection::Incident Response Engine",
+      "source": "Anomaly Detection",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Asset DNA::Card Hawk",
+      "source": "Asset DNA",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Asset DNA::THORx",
+      "source": "Asset DNA",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "THORx",
+      "target_category": "card_hawk"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Attack Surface Analysis::Sentinel",
+      "source": "Attack Surface Analysis",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Attack Surface Analysis::Watch Tower",
+      "source": "Attack Surface Analysis",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Attack Surface Analysis::Conclave",
+      "source": "Attack Surface Analysis",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Conclave",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Attack Surface Analysis::Incident Response Engine",
+      "source": "Attack Surface Analysis",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Audit Engine::Security Mesh",
+      "source": "Audit Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_category": "security_infrastructure"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Audit Engine::Sentinel",
+      "source": "Audit Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Authentication Engine::Security Mesh",
+      "source": "Authentication Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_category": "security_infrastructure"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Authentication Engine::Sentinel",
+      "source": "Authentication Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Authorization Engine::Security Mesh",
+      "source": "Authorization Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_category": "security_infrastructure"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Authorization Engine::Sentinel",
+      "source": "Authorization Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "A\u20223ye::Evidence Engine",
+      "source": "A\u20223ye",
+      "source_category": "perception_platform",
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "A\u20223ye::Card Hawk",
+      "source": "A\u20223ye",
+      "source_category": "perception_platform",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Behavioral Analytics::Sentinel",
+      "source": "Behavioral Analytics",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Behavioral Analytics::Watch Tower",
+      "source": "Behavioral Analytics",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Behavioral Analytics::Conclave",
+      "source": "Behavioral Analytics",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Conclave",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Behavioral Analytics::Incident Response Engine",
+      "source": "Behavioral Analytics",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Canonical Identity Framework::SPARTAN",
+      "source": "Canonical Identity Framework",
+      "source_category": "security_infrastructure",
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Canonical Identity Registry::SPARTAN",
+      "source": "Canonical Identity Registry",
+      "source_category": "security_infrastructure",
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Capability Engine::Engine Registry",
+      "source": "Capability Engine",
+      "source_category": "platform_runtime",
+      "status": "declared",
+      "target": "Engine Registry",
+      "target_category": "platform_runtime"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Capability Engine::Execution Engine",
+      "source": "Capability Engine",
+      "source_category": "platform_runtime",
+      "status": "declared",
+      "target": "Execution Engine",
+      "target_category": "platform_runtime"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Capability Registration Protocol::Policy Engine",
+      "source": "Capability Registration Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Card Hawk::A\u20223ye",
+      "source": "Card Hawk",
+      "source_category": "product_application",
+      "status": "declared",
+      "target": "A\u20223ye",
+      "target_category": "perception_platform"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Card Hawk::THORx",
+      "source": "Card Hawk",
+      "source_category": "product_application",
+      "status": "declared",
+      "target": "THORx",
+      "target_category": "card_hawk"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Chain of Evidence Protocol::Policy Engine",
+      "source": "Chain of Evidence Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Compliance Engine::Security Mesh",
+      "source": "Compliance Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_category": "security_infrastructure"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Compliance Engine::Sentinel",
+      "source": "Compliance Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Conclave::Sentinel",
+      "source": "Conclave",
+      "source_category": "security_framework",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Conclave::Incident Response Engine",
+      "source": "Conclave",
+      "source_category": "security_framework",
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Constitutional Audit::SPARTAN",
+      "source": "Constitutional Audit",
+      "source_category": "security_infrastructure",
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Constitutional Authentication Protocol::Policy Engine",
+      "source": "Constitutional Authentication Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Constitutional Authorization Protocol::Policy Engine",
+      "source": "Constitutional Authorization Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Constitutional Consensus Protocol::Policy Engine",
+      "source": "Constitutional Consensus Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Constitutional Governance Protocol::Policy Engine",
+      "source": "Constitutional Governance Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Constitutional Ledger::SPARTAN",
+      "source": "Constitutional Ledger",
+      "source_category": "security_infrastructure",
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Constitutional Security::SPARTAN",
+      "source": "Constitutional Security",
+      "source_category": "security_infrastructure",
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Constitutional Validation Protocol::Policy Engine",
+      "source": "Constitutional Validation Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Continuous Validation::Sentinel",
+      "source": "Continuous Validation",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Continuous Validation::Watch Tower",
+      "source": "Continuous Validation",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Continuous Validation::Conclave",
+      "source": "Continuous Validation",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Conclave",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Continuous Validation::Incident Response Engine",
+      "source": "Continuous Validation",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "D-DEF::Card Hawk",
+      "source": "D-DEF",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "D-DEF::THORx",
+      "source": "D-DEF",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "THORx",
+      "target_category": "card_hawk"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Decision Engine::Execution Engine",
+      "source": "Decision Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Execution Engine",
+      "target_category": "platform_runtime"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Digital Signature Protocol::Policy Engine",
+      "source": "Digital Signature Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Document Intelligence Engine::A\u20223ye",
+      "source": "Document Intelligence Engine",
+      "source_category": "perception",
+      "status": "declared",
+      "target": "A\u20223ye",
+      "target_category": "perception_platform"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Document Intelligence Engine::Evidence Engine",
+      "source": "Document Intelligence Engine",
+      "source_category": "perception",
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Drift Detection::Sentinel",
+      "source": "Drift Detection",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Drift Detection::Watch Tower",
+      "source": "Drift Detection",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Drift Detection::Conclave",
+      "source": "Drift Detection",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Conclave",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Drift Detection::Incident Response Engine",
+      "source": "Drift Detection",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Engine Registry::Runtime Engine Manager",
+      "source": "Engine Registry",
+      "source_category": "platform_runtime",
+      "status": "declared",
+      "target": "Runtime Engine Manager",
+      "target_category": "platform_runtime"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Evidence Engine::Knowledge Engine",
+      "source": "Evidence Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Knowledge Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Evidence Engine::Audit Engine",
+      "source": "Evidence Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Audit Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Evidence Vault::SPARTAN",
+      "source": "Evidence Vault",
+      "source_category": "security_infrastructure",
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Evidence Verification Protocol::Policy Engine",
+      "source": "Evidence Verification Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Execution Engine::Decision Engine",
+      "source": "Execution Engine",
+      "source_category": "platform_runtime",
+      "status": "declared",
+      "target": "Decision Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Execution Engine::Mission Engine",
+      "source": "Execution Engine",
+      "source_category": "platform_runtime",
+      "status": "declared",
+      "target": "Mission Engine",
+      "target_category": "platform_runtime"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Exit Intelligence::Card Hawk",
+      "source": "Exit Intelligence",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Exit Intelligence::THORx",
+      "source": "Exit Intelligence",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "THORx",
+      "target_category": "card_hawk"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "FALCON::Card Hawk",
+      "source": "FALCON",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "FALCON::THORx",
+      "source": "FALCON",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "THORx",
+      "target_category": "card_hawk"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Federation Engine::Trust Registry",
+      "source": "Federation Engine",
+      "source_category": "platform_runtime",
+      "status": "declared",
+      "target": "Trust Registry",
+      "target_category": "security_infrastructure"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Federation Engine::Security Mesh",
+      "source": "Federation Engine",
+      "source_category": "platform_runtime",
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_category": "security_infrastructure"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Forensics Engine::Security Mesh",
+      "source": "Forensics Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_category": "security_infrastructure"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Forensics Engine::Sentinel",
+      "source": "Forensics Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Identity Engine::Canonical Identity Registry",
+      "source": "Identity Engine",
+      "source_category": "platform_runtime",
+      "status": "declared",
+      "target": "Canonical Identity Registry",
+      "target_category": "security_infrastructure"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Identity Engine::Authentication Engine",
+      "source": "Identity Engine",
+      "source_category": "platform_runtime",
+      "status": "declared",
+      "target": "Authentication Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Identity Verification Protocol::Policy Engine",
+      "source": "Identity Verification Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Incident Response Engine::Security Mesh",
+      "source": "Incident Response Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_category": "security_infrastructure"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Incident Response Engine::Sentinel",
+      "source": "Incident Response Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Inspection Engine::A\u20223ye",
+      "source": "Inspection Engine",
+      "source_category": "perception",
+      "status": "declared",
+      "target": "A\u20223ye",
+      "target_category": "perception_platform"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Inspection Engine::Evidence Engine",
+      "source": "Inspection Engine",
+      "source_category": "perception",
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Intelligence Engine::Engine Registry",
+      "source": "Intelligence Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Engine Registry",
+      "target_category": "platform_runtime"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Knowledge Engine::Evidence Engine",
+      "source": "Knowledge Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Knowledge Engine::Reason Engine",
+      "source": "Knowledge Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Reason Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Knowledge Engine::Memory Engine",
+      "source": "Knowledge Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Memory Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Learning Engine::Memory Engine",
+      "source": "Learning Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Memory Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Memory Engine::Knowledge Engine",
+      "source": "Memory Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Knowledge Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Mission Authorization Protocol::Policy Engine",
+      "source": "Mission Authorization Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Mission Engine::Mission Scheduler",
+      "source": "Mission Engine",
+      "source_category": "platform_runtime",
+      "status": "declared",
+      "target": "Mission Scheduler",
+      "target_category": "platform_runtime"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Mission Scheduler::Mission Engine",
+      "source": "Mission Scheduler",
+      "source_category": "platform_runtime",
+      "status": "declared",
+      "target": "Mission Engine",
+      "target_category": "platform_runtime"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "NEST::Card Hawk",
+      "source": "NEST",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "NEST::THORx",
+      "source": "NEST",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "THORx",
+      "target_category": "card_hawk"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Nuclear Cloud::Card Hawk",
+      "source": "Nuclear Cloud",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Nuclear Cloud::THORx",
+      "source": "Nuclear Cloud",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "THORx",
+      "target_category": "card_hawk"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "OCR Engine::A\u20223ye",
+      "source": "OCR Engine",
+      "source_category": "perception",
+      "status": "declared",
+      "target": "A\u20223ye",
+      "target_category": "perception_platform"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "OCR Engine::Evidence Engine",
+      "source": "OCR Engine",
+      "source_category": "perception",
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "PERCH::Card Hawk",
+      "source": "PERCH",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "PERCH::THORx",
+      "source": "PERCH",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "THORx",
+      "target_category": "card_hawk"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Planning Engine::Decision Engine",
+      "source": "Planning Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Decision Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Planning Engine::Mission Engine",
+      "source": "Planning Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Mission Engine",
+      "target_category": "platform_runtime"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Policy Engine::Security Mesh",
+      "source": "Policy Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_category": "security_infrastructure"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Policy Engine::Sentinel",
+      "source": "Policy Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Predictive Engine::Planning Engine",
+      "source": "Predictive Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Planning Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Predictive Engine::Decision Engine",
+      "source": "Predictive Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Decision Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Principle X Protocol::Policy Engine",
+      "source": "Principle X Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Provenance Verification Protocol::Policy Engine",
+      "source": "Provenance Verification Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Q-DEF::Card Hawk",
+      "source": "Q-DEF",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Q-DEF::THORx",
+      "source": "Q-DEF",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "THORx",
+      "target_category": "card_hawk"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "ROOST::Card Hawk",
+      "source": "ROOST",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "ROOST::THORx",
+      "source": "ROOST",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "THORx",
+      "target_category": "card_hawk"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Reason Engine::Knowledge Engine",
+      "source": "Reason Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Knowledge Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Reason Engine::Planning Engine",
+      "source": "Reason Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Planning Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Recognition Engine::A\u20223ye",
+      "source": "Recognition Engine",
+      "source_category": "perception",
+      "status": "declared",
+      "target": "A\u20223ye",
+      "target_category": "perception_platform"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Recognition Engine::Evidence Engine",
+      "source": "Recognition Engine",
+      "source_category": "perception",
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Recovery Engine::Security Mesh",
+      "source": "Recovery Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_category": "security_infrastructure"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Recovery Engine::Sentinel",
+      "source": "Recovery Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Repository Integrity Protocol::Policy Engine",
+      "source": "Repository Integrity Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Risk Intelligence Engine::Security Mesh",
+      "source": "Risk Intelligence Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_category": "security_infrastructure"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Risk Intelligence Engine::Sentinel",
+      "source": "Risk Intelligence Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Runtime Attestation Protocol::Policy Engine",
+      "source": "Runtime Attestation Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Runtime Engine Manager::Engine Registry",
+      "source": "Runtime Engine Manager",
+      "source_category": "platform_runtime",
+      "status": "declared",
+      "target": "Engine Registry",
+      "target_category": "platform_runtime"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Runtime Integrity Protocol::Policy Engine",
+      "source": "Runtime Integrity Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Runtime Monitoring::Sentinel",
+      "source": "Runtime Monitoring",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Runtime Monitoring::Watch Tower",
+      "source": "Runtime Monitoring",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Runtime Monitoring::Conclave",
+      "source": "Runtime Monitoring",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Conclave",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Runtime Monitoring::Incident Response Engine",
+      "source": "Runtime Monitoring",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "SOAR::Card Hawk",
+      "source": "SOAR",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "SOAR::THORx",
+      "source": "SOAR",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "THORx",
+      "target_category": "card_hawk"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "SPAN::SPARTAN",
+      "source": "SPAN",
+      "source_category": "security_framework",
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "SPARTAN::SPAN",
+      "source": "SPARTAN",
+      "source_category": "security_framework",
+      "status": "declared",
+      "target": "SPAN",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "SPARTAN::Watch Tower",
+      "source": "SPARTAN",
+      "source_category": "security_framework",
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "SPARTAN::Conclave",
+      "source": "SPARTAN",
+      "source_category": "security_framework",
+      "status": "declared",
+      "target": "Conclave",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "SPARTAN::Sentinel",
+      "source": "SPARTAN",
+      "source_category": "security_framework",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "STRIKE::Card Hawk",
+      "source": "STRIKE",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "STRIKE::THORx",
+      "source": "STRIKE",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "THORx",
+      "target_category": "card_hawk"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Secure Communication Protocol::Policy Engine",
+      "source": "Secure Communication Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Secure Execution Protocol::Policy Engine",
+      "source": "Secure Execution Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Secure Session Protocol::Policy Engine",
+      "source": "Secure Session Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Security Circuit::SPARTAN",
+      "source": "Security Circuit",
+      "source_category": "security_infrastructure",
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Security Fabric::SPARTAN",
+      "source": "Security Fabric",
+      "source_category": "security_infrastructure",
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Security Mesh::SPARTAN",
+      "source": "Security Mesh",
+      "source_category": "security_infrastructure",
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Security Telemetry::SPARTAN",
+      "source": "Security Telemetry",
+      "source_category": "security_infrastructure",
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Semantic Engine::Knowledge Engine",
+      "source": "Semantic Engine",
+      "source_category": "core_intelligence",
+      "status": "declared",
+      "target": "Knowledge Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Sentinel::SPARTAN",
+      "source": "Sentinel",
+      "source_category": "security_framework",
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Sentinel::Watch Tower",
+      "source": "Sentinel",
+      "source_category": "security_framework",
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Sentinel::Conclave",
+      "source": "Sentinel",
+      "source_category": "security_framework",
+      "status": "declared",
+      "target": "Conclave",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Service Registration Protocol::Policy Engine",
+      "source": "Service Registration Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Strike Zone::Card Hawk",
+      "source": "Strike Zone",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Strike Zone::THORx",
+      "source": "Strike Zone",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "THORx",
+      "target_category": "card_hawk"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Supply Chain Verification Protocol::Policy Engine",
+      "source": "Supply Chain Verification Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "TALON::Card Hawk",
+      "source": "TALON",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "TALON::THORx",
+      "source": "TALON",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "THORx",
+      "target_category": "card_hawk"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "THORx::Card Hawk",
+      "source": "THORx",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_category": "product_application"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "THORx::Decision Engine",
+      "source": "THORx",
+      "source_category": "card_hawk",
+      "status": "declared",
+      "target": "Decision Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Tamper Detection Protocol::Policy Engine",
+      "source": "Tamper Detection Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Attribution::Sentinel",
+      "source": "Threat Attribution",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Attribution::Watch Tower",
+      "source": "Threat Attribution",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Attribution::Conclave",
+      "source": "Threat Attribution",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Conclave",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Attribution::Incident Response Engine",
+      "source": "Threat Attribution",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Containment::Sentinel",
+      "source": "Threat Containment",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Containment::Watch Tower",
+      "source": "Threat Containment",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Containment::Conclave",
+      "source": "Threat Containment",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Conclave",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Containment::Incident Response Engine",
+      "source": "Threat Containment",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Correlation::Sentinel",
+      "source": "Threat Correlation",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Correlation::Watch Tower",
+      "source": "Threat Correlation",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Correlation::Conclave",
+      "source": "Threat Correlation",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Conclave",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Correlation::Incident Response Engine",
+      "source": "Threat Correlation",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Detection::Sentinel",
+      "source": "Threat Detection",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Detection::Watch Tower",
+      "source": "Threat Detection",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Detection::Conclave",
+      "source": "Threat Detection",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Conclave",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Detection::Incident Response Engine",
+      "source": "Threat Detection",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Eradication::Sentinel",
+      "source": "Threat Eradication",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Eradication::Watch Tower",
+      "source": "Threat Eradication",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Eradication::Conclave",
+      "source": "Threat Eradication",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Conclave",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Eradication::Incident Response Engine",
+      "source": "Threat Eradication",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Hunting::Sentinel",
+      "source": "Threat Hunting",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Hunting::Watch Tower",
+      "source": "Threat Hunting",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Hunting::Conclave",
+      "source": "Threat Hunting",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Conclave",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Hunting::Incident Response Engine",
+      "source": "Threat Hunting",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Intelligence Engine::Security Mesh",
+      "source": "Threat Intelligence Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_category": "security_infrastructure"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Intelligence Engine::Sentinel",
+      "source": "Threat Intelligence Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Recovery::Sentinel",
+      "source": "Threat Recovery",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Recovery::Watch Tower",
+      "source": "Threat Recovery",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Recovery::Conclave",
+      "source": "Threat Recovery",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Conclave",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Threat Recovery::Incident Response Engine",
+      "source": "Threat Recovery",
+      "source_category": "defensive_operations",
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Trust Framework::SPARTAN",
+      "source": "Trust Framework",
+      "source_category": "security_infrastructure",
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Trust Registry::SPARTAN",
+      "source": "Trust Registry",
+      "source_category": "security_infrastructure",
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Truth Verification Protocol::Policy Engine",
+      "source": "Truth Verification Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Verification Engine::A\u20223ye",
+      "source": "Verification Engine",
+      "source_category": "perception",
+      "status": "declared",
+      "target": "A\u20223ye",
+      "target_category": "perception_platform"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Verification Engine::Evidence Engine",
+      "source": "Verification Engine",
+      "source_category": "perception",
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Vision Engine::A\u20223ye",
+      "source": "Vision Engine",
+      "source_category": "perception",
+      "status": "declared",
+      "target": "A\u20223ye",
+      "target_category": "perception_platform"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Vision Engine::Evidence Engine",
+      "source": "Vision Engine",
+      "source_category": "perception",
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_category": "core_intelligence"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Vulnerability Intelligence Engine::Security Mesh",
+      "source": "Vulnerability Intelligence Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_category": "security_infrastructure"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Vulnerability Intelligence Engine::Sentinel",
+      "source": "Vulnerability Intelligence Engine",
+      "source_category": "security_intelligence",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Watch Tower::Sentinel",
+      "source": "Watch Tower",
+      "source_category": "security_framework",
+      "status": "declared",
+      "target": "Sentinel",
+      "target_category": "security_framework"
+    },
+    {
+      "handoff": "evidence_and_request",
+      "route_id": "Zero Trust Protocol::Policy Engine",
+      "source": "Zero Trust Protocol",
+      "source_category": "security_protocol",
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_category": "security_intelligence"
+    }
+  ]
+}
