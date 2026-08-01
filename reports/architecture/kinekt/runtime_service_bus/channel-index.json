@@ -1,0 +1,2342 @@
+{
+  "bus::Acquisition AI::Card Hawk": {
+    "channel_id": "bus::Acquisition AI::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Acquisition AI",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::Acquisition AI::THORx": {
+    "channel_id": "bus::Acquisition AI::THORx",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Acquisition AI",
+    "status": "declared",
+    "target": "THORx"
+  },
+  "bus::Anomaly Detection::Conclave": {
+    "channel_id": "bus::Anomaly Detection::Conclave",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Anomaly Detection",
+    "status": "declared",
+    "target": "Conclave"
+  },
+  "bus::Anomaly Detection::Incident Response Engine": {
+    "channel_id": "bus::Anomaly Detection::Incident Response Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Anomaly Detection",
+    "status": "declared",
+    "target": "Incident Response Engine"
+  },
+  "bus::Anomaly Detection::Sentinel": {
+    "channel_id": "bus::Anomaly Detection::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Anomaly Detection",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Anomaly Detection::Watch Tower": {
+    "channel_id": "bus::Anomaly Detection::Watch Tower",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Anomaly Detection",
+    "status": "declared",
+    "target": "Watch Tower"
+  },
+  "bus::Asset DNA::Card Hawk": {
+    "channel_id": "bus::Asset DNA::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Asset DNA",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::Asset DNA::THORx": {
+    "channel_id": "bus::Asset DNA::THORx",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Asset DNA",
+    "status": "declared",
+    "target": "THORx"
+  },
+  "bus::Attack Surface Analysis::Conclave": {
+    "channel_id": "bus::Attack Surface Analysis::Conclave",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Attack Surface Analysis",
+    "status": "declared",
+    "target": "Conclave"
+  },
+  "bus::Attack Surface Analysis::Incident Response Engine": {
+    "channel_id": "bus::Attack Surface Analysis::Incident Response Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Attack Surface Analysis",
+    "status": "declared",
+    "target": "Incident Response Engine"
+  },
+  "bus::Attack Surface Analysis::Sentinel": {
+    "channel_id": "bus::Attack Surface Analysis::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Attack Surface Analysis",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Attack Surface Analysis::Watch Tower": {
+    "channel_id": "bus::Attack Surface Analysis::Watch Tower",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Attack Surface Analysis",
+    "status": "declared",
+    "target": "Watch Tower"
+  },
+  "bus::Audit Engine::Security Mesh": {
+    "channel_id": "bus::Audit Engine::Security Mesh",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Audit Engine",
+    "status": "declared",
+    "target": "Security Mesh"
+  },
+  "bus::Audit Engine::Sentinel": {
+    "channel_id": "bus::Audit Engine::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Audit Engine",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Authentication Engine::Security Mesh": {
+    "channel_id": "bus::Authentication Engine::Security Mesh",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Authentication Engine",
+    "status": "declared",
+    "target": "Security Mesh"
+  },
+  "bus::Authentication Engine::Sentinel": {
+    "channel_id": "bus::Authentication Engine::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Authentication Engine",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Authorization Engine::Security Mesh": {
+    "channel_id": "bus::Authorization Engine::Security Mesh",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Authorization Engine",
+    "status": "declared",
+    "target": "Security Mesh"
+  },
+  "bus::Authorization Engine::Sentinel": {
+    "channel_id": "bus::Authorization Engine::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Authorization Engine",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::A\u20223ye::Card Hawk": {
+    "channel_id": "bus::A\u20223ye::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "A\u20223ye",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::A\u20223ye::Evidence Engine": {
+    "channel_id": "bus::A\u20223ye::Evidence Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "A\u20223ye",
+    "status": "declared",
+    "target": "Evidence Engine"
+  },
+  "bus::Behavioral Analytics::Conclave": {
+    "channel_id": "bus::Behavioral Analytics::Conclave",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Behavioral Analytics",
+    "status": "declared",
+    "target": "Conclave"
+  },
+  "bus::Behavioral Analytics::Incident Response Engine": {
+    "channel_id": "bus::Behavioral Analytics::Incident Response Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Behavioral Analytics",
+    "status": "declared",
+    "target": "Incident Response Engine"
+  },
+  "bus::Behavioral Analytics::Sentinel": {
+    "channel_id": "bus::Behavioral Analytics::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Behavioral Analytics",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Behavioral Analytics::Watch Tower": {
+    "channel_id": "bus::Behavioral Analytics::Watch Tower",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Behavioral Analytics",
+    "status": "declared",
+    "target": "Watch Tower"
+  },
+  "bus::Canonical Identity Framework::SPARTAN": {
+    "channel_id": "bus::Canonical Identity Framework::SPARTAN",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Canonical Identity Framework",
+    "status": "declared",
+    "target": "SPARTAN"
+  },
+  "bus::Canonical Identity Registry::SPARTAN": {
+    "channel_id": "bus::Canonical Identity Registry::SPARTAN",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Canonical Identity Registry",
+    "status": "declared",
+    "target": "SPARTAN"
+  },
+  "bus::Capability Engine::Engine Registry": {
+    "channel_id": "bus::Capability Engine::Engine Registry",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Capability Engine",
+    "status": "declared",
+    "target": "Engine Registry"
+  },
+  "bus::Capability Engine::Execution Engine": {
+    "channel_id": "bus::Capability Engine::Execution Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Capability Engine",
+    "status": "declared",
+    "target": "Execution Engine"
+  },
+  "bus::Capability Registration Protocol::Policy Engine": {
+    "channel_id": "bus::Capability Registration Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Capability Registration Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Card Hawk::A\u20223ye": {
+    "channel_id": "bus::Card Hawk::A\u20223ye",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Card Hawk",
+    "status": "declared",
+    "target": "A\u20223ye"
+  },
+  "bus::Card Hawk::THORx": {
+    "channel_id": "bus::Card Hawk::THORx",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Card Hawk",
+    "status": "declared",
+    "target": "THORx"
+  },
+  "bus::Chain of Evidence Protocol::Policy Engine": {
+    "channel_id": "bus::Chain of Evidence Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Chain of Evidence Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Compliance Engine::Security Mesh": {
+    "channel_id": "bus::Compliance Engine::Security Mesh",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Compliance Engine",
+    "status": "declared",
+    "target": "Security Mesh"
+  },
+  "bus::Compliance Engine::Sentinel": {
+    "channel_id": "bus::Compliance Engine::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Compliance Engine",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Conclave::Incident Response Engine": {
+    "channel_id": "bus::Conclave::Incident Response Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Conclave",
+    "status": "declared",
+    "target": "Incident Response Engine"
+  },
+  "bus::Conclave::Sentinel": {
+    "channel_id": "bus::Conclave::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Conclave",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Constitutional Audit::SPARTAN": {
+    "channel_id": "bus::Constitutional Audit::SPARTAN",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Constitutional Audit",
+    "status": "declared",
+    "target": "SPARTAN"
+  },
+  "bus::Constitutional Authentication Protocol::Policy Engine": {
+    "channel_id": "bus::Constitutional Authentication Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Constitutional Authentication Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Constitutional Authorization Protocol::Policy Engine": {
+    "channel_id": "bus::Constitutional Authorization Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Constitutional Authorization Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Constitutional Consensus Protocol::Policy Engine": {
+    "channel_id": "bus::Constitutional Consensus Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Constitutional Consensus Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Constitutional Governance Protocol::Policy Engine": {
+    "channel_id": "bus::Constitutional Governance Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Constitutional Governance Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Constitutional Ledger::SPARTAN": {
+    "channel_id": "bus::Constitutional Ledger::SPARTAN",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Constitutional Ledger",
+    "status": "declared",
+    "target": "SPARTAN"
+  },
+  "bus::Constitutional Security::SPARTAN": {
+    "channel_id": "bus::Constitutional Security::SPARTAN",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Constitutional Security",
+    "status": "declared",
+    "target": "SPARTAN"
+  },
+  "bus::Constitutional Validation Protocol::Policy Engine": {
+    "channel_id": "bus::Constitutional Validation Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Constitutional Validation Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Continuous Validation::Conclave": {
+    "channel_id": "bus::Continuous Validation::Conclave",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Continuous Validation",
+    "status": "declared",
+    "target": "Conclave"
+  },
+  "bus::Continuous Validation::Incident Response Engine": {
+    "channel_id": "bus::Continuous Validation::Incident Response Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Continuous Validation",
+    "status": "declared",
+    "target": "Incident Response Engine"
+  },
+  "bus::Continuous Validation::Sentinel": {
+    "channel_id": "bus::Continuous Validation::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Continuous Validation",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Continuous Validation::Watch Tower": {
+    "channel_id": "bus::Continuous Validation::Watch Tower",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Continuous Validation",
+    "status": "declared",
+    "target": "Watch Tower"
+  },
+  "bus::D-DEF::Card Hawk": {
+    "channel_id": "bus::D-DEF::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "D-DEF",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::D-DEF::THORx": {
+    "channel_id": "bus::D-DEF::THORx",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "D-DEF",
+    "status": "declared",
+    "target": "THORx"
+  },
+  "bus::Decision Engine::Execution Engine": {
+    "channel_id": "bus::Decision Engine::Execution Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Decision Engine",
+    "status": "declared",
+    "target": "Execution Engine"
+  },
+  "bus::Digital Signature Protocol::Policy Engine": {
+    "channel_id": "bus::Digital Signature Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Digital Signature Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Document Intelligence Engine::A\u20223ye": {
+    "channel_id": "bus::Document Intelligence Engine::A\u20223ye",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Document Intelligence Engine",
+    "status": "declared",
+    "target": "A\u20223ye"
+  },
+  "bus::Document Intelligence Engine::Evidence Engine": {
+    "channel_id": "bus::Document Intelligence Engine::Evidence Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Document Intelligence Engine",
+    "status": "declared",
+    "target": "Evidence Engine"
+  },
+  "bus::Drift Detection::Conclave": {
+    "channel_id": "bus::Drift Detection::Conclave",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Drift Detection",
+    "status": "declared",
+    "target": "Conclave"
+  },
+  "bus::Drift Detection::Incident Response Engine": {
+    "channel_id": "bus::Drift Detection::Incident Response Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Drift Detection",
+    "status": "declared",
+    "target": "Incident Response Engine"
+  },
+  "bus::Drift Detection::Sentinel": {
+    "channel_id": "bus::Drift Detection::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Drift Detection",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Drift Detection::Watch Tower": {
+    "channel_id": "bus::Drift Detection::Watch Tower",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Drift Detection",
+    "status": "declared",
+    "target": "Watch Tower"
+  },
+  "bus::Engine Registry::Runtime Engine Manager": {
+    "channel_id": "bus::Engine Registry::Runtime Engine Manager",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Engine Registry",
+    "status": "declared",
+    "target": "Runtime Engine Manager"
+  },
+  "bus::Evidence Engine::Audit Engine": {
+    "channel_id": "bus::Evidence Engine::Audit Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Evidence Engine",
+    "status": "declared",
+    "target": "Audit Engine"
+  },
+  "bus::Evidence Engine::Knowledge Engine": {
+    "channel_id": "bus::Evidence Engine::Knowledge Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Evidence Engine",
+    "status": "declared",
+    "target": "Knowledge Engine"
+  },
+  "bus::Evidence Vault::SPARTAN": {
+    "channel_id": "bus::Evidence Vault::SPARTAN",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Evidence Vault",
+    "status": "declared",
+    "target": "SPARTAN"
+  },
+  "bus::Evidence Verification Protocol::Policy Engine": {
+    "channel_id": "bus::Evidence Verification Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Evidence Verification Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Execution Engine::Decision Engine": {
+    "channel_id": "bus::Execution Engine::Decision Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Execution Engine",
+    "status": "declared",
+    "target": "Decision Engine"
+  },
+  "bus::Execution Engine::Mission Engine": {
+    "channel_id": "bus::Execution Engine::Mission Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Execution Engine",
+    "status": "declared",
+    "target": "Mission Engine"
+  },
+  "bus::Exit Intelligence::Card Hawk": {
+    "channel_id": "bus::Exit Intelligence::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Exit Intelligence",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::Exit Intelligence::THORx": {
+    "channel_id": "bus::Exit Intelligence::THORx",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Exit Intelligence",
+    "status": "declared",
+    "target": "THORx"
+  },
+  "bus::FALCON::Card Hawk": {
+    "channel_id": "bus::FALCON::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "FALCON",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::FALCON::THORx": {
+    "channel_id": "bus::FALCON::THORx",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "FALCON",
+    "status": "declared",
+    "target": "THORx"
+  },
+  "bus::Federation Engine::Security Mesh": {
+    "channel_id": "bus::Federation Engine::Security Mesh",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Federation Engine",
+    "status": "declared",
+    "target": "Security Mesh"
+  },
+  "bus::Federation Engine::Trust Registry": {
+    "channel_id": "bus::Federation Engine::Trust Registry",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Federation Engine",
+    "status": "declared",
+    "target": "Trust Registry"
+  },
+  "bus::Forensics Engine::Security Mesh": {
+    "channel_id": "bus::Forensics Engine::Security Mesh",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Forensics Engine",
+    "status": "declared",
+    "target": "Security Mesh"
+  },
+  "bus::Forensics Engine::Sentinel": {
+    "channel_id": "bus::Forensics Engine::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Forensics Engine",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Identity Engine::Authentication Engine": {
+    "channel_id": "bus::Identity Engine::Authentication Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Identity Engine",
+    "status": "declared",
+    "target": "Authentication Engine"
+  },
+  "bus::Identity Engine::Canonical Identity Registry": {
+    "channel_id": "bus::Identity Engine::Canonical Identity Registry",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Identity Engine",
+    "status": "declared",
+    "target": "Canonical Identity Registry"
+  },
+  "bus::Identity Verification Protocol::Policy Engine": {
+    "channel_id": "bus::Identity Verification Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Identity Verification Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Incident Response Engine::Security Mesh": {
+    "channel_id": "bus::Incident Response Engine::Security Mesh",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Incident Response Engine",
+    "status": "declared",
+    "target": "Security Mesh"
+  },
+  "bus::Incident Response Engine::Sentinel": {
+    "channel_id": "bus::Incident Response Engine::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Incident Response Engine",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Inspection Engine::A\u20223ye": {
+    "channel_id": "bus::Inspection Engine::A\u20223ye",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Inspection Engine",
+    "status": "declared",
+    "target": "A\u20223ye"
+  },
+  "bus::Inspection Engine::Evidence Engine": {
+    "channel_id": "bus::Inspection Engine::Evidence Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Inspection Engine",
+    "status": "declared",
+    "target": "Evidence Engine"
+  },
+  "bus::Intelligence Engine::Engine Registry": {
+    "channel_id": "bus::Intelligence Engine::Engine Registry",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Intelligence Engine",
+    "status": "declared",
+    "target": "Engine Registry"
+  },
+  "bus::Knowledge Engine::Evidence Engine": {
+    "channel_id": "bus::Knowledge Engine::Evidence Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Knowledge Engine",
+    "status": "declared",
+    "target": "Evidence Engine"
+  },
+  "bus::Knowledge Engine::Memory Engine": {
+    "channel_id": "bus::Knowledge Engine::Memory Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Knowledge Engine",
+    "status": "declared",
+    "target": "Memory Engine"
+  },
+  "bus::Knowledge Engine::Reason Engine": {
+    "channel_id": "bus::Knowledge Engine::Reason Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Knowledge Engine",
+    "status": "declared",
+    "target": "Reason Engine"
+  },
+  "bus::Learning Engine::Memory Engine": {
+    "channel_id": "bus::Learning Engine::Memory Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Learning Engine",
+    "status": "declared",
+    "target": "Memory Engine"
+  },
+  "bus::Memory Engine::Knowledge Engine": {
+    "channel_id": "bus::Memory Engine::Knowledge Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Memory Engine",
+    "status": "declared",
+    "target": "Knowledge Engine"
+  },
+  "bus::Mission Authorization Protocol::Policy Engine": {
+    "channel_id": "bus::Mission Authorization Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Mission Authorization Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Mission Engine::Mission Scheduler": {
+    "channel_id": "bus::Mission Engine::Mission Scheduler",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Mission Engine",
+    "status": "declared",
+    "target": "Mission Scheduler"
+  },
+  "bus::Mission Scheduler::Mission Engine": {
+    "channel_id": "bus::Mission Scheduler::Mission Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Mission Scheduler",
+    "status": "declared",
+    "target": "Mission Engine"
+  },
+  "bus::NEST::Card Hawk": {
+    "channel_id": "bus::NEST::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "NEST",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::NEST::THORx": {
+    "channel_id": "bus::NEST::THORx",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "NEST",
+    "status": "declared",
+    "target": "THORx"
+  },
+  "bus::Nuclear Cloud::Card Hawk": {
+    "channel_id": "bus::Nuclear Cloud::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Nuclear Cloud",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::Nuclear Cloud::THORx": {
+    "channel_id": "bus::Nuclear Cloud::THORx",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Nuclear Cloud",
+    "status": "declared",
+    "target": "THORx"
+  },
+  "bus::OCR Engine::A\u20223ye": {
+    "channel_id": "bus::OCR Engine::A\u20223ye",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "OCR Engine",
+    "status": "declared",
+    "target": "A\u20223ye"
+  },
+  "bus::OCR Engine::Evidence Engine": {
+    "channel_id": "bus::OCR Engine::Evidence Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "OCR Engine",
+    "status": "declared",
+    "target": "Evidence Engine"
+  },
+  "bus::PERCH::Card Hawk": {
+    "channel_id": "bus::PERCH::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "PERCH",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::PERCH::THORx": {
+    "channel_id": "bus::PERCH::THORx",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "PERCH",
+    "status": "declared",
+    "target": "THORx"
+  },
+  "bus::Planning Engine::Decision Engine": {
+    "channel_id": "bus::Planning Engine::Decision Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Planning Engine",
+    "status": "declared",
+    "target": "Decision Engine"
+  },
+  "bus::Planning Engine::Mission Engine": {
+    "channel_id": "bus::Planning Engine::Mission Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Planning Engine",
+    "status": "declared",
+    "target": "Mission Engine"
+  },
+  "bus::Policy Engine::Security Mesh": {
+    "channel_id": "bus::Policy Engine::Security Mesh",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Policy Engine",
+    "status": "declared",
+    "target": "Security Mesh"
+  },
+  "bus::Policy Engine::Sentinel": {
+    "channel_id": "bus::Policy Engine::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Policy Engine",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Predictive Engine::Decision Engine": {
+    "channel_id": "bus::Predictive Engine::Decision Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Predictive Engine",
+    "status": "declared",
+    "target": "Decision Engine"
+  },
+  "bus::Predictive Engine::Planning Engine": {
+    "channel_id": "bus::Predictive Engine::Planning Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Predictive Engine",
+    "status": "declared",
+    "target": "Planning Engine"
+  },
+  "bus::Principle X Protocol::Policy Engine": {
+    "channel_id": "bus::Principle X Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Principle X Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Provenance Verification Protocol::Policy Engine": {
+    "channel_id": "bus::Provenance Verification Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Provenance Verification Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Q-DEF::Card Hawk": {
+    "channel_id": "bus::Q-DEF::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Q-DEF",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::Q-DEF::THORx": {
+    "channel_id": "bus::Q-DEF::THORx",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Q-DEF",
+    "status": "declared",
+    "target": "THORx"
+  },
+  "bus::ROOST::Card Hawk": {
+    "channel_id": "bus::ROOST::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "ROOST",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::ROOST::THORx": {
+    "channel_id": "bus::ROOST::THORx",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "ROOST",
+    "status": "declared",
+    "target": "THORx"
+  },
+  "bus::Reason Engine::Knowledge Engine": {
+    "channel_id": "bus::Reason Engine::Knowledge Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Reason Engine",
+    "status": "declared",
+    "target": "Knowledge Engine"
+  },
+  "bus::Reason Engine::Planning Engine": {
+    "channel_id": "bus::Reason Engine::Planning Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Reason Engine",
+    "status": "declared",
+    "target": "Planning Engine"
+  },
+  "bus::Recognition Engine::A\u20223ye": {
+    "channel_id": "bus::Recognition Engine::A\u20223ye",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Recognition Engine",
+    "status": "declared",
+    "target": "A\u20223ye"
+  },
+  "bus::Recognition Engine::Evidence Engine": {
+    "channel_id": "bus::Recognition Engine::Evidence Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Recognition Engine",
+    "status": "declared",
+    "target": "Evidence Engine"
+  },
+  "bus::Recovery Engine::Security Mesh": {
+    "channel_id": "bus::Recovery Engine::Security Mesh",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Recovery Engine",
+    "status": "declared",
+    "target": "Security Mesh"
+  },
+  "bus::Recovery Engine::Sentinel": {
+    "channel_id": "bus::Recovery Engine::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Recovery Engine",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Repository Integrity Protocol::Policy Engine": {
+    "channel_id": "bus::Repository Integrity Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Repository Integrity Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Risk Intelligence Engine::Security Mesh": {
+    "channel_id": "bus::Risk Intelligence Engine::Security Mesh",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Risk Intelligence Engine",
+    "status": "declared",
+    "target": "Security Mesh"
+  },
+  "bus::Risk Intelligence Engine::Sentinel": {
+    "channel_id": "bus::Risk Intelligence Engine::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Risk Intelligence Engine",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Runtime Attestation Protocol::Policy Engine": {
+    "channel_id": "bus::Runtime Attestation Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Runtime Attestation Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Runtime Engine Manager::Engine Registry": {
+    "channel_id": "bus::Runtime Engine Manager::Engine Registry",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Runtime Engine Manager",
+    "status": "declared",
+    "target": "Engine Registry"
+  },
+  "bus::Runtime Integrity Protocol::Policy Engine": {
+    "channel_id": "bus::Runtime Integrity Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Runtime Integrity Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Runtime Monitoring::Conclave": {
+    "channel_id": "bus::Runtime Monitoring::Conclave",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Runtime Monitoring",
+    "status": "declared",
+    "target": "Conclave"
+  },
+  "bus::Runtime Monitoring::Incident Response Engine": {
+    "channel_id": "bus::Runtime Monitoring::Incident Response Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Runtime Monitoring",
+    "status": "declared",
+    "target": "Incident Response Engine"
+  },
+  "bus::Runtime Monitoring::Sentinel": {
+    "channel_id": "bus::Runtime Monitoring::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Runtime Monitoring",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Runtime Monitoring::Watch Tower": {
+    "channel_id": "bus::Runtime Monitoring::Watch Tower",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Runtime Monitoring",
+    "status": "declared",
+    "target": "Watch Tower"
+  },
+  "bus::SOAR::Card Hawk": {
+    "channel_id": "bus::SOAR::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "SOAR",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::SOAR::THORx": {
+    "channel_id": "bus::SOAR::THORx",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "SOAR",
+    "status": "declared",
+    "target": "THORx"
+  },
+  "bus::SPAN::SPARTAN": {
+    "channel_id": "bus::SPAN::SPARTAN",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "SPAN",
+    "status": "declared",
+    "target": "SPARTAN"
+  },
+  "bus::SPARTAN::Conclave": {
+    "channel_id": "bus::SPARTAN::Conclave",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "SPARTAN",
+    "status": "declared",
+    "target": "Conclave"
+  },
+  "bus::SPARTAN::SPAN": {
+    "channel_id": "bus::SPARTAN::SPAN",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "SPARTAN",
+    "status": "declared",
+    "target": "SPAN"
+  },
+  "bus::SPARTAN::Sentinel": {
+    "channel_id": "bus::SPARTAN::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "SPARTAN",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::SPARTAN::Watch Tower": {
+    "channel_id": "bus::SPARTAN::Watch Tower",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "SPARTAN",
+    "status": "declared",
+    "target": "Watch Tower"
+  },
+  "bus::STRIKE::Card Hawk": {
+    "channel_id": "bus::STRIKE::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "STRIKE",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::STRIKE::THORx": {
+    "channel_id": "bus::STRIKE::THORx",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "STRIKE",
+    "status": "declared",
+    "target": "THORx"
+  },
+  "bus::Secure Communication Protocol::Policy Engine": {
+    "channel_id": "bus::Secure Communication Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Secure Communication Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Secure Execution Protocol::Policy Engine": {
+    "channel_id": "bus::Secure Execution Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Secure Execution Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Secure Session Protocol::Policy Engine": {
+    "channel_id": "bus::Secure Session Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Secure Session Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Security Circuit::SPARTAN": {
+    "channel_id": "bus::Security Circuit::SPARTAN",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Security Circuit",
+    "status": "declared",
+    "target": "SPARTAN"
+  },
+  "bus::Security Fabric::SPARTAN": {
+    "channel_id": "bus::Security Fabric::SPARTAN",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Security Fabric",
+    "status": "declared",
+    "target": "SPARTAN"
+  },
+  "bus::Security Mesh::SPARTAN": {
+    "channel_id": "bus::Security Mesh::SPARTAN",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Security Mesh",
+    "status": "declared",
+    "target": "SPARTAN"
+  },
+  "bus::Security Telemetry::SPARTAN": {
+    "channel_id": "bus::Security Telemetry::SPARTAN",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Security Telemetry",
+    "status": "declared",
+    "target": "SPARTAN"
+  },
+  "bus::Semantic Engine::Knowledge Engine": {
+    "channel_id": "bus::Semantic Engine::Knowledge Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Semantic Engine",
+    "status": "declared",
+    "target": "Knowledge Engine"
+  },
+  "bus::Sentinel::Conclave": {
+    "channel_id": "bus::Sentinel::Conclave",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Sentinel",
+    "status": "declared",
+    "target": "Conclave"
+  },
+  "bus::Sentinel::SPARTAN": {
+    "channel_id": "bus::Sentinel::SPARTAN",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Sentinel",
+    "status": "declared",
+    "target": "SPARTAN"
+  },
+  "bus::Sentinel::Watch Tower": {
+    "channel_id": "bus::Sentinel::Watch Tower",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Sentinel",
+    "status": "declared",
+    "target": "Watch Tower"
+  },
+  "bus::Service Registration Protocol::Policy Engine": {
+    "channel_id": "bus::Service Registration Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Service Registration Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Strike Zone::Card Hawk": {
+    "channel_id": "bus::Strike Zone::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Strike Zone",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::Strike Zone::THORx": {
+    "channel_id": "bus::Strike Zone::THORx",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Strike Zone",
+    "status": "declared",
+    "target": "THORx"
+  },
+  "bus::Supply Chain Verification Protocol::Policy Engine": {
+    "channel_id": "bus::Supply Chain Verification Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Supply Chain Verification Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::TALON::Card Hawk": {
+    "channel_id": "bus::TALON::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "TALON",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::TALON::THORx": {
+    "channel_id": "bus::TALON::THORx",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "TALON",
+    "status": "declared",
+    "target": "THORx"
+  },
+  "bus::THORx::Card Hawk": {
+    "channel_id": "bus::THORx::Card Hawk",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "THORx",
+    "status": "declared",
+    "target": "Card Hawk"
+  },
+  "bus::THORx::Decision Engine": {
+    "channel_id": "bus::THORx::Decision Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "THORx",
+    "status": "declared",
+    "target": "Decision Engine"
+  },
+  "bus::Tamper Detection Protocol::Policy Engine": {
+    "channel_id": "bus::Tamper Detection Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Tamper Detection Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Threat Attribution::Conclave": {
+    "channel_id": "bus::Threat Attribution::Conclave",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Attribution",
+    "status": "declared",
+    "target": "Conclave"
+  },
+  "bus::Threat Attribution::Incident Response Engine": {
+    "channel_id": "bus::Threat Attribution::Incident Response Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Attribution",
+    "status": "declared",
+    "target": "Incident Response Engine"
+  },
+  "bus::Threat Attribution::Sentinel": {
+    "channel_id": "bus::Threat Attribution::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Attribution",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Threat Attribution::Watch Tower": {
+    "channel_id": "bus::Threat Attribution::Watch Tower",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Attribution",
+    "status": "declared",
+    "target": "Watch Tower"
+  },
+  "bus::Threat Containment::Conclave": {
+    "channel_id": "bus::Threat Containment::Conclave",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Containment",
+    "status": "declared",
+    "target": "Conclave"
+  },
+  "bus::Threat Containment::Incident Response Engine": {
+    "channel_id": "bus::Threat Containment::Incident Response Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Containment",
+    "status": "declared",
+    "target": "Incident Response Engine"
+  },
+  "bus::Threat Containment::Sentinel": {
+    "channel_id": "bus::Threat Containment::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Containment",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Threat Containment::Watch Tower": {
+    "channel_id": "bus::Threat Containment::Watch Tower",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Containment",
+    "status": "declared",
+    "target": "Watch Tower"
+  },
+  "bus::Threat Correlation::Conclave": {
+    "channel_id": "bus::Threat Correlation::Conclave",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Correlation",
+    "status": "declared",
+    "target": "Conclave"
+  },
+  "bus::Threat Correlation::Incident Response Engine": {
+    "channel_id": "bus::Threat Correlation::Incident Response Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Correlation",
+    "status": "declared",
+    "target": "Incident Response Engine"
+  },
+  "bus::Threat Correlation::Sentinel": {
+    "channel_id": "bus::Threat Correlation::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Correlation",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Threat Correlation::Watch Tower": {
+    "channel_id": "bus::Threat Correlation::Watch Tower",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Correlation",
+    "status": "declared",
+    "target": "Watch Tower"
+  },
+  "bus::Threat Detection::Conclave": {
+    "channel_id": "bus::Threat Detection::Conclave",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Detection",
+    "status": "declared",
+    "target": "Conclave"
+  },
+  "bus::Threat Detection::Incident Response Engine": {
+    "channel_id": "bus::Threat Detection::Incident Response Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Detection",
+    "status": "declared",
+    "target": "Incident Response Engine"
+  },
+  "bus::Threat Detection::Sentinel": {
+    "channel_id": "bus::Threat Detection::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Detection",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Threat Detection::Watch Tower": {
+    "channel_id": "bus::Threat Detection::Watch Tower",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Detection",
+    "status": "declared",
+    "target": "Watch Tower"
+  },
+  "bus::Threat Eradication::Conclave": {
+    "channel_id": "bus::Threat Eradication::Conclave",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Eradication",
+    "status": "declared",
+    "target": "Conclave"
+  },
+  "bus::Threat Eradication::Incident Response Engine": {
+    "channel_id": "bus::Threat Eradication::Incident Response Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Eradication",
+    "status": "declared",
+    "target": "Incident Response Engine"
+  },
+  "bus::Threat Eradication::Sentinel": {
+    "channel_id": "bus::Threat Eradication::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Eradication",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Threat Eradication::Watch Tower": {
+    "channel_id": "bus::Threat Eradication::Watch Tower",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Eradication",
+    "status": "declared",
+    "target": "Watch Tower"
+  },
+  "bus::Threat Hunting::Conclave": {
+    "channel_id": "bus::Threat Hunting::Conclave",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Hunting",
+    "status": "declared",
+    "target": "Conclave"
+  },
+  "bus::Threat Hunting::Incident Response Engine": {
+    "channel_id": "bus::Threat Hunting::Incident Response Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Hunting",
+    "status": "declared",
+    "target": "Incident Response Engine"
+  },
+  "bus::Threat Hunting::Sentinel": {
+    "channel_id": "bus::Threat Hunting::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Hunting",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Threat Hunting::Watch Tower": {
+    "channel_id": "bus::Threat Hunting::Watch Tower",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Hunting",
+    "status": "declared",
+    "target": "Watch Tower"
+  },
+  "bus::Threat Intelligence Engine::Security Mesh": {
+    "channel_id": "bus::Threat Intelligence Engine::Security Mesh",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Intelligence Engine",
+    "status": "declared",
+    "target": "Security Mesh"
+  },
+  "bus::Threat Intelligence Engine::Sentinel": {
+    "channel_id": "bus::Threat Intelligence Engine::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Intelligence Engine",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Threat Recovery::Conclave": {
+    "channel_id": "bus::Threat Recovery::Conclave",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Recovery",
+    "status": "declared",
+    "target": "Conclave"
+  },
+  "bus::Threat Recovery::Incident Response Engine": {
+    "channel_id": "bus::Threat Recovery::Incident Response Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Recovery",
+    "status": "declared",
+    "target": "Incident Response Engine"
+  },
+  "bus::Threat Recovery::Sentinel": {
+    "channel_id": "bus::Threat Recovery::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Recovery",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Threat Recovery::Watch Tower": {
+    "channel_id": "bus::Threat Recovery::Watch Tower",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Threat Recovery",
+    "status": "declared",
+    "target": "Watch Tower"
+  },
+  "bus::Trust Framework::SPARTAN": {
+    "channel_id": "bus::Trust Framework::SPARTAN",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Trust Framework",
+    "status": "declared",
+    "target": "SPARTAN"
+  },
+  "bus::Trust Registry::SPARTAN": {
+    "channel_id": "bus::Trust Registry::SPARTAN",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Trust Registry",
+    "status": "declared",
+    "target": "SPARTAN"
+  },
+  "bus::Truth Verification Protocol::Policy Engine": {
+    "channel_id": "bus::Truth Verification Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Truth Verification Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  },
+  "bus::Verification Engine::A\u20223ye": {
+    "channel_id": "bus::Verification Engine::A\u20223ye",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Verification Engine",
+    "status": "declared",
+    "target": "A\u20223ye"
+  },
+  "bus::Verification Engine::Evidence Engine": {
+    "channel_id": "bus::Verification Engine::Evidence Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Verification Engine",
+    "status": "declared",
+    "target": "Evidence Engine"
+  },
+  "bus::Vision Engine::A\u20223ye": {
+    "channel_id": "bus::Vision Engine::A\u20223ye",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Vision Engine",
+    "status": "declared",
+    "target": "A\u20223ye"
+  },
+  "bus::Vision Engine::Evidence Engine": {
+    "channel_id": "bus::Vision Engine::Evidence Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Vision Engine",
+    "status": "declared",
+    "target": "Evidence Engine"
+  },
+  "bus::Vulnerability Intelligence Engine::Security Mesh": {
+    "channel_id": "bus::Vulnerability Intelligence Engine::Security Mesh",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Vulnerability Intelligence Engine",
+    "status": "declared",
+    "target": "Security Mesh"
+  },
+  "bus::Vulnerability Intelligence Engine::Sentinel": {
+    "channel_id": "bus::Vulnerability Intelligence Engine::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Vulnerability Intelligence Engine",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Watch Tower::Sentinel": {
+    "channel_id": "bus::Watch Tower::Sentinel",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Watch Tower",
+    "status": "declared",
+    "target": "Sentinel"
+  },
+  "bus::Zero Trust Protocol::Policy Engine": {
+    "channel_id": "bus::Zero Trust Protocol::Policy Engine",
+    "modes": [
+      "request_reply",
+      "publish_subscribe"
+    ],
+    "requires_authority_context": true,
+    "requires_provenance": true,
+    "source": "Zero Trust Protocol",
+    "status": "declared",
+    "target": "Policy Engine"
+  }
+}
