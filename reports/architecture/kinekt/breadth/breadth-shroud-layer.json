@@ -1,0 +1,11 @@
+{
+  "awareness_scope": "whole_system",
+  "catalog_entries": 107,
+  "knowledge_nodes": 7539,
+  "layer": "Breadth",
+  "owns_decisions": false,
+  "owns_execution": false,
+  "owns_governance": false,
+  "readiness": "not_ready",
+  "role": "shroud_layer"
+}
