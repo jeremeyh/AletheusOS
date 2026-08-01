@@ -1,0 +1,1760 @@
+{
+  "connector_count": 195,
+  "connectors": [
+    {
+      "connector_id": "bolt::Acquisition AI::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "Acquisition AI",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Acquisition AI::THORx",
+      "connector_type": "constitutional_bolt",
+      "source": "Acquisition AI",
+      "source_registered": false,
+      "status": "declared",
+      "target": "THORx",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Anomaly Detection::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Anomaly Detection",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Anomaly Detection::Watch Tower",
+      "connector_type": "constitutional_bolt",
+      "source": "Anomaly Detection",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Anomaly Detection::Conclave",
+      "connector_type": "constitutional_bolt",
+      "source": "Anomaly Detection",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Conclave",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Anomaly Detection::Incident Response Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Anomaly Detection",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Asset DNA::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "Asset DNA",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Asset DNA::THORx",
+      "connector_type": "constitutional_bolt",
+      "source": "Asset DNA",
+      "source_registered": false,
+      "status": "declared",
+      "target": "THORx",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Attack Surface Analysis::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Attack Surface Analysis",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Attack Surface Analysis::Watch Tower",
+      "connector_type": "constitutional_bolt",
+      "source": "Attack Surface Analysis",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Attack Surface Analysis::Conclave",
+      "connector_type": "constitutional_bolt",
+      "source": "Attack Surface Analysis",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Conclave",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Attack Surface Analysis::Incident Response Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Attack Surface Analysis",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Audit Engine::Security Mesh",
+      "connector_type": "constitutional_bolt",
+      "source": "Audit Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Audit Engine::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Audit Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Authentication Engine::Security Mesh",
+      "connector_type": "constitutional_bolt",
+      "source": "Authentication Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Authentication Engine::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Authentication Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Authorization Engine::Security Mesh",
+      "connector_type": "constitutional_bolt",
+      "source": "Authorization Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Authorization Engine::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Authorization Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::A\u20223ye::Evidence Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "A\u20223ye",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::A\u20223ye::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "A\u20223ye",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Behavioral Analytics::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Behavioral Analytics",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Behavioral Analytics::Watch Tower",
+      "connector_type": "constitutional_bolt",
+      "source": "Behavioral Analytics",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Behavioral Analytics::Conclave",
+      "connector_type": "constitutional_bolt",
+      "source": "Behavioral Analytics",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Conclave",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Behavioral Analytics::Incident Response Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Behavioral Analytics",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Canonical Identity Framework::SPARTAN",
+      "connector_type": "constitutional_bolt",
+      "source": "Canonical Identity Framework",
+      "source_registered": false,
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Canonical Identity Registry::SPARTAN",
+      "connector_type": "constitutional_bolt",
+      "source": "Canonical Identity Registry",
+      "source_registered": false,
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Capability Engine::Engine Registry",
+      "connector_type": "constitutional_bolt",
+      "source": "Capability Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Engine Registry",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Capability Engine::Execution Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Capability Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Execution Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Capability Registration Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Capability Registration Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Card Hawk::A\u20223ye",
+      "connector_type": "constitutional_bolt",
+      "source": "Card Hawk",
+      "source_registered": false,
+      "status": "declared",
+      "target": "A\u20223ye",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Card Hawk::THORx",
+      "connector_type": "constitutional_bolt",
+      "source": "Card Hawk",
+      "source_registered": false,
+      "status": "declared",
+      "target": "THORx",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Chain of Evidence Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Chain of Evidence Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Compliance Engine::Security Mesh",
+      "connector_type": "constitutional_bolt",
+      "source": "Compliance Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Compliance Engine::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Compliance Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Conclave::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Conclave",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Conclave::Incident Response Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Conclave",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Constitutional Audit::SPARTAN",
+      "connector_type": "constitutional_bolt",
+      "source": "Constitutional Audit",
+      "source_registered": false,
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Constitutional Authentication Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Constitutional Authentication Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Constitutional Authorization Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Constitutional Authorization Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Constitutional Consensus Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Constitutional Consensus Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Constitutional Governance Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Constitutional Governance Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Constitutional Ledger::SPARTAN",
+      "connector_type": "constitutional_bolt",
+      "source": "Constitutional Ledger",
+      "source_registered": false,
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Constitutional Security::SPARTAN",
+      "connector_type": "constitutional_bolt",
+      "source": "Constitutional Security",
+      "source_registered": false,
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Constitutional Validation Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Constitutional Validation Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Continuous Validation::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Continuous Validation",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Continuous Validation::Watch Tower",
+      "connector_type": "constitutional_bolt",
+      "source": "Continuous Validation",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Continuous Validation::Conclave",
+      "connector_type": "constitutional_bolt",
+      "source": "Continuous Validation",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Conclave",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Continuous Validation::Incident Response Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Continuous Validation",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::D-DEF::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "D-DEF",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::D-DEF::THORx",
+      "connector_type": "constitutional_bolt",
+      "source": "D-DEF",
+      "source_registered": false,
+      "status": "declared",
+      "target": "THORx",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Decision Engine::Execution Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Decision Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Execution Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Digital Signature Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Digital Signature Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Document Intelligence Engine::A\u20223ye",
+      "connector_type": "constitutional_bolt",
+      "source": "Document Intelligence Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "A\u20223ye",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Document Intelligence Engine::Evidence Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Document Intelligence Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Drift Detection::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Drift Detection",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Drift Detection::Watch Tower",
+      "connector_type": "constitutional_bolt",
+      "source": "Drift Detection",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Drift Detection::Conclave",
+      "connector_type": "constitutional_bolt",
+      "source": "Drift Detection",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Conclave",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Drift Detection::Incident Response Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Drift Detection",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Engine Registry::Runtime Engine Manager",
+      "connector_type": "constitutional_bolt",
+      "source": "Engine Registry",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Runtime Engine Manager",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Evidence Engine::Knowledge Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Evidence Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Knowledge Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Evidence Engine::Audit Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Evidence Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Audit Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Evidence Vault::SPARTAN",
+      "connector_type": "constitutional_bolt",
+      "source": "Evidence Vault",
+      "source_registered": false,
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Evidence Verification Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Evidence Verification Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Execution Engine::Decision Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Execution Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Decision Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Execution Engine::Mission Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Execution Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Mission Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Exit Intelligence::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "Exit Intelligence",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Exit Intelligence::THORx",
+      "connector_type": "constitutional_bolt",
+      "source": "Exit Intelligence",
+      "source_registered": false,
+      "status": "declared",
+      "target": "THORx",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::FALCON::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "FALCON",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::FALCON::THORx",
+      "connector_type": "constitutional_bolt",
+      "source": "FALCON",
+      "source_registered": false,
+      "status": "declared",
+      "target": "THORx",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Federation Engine::Trust Registry",
+      "connector_type": "constitutional_bolt",
+      "source": "Federation Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Trust Registry",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Federation Engine::Security Mesh",
+      "connector_type": "constitutional_bolt",
+      "source": "Federation Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Forensics Engine::Security Mesh",
+      "connector_type": "constitutional_bolt",
+      "source": "Forensics Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Forensics Engine::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Forensics Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Identity Engine::Canonical Identity Registry",
+      "connector_type": "constitutional_bolt",
+      "source": "Identity Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Canonical Identity Registry",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Identity Engine::Authentication Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Identity Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Authentication Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Identity Verification Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Identity Verification Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Incident Response Engine::Security Mesh",
+      "connector_type": "constitutional_bolt",
+      "source": "Incident Response Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Incident Response Engine::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Incident Response Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Inspection Engine::A\u20223ye",
+      "connector_type": "constitutional_bolt",
+      "source": "Inspection Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "A\u20223ye",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Inspection Engine::Evidence Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Inspection Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Intelligence Engine::Engine Registry",
+      "connector_type": "constitutional_bolt",
+      "source": "Intelligence Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Engine Registry",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Knowledge Engine::Evidence Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Knowledge Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Knowledge Engine::Reason Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Knowledge Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Reason Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Knowledge Engine::Memory Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Knowledge Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Memory Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Learning Engine::Memory Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Learning Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Memory Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Memory Engine::Knowledge Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Memory Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Knowledge Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Mission Authorization Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Mission Authorization Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Mission Engine::Mission Scheduler",
+      "connector_type": "constitutional_bolt",
+      "source": "Mission Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Mission Scheduler",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Mission Scheduler::Mission Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Mission Scheduler",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Mission Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::NEST::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "NEST",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::NEST::THORx",
+      "connector_type": "constitutional_bolt",
+      "source": "NEST",
+      "source_registered": false,
+      "status": "declared",
+      "target": "THORx",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Nuclear Cloud::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "Nuclear Cloud",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Nuclear Cloud::THORx",
+      "connector_type": "constitutional_bolt",
+      "source": "Nuclear Cloud",
+      "source_registered": false,
+      "status": "declared",
+      "target": "THORx",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::OCR Engine::A\u20223ye",
+      "connector_type": "constitutional_bolt",
+      "source": "OCR Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "A\u20223ye",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::OCR Engine::Evidence Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "OCR Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::PERCH::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "PERCH",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::PERCH::THORx",
+      "connector_type": "constitutional_bolt",
+      "source": "PERCH",
+      "source_registered": false,
+      "status": "declared",
+      "target": "THORx",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Planning Engine::Decision Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Planning Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Decision Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Planning Engine::Mission Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Planning Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Mission Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Policy Engine::Security Mesh",
+      "connector_type": "constitutional_bolt",
+      "source": "Policy Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Policy Engine::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Policy Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Predictive Engine::Planning Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Predictive Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Planning Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Predictive Engine::Decision Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Predictive Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Decision Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Principle X Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Principle X Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Provenance Verification Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Provenance Verification Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Q-DEF::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "Q-DEF",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Q-DEF::THORx",
+      "connector_type": "constitutional_bolt",
+      "source": "Q-DEF",
+      "source_registered": false,
+      "status": "declared",
+      "target": "THORx",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::ROOST::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "ROOST",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::ROOST::THORx",
+      "connector_type": "constitutional_bolt",
+      "source": "ROOST",
+      "source_registered": false,
+      "status": "declared",
+      "target": "THORx",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Reason Engine::Knowledge Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Reason Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Knowledge Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Reason Engine::Planning Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Reason Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Planning Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Recognition Engine::A\u20223ye",
+      "connector_type": "constitutional_bolt",
+      "source": "Recognition Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "A\u20223ye",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Recognition Engine::Evidence Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Recognition Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Recovery Engine::Security Mesh",
+      "connector_type": "constitutional_bolt",
+      "source": "Recovery Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Recovery Engine::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Recovery Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Repository Integrity Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Repository Integrity Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Risk Intelligence Engine::Security Mesh",
+      "connector_type": "constitutional_bolt",
+      "source": "Risk Intelligence Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Risk Intelligence Engine::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Risk Intelligence Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Runtime Attestation Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Runtime Attestation Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Runtime Engine Manager::Engine Registry",
+      "connector_type": "constitutional_bolt",
+      "source": "Runtime Engine Manager",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Engine Registry",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Runtime Integrity Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Runtime Integrity Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Runtime Monitoring::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Runtime Monitoring",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Runtime Monitoring::Watch Tower",
+      "connector_type": "constitutional_bolt",
+      "source": "Runtime Monitoring",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Runtime Monitoring::Conclave",
+      "connector_type": "constitutional_bolt",
+      "source": "Runtime Monitoring",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Conclave",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Runtime Monitoring::Incident Response Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Runtime Monitoring",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::SOAR::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "SOAR",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::SOAR::THORx",
+      "connector_type": "constitutional_bolt",
+      "source": "SOAR",
+      "source_registered": false,
+      "status": "declared",
+      "target": "THORx",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::SPAN::SPARTAN",
+      "connector_type": "constitutional_bolt",
+      "source": "SPAN",
+      "source_registered": false,
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::SPARTAN::SPAN",
+      "connector_type": "constitutional_bolt",
+      "source": "SPARTAN",
+      "source_registered": false,
+      "status": "declared",
+      "target": "SPAN",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::SPARTAN::Watch Tower",
+      "connector_type": "constitutional_bolt",
+      "source": "SPARTAN",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::SPARTAN::Conclave",
+      "connector_type": "constitutional_bolt",
+      "source": "SPARTAN",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Conclave",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::SPARTAN::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "SPARTAN",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::STRIKE::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "STRIKE",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::STRIKE::THORx",
+      "connector_type": "constitutional_bolt",
+      "source": "STRIKE",
+      "source_registered": false,
+      "status": "declared",
+      "target": "THORx",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Secure Communication Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Secure Communication Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Secure Execution Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Secure Execution Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Secure Session Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Secure Session Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Security Circuit::SPARTAN",
+      "connector_type": "constitutional_bolt",
+      "source": "Security Circuit",
+      "source_registered": false,
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Security Fabric::SPARTAN",
+      "connector_type": "constitutional_bolt",
+      "source": "Security Fabric",
+      "source_registered": false,
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Security Mesh::SPARTAN",
+      "connector_type": "constitutional_bolt",
+      "source": "Security Mesh",
+      "source_registered": false,
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Security Telemetry::SPARTAN",
+      "connector_type": "constitutional_bolt",
+      "source": "Security Telemetry",
+      "source_registered": false,
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Semantic Engine::Knowledge Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Semantic Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Knowledge Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Sentinel::SPARTAN",
+      "connector_type": "constitutional_bolt",
+      "source": "Sentinel",
+      "source_registered": false,
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Sentinel::Watch Tower",
+      "connector_type": "constitutional_bolt",
+      "source": "Sentinel",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Sentinel::Conclave",
+      "connector_type": "constitutional_bolt",
+      "source": "Sentinel",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Conclave",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Service Registration Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Service Registration Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Strike Zone::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "Strike Zone",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Strike Zone::THORx",
+      "connector_type": "constitutional_bolt",
+      "source": "Strike Zone",
+      "source_registered": false,
+      "status": "declared",
+      "target": "THORx",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Supply Chain Verification Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Supply Chain Verification Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::TALON::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "TALON",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::TALON::THORx",
+      "connector_type": "constitutional_bolt",
+      "source": "TALON",
+      "source_registered": false,
+      "status": "declared",
+      "target": "THORx",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::THORx::Card Hawk",
+      "connector_type": "constitutional_bolt",
+      "source": "THORx",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Card Hawk",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::THORx::Decision Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "THORx",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Decision Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Tamper Detection Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Tamper Detection Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Threat Attribution::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Attribution",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Attribution::Watch Tower",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Attribution",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Attribution::Conclave",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Attribution",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Conclave",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Attribution::Incident Response Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Attribution",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Threat Containment::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Containment",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Containment::Watch Tower",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Containment",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Containment::Conclave",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Containment",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Conclave",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Containment::Incident Response Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Containment",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Threat Correlation::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Correlation",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Correlation::Watch Tower",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Correlation",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Correlation::Conclave",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Correlation",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Conclave",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Correlation::Incident Response Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Correlation",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Threat Detection::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Detection",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Detection::Watch Tower",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Detection",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Detection::Conclave",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Detection",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Conclave",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Detection::Incident Response Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Detection",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Threat Eradication::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Eradication",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Eradication::Watch Tower",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Eradication",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Eradication::Conclave",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Eradication",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Conclave",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Eradication::Incident Response Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Eradication",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Threat Hunting::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Hunting",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Hunting::Watch Tower",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Hunting",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Hunting::Conclave",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Hunting",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Conclave",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Hunting::Incident Response Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Hunting",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Threat Intelligence Engine::Security Mesh",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Intelligence Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Intelligence Engine::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Intelligence Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Recovery::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Recovery",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Recovery::Watch Tower",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Recovery",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Watch Tower",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Recovery::Conclave",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Recovery",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Conclave",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Threat Recovery::Incident Response Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Threat Recovery",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Incident Response Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Trust Framework::SPARTAN",
+      "connector_type": "constitutional_bolt",
+      "source": "Trust Framework",
+      "source_registered": false,
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Trust Registry::SPARTAN",
+      "connector_type": "constitutional_bolt",
+      "source": "Trust Registry",
+      "source_registered": false,
+      "status": "declared",
+      "target": "SPARTAN",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Truth Verification Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Truth Verification Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Verification Engine::A\u20223ye",
+      "connector_type": "constitutional_bolt",
+      "source": "Verification Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "A\u20223ye",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Verification Engine::Evidence Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Verification Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Vision Engine::A\u20223ye",
+      "connector_type": "constitutional_bolt",
+      "source": "Vision Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "A\u20223ye",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Vision Engine::Evidence Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Vision Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Evidence Engine",
+      "target_registered": true
+    },
+    {
+      "connector_id": "bolt::Vulnerability Intelligence Engine::Security Mesh",
+      "connector_type": "constitutional_bolt",
+      "source": "Vulnerability Intelligence Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Security Mesh",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Vulnerability Intelligence Engine::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Vulnerability Intelligence Engine",
+      "source_registered": true,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Watch Tower::Sentinel",
+      "connector_type": "constitutional_bolt",
+      "source": "Watch Tower",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Sentinel",
+      "target_registered": false
+    },
+    {
+      "connector_id": "bolt::Zero Trust Protocol::Policy Engine",
+      "connector_type": "constitutional_bolt",
+      "source": "Zero Trust Protocol",
+      "source_registered": false,
+      "status": "declared",
+      "target": "Policy Engine",
+      "target_registered": true
+    }
+  ]
+}
