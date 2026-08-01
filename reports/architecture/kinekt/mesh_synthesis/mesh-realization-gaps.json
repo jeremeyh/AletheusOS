@@ -1,0 +1,407 @@
+{
+  "disconnected": [
+    "Breadth"
+  ],
+  "missing_targets": [
+    {
+      "source": "Audit Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Authentication Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Authorization Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Breadth",
+      "target": "all registered authorities"
+    },
+    {
+      "source": "Canonical Identity Framework",
+      "target": "CRK"
+    },
+    {
+      "source": "Canonical Identity Framework",
+      "target": "Council"
+    },
+    {
+      "source": "Canonical Identity Registry",
+      "target": "CRK"
+    },
+    {
+      "source": "Canonical Identity Registry",
+      "target": "Council"
+    },
+    {
+      "source": "Capability Registration Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Capability Registration Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Card Hawk",
+      "target": "Mammoth"
+    },
+    {
+      "source": "Card Hawk",
+      "target": "Nimble"
+    },
+    {
+      "source": "Chain of Evidence Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Chain of Evidence Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Compliance Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Conclave",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Audit",
+      "target": "CRK"
+    },
+    {
+      "source": "Constitutional Audit",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Authentication Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Authentication Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Constitutional Authorization Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Authorization Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Constitutional Consensus Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Consensus Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Constitutional Governance Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Governance Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Constitutional Ledger",
+      "target": "CRK"
+    },
+    {
+      "source": "Constitutional Ledger",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Security",
+      "target": "CRK"
+    },
+    {
+      "source": "Constitutional Security",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Validation Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Validation Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Decision Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Digital Signature Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Digital Signature Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Engine Registry",
+      "target": "CRK"
+    },
+    {
+      "source": "Evidence Vault",
+      "target": "CRK"
+    },
+    {
+      "source": "Evidence Vault",
+      "target": "Council"
+    },
+    {
+      "source": "Evidence Verification Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Evidence Verification Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Forensics Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Identity Verification Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Identity Verification Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Incident Response Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Intelligence Engine",
+      "target": "Cognitive Operations Mesh"
+    },
+    {
+      "source": "Learning Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Memory Engine",
+      "target": "Mammoth"
+    },
+    {
+      "source": "Mission Authorization Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Mission Authorization Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Mission Engine",
+      "target": "Mission Control"
+    },
+    {
+      "source": "Mission Scheduler",
+      "target": "CRK"
+    },
+    {
+      "source": "Policy Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Principle X Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Principle X Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Provenance Verification Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Provenance Verification Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Recovery Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Repository Integrity Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Repository Integrity Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Risk Intelligence Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Runtime Attestation Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Runtime Attestation Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Runtime Engine Manager",
+      "target": "Observatory"
+    },
+    {
+      "source": "Runtime Integrity Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Runtime Integrity Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "SPAN",
+      "target": "Council"
+    },
+    {
+      "source": "SPAN",
+      "target": "Cognitive Operations Mesh"
+    },
+    {
+      "source": "Secure Communication Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Secure Communication Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Secure Execution Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Secure Execution Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Secure Session Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Secure Session Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Security Circuit",
+      "target": "CRK"
+    },
+    {
+      "source": "Security Circuit",
+      "target": "Council"
+    },
+    {
+      "source": "Security Fabric",
+      "target": "CRK"
+    },
+    {
+      "source": "Security Fabric",
+      "target": "Council"
+    },
+    {
+      "source": "Security Mesh",
+      "target": "CRK"
+    },
+    {
+      "source": "Security Mesh",
+      "target": "Council"
+    },
+    {
+      "source": "Security Telemetry",
+      "target": "CRK"
+    },
+    {
+      "source": "Security Telemetry",
+      "target": "Council"
+    },
+    {
+      "source": "Semantic Engine",
+      "target": "Runtime Knowledge Graph"
+    },
+    {
+      "source": "Service Registration Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Service Registration Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Supply Chain Verification Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Supply Chain Verification Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Tamper Detection Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Tamper Detection Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Threat Intelligence Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Trust Framework",
+      "target": "CRK"
+    },
+    {
+      "source": "Trust Framework",
+      "target": "Council"
+    },
+    {
+      "source": "Trust Registry",
+      "target": "CRK"
+    },
+    {
+      "source": "Trust Registry",
+      "target": "Council"
+    },
+    {
+      "source": "Truth Verification Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Truth Verification Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Vulnerability Intelligence Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Watch Tower",
+      "target": "Kinekt"
+    },
+    {
+      "source": "Watch Tower",
+      "target": "Observatory"
+    },
+    {
+      "source": "Zero Trust Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Zero Trust Protocol",
+      "target": "CRK"
+    }
+  ]
+}

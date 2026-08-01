@@ -1,0 +1,1298 @@
+{
+  "disconnected": [
+    "Breadth"
+  ],
+  "edges": [
+    {
+      "source": "Acquisition AI",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "Acquisition AI",
+      "target": "THORx"
+    },
+    {
+      "source": "Anomaly Detection",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Anomaly Detection",
+      "target": "Watch Tower"
+    },
+    {
+      "source": "Anomaly Detection",
+      "target": "Conclave"
+    },
+    {
+      "source": "Anomaly Detection",
+      "target": "Incident Response Engine"
+    },
+    {
+      "source": "Asset DNA",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "Asset DNA",
+      "target": "THORx"
+    },
+    {
+      "source": "Attack Surface Analysis",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Attack Surface Analysis",
+      "target": "Watch Tower"
+    },
+    {
+      "source": "Attack Surface Analysis",
+      "target": "Conclave"
+    },
+    {
+      "source": "Attack Surface Analysis",
+      "target": "Incident Response Engine"
+    },
+    {
+      "source": "Audit Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "source": "Audit Engine",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Authentication Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "source": "Authentication Engine",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Authorization Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "source": "Authorization Engine",
+      "target": "Sentinel"
+    },
+    {
+      "source": "A\u20223ye",
+      "target": "Evidence Engine"
+    },
+    {
+      "source": "A\u20223ye",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "Behavioral Analytics",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Behavioral Analytics",
+      "target": "Watch Tower"
+    },
+    {
+      "source": "Behavioral Analytics",
+      "target": "Conclave"
+    },
+    {
+      "source": "Behavioral Analytics",
+      "target": "Incident Response Engine"
+    },
+    {
+      "source": "Canonical Identity Framework",
+      "target": "SPARTAN"
+    },
+    {
+      "source": "Canonical Identity Registry",
+      "target": "SPARTAN"
+    },
+    {
+      "source": "Capability Engine",
+      "target": "Engine Registry"
+    },
+    {
+      "source": "Capability Engine",
+      "target": "Execution Engine"
+    },
+    {
+      "source": "Capability Registration Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Card Hawk",
+      "target": "A\u20223ye"
+    },
+    {
+      "source": "Card Hawk",
+      "target": "THORx"
+    },
+    {
+      "source": "Chain of Evidence Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Compliance Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "source": "Compliance Engine",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Conclave",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Conclave",
+      "target": "Incident Response Engine"
+    },
+    {
+      "source": "Constitutional Audit",
+      "target": "SPARTAN"
+    },
+    {
+      "source": "Constitutional Authentication Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Constitutional Authorization Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Constitutional Consensus Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Constitutional Governance Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Constitutional Ledger",
+      "target": "SPARTAN"
+    },
+    {
+      "source": "Constitutional Security",
+      "target": "SPARTAN"
+    },
+    {
+      "source": "Constitutional Validation Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Continuous Validation",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Continuous Validation",
+      "target": "Watch Tower"
+    },
+    {
+      "source": "Continuous Validation",
+      "target": "Conclave"
+    },
+    {
+      "source": "Continuous Validation",
+      "target": "Incident Response Engine"
+    },
+    {
+      "source": "D-DEF",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "D-DEF",
+      "target": "THORx"
+    },
+    {
+      "source": "Decision Engine",
+      "target": "Execution Engine"
+    },
+    {
+      "source": "Digital Signature Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Document Intelligence Engine",
+      "target": "A\u20223ye"
+    },
+    {
+      "source": "Document Intelligence Engine",
+      "target": "Evidence Engine"
+    },
+    {
+      "source": "Drift Detection",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Drift Detection",
+      "target": "Watch Tower"
+    },
+    {
+      "source": "Drift Detection",
+      "target": "Conclave"
+    },
+    {
+      "source": "Drift Detection",
+      "target": "Incident Response Engine"
+    },
+    {
+      "source": "Engine Registry",
+      "target": "Runtime Engine Manager"
+    },
+    {
+      "source": "Evidence Engine",
+      "target": "Knowledge Engine"
+    },
+    {
+      "source": "Evidence Engine",
+      "target": "Audit Engine"
+    },
+    {
+      "source": "Evidence Vault",
+      "target": "SPARTAN"
+    },
+    {
+      "source": "Evidence Verification Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Execution Engine",
+      "target": "Decision Engine"
+    },
+    {
+      "source": "Execution Engine",
+      "target": "Mission Engine"
+    },
+    {
+      "source": "Exit Intelligence",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "Exit Intelligence",
+      "target": "THORx"
+    },
+    {
+      "source": "FALCON",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "FALCON",
+      "target": "THORx"
+    },
+    {
+      "source": "Federation Engine",
+      "target": "Trust Registry"
+    },
+    {
+      "source": "Federation Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "source": "Forensics Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "source": "Forensics Engine",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Identity Engine",
+      "target": "Canonical Identity Registry"
+    },
+    {
+      "source": "Identity Engine",
+      "target": "Authentication Engine"
+    },
+    {
+      "source": "Identity Verification Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Incident Response Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "source": "Incident Response Engine",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Inspection Engine",
+      "target": "A\u20223ye"
+    },
+    {
+      "source": "Inspection Engine",
+      "target": "Evidence Engine"
+    },
+    {
+      "source": "Intelligence Engine",
+      "target": "Engine Registry"
+    },
+    {
+      "source": "Knowledge Engine",
+      "target": "Evidence Engine"
+    },
+    {
+      "source": "Knowledge Engine",
+      "target": "Reason Engine"
+    },
+    {
+      "source": "Knowledge Engine",
+      "target": "Memory Engine"
+    },
+    {
+      "source": "Learning Engine",
+      "target": "Memory Engine"
+    },
+    {
+      "source": "Memory Engine",
+      "target": "Knowledge Engine"
+    },
+    {
+      "source": "Mission Authorization Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Mission Engine",
+      "target": "Mission Scheduler"
+    },
+    {
+      "source": "Mission Scheduler",
+      "target": "Mission Engine"
+    },
+    {
+      "source": "NEST",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "NEST",
+      "target": "THORx"
+    },
+    {
+      "source": "Nuclear Cloud",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "Nuclear Cloud",
+      "target": "THORx"
+    },
+    {
+      "source": "OCR Engine",
+      "target": "A\u20223ye"
+    },
+    {
+      "source": "OCR Engine",
+      "target": "Evidence Engine"
+    },
+    {
+      "source": "PERCH",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "PERCH",
+      "target": "THORx"
+    },
+    {
+      "source": "Planning Engine",
+      "target": "Decision Engine"
+    },
+    {
+      "source": "Planning Engine",
+      "target": "Mission Engine"
+    },
+    {
+      "source": "Policy Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "source": "Policy Engine",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Predictive Engine",
+      "target": "Planning Engine"
+    },
+    {
+      "source": "Predictive Engine",
+      "target": "Decision Engine"
+    },
+    {
+      "source": "Principle X Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Provenance Verification Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Q-DEF",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "Q-DEF",
+      "target": "THORx"
+    },
+    {
+      "source": "ROOST",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "ROOST",
+      "target": "THORx"
+    },
+    {
+      "source": "Reason Engine",
+      "target": "Knowledge Engine"
+    },
+    {
+      "source": "Reason Engine",
+      "target": "Planning Engine"
+    },
+    {
+      "source": "Recognition Engine",
+      "target": "A\u20223ye"
+    },
+    {
+      "source": "Recognition Engine",
+      "target": "Evidence Engine"
+    },
+    {
+      "source": "Recovery Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "source": "Recovery Engine",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Repository Integrity Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Risk Intelligence Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "source": "Risk Intelligence Engine",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Runtime Attestation Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Runtime Engine Manager",
+      "target": "Engine Registry"
+    },
+    {
+      "source": "Runtime Integrity Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Runtime Monitoring",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Runtime Monitoring",
+      "target": "Watch Tower"
+    },
+    {
+      "source": "Runtime Monitoring",
+      "target": "Conclave"
+    },
+    {
+      "source": "Runtime Monitoring",
+      "target": "Incident Response Engine"
+    },
+    {
+      "source": "SOAR",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "SOAR",
+      "target": "THORx"
+    },
+    {
+      "source": "SPAN",
+      "target": "SPARTAN"
+    },
+    {
+      "source": "SPARTAN",
+      "target": "SPAN"
+    },
+    {
+      "source": "SPARTAN",
+      "target": "Watch Tower"
+    },
+    {
+      "source": "SPARTAN",
+      "target": "Conclave"
+    },
+    {
+      "source": "SPARTAN",
+      "target": "Sentinel"
+    },
+    {
+      "source": "STRIKE",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "STRIKE",
+      "target": "THORx"
+    },
+    {
+      "source": "Secure Communication Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Secure Execution Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Secure Session Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Security Circuit",
+      "target": "SPARTAN"
+    },
+    {
+      "source": "Security Fabric",
+      "target": "SPARTAN"
+    },
+    {
+      "source": "Security Mesh",
+      "target": "SPARTAN"
+    },
+    {
+      "source": "Security Telemetry",
+      "target": "SPARTAN"
+    },
+    {
+      "source": "Semantic Engine",
+      "target": "Knowledge Engine"
+    },
+    {
+      "source": "Sentinel",
+      "target": "SPARTAN"
+    },
+    {
+      "source": "Sentinel",
+      "target": "Watch Tower"
+    },
+    {
+      "source": "Sentinel",
+      "target": "Conclave"
+    },
+    {
+      "source": "Service Registration Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Strike Zone",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "Strike Zone",
+      "target": "THORx"
+    },
+    {
+      "source": "Supply Chain Verification Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "TALON",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "TALON",
+      "target": "THORx"
+    },
+    {
+      "source": "THORx",
+      "target": "Card Hawk"
+    },
+    {
+      "source": "THORx",
+      "target": "Decision Engine"
+    },
+    {
+      "source": "Tamper Detection Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Threat Attribution",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Threat Attribution",
+      "target": "Watch Tower"
+    },
+    {
+      "source": "Threat Attribution",
+      "target": "Conclave"
+    },
+    {
+      "source": "Threat Attribution",
+      "target": "Incident Response Engine"
+    },
+    {
+      "source": "Threat Containment",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Threat Containment",
+      "target": "Watch Tower"
+    },
+    {
+      "source": "Threat Containment",
+      "target": "Conclave"
+    },
+    {
+      "source": "Threat Containment",
+      "target": "Incident Response Engine"
+    },
+    {
+      "source": "Threat Correlation",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Threat Correlation",
+      "target": "Watch Tower"
+    },
+    {
+      "source": "Threat Correlation",
+      "target": "Conclave"
+    },
+    {
+      "source": "Threat Correlation",
+      "target": "Incident Response Engine"
+    },
+    {
+      "source": "Threat Detection",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Threat Detection",
+      "target": "Watch Tower"
+    },
+    {
+      "source": "Threat Detection",
+      "target": "Conclave"
+    },
+    {
+      "source": "Threat Detection",
+      "target": "Incident Response Engine"
+    },
+    {
+      "source": "Threat Eradication",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Threat Eradication",
+      "target": "Watch Tower"
+    },
+    {
+      "source": "Threat Eradication",
+      "target": "Conclave"
+    },
+    {
+      "source": "Threat Eradication",
+      "target": "Incident Response Engine"
+    },
+    {
+      "source": "Threat Hunting",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Threat Hunting",
+      "target": "Watch Tower"
+    },
+    {
+      "source": "Threat Hunting",
+      "target": "Conclave"
+    },
+    {
+      "source": "Threat Hunting",
+      "target": "Incident Response Engine"
+    },
+    {
+      "source": "Threat Intelligence Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "source": "Threat Intelligence Engine",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Threat Recovery",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Threat Recovery",
+      "target": "Watch Tower"
+    },
+    {
+      "source": "Threat Recovery",
+      "target": "Conclave"
+    },
+    {
+      "source": "Threat Recovery",
+      "target": "Incident Response Engine"
+    },
+    {
+      "source": "Trust Framework",
+      "target": "SPARTAN"
+    },
+    {
+      "source": "Trust Registry",
+      "target": "SPARTAN"
+    },
+    {
+      "source": "Truth Verification Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "source": "Verification Engine",
+      "target": "A\u20223ye"
+    },
+    {
+      "source": "Verification Engine",
+      "target": "Evidence Engine"
+    },
+    {
+      "source": "Vision Engine",
+      "target": "A\u20223ye"
+    },
+    {
+      "source": "Vision Engine",
+      "target": "Evidence Engine"
+    },
+    {
+      "source": "Vulnerability Intelligence Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "source": "Vulnerability Intelligence Engine",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Watch Tower",
+      "target": "Sentinel"
+    },
+    {
+      "source": "Zero Trust Protocol",
+      "target": "Policy Engine"
+    }
+  ],
+  "missing_targets": [
+    {
+      "source": "Audit Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Authentication Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Authorization Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Breadth",
+      "target": "all registered authorities"
+    },
+    {
+      "source": "Canonical Identity Framework",
+      "target": "CRK"
+    },
+    {
+      "source": "Canonical Identity Framework",
+      "target": "Council"
+    },
+    {
+      "source": "Canonical Identity Registry",
+      "target": "CRK"
+    },
+    {
+      "source": "Canonical Identity Registry",
+      "target": "Council"
+    },
+    {
+      "source": "Capability Registration Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Capability Registration Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Card Hawk",
+      "target": "Mammoth"
+    },
+    {
+      "source": "Card Hawk",
+      "target": "Nimble"
+    },
+    {
+      "source": "Chain of Evidence Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Chain of Evidence Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Compliance Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Conclave",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Audit",
+      "target": "CRK"
+    },
+    {
+      "source": "Constitutional Audit",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Authentication Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Authentication Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Constitutional Authorization Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Authorization Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Constitutional Consensus Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Consensus Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Constitutional Governance Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Governance Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Constitutional Ledger",
+      "target": "CRK"
+    },
+    {
+      "source": "Constitutional Ledger",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Security",
+      "target": "CRK"
+    },
+    {
+      "source": "Constitutional Security",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Validation Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Constitutional Validation Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Decision Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Digital Signature Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Digital Signature Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Engine Registry",
+      "target": "CRK"
+    },
+    {
+      "source": "Evidence Vault",
+      "target": "CRK"
+    },
+    {
+      "source": "Evidence Vault",
+      "target": "Council"
+    },
+    {
+      "source": "Evidence Verification Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Evidence Verification Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Forensics Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Identity Verification Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Identity Verification Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Incident Response Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Intelligence Engine",
+      "target": "Cognitive Operations Mesh"
+    },
+    {
+      "source": "Learning Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Memory Engine",
+      "target": "Mammoth"
+    },
+    {
+      "source": "Mission Authorization Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Mission Authorization Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Mission Engine",
+      "target": "Mission Control"
+    },
+    {
+      "source": "Mission Scheduler",
+      "target": "CRK"
+    },
+    {
+      "source": "Policy Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Principle X Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Principle X Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Provenance Verification Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Provenance Verification Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Recovery Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Repository Integrity Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Repository Integrity Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Risk Intelligence Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Runtime Attestation Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Runtime Attestation Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Runtime Engine Manager",
+      "target": "Observatory"
+    },
+    {
+      "source": "Runtime Integrity Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Runtime Integrity Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "SPAN",
+      "target": "Council"
+    },
+    {
+      "source": "SPAN",
+      "target": "Cognitive Operations Mesh"
+    },
+    {
+      "source": "Secure Communication Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Secure Communication Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Secure Execution Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Secure Execution Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Secure Session Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Secure Session Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Security Circuit",
+      "target": "CRK"
+    },
+    {
+      "source": "Security Circuit",
+      "target": "Council"
+    },
+    {
+      "source": "Security Fabric",
+      "target": "CRK"
+    },
+    {
+      "source": "Security Fabric",
+      "target": "Council"
+    },
+    {
+      "source": "Security Mesh",
+      "target": "CRK"
+    },
+    {
+      "source": "Security Mesh",
+      "target": "Council"
+    },
+    {
+      "source": "Security Telemetry",
+      "target": "CRK"
+    },
+    {
+      "source": "Security Telemetry",
+      "target": "Council"
+    },
+    {
+      "source": "Semantic Engine",
+      "target": "Runtime Knowledge Graph"
+    },
+    {
+      "source": "Service Registration Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Service Registration Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Supply Chain Verification Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Supply Chain Verification Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Tamper Detection Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Tamper Detection Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Threat Intelligence Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Trust Framework",
+      "target": "CRK"
+    },
+    {
+      "source": "Trust Framework",
+      "target": "Council"
+    },
+    {
+      "source": "Trust Registry",
+      "target": "CRK"
+    },
+    {
+      "source": "Trust Registry",
+      "target": "Council"
+    },
+    {
+      "source": "Truth Verification Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Truth Verification Protocol",
+      "target": "CRK"
+    },
+    {
+      "source": "Vulnerability Intelligence Engine",
+      "target": "Council"
+    },
+    {
+      "source": "Watch Tower",
+      "target": "Kinekt"
+    },
+    {
+      "source": "Watch Tower",
+      "target": "Observatory"
+    },
+    {
+      "source": "Zero Trust Protocol",
+      "target": "Council"
+    },
+    {
+      "source": "Zero Trust Protocol",
+      "target": "CRK"
+    }
+  ],
+  "nodes": [
+    "Acquisition AI",
+    "Anomaly Detection",
+    "Asset DNA",
+    "Attack Surface Analysis",
+    "Audit Engine",
+    "Authentication Engine",
+    "Authorization Engine",
+    "A\u20223ye",
+    "Behavioral Analytics",
+    "Breadth",
+    "Canonical Identity Framework",
+    "Canonical Identity Registry",
+    "Capability Engine",
+    "Capability Registration Protocol",
+    "Card Hawk",
+    "Chain of Evidence Protocol",
+    "Compliance Engine",
+    "Conclave",
+    "Constitutional Audit",
+    "Constitutional Authentication Protocol",
+    "Constitutional Authorization Protocol",
+    "Constitutional Consensus Protocol",
+    "Constitutional Governance Protocol",
+    "Constitutional Ledger",
+    "Constitutional Security",
+    "Constitutional Validation Protocol",
+    "Continuous Validation",
+    "D-DEF",
+    "Decision Engine",
+    "Digital Signature Protocol",
+    "Document Intelligence Engine",
+    "Drift Detection",
+    "Engine Registry",
+    "Evidence Engine",
+    "Evidence Vault",
+    "Evidence Verification Protocol",
+    "Execution Engine",
+    "Exit Intelligence",
+    "FALCON",
+    "Federation Engine",
+    "Forensics Engine",
+    "Identity Engine",
+    "Identity Verification Protocol",
+    "Incident Response Engine",
+    "Inspection Engine",
+    "Intelligence Engine",
+    "Knowledge Engine",
+    "Learning Engine",
+    "Memory Engine",
+    "Mission Authorization Protocol",
+    "Mission Engine",
+    "Mission Scheduler",
+    "NEST",
+    "Nuclear Cloud",
+    "OCR Engine",
+    "PERCH",
+    "Planning Engine",
+    "Policy Engine",
+    "Predictive Engine",
+    "Principle X Protocol",
+    "Provenance Verification Protocol",
+    "Q-DEF",
+    "ROOST",
+    "Reason Engine",
+    "Recognition Engine",
+    "Recovery Engine",
+    "Repository Integrity Protocol",
+    "Risk Intelligence Engine",
+    "Runtime Attestation Protocol",
+    "Runtime Engine Manager",
+    "Runtime Integrity Protocol",
+    "Runtime Monitoring",
+    "SOAR",
+    "SPAN",
+    "SPARTAN",
+    "STRIKE",
+    "Secure Communication Protocol",
+    "Secure Execution Protocol",
+    "Secure Session Protocol",
+    "Security Circuit",
+    "Security Fabric",
+    "Security Mesh",
+    "Security Telemetry",
+    "Semantic Engine",
+    "Sentinel",
+    "Service Registration Protocol",
+    "Strike Zone",
+    "Supply Chain Verification Protocol",
+    "TALON",
+    "THORx",
+    "Tamper Detection Protocol",
+    "Threat Attribution",
+    "Threat Containment",
+    "Threat Correlation",
+    "Threat Detection",
+    "Threat Eradication",
+    "Threat Hunting",
+    "Threat Intelligence Engine",
+    "Threat Recovery",
+    "Trust Framework",
+    "Trust Registry",
+    "Truth Verification Protocol",
+    "Verification Engine",
+    "Vision Engine",
+    "Vulnerability Intelligence Engine",
+    "Watch Tower",
+    "Zero Trust Protocol"
+  ]
+}
