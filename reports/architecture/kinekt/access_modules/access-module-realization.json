@@ -1,0 +1,1565 @@
+{
+  "access_module_count": 195,
+  "access_modules": [
+    {
+      "access_module_id": "access::Acquisition AI::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Acquisition AI::Card Hawk",
+      "connector_id": "bolt::Acquisition AI::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Acquisition AI::THORx",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Acquisition AI::THORx",
+      "connector_id": "bolt::Acquisition AI::THORx",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Anomaly Detection::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Anomaly Detection::Sentinel",
+      "connector_id": "bolt::Anomaly Detection::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Anomaly Detection::Watch Tower",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Anomaly Detection::Watch Tower",
+      "connector_id": "bolt::Anomaly Detection::Watch Tower",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Anomaly Detection::Conclave",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Anomaly Detection::Conclave",
+      "connector_id": "bolt::Anomaly Detection::Conclave",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Anomaly Detection::Incident Response Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Anomaly Detection::Incident Response Engine",
+      "connector_id": "bolt::Anomaly Detection::Incident Response Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Asset DNA::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Asset DNA::Card Hawk",
+      "connector_id": "bolt::Asset DNA::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Asset DNA::THORx",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Asset DNA::THORx",
+      "connector_id": "bolt::Asset DNA::THORx",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Attack Surface Analysis::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Attack Surface Analysis::Sentinel",
+      "connector_id": "bolt::Attack Surface Analysis::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Attack Surface Analysis::Watch Tower",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Attack Surface Analysis::Watch Tower",
+      "connector_id": "bolt::Attack Surface Analysis::Watch Tower",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Attack Surface Analysis::Conclave",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Attack Surface Analysis::Conclave",
+      "connector_id": "bolt::Attack Surface Analysis::Conclave",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Attack Surface Analysis::Incident Response Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Attack Surface Analysis::Incident Response Engine",
+      "connector_id": "bolt::Attack Surface Analysis::Incident Response Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Audit Engine::Security Mesh",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Audit Engine::Security Mesh",
+      "connector_id": "bolt::Audit Engine::Security Mesh",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Audit Engine::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Audit Engine::Sentinel",
+      "connector_id": "bolt::Audit Engine::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Authentication Engine::Security Mesh",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Authentication Engine::Security Mesh",
+      "connector_id": "bolt::Authentication Engine::Security Mesh",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Authentication Engine::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Authentication Engine::Sentinel",
+      "connector_id": "bolt::Authentication Engine::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Authorization Engine::Security Mesh",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Authorization Engine::Security Mesh",
+      "connector_id": "bolt::Authorization Engine::Security Mesh",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Authorization Engine::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Authorization Engine::Sentinel",
+      "connector_id": "bolt::Authorization Engine::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::A\u20223ye::Evidence Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::A\u20223ye::Evidence Engine",
+      "connector_id": "bolt::A\u20223ye::Evidence Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::A\u20223ye::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::A\u20223ye::Card Hawk",
+      "connector_id": "bolt::A\u20223ye::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Behavioral Analytics::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Behavioral Analytics::Sentinel",
+      "connector_id": "bolt::Behavioral Analytics::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Behavioral Analytics::Watch Tower",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Behavioral Analytics::Watch Tower",
+      "connector_id": "bolt::Behavioral Analytics::Watch Tower",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Behavioral Analytics::Conclave",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Behavioral Analytics::Conclave",
+      "connector_id": "bolt::Behavioral Analytics::Conclave",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Behavioral Analytics::Incident Response Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Behavioral Analytics::Incident Response Engine",
+      "connector_id": "bolt::Behavioral Analytics::Incident Response Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Canonical Identity Framework::SPARTAN",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Canonical Identity Framework::SPARTAN",
+      "connector_id": "bolt::Canonical Identity Framework::SPARTAN",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Canonical Identity Registry::SPARTAN",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Canonical Identity Registry::SPARTAN",
+      "connector_id": "bolt::Canonical Identity Registry::SPARTAN",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Capability Engine::Engine Registry",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Capability Engine::Engine Registry",
+      "connector_id": "bolt::Capability Engine::Engine Registry",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Capability Engine::Execution Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Capability Engine::Execution Engine",
+      "connector_id": "bolt::Capability Engine::Execution Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Capability Registration Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Capability Registration Protocol::Policy Engine",
+      "connector_id": "bolt::Capability Registration Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Card Hawk::A\u20223ye",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Card Hawk::A\u20223ye",
+      "connector_id": "bolt::Card Hawk::A\u20223ye",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Card Hawk::THORx",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Card Hawk::THORx",
+      "connector_id": "bolt::Card Hawk::THORx",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Chain of Evidence Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Chain of Evidence Protocol::Policy Engine",
+      "connector_id": "bolt::Chain of Evidence Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Compliance Engine::Security Mesh",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Compliance Engine::Security Mesh",
+      "connector_id": "bolt::Compliance Engine::Security Mesh",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Compliance Engine::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Compliance Engine::Sentinel",
+      "connector_id": "bolt::Compliance Engine::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Conclave::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Conclave::Sentinel",
+      "connector_id": "bolt::Conclave::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Conclave::Incident Response Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Conclave::Incident Response Engine",
+      "connector_id": "bolt::Conclave::Incident Response Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Constitutional Audit::SPARTAN",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Constitutional Audit::SPARTAN",
+      "connector_id": "bolt::Constitutional Audit::SPARTAN",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Constitutional Authentication Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Constitutional Authentication Protocol::Policy Engine",
+      "connector_id": "bolt::Constitutional Authentication Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Constitutional Authorization Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Constitutional Authorization Protocol::Policy Engine",
+      "connector_id": "bolt::Constitutional Authorization Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Constitutional Consensus Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Constitutional Consensus Protocol::Policy Engine",
+      "connector_id": "bolt::Constitutional Consensus Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Constitutional Governance Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Constitutional Governance Protocol::Policy Engine",
+      "connector_id": "bolt::Constitutional Governance Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Constitutional Ledger::SPARTAN",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Constitutional Ledger::SPARTAN",
+      "connector_id": "bolt::Constitutional Ledger::SPARTAN",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Constitutional Security::SPARTAN",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Constitutional Security::SPARTAN",
+      "connector_id": "bolt::Constitutional Security::SPARTAN",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Constitutional Validation Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Constitutional Validation Protocol::Policy Engine",
+      "connector_id": "bolt::Constitutional Validation Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Continuous Validation::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Continuous Validation::Sentinel",
+      "connector_id": "bolt::Continuous Validation::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Continuous Validation::Watch Tower",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Continuous Validation::Watch Tower",
+      "connector_id": "bolt::Continuous Validation::Watch Tower",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Continuous Validation::Conclave",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Continuous Validation::Conclave",
+      "connector_id": "bolt::Continuous Validation::Conclave",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Continuous Validation::Incident Response Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Continuous Validation::Incident Response Engine",
+      "connector_id": "bolt::Continuous Validation::Incident Response Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::D-DEF::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::D-DEF::Card Hawk",
+      "connector_id": "bolt::D-DEF::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::D-DEF::THORx",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::D-DEF::THORx",
+      "connector_id": "bolt::D-DEF::THORx",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Decision Engine::Execution Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Decision Engine::Execution Engine",
+      "connector_id": "bolt::Decision Engine::Execution Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Digital Signature Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Digital Signature Protocol::Policy Engine",
+      "connector_id": "bolt::Digital Signature Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Document Intelligence Engine::A\u20223ye",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Document Intelligence Engine::A\u20223ye",
+      "connector_id": "bolt::Document Intelligence Engine::A\u20223ye",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Document Intelligence Engine::Evidence Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Document Intelligence Engine::Evidence Engine",
+      "connector_id": "bolt::Document Intelligence Engine::Evidence Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Drift Detection::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Drift Detection::Sentinel",
+      "connector_id": "bolt::Drift Detection::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Drift Detection::Watch Tower",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Drift Detection::Watch Tower",
+      "connector_id": "bolt::Drift Detection::Watch Tower",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Drift Detection::Conclave",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Drift Detection::Conclave",
+      "connector_id": "bolt::Drift Detection::Conclave",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Drift Detection::Incident Response Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Drift Detection::Incident Response Engine",
+      "connector_id": "bolt::Drift Detection::Incident Response Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Engine Registry::Runtime Engine Manager",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Engine Registry::Runtime Engine Manager",
+      "connector_id": "bolt::Engine Registry::Runtime Engine Manager",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Evidence Engine::Knowledge Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Evidence Engine::Knowledge Engine",
+      "connector_id": "bolt::Evidence Engine::Knowledge Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Evidence Engine::Audit Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Evidence Engine::Audit Engine",
+      "connector_id": "bolt::Evidence Engine::Audit Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Evidence Vault::SPARTAN",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Evidence Vault::SPARTAN",
+      "connector_id": "bolt::Evidence Vault::SPARTAN",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Evidence Verification Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Evidence Verification Protocol::Policy Engine",
+      "connector_id": "bolt::Evidence Verification Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Execution Engine::Decision Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Execution Engine::Decision Engine",
+      "connector_id": "bolt::Execution Engine::Decision Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Execution Engine::Mission Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Execution Engine::Mission Engine",
+      "connector_id": "bolt::Execution Engine::Mission Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Exit Intelligence::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Exit Intelligence::Card Hawk",
+      "connector_id": "bolt::Exit Intelligence::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Exit Intelligence::THORx",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Exit Intelligence::THORx",
+      "connector_id": "bolt::Exit Intelligence::THORx",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::FALCON::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::FALCON::Card Hawk",
+      "connector_id": "bolt::FALCON::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::FALCON::THORx",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::FALCON::THORx",
+      "connector_id": "bolt::FALCON::THORx",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Federation Engine::Trust Registry",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Federation Engine::Trust Registry",
+      "connector_id": "bolt::Federation Engine::Trust Registry",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Federation Engine::Security Mesh",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Federation Engine::Security Mesh",
+      "connector_id": "bolt::Federation Engine::Security Mesh",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Forensics Engine::Security Mesh",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Forensics Engine::Security Mesh",
+      "connector_id": "bolt::Forensics Engine::Security Mesh",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Forensics Engine::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Forensics Engine::Sentinel",
+      "connector_id": "bolt::Forensics Engine::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Identity Engine::Canonical Identity Registry",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Identity Engine::Canonical Identity Registry",
+      "connector_id": "bolt::Identity Engine::Canonical Identity Registry",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Identity Engine::Authentication Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Identity Engine::Authentication Engine",
+      "connector_id": "bolt::Identity Engine::Authentication Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Identity Verification Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Identity Verification Protocol::Policy Engine",
+      "connector_id": "bolt::Identity Verification Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Incident Response Engine::Security Mesh",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Incident Response Engine::Security Mesh",
+      "connector_id": "bolt::Incident Response Engine::Security Mesh",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Incident Response Engine::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Incident Response Engine::Sentinel",
+      "connector_id": "bolt::Incident Response Engine::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Inspection Engine::A\u20223ye",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Inspection Engine::A\u20223ye",
+      "connector_id": "bolt::Inspection Engine::A\u20223ye",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Inspection Engine::Evidence Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Inspection Engine::Evidence Engine",
+      "connector_id": "bolt::Inspection Engine::Evidence Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Intelligence Engine::Engine Registry",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Intelligence Engine::Engine Registry",
+      "connector_id": "bolt::Intelligence Engine::Engine Registry",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Knowledge Engine::Evidence Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Knowledge Engine::Evidence Engine",
+      "connector_id": "bolt::Knowledge Engine::Evidence Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Knowledge Engine::Reason Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Knowledge Engine::Reason Engine",
+      "connector_id": "bolt::Knowledge Engine::Reason Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Knowledge Engine::Memory Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Knowledge Engine::Memory Engine",
+      "connector_id": "bolt::Knowledge Engine::Memory Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Learning Engine::Memory Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Learning Engine::Memory Engine",
+      "connector_id": "bolt::Learning Engine::Memory Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Memory Engine::Knowledge Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Memory Engine::Knowledge Engine",
+      "connector_id": "bolt::Memory Engine::Knowledge Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Mission Authorization Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Mission Authorization Protocol::Policy Engine",
+      "connector_id": "bolt::Mission Authorization Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Mission Engine::Mission Scheduler",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Mission Engine::Mission Scheduler",
+      "connector_id": "bolt::Mission Engine::Mission Scheduler",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Mission Scheduler::Mission Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Mission Scheduler::Mission Engine",
+      "connector_id": "bolt::Mission Scheduler::Mission Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::NEST::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::NEST::Card Hawk",
+      "connector_id": "bolt::NEST::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::NEST::THORx",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::NEST::THORx",
+      "connector_id": "bolt::NEST::THORx",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Nuclear Cloud::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Nuclear Cloud::Card Hawk",
+      "connector_id": "bolt::Nuclear Cloud::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Nuclear Cloud::THORx",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Nuclear Cloud::THORx",
+      "connector_id": "bolt::Nuclear Cloud::THORx",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::OCR Engine::A\u20223ye",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::OCR Engine::A\u20223ye",
+      "connector_id": "bolt::OCR Engine::A\u20223ye",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::OCR Engine::Evidence Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::OCR Engine::Evidence Engine",
+      "connector_id": "bolt::OCR Engine::Evidence Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::PERCH::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::PERCH::Card Hawk",
+      "connector_id": "bolt::PERCH::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::PERCH::THORx",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::PERCH::THORx",
+      "connector_id": "bolt::PERCH::THORx",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Planning Engine::Decision Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Planning Engine::Decision Engine",
+      "connector_id": "bolt::Planning Engine::Decision Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Planning Engine::Mission Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Planning Engine::Mission Engine",
+      "connector_id": "bolt::Planning Engine::Mission Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Policy Engine::Security Mesh",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Policy Engine::Security Mesh",
+      "connector_id": "bolt::Policy Engine::Security Mesh",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Policy Engine::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Policy Engine::Sentinel",
+      "connector_id": "bolt::Policy Engine::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Predictive Engine::Planning Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Predictive Engine::Planning Engine",
+      "connector_id": "bolt::Predictive Engine::Planning Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Predictive Engine::Decision Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Predictive Engine::Decision Engine",
+      "connector_id": "bolt::Predictive Engine::Decision Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Principle X Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Principle X Protocol::Policy Engine",
+      "connector_id": "bolt::Principle X Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Provenance Verification Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Provenance Verification Protocol::Policy Engine",
+      "connector_id": "bolt::Provenance Verification Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Q-DEF::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Q-DEF::Card Hawk",
+      "connector_id": "bolt::Q-DEF::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Q-DEF::THORx",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Q-DEF::THORx",
+      "connector_id": "bolt::Q-DEF::THORx",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::ROOST::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::ROOST::Card Hawk",
+      "connector_id": "bolt::ROOST::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::ROOST::THORx",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::ROOST::THORx",
+      "connector_id": "bolt::ROOST::THORx",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Reason Engine::Knowledge Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Reason Engine::Knowledge Engine",
+      "connector_id": "bolt::Reason Engine::Knowledge Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Reason Engine::Planning Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Reason Engine::Planning Engine",
+      "connector_id": "bolt::Reason Engine::Planning Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Recognition Engine::A\u20223ye",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Recognition Engine::A\u20223ye",
+      "connector_id": "bolt::Recognition Engine::A\u20223ye",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Recognition Engine::Evidence Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Recognition Engine::Evidence Engine",
+      "connector_id": "bolt::Recognition Engine::Evidence Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Recovery Engine::Security Mesh",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Recovery Engine::Security Mesh",
+      "connector_id": "bolt::Recovery Engine::Security Mesh",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Recovery Engine::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Recovery Engine::Sentinel",
+      "connector_id": "bolt::Recovery Engine::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Repository Integrity Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Repository Integrity Protocol::Policy Engine",
+      "connector_id": "bolt::Repository Integrity Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Risk Intelligence Engine::Security Mesh",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Risk Intelligence Engine::Security Mesh",
+      "connector_id": "bolt::Risk Intelligence Engine::Security Mesh",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Risk Intelligence Engine::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Risk Intelligence Engine::Sentinel",
+      "connector_id": "bolt::Risk Intelligence Engine::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Runtime Attestation Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Runtime Attestation Protocol::Policy Engine",
+      "connector_id": "bolt::Runtime Attestation Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Runtime Engine Manager::Engine Registry",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Runtime Engine Manager::Engine Registry",
+      "connector_id": "bolt::Runtime Engine Manager::Engine Registry",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Runtime Integrity Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Runtime Integrity Protocol::Policy Engine",
+      "connector_id": "bolt::Runtime Integrity Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Runtime Monitoring::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Runtime Monitoring::Sentinel",
+      "connector_id": "bolt::Runtime Monitoring::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Runtime Monitoring::Watch Tower",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Runtime Monitoring::Watch Tower",
+      "connector_id": "bolt::Runtime Monitoring::Watch Tower",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Runtime Monitoring::Conclave",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Runtime Monitoring::Conclave",
+      "connector_id": "bolt::Runtime Monitoring::Conclave",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Runtime Monitoring::Incident Response Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Runtime Monitoring::Incident Response Engine",
+      "connector_id": "bolt::Runtime Monitoring::Incident Response Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::SOAR::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::SOAR::Card Hawk",
+      "connector_id": "bolt::SOAR::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::SOAR::THORx",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::SOAR::THORx",
+      "connector_id": "bolt::SOAR::THORx",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::SPAN::SPARTAN",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::SPAN::SPARTAN",
+      "connector_id": "bolt::SPAN::SPARTAN",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::SPARTAN::SPAN",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::SPARTAN::SPAN",
+      "connector_id": "bolt::SPARTAN::SPAN",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::SPARTAN::Watch Tower",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::SPARTAN::Watch Tower",
+      "connector_id": "bolt::SPARTAN::Watch Tower",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::SPARTAN::Conclave",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::SPARTAN::Conclave",
+      "connector_id": "bolt::SPARTAN::Conclave",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::SPARTAN::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::SPARTAN::Sentinel",
+      "connector_id": "bolt::SPARTAN::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::STRIKE::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::STRIKE::Card Hawk",
+      "connector_id": "bolt::STRIKE::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::STRIKE::THORx",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::STRIKE::THORx",
+      "connector_id": "bolt::STRIKE::THORx",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Secure Communication Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Secure Communication Protocol::Policy Engine",
+      "connector_id": "bolt::Secure Communication Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Secure Execution Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Secure Execution Protocol::Policy Engine",
+      "connector_id": "bolt::Secure Execution Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Secure Session Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Secure Session Protocol::Policy Engine",
+      "connector_id": "bolt::Secure Session Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Security Circuit::SPARTAN",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Security Circuit::SPARTAN",
+      "connector_id": "bolt::Security Circuit::SPARTAN",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Security Fabric::SPARTAN",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Security Fabric::SPARTAN",
+      "connector_id": "bolt::Security Fabric::SPARTAN",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Security Mesh::SPARTAN",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Security Mesh::SPARTAN",
+      "connector_id": "bolt::Security Mesh::SPARTAN",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Security Telemetry::SPARTAN",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Security Telemetry::SPARTAN",
+      "connector_id": "bolt::Security Telemetry::SPARTAN",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Semantic Engine::Knowledge Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Semantic Engine::Knowledge Engine",
+      "connector_id": "bolt::Semantic Engine::Knowledge Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Sentinel::SPARTAN",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Sentinel::SPARTAN",
+      "connector_id": "bolt::Sentinel::SPARTAN",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Sentinel::Watch Tower",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Sentinel::Watch Tower",
+      "connector_id": "bolt::Sentinel::Watch Tower",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Sentinel::Conclave",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Sentinel::Conclave",
+      "connector_id": "bolt::Sentinel::Conclave",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Service Registration Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Service Registration Protocol::Policy Engine",
+      "connector_id": "bolt::Service Registration Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Strike Zone::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Strike Zone::Card Hawk",
+      "connector_id": "bolt::Strike Zone::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Strike Zone::THORx",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Strike Zone::THORx",
+      "connector_id": "bolt::Strike Zone::THORx",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Supply Chain Verification Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Supply Chain Verification Protocol::Policy Engine",
+      "connector_id": "bolt::Supply Chain Verification Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::TALON::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::TALON::Card Hawk",
+      "connector_id": "bolt::TALON::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::TALON::THORx",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::TALON::THORx",
+      "connector_id": "bolt::TALON::THORx",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::THORx::Card Hawk",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::THORx::Card Hawk",
+      "connector_id": "bolt::THORx::Card Hawk",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::THORx::Decision Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::THORx::Decision Engine",
+      "connector_id": "bolt::THORx::Decision Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Tamper Detection Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Tamper Detection Protocol::Policy Engine",
+      "connector_id": "bolt::Tamper Detection Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Attribution::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Attribution::Sentinel",
+      "connector_id": "bolt::Threat Attribution::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Attribution::Watch Tower",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Attribution::Watch Tower",
+      "connector_id": "bolt::Threat Attribution::Watch Tower",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Attribution::Conclave",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Attribution::Conclave",
+      "connector_id": "bolt::Threat Attribution::Conclave",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Attribution::Incident Response Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Attribution::Incident Response Engine",
+      "connector_id": "bolt::Threat Attribution::Incident Response Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Containment::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Containment::Sentinel",
+      "connector_id": "bolt::Threat Containment::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Containment::Watch Tower",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Containment::Watch Tower",
+      "connector_id": "bolt::Threat Containment::Watch Tower",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Containment::Conclave",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Containment::Conclave",
+      "connector_id": "bolt::Threat Containment::Conclave",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Containment::Incident Response Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Containment::Incident Response Engine",
+      "connector_id": "bolt::Threat Containment::Incident Response Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Correlation::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Correlation::Sentinel",
+      "connector_id": "bolt::Threat Correlation::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Correlation::Watch Tower",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Correlation::Watch Tower",
+      "connector_id": "bolt::Threat Correlation::Watch Tower",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Correlation::Conclave",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Correlation::Conclave",
+      "connector_id": "bolt::Threat Correlation::Conclave",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Correlation::Incident Response Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Correlation::Incident Response Engine",
+      "connector_id": "bolt::Threat Correlation::Incident Response Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Detection::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Detection::Sentinel",
+      "connector_id": "bolt::Threat Detection::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Detection::Watch Tower",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Detection::Watch Tower",
+      "connector_id": "bolt::Threat Detection::Watch Tower",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Detection::Conclave",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Detection::Conclave",
+      "connector_id": "bolt::Threat Detection::Conclave",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Detection::Incident Response Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Detection::Incident Response Engine",
+      "connector_id": "bolt::Threat Detection::Incident Response Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Eradication::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Eradication::Sentinel",
+      "connector_id": "bolt::Threat Eradication::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Eradication::Watch Tower",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Eradication::Watch Tower",
+      "connector_id": "bolt::Threat Eradication::Watch Tower",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Eradication::Conclave",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Eradication::Conclave",
+      "connector_id": "bolt::Threat Eradication::Conclave",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Eradication::Incident Response Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Eradication::Incident Response Engine",
+      "connector_id": "bolt::Threat Eradication::Incident Response Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Hunting::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Hunting::Sentinel",
+      "connector_id": "bolt::Threat Hunting::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Hunting::Watch Tower",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Hunting::Watch Tower",
+      "connector_id": "bolt::Threat Hunting::Watch Tower",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Hunting::Conclave",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Hunting::Conclave",
+      "connector_id": "bolt::Threat Hunting::Conclave",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Hunting::Incident Response Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Hunting::Incident Response Engine",
+      "connector_id": "bolt::Threat Hunting::Incident Response Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Intelligence Engine::Security Mesh",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Intelligence Engine::Security Mesh",
+      "connector_id": "bolt::Threat Intelligence Engine::Security Mesh",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Intelligence Engine::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Intelligence Engine::Sentinel",
+      "connector_id": "bolt::Threat Intelligence Engine::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Recovery::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Recovery::Sentinel",
+      "connector_id": "bolt::Threat Recovery::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Recovery::Watch Tower",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Recovery::Watch Tower",
+      "connector_id": "bolt::Threat Recovery::Watch Tower",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Recovery::Conclave",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Recovery::Conclave",
+      "connector_id": "bolt::Threat Recovery::Conclave",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Threat Recovery::Incident Response Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Threat Recovery::Incident Response Engine",
+      "connector_id": "bolt::Threat Recovery::Incident Response Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Trust Framework::SPARTAN",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Trust Framework::SPARTAN",
+      "connector_id": "bolt::Trust Framework::SPARTAN",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Trust Registry::SPARTAN",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Trust Registry::SPARTAN",
+      "connector_id": "bolt::Trust Registry::SPARTAN",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Truth Verification Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Truth Verification Protocol::Policy Engine",
+      "connector_id": "bolt::Truth Verification Protocol::Policy Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Verification Engine::A\u20223ye",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Verification Engine::A\u20223ye",
+      "connector_id": "bolt::Verification Engine::A\u20223ye",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Verification Engine::Evidence Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Verification Engine::Evidence Engine",
+      "connector_id": "bolt::Verification Engine::Evidence Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Vision Engine::A\u20223ye",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Vision Engine::A\u20223ye",
+      "connector_id": "bolt::Vision Engine::A\u20223ye",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Vision Engine::Evidence Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Vision Engine::Evidence Engine",
+      "connector_id": "bolt::Vision Engine::Evidence Engine",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Vulnerability Intelligence Engine::Security Mesh",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Vulnerability Intelligence Engine::Security Mesh",
+      "connector_id": "bolt::Vulnerability Intelligence Engine::Security Mesh",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Vulnerability Intelligence Engine::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Vulnerability Intelligence Engine::Sentinel",
+      "connector_id": "bolt::Vulnerability Intelligence Engine::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Watch Tower::Sentinel",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Watch Tower::Sentinel",
+      "connector_id": "bolt::Watch Tower::Sentinel",
+      "contract_present": true
+    },
+    {
+      "access_module_id": "access::Zero Trust Protocol::Policy Engine",
+      "authentication_required": true,
+      "authorization_required": true,
+      "channel_id": "bus::Zero Trust Protocol::Policy Engine",
+      "connector_id": "bolt::Zero Trust Protocol::Policy Engine",
+      "contract_present": true
+    }
+  ]
+}
