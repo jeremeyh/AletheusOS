@@ -1,0 +1,1 @@
+"""Deterministic Pre-Execution Guard."""
