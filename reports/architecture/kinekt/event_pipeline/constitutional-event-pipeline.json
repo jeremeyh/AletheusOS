@@ -1,0 +1,63 @@
+{
+  "event_count": 5,
+  "events": [
+    {
+      "authority": "Constitutional Event Pipeline",
+      "correlation_id": "3dfbd3ba-5c2f-4e28-ab9e-31956b4cf3d0",
+      "event_type": "evidence.created",
+      "evidence_refs": [],
+      "payload": {
+        "channel_count": 195
+      },
+      "timestamp": "2026-08-01T10:25:50.802753+00:00"
+    },
+    {
+      "authority": "Constitutional Event Pipeline",
+      "correlation_id": "bc2d73b6-c0af-4b71-a524-21859a6c7ef4",
+      "event_type": "knowledge.resolved",
+      "evidence_refs": [],
+      "payload": {
+        "channel_count": 195
+      },
+      "timestamp": "2026-08-01T10:25:50.802837+00:00"
+    },
+    {
+      "authority": "Constitutional Event Pipeline",
+      "correlation_id": "09b2de5e-ae6d-4abc-b82f-ae2b1bb8c54a",
+      "event_type": "reasoning.completed",
+      "evidence_refs": [],
+      "payload": {
+        "channel_count": 195
+      },
+      "timestamp": "2026-08-01T10:25:50.802895+00:00"
+    },
+    {
+      "authority": "Constitutional Event Pipeline",
+      "correlation_id": "088d6dfb-0625-4088-b552-e1202dd59ea6",
+      "event_type": "planning.completed",
+      "evidence_refs": [],
+      "payload": {
+        "channel_count": 195
+      },
+      "timestamp": "2026-08-01T10:25:50.802946+00:00"
+    },
+    {
+      "authority": "Constitutional Event Pipeline",
+      "correlation_id": "12f824bb-4d44-495d-9179-bbe6b2aef0bf",
+      "event_type": "execution.completed",
+      "evidence_refs": [],
+      "payload": {
+        "channel_count": 195
+      },
+      "timestamp": "2026-08-01T10:25:50.802994+00:00"
+    }
+  ],
+  "received": [
+    "evidence.created",
+    "knowledge.resolved",
+    "reasoning.completed",
+    "planning.completed",
+    "execution.completed"
+  ],
+  "service_bus_channels": 195
+}

@@ -909,6 +909,7 @@ tests/test_runtime_service_registry.py::test_core_runtime_services_registered
 tests/test_runtime_service_registry.py::test_foundational_platform_services_registered
 tests/tooling/access_module_realization/test_engine.py::test_access_modules_require_auth
 tests/tooling/engine_activation/test_activation.py::test_activation_manager_activates_registered_engines
+tests/tooling/event_pipeline/test_pipeline.py::test_pipeline_publishes_and_subscribes
 tests/tooling/execution_runtime/test_runtime.py::test_runtime_executes_real_steps
 tests/tooling/genesis/repository/test_classifier.py::test_runtime_state_is_operational
 tests/tooling/genesis/repository/test_classifier.py::test_reports_are_generated_reports
@@ -1514,4 +1515,4 @@ ERROR tests/tooling/structural_hardening/test_engine.py
 ERROR tests/tooling/validator_composition/test_engine.py
 ERROR tests/tooling/vertical_slice_verifier/test_engine.py
 !!!!!!!!!!!!!!!!!!! Interrupted: 64 errors during collection !!!!!!!!!!!!!!!!!!!
-1000 tests collected, 64 errors in 1.78s
+1001 tests collected, 64 errors in 1.57s
