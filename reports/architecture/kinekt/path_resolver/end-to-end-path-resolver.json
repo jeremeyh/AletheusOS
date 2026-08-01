@@ -1,0 +1,602 @@
+{
+  "adjacency": {
+    "Acquisition AI": [
+      "Card Hawk",
+      "THORx"
+    ],
+    "Anomaly Detection": [
+      "Conclave",
+      "Incident Response Engine",
+      "Sentinel",
+      "Watch Tower"
+    ],
+    "Asset DNA": [
+      "Card Hawk",
+      "THORx"
+    ],
+    "Attack Surface Analysis": [
+      "Conclave",
+      "Incident Response Engine",
+      "Sentinel",
+      "Watch Tower"
+    ],
+    "Audit Engine": [
+      "Security Mesh",
+      "Sentinel"
+    ],
+    "Authentication Engine": [
+      "Security Mesh",
+      "Sentinel"
+    ],
+    "Authorization Engine": [
+      "Security Mesh",
+      "Sentinel"
+    ],
+    "A\u20223ye": [
+      "Card Hawk",
+      "Evidence Engine"
+    ],
+    "Behavioral Analytics": [
+      "Conclave",
+      "Incident Response Engine",
+      "Sentinel",
+      "Watch Tower"
+    ],
+    "Canonical Identity Framework": [
+      "SPARTAN"
+    ],
+    "Canonical Identity Registry": [
+      "SPARTAN"
+    ],
+    "Capability Engine": [
+      "Engine Registry",
+      "Execution Engine"
+    ],
+    "Capability Registration Protocol": [
+      "Policy Engine"
+    ],
+    "Card Hawk": [
+      "A\u20223ye",
+      "THORx"
+    ],
+    "Chain of Evidence Protocol": [
+      "Policy Engine"
+    ],
+    "Compliance Engine": [
+      "Security Mesh",
+      "Sentinel"
+    ],
+    "Conclave": [
+      "Incident Response Engine",
+      "Sentinel"
+    ],
+    "Constitutional Audit": [
+      "SPARTAN"
+    ],
+    "Constitutional Authentication Protocol": [
+      "Policy Engine"
+    ],
+    "Constitutional Authorization Protocol": [
+      "Policy Engine"
+    ],
+    "Constitutional Consensus Protocol": [
+      "Policy Engine"
+    ],
+    "Constitutional Governance Protocol": [
+      "Policy Engine"
+    ],
+    "Constitutional Ledger": [
+      "SPARTAN"
+    ],
+    "Constitutional Security": [
+      "SPARTAN"
+    ],
+    "Constitutional Validation Protocol": [
+      "Policy Engine"
+    ],
+    "Continuous Validation": [
+      "Conclave",
+      "Incident Response Engine",
+      "Sentinel",
+      "Watch Tower"
+    ],
+    "D-DEF": [
+      "Card Hawk",
+      "THORx"
+    ],
+    "Decision Engine": [
+      "Execution Engine"
+    ],
+    "Digital Signature Protocol": [
+      "Policy Engine"
+    ],
+    "Document Intelligence Engine": [
+      "A\u20223ye",
+      "Evidence Engine"
+    ],
+    "Drift Detection": [
+      "Conclave",
+      "Incident Response Engine",
+      "Sentinel",
+      "Watch Tower"
+    ],
+    "Engine Registry": [
+      "Runtime Engine Manager"
+    ],
+    "Evidence Engine": [
+      "Audit Engine",
+      "Knowledge Engine"
+    ],
+    "Evidence Vault": [
+      "SPARTAN"
+    ],
+    "Evidence Verification Protocol": [
+      "Policy Engine"
+    ],
+    "Execution Engine": [
+      "Decision Engine",
+      "Mission Engine"
+    ],
+    "Exit Intelligence": [
+      "Card Hawk",
+      "THORx"
+    ],
+    "FALCON": [
+      "Card Hawk",
+      "THORx"
+    ],
+    "Federation Engine": [
+      "Security Mesh",
+      "Trust Registry"
+    ],
+    "Forensics Engine": [
+      "Security Mesh",
+      "Sentinel"
+    ],
+    "Identity Engine": [
+      "Authentication Engine",
+      "Canonical Identity Registry"
+    ],
+    "Identity Verification Protocol": [
+      "Policy Engine"
+    ],
+    "Incident Response Engine": [
+      "Security Mesh",
+      "Sentinel"
+    ],
+    "Inspection Engine": [
+      "A\u20223ye",
+      "Evidence Engine"
+    ],
+    "Intelligence Engine": [
+      "Engine Registry"
+    ],
+    "Knowledge Engine": [
+      "Evidence Engine",
+      "Memory Engine",
+      "Reason Engine"
+    ],
+    "Learning Engine": [
+      "Memory Engine"
+    ],
+    "Memory Engine": [
+      "Knowledge Engine"
+    ],
+    "Mission Authorization Protocol": [
+      "Policy Engine"
+    ],
+    "Mission Engine": [
+      "Mission Scheduler"
+    ],
+    "Mission Scheduler": [
+      "Mission Engine"
+    ],
+    "NEST": [
+      "Card Hawk",
+      "THORx"
+    ],
+    "Nuclear Cloud": [
+      "Card Hawk",
+      "THORx"
+    ],
+    "OCR Engine": [
+      "A\u20223ye",
+      "Evidence Engine"
+    ],
+    "PERCH": [
+      "Card Hawk",
+      "THORx"
+    ],
+    "Planning Engine": [
+      "Decision Engine",
+      "Mission Engine"
+    ],
+    "Policy Engine": [
+      "Security Mesh",
+      "Sentinel"
+    ],
+    "Predictive Engine": [
+      "Decision Engine",
+      "Planning Engine"
+    ],
+    "Principle X Protocol": [
+      "Policy Engine"
+    ],
+    "Provenance Verification Protocol": [
+      "Policy Engine"
+    ],
+    "Q-DEF": [
+      "Card Hawk",
+      "THORx"
+    ],
+    "ROOST": [
+      "Card Hawk",
+      "THORx"
+    ],
+    "Reason Engine": [
+      "Knowledge Engine",
+      "Planning Engine"
+    ],
+    "Recognition Engine": [
+      "A\u20223ye",
+      "Evidence Engine"
+    ],
+    "Recovery Engine": [
+      "Security Mesh",
+      "Sentinel"
+    ],
+    "Repository Integrity Protocol": [
+      "Policy Engine"
+    ],
+    "Risk Intelligence Engine": [
+      "Security Mesh",
+      "Sentinel"
+    ],
+    "Runtime Attestation Protocol": [
+      "Policy Engine"
+    ],
+    "Runtime Engine Manager": [
+      "Engine Registry"
+    ],
+    "Runtime Integrity Protocol": [
+      "Policy Engine"
+    ],
+    "Runtime Monitoring": [
+      "Conclave",
+      "Incident Response Engine",
+      "Sentinel",
+      "Watch Tower"
+    ],
+    "SOAR": [
+      "Card Hawk",
+      "THORx"
+    ],
+    "SPAN": [
+      "SPARTAN"
+    ],
+    "SPARTAN": [
+      "Conclave",
+      "SPAN",
+      "Sentinel",
+      "Watch Tower"
+    ],
+    "STRIKE": [
+      "Card Hawk",
+      "THORx"
+    ],
+    "Secure Communication Protocol": [
+      "Policy Engine"
+    ],
+    "Secure Execution Protocol": [
+      "Policy Engine"
+    ],
+    "Secure Session Protocol": [
+      "Policy Engine"
+    ],
+    "Security Circuit": [
+      "SPARTAN"
+    ],
+    "Security Fabric": [
+      "SPARTAN"
+    ],
+    "Security Mesh": [
+      "SPARTAN"
+    ],
+    "Security Telemetry": [
+      "SPARTAN"
+    ],
+    "Semantic Engine": [
+      "Knowledge Engine"
+    ],
+    "Sentinel": [
+      "Conclave",
+      "SPARTAN",
+      "Watch Tower"
+    ],
+    "Service Registration Protocol": [
+      "Policy Engine"
+    ],
+    "Strike Zone": [
+      "Card Hawk",
+      "THORx"
+    ],
+    "Supply Chain Verification Protocol": [
+      "Policy Engine"
+    ],
+    "TALON": [
+      "Card Hawk",
+      "THORx"
+    ],
+    "THORx": [
+      "Card Hawk",
+      "Decision Engine"
+    ],
+    "Tamper Detection Protocol": [
+      "Policy Engine"
+    ],
+    "Threat Attribution": [
+      "Conclave",
+      "Incident Response Engine",
+      "Sentinel",
+      "Watch Tower"
+    ],
+    "Threat Containment": [
+      "Conclave",
+      "Incident Response Engine",
+      "Sentinel",
+      "Watch Tower"
+    ],
+    "Threat Correlation": [
+      "Conclave",
+      "Incident Response Engine",
+      "Sentinel",
+      "Watch Tower"
+    ],
+    "Threat Detection": [
+      "Conclave",
+      "Incident Response Engine",
+      "Sentinel",
+      "Watch Tower"
+    ],
+    "Threat Eradication": [
+      "Conclave",
+      "Incident Response Engine",
+      "Sentinel",
+      "Watch Tower"
+    ],
+    "Threat Hunting": [
+      "Conclave",
+      "Incident Response Engine",
+      "Sentinel",
+      "Watch Tower"
+    ],
+    "Threat Intelligence Engine": [
+      "Security Mesh",
+      "Sentinel"
+    ],
+    "Threat Recovery": [
+      "Conclave",
+      "Incident Response Engine",
+      "Sentinel",
+      "Watch Tower"
+    ],
+    "Trust Framework": [
+      "SPARTAN"
+    ],
+    "Trust Registry": [
+      "SPARTAN"
+    ],
+    "Truth Verification Protocol": [
+      "Policy Engine"
+    ],
+    "Verification Engine": [
+      "A\u20223ye",
+      "Evidence Engine"
+    ],
+    "Vision Engine": [
+      "A\u20223ye",
+      "Evidence Engine"
+    ],
+    "Vulnerability Intelligence Engine": [
+      "Security Mesh",
+      "Sentinel"
+    ],
+    "Watch Tower": [
+      "Sentinel"
+    ],
+    "Zero Trust Protocol": [
+      "Policy Engine"
+    ]
+  },
+  "leaves": [],
+  "nodes": [
+    "Acquisition AI",
+    "Anomaly Detection",
+    "Asset DNA",
+    "Attack Surface Analysis",
+    "Audit Engine",
+    "Authentication Engine",
+    "Authorization Engine",
+    "A\u20223ye",
+    "Behavioral Analytics",
+    "Canonical Identity Framework",
+    "Canonical Identity Registry",
+    "Capability Engine",
+    "Capability Registration Protocol",
+    "Card Hawk",
+    "Chain of Evidence Protocol",
+    "Compliance Engine",
+    "Conclave",
+    "Constitutional Audit",
+    "Constitutional Authentication Protocol",
+    "Constitutional Authorization Protocol",
+    "Constitutional Consensus Protocol",
+    "Constitutional Governance Protocol",
+    "Constitutional Ledger",
+    "Constitutional Security",
+    "Constitutional Validation Protocol",
+    "Continuous Validation",
+    "D-DEF",
+    "Decision Engine",
+    "Digital Signature Protocol",
+    "Document Intelligence Engine",
+    "Drift Detection",
+    "Engine Registry",
+    "Evidence Engine",
+    "Evidence Vault",
+    "Evidence Verification Protocol",
+    "Execution Engine",
+    "Exit Intelligence",
+    "FALCON",
+    "Federation Engine",
+    "Forensics Engine",
+    "Identity Engine",
+    "Identity Verification Protocol",
+    "Incident Response Engine",
+    "Inspection Engine",
+    "Intelligence Engine",
+    "Knowledge Engine",
+    "Learning Engine",
+    "Memory Engine",
+    "Mission Authorization Protocol",
+    "Mission Engine",
+    "Mission Scheduler",
+    "NEST",
+    "Nuclear Cloud",
+    "OCR Engine",
+    "PERCH",
+    "Planning Engine",
+    "Policy Engine",
+    "Predictive Engine",
+    "Principle X Protocol",
+    "Provenance Verification Protocol",
+    "Q-DEF",
+    "ROOST",
+    "Reason Engine",
+    "Recognition Engine",
+    "Recovery Engine",
+    "Repository Integrity Protocol",
+    "Risk Intelligence Engine",
+    "Runtime Attestation Protocol",
+    "Runtime Engine Manager",
+    "Runtime Integrity Protocol",
+    "Runtime Monitoring",
+    "SOAR",
+    "SPAN",
+    "SPARTAN",
+    "STRIKE",
+    "Secure Communication Protocol",
+    "Secure Execution Protocol",
+    "Secure Session Protocol",
+    "Security Circuit",
+    "Security Fabric",
+    "Security Mesh",
+    "Security Telemetry",
+    "Semantic Engine",
+    "Sentinel",
+    "Service Registration Protocol",
+    "Strike Zone",
+    "Supply Chain Verification Protocol",
+    "TALON",
+    "THORx",
+    "Tamper Detection Protocol",
+    "Threat Attribution",
+    "Threat Containment",
+    "Threat Correlation",
+    "Threat Detection",
+    "Threat Eradication",
+    "Threat Hunting",
+    "Threat Intelligence Engine",
+    "Threat Recovery",
+    "Trust Framework",
+    "Trust Registry",
+    "Truth Verification Protocol",
+    "Verification Engine",
+    "Vision Engine",
+    "Vulnerability Intelligence Engine",
+    "Watch Tower",
+    "Zero Trust Protocol"
+  ],
+  "roots": [
+    "Acquisition AI",
+    "Anomaly Detection",
+    "Asset DNA",
+    "Attack Surface Analysis",
+    "Authorization Engine",
+    "Behavioral Analytics",
+    "Canonical Identity Framework",
+    "Capability Engine",
+    "Capability Registration Protocol",
+    "Chain of Evidence Protocol",
+    "Compliance Engine",
+    "Constitutional Audit",
+    "Constitutional Authentication Protocol",
+    "Constitutional Authorization Protocol",
+    "Constitutional Consensus Protocol",
+    "Constitutional Governance Protocol",
+    "Constitutional Ledger",
+    "Constitutional Security",
+    "Constitutional Validation Protocol",
+    "Continuous Validation",
+    "D-DEF",
+    "Digital Signature Protocol",
+    "Document Intelligence Engine",
+    "Drift Detection",
+    "Evidence Vault",
+    "Evidence Verification Protocol",
+    "Exit Intelligence",
+    "FALCON",
+    "Federation Engine",
+    "Forensics Engine",
+    "Identity Engine",
+    "Identity Verification Protocol",
+    "Inspection Engine",
+    "Intelligence Engine",
+    "Learning Engine",
+    "Mission Authorization Protocol",
+    "NEST",
+    "Nuclear Cloud",
+    "OCR Engine",
+    "PERCH",
+    "Predictive Engine",
+    "Principle X Protocol",
+    "Provenance Verification Protocol",
+    "Q-DEF",
+    "ROOST",
+    "Recognition Engine",
+    "Recovery Engine",
+    "Repository Integrity Protocol",
+    "Risk Intelligence Engine",
+    "Runtime Attestation Protocol",
+    "Runtime Integrity Protocol",
+    "Runtime Monitoring",
+    "SOAR",
+    "STRIKE",
+    "Secure Communication Protocol",
+    "Secure Execution Protocol",
+    "Secure Session Protocol",
+    "Security Circuit",
+    "Security Fabric",
+    "Security Telemetry",
+    "Semantic Engine",
+    "Service Registration Protocol",
+    "Strike Zone",
+    "Supply Chain Verification Protocol",
+    "TALON",
+    "Tamper Detection Protocol",
+    "Threat Attribution",
+    "Threat Containment",
+    "Threat Correlation",
+    "Threat Detection",
+    "Threat Eradication",
+    "Threat Hunting",
+    "Threat Intelligence Engine",
+    "Threat Recovery",
+    "Trust Framework",
+    "Truth Verification Protocol",
+    "Verification Engine",
+    "Vision Engine",
+    "Vulnerability Intelligence Engine",
+    "Zero Trust Protocol"
+  ]
+}
