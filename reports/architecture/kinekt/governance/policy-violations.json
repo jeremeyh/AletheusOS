@@ -1,0 +1,150 @@
+{
+  "violations": [
+    {
+      "code": "RUNTIME_LAYER_LEAK",
+      "evidence": [
+        ".aletheus_restore_points/repository_conflicts/20260719T065403Z/aletheus/runtime/core.py",
+        "aletheus/applications/__init__.py"
+      ],
+      "message": "Runtime must not depend on experience or product implementation.",
+      "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+      "severity": "high",
+      "source": ".aletheus_restore_points.repository_conflicts.20260719T065403Z.aletheus.runtime.core",
+      "source_layer": "runtime",
+      "target": "aletheus.applications",
+      "target_layer": "product"
+    },
+    {
+      "code": "RUNTIME_LAYER_LEAK",
+      "evidence": [
+        ".aletheus_restore_points/repository_conflicts/20260719T070434Z/aletheus/runtime/core.py",
+        "aletheus/applications/__init__.py"
+      ],
+      "message": "Runtime must not depend on experience or product implementation.",
+      "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+      "severity": "high",
+      "source": ".aletheus_restore_points.repository_conflicts.20260719T070434Z.aletheus.runtime.core",
+      "source_layer": "runtime",
+      "target": "aletheus.applications",
+      "target_layer": "product"
+    },
+    {
+      "code": "RUNTIME_LAYER_LEAK",
+      "evidence": [
+        "aletheus/runtime/core.py",
+        "aletheus/applications/__init__.py"
+      ],
+      "message": "Runtime must not depend on experience or product implementation.",
+      "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+      "severity": "high",
+      "source": "aletheus.runtime.core",
+      "source_layer": "runtime",
+      "target": "aletheus.applications",
+      "target_layer": "product"
+    },
+    {
+      "code": "RUNTIME_LAYER_LEAK",
+      "evidence": [
+        "backups/runtime/core_v4.6.2_stable.py",
+        "aletheus/applications/__init__.py"
+      ],
+      "message": "Runtime must not depend on experience or product implementation.",
+      "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+      "severity": "high",
+      "source": "backups.runtime.core_v4.6.2_stable",
+      "source_layer": "runtime",
+      "target": "aletheus.applications",
+      "target_layer": "product"
+    },
+    {
+      "code": "RUNTIME_LAYER_LEAK",
+      "evidence": [
+        "components/chds/runtime_monitor.py",
+        "cardhawkos/boot/boot_manager.py"
+      ],
+      "message": "Runtime must not depend on experience or product implementation.",
+      "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+      "severity": "high",
+      "source": "components.chds.runtime_monitor",
+      "source_layer": "runtime",
+      "target": "cardhawkos.boot.boot_manager",
+      "target_layer": "product"
+    },
+    {
+      "code": "RUNTIME_LAYER_LEAK",
+      "evidence": [
+        "components/chds/runtime_status.py",
+        "cardhawkos/config/settings.py"
+      ],
+      "message": "Runtime must not depend on experience or product implementation.",
+      "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+      "severity": "high",
+      "source": "components.chds.runtime_status",
+      "source_layer": "runtime",
+      "target": "cardhawkos.config.settings",
+      "target_layer": "product"
+    },
+    {
+      "code": "EXPERIENCE_RUNTIME_INTERNAL_COUPLING",
+      "evidence": [
+        "aletheus/experience_gateway/api/__init__.py",
+        "runtime/__init__.py"
+      ],
+      "message": "Experience code should depend on runtime contracts, not internals.",
+      "recommendation": "Route the dependency through the runtime facade or public API.",
+      "severity": "medium",
+      "source": "aletheus.experience_gateway.api",
+      "source_layer": "experience",
+      "target": "runtime",
+      "target_layer": "runtime"
+    },
+    {
+      "code": "EXPERIENCE_RUNTIME_INTERNAL_COUPLING",
+      "evidence": [
+        "aletheus/experience_gateway/api/missions.py",
+        "runtime/__init__.py"
+      ],
+      "message": "Experience code should depend on runtime contracts, not internals.",
+      "recommendation": "Route the dependency through the runtime facade or public API.",
+      "severity": "medium",
+      "source": "aletheus.experience_gateway.api.missions",
+      "source_layer": "experience",
+      "target": "runtime",
+      "target_layer": "runtime"
+    },
+    {
+      "code": "EXPERIENCE_RUNTIME_INTERNAL_COUPLING",
+      "evidence": [
+        "tools/genesis/genesis_8/build_compatibility_manifest.py",
+        "aletheus/runtime/__init__.py"
+      ],
+      "message": "Experience code should depend on runtime contracts, not internals.",
+      "recommendation": "Route the dependency through the runtime facade or public API.",
+      "severity": "medium",
+      "source": "tools.genesis.genesis_8.build_compatibility_manifest",
+      "source_layer": "experience",
+      "target": "aletheus.runtime",
+      "target_layer": "runtime"
+    },
+    {
+      "code": "EXPERIENCE_RUNTIME_INTERNAL_COUPLING",
+      "evidence": [
+        "ui/pages/aletheus_founder_workspace.py",
+        "aletheus/runtime/__init__.py"
+      ],
+      "message": "Experience code should depend on runtime contracts, not internals.",
+      "recommendation": "Route the dependency through the runtime facade or public API.",
+      "severity": "medium",
+      "source": "ui.pages.aletheus_founder_workspace",
+      "source_layer": "experience",
+      "target": "aletheus.runtime",
+      "target_layer": "runtime"
+    },
+    {
+      "code": "PLATFORM_NOT_READY",
+      "message": "Constitutional readiness is not_ready.",
+      "severity": "high",
+      "source": "health"
+    }
+  ]
+}
