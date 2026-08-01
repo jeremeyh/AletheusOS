@@ -1,0 +1,15 @@
+[
+  {
+    "attributes": {
+      "capability": null,
+      "evidence": [],
+      "owner": null
+    },
+    "name": "Constitutional Runtime Kernel",
+    "node_id": "runtime:crk",
+    "node_type": "runtime",
+    "provenance": [
+      "constitutional-dependency-graph"
+    ]
+  }
+]
