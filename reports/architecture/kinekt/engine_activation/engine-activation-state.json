@@ -1,0 +1,217 @@
+{
+  "activated": [
+    {
+      "active": true,
+      "engine_name": "Audit Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Authentication Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Authorization Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Capability Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Compliance Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Decision Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Document Intelligence Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Engine Registry",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Evidence Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Execution Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Federation Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Forensics Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Identity Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Incident Response Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Inspection Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Intelligence Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Knowledge Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Learning Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Memory Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Mission Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Mission Scheduler",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "OCR Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Planning Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Policy Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Predictive Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Reason Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Recognition Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Recovery Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Risk Intelligence Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Runtime Engine Manager",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Semantic Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Threat Intelligence Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Verification Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Vision Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    },
+    {
+      "active": true,
+      "engine_name": "Vulnerability Intelligence Engine",
+      "generation": 2,
+      "lifecycle": "active"
+    }
+  ],
+  "activated_count": 35,
+  "failed": [],
+  "failed_count": 0
+}
