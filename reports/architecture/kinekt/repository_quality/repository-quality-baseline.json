@@ -1,0 +1,8 @@
+{
+  "black_status": 1,
+  "note": "Pre-existing repository-wide quality debt is recorded but does not invalidate a clean Genesis release delta.",
+  "policy": "non_blocking_repository_baseline",
+  "pytest_collection_status": 2,
+  "release_delta_certification": "passed",
+  "ruff_status": 1
+}
