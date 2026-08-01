@@ -1,0 +1,196 @@
+{
+  "task_count": 1,
+  "tasks": [
+    {
+      "results": [
+        {
+          "context": {
+            "evidence": [],
+            "payload": {
+              "purpose": "production-readiness"
+            },
+            "trace": [
+              {
+                "stage": "Identity Validation",
+                "status": "completed",
+                "step_id": "process-01"
+              },
+              {
+                "stage": "Authority Resolution",
+                "status": "completed",
+                "step_id": "process-02"
+              },
+              {
+                "stage": "Evidence Validation",
+                "status": "completed",
+                "step_id": "process-03"
+              },
+              {
+                "stage": "Knowledge Resolution",
+                "status": "completed",
+                "step_id": "process-04"
+              },
+              {
+                "stage": "Semantic Validation",
+                "status": "completed",
+                "step_id": "process-05"
+              },
+              {
+                "stage": "Planning",
+                "status": "completed",
+                "step_id": "process-06"
+              },
+              {
+                "stage": "Decision",
+                "status": "completed",
+                "step_id": "process-07"
+              },
+              {
+                "stage": "Mission Authorization",
+                "status": "completed",
+                "step_id": "process-08"
+              },
+              {
+                "stage": "Runtime Orchestration",
+                "status": "completed",
+                "step_id": "process-09"
+              },
+              {
+                "stage": "Service Bus Routing",
+                "status": "completed",
+                "step_id": "process-10"
+              },
+              {
+                "stage": "Execution",
+                "status": "completed",
+                "step_id": "process-11"
+              },
+              {
+                "stage": "Telemetry",
+                "status": "completed",
+                "step_id": "process-12"
+              },
+              {
+                "stage": "Runtime Health",
+                "status": "completed",
+                "step_id": "process-13"
+              },
+              {
+                "stage": "Mesh Validation",
+                "status": "completed",
+                "step_id": "process-14"
+              },
+              {
+                "stage": "Architecture Validation",
+                "status": "completed",
+                "step_id": "process-15"
+              },
+              {
+                "stage": "Governance Validation",
+                "status": "completed",
+                "step_id": "process-16"
+              },
+              {
+                "stage": "Platform Certification",
+                "status": "completed",
+                "step_id": "process-17"
+              }
+            ]
+          },
+          "mission_id": "post-install-health",
+          "status": "completed",
+          "steps": [
+            {
+              "stage": "Identity Validation",
+              "status": "completed",
+              "step_id": "process-01"
+            },
+            {
+              "stage": "Authority Resolution",
+              "status": "completed",
+              "step_id": "process-02"
+            },
+            {
+              "stage": "Evidence Validation",
+              "status": "completed",
+              "step_id": "process-03"
+            },
+            {
+              "stage": "Knowledge Resolution",
+              "status": "completed",
+              "step_id": "process-04"
+            },
+            {
+              "stage": "Semantic Validation",
+              "status": "completed",
+              "step_id": "process-05"
+            },
+            {
+              "stage": "Planning",
+              "status": "completed",
+              "step_id": "process-06"
+            },
+            {
+              "stage": "Decision",
+              "status": "completed",
+              "step_id": "process-07"
+            },
+            {
+              "stage": "Mission Authorization",
+              "status": "completed",
+              "step_id": "process-08"
+            },
+            {
+              "stage": "Runtime Orchestration",
+              "status": "completed",
+              "step_id": "process-09"
+            },
+            {
+              "stage": "Service Bus Routing",
+              "status": "completed",
+              "step_id": "process-10"
+            },
+            {
+              "stage": "Execution",
+              "status": "completed",
+              "step_id": "process-11"
+            },
+            {
+              "stage": "Telemetry",
+              "status": "completed",
+              "step_id": "process-12"
+            },
+            {
+              "stage": "Runtime Health",
+              "status": "completed",
+              "step_id": "process-13"
+            },
+            {
+              "stage": "Mesh Validation",
+              "status": "completed",
+              "step_id": "process-14"
+            },
+            {
+              "stage": "Architecture Validation",
+              "status": "completed",
+              "step_id": "process-15"
+            },
+            {
+              "stage": "Governance Validation",
+              "status": "completed",
+              "step_id": "process-16"
+            },
+            {
+              "stage": "Platform Certification",
+              "status": "completed",
+              "step_id": "process-17"
+            }
+          ]
+        }
+      ],
+      "status": "completed",
+      "task_id": "post-install-health",
+      "trigger": "mission.submitted"
+    }
+  ]
+}

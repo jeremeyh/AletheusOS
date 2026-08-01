@@ -1,0 +1,183 @@
+{
+  "compatible_count": 35,
+  "entries": [
+    {
+      "compatible": true,
+      "engine_name": "Audit Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Authentication Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Authorization Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Capability Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Compliance Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Decision Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Document Intelligence Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Engine Registry",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Evidence Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Execution Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Federation Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Forensics Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Identity Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Incident Response Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Inspection Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Intelligence Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Knowledge Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Learning Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Memory Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Mission Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Mission Scheduler",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "OCR Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Planning Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Policy Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Predictive Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Reason Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Recognition Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Recovery Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Risk Intelligence Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Runtime Engine Manager",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Semantic Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Threat Intelligence Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Verification Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Vision Engine",
+      "runtime_version": "20.0"
+    },
+    {
+      "compatible": true,
+      "engine_name": "Vulnerability Intelligence Engine",
+      "runtime_version": "20.0"
+    }
+  ],
+  "incompatible_count": 0,
+  "process_steps": 17,
+  "runtime_version": "20.0"
+}

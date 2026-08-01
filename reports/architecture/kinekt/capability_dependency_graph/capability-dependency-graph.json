@@ -1,0 +1,67 @@
+{
+  "capability_count": 12,
+  "edges": [],
+  "implemented_count": 0,
+  "nodes": [
+    {
+      "authority": null,
+      "capability": "Kinekt",
+      "implemented": false
+    },
+    {
+      "authority": null,
+      "capability": "SPAN",
+      "implemented": false
+    },
+    {
+      "authority": null,
+      "capability": "SPARTAN",
+      "implemented": false
+    },
+    {
+      "authority": null,
+      "capability": "Sentinel",
+      "implemented": false
+    },
+    {
+      "authority": null,
+      "capability": "Watch Tower",
+      "implemented": false
+    },
+    {
+      "authority": null,
+      "capability": "Council",
+      "implemented": false
+    },
+    {
+      "authority": null,
+      "capability": "CRK",
+      "implemented": false
+    },
+    {
+      "authority": null,
+      "capability": "Mammoth",
+      "implemented": false
+    },
+    {
+      "authority": null,
+      "capability": "Nimble",
+      "implemented": false
+    },
+    {
+      "authority": null,
+      "capability": "A\u20223ye",
+      "implemented": false
+    },
+    {
+      "authority": null,
+      "capability": "THORx",
+      "implemented": false
+    },
+    {
+      "authority": null,
+      "capability": "Card Hawk",
+      "implemented": false
+    }
+  ]
+}

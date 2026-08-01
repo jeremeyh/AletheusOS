@@ -1,0 +1,7 @@
+{
+  "migrated": true,
+  "migration_history": [
+    "bootstrap-v1"
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,20 @@
+{
+  "environment": "production",
+  "rollback_mode": "all_or_nothing",
+  "stage_count": 11,
+  "stages": [
+    "resolve_release_graph",
+    "resolve_capability_graph",
+    "plan_schema_migrations",
+    "validate_runtime_compatibility",
+    "begin_transaction",
+    "install_capabilities",
+    "execute_post_install_mission",
+    "append_provenance",
+    "certify_readiness",
+    "apply_deployment_policy",
+    "commit_transaction"
+  ],
+  "status": "planned",
+  "transactional": true
+}

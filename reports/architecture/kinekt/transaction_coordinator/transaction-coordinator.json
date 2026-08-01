@@ -1,0 +1,15 @@
+{
+  "checkpoints": [
+    {
+      "commit": "pending",
+      "release": "19.7"
+    }
+  ],
+  "releases": [
+    "19.7",
+    "19.8"
+  ],
+  "rollback_mode": "all_or_nothing",
+  "status": "committed",
+  "transaction_id": "genesis-20.1-smoke"
+}

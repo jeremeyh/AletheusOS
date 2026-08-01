@@ -1,0 +1,9 @@
+{
+  "allowed": true,
+  "certification": "READY",
+  "environment": "production",
+  "policy": {
+    "allow_warn": false,
+    "require_ready": true
+  }
+}
