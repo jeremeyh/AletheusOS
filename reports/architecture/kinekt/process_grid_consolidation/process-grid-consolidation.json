@@ -1,0 +1,1864 @@
+{
+  "absorbed_components": 8,
+  "functionality_removed": false,
+  "stages": {
+    "Architecture Validation": [
+      {
+        "absorbed_component": "Vertical Slice Verifier",
+        "functionality_preserved": true,
+        "payload": {
+          "path_node_count": 106,
+          "top_to_bottom_connected": true,
+          "touchpoint_count": 195,
+          "vertical_slices_verified": 1
+        },
+        "source_report": "reports/architecture/kinekt/vertical_slice_verification/vertical-slice-verification.json",
+        "top_level_gate": false
+      }
+    ],
+    "Governance Validation": [
+      {
+        "absorbed_component": "Architectural Governance",
+        "functionality_preserved": true,
+        "payload": {
+          "critical": 0,
+          "decision": "warn",
+          "findings": [
+            {
+              "code": "RUNTIME_LAYER_LEAK",
+              "evidence": [
+                ".aletheus_restore_points/repository_conflicts/20260719T065403Z/aletheus/runtime/core.py",
+                "aletheus/applications/__init__.py"
+              ],
+              "message": "Runtime must not depend on experience or product implementation.",
+              "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+              "severity": "high",
+              "source": ".aletheus_restore_points.repository_conflicts.20260719T065403Z.aletheus.runtime.core",
+              "source_layer": "runtime",
+              "target": "aletheus.applications",
+              "target_layer": "product"
+            },
+            {
+              "code": "RUNTIME_LAYER_LEAK",
+              "evidence": [
+                ".aletheus_restore_points/repository_conflicts/20260719T070434Z/aletheus/runtime/core.py",
+                "aletheus/applications/__init__.py"
+              ],
+              "message": "Runtime must not depend on experience or product implementation.",
+              "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+              "severity": "high",
+              "source": ".aletheus_restore_points.repository_conflicts.20260719T070434Z.aletheus.runtime.core",
+              "source_layer": "runtime",
+              "target": "aletheus.applications",
+              "target_layer": "product"
+            },
+            {
+              "code": "RUNTIME_LAYER_LEAK",
+              "evidence": [
+                "aletheus/runtime/core.py",
+                "aletheus/applications/__init__.py"
+              ],
+              "message": "Runtime must not depend on experience or product implementation.",
+              "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+              "severity": "high",
+              "source": "aletheus.runtime.core",
+              "source_layer": "runtime",
+              "target": "aletheus.applications",
+              "target_layer": "product"
+            },
+            {
+              "code": "RUNTIME_LAYER_LEAK",
+              "evidence": [
+                "backups/runtime/core_v4.6.2_stable.py",
+                "aletheus/applications/__init__.py"
+              ],
+              "message": "Runtime must not depend on experience or product implementation.",
+              "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+              "severity": "high",
+              "source": "backups.runtime.core_v4.6.2_stable",
+              "source_layer": "runtime",
+              "target": "aletheus.applications",
+              "target_layer": "product"
+            },
+            {
+              "code": "RUNTIME_LAYER_LEAK",
+              "evidence": [
+                "components/chds/runtime_monitor.py",
+                "cardhawkos/boot/boot_manager.py"
+              ],
+              "message": "Runtime must not depend on experience or product implementation.",
+              "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+              "severity": "high",
+              "source": "components.chds.runtime_monitor",
+              "source_layer": "runtime",
+              "target": "cardhawkos.boot.boot_manager",
+              "target_layer": "product"
+            },
+            {
+              "code": "RUNTIME_LAYER_LEAK",
+              "evidence": [
+                "components/chds/runtime_status.py",
+                "cardhawkos/config/settings.py"
+              ],
+              "message": "Runtime must not depend on experience or product implementation.",
+              "recommendation": "Introduce a runtime-facing contract or invert the dependency.",
+              "severity": "high",
+              "source": "components.chds.runtime_status",
+              "source_layer": "runtime",
+              "target": "cardhawkos.config.settings",
+              "target_layer": "product"
+            },
+            {
+              "code": "EXPERIENCE_RUNTIME_INTERNAL_COUPLING",
+              "evidence": [
+                "aletheus/experience_gateway/api/__init__.py",
+                "runtime/__init__.py"
+              ],
+              "message": "Experience code should depend on runtime contracts, not internals.",
+              "recommendation": "Route the dependency through the runtime facade or public API.",
+              "severity": "medium",
+              "source": "aletheus.experience_gateway.api",
+              "source_layer": "experience",
+              "target": "runtime",
+              "target_layer": "runtime"
+            },
+            {
+              "code": "EXPERIENCE_RUNTIME_INTERNAL_COUPLING",
+              "evidence": [
+                "aletheus/experience_gateway/api/missions.py",
+                "runtime/__init__.py"
+              ],
+              "message": "Experience code should depend on runtime contracts, not internals.",
+              "recommendation": "Route the dependency through the runtime facade or public API.",
+              "severity": "medium",
+              "source": "aletheus.experience_gateway.api.missions",
+              "source_layer": "experience",
+              "target": "runtime",
+              "target_layer": "runtime"
+            },
+            {
+              "code": "EXPERIENCE_RUNTIME_INTERNAL_COUPLING",
+              "evidence": [
+                "tools/genesis/genesis_8/build_compatibility_manifest.py",
+                "aletheus/runtime/__init__.py"
+              ],
+              "message": "Experience code should depend on runtime contracts, not internals.",
+              "recommendation": "Route the dependency through the runtime facade or public API.",
+              "severity": "medium",
+              "source": "tools.genesis.genesis_8.build_compatibility_manifest",
+              "source_layer": "experience",
+              "target": "aletheus.runtime",
+              "target_layer": "runtime"
+            },
+            {
+              "code": "EXPERIENCE_RUNTIME_INTERNAL_COUPLING",
+              "evidence": [
+                "ui/pages/aletheus_founder_workspace.py",
+                "aletheus/runtime/__init__.py"
+              ],
+              "message": "Experience code should depend on runtime contracts, not internals.",
+              "recommendation": "Route the dependency through the runtime facade or public API.",
+              "severity": "medium",
+              "source": "ui.pages.aletheus_founder_workspace",
+              "source_layer": "experience",
+              "target": "aletheus.runtime",
+              "target_layer": "runtime"
+            },
+            {
+              "code": "PLATFORM_NOT_READY",
+              "message": "Constitutional readiness is not_ready.",
+              "severity": "high",
+              "source": "health"
+            }
+          ],
+          "generated_at": "2026-08-01T03:47:56.366041+00:00",
+          "high": 7
+        },
+        "source_report": "reports/architecture/kinekt/governance/governance-findings.json",
+        "top_level_gate": false
+      }
+    ],
+    "Mesh Validation": [
+      {
+        "absorbed_component": "Horizontal Mesh Verifier",
+        "functionality_preserved": true,
+        "payload": {
+          "connectors": 195,
+          "horizontal_mesh_connected": true,
+          "mesh_edges": 195
+        },
+        "source_report": "reports/architecture/kinekt/horizontal_mesh_verification/horizontal-mesh-verification.json",
+        "top_level_gate": false
+      }
+    ],
+    "Platform Certification": [
+      {
+        "absorbed_component": "Full Platform Continuity Gate",
+        "functionality_preserved": true,
+        "payload": {
+          "access_modules": 195,
+          "blockers": [],
+          "decision": "warn",
+          "generated_at": "2026-08-01T07:20:10.354627+00:00",
+          "governance_decision": "warn",
+          "horizontal_continuity": true,
+          "vertical_continuity": true,
+          "warnings": [
+            "Architectural Governance is in warn state."
+          ]
+        },
+        "source_report": "reports/architecture/kinekt/platform_continuity/full-platform-continuity-gate.json",
+        "top_level_gate": false
+      }
+    ],
+    "Runtime Health": [
+      {
+        "absorbed_component": "Runtime Diagnostics",
+        "functionality_preserved": true,
+        "payload": {
+          "diagnostic_count": 2,
+          "diagnostics": [
+            {
+              "code": "RUNTIME_NOT_READY",
+              "severity": "high"
+            },
+            {
+              "code": "GOVERNANCE_ATTENTION_REQUIRED",
+              "severity": "medium"
+            }
+          ]
+        },
+        "source_report": "reports/architecture/kinekt/runtime_diagnostics/constitutional-runtime-diagnostics.json",
+        "top_level_gate": false
+      },
+      {
+        "absorbed_component": "Runtime Observability",
+        "functionality_preserved": true,
+        "payload": {
+          "alerts": [
+            {
+              "code": "CONSTITUTIONAL_HEALTH_CRITICAL",
+              "evidence": [
+                "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/health/constitutional-health.json"
+              ],
+              "message": "Constitutional health is 44.55.",
+              "severity": "critical"
+            },
+            {
+              "code": "AUTHORITY_COVERAGE_LOW",
+              "evidence": [
+                "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/authority/capability-authority-map.json"
+              ],
+              "message": "Capability authority coverage is 16.91%.",
+              "severity": "high"
+            },
+            {
+              "code": "PLATFORM_NOT_READY",
+              "evidence": [],
+              "message": "Kinekt constitutional readiness is not_ready.",
+              "severity": "high"
+            }
+          ],
+          "health_score": 44.55,
+          "readiness": "not_ready",
+          "telemetry_records": 195
+        },
+        "source_report": "reports/architecture/kinekt/runtime_observability/runtime-observability.json",
+        "top_level_gate": false
+      }
+    ],
+    "Semantic Validation": [
+      {
+        "absorbed_component": "Semantic Rail Continuity Gate",
+        "functionality_preserved": true,
+        "payload": {
+          "blockers": [],
+          "decision": "warn",
+          "forked_claims": 0,
+          "generated_at": "2026-08-01T07:52:29.446055+00:00",
+          "parallel_rails": 195,
+          "resolved_roots": 80,
+          "warnings": [
+            "Platform continuity remains in warn state."
+          ]
+        },
+        "source_report": "reports/architecture/kinekt/semantic_rail_gate/semantic-rail-continuity-gate.json",
+        "top_level_gate": false
+      }
+    ],
+    "Telemetry": [
+      {
+        "absorbed_component": "Runtime Telemetry",
+        "functionality_preserved": true,
+        "payload": {
+          "record_count": 195,
+          "telemetry": [
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0001",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571572+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0002",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571576+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0003",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571578+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0004",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571579+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0005",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571580+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0006",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571581+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0007",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571582+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0008",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571583+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0009",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571584+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0010",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571585+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0011",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571585+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0012",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571586+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0013",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571587+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0014",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571588+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0015",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571589+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0016",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571590+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0017",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571591+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0018",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571591+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0019",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571592+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0020",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571593+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0021",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571594+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0022",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571595+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0023",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571596+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0024",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571597+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0025",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571598+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0026",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571599+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0027",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571600+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0028",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571601+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0029",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571603+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0030",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571604+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0031",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571605+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0032",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571605+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0033",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571606+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0034",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571607+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0035",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571608+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0036",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571609+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0037",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571610+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0038",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571610+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0039",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571611+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0040",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571612+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0041",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571613+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0042",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571614+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0043",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571615+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0044",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571616+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0045",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571616+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0046",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571617+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0047",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571618+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0048",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571619+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0049",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571620+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0050",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571621+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0051",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571622+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0052",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571622+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0053",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571624+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0054",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571625+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0055",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571626+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0056",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571628+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0057",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571629+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0058",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571630+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0059",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571631+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0060",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571632+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0061",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571632+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0062",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571633+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0063",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571634+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0064",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571635+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0065",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571636+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0066",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571637+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0067",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571638+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0068",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571638+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0069",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571639+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0070",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571640+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0071",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571641+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0072",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571642+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0073",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571643+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0074",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571644+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0075",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571644+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0076",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571645+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0077",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571646+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0078",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571647+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0079",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571648+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0080",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571649+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0081",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571650+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0082",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571651+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0083",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571651+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0084",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571652+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0085",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571653+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0086",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571654+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0087",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571655+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0088",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571656+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0089",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571656+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0090",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571657+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0091",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571658+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0092",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571659+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0093",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571660+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0094",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571661+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0095",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571662+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0096",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571662+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0097",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571663+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0098",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571664+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0099",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571665+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0100",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571666+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0101",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571667+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0102",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571667+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0103",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571668+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0104",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571669+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0105",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571670+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0106",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571671+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0107",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571673+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0108",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571673+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0109",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571674+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0110",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571675+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0111",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571676+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0112",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571677+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0113",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571678+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0114",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571679+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0115",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571679+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0116",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571680+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0117",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571681+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0118",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571682+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0119",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571683+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0120",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571683+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0121",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571684+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0122",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571685+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0123",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571686+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0124",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571687+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0125",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571688+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0126",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571688+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0127",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571689+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0128",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571690+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0129",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571691+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0130",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571692+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0131",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571693+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0132",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571693+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0133",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571694+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0134",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571695+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0135",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571696+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0136",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571697+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0137",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571698+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0138",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571698+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0139",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571699+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0140",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571700+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0141",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571701+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0142",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571702+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0143",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571703+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0144",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571703+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0145",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571704+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0146",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571705+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0147",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571706+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0148",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571707+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0149",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571708+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0150",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571709+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0151",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571710+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0152",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571710+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0153",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571711+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0154",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571712+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0155",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571713+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0156",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571714+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0157",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571715+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0158",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571715+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0159",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571716+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0160",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571717+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0161",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571718+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0162",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571719+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0163",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571720+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0164",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571721+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0165",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571721+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0166",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571722+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0167",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571723+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0168",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571724+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0169",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571725+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0170",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571725+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0171",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571726+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0172",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571727+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0173",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571728+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0174",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571729+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0175",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571730+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0176",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571731+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0177",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571732+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0178",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571733+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0179",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571734+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0180",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571734+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0181",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571735+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0182",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571736+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0183",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571737+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0184",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571738+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0185",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571739+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0186",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571740+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0187",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571741+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0188",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571742+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0189",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571743+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0190",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571744+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0191",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571745+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0192",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571745+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0193",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571746+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0194",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571747+00:00"
+            },
+            {
+              "latency_ms": null,
+              "node_id": "unit::step-0195",
+              "provenance": "mission_execution_graph",
+              "status": "not_executed",
+              "throughput": null,
+              "timestamp": "2026-08-01T06:38:08.571748+00:00"
+            }
+          ]
+        },
+        "source_report": "reports/architecture/kinekt/runtime_telemetry/runtime-telemetry.json",
+        "top_level_gate": false
+      }
+    ]
+  },
+  "top_level_gate_count_reduced_by": 8
+}

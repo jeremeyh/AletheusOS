@@ -1,0 +1,10 @@
+{
+  "Architectural Governance": "Governance Validation",
+  "Full Platform Continuity Gate": "Platform Certification",
+  "Horizontal Mesh Verifier": "Mesh Validation",
+  "Runtime Diagnostics": "Runtime Health",
+  "Runtime Observability": "Runtime Health",
+  "Runtime Telemetry": "Telemetry",
+  "Semantic Rail Continuity Gate": "Semantic Validation",
+  "Vertical Slice Verifier": "Architecture Validation"
+}
