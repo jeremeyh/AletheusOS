@@ -1,0 +1,1370 @@
+{
+  "touchpoint_count": 195,
+  "touchpoints": [
+    {
+      "access_module_id": "access::Acquisition AI::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Acquisition AI::Card Hawk"
+    },
+    {
+      "access_module_id": "access::Acquisition AI::THORx",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Acquisition AI::THORx"
+    },
+    {
+      "access_module_id": "access::Anomaly Detection::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Anomaly Detection::Sentinel"
+    },
+    {
+      "access_module_id": "access::Anomaly Detection::Watch Tower",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Anomaly Detection::Watch Tower"
+    },
+    {
+      "access_module_id": "access::Anomaly Detection::Conclave",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Anomaly Detection::Conclave"
+    },
+    {
+      "access_module_id": "access::Anomaly Detection::Incident Response Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Anomaly Detection::Incident Response Engine"
+    },
+    {
+      "access_module_id": "access::Asset DNA::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Asset DNA::Card Hawk"
+    },
+    {
+      "access_module_id": "access::Asset DNA::THORx",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Asset DNA::THORx"
+    },
+    {
+      "access_module_id": "access::Attack Surface Analysis::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Attack Surface Analysis::Sentinel"
+    },
+    {
+      "access_module_id": "access::Attack Surface Analysis::Watch Tower",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Attack Surface Analysis::Watch Tower"
+    },
+    {
+      "access_module_id": "access::Attack Surface Analysis::Conclave",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Attack Surface Analysis::Conclave"
+    },
+    {
+      "access_module_id": "access::Attack Surface Analysis::Incident Response Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Attack Surface Analysis::Incident Response Engine"
+    },
+    {
+      "access_module_id": "access::Audit Engine::Security Mesh",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Audit Engine::Security Mesh"
+    },
+    {
+      "access_module_id": "access::Audit Engine::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Audit Engine::Sentinel"
+    },
+    {
+      "access_module_id": "access::Authentication Engine::Security Mesh",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Authentication Engine::Security Mesh"
+    },
+    {
+      "access_module_id": "access::Authentication Engine::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Authentication Engine::Sentinel"
+    },
+    {
+      "access_module_id": "access::Authorization Engine::Security Mesh",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Authorization Engine::Security Mesh"
+    },
+    {
+      "access_module_id": "access::Authorization Engine::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Authorization Engine::Sentinel"
+    },
+    {
+      "access_module_id": "access::A\u20223ye::Evidence Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::A\u20223ye::Evidence Engine"
+    },
+    {
+      "access_module_id": "access::A\u20223ye::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::A\u20223ye::Card Hawk"
+    },
+    {
+      "access_module_id": "access::Behavioral Analytics::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Behavioral Analytics::Sentinel"
+    },
+    {
+      "access_module_id": "access::Behavioral Analytics::Watch Tower",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Behavioral Analytics::Watch Tower"
+    },
+    {
+      "access_module_id": "access::Behavioral Analytics::Conclave",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Behavioral Analytics::Conclave"
+    },
+    {
+      "access_module_id": "access::Behavioral Analytics::Incident Response Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Behavioral Analytics::Incident Response Engine"
+    },
+    {
+      "access_module_id": "access::Canonical Identity Framework::SPARTAN",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Canonical Identity Framework::SPARTAN"
+    },
+    {
+      "access_module_id": "access::Canonical Identity Registry::SPARTAN",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Canonical Identity Registry::SPARTAN"
+    },
+    {
+      "access_module_id": "access::Capability Engine::Engine Registry",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Capability Engine::Engine Registry"
+    },
+    {
+      "access_module_id": "access::Capability Engine::Execution Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Capability Engine::Execution Engine"
+    },
+    {
+      "access_module_id": "access::Capability Registration Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Capability Registration Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Card Hawk::A\u20223ye",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Card Hawk::A\u20223ye"
+    },
+    {
+      "access_module_id": "access::Card Hawk::THORx",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Card Hawk::THORx"
+    },
+    {
+      "access_module_id": "access::Chain of Evidence Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Chain of Evidence Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Compliance Engine::Security Mesh",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Compliance Engine::Security Mesh"
+    },
+    {
+      "access_module_id": "access::Compliance Engine::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Compliance Engine::Sentinel"
+    },
+    {
+      "access_module_id": "access::Conclave::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Conclave::Sentinel"
+    },
+    {
+      "access_module_id": "access::Conclave::Incident Response Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Conclave::Incident Response Engine"
+    },
+    {
+      "access_module_id": "access::Constitutional Audit::SPARTAN",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Constitutional Audit::SPARTAN"
+    },
+    {
+      "access_module_id": "access::Constitutional Authentication Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Constitutional Authentication Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Constitutional Authorization Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Constitutional Authorization Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Constitutional Consensus Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Constitutional Consensus Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Constitutional Governance Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Constitutional Governance Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Constitutional Ledger::SPARTAN",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Constitutional Ledger::SPARTAN"
+    },
+    {
+      "access_module_id": "access::Constitutional Security::SPARTAN",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Constitutional Security::SPARTAN"
+    },
+    {
+      "access_module_id": "access::Constitutional Validation Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Constitutional Validation Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Continuous Validation::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Continuous Validation::Sentinel"
+    },
+    {
+      "access_module_id": "access::Continuous Validation::Watch Tower",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Continuous Validation::Watch Tower"
+    },
+    {
+      "access_module_id": "access::Continuous Validation::Conclave",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Continuous Validation::Conclave"
+    },
+    {
+      "access_module_id": "access::Continuous Validation::Incident Response Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Continuous Validation::Incident Response Engine"
+    },
+    {
+      "access_module_id": "access::D-DEF::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::D-DEF::Card Hawk"
+    },
+    {
+      "access_module_id": "access::D-DEF::THORx",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::D-DEF::THORx"
+    },
+    {
+      "access_module_id": "access::Decision Engine::Execution Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Decision Engine::Execution Engine"
+    },
+    {
+      "access_module_id": "access::Digital Signature Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Digital Signature Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Document Intelligence Engine::A\u20223ye",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Document Intelligence Engine::A\u20223ye"
+    },
+    {
+      "access_module_id": "access::Document Intelligence Engine::Evidence Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Document Intelligence Engine::Evidence Engine"
+    },
+    {
+      "access_module_id": "access::Drift Detection::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Drift Detection::Sentinel"
+    },
+    {
+      "access_module_id": "access::Drift Detection::Watch Tower",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Drift Detection::Watch Tower"
+    },
+    {
+      "access_module_id": "access::Drift Detection::Conclave",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Drift Detection::Conclave"
+    },
+    {
+      "access_module_id": "access::Drift Detection::Incident Response Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Drift Detection::Incident Response Engine"
+    },
+    {
+      "access_module_id": "access::Engine Registry::Runtime Engine Manager",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Engine Registry::Runtime Engine Manager"
+    },
+    {
+      "access_module_id": "access::Evidence Engine::Knowledge Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Evidence Engine::Knowledge Engine"
+    },
+    {
+      "access_module_id": "access::Evidence Engine::Audit Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Evidence Engine::Audit Engine"
+    },
+    {
+      "access_module_id": "access::Evidence Vault::SPARTAN",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Evidence Vault::SPARTAN"
+    },
+    {
+      "access_module_id": "access::Evidence Verification Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Evidence Verification Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Execution Engine::Decision Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Execution Engine::Decision Engine"
+    },
+    {
+      "access_module_id": "access::Execution Engine::Mission Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Execution Engine::Mission Engine"
+    },
+    {
+      "access_module_id": "access::Exit Intelligence::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Exit Intelligence::Card Hawk"
+    },
+    {
+      "access_module_id": "access::Exit Intelligence::THORx",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Exit Intelligence::THORx"
+    },
+    {
+      "access_module_id": "access::FALCON::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::FALCON::Card Hawk"
+    },
+    {
+      "access_module_id": "access::FALCON::THORx",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::FALCON::THORx"
+    },
+    {
+      "access_module_id": "access::Federation Engine::Trust Registry",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Federation Engine::Trust Registry"
+    },
+    {
+      "access_module_id": "access::Federation Engine::Security Mesh",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Federation Engine::Security Mesh"
+    },
+    {
+      "access_module_id": "access::Forensics Engine::Security Mesh",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Forensics Engine::Security Mesh"
+    },
+    {
+      "access_module_id": "access::Forensics Engine::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Forensics Engine::Sentinel"
+    },
+    {
+      "access_module_id": "access::Identity Engine::Canonical Identity Registry",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Identity Engine::Canonical Identity Registry"
+    },
+    {
+      "access_module_id": "access::Identity Engine::Authentication Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Identity Engine::Authentication Engine"
+    },
+    {
+      "access_module_id": "access::Identity Verification Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Identity Verification Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Incident Response Engine::Security Mesh",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Incident Response Engine::Security Mesh"
+    },
+    {
+      "access_module_id": "access::Incident Response Engine::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Incident Response Engine::Sentinel"
+    },
+    {
+      "access_module_id": "access::Inspection Engine::A\u20223ye",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Inspection Engine::A\u20223ye"
+    },
+    {
+      "access_module_id": "access::Inspection Engine::Evidence Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Inspection Engine::Evidence Engine"
+    },
+    {
+      "access_module_id": "access::Intelligence Engine::Engine Registry",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Intelligence Engine::Engine Registry"
+    },
+    {
+      "access_module_id": "access::Knowledge Engine::Evidence Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Knowledge Engine::Evidence Engine"
+    },
+    {
+      "access_module_id": "access::Knowledge Engine::Reason Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Knowledge Engine::Reason Engine"
+    },
+    {
+      "access_module_id": "access::Knowledge Engine::Memory Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Knowledge Engine::Memory Engine"
+    },
+    {
+      "access_module_id": "access::Learning Engine::Memory Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Learning Engine::Memory Engine"
+    },
+    {
+      "access_module_id": "access::Memory Engine::Knowledge Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Memory Engine::Knowledge Engine"
+    },
+    {
+      "access_module_id": "access::Mission Authorization Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Mission Authorization Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Mission Engine::Mission Scheduler",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Mission Engine::Mission Scheduler"
+    },
+    {
+      "access_module_id": "access::Mission Scheduler::Mission Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Mission Scheduler::Mission Engine"
+    },
+    {
+      "access_module_id": "access::NEST::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::NEST::Card Hawk"
+    },
+    {
+      "access_module_id": "access::NEST::THORx",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::NEST::THORx"
+    },
+    {
+      "access_module_id": "access::Nuclear Cloud::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Nuclear Cloud::Card Hawk"
+    },
+    {
+      "access_module_id": "access::Nuclear Cloud::THORx",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Nuclear Cloud::THORx"
+    },
+    {
+      "access_module_id": "access::OCR Engine::A\u20223ye",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::OCR Engine::A\u20223ye"
+    },
+    {
+      "access_module_id": "access::OCR Engine::Evidence Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::OCR Engine::Evidence Engine"
+    },
+    {
+      "access_module_id": "access::PERCH::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::PERCH::Card Hawk"
+    },
+    {
+      "access_module_id": "access::PERCH::THORx",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::PERCH::THORx"
+    },
+    {
+      "access_module_id": "access::Planning Engine::Decision Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Planning Engine::Decision Engine"
+    },
+    {
+      "access_module_id": "access::Planning Engine::Mission Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Planning Engine::Mission Engine"
+    },
+    {
+      "access_module_id": "access::Policy Engine::Security Mesh",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Policy Engine::Security Mesh"
+    },
+    {
+      "access_module_id": "access::Policy Engine::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Policy Engine::Sentinel"
+    },
+    {
+      "access_module_id": "access::Predictive Engine::Planning Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Predictive Engine::Planning Engine"
+    },
+    {
+      "access_module_id": "access::Predictive Engine::Decision Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Predictive Engine::Decision Engine"
+    },
+    {
+      "access_module_id": "access::Principle X Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Principle X Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Provenance Verification Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Provenance Verification Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Q-DEF::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Q-DEF::Card Hawk"
+    },
+    {
+      "access_module_id": "access::Q-DEF::THORx",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Q-DEF::THORx"
+    },
+    {
+      "access_module_id": "access::ROOST::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::ROOST::Card Hawk"
+    },
+    {
+      "access_module_id": "access::ROOST::THORx",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::ROOST::THORx"
+    },
+    {
+      "access_module_id": "access::Reason Engine::Knowledge Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Reason Engine::Knowledge Engine"
+    },
+    {
+      "access_module_id": "access::Reason Engine::Planning Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Reason Engine::Planning Engine"
+    },
+    {
+      "access_module_id": "access::Recognition Engine::A\u20223ye",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Recognition Engine::A\u20223ye"
+    },
+    {
+      "access_module_id": "access::Recognition Engine::Evidence Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Recognition Engine::Evidence Engine"
+    },
+    {
+      "access_module_id": "access::Recovery Engine::Security Mesh",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Recovery Engine::Security Mesh"
+    },
+    {
+      "access_module_id": "access::Recovery Engine::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Recovery Engine::Sentinel"
+    },
+    {
+      "access_module_id": "access::Repository Integrity Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Repository Integrity Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Risk Intelligence Engine::Security Mesh",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Risk Intelligence Engine::Security Mesh"
+    },
+    {
+      "access_module_id": "access::Risk Intelligence Engine::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Risk Intelligence Engine::Sentinel"
+    },
+    {
+      "access_module_id": "access::Runtime Attestation Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Runtime Attestation Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Runtime Engine Manager::Engine Registry",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Runtime Engine Manager::Engine Registry"
+    },
+    {
+      "access_module_id": "access::Runtime Integrity Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Runtime Integrity Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Runtime Monitoring::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Runtime Monitoring::Sentinel"
+    },
+    {
+      "access_module_id": "access::Runtime Monitoring::Watch Tower",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Runtime Monitoring::Watch Tower"
+    },
+    {
+      "access_module_id": "access::Runtime Monitoring::Conclave",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Runtime Monitoring::Conclave"
+    },
+    {
+      "access_module_id": "access::Runtime Monitoring::Incident Response Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Runtime Monitoring::Incident Response Engine"
+    },
+    {
+      "access_module_id": "access::SOAR::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::SOAR::Card Hawk"
+    },
+    {
+      "access_module_id": "access::SOAR::THORx",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::SOAR::THORx"
+    },
+    {
+      "access_module_id": "access::SPAN::SPARTAN",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::SPAN::SPARTAN"
+    },
+    {
+      "access_module_id": "access::SPARTAN::SPAN",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::SPARTAN::SPAN"
+    },
+    {
+      "access_module_id": "access::SPARTAN::Watch Tower",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::SPARTAN::Watch Tower"
+    },
+    {
+      "access_module_id": "access::SPARTAN::Conclave",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::SPARTAN::Conclave"
+    },
+    {
+      "access_module_id": "access::SPARTAN::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::SPARTAN::Sentinel"
+    },
+    {
+      "access_module_id": "access::STRIKE::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::STRIKE::Card Hawk"
+    },
+    {
+      "access_module_id": "access::STRIKE::THORx",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::STRIKE::THORx"
+    },
+    {
+      "access_module_id": "access::Secure Communication Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Secure Communication Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Secure Execution Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Secure Execution Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Secure Session Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Secure Session Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Security Circuit::SPARTAN",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Security Circuit::SPARTAN"
+    },
+    {
+      "access_module_id": "access::Security Fabric::SPARTAN",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Security Fabric::SPARTAN"
+    },
+    {
+      "access_module_id": "access::Security Mesh::SPARTAN",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Security Mesh::SPARTAN"
+    },
+    {
+      "access_module_id": "access::Security Telemetry::SPARTAN",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Security Telemetry::SPARTAN"
+    },
+    {
+      "access_module_id": "access::Semantic Engine::Knowledge Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Semantic Engine::Knowledge Engine"
+    },
+    {
+      "access_module_id": "access::Sentinel::SPARTAN",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Sentinel::SPARTAN"
+    },
+    {
+      "access_module_id": "access::Sentinel::Watch Tower",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Sentinel::Watch Tower"
+    },
+    {
+      "access_module_id": "access::Sentinel::Conclave",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Sentinel::Conclave"
+    },
+    {
+      "access_module_id": "access::Service Registration Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Service Registration Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Strike Zone::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Strike Zone::Card Hawk"
+    },
+    {
+      "access_module_id": "access::Strike Zone::THORx",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Strike Zone::THORx"
+    },
+    {
+      "access_module_id": "access::Supply Chain Verification Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Supply Chain Verification Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::TALON::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::TALON::Card Hawk"
+    },
+    {
+      "access_module_id": "access::TALON::THORx",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::TALON::THORx"
+    },
+    {
+      "access_module_id": "access::THORx::Card Hawk",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::THORx::Card Hawk"
+    },
+    {
+      "access_module_id": "access::THORx::Decision Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::THORx::Decision Engine"
+    },
+    {
+      "access_module_id": "access::Tamper Detection Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Tamper Detection Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Threat Attribution::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Attribution::Sentinel"
+    },
+    {
+      "access_module_id": "access::Threat Attribution::Watch Tower",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Attribution::Watch Tower"
+    },
+    {
+      "access_module_id": "access::Threat Attribution::Conclave",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Attribution::Conclave"
+    },
+    {
+      "access_module_id": "access::Threat Attribution::Incident Response Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Attribution::Incident Response Engine"
+    },
+    {
+      "access_module_id": "access::Threat Containment::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Containment::Sentinel"
+    },
+    {
+      "access_module_id": "access::Threat Containment::Watch Tower",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Containment::Watch Tower"
+    },
+    {
+      "access_module_id": "access::Threat Containment::Conclave",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Containment::Conclave"
+    },
+    {
+      "access_module_id": "access::Threat Containment::Incident Response Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Containment::Incident Response Engine"
+    },
+    {
+      "access_module_id": "access::Threat Correlation::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Correlation::Sentinel"
+    },
+    {
+      "access_module_id": "access::Threat Correlation::Watch Tower",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Correlation::Watch Tower"
+    },
+    {
+      "access_module_id": "access::Threat Correlation::Conclave",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Correlation::Conclave"
+    },
+    {
+      "access_module_id": "access::Threat Correlation::Incident Response Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Correlation::Incident Response Engine"
+    },
+    {
+      "access_module_id": "access::Threat Detection::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Detection::Sentinel"
+    },
+    {
+      "access_module_id": "access::Threat Detection::Watch Tower",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Detection::Watch Tower"
+    },
+    {
+      "access_module_id": "access::Threat Detection::Conclave",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Detection::Conclave"
+    },
+    {
+      "access_module_id": "access::Threat Detection::Incident Response Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Detection::Incident Response Engine"
+    },
+    {
+      "access_module_id": "access::Threat Eradication::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Eradication::Sentinel"
+    },
+    {
+      "access_module_id": "access::Threat Eradication::Watch Tower",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Eradication::Watch Tower"
+    },
+    {
+      "access_module_id": "access::Threat Eradication::Conclave",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Eradication::Conclave"
+    },
+    {
+      "access_module_id": "access::Threat Eradication::Incident Response Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Eradication::Incident Response Engine"
+    },
+    {
+      "access_module_id": "access::Threat Hunting::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Hunting::Sentinel"
+    },
+    {
+      "access_module_id": "access::Threat Hunting::Watch Tower",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Hunting::Watch Tower"
+    },
+    {
+      "access_module_id": "access::Threat Hunting::Conclave",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Hunting::Conclave"
+    },
+    {
+      "access_module_id": "access::Threat Hunting::Incident Response Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Hunting::Incident Response Engine"
+    },
+    {
+      "access_module_id": "access::Threat Intelligence Engine::Security Mesh",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Intelligence Engine::Security Mesh"
+    },
+    {
+      "access_module_id": "access::Threat Intelligence Engine::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Intelligence Engine::Sentinel"
+    },
+    {
+      "access_module_id": "access::Threat Recovery::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Recovery::Sentinel"
+    },
+    {
+      "access_module_id": "access::Threat Recovery::Watch Tower",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Recovery::Watch Tower"
+    },
+    {
+      "access_module_id": "access::Threat Recovery::Conclave",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Recovery::Conclave"
+    },
+    {
+      "access_module_id": "access::Threat Recovery::Incident Response Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Threat Recovery::Incident Response Engine"
+    },
+    {
+      "access_module_id": "access::Trust Framework::SPARTAN",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Trust Framework::SPARTAN"
+    },
+    {
+      "access_module_id": "access::Trust Registry::SPARTAN",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Trust Registry::SPARTAN"
+    },
+    {
+      "access_module_id": "access::Truth Verification Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Truth Verification Protocol::Policy Engine"
+    },
+    {
+      "access_module_id": "access::Verification Engine::A\u20223ye",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Verification Engine::A\u20223ye"
+    },
+    {
+      "access_module_id": "access::Verification Engine::Evidence Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Verification Engine::Evidence Engine"
+    },
+    {
+      "access_module_id": "access::Vision Engine::A\u20223ye",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Vision Engine::A\u20223ye"
+    },
+    {
+      "access_module_id": "access::Vision Engine::Evidence Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Vision Engine::Evidence Engine"
+    },
+    {
+      "access_module_id": "access::Vulnerability Intelligence Engine::Security Mesh",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Vulnerability Intelligence Engine::Security Mesh"
+    },
+    {
+      "access_module_id": "access::Vulnerability Intelligence Engine::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Vulnerability Intelligence Engine::Sentinel"
+    },
+    {
+      "access_module_id": "access::Watch Tower::Sentinel",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Watch Tower::Sentinel"
+    },
+    {
+      "access_module_id": "access::Zero Trust Protocol::Policy Engine",
+      "contract_present": true,
+      "knowledge_graph_attached": true,
+      "status": "realized",
+      "touchpoint_id": "touch::bolt::Zero Trust Protocol::Policy Engine"
+    }
+  ]
+}
