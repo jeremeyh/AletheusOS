@@ -1,0 +1,182 @@
+{
+  "diagnostic_count": 2,
+  "mode": "advisory_only",
+  "proposal_count": 25,
+  "proposals": [
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "readiness-recovery",
+      "proposal_id": "auto::readiness-recovery",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "normalize-ownership",
+      "proposal_id": "auto::normalize-ownership",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-0",
+      "proposal_id": "auto::resolution-0",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "cohesion-hotspots",
+      "proposal_id": "auto::cohesion-hotspots",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "boundary-remediation",
+      "proposal_id": "auto::boundary-remediation",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3327",
+      "proposal_id": "auto::resolution-3327",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3328",
+      "proposal_id": "auto::resolution-3328",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3329",
+      "proposal_id": "auto::resolution-3329",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3330",
+      "proposal_id": "auto::resolution-3330",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3331",
+      "proposal_id": "auto::resolution-3331",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3332",
+      "proposal_id": "auto::resolution-3332",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3333",
+      "proposal_id": "auto::resolution-3333",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3334",
+      "proposal_id": "auto::resolution-3334",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3335",
+      "proposal_id": "auto::resolution-3335",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3336",
+      "proposal_id": "auto::resolution-3336",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3337",
+      "proposal_id": "auto::resolution-3337",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3338",
+      "proposal_id": "auto::resolution-3338",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3339",
+      "proposal_id": "auto::resolution-3339",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3340",
+      "proposal_id": "auto::resolution-3340",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3341",
+      "proposal_id": "auto::resolution-3341",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3342",
+      "proposal_id": "auto::resolution-3342",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3343",
+      "proposal_id": "auto::resolution-3343",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3344",
+      "proposal_id": "auto::resolution-3344",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3345",
+      "proposal_id": "auto::resolution-3345",
+      "status": "proposed"
+    },
+    {
+      "approval_required": true,
+      "autonomous_execution_enabled": false,
+      "candidate_id": "resolution-3346",
+      "proposal_id": "auto::resolution-3346",
+      "status": "proposed"
+    }
+  ]
+}
