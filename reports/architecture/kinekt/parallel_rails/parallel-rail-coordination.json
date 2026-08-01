@@ -1,0 +1,7 @@
+{
+  "flow_state": "full_duplex_bounded",
+  "inbound_rails": 195,
+  "outbound_rails": 195,
+  "paired_rails": 195,
+  "parallel_in_out_enabled": true
+}
