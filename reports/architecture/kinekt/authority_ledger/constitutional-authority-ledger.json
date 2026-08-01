@@ -1,0 +1,640 @@
+{
+  "entries": [
+    {
+      "aliases": [
+        "Breadth\u2122"
+      ],
+      "authority": "Provides whole-system awareness without owning reasoning or execution.",
+      "category": "shroud_layer",
+      "defined": true,
+      "governed": true,
+      "implemented": false,
+      "integrated": false,
+      "mesh_connections": [
+        "all registered authorities"
+      ],
+      "modeled": false,
+      "must_not_own": [
+        "reasoning",
+        "governance",
+        "execution"
+      ],
+      "name": "Breadth",
+      "parent": "AletheusOS",
+      "realized": false
+    },
+    {
+      "aliases": [
+        "Evidence Engine\u2122"
+      ],
+      "authority": "Owns evidence validation and provenance.",
+      "category": "core_intelligence",
+      "defined": true,
+      "governed": true,
+      "implemented": false,
+      "integrated": true,
+      "mesh_connections": [
+        "Knowledge Engine",
+        "Audit Engine"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Evidence Engine",
+      "parent": "Core Intelligence",
+      "realized": false
+    },
+    {
+      "aliases": [
+        "Knowledge Engine\u2122"
+      ],
+      "authority": "Owns structured knowledge.",
+      "category": "core_intelligence",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Evidence Engine",
+        "Reason Engine",
+        "Memory Engine"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Knowledge Engine",
+      "parent": "Core Intelligence",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Reason Engine\u2122"
+      ],
+      "authority": "Owns inference.",
+      "category": "core_intelligence",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Knowledge Engine",
+        "Planning Engine"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Reason Engine",
+      "parent": "Core Intelligence",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Memory Engine\u2122"
+      ],
+      "authority": "Owns memory policy.",
+      "category": "core_intelligence",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Knowledge Engine",
+        "Mammoth"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Memory Engine",
+      "parent": "Core Intelligence",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Predictive Engine\u2122"
+      ],
+      "authority": "Owns forecasting.",
+      "category": "core_intelligence",
+      "defined": true,
+      "governed": true,
+      "implemented": false,
+      "integrated": false,
+      "mesh_connections": [
+        "Planning Engine",
+        "Decision Engine"
+      ],
+      "modeled": false,
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Predictive Engine",
+      "parent": "Core Intelligence",
+      "realized": false
+    },
+    {
+      "aliases": [
+        "Planning Engine\u2122"
+      ],
+      "authority": "Owns plan construction.",
+      "category": "core_intelligence",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Decision Engine",
+        "Mission Engine"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Planning Engine",
+      "parent": "Core Intelligence",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Decision Engine\u2122"
+      ],
+      "authority": "Owns decision synthesis.",
+      "category": "core_intelligence",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Council",
+        "Execution Engine"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Decision Engine",
+      "parent": "Core Intelligence",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Learning Engine\u2122"
+      ],
+      "authority": "Owns governed adaptation.",
+      "category": "core_intelligence",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Memory Engine",
+        "Council"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Learning Engine",
+      "parent": "Core Intelligence",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Semantic Engine\u2122"
+      ],
+      "authority": "Owns semantic normalization.",
+      "category": "core_intelligence",
+      "defined": true,
+      "governed": true,
+      "implemented": false,
+      "integrated": false,
+      "mesh_connections": [
+        "Knowledge Engine",
+        "Runtime Knowledge Graph"
+      ],
+      "modeled": false,
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Semantic Engine",
+      "parent": "Core Intelligence",
+      "realized": false
+    },
+    {
+      "aliases": [
+        "Intelligence Engine\u2122"
+      ],
+      "authority": "Coordinates bounded intelligence services.",
+      "category": "core_intelligence",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Cognitive Operations Mesh",
+        "Engine Registry"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Intelligence Engine",
+      "parent": "Core Intelligence",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Capability Engine\u2122"
+      ],
+      "authority": "Owns capability invocation.",
+      "category": "platform_runtime",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Engine Registry",
+        "Execution Engine"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Capability Engine",
+      "parent": "Platform Runtime",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Execution Engine\u2122"
+      ],
+      "authority": "Owns governed execution.",
+      "category": "platform_runtime",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Decision Engine",
+        "Mission Engine"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Execution Engine",
+      "parent": "Platform Runtime",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Identity Engine\u2122"
+      ],
+      "authority": "Owns identity lifecycle.",
+      "category": "platform_runtime",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Canonical Identity Registry",
+        "Authentication Engine"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Identity Engine",
+      "parent": "Platform Runtime",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Federation Engine\u2122"
+      ],
+      "authority": "Owns governed federation.",
+      "category": "platform_runtime",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Trust Registry",
+        "Security Mesh"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Federation Engine",
+      "parent": "Platform Runtime",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Mission Engine\u2122"
+      ],
+      "authority": "Owns mission lifecycle.",
+      "category": "platform_runtime",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Mission Scheduler",
+        "Mission Control"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Mission Engine",
+      "parent": "Platform Runtime",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Mission Scheduler\u2122"
+      ],
+      "authority": "Owns mission scheduling.",
+      "category": "platform_runtime",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Mission Engine",
+        "CRK"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Mission Scheduler",
+      "parent": "Platform Runtime",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Engine Registry\u2122"
+      ],
+      "authority": "Owns engine registration.",
+      "category": "platform_runtime",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Runtime Engine Manager",
+        "CRK"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Engine Registry",
+      "parent": "Platform Runtime",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Runtime Engine Manager\u2122"
+      ],
+      "authority": "Owns engine lifecycle coordination.",
+      "category": "platform_runtime",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Engine Registry",
+        "Observatory"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Runtime Engine Manager",
+      "parent": "Platform Runtime",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "SPARTAN\u2122"
+      ],
+      "authority": "Owns the complete cybersecurity platform.",
+      "category": "security_framework",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "SPAN",
+        "Watch Tower",
+        "Conclave",
+        "Sentinel"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "duplicated Kinekt analysis"
+      ],
+      "name": "SPARTAN",
+      "parent": "Security Frameworks",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "SPAN\u2122"
+      ],
+      "authority": "Owns security platform analysis and navigation.",
+      "category": "security_framework",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "SPARTAN",
+        "Council",
+        "Cognitive Operations Mesh"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "duplicated Kinekt analysis"
+      ],
+      "name": "SPAN",
+      "parent": "SPARTAN",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Watch Tower\u2122"
+      ],
+      "authority": "Owns continuous change and drift surveillance.",
+      "category": "security_framework",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Kinekt",
+        "Sentinel",
+        "Observatory"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "duplicated Kinekt analysis"
+      ],
+      "name": "Watch Tower",
+      "parent": "SPARTAN",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Conclave\u2122"
+      ],
+      "authority": "Owns constitutional containment and quarantine.",
+      "category": "security_framework",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Sentinel",
+        "Incident Response Engine",
+        "Council"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "duplicated Kinekt analysis"
+      ],
+      "name": "Conclave",
+      "parent": "SPARTAN",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Sentinel\u2122"
+      ],
+      "authority": "Owns live security monitoring and anomaly detection.",
+      "category": "security_framework",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "SPARTAN",
+        "Watch Tower",
+        "Conclave"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "duplicated Kinekt analysis"
+      ],
+      "name": "Sentinel",
+      "parent": "SPARTAN",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "A\u20223ye\u2122",
+        "Hawk A\u20223ye\u2122"
+      ],
+      "authority": "Owns reusable perception services.",
+      "category": "perception_platform",
+      "defined": true,
+      "governed": true,
+      "implemented": false,
+      "integrated": true,
+      "mesh_connections": [
+        "Evidence Engine",
+        "Card Hawk"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "product decisions"
+      ],
+      "name": "A\u20223ye",
+      "parent": "Perception",
+      "realized": false
+    },
+    {
+      "aliases": [
+        "THOR\u1d61\u2122",
+        "THORx"
+      ],
+      "authority": "Owns Card Hawk scoring and confidence instrumentation.",
+      "category": "card_hawk",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "Card Hawk",
+        "Decision Engine"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "raw perception"
+      ],
+      "name": "THORx",
+      "parent": "Card Hawk",
+      "realized": true
+    },
+    {
+      "aliases": [
+        "Card Hawk\u2122",
+        "CardHawk"
+      ],
+      "authority": "Owns collectibles intelligence workflows.",
+      "category": "product_application",
+      "defined": true,
+      "governed": true,
+      "implemented": true,
+      "integrated": true,
+      "mesh_connections": [
+        "A\u20223ye",
+        "THORx",
+        "Mammoth",
+        "Nimble"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "universal platform capabilities"
+      ],
+      "name": "Card Hawk",
+      "parent": "Applications",
+      "realized": true
+    }
+  ],
+  "findings": [
+    {
+      "code": "MODELED_NOT_IMPLEMENTED",
+      "severity": "medium",
+      "subject": "Evidence Engine"
+    },
+    {
+      "code": "MODELED_NOT_IMPLEMENTED",
+      "severity": "medium",
+      "subject": "A\u20223ye"
+    }
+  ],
+  "generated_at": "2026-08-01T05:48:03.766148+00:00",
+  "maturity_counts": {
+    "defined": 27,
+    "governed": 27,
+    "implemented": 22,
+    "integrated": 24,
+    "modeled": 24,
+    "realized": 22
+  },
+  "provenance": {
+    "authority": "reports/architecture/kinekt/authority/capability-authority-map.json",
+    "catalog": "config/authority_ledger/canonical_authority_catalog.json",
+    "governance": "reports/architecture/kinekt/governance/governance-findings.json",
+    "graph": "reports/architecture/kinekt/knowledge_graph/runtime-knowledge-graph.json",
+    "registry": "reports/architecture/kinekt/registry/constitutional-registry.json",
+    "twin": "reports/architecture/kinekt/twin/architectural-digital-twin.json"
+  }
+}

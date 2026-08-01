@@ -1,0 +1,118 @@
+{
+  "A\u20223ye": [
+    "Evidence Engine",
+    "Card Hawk"
+  ],
+  "Breadth": [
+    "all registered authorities"
+  ],
+  "Capability Engine": [
+    "Engine Registry",
+    "Execution Engine"
+  ],
+  "Card Hawk": [
+    "A\u20223ye",
+    "THORx",
+    "Mammoth",
+    "Nimble"
+  ],
+  "Conclave": [
+    "Sentinel",
+    "Incident Response Engine",
+    "Council"
+  ],
+  "Decision Engine": [
+    "Council",
+    "Execution Engine"
+  ],
+  "Engine Registry": [
+    "Runtime Engine Manager",
+    "CRK"
+  ],
+  "Evidence Engine": [
+    "Knowledge Engine",
+    "Audit Engine"
+  ],
+  "Execution Engine": [
+    "Decision Engine",
+    "Mission Engine"
+  ],
+  "Federation Engine": [
+    "Trust Registry",
+    "Security Mesh"
+  ],
+  "Identity Engine": [
+    "Canonical Identity Registry",
+    "Authentication Engine"
+  ],
+  "Intelligence Engine": [
+    "Cognitive Operations Mesh",
+    "Engine Registry"
+  ],
+  "Knowledge Engine": [
+    "Evidence Engine",
+    "Reason Engine",
+    "Memory Engine"
+  ],
+  "Learning Engine": [
+    "Memory Engine",
+    "Council"
+  ],
+  "Memory Engine": [
+    "Knowledge Engine",
+    "Mammoth"
+  ],
+  "Mission Engine": [
+    "Mission Scheduler",
+    "Mission Control"
+  ],
+  "Mission Scheduler": [
+    "Mission Engine",
+    "CRK"
+  ],
+  "Planning Engine": [
+    "Decision Engine",
+    "Mission Engine"
+  ],
+  "Predictive Engine": [
+    "Planning Engine",
+    "Decision Engine"
+  ],
+  "Reason Engine": [
+    "Knowledge Engine",
+    "Planning Engine"
+  ],
+  "Runtime Engine Manager": [
+    "Engine Registry",
+    "Observatory"
+  ],
+  "SPAN": [
+    "SPARTAN",
+    "Council",
+    "Cognitive Operations Mesh"
+  ],
+  "SPARTAN": [
+    "SPAN",
+    "Watch Tower",
+    "Conclave",
+    "Sentinel"
+  ],
+  "Semantic Engine": [
+    "Knowledge Engine",
+    "Runtime Knowledge Graph"
+  ],
+  "Sentinel": [
+    "SPARTAN",
+    "Watch Tower",
+    "Conclave"
+  ],
+  "THORx": [
+    "Card Hawk",
+    "Decision Engine"
+  ],
+  "Watch Tower": [
+    "Kinekt",
+    "Sentinel",
+    "Observatory"
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "gaps": [
+    {
+      "aliases": [
+        "Breadth\u2122"
+      ],
+      "authority": "Provides whole-system awareness without owning reasoning or execution.",
+      "category": "shroud_layer",
+      "defined": true,
+      "governed": true,
+      "implemented": false,
+      "integrated": false,
+      "mesh_connections": [
+        "all registered authorities"
+      ],
+      "modeled": false,
+      "must_not_own": [
+        "reasoning",
+        "governance",
+        "execution"
+      ],
+      "name": "Breadth",
+      "parent": "AletheusOS",
+      "realized": false
+    },
+    {
+      "aliases": [
+        "Evidence Engine\u2122"
+      ],
+      "authority": "Owns evidence validation and provenance.",
+      "category": "core_intelligence",
+      "defined": true,
+      "governed": true,
+      "implemented": false,
+      "integrated": true,
+      "mesh_connections": [
+        "Knowledge Engine",
+        "Audit Engine"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Evidence Engine",
+      "parent": "Core Intelligence",
+      "realized": false
+    },
+    {
+      "aliases": [
+        "Predictive Engine\u2122"
+      ],
+      "authority": "Owns forecasting.",
+      "category": "core_intelligence",
+      "defined": true,
+      "governed": true,
+      "implemented": false,
+      "integrated": false,
+      "mesh_connections": [
+        "Planning Engine",
+        "Decision Engine"
+      ],
+      "modeled": false,
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Predictive Engine",
+      "parent": "Core Intelligence",
+      "realized": false
+    },
+    {
+      "aliases": [
+        "Semantic Engine\u2122"
+      ],
+      "authority": "Owns semantic normalization.",
+      "category": "core_intelligence",
+      "defined": true,
+      "governed": true,
+      "implemented": false,
+      "integrated": false,
+      "mesh_connections": [
+        "Knowledge Engine",
+        "Runtime Knowledge Graph"
+      ],
+      "modeled": false,
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Semantic Engine",
+      "parent": "Core Intelligence",
+      "realized": false
+    },
+    {
+      "aliases": [
+        "A\u20223ye\u2122",
+        "Hawk A\u20223ye\u2122"
+      ],
+      "authority": "Owns reusable perception services.",
+      "category": "perception_platform",
+      "defined": true,
+      "governed": true,
+      "implemented": false,
+      "integrated": true,
+      "mesh_connections": [
+        "Evidence Engine",
+        "Card Hawk"
+      ],
+      "modeled": true,
+      "must_not_own": [
+        "product decisions"
+      ],
+      "name": "A\u20223ye",
+      "parent": "Perception",
+      "realized": false
+    }
+  ]
+}
