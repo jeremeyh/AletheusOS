@@ -1511,4 +1511,4 @@ ERROR tests/tooling/structural_hardening/test_engine.py
 ERROR tests/tooling/validator_composition/test_engine.py
 ERROR tests/tooling/vertical_slice_verifier/test_engine.py
 !!!!!!!!!!!!!!!!!!! Interrupted: 64 errors during collection !!!!!!!!!!!!!!!!!!!
-997 tests collected, 64 errors in 1.61s
+997 tests collected, 64 errors in 1.55s
