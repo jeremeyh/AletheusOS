@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-08-01T08:02:01.893190+00:00",
+  "runtime_state": "assembled",
+  "single_final_verdict_stage": "Platform Certification",
+  "step_count": 17,
+  "steps": [
+    {
+      "execution_mode": "ordered",
+      "stage": "Identity Validation",
+      "status": "ready",
+      "step_id": "process-01",
+      "validator_id": null
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Authority Resolution",
+      "status": "ready",
+      "step_id": "process-02",
+      "validator_id": null
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Evidence Validation",
+      "status": "ready",
+      "step_id": "process-03",
+      "validator_id": null
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Knowledge Resolution",
+      "status": "ready",
+      "step_id": "process-04",
+      "validator_id": null
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Semantic Validation",
+      "status": "ready",
+      "step_id": "process-05",
+      "validator_id": "validator-03"
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Planning",
+      "status": "ready",
+      "step_id": "process-06",
+      "validator_id": null
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Decision",
+      "status": "ready",
+      "step_id": "process-07",
+      "validator_id": null
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Mission Authorization",
+      "status": "ready",
+      "step_id": "process-08",
+      "validator_id": null
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Runtime Orchestration",
+      "status": "ready",
+      "step_id": "process-09",
+      "validator_id": null
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Service Bus Routing",
+      "status": "ready",
+      "step_id": "process-10",
+      "validator_id": null
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Execution",
+      "status": "ready",
+      "step_id": "process-11",
+      "validator_id": null
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Telemetry",
+      "status": "ready",
+      "step_id": "process-12",
+      "validator_id": "validator-01"
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Runtime Health",
+      "status": "ready",
+      "step_id": "process-13",
+      "validator_id": "validator-02"
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Mesh Validation",
+      "status": "ready",
+      "step_id": "process-14",
+      "validator_id": "validator-04"
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Architecture Validation",
+      "status": "ready",
+      "step_id": "process-15",
+      "validator_id": "validator-05"
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Governance Validation",
+      "status": "ready",
+      "step_id": "process-16",
+      "validator_id": "validator-06"
+    },
+    {
+      "execution_mode": "ordered",
+      "stage": "Platform Certification",
+      "status": "ready",
+      "step_id": "process-17",
+      "validator_id": "validator-07"
+    }
+  ]
+}
