@@ -1,0 +1,1175 @@
+{
+  "flow_count": 195,
+  "flows": [
+    {
+      "channel_id": "bus::Acquisition AI::Card Hawk",
+      "contract_present": true,
+      "source": "Acquisition AI",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::Acquisition AI::THORx",
+      "contract_present": true,
+      "source": "Acquisition AI",
+      "target": "THORx"
+    },
+    {
+      "channel_id": "bus::Anomaly Detection::Sentinel",
+      "contract_present": true,
+      "source": "Anomaly Detection",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Anomaly Detection::Watch Tower",
+      "contract_present": true,
+      "source": "Anomaly Detection",
+      "target": "Watch Tower"
+    },
+    {
+      "channel_id": "bus::Anomaly Detection::Conclave",
+      "contract_present": true,
+      "source": "Anomaly Detection",
+      "target": "Conclave"
+    },
+    {
+      "channel_id": "bus::Anomaly Detection::Incident Response Engine",
+      "contract_present": true,
+      "source": "Anomaly Detection",
+      "target": "Incident Response Engine"
+    },
+    {
+      "channel_id": "bus::Asset DNA::Card Hawk",
+      "contract_present": true,
+      "source": "Asset DNA",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::Asset DNA::THORx",
+      "contract_present": true,
+      "source": "Asset DNA",
+      "target": "THORx"
+    },
+    {
+      "channel_id": "bus::Attack Surface Analysis::Sentinel",
+      "contract_present": true,
+      "source": "Attack Surface Analysis",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Attack Surface Analysis::Watch Tower",
+      "contract_present": true,
+      "source": "Attack Surface Analysis",
+      "target": "Watch Tower"
+    },
+    {
+      "channel_id": "bus::Attack Surface Analysis::Conclave",
+      "contract_present": true,
+      "source": "Attack Surface Analysis",
+      "target": "Conclave"
+    },
+    {
+      "channel_id": "bus::Attack Surface Analysis::Incident Response Engine",
+      "contract_present": true,
+      "source": "Attack Surface Analysis",
+      "target": "Incident Response Engine"
+    },
+    {
+      "channel_id": "bus::Audit Engine::Security Mesh",
+      "contract_present": true,
+      "source": "Audit Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "channel_id": "bus::Audit Engine::Sentinel",
+      "contract_present": true,
+      "source": "Audit Engine",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Authentication Engine::Security Mesh",
+      "contract_present": true,
+      "source": "Authentication Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "channel_id": "bus::Authentication Engine::Sentinel",
+      "contract_present": true,
+      "source": "Authentication Engine",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Authorization Engine::Security Mesh",
+      "contract_present": true,
+      "source": "Authorization Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "channel_id": "bus::Authorization Engine::Sentinel",
+      "contract_present": true,
+      "source": "Authorization Engine",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::A\u20223ye::Evidence Engine",
+      "contract_present": true,
+      "source": "A\u20223ye",
+      "target": "Evidence Engine"
+    },
+    {
+      "channel_id": "bus::A\u20223ye::Card Hawk",
+      "contract_present": true,
+      "source": "A\u20223ye",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::Behavioral Analytics::Sentinel",
+      "contract_present": true,
+      "source": "Behavioral Analytics",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Behavioral Analytics::Watch Tower",
+      "contract_present": true,
+      "source": "Behavioral Analytics",
+      "target": "Watch Tower"
+    },
+    {
+      "channel_id": "bus::Behavioral Analytics::Conclave",
+      "contract_present": true,
+      "source": "Behavioral Analytics",
+      "target": "Conclave"
+    },
+    {
+      "channel_id": "bus::Behavioral Analytics::Incident Response Engine",
+      "contract_present": true,
+      "source": "Behavioral Analytics",
+      "target": "Incident Response Engine"
+    },
+    {
+      "channel_id": "bus::Canonical Identity Framework::SPARTAN",
+      "contract_present": true,
+      "source": "Canonical Identity Framework",
+      "target": "SPARTAN"
+    },
+    {
+      "channel_id": "bus::Canonical Identity Registry::SPARTAN",
+      "contract_present": true,
+      "source": "Canonical Identity Registry",
+      "target": "SPARTAN"
+    },
+    {
+      "channel_id": "bus::Capability Engine::Engine Registry",
+      "contract_present": true,
+      "source": "Capability Engine",
+      "target": "Engine Registry"
+    },
+    {
+      "channel_id": "bus::Capability Engine::Execution Engine",
+      "contract_present": true,
+      "source": "Capability Engine",
+      "target": "Execution Engine"
+    },
+    {
+      "channel_id": "bus::Capability Registration Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Capability Registration Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Card Hawk::A\u20223ye",
+      "contract_present": true,
+      "source": "Card Hawk",
+      "target": "A\u20223ye"
+    },
+    {
+      "channel_id": "bus::Card Hawk::THORx",
+      "contract_present": true,
+      "source": "Card Hawk",
+      "target": "THORx"
+    },
+    {
+      "channel_id": "bus::Chain of Evidence Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Chain of Evidence Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Compliance Engine::Security Mesh",
+      "contract_present": true,
+      "source": "Compliance Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "channel_id": "bus::Compliance Engine::Sentinel",
+      "contract_present": true,
+      "source": "Compliance Engine",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Conclave::Sentinel",
+      "contract_present": true,
+      "source": "Conclave",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Conclave::Incident Response Engine",
+      "contract_present": true,
+      "source": "Conclave",
+      "target": "Incident Response Engine"
+    },
+    {
+      "channel_id": "bus::Constitutional Audit::SPARTAN",
+      "contract_present": true,
+      "source": "Constitutional Audit",
+      "target": "SPARTAN"
+    },
+    {
+      "channel_id": "bus::Constitutional Authentication Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Constitutional Authentication Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Constitutional Authorization Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Constitutional Authorization Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Constitutional Consensus Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Constitutional Consensus Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Constitutional Governance Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Constitutional Governance Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Constitutional Ledger::SPARTAN",
+      "contract_present": true,
+      "source": "Constitutional Ledger",
+      "target": "SPARTAN"
+    },
+    {
+      "channel_id": "bus::Constitutional Security::SPARTAN",
+      "contract_present": true,
+      "source": "Constitutional Security",
+      "target": "SPARTAN"
+    },
+    {
+      "channel_id": "bus::Constitutional Validation Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Constitutional Validation Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Continuous Validation::Sentinel",
+      "contract_present": true,
+      "source": "Continuous Validation",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Continuous Validation::Watch Tower",
+      "contract_present": true,
+      "source": "Continuous Validation",
+      "target": "Watch Tower"
+    },
+    {
+      "channel_id": "bus::Continuous Validation::Conclave",
+      "contract_present": true,
+      "source": "Continuous Validation",
+      "target": "Conclave"
+    },
+    {
+      "channel_id": "bus::Continuous Validation::Incident Response Engine",
+      "contract_present": true,
+      "source": "Continuous Validation",
+      "target": "Incident Response Engine"
+    },
+    {
+      "channel_id": "bus::D-DEF::Card Hawk",
+      "contract_present": true,
+      "source": "D-DEF",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::D-DEF::THORx",
+      "contract_present": true,
+      "source": "D-DEF",
+      "target": "THORx"
+    },
+    {
+      "channel_id": "bus::Decision Engine::Execution Engine",
+      "contract_present": true,
+      "source": "Decision Engine",
+      "target": "Execution Engine"
+    },
+    {
+      "channel_id": "bus::Digital Signature Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Digital Signature Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Document Intelligence Engine::A\u20223ye",
+      "contract_present": true,
+      "source": "Document Intelligence Engine",
+      "target": "A\u20223ye"
+    },
+    {
+      "channel_id": "bus::Document Intelligence Engine::Evidence Engine",
+      "contract_present": true,
+      "source": "Document Intelligence Engine",
+      "target": "Evidence Engine"
+    },
+    {
+      "channel_id": "bus::Drift Detection::Sentinel",
+      "contract_present": true,
+      "source": "Drift Detection",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Drift Detection::Watch Tower",
+      "contract_present": true,
+      "source": "Drift Detection",
+      "target": "Watch Tower"
+    },
+    {
+      "channel_id": "bus::Drift Detection::Conclave",
+      "contract_present": true,
+      "source": "Drift Detection",
+      "target": "Conclave"
+    },
+    {
+      "channel_id": "bus::Drift Detection::Incident Response Engine",
+      "contract_present": true,
+      "source": "Drift Detection",
+      "target": "Incident Response Engine"
+    },
+    {
+      "channel_id": "bus::Engine Registry::Runtime Engine Manager",
+      "contract_present": true,
+      "source": "Engine Registry",
+      "target": "Runtime Engine Manager"
+    },
+    {
+      "channel_id": "bus::Evidence Engine::Knowledge Engine",
+      "contract_present": true,
+      "source": "Evidence Engine",
+      "target": "Knowledge Engine"
+    },
+    {
+      "channel_id": "bus::Evidence Engine::Audit Engine",
+      "contract_present": true,
+      "source": "Evidence Engine",
+      "target": "Audit Engine"
+    },
+    {
+      "channel_id": "bus::Evidence Vault::SPARTAN",
+      "contract_present": true,
+      "source": "Evidence Vault",
+      "target": "SPARTAN"
+    },
+    {
+      "channel_id": "bus::Evidence Verification Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Evidence Verification Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Execution Engine::Decision Engine",
+      "contract_present": true,
+      "source": "Execution Engine",
+      "target": "Decision Engine"
+    },
+    {
+      "channel_id": "bus::Execution Engine::Mission Engine",
+      "contract_present": true,
+      "source": "Execution Engine",
+      "target": "Mission Engine"
+    },
+    {
+      "channel_id": "bus::Exit Intelligence::Card Hawk",
+      "contract_present": true,
+      "source": "Exit Intelligence",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::Exit Intelligence::THORx",
+      "contract_present": true,
+      "source": "Exit Intelligence",
+      "target": "THORx"
+    },
+    {
+      "channel_id": "bus::FALCON::Card Hawk",
+      "contract_present": true,
+      "source": "FALCON",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::FALCON::THORx",
+      "contract_present": true,
+      "source": "FALCON",
+      "target": "THORx"
+    },
+    {
+      "channel_id": "bus::Federation Engine::Trust Registry",
+      "contract_present": true,
+      "source": "Federation Engine",
+      "target": "Trust Registry"
+    },
+    {
+      "channel_id": "bus::Federation Engine::Security Mesh",
+      "contract_present": true,
+      "source": "Federation Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "channel_id": "bus::Forensics Engine::Security Mesh",
+      "contract_present": true,
+      "source": "Forensics Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "channel_id": "bus::Forensics Engine::Sentinel",
+      "contract_present": true,
+      "source": "Forensics Engine",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Identity Engine::Canonical Identity Registry",
+      "contract_present": true,
+      "source": "Identity Engine",
+      "target": "Canonical Identity Registry"
+    },
+    {
+      "channel_id": "bus::Identity Engine::Authentication Engine",
+      "contract_present": true,
+      "source": "Identity Engine",
+      "target": "Authentication Engine"
+    },
+    {
+      "channel_id": "bus::Identity Verification Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Identity Verification Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Incident Response Engine::Security Mesh",
+      "contract_present": true,
+      "source": "Incident Response Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "channel_id": "bus::Incident Response Engine::Sentinel",
+      "contract_present": true,
+      "source": "Incident Response Engine",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Inspection Engine::A\u20223ye",
+      "contract_present": true,
+      "source": "Inspection Engine",
+      "target": "A\u20223ye"
+    },
+    {
+      "channel_id": "bus::Inspection Engine::Evidence Engine",
+      "contract_present": true,
+      "source": "Inspection Engine",
+      "target": "Evidence Engine"
+    },
+    {
+      "channel_id": "bus::Intelligence Engine::Engine Registry",
+      "contract_present": true,
+      "source": "Intelligence Engine",
+      "target": "Engine Registry"
+    },
+    {
+      "channel_id": "bus::Knowledge Engine::Evidence Engine",
+      "contract_present": true,
+      "source": "Knowledge Engine",
+      "target": "Evidence Engine"
+    },
+    {
+      "channel_id": "bus::Knowledge Engine::Reason Engine",
+      "contract_present": true,
+      "source": "Knowledge Engine",
+      "target": "Reason Engine"
+    },
+    {
+      "channel_id": "bus::Knowledge Engine::Memory Engine",
+      "contract_present": true,
+      "source": "Knowledge Engine",
+      "target": "Memory Engine"
+    },
+    {
+      "channel_id": "bus::Learning Engine::Memory Engine",
+      "contract_present": true,
+      "source": "Learning Engine",
+      "target": "Memory Engine"
+    },
+    {
+      "channel_id": "bus::Memory Engine::Knowledge Engine",
+      "contract_present": true,
+      "source": "Memory Engine",
+      "target": "Knowledge Engine"
+    },
+    {
+      "channel_id": "bus::Mission Authorization Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Mission Authorization Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Mission Engine::Mission Scheduler",
+      "contract_present": true,
+      "source": "Mission Engine",
+      "target": "Mission Scheduler"
+    },
+    {
+      "channel_id": "bus::Mission Scheduler::Mission Engine",
+      "contract_present": true,
+      "source": "Mission Scheduler",
+      "target": "Mission Engine"
+    },
+    {
+      "channel_id": "bus::NEST::Card Hawk",
+      "contract_present": true,
+      "source": "NEST",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::NEST::THORx",
+      "contract_present": true,
+      "source": "NEST",
+      "target": "THORx"
+    },
+    {
+      "channel_id": "bus::Nuclear Cloud::Card Hawk",
+      "contract_present": true,
+      "source": "Nuclear Cloud",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::Nuclear Cloud::THORx",
+      "contract_present": true,
+      "source": "Nuclear Cloud",
+      "target": "THORx"
+    },
+    {
+      "channel_id": "bus::OCR Engine::A\u20223ye",
+      "contract_present": true,
+      "source": "OCR Engine",
+      "target": "A\u20223ye"
+    },
+    {
+      "channel_id": "bus::OCR Engine::Evidence Engine",
+      "contract_present": true,
+      "source": "OCR Engine",
+      "target": "Evidence Engine"
+    },
+    {
+      "channel_id": "bus::PERCH::Card Hawk",
+      "contract_present": true,
+      "source": "PERCH",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::PERCH::THORx",
+      "contract_present": true,
+      "source": "PERCH",
+      "target": "THORx"
+    },
+    {
+      "channel_id": "bus::Planning Engine::Decision Engine",
+      "contract_present": true,
+      "source": "Planning Engine",
+      "target": "Decision Engine"
+    },
+    {
+      "channel_id": "bus::Planning Engine::Mission Engine",
+      "contract_present": true,
+      "source": "Planning Engine",
+      "target": "Mission Engine"
+    },
+    {
+      "channel_id": "bus::Policy Engine::Security Mesh",
+      "contract_present": true,
+      "source": "Policy Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "channel_id": "bus::Policy Engine::Sentinel",
+      "contract_present": true,
+      "source": "Policy Engine",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Predictive Engine::Planning Engine",
+      "contract_present": true,
+      "source": "Predictive Engine",
+      "target": "Planning Engine"
+    },
+    {
+      "channel_id": "bus::Predictive Engine::Decision Engine",
+      "contract_present": true,
+      "source": "Predictive Engine",
+      "target": "Decision Engine"
+    },
+    {
+      "channel_id": "bus::Principle X Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Principle X Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Provenance Verification Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Provenance Verification Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Q-DEF::Card Hawk",
+      "contract_present": true,
+      "source": "Q-DEF",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::Q-DEF::THORx",
+      "contract_present": true,
+      "source": "Q-DEF",
+      "target": "THORx"
+    },
+    {
+      "channel_id": "bus::ROOST::Card Hawk",
+      "contract_present": true,
+      "source": "ROOST",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::ROOST::THORx",
+      "contract_present": true,
+      "source": "ROOST",
+      "target": "THORx"
+    },
+    {
+      "channel_id": "bus::Reason Engine::Knowledge Engine",
+      "contract_present": true,
+      "source": "Reason Engine",
+      "target": "Knowledge Engine"
+    },
+    {
+      "channel_id": "bus::Reason Engine::Planning Engine",
+      "contract_present": true,
+      "source": "Reason Engine",
+      "target": "Planning Engine"
+    },
+    {
+      "channel_id": "bus::Recognition Engine::A\u20223ye",
+      "contract_present": true,
+      "source": "Recognition Engine",
+      "target": "A\u20223ye"
+    },
+    {
+      "channel_id": "bus::Recognition Engine::Evidence Engine",
+      "contract_present": true,
+      "source": "Recognition Engine",
+      "target": "Evidence Engine"
+    },
+    {
+      "channel_id": "bus::Recovery Engine::Security Mesh",
+      "contract_present": true,
+      "source": "Recovery Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "channel_id": "bus::Recovery Engine::Sentinel",
+      "contract_present": true,
+      "source": "Recovery Engine",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Repository Integrity Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Repository Integrity Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Risk Intelligence Engine::Security Mesh",
+      "contract_present": true,
+      "source": "Risk Intelligence Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "channel_id": "bus::Risk Intelligence Engine::Sentinel",
+      "contract_present": true,
+      "source": "Risk Intelligence Engine",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Runtime Attestation Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Runtime Attestation Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Runtime Engine Manager::Engine Registry",
+      "contract_present": true,
+      "source": "Runtime Engine Manager",
+      "target": "Engine Registry"
+    },
+    {
+      "channel_id": "bus::Runtime Integrity Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Runtime Integrity Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Runtime Monitoring::Sentinel",
+      "contract_present": true,
+      "source": "Runtime Monitoring",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Runtime Monitoring::Watch Tower",
+      "contract_present": true,
+      "source": "Runtime Monitoring",
+      "target": "Watch Tower"
+    },
+    {
+      "channel_id": "bus::Runtime Monitoring::Conclave",
+      "contract_present": true,
+      "source": "Runtime Monitoring",
+      "target": "Conclave"
+    },
+    {
+      "channel_id": "bus::Runtime Monitoring::Incident Response Engine",
+      "contract_present": true,
+      "source": "Runtime Monitoring",
+      "target": "Incident Response Engine"
+    },
+    {
+      "channel_id": "bus::SOAR::Card Hawk",
+      "contract_present": true,
+      "source": "SOAR",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::SOAR::THORx",
+      "contract_present": true,
+      "source": "SOAR",
+      "target": "THORx"
+    },
+    {
+      "channel_id": "bus::SPAN::SPARTAN",
+      "contract_present": true,
+      "source": "SPAN",
+      "target": "SPARTAN"
+    },
+    {
+      "channel_id": "bus::SPARTAN::SPAN",
+      "contract_present": true,
+      "source": "SPARTAN",
+      "target": "SPAN"
+    },
+    {
+      "channel_id": "bus::SPARTAN::Watch Tower",
+      "contract_present": true,
+      "source": "SPARTAN",
+      "target": "Watch Tower"
+    },
+    {
+      "channel_id": "bus::SPARTAN::Conclave",
+      "contract_present": true,
+      "source": "SPARTAN",
+      "target": "Conclave"
+    },
+    {
+      "channel_id": "bus::SPARTAN::Sentinel",
+      "contract_present": true,
+      "source": "SPARTAN",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::STRIKE::Card Hawk",
+      "contract_present": true,
+      "source": "STRIKE",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::STRIKE::THORx",
+      "contract_present": true,
+      "source": "STRIKE",
+      "target": "THORx"
+    },
+    {
+      "channel_id": "bus::Secure Communication Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Secure Communication Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Secure Execution Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Secure Execution Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Secure Session Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Secure Session Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Security Circuit::SPARTAN",
+      "contract_present": true,
+      "source": "Security Circuit",
+      "target": "SPARTAN"
+    },
+    {
+      "channel_id": "bus::Security Fabric::SPARTAN",
+      "contract_present": true,
+      "source": "Security Fabric",
+      "target": "SPARTAN"
+    },
+    {
+      "channel_id": "bus::Security Mesh::SPARTAN",
+      "contract_present": true,
+      "source": "Security Mesh",
+      "target": "SPARTAN"
+    },
+    {
+      "channel_id": "bus::Security Telemetry::SPARTAN",
+      "contract_present": true,
+      "source": "Security Telemetry",
+      "target": "SPARTAN"
+    },
+    {
+      "channel_id": "bus::Semantic Engine::Knowledge Engine",
+      "contract_present": true,
+      "source": "Semantic Engine",
+      "target": "Knowledge Engine"
+    },
+    {
+      "channel_id": "bus::Sentinel::SPARTAN",
+      "contract_present": true,
+      "source": "Sentinel",
+      "target": "SPARTAN"
+    },
+    {
+      "channel_id": "bus::Sentinel::Watch Tower",
+      "contract_present": true,
+      "source": "Sentinel",
+      "target": "Watch Tower"
+    },
+    {
+      "channel_id": "bus::Sentinel::Conclave",
+      "contract_present": true,
+      "source": "Sentinel",
+      "target": "Conclave"
+    },
+    {
+      "channel_id": "bus::Service Registration Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Service Registration Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Strike Zone::Card Hawk",
+      "contract_present": true,
+      "source": "Strike Zone",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::Strike Zone::THORx",
+      "contract_present": true,
+      "source": "Strike Zone",
+      "target": "THORx"
+    },
+    {
+      "channel_id": "bus::Supply Chain Verification Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Supply Chain Verification Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::TALON::Card Hawk",
+      "contract_present": true,
+      "source": "TALON",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::TALON::THORx",
+      "contract_present": true,
+      "source": "TALON",
+      "target": "THORx"
+    },
+    {
+      "channel_id": "bus::THORx::Card Hawk",
+      "contract_present": true,
+      "source": "THORx",
+      "target": "Card Hawk"
+    },
+    {
+      "channel_id": "bus::THORx::Decision Engine",
+      "contract_present": true,
+      "source": "THORx",
+      "target": "Decision Engine"
+    },
+    {
+      "channel_id": "bus::Tamper Detection Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Tamper Detection Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Threat Attribution::Sentinel",
+      "contract_present": true,
+      "source": "Threat Attribution",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Threat Attribution::Watch Tower",
+      "contract_present": true,
+      "source": "Threat Attribution",
+      "target": "Watch Tower"
+    },
+    {
+      "channel_id": "bus::Threat Attribution::Conclave",
+      "contract_present": true,
+      "source": "Threat Attribution",
+      "target": "Conclave"
+    },
+    {
+      "channel_id": "bus::Threat Attribution::Incident Response Engine",
+      "contract_present": true,
+      "source": "Threat Attribution",
+      "target": "Incident Response Engine"
+    },
+    {
+      "channel_id": "bus::Threat Containment::Sentinel",
+      "contract_present": true,
+      "source": "Threat Containment",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Threat Containment::Watch Tower",
+      "contract_present": true,
+      "source": "Threat Containment",
+      "target": "Watch Tower"
+    },
+    {
+      "channel_id": "bus::Threat Containment::Conclave",
+      "contract_present": true,
+      "source": "Threat Containment",
+      "target": "Conclave"
+    },
+    {
+      "channel_id": "bus::Threat Containment::Incident Response Engine",
+      "contract_present": true,
+      "source": "Threat Containment",
+      "target": "Incident Response Engine"
+    },
+    {
+      "channel_id": "bus::Threat Correlation::Sentinel",
+      "contract_present": true,
+      "source": "Threat Correlation",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Threat Correlation::Watch Tower",
+      "contract_present": true,
+      "source": "Threat Correlation",
+      "target": "Watch Tower"
+    },
+    {
+      "channel_id": "bus::Threat Correlation::Conclave",
+      "contract_present": true,
+      "source": "Threat Correlation",
+      "target": "Conclave"
+    },
+    {
+      "channel_id": "bus::Threat Correlation::Incident Response Engine",
+      "contract_present": true,
+      "source": "Threat Correlation",
+      "target": "Incident Response Engine"
+    },
+    {
+      "channel_id": "bus::Threat Detection::Sentinel",
+      "contract_present": true,
+      "source": "Threat Detection",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Threat Detection::Watch Tower",
+      "contract_present": true,
+      "source": "Threat Detection",
+      "target": "Watch Tower"
+    },
+    {
+      "channel_id": "bus::Threat Detection::Conclave",
+      "contract_present": true,
+      "source": "Threat Detection",
+      "target": "Conclave"
+    },
+    {
+      "channel_id": "bus::Threat Detection::Incident Response Engine",
+      "contract_present": true,
+      "source": "Threat Detection",
+      "target": "Incident Response Engine"
+    },
+    {
+      "channel_id": "bus::Threat Eradication::Sentinel",
+      "contract_present": true,
+      "source": "Threat Eradication",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Threat Eradication::Watch Tower",
+      "contract_present": true,
+      "source": "Threat Eradication",
+      "target": "Watch Tower"
+    },
+    {
+      "channel_id": "bus::Threat Eradication::Conclave",
+      "contract_present": true,
+      "source": "Threat Eradication",
+      "target": "Conclave"
+    },
+    {
+      "channel_id": "bus::Threat Eradication::Incident Response Engine",
+      "contract_present": true,
+      "source": "Threat Eradication",
+      "target": "Incident Response Engine"
+    },
+    {
+      "channel_id": "bus::Threat Hunting::Sentinel",
+      "contract_present": true,
+      "source": "Threat Hunting",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Threat Hunting::Watch Tower",
+      "contract_present": true,
+      "source": "Threat Hunting",
+      "target": "Watch Tower"
+    },
+    {
+      "channel_id": "bus::Threat Hunting::Conclave",
+      "contract_present": true,
+      "source": "Threat Hunting",
+      "target": "Conclave"
+    },
+    {
+      "channel_id": "bus::Threat Hunting::Incident Response Engine",
+      "contract_present": true,
+      "source": "Threat Hunting",
+      "target": "Incident Response Engine"
+    },
+    {
+      "channel_id": "bus::Threat Intelligence Engine::Security Mesh",
+      "contract_present": true,
+      "source": "Threat Intelligence Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "channel_id": "bus::Threat Intelligence Engine::Sentinel",
+      "contract_present": true,
+      "source": "Threat Intelligence Engine",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Threat Recovery::Sentinel",
+      "contract_present": true,
+      "source": "Threat Recovery",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Threat Recovery::Watch Tower",
+      "contract_present": true,
+      "source": "Threat Recovery",
+      "target": "Watch Tower"
+    },
+    {
+      "channel_id": "bus::Threat Recovery::Conclave",
+      "contract_present": true,
+      "source": "Threat Recovery",
+      "target": "Conclave"
+    },
+    {
+      "channel_id": "bus::Threat Recovery::Incident Response Engine",
+      "contract_present": true,
+      "source": "Threat Recovery",
+      "target": "Incident Response Engine"
+    },
+    {
+      "channel_id": "bus::Trust Framework::SPARTAN",
+      "contract_present": true,
+      "source": "Trust Framework",
+      "target": "SPARTAN"
+    },
+    {
+      "channel_id": "bus::Trust Registry::SPARTAN",
+      "contract_present": true,
+      "source": "Trust Registry",
+      "target": "SPARTAN"
+    },
+    {
+      "channel_id": "bus::Truth Verification Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Truth Verification Protocol",
+      "target": "Policy Engine"
+    },
+    {
+      "channel_id": "bus::Verification Engine::A\u20223ye",
+      "contract_present": true,
+      "source": "Verification Engine",
+      "target": "A\u20223ye"
+    },
+    {
+      "channel_id": "bus::Verification Engine::Evidence Engine",
+      "contract_present": true,
+      "source": "Verification Engine",
+      "target": "Evidence Engine"
+    },
+    {
+      "channel_id": "bus::Vision Engine::A\u20223ye",
+      "contract_present": true,
+      "source": "Vision Engine",
+      "target": "A\u20223ye"
+    },
+    {
+      "channel_id": "bus::Vision Engine::Evidence Engine",
+      "contract_present": true,
+      "source": "Vision Engine",
+      "target": "Evidence Engine"
+    },
+    {
+      "channel_id": "bus::Vulnerability Intelligence Engine::Security Mesh",
+      "contract_present": true,
+      "source": "Vulnerability Intelligence Engine",
+      "target": "Security Mesh"
+    },
+    {
+      "channel_id": "bus::Vulnerability Intelligence Engine::Sentinel",
+      "contract_present": true,
+      "source": "Vulnerability Intelligence Engine",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Watch Tower::Sentinel",
+      "contract_present": true,
+      "source": "Watch Tower",
+      "target": "Sentinel"
+    },
+    {
+      "channel_id": "bus::Zero Trust Protocol::Policy Engine",
+      "contract_present": true,
+      "source": "Zero Trust Protocol",
+      "target": "Policy Engine"
+    }
+  ]
+}
