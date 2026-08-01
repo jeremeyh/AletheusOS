@@ -1,0 +1,554 @@
+{
+  "ambiguous_roots": [
+    "Acquisition AI",
+    "Anomaly Detection",
+    "Asset DNA",
+    "Attack Surface Analysis",
+    "Behavioral Analytics",
+    "Canonical Identity Framework",
+    "Capability Engine",
+    "Capability Registration Protocol",
+    "Compliance Engine",
+    "Continuous Validation",
+    "D-DEF",
+    "Digital Signature Protocol",
+    "Document Intelligence Engine",
+    "Drift Detection",
+    "Exit Intelligence",
+    "FALCON",
+    "Federation Engine",
+    "Forensics Engine",
+    "Identity Engine",
+    "Identity Verification Protocol",
+    "Inspection Engine",
+    "Intelligence Engine",
+    "Learning Engine",
+    "NEST",
+    "Nuclear Cloud",
+    "OCR Engine",
+    "PERCH",
+    "Provenance Verification Protocol",
+    "Q-DEF",
+    "ROOST",
+    "Recognition Engine",
+    "Recovery Engine",
+    "Repository Integrity Protocol",
+    "Risk Intelligence Engine",
+    "SOAR",
+    "STRIKE",
+    "Secure Communication Protocol",
+    "Secure Execution Protocol",
+    "Secure Session Protocol",
+    "Semantic Engine",
+    "Service Registration Protocol",
+    "Strike Zone",
+    "Supply Chain Verification Protocol",
+    "TALON",
+    "Tamper Detection Protocol",
+    "Threat Attribution",
+    "Threat Containment",
+    "Threat Correlation",
+    "Threat Detection",
+    "Threat Eradication",
+    "Threat Hunting",
+    "Threat Intelligence Engine",
+    "Threat Recovery",
+    "Trust Framework",
+    "Truth Verification Protocol",
+    "Verification Engine",
+    "Vision Engine",
+    "Vulnerability Intelligence Engine",
+    "Zero Trust Protocol"
+  ],
+  "class_counts": {
+    "constitutional_root": 9,
+    "intelligence_root": 4,
+    "product_root": 1,
+    "runtime_root": 4,
+    "security_root": 3,
+    "supporting_root": 59
+  },
+  "root_count": 80,
+  "roots": [
+    {
+      "catalog_category": "card_hawk",
+      "intentional_root": false,
+      "node": "Acquisition AI",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "defensive_operations",
+      "intentional_root": false,
+      "node": "Anomaly Detection",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "card_hawk",
+      "intentional_root": false,
+      "node": "Asset DNA",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "defensive_operations",
+      "intentional_root": false,
+      "node": "Attack Surface Analysis",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_intelligence",
+      "intentional_root": true,
+      "node": "Authorization Engine",
+      "semantic_class": "product_root"
+    },
+    {
+      "catalog_category": "defensive_operations",
+      "intentional_root": false,
+      "node": "Behavioral Analytics",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_infrastructure",
+      "intentional_root": false,
+      "node": "Canonical Identity Framework",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "platform_runtime",
+      "intentional_root": false,
+      "node": "Capability Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": false,
+      "node": "Capability Registration Protocol",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": true,
+      "node": "Chain of Evidence Protocol",
+      "semantic_class": "intelligence_root"
+    },
+    {
+      "catalog_category": "security_intelligence",
+      "intentional_root": false,
+      "node": "Compliance Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_infrastructure",
+      "intentional_root": true,
+      "node": "Constitutional Audit",
+      "semantic_class": "constitutional_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": true,
+      "node": "Constitutional Authentication Protocol",
+      "semantic_class": "constitutional_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": true,
+      "node": "Constitutional Authorization Protocol",
+      "semantic_class": "constitutional_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": true,
+      "node": "Constitutional Consensus Protocol",
+      "semantic_class": "constitutional_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": true,
+      "node": "Constitutional Governance Protocol",
+      "semantic_class": "constitutional_root"
+    },
+    {
+      "catalog_category": "security_infrastructure",
+      "intentional_root": true,
+      "node": "Constitutional Ledger",
+      "semantic_class": "constitutional_root"
+    },
+    {
+      "catalog_category": "security_infrastructure",
+      "intentional_root": true,
+      "node": "Constitutional Security",
+      "semantic_class": "constitutional_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": true,
+      "node": "Constitutional Validation Protocol",
+      "semantic_class": "constitutional_root"
+    },
+    {
+      "catalog_category": "defensive_operations",
+      "intentional_root": false,
+      "node": "Continuous Validation",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "card_hawk",
+      "intentional_root": false,
+      "node": "D-DEF",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": false,
+      "node": "Digital Signature Protocol",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "perception",
+      "intentional_root": false,
+      "node": "Document Intelligence Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "defensive_operations",
+      "intentional_root": false,
+      "node": "Drift Detection",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_infrastructure",
+      "intentional_root": true,
+      "node": "Evidence Vault",
+      "semantic_class": "intelligence_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": true,
+      "node": "Evidence Verification Protocol",
+      "semantic_class": "intelligence_root"
+    },
+    {
+      "catalog_category": "card_hawk",
+      "intentional_root": false,
+      "node": "Exit Intelligence",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "card_hawk",
+      "intentional_root": false,
+      "node": "FALCON",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "platform_runtime",
+      "intentional_root": false,
+      "node": "Federation Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_intelligence",
+      "intentional_root": false,
+      "node": "Forensics Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "platform_runtime",
+      "intentional_root": false,
+      "node": "Identity Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": false,
+      "node": "Identity Verification Protocol",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "perception",
+      "intentional_root": false,
+      "node": "Inspection Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "core_intelligence",
+      "intentional_root": false,
+      "node": "Intelligence Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "core_intelligence",
+      "intentional_root": false,
+      "node": "Learning Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": true,
+      "node": "Mission Authorization Protocol",
+      "semantic_class": "runtime_root"
+    },
+    {
+      "catalog_category": "card_hawk",
+      "intentional_root": false,
+      "node": "NEST",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "card_hawk",
+      "intentional_root": false,
+      "node": "Nuclear Cloud",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "perception",
+      "intentional_root": false,
+      "node": "OCR Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "card_hawk",
+      "intentional_root": false,
+      "node": "PERCH",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "core_intelligence",
+      "intentional_root": true,
+      "node": "Predictive Engine",
+      "semantic_class": "intelligence_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": true,
+      "node": "Principle X Protocol",
+      "semantic_class": "constitutional_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": false,
+      "node": "Provenance Verification Protocol",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "card_hawk",
+      "intentional_root": false,
+      "node": "Q-DEF",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "card_hawk",
+      "intentional_root": false,
+      "node": "ROOST",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "perception",
+      "intentional_root": false,
+      "node": "Recognition Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_intelligence",
+      "intentional_root": false,
+      "node": "Recovery Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": false,
+      "node": "Repository Integrity Protocol",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_intelligence",
+      "intentional_root": false,
+      "node": "Risk Intelligence Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": true,
+      "node": "Runtime Attestation Protocol",
+      "semantic_class": "runtime_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": true,
+      "node": "Runtime Integrity Protocol",
+      "semantic_class": "runtime_root"
+    },
+    {
+      "catalog_category": "defensive_operations",
+      "intentional_root": true,
+      "node": "Runtime Monitoring",
+      "semantic_class": "runtime_root"
+    },
+    {
+      "catalog_category": "card_hawk",
+      "intentional_root": false,
+      "node": "SOAR",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "card_hawk",
+      "intentional_root": false,
+      "node": "STRIKE",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": false,
+      "node": "Secure Communication Protocol",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": false,
+      "node": "Secure Execution Protocol",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": false,
+      "node": "Secure Session Protocol",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_infrastructure",
+      "intentional_root": true,
+      "node": "Security Circuit",
+      "semantic_class": "security_root"
+    },
+    {
+      "catalog_category": "security_infrastructure",
+      "intentional_root": true,
+      "node": "Security Fabric",
+      "semantic_class": "security_root"
+    },
+    {
+      "catalog_category": "security_infrastructure",
+      "intentional_root": true,
+      "node": "Security Telemetry",
+      "semantic_class": "security_root"
+    },
+    {
+      "catalog_category": "core_intelligence",
+      "intentional_root": false,
+      "node": "Semantic Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": false,
+      "node": "Service Registration Protocol",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "card_hawk",
+      "intentional_root": false,
+      "node": "Strike Zone",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": false,
+      "node": "Supply Chain Verification Protocol",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "card_hawk",
+      "intentional_root": false,
+      "node": "TALON",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": false,
+      "node": "Tamper Detection Protocol",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "defensive_operations",
+      "intentional_root": false,
+      "node": "Threat Attribution",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "defensive_operations",
+      "intentional_root": false,
+      "node": "Threat Containment",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "defensive_operations",
+      "intentional_root": false,
+      "node": "Threat Correlation",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "defensive_operations",
+      "intentional_root": false,
+      "node": "Threat Detection",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "defensive_operations",
+      "intentional_root": false,
+      "node": "Threat Eradication",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "defensive_operations",
+      "intentional_root": false,
+      "node": "Threat Hunting",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_intelligence",
+      "intentional_root": false,
+      "node": "Threat Intelligence Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "defensive_operations",
+      "intentional_root": false,
+      "node": "Threat Recovery",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_infrastructure",
+      "intentional_root": false,
+      "node": "Trust Framework",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": false,
+      "node": "Truth Verification Protocol",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "perception",
+      "intentional_root": false,
+      "node": "Verification Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "perception",
+      "intentional_root": false,
+      "node": "Vision Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_intelligence",
+      "intentional_root": false,
+      "node": "Vulnerability Intelligence Engine",
+      "semantic_class": "supporting_root"
+    },
+    {
+      "catalog_category": "security_protocol",
+      "intentional_root": false,
+      "node": "Zero Trust Protocol",
+      "semantic_class": "supporting_root"
+    }
+  ]
+}
