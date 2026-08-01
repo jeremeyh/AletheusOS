@@ -1,0 +1,66 @@
+{
+  "coordination_mode": "live_runtime_coordination",
+  "participants": [
+    {
+      "engine": "Evidence Engine",
+      "mesh_role": "intelligence_participant",
+      "registered": true
+    },
+    {
+      "engine": "Knowledge Engine",
+      "mesh_role": "intelligence_participant",
+      "registered": true
+    },
+    {
+      "engine": "Reason Engine",
+      "mesh_role": "intelligence_participant",
+      "registered": true
+    },
+    {
+      "engine": "Memory Engine",
+      "mesh_role": "intelligence_participant",
+      "registered": true
+    },
+    {
+      "engine": "Predictive Engine",
+      "mesh_role": "intelligence_participant",
+      "registered": true
+    },
+    {
+      "engine": "Planning Engine",
+      "mesh_role": "intelligence_participant",
+      "registered": true
+    },
+    {
+      "engine": "Decision Engine",
+      "mesh_role": "intelligence_participant",
+      "registered": true
+    }
+  ],
+  "routes": [
+    {
+      "source": "Evidence Engine",
+      "target": "Knowledge Engine"
+    },
+    {
+      "source": "Knowledge Engine",
+      "target": "Reason Engine"
+    },
+    {
+      "source": "Reason Engine",
+      "target": "Memory Engine"
+    },
+    {
+      "source": "Memory Engine",
+      "target": "Predictive Engine"
+    },
+    {
+      "source": "Predictive Engine",
+      "target": "Planning Engine"
+    },
+    {
+      "source": "Planning Engine",
+      "target": "Decision Engine"
+    }
+  ]
+}
