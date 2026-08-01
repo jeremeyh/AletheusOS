@@ -1,0 +1,20 @@
+{
+  "authority": "Sentinel",
+  "autonomous_response_enabled": false,
+  "diagnostics": [
+    {
+      "code": "RUNTIME_NOT_READY",
+      "severity": "high"
+    },
+    {
+      "code": "GOVERNANCE_ATTENTION_REQUIRED",
+      "severity": "medium"
+    }
+  ],
+  "generated_at": "2026-08-01T06:49:02.299066+00:00",
+  "governance_decision": "warn",
+  "readiness": "not_ready",
+  "response_mode": "approval_gated",
+  "runtime_role": "operational_security_command",
+  "spartan_mode": "shared_crk_runtime"
+}
