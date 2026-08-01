@@ -1,0 +1,1565 @@
+{
+  "inbound_rails": [
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Acquisition AI::Card Hawk",
+      "source": "Acquisition AI",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Acquisition AI::THORx",
+      "source": "Acquisition AI",
+      "state": "open_bounded",
+      "target": "THORx"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Anomaly Detection::Sentinel",
+      "source": "Anomaly Detection",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Anomaly Detection::Watch Tower",
+      "source": "Anomaly Detection",
+      "state": "open_bounded",
+      "target": "Watch Tower"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Anomaly Detection::Conclave",
+      "source": "Anomaly Detection",
+      "state": "open_bounded",
+      "target": "Conclave"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Anomaly Detection::Incident Response Engine",
+      "source": "Anomaly Detection",
+      "state": "open_bounded",
+      "target": "Incident Response Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Asset DNA::Card Hawk",
+      "source": "Asset DNA",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Asset DNA::THORx",
+      "source": "Asset DNA",
+      "state": "open_bounded",
+      "target": "THORx"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Attack Surface Analysis::Sentinel",
+      "source": "Attack Surface Analysis",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Attack Surface Analysis::Watch Tower",
+      "source": "Attack Surface Analysis",
+      "state": "open_bounded",
+      "target": "Watch Tower"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Attack Surface Analysis::Conclave",
+      "source": "Attack Surface Analysis",
+      "state": "open_bounded",
+      "target": "Conclave"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Attack Surface Analysis::Incident Response Engine",
+      "source": "Attack Surface Analysis",
+      "state": "open_bounded",
+      "target": "Incident Response Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Audit Engine::Security Mesh",
+      "source": "Audit Engine",
+      "state": "open_bounded",
+      "target": "Security Mesh"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Audit Engine::Sentinel",
+      "source": "Audit Engine",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Authentication Engine::Security Mesh",
+      "source": "Authentication Engine",
+      "state": "open_bounded",
+      "target": "Security Mesh"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Authentication Engine::Sentinel",
+      "source": "Authentication Engine",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Authorization Engine::Security Mesh",
+      "source": "Authorization Engine",
+      "state": "open_bounded",
+      "target": "Security Mesh"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Authorization Engine::Sentinel",
+      "source": "Authorization Engine",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::A\u20223ye::Evidence Engine",
+      "source": "A\u20223ye",
+      "state": "open_bounded",
+      "target": "Evidence Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::A\u20223ye::Card Hawk",
+      "source": "A\u20223ye",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Behavioral Analytics::Sentinel",
+      "source": "Behavioral Analytics",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Behavioral Analytics::Watch Tower",
+      "source": "Behavioral Analytics",
+      "state": "open_bounded",
+      "target": "Watch Tower"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Behavioral Analytics::Conclave",
+      "source": "Behavioral Analytics",
+      "state": "open_bounded",
+      "target": "Conclave"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Behavioral Analytics::Incident Response Engine",
+      "source": "Behavioral Analytics",
+      "state": "open_bounded",
+      "target": "Incident Response Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Canonical Identity Framework::SPARTAN",
+      "source": "Canonical Identity Framework",
+      "state": "open_bounded",
+      "target": "SPARTAN"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Canonical Identity Registry::SPARTAN",
+      "source": "Canonical Identity Registry",
+      "state": "open_bounded",
+      "target": "SPARTAN"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Capability Engine::Engine Registry",
+      "source": "Capability Engine",
+      "state": "open_bounded",
+      "target": "Engine Registry"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Capability Engine::Execution Engine",
+      "source": "Capability Engine",
+      "state": "open_bounded",
+      "target": "Execution Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Capability Registration Protocol::Policy Engine",
+      "source": "Capability Registration Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Card Hawk::A\u20223ye",
+      "source": "Card Hawk",
+      "state": "open_bounded",
+      "target": "A\u20223ye"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Card Hawk::THORx",
+      "source": "Card Hawk",
+      "state": "open_bounded",
+      "target": "THORx"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Chain of Evidence Protocol::Policy Engine",
+      "source": "Chain of Evidence Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Compliance Engine::Security Mesh",
+      "source": "Compliance Engine",
+      "state": "open_bounded",
+      "target": "Security Mesh"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Compliance Engine::Sentinel",
+      "source": "Compliance Engine",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Conclave::Sentinel",
+      "source": "Conclave",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Conclave::Incident Response Engine",
+      "source": "Conclave",
+      "state": "open_bounded",
+      "target": "Incident Response Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Constitutional Audit::SPARTAN",
+      "source": "Constitutional Audit",
+      "state": "open_bounded",
+      "target": "SPARTAN"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Constitutional Authentication Protocol::Policy Engine",
+      "source": "Constitutional Authentication Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Constitutional Authorization Protocol::Policy Engine",
+      "source": "Constitutional Authorization Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Constitutional Consensus Protocol::Policy Engine",
+      "source": "Constitutional Consensus Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Constitutional Governance Protocol::Policy Engine",
+      "source": "Constitutional Governance Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Constitutional Ledger::SPARTAN",
+      "source": "Constitutional Ledger",
+      "state": "open_bounded",
+      "target": "SPARTAN"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Constitutional Security::SPARTAN",
+      "source": "Constitutional Security",
+      "state": "open_bounded",
+      "target": "SPARTAN"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Constitutional Validation Protocol::Policy Engine",
+      "source": "Constitutional Validation Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Continuous Validation::Sentinel",
+      "source": "Continuous Validation",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Continuous Validation::Watch Tower",
+      "source": "Continuous Validation",
+      "state": "open_bounded",
+      "target": "Watch Tower"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Continuous Validation::Conclave",
+      "source": "Continuous Validation",
+      "state": "open_bounded",
+      "target": "Conclave"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Continuous Validation::Incident Response Engine",
+      "source": "Continuous Validation",
+      "state": "open_bounded",
+      "target": "Incident Response Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::D-DEF::Card Hawk",
+      "source": "D-DEF",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::D-DEF::THORx",
+      "source": "D-DEF",
+      "state": "open_bounded",
+      "target": "THORx"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Decision Engine::Execution Engine",
+      "source": "Decision Engine",
+      "state": "open_bounded",
+      "target": "Execution Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Digital Signature Protocol::Policy Engine",
+      "source": "Digital Signature Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Document Intelligence Engine::A\u20223ye",
+      "source": "Document Intelligence Engine",
+      "state": "open_bounded",
+      "target": "A\u20223ye"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Document Intelligence Engine::Evidence Engine",
+      "source": "Document Intelligence Engine",
+      "state": "open_bounded",
+      "target": "Evidence Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Drift Detection::Sentinel",
+      "source": "Drift Detection",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Drift Detection::Watch Tower",
+      "source": "Drift Detection",
+      "state": "open_bounded",
+      "target": "Watch Tower"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Drift Detection::Conclave",
+      "source": "Drift Detection",
+      "state": "open_bounded",
+      "target": "Conclave"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Drift Detection::Incident Response Engine",
+      "source": "Drift Detection",
+      "state": "open_bounded",
+      "target": "Incident Response Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Engine Registry::Runtime Engine Manager",
+      "source": "Engine Registry",
+      "state": "open_bounded",
+      "target": "Runtime Engine Manager"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Evidence Engine::Knowledge Engine",
+      "source": "Evidence Engine",
+      "state": "open_bounded",
+      "target": "Knowledge Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Evidence Engine::Audit Engine",
+      "source": "Evidence Engine",
+      "state": "open_bounded",
+      "target": "Audit Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Evidence Vault::SPARTAN",
+      "source": "Evidence Vault",
+      "state": "open_bounded",
+      "target": "SPARTAN"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Evidence Verification Protocol::Policy Engine",
+      "source": "Evidence Verification Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Execution Engine::Decision Engine",
+      "source": "Execution Engine",
+      "state": "open_bounded",
+      "target": "Decision Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Execution Engine::Mission Engine",
+      "source": "Execution Engine",
+      "state": "open_bounded",
+      "target": "Mission Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Exit Intelligence::Card Hawk",
+      "source": "Exit Intelligence",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Exit Intelligence::THORx",
+      "source": "Exit Intelligence",
+      "state": "open_bounded",
+      "target": "THORx"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::FALCON::Card Hawk",
+      "source": "FALCON",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::FALCON::THORx",
+      "source": "FALCON",
+      "state": "open_bounded",
+      "target": "THORx"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Federation Engine::Trust Registry",
+      "source": "Federation Engine",
+      "state": "open_bounded",
+      "target": "Trust Registry"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Federation Engine::Security Mesh",
+      "source": "Federation Engine",
+      "state": "open_bounded",
+      "target": "Security Mesh"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Forensics Engine::Security Mesh",
+      "source": "Forensics Engine",
+      "state": "open_bounded",
+      "target": "Security Mesh"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Forensics Engine::Sentinel",
+      "source": "Forensics Engine",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Identity Engine::Canonical Identity Registry",
+      "source": "Identity Engine",
+      "state": "open_bounded",
+      "target": "Canonical Identity Registry"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Identity Engine::Authentication Engine",
+      "source": "Identity Engine",
+      "state": "open_bounded",
+      "target": "Authentication Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Identity Verification Protocol::Policy Engine",
+      "source": "Identity Verification Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Incident Response Engine::Security Mesh",
+      "source": "Incident Response Engine",
+      "state": "open_bounded",
+      "target": "Security Mesh"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Incident Response Engine::Sentinel",
+      "source": "Incident Response Engine",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Inspection Engine::A\u20223ye",
+      "source": "Inspection Engine",
+      "state": "open_bounded",
+      "target": "A\u20223ye"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Inspection Engine::Evidence Engine",
+      "source": "Inspection Engine",
+      "state": "open_bounded",
+      "target": "Evidence Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Intelligence Engine::Engine Registry",
+      "source": "Intelligence Engine",
+      "state": "open_bounded",
+      "target": "Engine Registry"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Knowledge Engine::Evidence Engine",
+      "source": "Knowledge Engine",
+      "state": "open_bounded",
+      "target": "Evidence Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Knowledge Engine::Reason Engine",
+      "source": "Knowledge Engine",
+      "state": "open_bounded",
+      "target": "Reason Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Knowledge Engine::Memory Engine",
+      "source": "Knowledge Engine",
+      "state": "open_bounded",
+      "target": "Memory Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Learning Engine::Memory Engine",
+      "source": "Learning Engine",
+      "state": "open_bounded",
+      "target": "Memory Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Memory Engine::Knowledge Engine",
+      "source": "Memory Engine",
+      "state": "open_bounded",
+      "target": "Knowledge Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Mission Authorization Protocol::Policy Engine",
+      "source": "Mission Authorization Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Mission Engine::Mission Scheduler",
+      "source": "Mission Engine",
+      "state": "open_bounded",
+      "target": "Mission Scheduler"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Mission Scheduler::Mission Engine",
+      "source": "Mission Scheduler",
+      "state": "open_bounded",
+      "target": "Mission Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::NEST::Card Hawk",
+      "source": "NEST",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::NEST::THORx",
+      "source": "NEST",
+      "state": "open_bounded",
+      "target": "THORx"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Nuclear Cloud::Card Hawk",
+      "source": "Nuclear Cloud",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Nuclear Cloud::THORx",
+      "source": "Nuclear Cloud",
+      "state": "open_bounded",
+      "target": "THORx"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::OCR Engine::A\u20223ye",
+      "source": "OCR Engine",
+      "state": "open_bounded",
+      "target": "A\u20223ye"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::OCR Engine::Evidence Engine",
+      "source": "OCR Engine",
+      "state": "open_bounded",
+      "target": "Evidence Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::PERCH::Card Hawk",
+      "source": "PERCH",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::PERCH::THORx",
+      "source": "PERCH",
+      "state": "open_bounded",
+      "target": "THORx"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Planning Engine::Decision Engine",
+      "source": "Planning Engine",
+      "state": "open_bounded",
+      "target": "Decision Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Planning Engine::Mission Engine",
+      "source": "Planning Engine",
+      "state": "open_bounded",
+      "target": "Mission Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Policy Engine::Security Mesh",
+      "source": "Policy Engine",
+      "state": "open_bounded",
+      "target": "Security Mesh"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Policy Engine::Sentinel",
+      "source": "Policy Engine",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Predictive Engine::Planning Engine",
+      "source": "Predictive Engine",
+      "state": "open_bounded",
+      "target": "Planning Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Predictive Engine::Decision Engine",
+      "source": "Predictive Engine",
+      "state": "open_bounded",
+      "target": "Decision Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Principle X Protocol::Policy Engine",
+      "source": "Principle X Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Provenance Verification Protocol::Policy Engine",
+      "source": "Provenance Verification Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Q-DEF::Card Hawk",
+      "source": "Q-DEF",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Q-DEF::THORx",
+      "source": "Q-DEF",
+      "state": "open_bounded",
+      "target": "THORx"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::ROOST::Card Hawk",
+      "source": "ROOST",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::ROOST::THORx",
+      "source": "ROOST",
+      "state": "open_bounded",
+      "target": "THORx"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Reason Engine::Knowledge Engine",
+      "source": "Reason Engine",
+      "state": "open_bounded",
+      "target": "Knowledge Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Reason Engine::Planning Engine",
+      "source": "Reason Engine",
+      "state": "open_bounded",
+      "target": "Planning Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Recognition Engine::A\u20223ye",
+      "source": "Recognition Engine",
+      "state": "open_bounded",
+      "target": "A\u20223ye"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Recognition Engine::Evidence Engine",
+      "source": "Recognition Engine",
+      "state": "open_bounded",
+      "target": "Evidence Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Recovery Engine::Security Mesh",
+      "source": "Recovery Engine",
+      "state": "open_bounded",
+      "target": "Security Mesh"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Recovery Engine::Sentinel",
+      "source": "Recovery Engine",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Repository Integrity Protocol::Policy Engine",
+      "source": "Repository Integrity Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Risk Intelligence Engine::Security Mesh",
+      "source": "Risk Intelligence Engine",
+      "state": "open_bounded",
+      "target": "Security Mesh"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Risk Intelligence Engine::Sentinel",
+      "source": "Risk Intelligence Engine",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Runtime Attestation Protocol::Policy Engine",
+      "source": "Runtime Attestation Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Runtime Engine Manager::Engine Registry",
+      "source": "Runtime Engine Manager",
+      "state": "open_bounded",
+      "target": "Engine Registry"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Runtime Integrity Protocol::Policy Engine",
+      "source": "Runtime Integrity Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Runtime Monitoring::Sentinel",
+      "source": "Runtime Monitoring",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Runtime Monitoring::Watch Tower",
+      "source": "Runtime Monitoring",
+      "state": "open_bounded",
+      "target": "Watch Tower"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Runtime Monitoring::Conclave",
+      "source": "Runtime Monitoring",
+      "state": "open_bounded",
+      "target": "Conclave"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Runtime Monitoring::Incident Response Engine",
+      "source": "Runtime Monitoring",
+      "state": "open_bounded",
+      "target": "Incident Response Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::SOAR::Card Hawk",
+      "source": "SOAR",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::SOAR::THORx",
+      "source": "SOAR",
+      "state": "open_bounded",
+      "target": "THORx"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::SPAN::SPARTAN",
+      "source": "SPAN",
+      "state": "open_bounded",
+      "target": "SPARTAN"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::SPARTAN::SPAN",
+      "source": "SPARTAN",
+      "state": "open_bounded",
+      "target": "SPAN"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::SPARTAN::Watch Tower",
+      "source": "SPARTAN",
+      "state": "open_bounded",
+      "target": "Watch Tower"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::SPARTAN::Conclave",
+      "source": "SPARTAN",
+      "state": "open_bounded",
+      "target": "Conclave"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::SPARTAN::Sentinel",
+      "source": "SPARTAN",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::STRIKE::Card Hawk",
+      "source": "STRIKE",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::STRIKE::THORx",
+      "source": "STRIKE",
+      "state": "open_bounded",
+      "target": "THORx"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Secure Communication Protocol::Policy Engine",
+      "source": "Secure Communication Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Secure Execution Protocol::Policy Engine",
+      "source": "Secure Execution Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Secure Session Protocol::Policy Engine",
+      "source": "Secure Session Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Security Circuit::SPARTAN",
+      "source": "Security Circuit",
+      "state": "open_bounded",
+      "target": "SPARTAN"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Security Fabric::SPARTAN",
+      "source": "Security Fabric",
+      "state": "open_bounded",
+      "target": "SPARTAN"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Security Mesh::SPARTAN",
+      "source": "Security Mesh",
+      "state": "open_bounded",
+      "target": "SPARTAN"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Security Telemetry::SPARTAN",
+      "source": "Security Telemetry",
+      "state": "open_bounded",
+      "target": "SPARTAN"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Semantic Engine::Knowledge Engine",
+      "source": "Semantic Engine",
+      "state": "open_bounded",
+      "target": "Knowledge Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Sentinel::SPARTAN",
+      "source": "Sentinel",
+      "state": "open_bounded",
+      "target": "SPARTAN"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Sentinel::Watch Tower",
+      "source": "Sentinel",
+      "state": "open_bounded",
+      "target": "Watch Tower"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Sentinel::Conclave",
+      "source": "Sentinel",
+      "state": "open_bounded",
+      "target": "Conclave"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Service Registration Protocol::Policy Engine",
+      "source": "Service Registration Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Strike Zone::Card Hawk",
+      "source": "Strike Zone",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Strike Zone::THORx",
+      "source": "Strike Zone",
+      "state": "open_bounded",
+      "target": "THORx"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Supply Chain Verification Protocol::Policy Engine",
+      "source": "Supply Chain Verification Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::TALON::Card Hawk",
+      "source": "TALON",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::TALON::THORx",
+      "source": "TALON",
+      "state": "open_bounded",
+      "target": "THORx"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::THORx::Card Hawk",
+      "source": "THORx",
+      "state": "open_bounded",
+      "target": "Card Hawk"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::THORx::Decision Engine",
+      "source": "THORx",
+      "state": "open_bounded",
+      "target": "Decision Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Tamper Detection Protocol::Policy Engine",
+      "source": "Tamper Detection Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Attribution::Sentinel",
+      "source": "Threat Attribution",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Attribution::Watch Tower",
+      "source": "Threat Attribution",
+      "state": "open_bounded",
+      "target": "Watch Tower"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Attribution::Conclave",
+      "source": "Threat Attribution",
+      "state": "open_bounded",
+      "target": "Conclave"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Attribution::Incident Response Engine",
+      "source": "Threat Attribution",
+      "state": "open_bounded",
+      "target": "Incident Response Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Containment::Sentinel",
+      "source": "Threat Containment",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Containment::Watch Tower",
+      "source": "Threat Containment",
+      "state": "open_bounded",
+      "target": "Watch Tower"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Containment::Conclave",
+      "source": "Threat Containment",
+      "state": "open_bounded",
+      "target": "Conclave"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Containment::Incident Response Engine",
+      "source": "Threat Containment",
+      "state": "open_bounded",
+      "target": "Incident Response Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Correlation::Sentinel",
+      "source": "Threat Correlation",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Correlation::Watch Tower",
+      "source": "Threat Correlation",
+      "state": "open_bounded",
+      "target": "Watch Tower"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Correlation::Conclave",
+      "source": "Threat Correlation",
+      "state": "open_bounded",
+      "target": "Conclave"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Correlation::Incident Response Engine",
+      "source": "Threat Correlation",
+      "state": "open_bounded",
+      "target": "Incident Response Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Detection::Sentinel",
+      "source": "Threat Detection",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Detection::Watch Tower",
+      "source": "Threat Detection",
+      "state": "open_bounded",
+      "target": "Watch Tower"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Detection::Conclave",
+      "source": "Threat Detection",
+      "state": "open_bounded",
+      "target": "Conclave"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Detection::Incident Response Engine",
+      "source": "Threat Detection",
+      "state": "open_bounded",
+      "target": "Incident Response Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Eradication::Sentinel",
+      "source": "Threat Eradication",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Eradication::Watch Tower",
+      "source": "Threat Eradication",
+      "state": "open_bounded",
+      "target": "Watch Tower"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Eradication::Conclave",
+      "source": "Threat Eradication",
+      "state": "open_bounded",
+      "target": "Conclave"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Eradication::Incident Response Engine",
+      "source": "Threat Eradication",
+      "state": "open_bounded",
+      "target": "Incident Response Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Hunting::Sentinel",
+      "source": "Threat Hunting",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Hunting::Watch Tower",
+      "source": "Threat Hunting",
+      "state": "open_bounded",
+      "target": "Watch Tower"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Hunting::Conclave",
+      "source": "Threat Hunting",
+      "state": "open_bounded",
+      "target": "Conclave"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Hunting::Incident Response Engine",
+      "source": "Threat Hunting",
+      "state": "open_bounded",
+      "target": "Incident Response Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Intelligence Engine::Security Mesh",
+      "source": "Threat Intelligence Engine",
+      "state": "open_bounded",
+      "target": "Security Mesh"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Intelligence Engine::Sentinel",
+      "source": "Threat Intelligence Engine",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Recovery::Sentinel",
+      "source": "Threat Recovery",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Recovery::Watch Tower",
+      "source": "Threat Recovery",
+      "state": "open_bounded",
+      "target": "Watch Tower"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Recovery::Conclave",
+      "source": "Threat Recovery",
+      "state": "open_bounded",
+      "target": "Conclave"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Threat Recovery::Incident Response Engine",
+      "source": "Threat Recovery",
+      "state": "open_bounded",
+      "target": "Incident Response Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Trust Framework::SPARTAN",
+      "source": "Trust Framework",
+      "state": "open_bounded",
+      "target": "SPARTAN"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Trust Registry::SPARTAN",
+      "source": "Trust Registry",
+      "state": "open_bounded",
+      "target": "SPARTAN"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Truth Verification Protocol::Policy Engine",
+      "source": "Truth Verification Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Verification Engine::A\u20223ye",
+      "source": "Verification Engine",
+      "state": "open_bounded",
+      "target": "A\u20223ye"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Verification Engine::Evidence Engine",
+      "source": "Verification Engine",
+      "state": "open_bounded",
+      "target": "Evidence Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Vision Engine::A\u20223ye",
+      "source": "Vision Engine",
+      "state": "open_bounded",
+      "target": "A\u20223ye"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Vision Engine::Evidence Engine",
+      "source": "Vision Engine",
+      "state": "open_bounded",
+      "target": "Evidence Engine"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Vulnerability Intelligence Engine::Security Mesh",
+      "source": "Vulnerability Intelligence Engine",
+      "state": "open_bounded",
+      "target": "Security Mesh"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Vulnerability Intelligence Engine::Sentinel",
+      "source": "Vulnerability Intelligence Engine",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Watch Tower::Sentinel",
+      "source": "Watch Tower",
+      "state": "open_bounded",
+      "target": "Sentinel"
+    },
+    {
+      "access_module_present": true,
+      "direction": "inbound",
+      "rail_id": "in::bus::Zero Trust Protocol::Policy Engine",
+      "source": "Zero Trust Protocol",
+      "state": "open_bounded",
+      "target": "Policy Engine"
+    }
+  ],
+  "rail_count": 195
+}
