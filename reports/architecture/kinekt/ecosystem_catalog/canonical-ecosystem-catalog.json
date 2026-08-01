@@ -1,0 +1,1883 @@
+{
+  "entries": [
+    {
+      "aliases": [
+        "Acquisition AI\u2122"
+      ],
+      "authority": "Owns the Card Hawk Acquisition AI domain capability.",
+      "category": "card_hawk",
+      "inputs": [],
+      "kind": "product_capability",
+      "mesh_connections": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "must_not_own": [],
+      "name": "Acquisition AI",
+      "outputs": [],
+      "parent": "Card Hawk"
+    },
+    {
+      "aliases": [
+        "Anomaly Detection\u2122"
+      ],
+      "authority": "Owns the defensive operation Anomaly Detection.",
+      "category": "defensive_operations",
+      "inputs": [],
+      "kind": "operation",
+      "mesh_connections": [
+        "Sentinel",
+        "Watch Tower",
+        "Conclave",
+        "Incident Response Engine"
+      ],
+      "must_not_own": [],
+      "name": "Anomaly Detection",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Asset DNA\u2122"
+      ],
+      "authority": "Owns the Card Hawk Asset DNA domain capability.",
+      "category": "card_hawk",
+      "inputs": [],
+      "kind": "product_capability",
+      "mesh_connections": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "must_not_own": [],
+      "name": "Asset DNA",
+      "outputs": [],
+      "parent": "Card Hawk"
+    },
+    {
+      "aliases": [
+        "Attack Surface Analysis\u2122"
+      ],
+      "authority": "Owns the defensive operation Attack Surface Analysis.",
+      "category": "defensive_operations",
+      "inputs": [],
+      "kind": "operation",
+      "mesh_connections": [
+        "Sentinel",
+        "Watch Tower",
+        "Conclave",
+        "Incident Response Engine"
+      ],
+      "must_not_own": [],
+      "name": "Attack Surface Analysis",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Audit Engine\u2122"
+      ],
+      "authority": "Owns audit evaluation and audit evidence.",
+      "category": "security_intelligence",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "Security Mesh",
+        "Council",
+        "Sentinel"
+      ],
+      "must_not_own": [],
+      "name": "Audit Engine",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Authentication Engine\u2122"
+      ],
+      "authority": "Owns authentication decisions.",
+      "category": "security_intelligence",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "Security Mesh",
+        "Council",
+        "Sentinel"
+      ],
+      "must_not_own": [],
+      "name": "Authentication Engine",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Authorization Engine\u2122"
+      ],
+      "authority": "Owns authorization decisions.",
+      "category": "security_intelligence",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "Security Mesh",
+        "Council",
+        "Sentinel"
+      ],
+      "must_not_own": [],
+      "name": "Authorization Engine",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "A\u20223ye\u2122",
+        "Hawk A\u20223ye\u2122"
+      ],
+      "authority": "Owns reusable perception services.",
+      "category": "perception_platform",
+      "mesh_connections": [
+        "Evidence Engine",
+        "Card Hawk"
+      ],
+      "must_not_own": [
+        "product decisions"
+      ],
+      "name": "A\u20223ye",
+      "parent": "Perception"
+    },
+    {
+      "aliases": [
+        "Behavioral Analytics\u2122"
+      ],
+      "authority": "Owns the defensive operation Behavioral Analytics.",
+      "category": "defensive_operations",
+      "inputs": [],
+      "kind": "operation",
+      "mesh_connections": [
+        "Sentinel",
+        "Watch Tower",
+        "Conclave",
+        "Incident Response Engine"
+      ],
+      "must_not_own": [],
+      "name": "Behavioral Analytics",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Breadth\u2122"
+      ],
+      "authority": "Provides whole-system awareness without owning reasoning or execution.",
+      "category": "shroud_layer",
+      "mesh_connections": [
+        "all registered authorities"
+      ],
+      "must_not_own": [
+        "reasoning",
+        "governance",
+        "execution"
+      ],
+      "name": "Breadth",
+      "parent": "AletheusOS"
+    },
+    {
+      "aliases": [
+        "Canonical Identity Framework\u2122"
+      ],
+      "authority": "Owns the Canonical Identity Framework security infrastructure responsibility.",
+      "category": "security_infrastructure",
+      "inputs": [],
+      "kind": "infrastructure",
+      "mesh_connections": [
+        "SPARTAN",
+        "CRK",
+        "Council"
+      ],
+      "must_not_own": [],
+      "name": "Canonical Identity Framework",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Canonical Identity Registry\u2122"
+      ],
+      "authority": "Owns the Canonical Identity Registry security infrastructure responsibility.",
+      "category": "security_infrastructure",
+      "inputs": [],
+      "kind": "infrastructure",
+      "mesh_connections": [
+        "SPARTAN",
+        "CRK",
+        "Council"
+      ],
+      "must_not_own": [],
+      "name": "Canonical Identity Registry",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Capability Engine\u2122"
+      ],
+      "authority": "Owns capability invocation.",
+      "category": "platform_runtime",
+      "mesh_connections": [
+        "Engine Registry",
+        "Execution Engine"
+      ],
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Capability Engine",
+      "parent": "Platform Runtime"
+    },
+    {
+      "aliases": [
+        "Capability Registration Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Capability Registration Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Capability Registration Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Card Hawk\u2122",
+        "CardHawk"
+      ],
+      "authority": "Owns collectibles intelligence workflows.",
+      "category": "product_application",
+      "mesh_connections": [
+        "A\u20223ye",
+        "THORx",
+        "Mammoth",
+        "Nimble"
+      ],
+      "must_not_own": [
+        "universal platform capabilities"
+      ],
+      "name": "Card Hawk",
+      "parent": "Applications"
+    },
+    {
+      "aliases": [
+        "Chain of Evidence Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Chain of Evidence Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Chain of Evidence Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Compliance Engine\u2122"
+      ],
+      "authority": "Owns compliance evaluation and evidence.",
+      "category": "security_intelligence",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "Security Mesh",
+        "Council",
+        "Sentinel"
+      ],
+      "must_not_own": [],
+      "name": "Compliance Engine",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Conclave\u2122"
+      ],
+      "authority": "Owns constitutional containment and quarantine.",
+      "category": "security_framework",
+      "mesh_connections": [
+        "Sentinel",
+        "Incident Response Engine",
+        "Council"
+      ],
+      "must_not_own": [
+        "duplicated Kinekt analysis"
+      ],
+      "name": "Conclave",
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Constitutional Audit\u2122"
+      ],
+      "authority": "Owns the Constitutional Audit security infrastructure responsibility.",
+      "category": "security_infrastructure",
+      "inputs": [],
+      "kind": "infrastructure",
+      "mesh_connections": [
+        "SPARTAN",
+        "CRK",
+        "Council"
+      ],
+      "must_not_own": [],
+      "name": "Constitutional Audit",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Constitutional Authentication Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Constitutional Authentication Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Constitutional Authentication Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Constitutional Authorization Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Constitutional Authorization Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Constitutional Authorization Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Constitutional Consensus Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Constitutional Consensus Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Constitutional Consensus Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Constitutional Governance Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Constitutional Governance Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Constitutional Governance Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Constitutional Ledger\u2122"
+      ],
+      "authority": "Owns the Constitutional Ledger security infrastructure responsibility.",
+      "category": "security_infrastructure",
+      "inputs": [],
+      "kind": "infrastructure",
+      "mesh_connections": [
+        "SPARTAN",
+        "CRK",
+        "Council"
+      ],
+      "must_not_own": [],
+      "name": "Constitutional Ledger",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Constitutional Security\u2122"
+      ],
+      "authority": "Owns the Constitutional Security security infrastructure responsibility.",
+      "category": "security_infrastructure",
+      "inputs": [],
+      "kind": "infrastructure",
+      "mesh_connections": [
+        "SPARTAN",
+        "CRK",
+        "Council"
+      ],
+      "must_not_own": [],
+      "name": "Constitutional Security",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Constitutional Validation Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Constitutional Validation Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Constitutional Validation Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Continuous Validation\u2122"
+      ],
+      "authority": "Owns the defensive operation Continuous Validation.",
+      "category": "defensive_operations",
+      "inputs": [],
+      "kind": "operation",
+      "mesh_connections": [
+        "Sentinel",
+        "Watch Tower",
+        "Conclave",
+        "Incident Response Engine"
+      ],
+      "must_not_own": [],
+      "name": "Continuous Validation",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "D-DEF\u2122"
+      ],
+      "authority": "Owns the Card Hawk D-DEF domain capability.",
+      "category": "card_hawk",
+      "inputs": [],
+      "kind": "product_capability",
+      "mesh_connections": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "must_not_own": [],
+      "name": "D-DEF",
+      "outputs": [],
+      "parent": "Card Hawk"
+    },
+    {
+      "aliases": [
+        "Decision Engine\u2122"
+      ],
+      "authority": "Owns decision synthesis.",
+      "category": "core_intelligence",
+      "mesh_connections": [
+        "Council",
+        "Execution Engine"
+      ],
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Decision Engine",
+      "parent": "Core Intelligence"
+    },
+    {
+      "aliases": [
+        "Digital Signature Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Digital Signature Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Digital Signature Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Document Intelligence Engine\u2122"
+      ],
+      "authority": "Owns document understanding.",
+      "category": "perception",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "A\u20223ye",
+        "Evidence Engine"
+      ],
+      "must_not_own": [],
+      "name": "Document Intelligence Engine",
+      "outputs": [],
+      "parent": "A\u20223ye"
+    },
+    {
+      "aliases": [
+        "Drift Detection\u2122"
+      ],
+      "authority": "Owns the defensive operation Drift Detection.",
+      "category": "defensive_operations",
+      "inputs": [],
+      "kind": "operation",
+      "mesh_connections": [
+        "Sentinel",
+        "Watch Tower",
+        "Conclave",
+        "Incident Response Engine"
+      ],
+      "must_not_own": [],
+      "name": "Drift Detection",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Engine Registry\u2122"
+      ],
+      "authority": "Owns engine registration.",
+      "category": "platform_runtime",
+      "mesh_connections": [
+        "Runtime Engine Manager",
+        "CRK"
+      ],
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Engine Registry",
+      "parent": "Platform Runtime"
+    },
+    {
+      "aliases": [
+        "Evidence Engine\u2122"
+      ],
+      "authority": "Owns evidence validation and provenance.",
+      "category": "core_intelligence",
+      "mesh_connections": [
+        "Knowledge Engine",
+        "Audit Engine"
+      ],
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Evidence Engine",
+      "parent": "Core Intelligence"
+    },
+    {
+      "aliases": [
+        "Evidence Vault\u2122"
+      ],
+      "authority": "Owns the Evidence Vault security infrastructure responsibility.",
+      "category": "security_infrastructure",
+      "inputs": [],
+      "kind": "infrastructure",
+      "mesh_connections": [
+        "SPARTAN",
+        "CRK",
+        "Council"
+      ],
+      "must_not_own": [],
+      "name": "Evidence Vault",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Evidence Verification Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Evidence Verification Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Evidence Verification Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Execution Engine\u2122"
+      ],
+      "authority": "Owns governed execution.",
+      "category": "platform_runtime",
+      "mesh_connections": [
+        "Decision Engine",
+        "Mission Engine"
+      ],
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Execution Engine",
+      "parent": "Platform Runtime"
+    },
+    {
+      "aliases": [
+        "Exit Intelligence\u2122"
+      ],
+      "authority": "Owns the Card Hawk Exit Intelligence domain capability.",
+      "category": "card_hawk",
+      "inputs": [],
+      "kind": "product_capability",
+      "mesh_connections": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "must_not_own": [],
+      "name": "Exit Intelligence",
+      "outputs": [],
+      "parent": "Card Hawk"
+    },
+    {
+      "aliases": [
+        "FALCON\u2122"
+      ],
+      "authority": "Owns the Card Hawk FALCON domain capability.",
+      "category": "card_hawk",
+      "inputs": [],
+      "kind": "product_capability",
+      "mesh_connections": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "must_not_own": [],
+      "name": "FALCON",
+      "outputs": [],
+      "parent": "Card Hawk"
+    },
+    {
+      "aliases": [
+        "Federation Engine\u2122"
+      ],
+      "authority": "Owns governed federation.",
+      "category": "platform_runtime",
+      "mesh_connections": [
+        "Trust Registry",
+        "Security Mesh"
+      ],
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Federation Engine",
+      "parent": "Platform Runtime"
+    },
+    {
+      "aliases": [
+        "Forensics Engine\u2122"
+      ],
+      "authority": "Owns forensic evidence collection and analysis.",
+      "category": "security_intelligence",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "Security Mesh",
+        "Council",
+        "Sentinel"
+      ],
+      "must_not_own": [],
+      "name": "Forensics Engine",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Identity Engine\u2122"
+      ],
+      "authority": "Owns identity lifecycle.",
+      "category": "platform_runtime",
+      "mesh_connections": [
+        "Canonical Identity Registry",
+        "Authentication Engine"
+      ],
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Identity Engine",
+      "parent": "Platform Runtime"
+    },
+    {
+      "aliases": [
+        "Identity Verification Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Identity Verification Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Identity Verification Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Incident Response Engine\u2122"
+      ],
+      "authority": "Owns incident response coordination.",
+      "category": "security_intelligence",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "Security Mesh",
+        "Council",
+        "Sentinel"
+      ],
+      "must_not_own": [],
+      "name": "Incident Response Engine",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Inspection Engine\u2122"
+      ],
+      "authority": "Owns visual and document inspection.",
+      "category": "perception",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "A\u20223ye",
+        "Evidence Engine"
+      ],
+      "must_not_own": [],
+      "name": "Inspection Engine",
+      "outputs": [],
+      "parent": "A\u20223ye"
+    },
+    {
+      "aliases": [
+        "Intelligence Engine\u2122"
+      ],
+      "authority": "Coordinates bounded intelligence services.",
+      "category": "core_intelligence",
+      "mesh_connections": [
+        "Cognitive Operations Mesh",
+        "Engine Registry"
+      ],
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Intelligence Engine",
+      "parent": "Core Intelligence"
+    },
+    {
+      "aliases": [
+        "Knowledge Engine\u2122"
+      ],
+      "authority": "Owns structured knowledge.",
+      "category": "core_intelligence",
+      "mesh_connections": [
+        "Evidence Engine",
+        "Reason Engine",
+        "Memory Engine"
+      ],
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Knowledge Engine",
+      "parent": "Core Intelligence"
+    },
+    {
+      "aliases": [
+        "Learning Engine\u2122"
+      ],
+      "authority": "Owns governed adaptation.",
+      "category": "core_intelligence",
+      "mesh_connections": [
+        "Memory Engine",
+        "Council"
+      ],
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Learning Engine",
+      "parent": "Core Intelligence"
+    },
+    {
+      "aliases": [
+        "Memory Engine\u2122"
+      ],
+      "authority": "Owns memory policy.",
+      "category": "core_intelligence",
+      "mesh_connections": [
+        "Knowledge Engine",
+        "Mammoth"
+      ],
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Memory Engine",
+      "parent": "Core Intelligence"
+    },
+    {
+      "aliases": [
+        "Mission Authorization Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Mission Authorization Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Mission Authorization Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Mission Engine\u2122"
+      ],
+      "authority": "Owns mission lifecycle.",
+      "category": "platform_runtime",
+      "mesh_connections": [
+        "Mission Scheduler",
+        "Mission Control"
+      ],
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Mission Engine",
+      "parent": "Platform Runtime"
+    },
+    {
+      "aliases": [
+        "Mission Scheduler\u2122"
+      ],
+      "authority": "Owns mission scheduling.",
+      "category": "platform_runtime",
+      "mesh_connections": [
+        "Mission Engine",
+        "CRK"
+      ],
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Mission Scheduler",
+      "parent": "Platform Runtime"
+    },
+    {
+      "aliases": [
+        "NEST\u2122"
+      ],
+      "authority": "Owns the Card Hawk NEST domain capability.",
+      "category": "card_hawk",
+      "inputs": [],
+      "kind": "product_capability",
+      "mesh_connections": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "must_not_own": [],
+      "name": "NEST",
+      "outputs": [],
+      "parent": "Card Hawk"
+    },
+    {
+      "aliases": [
+        "Nuclear Cloud\u2122"
+      ],
+      "authority": "Owns the Card Hawk Nuclear Cloud domain capability.",
+      "category": "card_hawk",
+      "inputs": [],
+      "kind": "product_capability",
+      "mesh_connections": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "must_not_own": [],
+      "name": "Nuclear Cloud",
+      "outputs": [],
+      "parent": "Card Hawk"
+    },
+    {
+      "aliases": [
+        "OCR Engine\u2122"
+      ],
+      "authority": "Owns optical character recognition.",
+      "category": "perception",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "A\u20223ye",
+        "Evidence Engine"
+      ],
+      "must_not_own": [],
+      "name": "OCR Engine",
+      "outputs": [],
+      "parent": "A\u20223ye"
+    },
+    {
+      "aliases": [
+        "PERCH\u2122"
+      ],
+      "authority": "Owns the Card Hawk PERCH domain capability.",
+      "category": "card_hawk",
+      "inputs": [],
+      "kind": "product_capability",
+      "mesh_connections": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "must_not_own": [],
+      "name": "PERCH",
+      "outputs": [],
+      "parent": "Card Hawk"
+    },
+    {
+      "aliases": [
+        "Planning Engine\u2122"
+      ],
+      "authority": "Owns plan construction.",
+      "category": "core_intelligence",
+      "mesh_connections": [
+        "Decision Engine",
+        "Mission Engine"
+      ],
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Planning Engine",
+      "parent": "Core Intelligence"
+    },
+    {
+      "aliases": [
+        "Policy Engine\u2122"
+      ],
+      "authority": "Owns executable security and governance policy evaluation.",
+      "category": "security_intelligence",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "Security Mesh",
+        "Council",
+        "Sentinel"
+      ],
+      "must_not_own": [],
+      "name": "Policy Engine",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Predictive Engine\u2122"
+      ],
+      "authority": "Owns forecasting.",
+      "category": "core_intelligence",
+      "mesh_connections": [
+        "Planning Engine",
+        "Decision Engine"
+      ],
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Predictive Engine",
+      "parent": "Core Intelligence"
+    },
+    {
+      "aliases": [
+        "Principle X Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Principle X Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Principle X Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Provenance Verification Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Provenance Verification Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Provenance Verification Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Q-DEF\u2122"
+      ],
+      "authority": "Owns the Card Hawk Q-DEF domain capability.",
+      "category": "card_hawk",
+      "inputs": [],
+      "kind": "product_capability",
+      "mesh_connections": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "must_not_own": [],
+      "name": "Q-DEF",
+      "outputs": [],
+      "parent": "Card Hawk"
+    },
+    {
+      "aliases": [
+        "ROOST\u2122"
+      ],
+      "authority": "Owns the Card Hawk ROOST domain capability.",
+      "category": "card_hawk",
+      "inputs": [],
+      "kind": "product_capability",
+      "mesh_connections": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "must_not_own": [],
+      "name": "ROOST",
+      "outputs": [],
+      "parent": "Card Hawk"
+    },
+    {
+      "aliases": [
+        "Reason Engine\u2122"
+      ],
+      "authority": "Owns inference.",
+      "category": "core_intelligence",
+      "mesh_connections": [
+        "Knowledge Engine",
+        "Planning Engine"
+      ],
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Reason Engine",
+      "parent": "Core Intelligence"
+    },
+    {
+      "aliases": [
+        "Recognition Engine\u2122"
+      ],
+      "authority": "Owns entity and object recognition.",
+      "category": "perception",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "A\u20223ye",
+        "Evidence Engine"
+      ],
+      "must_not_own": [],
+      "name": "Recognition Engine",
+      "outputs": [],
+      "parent": "A\u20223ye"
+    },
+    {
+      "aliases": [
+        "Recovery Engine\u2122"
+      ],
+      "authority": "Owns governed restoration after disruption.",
+      "category": "security_intelligence",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "Security Mesh",
+        "Council",
+        "Sentinel"
+      ],
+      "must_not_own": [],
+      "name": "Recovery Engine",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Repository Integrity Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Repository Integrity Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Repository Integrity Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Risk Intelligence Engine\u2122"
+      ],
+      "authority": "Owns security risk synthesis.",
+      "category": "security_intelligence",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "Security Mesh",
+        "Council",
+        "Sentinel"
+      ],
+      "must_not_own": [],
+      "name": "Risk Intelligence Engine",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Runtime Attestation Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Runtime Attestation Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Runtime Attestation Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Runtime Engine Manager\u2122"
+      ],
+      "authority": "Owns engine lifecycle coordination.",
+      "category": "platform_runtime",
+      "mesh_connections": [
+        "Engine Registry",
+        "Observatory"
+      ],
+      "must_not_own": [
+        "capability-specific behavior"
+      ],
+      "name": "Runtime Engine Manager",
+      "parent": "Platform Runtime"
+    },
+    {
+      "aliases": [
+        "Runtime Integrity Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Runtime Integrity Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Runtime Integrity Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Runtime Monitoring\u2122"
+      ],
+      "authority": "Owns the defensive operation Runtime Monitoring.",
+      "category": "defensive_operations",
+      "inputs": [],
+      "kind": "operation",
+      "mesh_connections": [
+        "Sentinel",
+        "Watch Tower",
+        "Conclave",
+        "Incident Response Engine"
+      ],
+      "must_not_own": [],
+      "name": "Runtime Monitoring",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "SOAR\u2122"
+      ],
+      "authority": "Owns the Card Hawk SOAR domain capability.",
+      "category": "card_hawk",
+      "inputs": [],
+      "kind": "product_capability",
+      "mesh_connections": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "must_not_own": [],
+      "name": "SOAR",
+      "outputs": [],
+      "parent": "Card Hawk"
+    },
+    {
+      "aliases": [
+        "SPAN\u2122"
+      ],
+      "authority": "Owns security platform analysis and navigation.",
+      "category": "security_framework",
+      "mesh_connections": [
+        "SPARTAN",
+        "Council",
+        "Cognitive Operations Mesh"
+      ],
+      "must_not_own": [
+        "duplicated Kinekt analysis"
+      ],
+      "name": "SPAN",
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "SPARTAN\u2122"
+      ],
+      "authority": "Owns the complete cybersecurity platform.",
+      "category": "security_framework",
+      "mesh_connections": [
+        "SPAN",
+        "Watch Tower",
+        "Conclave",
+        "Sentinel"
+      ],
+      "must_not_own": [
+        "duplicated Kinekt analysis"
+      ],
+      "name": "SPARTAN",
+      "parent": "Security Frameworks"
+    },
+    {
+      "aliases": [
+        "STRIKE\u2122"
+      ],
+      "authority": "Owns the Card Hawk STRIKE domain capability.",
+      "category": "card_hawk",
+      "inputs": [],
+      "kind": "product_capability",
+      "mesh_connections": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "must_not_own": [],
+      "name": "STRIKE",
+      "outputs": [],
+      "parent": "Card Hawk"
+    },
+    {
+      "aliases": [
+        "Secure Communication Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Secure Communication Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Secure Communication Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Secure Execution Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Secure Execution Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Secure Execution Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Secure Session Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Secure Session Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Secure Session Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Security Circuit\u2122"
+      ],
+      "authority": "Owns the Security Circuit security infrastructure responsibility.",
+      "category": "security_infrastructure",
+      "inputs": [],
+      "kind": "infrastructure",
+      "mesh_connections": [
+        "SPARTAN",
+        "CRK",
+        "Council"
+      ],
+      "must_not_own": [],
+      "name": "Security Circuit",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Security Fabric\u2122"
+      ],
+      "authority": "Owns the Security Fabric security infrastructure responsibility.",
+      "category": "security_infrastructure",
+      "inputs": [],
+      "kind": "infrastructure",
+      "mesh_connections": [
+        "SPARTAN",
+        "CRK",
+        "Council"
+      ],
+      "must_not_own": [],
+      "name": "Security Fabric",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Security Mesh\u2122"
+      ],
+      "authority": "Owns the Security Mesh security infrastructure responsibility.",
+      "category": "security_infrastructure",
+      "inputs": [],
+      "kind": "infrastructure",
+      "mesh_connections": [
+        "SPARTAN",
+        "CRK",
+        "Council"
+      ],
+      "must_not_own": [],
+      "name": "Security Mesh",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Security Telemetry\u2122"
+      ],
+      "authority": "Owns the Security Telemetry security infrastructure responsibility.",
+      "category": "security_infrastructure",
+      "inputs": [],
+      "kind": "infrastructure",
+      "mesh_connections": [
+        "SPARTAN",
+        "CRK",
+        "Council"
+      ],
+      "must_not_own": [],
+      "name": "Security Telemetry",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Semantic Engine\u2122"
+      ],
+      "authority": "Owns semantic normalization.",
+      "category": "core_intelligence",
+      "mesh_connections": [
+        "Knowledge Engine",
+        "Runtime Knowledge Graph"
+      ],
+      "must_not_own": [
+        "other engine authority"
+      ],
+      "name": "Semantic Engine",
+      "parent": "Core Intelligence"
+    },
+    {
+      "aliases": [
+        "Sentinel\u2122"
+      ],
+      "authority": "Owns live security monitoring and anomaly detection.",
+      "category": "security_framework",
+      "mesh_connections": [
+        "SPARTAN",
+        "Watch Tower",
+        "Conclave"
+      ],
+      "must_not_own": [
+        "duplicated Kinekt analysis"
+      ],
+      "name": "Sentinel",
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Service Registration Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Service Registration Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Service Registration Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Strike Zone\u2122"
+      ],
+      "authority": "Owns the Card Hawk Strike Zone domain capability.",
+      "category": "card_hawk",
+      "inputs": [],
+      "kind": "product_capability",
+      "mesh_connections": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "must_not_own": [],
+      "name": "Strike Zone",
+      "outputs": [],
+      "parent": "Card Hawk"
+    },
+    {
+      "aliases": [
+        "Supply Chain Verification Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Supply Chain Verification Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Supply Chain Verification Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "TALON\u2122"
+      ],
+      "authority": "Owns the Card Hawk TALON domain capability.",
+      "category": "card_hawk",
+      "inputs": [],
+      "kind": "product_capability",
+      "mesh_connections": [
+        "Card Hawk",
+        "THORx"
+      ],
+      "must_not_own": [],
+      "name": "TALON",
+      "outputs": [],
+      "parent": "Card Hawk"
+    },
+    {
+      "aliases": [
+        "THOR\u1d61\u2122",
+        "THORx"
+      ],
+      "authority": "Owns Card Hawk scoring and confidence instrumentation.",
+      "category": "card_hawk",
+      "mesh_connections": [
+        "Card Hawk",
+        "Decision Engine"
+      ],
+      "must_not_own": [
+        "raw perception"
+      ],
+      "name": "THORx",
+      "parent": "Card Hawk"
+    },
+    {
+      "aliases": [
+        "Tamper Detection Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Tamper Detection Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Tamper Detection Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Threat Attribution\u2122"
+      ],
+      "authority": "Owns the defensive operation Threat Attribution.",
+      "category": "defensive_operations",
+      "inputs": [],
+      "kind": "operation",
+      "mesh_connections": [
+        "Sentinel",
+        "Watch Tower",
+        "Conclave",
+        "Incident Response Engine"
+      ],
+      "must_not_own": [],
+      "name": "Threat Attribution",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Threat Containment\u2122"
+      ],
+      "authority": "Owns the defensive operation Threat Containment.",
+      "category": "defensive_operations",
+      "inputs": [],
+      "kind": "operation",
+      "mesh_connections": [
+        "Sentinel",
+        "Watch Tower",
+        "Conclave",
+        "Incident Response Engine"
+      ],
+      "must_not_own": [],
+      "name": "Threat Containment",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Threat Correlation\u2122"
+      ],
+      "authority": "Owns the defensive operation Threat Correlation.",
+      "category": "defensive_operations",
+      "inputs": [],
+      "kind": "operation",
+      "mesh_connections": [
+        "Sentinel",
+        "Watch Tower",
+        "Conclave",
+        "Incident Response Engine"
+      ],
+      "must_not_own": [],
+      "name": "Threat Correlation",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Threat Detection\u2122"
+      ],
+      "authority": "Owns the defensive operation Threat Detection.",
+      "category": "defensive_operations",
+      "inputs": [],
+      "kind": "operation",
+      "mesh_connections": [
+        "Sentinel",
+        "Watch Tower",
+        "Conclave",
+        "Incident Response Engine"
+      ],
+      "must_not_own": [],
+      "name": "Threat Detection",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Threat Eradication\u2122"
+      ],
+      "authority": "Owns the defensive operation Threat Eradication.",
+      "category": "defensive_operations",
+      "inputs": [],
+      "kind": "operation",
+      "mesh_connections": [
+        "Sentinel",
+        "Watch Tower",
+        "Conclave",
+        "Incident Response Engine"
+      ],
+      "must_not_own": [],
+      "name": "Threat Eradication",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Threat Hunting\u2122"
+      ],
+      "authority": "Owns the defensive operation Threat Hunting.",
+      "category": "defensive_operations",
+      "inputs": [],
+      "kind": "operation",
+      "mesh_connections": [
+        "Sentinel",
+        "Watch Tower",
+        "Conclave",
+        "Incident Response Engine"
+      ],
+      "must_not_own": [],
+      "name": "Threat Hunting",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Threat Intelligence Engine\u2122"
+      ],
+      "authority": "Owns structured threat intelligence.",
+      "category": "security_intelligence",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "Security Mesh",
+        "Council",
+        "Sentinel"
+      ],
+      "must_not_own": [],
+      "name": "Threat Intelligence Engine",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Threat Recovery\u2122"
+      ],
+      "authority": "Owns the defensive operation Threat Recovery.",
+      "category": "defensive_operations",
+      "inputs": [],
+      "kind": "operation",
+      "mesh_connections": [
+        "Sentinel",
+        "Watch Tower",
+        "Conclave",
+        "Incident Response Engine"
+      ],
+      "must_not_own": [],
+      "name": "Threat Recovery",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Trust Framework\u2122"
+      ],
+      "authority": "Owns the Trust Framework security infrastructure responsibility.",
+      "category": "security_infrastructure",
+      "inputs": [],
+      "kind": "infrastructure",
+      "mesh_connections": [
+        "SPARTAN",
+        "CRK",
+        "Council"
+      ],
+      "must_not_own": [],
+      "name": "Trust Framework",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Trust Registry\u2122"
+      ],
+      "authority": "Owns the Trust Registry security infrastructure responsibility.",
+      "category": "security_infrastructure",
+      "inputs": [],
+      "kind": "infrastructure",
+      "mesh_connections": [
+        "SPARTAN",
+        "CRK",
+        "Council"
+      ],
+      "must_not_own": [],
+      "name": "Trust Registry",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Truth Verification Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Truth Verification Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Truth Verification Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    },
+    {
+      "aliases": [
+        "Verification Engine\u2122"
+      ],
+      "authority": "Owns perception-result verification.",
+      "category": "perception",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "A\u20223ye",
+        "Evidence Engine"
+      ],
+      "must_not_own": [],
+      "name": "Verification Engine",
+      "outputs": [],
+      "parent": "A\u20223ye"
+    },
+    {
+      "aliases": [
+        "Vision Engine\u2122"
+      ],
+      "authority": "Owns visual perception analysis.",
+      "category": "perception",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "A\u20223ye",
+        "Evidence Engine"
+      ],
+      "must_not_own": [],
+      "name": "Vision Engine",
+      "outputs": [],
+      "parent": "A\u20223ye"
+    },
+    {
+      "aliases": [
+        "Vulnerability Intelligence Engine\u2122"
+      ],
+      "authority": "Owns vulnerability evidence and prioritization.",
+      "category": "security_intelligence",
+      "inputs": [],
+      "kind": "capability",
+      "mesh_connections": [
+        "Security Mesh",
+        "Council",
+        "Sentinel"
+      ],
+      "must_not_own": [],
+      "name": "Vulnerability Intelligence Engine",
+      "outputs": [],
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Watch Tower\u2122"
+      ],
+      "authority": "Owns continuous change and drift surveillance.",
+      "category": "security_framework",
+      "mesh_connections": [
+        "Kinekt",
+        "Sentinel",
+        "Observatory"
+      ],
+      "must_not_own": [
+        "duplicated Kinekt analysis"
+      ],
+      "name": "Watch Tower",
+      "parent": "SPARTAN"
+    },
+    {
+      "aliases": [
+        "Zero Trust Protocol\u2122"
+      ],
+      "authority": "Defines the constitutional operating rules for Zero Trust Protocol.",
+      "category": "security_protocol",
+      "inputs": [],
+      "kind": "protocol",
+      "mesh_connections": [
+        "Policy Engine",
+        "Council",
+        "CRK"
+      ],
+      "must_not_own": [],
+      "name": "Zero Trust Protocol",
+      "outputs": [],
+      "parent": "Constitution"
+    }
+  ],
+  "schema_version": "2.0"
+}
