@@ -1,0 +1,514 @@
+{
+  "engine_count": 35,
+  "engines": [
+    {
+      "authority": "Owns audit evaluation and audit evidence.",
+      "contract_channels": [
+        "bus::Audit Engine::Security Mesh",
+        "bus::Audit Engine::Sentinel"
+      ],
+      "engine_name": "Audit Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "SPARTAN",
+      "service_bus_channels": [
+        "bus::Audit Engine::Security Mesh",
+        "bus::Audit Engine::Sentinel"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns authentication decisions.",
+      "contract_channels": [
+        "bus::Authentication Engine::Security Mesh",
+        "bus::Authentication Engine::Sentinel"
+      ],
+      "engine_name": "Authentication Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "SPARTAN",
+      "service_bus_channels": [
+        "bus::Authentication Engine::Security Mesh",
+        "bus::Authentication Engine::Sentinel"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns authorization decisions.",
+      "contract_channels": [
+        "bus::Authorization Engine::Security Mesh",
+        "bus::Authorization Engine::Sentinel"
+      ],
+      "engine_name": "Authorization Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "SPARTAN",
+      "service_bus_channels": [
+        "bus::Authorization Engine::Security Mesh",
+        "bus::Authorization Engine::Sentinel"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns capability invocation.",
+      "contract_channels": [
+        "bus::Capability Engine::Engine Registry",
+        "bus::Capability Engine::Execution Engine"
+      ],
+      "engine_name": "Capability Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "Platform Runtime",
+      "service_bus_channels": [
+        "bus::Capability Engine::Engine Registry",
+        "bus::Capability Engine::Execution Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns compliance evaluation and evidence.",
+      "contract_channels": [
+        "bus::Compliance Engine::Security Mesh",
+        "bus::Compliance Engine::Sentinel"
+      ],
+      "engine_name": "Compliance Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "SPARTAN",
+      "service_bus_channels": [
+        "bus::Compliance Engine::Security Mesh",
+        "bus::Compliance Engine::Sentinel"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns decision synthesis.",
+      "contract_channels": [
+        "bus::Decision Engine::Execution Engine"
+      ],
+      "engine_name": "Decision Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "Core Intelligence",
+      "service_bus_channels": [
+        "bus::Decision Engine::Execution Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns document understanding.",
+      "contract_channels": [
+        "bus::Document Intelligence Engine::A\u20223ye",
+        "bus::Document Intelligence Engine::Evidence Engine"
+      ],
+      "engine_name": "Document Intelligence Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "A\u20223ye",
+      "service_bus_channels": [
+        "bus::Document Intelligence Engine::A\u20223ye",
+        "bus::Document Intelligence Engine::Evidence Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns engine registration.",
+      "contract_channels": [
+        "bus::Engine Registry::Runtime Engine Manager"
+      ],
+      "engine_name": "Engine Registry",
+      "lifecycle": "registered",
+      "runtime_authority": "Platform Runtime",
+      "service_bus_channels": [
+        "bus::Engine Registry::Runtime Engine Manager"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns evidence validation and provenance.",
+      "contract_channels": [
+        "bus::Evidence Engine::Audit Engine",
+        "bus::Evidence Engine::Knowledge Engine"
+      ],
+      "engine_name": "Evidence Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "Core Intelligence",
+      "service_bus_channels": [
+        "bus::Evidence Engine::Audit Engine",
+        "bus::Evidence Engine::Knowledge Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns governed execution.",
+      "contract_channels": [
+        "bus::Execution Engine::Decision Engine",
+        "bus::Execution Engine::Mission Engine"
+      ],
+      "engine_name": "Execution Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "Platform Runtime",
+      "service_bus_channels": [
+        "bus::Execution Engine::Decision Engine",
+        "bus::Execution Engine::Mission Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns governed federation.",
+      "contract_channels": [
+        "bus::Federation Engine::Security Mesh",
+        "bus::Federation Engine::Trust Registry"
+      ],
+      "engine_name": "Federation Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "Platform Runtime",
+      "service_bus_channels": [
+        "bus::Federation Engine::Security Mesh",
+        "bus::Federation Engine::Trust Registry"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns forensic evidence collection and analysis.",
+      "contract_channels": [
+        "bus::Forensics Engine::Security Mesh",
+        "bus::Forensics Engine::Sentinel"
+      ],
+      "engine_name": "Forensics Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "SPARTAN",
+      "service_bus_channels": [
+        "bus::Forensics Engine::Security Mesh",
+        "bus::Forensics Engine::Sentinel"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns identity lifecycle.",
+      "contract_channels": [
+        "bus::Identity Engine::Authentication Engine",
+        "bus::Identity Engine::Canonical Identity Registry"
+      ],
+      "engine_name": "Identity Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "Platform Runtime",
+      "service_bus_channels": [
+        "bus::Identity Engine::Authentication Engine",
+        "bus::Identity Engine::Canonical Identity Registry"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns incident response coordination.",
+      "contract_channels": [
+        "bus::Incident Response Engine::Security Mesh",
+        "bus::Incident Response Engine::Sentinel"
+      ],
+      "engine_name": "Incident Response Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "SPARTAN",
+      "service_bus_channels": [
+        "bus::Incident Response Engine::Security Mesh",
+        "bus::Incident Response Engine::Sentinel"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns visual and document inspection.",
+      "contract_channels": [
+        "bus::Inspection Engine::A\u20223ye",
+        "bus::Inspection Engine::Evidence Engine"
+      ],
+      "engine_name": "Inspection Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "A\u20223ye",
+      "service_bus_channels": [
+        "bus::Inspection Engine::A\u20223ye",
+        "bus::Inspection Engine::Evidence Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Coordinates bounded intelligence services.",
+      "contract_channels": [
+        "bus::Intelligence Engine::Engine Registry"
+      ],
+      "engine_name": "Intelligence Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "Core Intelligence",
+      "service_bus_channels": [
+        "bus::Intelligence Engine::Engine Registry"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns structured knowledge.",
+      "contract_channels": [
+        "bus::Knowledge Engine::Evidence Engine",
+        "bus::Knowledge Engine::Memory Engine",
+        "bus::Knowledge Engine::Reason Engine"
+      ],
+      "engine_name": "Knowledge Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "Core Intelligence",
+      "service_bus_channels": [
+        "bus::Knowledge Engine::Evidence Engine",
+        "bus::Knowledge Engine::Memory Engine",
+        "bus::Knowledge Engine::Reason Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns governed adaptation.",
+      "contract_channels": [
+        "bus::Learning Engine::Memory Engine"
+      ],
+      "engine_name": "Learning Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "Core Intelligence",
+      "service_bus_channels": [
+        "bus::Learning Engine::Memory Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns memory policy.",
+      "contract_channels": [
+        "bus::Memory Engine::Knowledge Engine"
+      ],
+      "engine_name": "Memory Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "Core Intelligence",
+      "service_bus_channels": [
+        "bus::Memory Engine::Knowledge Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns mission lifecycle.",
+      "contract_channels": [
+        "bus::Mission Engine::Mission Scheduler"
+      ],
+      "engine_name": "Mission Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "Platform Runtime",
+      "service_bus_channels": [
+        "bus::Mission Engine::Mission Scheduler"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns mission scheduling.",
+      "contract_channels": [
+        "bus::Mission Scheduler::Mission Engine"
+      ],
+      "engine_name": "Mission Scheduler",
+      "lifecycle": "registered",
+      "runtime_authority": "Platform Runtime",
+      "service_bus_channels": [
+        "bus::Mission Scheduler::Mission Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns optical character recognition.",
+      "contract_channels": [
+        "bus::OCR Engine::A\u20223ye",
+        "bus::OCR Engine::Evidence Engine"
+      ],
+      "engine_name": "OCR Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "A\u20223ye",
+      "service_bus_channels": [
+        "bus::OCR Engine::A\u20223ye",
+        "bus::OCR Engine::Evidence Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns plan construction.",
+      "contract_channels": [
+        "bus::Planning Engine::Decision Engine",
+        "bus::Planning Engine::Mission Engine"
+      ],
+      "engine_name": "Planning Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "Core Intelligence",
+      "service_bus_channels": [
+        "bus::Planning Engine::Decision Engine",
+        "bus::Planning Engine::Mission Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns executable security and governance policy evaluation.",
+      "contract_channels": [
+        "bus::Policy Engine::Security Mesh",
+        "bus::Policy Engine::Sentinel"
+      ],
+      "engine_name": "Policy Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "SPARTAN",
+      "service_bus_channels": [
+        "bus::Policy Engine::Security Mesh",
+        "bus::Policy Engine::Sentinel"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns forecasting.",
+      "contract_channels": [
+        "bus::Predictive Engine::Decision Engine",
+        "bus::Predictive Engine::Planning Engine"
+      ],
+      "engine_name": "Predictive Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "Core Intelligence",
+      "service_bus_channels": [
+        "bus::Predictive Engine::Decision Engine",
+        "bus::Predictive Engine::Planning Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns inference.",
+      "contract_channels": [
+        "bus::Reason Engine::Knowledge Engine",
+        "bus::Reason Engine::Planning Engine"
+      ],
+      "engine_name": "Reason Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "Core Intelligence",
+      "service_bus_channels": [
+        "bus::Reason Engine::Knowledge Engine",
+        "bus::Reason Engine::Planning Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns entity and object recognition.",
+      "contract_channels": [
+        "bus::Recognition Engine::A\u20223ye",
+        "bus::Recognition Engine::Evidence Engine"
+      ],
+      "engine_name": "Recognition Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "A\u20223ye",
+      "service_bus_channels": [
+        "bus::Recognition Engine::A\u20223ye",
+        "bus::Recognition Engine::Evidence Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns governed restoration after disruption.",
+      "contract_channels": [
+        "bus::Recovery Engine::Security Mesh",
+        "bus::Recovery Engine::Sentinel"
+      ],
+      "engine_name": "Recovery Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "SPARTAN",
+      "service_bus_channels": [
+        "bus::Recovery Engine::Security Mesh",
+        "bus::Recovery Engine::Sentinel"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns security risk synthesis.",
+      "contract_channels": [
+        "bus::Risk Intelligence Engine::Security Mesh",
+        "bus::Risk Intelligence Engine::Sentinel"
+      ],
+      "engine_name": "Risk Intelligence Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "SPARTAN",
+      "service_bus_channels": [
+        "bus::Risk Intelligence Engine::Security Mesh",
+        "bus::Risk Intelligence Engine::Sentinel"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns engine lifecycle coordination.",
+      "contract_channels": [
+        "bus::Runtime Engine Manager::Engine Registry"
+      ],
+      "engine_name": "Runtime Engine Manager",
+      "lifecycle": "registered",
+      "runtime_authority": "Platform Runtime",
+      "service_bus_channels": [
+        "bus::Runtime Engine Manager::Engine Registry"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns semantic normalization.",
+      "contract_channels": [
+        "bus::Semantic Engine::Knowledge Engine"
+      ],
+      "engine_name": "Semantic Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "Core Intelligence",
+      "service_bus_channels": [
+        "bus::Semantic Engine::Knowledge Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns structured threat intelligence.",
+      "contract_channels": [
+        "bus::Threat Intelligence Engine::Security Mesh",
+        "bus::Threat Intelligence Engine::Sentinel"
+      ],
+      "engine_name": "Threat Intelligence Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "SPARTAN",
+      "service_bus_channels": [
+        "bus::Threat Intelligence Engine::Security Mesh",
+        "bus::Threat Intelligence Engine::Sentinel"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns perception-result verification.",
+      "contract_channels": [
+        "bus::Verification Engine::A\u20223ye",
+        "bus::Verification Engine::Evidence Engine"
+      ],
+      "engine_name": "Verification Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "A\u20223ye",
+      "service_bus_channels": [
+        "bus::Verification Engine::A\u20223ye",
+        "bus::Verification Engine::Evidence Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns visual perception analysis.",
+      "contract_channels": [
+        "bus::Vision Engine::A\u20223ye",
+        "bus::Vision Engine::Evidence Engine"
+      ],
+      "engine_name": "Vision Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "A\u20223ye",
+      "service_bus_channels": [
+        "bus::Vision Engine::A\u20223ye",
+        "bus::Vision Engine::Evidence Engine"
+      ],
+      "status": "realized"
+    },
+    {
+      "authority": "Owns vulnerability evidence and prioritization.",
+      "contract_channels": [
+        "bus::Vulnerability Intelligence Engine::Security Mesh",
+        "bus::Vulnerability Intelligence Engine::Sentinel"
+      ],
+      "engine_name": "Vulnerability Intelligence Engine",
+      "lifecycle": "registered",
+      "runtime_authority": "SPARTAN",
+      "service_bus_channels": [
+        "bus::Vulnerability Intelligence Engine::Security Mesh",
+        "bus::Vulnerability Intelligence Engine::Sentinel"
+      ],
+      "status": "realized"
+    }
+  ]
+}
