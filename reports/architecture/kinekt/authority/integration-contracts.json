@@ -1,0 +1,220 @@
+{
+  "A\u20223ye": {
+    "consumes": [
+      "images",
+      "documents"
+    ],
+    "delegates_to": [
+      "domain analyzers"
+    ],
+    "must_not_own": [
+      "portfolio valuation",
+      "governance decisions"
+    ],
+    "produces": [
+      "perception evidence"
+    ],
+    "runtime_role": "perception_platform"
+  },
+  "CRK": {
+    "consumes": [
+      "registered capabilities",
+      "governance decisions"
+    ],
+    "delegates_to": [
+      "runtime managers"
+    ],
+    "must_not_own": [
+      "product workflows",
+      "repository analysis"
+    ],
+    "produces": [
+      "runtime state",
+      "lifecycle events"
+    ],
+    "runtime_role": "runtime_composition_root"
+  },
+  "Card Hawk": {
+    "consumes": [
+      "A\u20223ye perception",
+      "THORx scoring",
+      "Mammoth storage"
+    ],
+    "delegates_to": [
+      "A\u20223ye",
+      "THORx",
+      "Mammoth"
+    ],
+    "must_not_own": [
+      "platform governance",
+      "runtime composition"
+    ],
+    "produces": [
+      "collectibles decisions",
+      "portfolio views"
+    ],
+    "runtime_role": "product_application"
+  },
+  "Council": {
+    "consumes": [
+      "evidence",
+      "recommendations"
+    ],
+    "delegates_to": [
+      "CRK",
+      "Mission Engine"
+    ],
+    "must_not_own": [
+      "source analysis",
+      "runtime implementation"
+    ],
+    "produces": [
+      "approved decisions",
+      "warnings",
+      "abstentions"
+    ],
+    "runtime_role": "governed_deliberation"
+  },
+  "Kinekt": {
+    "consumes": [
+      "source repository",
+      "runtime manifests"
+    ],
+    "delegates_to": [
+      "Council",
+      "Repository Evolution"
+    ],
+    "must_not_own": [
+      "live security enforcement",
+      "product behavior"
+    ],
+    "produces": [
+      "architectural evidence",
+      "digital twin"
+    ],
+    "runtime_role": "architectural_intelligence"
+  },
+  "Mammoth": {
+    "consumes": [
+      "storage policy"
+    ],
+    "delegates_to": [
+      "storage adapters"
+    ],
+    "must_not_own": [
+      "memory selection policy",
+      "reasoning"
+    ],
+    "produces": [
+      "durable records",
+      "indexes"
+    ],
+    "runtime_role": "universal_storage"
+  },
+  "Nimble": {
+    "consumes": [
+      "runtime APIs",
+      "digital twin views"
+    ],
+    "delegates_to": [
+      "experience primitives"
+    ],
+    "must_not_own": [
+      "runtime lifecycle",
+      "architectural analysis"
+    ],
+    "produces": [
+      "user experiences"
+    ],
+    "runtime_role": "experience_runtime"
+  },
+  "SPAN": {
+    "consumes": [
+      "Kinekt architectural evidence"
+    ],
+    "delegates_to": [
+      "SPARTAN",
+      "Council"
+    ],
+    "must_not_own": [
+      "repository parsing",
+      "runtime enforcement"
+    ],
+    "produces": [
+      "strategic assessments"
+    ],
+    "runtime_role": "strategic_platform_analysis"
+  },
+  "SPARTAN": {
+    "consumes": [
+      "SPAN missions"
+    ],
+    "delegates_to": [
+      "SPAN"
+    ],
+    "must_not_own": [
+      "strategic authority",
+      "governance approval"
+    ],
+    "produces": [
+      "analysis results"
+    ],
+    "runtime_role": "distributed_analytical_execution"
+  },
+  "Sentinel": {
+    "consumes": [
+      "runtime telemetry",
+      "Kinekt context"
+    ],
+    "delegates_to": [
+      "Council",
+      "Guardian"
+    ],
+    "must_not_own": [
+      "repository architecture analysis"
+    ],
+    "produces": [
+      "security findings",
+      "operational alerts"
+    ],
+    "runtime_role": "operational_security"
+  },
+  "THORx": {
+    "consumes": [
+      "domain evidence",
+      "constitutional policy"
+    ],
+    "delegates_to": [
+      "application decision layers"
+    ],
+    "must_not_own": [
+      "raw perception",
+      "repository analysis"
+    ],
+    "produces": [
+      "scores",
+      "confidence"
+    ],
+    "runtime_role": "decision_instrumentation"
+  },
+  "Watch Tower": {
+    "consumes": [
+      "repository changes",
+      "runtime changes"
+    ],
+    "delegates_to": [
+      "Kinekt",
+      "Sentinel",
+      "Council"
+    ],
+    "must_not_own": [
+      "architectural scoring",
+      "security enforcement"
+    ],
+    "produces": [
+      "change alerts",
+      "drift observations"
+    ],
+    "runtime_role": "continuous_observation"
+  }
+}
