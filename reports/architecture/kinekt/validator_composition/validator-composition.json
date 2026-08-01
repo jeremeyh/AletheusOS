@@ -1,0 +1,70 @@
+{
+  "common_interface": "validate(context) -> ValidationResult",
+  "validator_count": 7,
+  "validators": [
+    {
+      "components": [
+        "Runtime Telemetry"
+      ],
+      "enabled": true,
+      "interface": "validate(context) -> ValidationResult",
+      "stage": "Telemetry",
+      "validator_id": "validator-01"
+    },
+    {
+      "components": [
+        "Runtime Diagnostics",
+        "Runtime Observability"
+      ],
+      "enabled": true,
+      "interface": "validate(context) -> ValidationResult",
+      "stage": "Runtime Health",
+      "validator_id": "validator-02"
+    },
+    {
+      "components": [
+        "Semantic Rail Continuity Gate"
+      ],
+      "enabled": true,
+      "interface": "validate(context) -> ValidationResult",
+      "stage": "Semantic Validation",
+      "validator_id": "validator-03"
+    },
+    {
+      "components": [
+        "Horizontal Mesh Verifier"
+      ],
+      "enabled": true,
+      "interface": "validate(context) -> ValidationResult",
+      "stage": "Mesh Validation",
+      "validator_id": "validator-04"
+    },
+    {
+      "components": [
+        "Vertical Slice Verifier"
+      ],
+      "enabled": true,
+      "interface": "validate(context) -> ValidationResult",
+      "stage": "Architecture Validation",
+      "validator_id": "validator-05"
+    },
+    {
+      "components": [
+        "Architectural Governance"
+      ],
+      "enabled": true,
+      "interface": "validate(context) -> ValidationResult",
+      "stage": "Governance Validation",
+      "validator_id": "validator-06"
+    },
+    {
+      "components": [
+        "Full Platform Continuity Gate"
+      ],
+      "enabled": true,
+      "interface": "validate(context) -> ValidationResult",
+      "stage": "Platform Certification",
+      "validator_id": "validator-07"
+    }
+  ]
+}
