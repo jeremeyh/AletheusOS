@@ -1,0 +1,4097 @@
+{
+  "bus::Acquisition AI::Card Hawk": {
+    "channel_id": "bus::Acquisition AI::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Acquisition AI::THORx": {
+    "channel_id": "bus::Acquisition AI::THORx",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Anomaly Detection::Conclave": {
+    "channel_id": "bus::Anomaly Detection::Conclave",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Anomaly Detection::Incident Response Engine": {
+    "channel_id": "bus::Anomaly Detection::Incident Response Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Anomaly Detection::Sentinel": {
+    "channel_id": "bus::Anomaly Detection::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Anomaly Detection::Watch Tower": {
+    "channel_id": "bus::Anomaly Detection::Watch Tower",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Asset DNA::Card Hawk": {
+    "channel_id": "bus::Asset DNA::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Asset DNA::THORx": {
+    "channel_id": "bus::Asset DNA::THORx",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Attack Surface Analysis::Conclave": {
+    "channel_id": "bus::Attack Surface Analysis::Conclave",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Attack Surface Analysis::Incident Response Engine": {
+    "channel_id": "bus::Attack Surface Analysis::Incident Response Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Attack Surface Analysis::Sentinel": {
+    "channel_id": "bus::Attack Surface Analysis::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Attack Surface Analysis::Watch Tower": {
+    "channel_id": "bus::Attack Surface Analysis::Watch Tower",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Audit Engine::Security Mesh": {
+    "channel_id": "bus::Audit Engine::Security Mesh",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Audit Engine::Sentinel": {
+    "channel_id": "bus::Audit Engine::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Authentication Engine::Security Mesh": {
+    "channel_id": "bus::Authentication Engine::Security Mesh",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Authentication Engine::Sentinel": {
+    "channel_id": "bus::Authentication Engine::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Authorization Engine::Security Mesh": {
+    "channel_id": "bus::Authorization Engine::Security Mesh",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Authorization Engine::Sentinel": {
+    "channel_id": "bus::Authorization Engine::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::A\u20223ye::Card Hawk": {
+    "channel_id": "bus::A\u20223ye::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::A\u20223ye::Evidence Engine": {
+    "channel_id": "bus::A\u20223ye::Evidence Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Behavioral Analytics::Conclave": {
+    "channel_id": "bus::Behavioral Analytics::Conclave",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Behavioral Analytics::Incident Response Engine": {
+    "channel_id": "bus::Behavioral Analytics::Incident Response Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Behavioral Analytics::Sentinel": {
+    "channel_id": "bus::Behavioral Analytics::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Behavioral Analytics::Watch Tower": {
+    "channel_id": "bus::Behavioral Analytics::Watch Tower",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Canonical Identity Framework::SPARTAN": {
+    "channel_id": "bus::Canonical Identity Framework::SPARTAN",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Canonical Identity Registry::SPARTAN": {
+    "channel_id": "bus::Canonical Identity Registry::SPARTAN",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Capability Engine::Engine Registry": {
+    "channel_id": "bus::Capability Engine::Engine Registry",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Capability Engine::Execution Engine": {
+    "channel_id": "bus::Capability Engine::Execution Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Capability Registration Protocol::Policy Engine": {
+    "channel_id": "bus::Capability Registration Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Card Hawk::A\u20223ye": {
+    "channel_id": "bus::Card Hawk::A\u20223ye",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Card Hawk::THORx": {
+    "channel_id": "bus::Card Hawk::THORx",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Chain of Evidence Protocol::Policy Engine": {
+    "channel_id": "bus::Chain of Evidence Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Compliance Engine::Security Mesh": {
+    "channel_id": "bus::Compliance Engine::Security Mesh",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Compliance Engine::Sentinel": {
+    "channel_id": "bus::Compliance Engine::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Conclave::Incident Response Engine": {
+    "channel_id": "bus::Conclave::Incident Response Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Conclave::Sentinel": {
+    "channel_id": "bus::Conclave::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Constitutional Audit::SPARTAN": {
+    "channel_id": "bus::Constitutional Audit::SPARTAN",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Constitutional Authentication Protocol::Policy Engine": {
+    "channel_id": "bus::Constitutional Authentication Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Constitutional Authorization Protocol::Policy Engine": {
+    "channel_id": "bus::Constitutional Authorization Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Constitutional Consensus Protocol::Policy Engine": {
+    "channel_id": "bus::Constitutional Consensus Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Constitutional Governance Protocol::Policy Engine": {
+    "channel_id": "bus::Constitutional Governance Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Constitutional Ledger::SPARTAN": {
+    "channel_id": "bus::Constitutional Ledger::SPARTAN",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Constitutional Security::SPARTAN": {
+    "channel_id": "bus::Constitutional Security::SPARTAN",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Constitutional Validation Protocol::Policy Engine": {
+    "channel_id": "bus::Constitutional Validation Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Continuous Validation::Conclave": {
+    "channel_id": "bus::Continuous Validation::Conclave",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Continuous Validation::Incident Response Engine": {
+    "channel_id": "bus::Continuous Validation::Incident Response Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Continuous Validation::Sentinel": {
+    "channel_id": "bus::Continuous Validation::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Continuous Validation::Watch Tower": {
+    "channel_id": "bus::Continuous Validation::Watch Tower",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::D-DEF::Card Hawk": {
+    "channel_id": "bus::D-DEF::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::D-DEF::THORx": {
+    "channel_id": "bus::D-DEF::THORx",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Decision Engine::Execution Engine": {
+    "channel_id": "bus::Decision Engine::Execution Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Digital Signature Protocol::Policy Engine": {
+    "channel_id": "bus::Digital Signature Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Document Intelligence Engine::A\u20223ye": {
+    "channel_id": "bus::Document Intelligence Engine::A\u20223ye",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Document Intelligence Engine::Evidence Engine": {
+    "channel_id": "bus::Document Intelligence Engine::Evidence Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Drift Detection::Conclave": {
+    "channel_id": "bus::Drift Detection::Conclave",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Drift Detection::Incident Response Engine": {
+    "channel_id": "bus::Drift Detection::Incident Response Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Drift Detection::Sentinel": {
+    "channel_id": "bus::Drift Detection::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Drift Detection::Watch Tower": {
+    "channel_id": "bus::Drift Detection::Watch Tower",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Engine Registry::Runtime Engine Manager": {
+    "channel_id": "bus::Engine Registry::Runtime Engine Manager",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Evidence Engine::Audit Engine": {
+    "channel_id": "bus::Evidence Engine::Audit Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Evidence Engine::Knowledge Engine": {
+    "channel_id": "bus::Evidence Engine::Knowledge Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Evidence Vault::SPARTAN": {
+    "channel_id": "bus::Evidence Vault::SPARTAN",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Evidence Verification Protocol::Policy Engine": {
+    "channel_id": "bus::Evidence Verification Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Execution Engine::Decision Engine": {
+    "channel_id": "bus::Execution Engine::Decision Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Execution Engine::Mission Engine": {
+    "channel_id": "bus::Execution Engine::Mission Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Exit Intelligence::Card Hawk": {
+    "channel_id": "bus::Exit Intelligence::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Exit Intelligence::THORx": {
+    "channel_id": "bus::Exit Intelligence::THORx",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::FALCON::Card Hawk": {
+    "channel_id": "bus::FALCON::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::FALCON::THORx": {
+    "channel_id": "bus::FALCON::THORx",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Federation Engine::Security Mesh": {
+    "channel_id": "bus::Federation Engine::Security Mesh",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Federation Engine::Trust Registry": {
+    "channel_id": "bus::Federation Engine::Trust Registry",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Forensics Engine::Security Mesh": {
+    "channel_id": "bus::Forensics Engine::Security Mesh",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Forensics Engine::Sentinel": {
+    "channel_id": "bus::Forensics Engine::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Identity Engine::Authentication Engine": {
+    "channel_id": "bus::Identity Engine::Authentication Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Identity Engine::Canonical Identity Registry": {
+    "channel_id": "bus::Identity Engine::Canonical Identity Registry",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Identity Verification Protocol::Policy Engine": {
+    "channel_id": "bus::Identity Verification Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Incident Response Engine::Security Mesh": {
+    "channel_id": "bus::Incident Response Engine::Security Mesh",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Incident Response Engine::Sentinel": {
+    "channel_id": "bus::Incident Response Engine::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Inspection Engine::A\u20223ye": {
+    "channel_id": "bus::Inspection Engine::A\u20223ye",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Inspection Engine::Evidence Engine": {
+    "channel_id": "bus::Inspection Engine::Evidence Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Intelligence Engine::Engine Registry": {
+    "channel_id": "bus::Intelligence Engine::Engine Registry",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Knowledge Engine::Evidence Engine": {
+    "channel_id": "bus::Knowledge Engine::Evidence Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Knowledge Engine::Memory Engine": {
+    "channel_id": "bus::Knowledge Engine::Memory Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Knowledge Engine::Reason Engine": {
+    "channel_id": "bus::Knowledge Engine::Reason Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Learning Engine::Memory Engine": {
+    "channel_id": "bus::Learning Engine::Memory Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Memory Engine::Knowledge Engine": {
+    "channel_id": "bus::Memory Engine::Knowledge Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Mission Authorization Protocol::Policy Engine": {
+    "channel_id": "bus::Mission Authorization Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Mission Engine::Mission Scheduler": {
+    "channel_id": "bus::Mission Engine::Mission Scheduler",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Mission Scheduler::Mission Engine": {
+    "channel_id": "bus::Mission Scheduler::Mission Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::NEST::Card Hawk": {
+    "channel_id": "bus::NEST::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::NEST::THORx": {
+    "channel_id": "bus::NEST::THORx",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Nuclear Cloud::Card Hawk": {
+    "channel_id": "bus::Nuclear Cloud::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Nuclear Cloud::THORx": {
+    "channel_id": "bus::Nuclear Cloud::THORx",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::OCR Engine::A\u20223ye": {
+    "channel_id": "bus::OCR Engine::A\u20223ye",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::OCR Engine::Evidence Engine": {
+    "channel_id": "bus::OCR Engine::Evidence Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::PERCH::Card Hawk": {
+    "channel_id": "bus::PERCH::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::PERCH::THORx": {
+    "channel_id": "bus::PERCH::THORx",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Planning Engine::Decision Engine": {
+    "channel_id": "bus::Planning Engine::Decision Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Planning Engine::Mission Engine": {
+    "channel_id": "bus::Planning Engine::Mission Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Policy Engine::Security Mesh": {
+    "channel_id": "bus::Policy Engine::Security Mesh",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Policy Engine::Sentinel": {
+    "channel_id": "bus::Policy Engine::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Predictive Engine::Decision Engine": {
+    "channel_id": "bus::Predictive Engine::Decision Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Predictive Engine::Planning Engine": {
+    "channel_id": "bus::Predictive Engine::Planning Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Principle X Protocol::Policy Engine": {
+    "channel_id": "bus::Principle X Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Provenance Verification Protocol::Policy Engine": {
+    "channel_id": "bus::Provenance Verification Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Q-DEF::Card Hawk": {
+    "channel_id": "bus::Q-DEF::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Q-DEF::THORx": {
+    "channel_id": "bus::Q-DEF::THORx",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::ROOST::Card Hawk": {
+    "channel_id": "bus::ROOST::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::ROOST::THORx": {
+    "channel_id": "bus::ROOST::THORx",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Reason Engine::Knowledge Engine": {
+    "channel_id": "bus::Reason Engine::Knowledge Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Reason Engine::Planning Engine": {
+    "channel_id": "bus::Reason Engine::Planning Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Recognition Engine::A\u20223ye": {
+    "channel_id": "bus::Recognition Engine::A\u20223ye",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Recognition Engine::Evidence Engine": {
+    "channel_id": "bus::Recognition Engine::Evidence Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Recovery Engine::Security Mesh": {
+    "channel_id": "bus::Recovery Engine::Security Mesh",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Recovery Engine::Sentinel": {
+    "channel_id": "bus::Recovery Engine::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Repository Integrity Protocol::Policy Engine": {
+    "channel_id": "bus::Repository Integrity Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Risk Intelligence Engine::Security Mesh": {
+    "channel_id": "bus::Risk Intelligence Engine::Security Mesh",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Risk Intelligence Engine::Sentinel": {
+    "channel_id": "bus::Risk Intelligence Engine::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Runtime Attestation Protocol::Policy Engine": {
+    "channel_id": "bus::Runtime Attestation Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Runtime Engine Manager::Engine Registry": {
+    "channel_id": "bus::Runtime Engine Manager::Engine Registry",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Runtime Integrity Protocol::Policy Engine": {
+    "channel_id": "bus::Runtime Integrity Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Runtime Monitoring::Conclave": {
+    "channel_id": "bus::Runtime Monitoring::Conclave",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Runtime Monitoring::Incident Response Engine": {
+    "channel_id": "bus::Runtime Monitoring::Incident Response Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Runtime Monitoring::Sentinel": {
+    "channel_id": "bus::Runtime Monitoring::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Runtime Monitoring::Watch Tower": {
+    "channel_id": "bus::Runtime Monitoring::Watch Tower",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::SOAR::Card Hawk": {
+    "channel_id": "bus::SOAR::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::SOAR::THORx": {
+    "channel_id": "bus::SOAR::THORx",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::SPAN::SPARTAN": {
+    "channel_id": "bus::SPAN::SPARTAN",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::SPARTAN::Conclave": {
+    "channel_id": "bus::SPARTAN::Conclave",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::SPARTAN::SPAN": {
+    "channel_id": "bus::SPARTAN::SPAN",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::SPARTAN::Sentinel": {
+    "channel_id": "bus::SPARTAN::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::SPARTAN::Watch Tower": {
+    "channel_id": "bus::SPARTAN::Watch Tower",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::STRIKE::Card Hawk": {
+    "channel_id": "bus::STRIKE::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::STRIKE::THORx": {
+    "channel_id": "bus::STRIKE::THORx",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Secure Communication Protocol::Policy Engine": {
+    "channel_id": "bus::Secure Communication Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Secure Execution Protocol::Policy Engine": {
+    "channel_id": "bus::Secure Execution Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Secure Session Protocol::Policy Engine": {
+    "channel_id": "bus::Secure Session Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Security Circuit::SPARTAN": {
+    "channel_id": "bus::Security Circuit::SPARTAN",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Security Fabric::SPARTAN": {
+    "channel_id": "bus::Security Fabric::SPARTAN",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Security Mesh::SPARTAN": {
+    "channel_id": "bus::Security Mesh::SPARTAN",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Security Telemetry::SPARTAN": {
+    "channel_id": "bus::Security Telemetry::SPARTAN",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Semantic Engine::Knowledge Engine": {
+    "channel_id": "bus::Semantic Engine::Knowledge Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Sentinel::Conclave": {
+    "channel_id": "bus::Sentinel::Conclave",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Sentinel::SPARTAN": {
+    "channel_id": "bus::Sentinel::SPARTAN",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Sentinel::Watch Tower": {
+    "channel_id": "bus::Sentinel::Watch Tower",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Service Registration Protocol::Policy Engine": {
+    "channel_id": "bus::Service Registration Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Strike Zone::Card Hawk": {
+    "channel_id": "bus::Strike Zone::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Strike Zone::THORx": {
+    "channel_id": "bus::Strike Zone::THORx",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Supply Chain Verification Protocol::Policy Engine": {
+    "channel_id": "bus::Supply Chain Verification Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::TALON::Card Hawk": {
+    "channel_id": "bus::TALON::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::TALON::THORx": {
+    "channel_id": "bus::TALON::THORx",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::THORx::Card Hawk": {
+    "channel_id": "bus::THORx::Card Hawk",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::THORx::Decision Engine": {
+    "channel_id": "bus::THORx::Decision Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Tamper Detection Protocol::Policy Engine": {
+    "channel_id": "bus::Tamper Detection Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Attribution::Conclave": {
+    "channel_id": "bus::Threat Attribution::Conclave",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Attribution::Incident Response Engine": {
+    "channel_id": "bus::Threat Attribution::Incident Response Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Attribution::Sentinel": {
+    "channel_id": "bus::Threat Attribution::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Attribution::Watch Tower": {
+    "channel_id": "bus::Threat Attribution::Watch Tower",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Containment::Conclave": {
+    "channel_id": "bus::Threat Containment::Conclave",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Containment::Incident Response Engine": {
+    "channel_id": "bus::Threat Containment::Incident Response Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Containment::Sentinel": {
+    "channel_id": "bus::Threat Containment::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Containment::Watch Tower": {
+    "channel_id": "bus::Threat Containment::Watch Tower",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Correlation::Conclave": {
+    "channel_id": "bus::Threat Correlation::Conclave",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Correlation::Incident Response Engine": {
+    "channel_id": "bus::Threat Correlation::Incident Response Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Correlation::Sentinel": {
+    "channel_id": "bus::Threat Correlation::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Correlation::Watch Tower": {
+    "channel_id": "bus::Threat Correlation::Watch Tower",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Detection::Conclave": {
+    "channel_id": "bus::Threat Detection::Conclave",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Detection::Incident Response Engine": {
+    "channel_id": "bus::Threat Detection::Incident Response Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Detection::Sentinel": {
+    "channel_id": "bus::Threat Detection::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Detection::Watch Tower": {
+    "channel_id": "bus::Threat Detection::Watch Tower",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Eradication::Conclave": {
+    "channel_id": "bus::Threat Eradication::Conclave",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Eradication::Incident Response Engine": {
+    "channel_id": "bus::Threat Eradication::Incident Response Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Eradication::Sentinel": {
+    "channel_id": "bus::Threat Eradication::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Eradication::Watch Tower": {
+    "channel_id": "bus::Threat Eradication::Watch Tower",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Hunting::Conclave": {
+    "channel_id": "bus::Threat Hunting::Conclave",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Hunting::Incident Response Engine": {
+    "channel_id": "bus::Threat Hunting::Incident Response Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Hunting::Sentinel": {
+    "channel_id": "bus::Threat Hunting::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Hunting::Watch Tower": {
+    "channel_id": "bus::Threat Hunting::Watch Tower",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Intelligence Engine::Security Mesh": {
+    "channel_id": "bus::Threat Intelligence Engine::Security Mesh",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Intelligence Engine::Sentinel": {
+    "channel_id": "bus::Threat Intelligence Engine::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Recovery::Conclave": {
+    "channel_id": "bus::Threat Recovery::Conclave",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Recovery::Incident Response Engine": {
+    "channel_id": "bus::Threat Recovery::Incident Response Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Recovery::Sentinel": {
+    "channel_id": "bus::Threat Recovery::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Threat Recovery::Watch Tower": {
+    "channel_id": "bus::Threat Recovery::Watch Tower",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Trust Framework::SPARTAN": {
+    "channel_id": "bus::Trust Framework::SPARTAN",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Trust Registry::SPARTAN": {
+    "channel_id": "bus::Trust Registry::SPARTAN",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Truth Verification Protocol::Policy Engine": {
+    "channel_id": "bus::Truth Verification Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Verification Engine::A\u20223ye": {
+    "channel_id": "bus::Verification Engine::A\u20223ye",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Verification Engine::Evidence Engine": {
+    "channel_id": "bus::Verification Engine::Evidence Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Vision Engine::A\u20223ye": {
+    "channel_id": "bus::Vision Engine::A\u20223ye",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Vision Engine::Evidence Engine": {
+    "channel_id": "bus::Vision Engine::Evidence Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Vulnerability Intelligence Engine::Security Mesh": {
+    "channel_id": "bus::Vulnerability Intelligence Engine::Security Mesh",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Vulnerability Intelligence Engine::Sentinel": {
+    "channel_id": "bus::Vulnerability Intelligence Engine::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Watch Tower::Sentinel": {
+    "channel_id": "bus::Watch Tower::Sentinel",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  },
+  "bus::Zero Trust Protocol::Policy Engine": {
+    "channel_id": "bus::Zero Trust Protocol::Policy Engine",
+    "confidence_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_required": true,
+    "provenance_required": true,
+    "required_fields": [
+      "authority",
+      "message_type",
+      "evidence_refs",
+      "provenance",
+      "confidence",
+      "correlation_id",
+      "version",
+      "timestamp",
+      "policy_context"
+    ],
+    "schema_version": "1.0"
+  }
+}
