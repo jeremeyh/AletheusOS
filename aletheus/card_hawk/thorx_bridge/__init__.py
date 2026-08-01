@@ -1,0 +1,1 @@
+"""THORᵡ Card Decision Bridge."""
