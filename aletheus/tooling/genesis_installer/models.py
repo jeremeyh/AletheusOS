@@ -5,14 +5,19 @@ from pathlib import Path
 from typing import Any
 
 
-@dataclass(slots=True)
+@dataclass(frozen=True, slots=True)
+class ReleaseTarget:
+    source: str
+    destination: str
+
+
+@dataclass(frozen=True, slots=True)
 class ReleaseManifest:
     release_id: str
     version: str
     title: str
     commit_message: str
     package_root: Path
-    targets: list[str]
-    dependencies: list[str] = field(default_factory=list)
-    validation_commands: list[list[str]] = field(default_factory=list)
+    targets: tuple[ReleaseTarget, ...]
+    dependencies: tuple[str, ...] = ()
     metadata: dict[str, Any] = field(default_factory=dict)

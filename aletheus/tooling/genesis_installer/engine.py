@@ -14,21 +14,23 @@ from .models import ReleaseManifest
 
 
 class InstallerError(RuntimeError):
-    """Base installer failure."""
+    """Base Genesis installer failure."""
 
 
 class PreflightError(InstallerError):
-    """Preflight validation failed."""
+    """A required preflight check failed."""
 
 
-class ChecksumError(InstallerError):
-    """A package checksum did not match."""
+class IntegrityError(InstallerError):
+    """Manifest, checksum, or signature validation failed."""
 
 
 class InstallerEngine:
+    """Atomic, resumable installer for declarative Genesis releases."""
+
     def __init__(self, repository: Path) -> None:
         self.repository = repository.resolve()
-        self.state_root = self.repository / ".aletheus_installer"
+        self.state_root = self.repository / ".aletheus_installer/state"
         self.backup_root = self.repository / ".aletheus_install_backups"
 
     @staticmethod
@@ -48,96 +50,145 @@ class InstallerEngine:
         expected = InstallerEngine.sign_payload(payload, key)
         return hmac.compare_digest(expected, signature)
 
-    def resolve_dependencies(self, manifest: ReleaseManifest) -> None:
+    @staticmethod
+    def run_command(
+        command: list[str],
+        *,
+        cwd: Path,
+        env: dict[str, str] | None = None,
+    ) -> dict[str, Any]:
+        executable = shutil.which(command[0])
+        if executable is None:
+            raise PreflightError(f"Required command is unavailable: {command[0]}")
+        process = subprocess.run(
+            command,
+            cwd=cwd,
+            env=env,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        result = {
+            "command": command,
+            "returncode": process.returncode,
+            "stdout": process.stdout[-8000:],
+            "stderr": process.stderr[-8000:],
+        }
+        if process.returncode != 0:
+            joined = " ".join(command)
+            raise PreflightError(f"Command failed ({joined}):\n{process.stderr}")
+        return result
+
+    def verify_repository(self) -> None:
+        if not (self.repository / ".git").is_dir():
+            raise PreflightError(f"Not a Git repository: {self.repository}")
+        if not (self.repository / "aletheus").is_dir():
+            raise PreflightError("Aletheus package root is missing.")
+
+    def verify_dependencies(self, manifest: ReleaseManifest) -> None:
         missing = [
             dependency
             for dependency in manifest.dependencies
             if not (self.repository / dependency).exists()
         ]
         if missing:
-            raise PreflightError(
-                "Missing release dependencies: " + ", ".join(sorted(missing))
-            )
+            raise PreflightError("Missing dependencies: " + ", ".join(sorted(missing)))
+
+    def verify_package_layout(self, manifest: ReleaseManifest) -> None:
+        package = manifest.package_root
+        required = [
+            package / "aletheus/__init__.py",
+            package / "aletheus/tooling/__init__.py",
+        ]
+        for target in manifest.targets:
+            source = package / target.source
+            if not source.exists():
+                required.append(source)
+        missing = [str(path) for path in required if not path.exists()]
+        if missing:
+            raise PreflightError("Package layout is incomplete: " + ", ".join(missing))
 
     def verify_checksums(
         self,
-        package_root: Path,
+        manifest: ReleaseManifest,
         checksums: dict[str, str],
     ) -> None:
         for relative, expected in checksums.items():
-            path = package_root / relative
+            path = manifest.package_root / relative
             if not path.is_file():
-                raise ChecksumError(f"Missing package file: {relative}")
+                raise IntegrityError(f"Missing package file: {relative}")
             actual = self.sha256(path)
             if actual != expected:
-                raise ChecksumError(
+                raise IntegrityError(
                     f"Checksum mismatch for {relative}: {actual} != {expected}"
                 )
 
-    def run_preflight(
-        self,
-        manifest: ReleaseManifest,
-        *,
-        shellcheck_optional: bool = True,
-    ) -> list[dict[str, Any]]:
-        self.resolve_dependencies(manifest)
-        results = []
-        commands = [
-            ["ruff", "check", "."],
-            ["black", "--check", "."],
-            ["pytest"],
-            ["python", "-m", "compileall", "aletheus"],
-        ]
-        commands.extend(manifest.validation_commands)
+    def stage(self, manifest: ReleaseManifest) -> Path:
+        stage = Path(tempfile.mkdtemp(prefix=f"{manifest.release_id}-"))
+        for target in manifest.targets:
+            source = manifest.package_root / target.source
+            destination = stage / target.destination
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            if source.is_dir():
+                shutil.copytree(source, destination, dirs_exist_ok=True)
+            else:
+                shutil.copy2(source, destination)
+        return stage
 
-        for command in commands:
-            executable = shutil.which(command[0])
-            if executable is None:
-                raise PreflightError(
-                    f"Required preflight tool is unavailable: {command[0]}"
-                )
-            process = subprocess.run(
-                command,
-                cwd=self.repository,
+    def backup(self, manifest: ReleaseManifest) -> Path:
+        backup = (
+            self.backup_root
+            / manifest.release_id
+            / subprocess.check_output(
+                ["date", "+%Y%m%d_%H%M%S"],
                 text=True,
-                capture_output=True,
-                check=False,
-            )
-            results.append(
-                {
-                    "command": command,
-                    "returncode": process.returncode,
-                    "stdout": process.stdout[-4000:],
-                    "stderr": process.stderr[-4000:],
-                }
-            )
-            if process.returncode != 0:
-                raise PreflightError(f"Preflight command failed: {' '.join(command)}")
+            ).strip()
+        )
+        backup.mkdir(parents=True, exist_ok=True)
+        for target in manifest.targets:
+            current = self.repository / target.destination
+            if not current.exists():
+                continue
+            archived = backup / target.destination
+            archived.parent.mkdir(parents=True, exist_ok=True)
+            if current.is_dir():
+                shutil.copytree(current, archived, dirs_exist_ok=True)
+            else:
+                shutil.copy2(current, archived)
+        return backup
 
-        shellcheck = shutil.which("shellcheck")
-        if shellcheck:
-            shell_scripts = sorted(manifest.package_root.parent.glob("*.sh"))
-            if shell_scripts:
-                process = subprocess.run(
-                    [shellcheck, *(str(path) for path in shell_scripts)],
-                    text=True,
-                    capture_output=True,
-                    check=False,
-                )
-                results.append(
-                    {
-                        "command": ["shellcheck", *map(str, shell_scripts)],
-                        "returncode": process.returncode,
-                        "stdout": process.stdout[-4000:],
-                        "stderr": process.stderr[-4000:],
-                    }
-                )
-                if process.returncode != 0:
-                    raise PreflightError("ShellCheck failed.")
-        elif not shellcheck_optional:
-            raise PreflightError("ShellCheck is required but unavailable.")
+    def apply(self, manifest: ReleaseManifest, stage: Path) -> None:
+        for target in manifest.targets:
+            staged = stage / target.destination
+            destination = self.repository / target.destination
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            if destination.exists():
+                if destination.is_dir():
+                    shutil.rmtree(destination)
+                else:
+                    destination.unlink()
+            if staged.is_dir():
+                shutil.copytree(staged, destination)
+            else:
+                temporary = destination.with_suffix(destination.suffix + ".tmp")
+                shutil.copy2(staged, temporary)
+                os.replace(temporary, destination)
 
-        return results
+    def rollback(self, manifest: ReleaseManifest, backup: Path) -> None:
+        for target in manifest.targets:
+            destination = self.repository / target.destination
+            archived = backup / target.destination
+            if destination.exists():
+                if destination.is_dir():
+                    shutil.rmtree(destination)
+                else:
+                    destination.unlink()
+            if archived.exists():
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                if archived.is_dir():
+                    shutil.copytree(archived, destination)
+                else:
+                    shutil.copy2(archived, destination)
 
     def install(
         self,
@@ -147,68 +198,43 @@ class InstallerEngine:
         dry_run: bool = False,
         resume: bool = True,
     ) -> dict[str, Any]:
-        self.verify_checksums(manifest.package_root, checksums)
-        self.resolve_dependencies(manifest)
+        self.verify_repository()
+        self.verify_dependencies(manifest)
+        self.verify_package_layout(manifest)
+        self.verify_checksums(manifest, checksums)
 
         state_path = self.state_root / f"{manifest.release_id}.json"
         if resume and state_path.is_file():
             prior = json.loads(state_path.read_text(encoding="utf-8"))
             if prior.get("status") == "installed":
-                return prior
+                destinations = [
+                    self.repository / target.destination for target in manifest.targets
+                ]
+                if all(path.exists() for path in destinations):
+                    return prior
 
-        stage = Path(tempfile.mkdtemp(prefix=f"{manifest.release_id}-"))
-        backup = self.backup_root / manifest.release_id
+        stage = self.stage(manifest)
         try:
-            for relative in manifest.targets:
-                source = manifest.package_root / relative
-                destination = stage / relative
-                destination.parent.mkdir(parents=True, exist_ok=True)
-                if source.is_dir():
-                    shutil.copytree(source, destination, dirs_exist_ok=True)
-                elif source.is_file():
-                    shutil.copy2(source, destination)
-                else:
-                    raise InstallerError(f"Missing staged target: {relative}")
-
             if dry_run:
                 return {
                     "release_id": manifest.release_id,
                     "status": "dry_run_complete",
-                    "targets": manifest.targets,
+                    "targets": [target.destination for target in manifest.targets],
                 }
 
-            backup.mkdir(parents=True, exist_ok=True)
-            for relative in manifest.targets:
-                current = self.repository / relative
-                if current.exists():
-                    archived = backup / relative
-                    archived.parent.mkdir(parents=True, exist_ok=True)
-                    if current.is_dir():
-                        shutil.copytree(
-                            current,
-                            archived,
-                            dirs_exist_ok=True,
-                        )
-                    else:
-                        shutil.copy2(current, archived)
-
-            for relative in manifest.targets:
-                staged = stage / relative
-                target = self.repository / relative
-                target.parent.mkdir(parents=True, exist_ok=True)
-                if staged.is_dir():
-                    shutil.copytree(staged, target, dirs_exist_ok=True)
-                else:
-                    temporary = target.with_suffix(target.suffix + ".tmp")
-                    shutil.copy2(staged, temporary)
-                    os.replace(temporary, target)
+            backup = self.backup(manifest)
+            try:
+                self.apply(manifest, stage)
+            except (OSError, ValueError, KeyError, InstallerError):
+                self.rollback(manifest, backup)
+                raise
 
             result = {
                 "release_id": manifest.release_id,
                 "version": manifest.version,
                 "status": "installed",
-                "targets": manifest.targets,
                 "backup": str(backup),
+                "targets": [target.destination for target in manifest.targets],
             }
             self.state_root.mkdir(parents=True, exist_ok=True)
             state_path.write_text(
@@ -216,26 +242,5 @@ class InstallerEngine:
                 encoding="utf-8",
             )
             return result
-        except (OSError, ValueError, KeyError, InstallerError):
-            self.rollback(manifest, backup)
-            raise
         finally:
             shutil.rmtree(stage, ignore_errors=True)
-
-    def rollback(self, manifest: ReleaseManifest, backup: Path) -> None:
-        for relative in manifest.targets:
-            target = self.repository / relative
-            archived = backup / relative
-            if archived.exists():
-                target.parent.mkdir(parents=True, exist_ok=True)
-                if archived.is_dir():
-                    if target.exists():
-                        shutil.rmtree(target)
-                    shutil.copytree(archived, target)
-                else:
-                    shutil.copy2(archived, target)
-            elif target.exists():
-                if target.is_dir():
-                    shutil.rmtree(target)
-                else:
-                    target.unlink()

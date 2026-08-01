@@ -5,23 +5,28 @@ import json
 from pathlib import Path
 
 from .engine import InstallerEngine
-from .models import ReleaseManifest
+from .models import ReleaseManifest, ReleaseTarget
 
 
 def load_manifest(path: Path) -> tuple[ReleaseManifest, dict[str, str]]:
     payload = json.loads(path.read_text(encoding="utf-8"))
-    release = ReleaseManifest(
-        release_id=payload["release_id"],
-        version=payload["version"],
-        title=payload["title"],
-        commit_message=payload["commit_message"],
+    manifest = ReleaseManifest(
+        release_id=str(payload["release_id"]),
+        version=str(payload["version"]),
+        title=str(payload["title"]),
+        commit_message=str(payload["commit_message"]),
         package_root=(path.parent / payload["package_root"]).resolve(),
-        targets=list(payload["targets"]),
-        dependencies=list(payload.get("dependencies", [])),
-        validation_commands=list(payload.get("validation_commands", [])),
+        targets=tuple(
+            ReleaseTarget(
+                source=str(item["source"]),
+                destination=str(item["destination"]),
+            )
+            for item in payload["targets"]
+        ),
+        dependencies=tuple(str(item) for item in payload.get("dependencies", [])),
         metadata=dict(payload.get("metadata", {})),
     )
-    return release, dict(payload["checksums"])
+    return manifest, dict(payload["checksums"])
 
 
 def main() -> int:
@@ -39,8 +44,10 @@ def main() -> int:
     engine = InstallerEngine(args.repository)
 
     if args.command == "verify":
-        engine.verify_checksums(manifest.package_root, checksums)
-        engine.resolve_dependencies(manifest)
+        engine.verify_repository()
+        engine.verify_dependencies(manifest)
+        engine.verify_package_layout(manifest)
+        engine.verify_checksums(manifest, checksums)
         print(f"Verified {manifest.release_id}.")
         return 0
 
