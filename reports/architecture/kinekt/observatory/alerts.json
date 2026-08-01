@@ -1,0 +1,26 @@
+{
+  "alerts": [
+    {
+      "code": "CONSTITUTIONAL_HEALTH_CRITICAL",
+      "evidence": [
+        "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/health/constitutional-health.json"
+      ],
+      "message": "Constitutional health is 44.55.",
+      "severity": "critical"
+    },
+    {
+      "code": "AUTHORITY_COVERAGE_LOW",
+      "evidence": [
+        "/Users/master_lord_6ixth/Development/AletheusOS/reports/architecture/kinekt/authority/capability-authority-map.json"
+      ],
+      "message": "Capability authority coverage is 16.91%.",
+      "severity": "high"
+    },
+    {
+      "code": "PLATFORM_NOT_READY",
+      "evidence": [],
+      "message": "Kinekt constitutional readiness is not_ready.",
+      "severity": "high"
+    }
+  ]
+}

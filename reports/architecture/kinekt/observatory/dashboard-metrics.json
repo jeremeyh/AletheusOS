@@ -1,0 +1,7 @@
+{
+  "authority_coverage": 16.91,
+  "execution_units": 6,
+  "health_score": 44.55,
+  "readiness": "not_ready",
+  "unresolved_modules": 5562
+}
