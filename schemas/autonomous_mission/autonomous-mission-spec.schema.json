@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.aletheus.ai/v33/mission-spec.json",
+  "title": "AletheusOS Autonomous Mission Specification",
+  "type": "object",
+  "required": [
+    "missionId",
+    "objective",
+    "domain",
+    "humanAuthority"
+  ],
+  "properties": {
+    "missionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domain": {
+      "type": "string",
+      "minLength": 1
+    },
+    "budget": {
+      "type": "number",
+      "minimum": 0
+    },
+    "priority": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "humanAuthority": {
+      "const": "PRESERVED"
+    },
+    "silentConsequentialExecution": {
+      "const": "PROHIBITED"
+    }
+  },
+  "additionalProperties": true
+}
