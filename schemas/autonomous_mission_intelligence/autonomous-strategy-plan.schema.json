@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.aletheus.ai/v34/autonomous-strategy-plan.schema.json",
+  "title": "AletheusOS Autonomous Strategy Plan",
+  "type": "object",
+  "required": [
+    "strategyId",
+    "objectiveId",
+    "state",
+    "humanAuthorizationRequired",
+    "executionAuthorized"
+  ],
+  "properties": {
+    "strategyId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objectiveId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "state": {
+      "enum": [
+        "DRAFT",
+        "ANALYZED",
+        "AWAITING_AUTHORIZATION",
+        "AUTHORIZED",
+        "BLOCKED"
+      ]
+    },
+    "humanAuthorizationRequired": {
+      "const": true
+    },
+    "executionAuthorized": {
+      "type": "boolean"
+    },
+    "missionIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "evidenceIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "additionalProperties": true
+}
