@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SPAN Architectural Intelligence Analysis",
+  "type": "object",
+  "required": [
+    "system",
+    "version",
+    "genesis",
+    "analyses",
+    "digest"
+  ],
+  "properties": {
+    "system": {
+      "const": "SPAN"
+    },
+    "genesis": {
+      "const": "36.0-36.18"
+    },
+    "humanAuthority": {
+      "const": "PRESERVED"
+    },
+    "executionAuthorized": {
+      "const": false
+    }
+  }
+}
