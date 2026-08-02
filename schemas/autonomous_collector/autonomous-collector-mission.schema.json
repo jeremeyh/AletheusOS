@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AutonomousCollectorMission",
+  "type": "object",
+  "required": [
+    "missionId",
+    "objective",
+    "budget",
+    "autonomyMode"
+  ],
+  "properties": {
+    "missionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "budget": {
+      "type": "number",
+      "minimum": 0
+    },
+    "autonomyMode": {
+      "enum": [
+        "OBSERVE",
+        "ADVISE",
+        "PREPARE",
+        "EXECUTE_WITH_APPROVAL"
+      ]
+    },
+    "humanApprovalRequired": {
+      "const": true
+    },
+    "silentPurchaseAllowed": {
+      "const": false
+    }
+  }
+}
