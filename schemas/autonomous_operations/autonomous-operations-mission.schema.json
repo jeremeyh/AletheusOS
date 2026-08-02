@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.aletheus.ai/v35/autonomous-operations-mission.schema.json",
+  "title": "AletheusOS Autonomous Operations Mission",
+  "type": "object",
+  "required": [
+    "missionId",
+    "objective",
+    "status",
+    "constitutionalControls"
+  ],
+  "properties": {
+    "missionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "ACTIVATED",
+        "RUNNING",
+        "DEGRADED",
+        "PAUSED",
+        "BLOCKED",
+        "COMPLETED",
+        "FAILED",
+        "EXPIRED"
+      ]
+    },
+    "progress": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "constitutionalControls": {
+      "type": "object",
+      "required": [
+        "humanAuthority",
+        "silentExecution"
+      ],
+      "properties": {
+        "humanAuthority": {
+          "const": "REQUIRED"
+        },
+        "silentExecution": {
+          "const": "PROHIBITED"
+        },
+        "spartanReview": {
+          "enum": [
+            "ACTIVE",
+            "REQUIRED"
+          ]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
