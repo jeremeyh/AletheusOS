@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FederatedTradeIntent",
+  "type": "object",
+  "required": [
+    "tradeSessionId",
+    "tradeType",
+    "parties",
+    "securityContext"
+  ],
+  "properties": {
+    "tradeType": {
+      "enum": [
+        "CAPITAL",
+        "BARTER",
+        "HYBRID",
+        "TRIANGULAR",
+        "N_PARTY"
+      ]
+    },
+    "settlementMode": {
+      "enum": [
+        "DIGITAL_ATOMIC",
+        "PHYSICAL_VAULT",
+        "MIXED"
+      ]
+    }
+  }
+}
