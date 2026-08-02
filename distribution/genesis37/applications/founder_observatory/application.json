@@ -1,0 +1,15 @@
+{
+  "appId": "founder_observatory",
+  "authority": "founder-root-only",
+  "status": "source-blueprint",
+  "telemetry": [
+    "FINANCIAL",
+    "THREAT",
+    "MARKETPLACE",
+    "HEALTH",
+    "DEVELOPER_ACTIVITY",
+    "ADMIN_ACTIVITY",
+    "USER_JOURNEYS"
+  ],
+  "publicExtensionSurface": false
+}

@@ -1,0 +1,12 @@
+{
+  "id": "workspace_composer",
+  "status": "source-blueprint",
+  "capabilities": [
+    "drag-and-drop instruments",
+    "constraint-aware layouts",
+    "saved templates",
+    "collaborative sharing",
+    "multi-monitor awareness",
+    "context-aware recommendations"
+  ]
+}

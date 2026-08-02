@@ -1,0 +1,57 @@
+{
+  "$schema": "schemas/constitutional_experience/genesis-37.21-package-manifest.schema.json",
+  "packageName": "AletheusOS-Genesis37-CoreUI",
+  "version": "1.0.0-GA",
+  "genesis": "37.21",
+  "buildTimestamp": 1785689552,
+  "artifactState": "source-first-build-required",
+  "systemRequirements": {
+    "webGPURequiredForFullExperience": true,
+    "webAssemblyThreadsPreferred": true,
+    "recommendedVRAMMB": 4096,
+    "fallbackRequired": true
+  },
+  "runtimeModules": [
+    {
+      "id": "info_physics",
+      "binaryPath": "core/physics/info_physics_core.wasm",
+      "type": "WASM_PHYSICS_ENGINE",
+      "status": "build-required"
+    },
+    {
+      "id": "axiom_ux_renderer",
+      "binaryPath": "core/renderer/axiom_ux_renderer.wasm",
+      "shaderDirectory": "core/renderer/wgsl",
+      "type": "WEBGPU_RENDERER",
+      "status": "build-required"
+    },
+    {
+      "id": "hyperbolic_nav",
+      "binaryPath": "core/navigation/hyperbolic_engine.wasm",
+      "type": "SPATIAL_SOLVER",
+      "status": "build-required"
+    }
+  ],
+  "applications": [
+    {
+      "appId": "founder_observatory",
+      "entryPoint": "applications/founder_observatory/index.js",
+      "requiredTelemetryStreams": [
+        "FINANCIAL",
+        "THREAT",
+        "MARKETPLACE",
+        "HEALTH",
+        "DEVELOPER_ACTIVITY",
+        "ADMIN_ACTIVITY",
+        "USER_JOURNEYS"
+      ],
+      "authority": "founder-root-only"
+    },
+    {
+      "appId": "workspace_composer",
+      "entryPoint": "components/workspace_composer/index.js",
+      "configPath": "config/instrument_registry.json",
+      "authority": "user-bounded"
+    }
+  ]
+}
