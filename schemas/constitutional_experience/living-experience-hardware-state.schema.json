@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Living Experience Hardware State",
+  "type": "object",
+  "required": [
+    "initialized",
+    "backend",
+    "workerEnabled",
+    "reason"
+  ],
+  "properties": {
+    "initialized": {
+      "type": "boolean"
+    },
+    "backend": {
+      "enum": [
+        "webgpu",
+        "webgl2",
+        "canvas2d"
+      ]
+    },
+    "workerEnabled": {
+      "type": "boolean"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "quality": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "capabilities": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  }
+}

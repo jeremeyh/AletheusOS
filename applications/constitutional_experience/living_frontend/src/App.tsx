@@ -21,6 +21,10 @@ import { FounderObservatory } from "./components/FounderObservatory";
 import { LIGHTSField } from "./components/LIGHTSField";
 import { REMDreamSubstrate } from "./components/REMDreamSubstrate";
 import { REMRuntimeHUD } from "./components/REMRuntimeHUD";
+import { HardwareRuntimeHUD } from "./components/HardwareRuntimeHUD";
+import { LivingEngineMeshHUD } from "./components/LivingEngineMeshHUD";
+import { useHardwareRuntime } from "./runtime/use-hardware-runtime";
+import { useLivingEngineMesh } from "./runtime/use-living-engine-mesh";
 import { useMetrology } from "./hooks/useMetrology";
 import {
   constitutionalResonance,
@@ -122,6 +126,8 @@ export function App() {
   const [telemetry, setTelemetry] =
     useState<TelemetryState>(defaultTelemetry);
   const [founder, setFounder] = useState(false);
+  const hardwareRuntime = useHardwareRuntime();
+  const livingEngineMesh = useLivingEngineMesh();
   const [remCrystallized, setREMCrystallized] = useState(true);
   const [remState, setREMState] = useState<REMRuntimeState>({
     phase: "ambient",
@@ -183,6 +189,8 @@ export function App() {
         onState={setREMState}
       />
       <REMRuntimeHUD state={remState} />
+      <HardwareRuntimeHUD state={hardwareRuntime} />
+      <LivingEngineMeshHUD snapshot={livingEngineMesh} />
       <aside className="sidebar">
         <div className="brand">
           <div className="brand-logo">

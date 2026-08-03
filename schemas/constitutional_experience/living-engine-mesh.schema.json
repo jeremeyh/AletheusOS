@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Living Engine Mesh Snapshot",
+  "type": "object",
+  "required": [
+    "timestamp",
+    "engines",
+    "totalLoad",
+    "practicalResonance",
+    "preHydrationConfidence",
+    "thermalPressure",
+    "biologicalCoherence"
+  ],
+  "properties": {
+    "timestamp": {
+      "type": "number"
+    },
+    "engines": {
+      "type": "array"
+    },
+    "totalLoad": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "practicalResonance": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "preHydrationConfidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "thermalPressure": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "biologicalCoherence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  }
+}
