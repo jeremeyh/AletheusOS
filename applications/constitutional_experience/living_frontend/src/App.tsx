@@ -19,6 +19,8 @@ import { AdvancedMetrologyPanel } from "./components/AdvancedMetrologyPanel";
 import { AxiomCard } from "./components/AxiomCard";
 import { FounderObservatory } from "./components/FounderObservatory";
 import { LIGHTSField } from "./components/LIGHTSField";
+import { REMDreamSubstrate } from "./components/REMDreamSubstrate";
+import { REMRuntimeHUD } from "./components/REMRuntimeHUD";
 import { useMetrology } from "./hooks/useMetrology";
 import {
   constitutionalResonance,
@@ -31,6 +33,7 @@ import type {
   RiskState,
   TelemetryState,
 } from "./types";
+import type { REMRuntimeState } from "./runtime/rem-types";
 import "./styles/global.css";
 
 const instrumentRows: ReadonlyArray<
@@ -119,6 +122,18 @@ export function App() {
   const [telemetry, setTelemetry] =
     useState<TelemetryState>(defaultTelemetry);
   const [founder, setFounder] = useState(false);
+  const [remCrystallized, setREMCrystallized] = useState(true);
+  const [remState, setREMState] = useState<REMRuntimeState>({
+    phase: "ambient",
+    coherence: 0.06,
+    targetCoherence: 0.06,
+    crystallized: false,
+    particleCount: 320,
+    frameTimeMs: 1000 / 120,
+    frameVarianceMs: 0,
+    meantimeQuotient: 0.913,
+    droppedFrameRatio: 0,
+  });
 
   const current = useMemo(
     () => instruments.find((instrument) => instrument.id === selected) ??
@@ -160,7 +175,14 @@ export function App() {
   };
 
   return (
-    <div className="app-shell">
+    <div className={`app-shell rem-phase-${remState.phase}`}>
+      <REMDreamSubstrate
+        crystallized={remCrystallized}
+        resonance={resonance}
+        founderMode={founder}
+        onState={setREMState}
+      />
+      <REMRuntimeHUD state={remState} />
       <aside className="sidebar">
         <div className="brand">
           <div className="brand-logo">
@@ -191,6 +213,13 @@ export function App() {
               <strong>{founder ? "Founder Root" : "Standard User"}</strong>
             </div>
           </div>
+          <button
+            className="rem-crystallize-toggle"
+            onClick={() => setREMCrystallized((current) => !current)}
+          >
+            <Sparkles size={16} />
+            {remCrystallized ? "Dissolve UI Lattice" : "Crystallize UI Lattice"}
+          </button>
           <button className="founder-toggle" onClick={toggleFounder}>
             {founder ? <Eye size={16} /> : <LockKeyhole size={16} />}
             {founder ? "Founder View Active" : "Founder View Sealed"}
@@ -238,7 +267,7 @@ export function App() {
             <div>
               <span>Meantime Quotient</span>
               <strong>
-                {(metrology.meantimeQuotient * 100).toFixed(1)}
+                {(remState.meantimeQuotient * 100).toFixed(1)}
               </strong>
               <small>Practical resonance</small>
             </div>

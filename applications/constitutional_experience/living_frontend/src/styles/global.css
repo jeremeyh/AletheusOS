@@ -496,3 +496,171 @@
     animation: none !important;
   }
 }
+
+
+/* ================================================================
+   GENESIS 39.2.3 — REM™ LIVING EXPERIENCE RUNTIME
+   ================================================================ */
+
+.rem-dream-substrate {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  opacity: .86;
+  filter: saturate(112%) contrast(104%);
+}
+
+.app-shell > .sidebar,
+.app-shell > main {
+  position: relative;
+  z-index: 3;
+}
+
+.rem-runtime-hud {
+  position: fixed;
+  z-index: 10;
+  right: 24px;
+  top: 78px;
+  width: 174px;
+  padding: 11px 12px;
+  border: 1px solid rgba(97, 215, 255, .13);
+  border-radius: 13px;
+  background: rgba(3, 7, 13, .66);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .035),
+    0 16px 36px rgba(0, 0, 0, .28);
+  backdrop-filter: blur(18px) saturate(128%);
+  pointer-events: none;
+}
+
+.rem-runtime-hud > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #61d7ff;
+  font: 600 8px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .13em;
+}
+
+.rem-runtime-hud > span i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #72e6b7;
+  box-shadow: 0 0 10px rgba(114, 230, 183, .72);
+}
+
+.rem-runtime-hud > strong {
+  display: block;
+  margin: 5px 0 8px;
+  color: #dce7f4;
+  font: 650 11px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.rem-runtime-hud dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin: 0;
+}
+
+.rem-runtime-hud dl div {
+  min-width: 0;
+}
+
+.rem-runtime-hud dt {
+  color: #667286;
+  font: 500 7px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+  text-transform: uppercase;
+}
+
+.rem-runtime-hud dd {
+  margin: 2px 0 0;
+  color: #aebbd0;
+  font: 600 9px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.rem-crystallize-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 38px;
+  padding: 8px 10px;
+  border: 1px solid rgba(231, 195, 95, .23);
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, rgba(231, 195, 95, .075), transparent),
+    rgba(6, 9, 15, .72);
+  color: #d8bc64;
+  font-size: 10px;
+  letter-spacing: .03em;
+  cursor: pointer;
+}
+
+.rem-phase-nucleating .hero,
+.rem-phase-condensing .hero,
+.rem-phase-transforming .hero {
+  filter: saturate(112%);
+}
+
+.rem-phase-dissolving .instrument-grid,
+.rem-phase-dissolving .metrology-grid,
+.rem-phase-dissolving .detail-grid {
+  opacity: .52;
+  filter: blur(2.6px) saturate(.72);
+  transform: scale(.992);
+  transition:
+    opacity .85s cubic-bezier(.16, 1, .3, 1),
+    filter .85s cubic-bezier(.16, 1, .3, 1),
+    transform .85s cubic-bezier(.16, 1, .3, 1);
+}
+
+.rem-phase-ambient .instrument-grid,
+.rem-phase-ambient .metrology-grid,
+.rem-phase-ambient .detail-grid {
+  opacity: .2;
+  filter: blur(7px) saturate(.54);
+  transform: scale(.985);
+  transition:
+    opacity 1.2s cubic-bezier(.16, 1, .3, 1),
+    filter 1.2s cubic-bezier(.16, 1, .3, 1),
+    transform 1.2s cubic-bezier(.16, 1, .3, 1);
+}
+
+.rem-phase-stabilized .instrument-grid,
+.rem-phase-stabilized .metrology-grid,
+.rem-phase-stabilized .detail-grid {
+  opacity: 1;
+  filter: none;
+  transform: none;
+  transition:
+    opacity 1.1s cubic-bezier(.16, 1, .3, 1),
+    filter 1.1s cubic-bezier(.16, 1, .3, 1),
+    transform 1.1s cubic-bezier(.16, 1, .3, 1);
+}
+
+@media (max-width: 1100px) {
+  .rem-runtime-hud {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rem-dream-substrate {
+    opacity: .48;
+  }
+
+  .rem-phase-dissolving .instrument-grid,
+  .rem-phase-ambient .instrument-grid,
+  .rem-phase-stabilized .instrument-grid,
+  .rem-phase-dissolving .metrology-grid,
+  .rem-phase-ambient .metrology-grid,
+  .rem-phase-stabilized .metrology-grid {
+    transition: none !important;
+  }
+}

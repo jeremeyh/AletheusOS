@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AletheusOS REM Runtime State",
+  "type": "object",
+  "required": [
+    "phase",
+    "coherence",
+    "targetCoherence",
+    "crystallized",
+    "particleCount",
+    "frameTimeMs",
+    "frameVarianceMs",
+    "meantimeQuotient",
+    "droppedFrameRatio"
+  ],
+  "properties": {
+    "phase": {
+      "enum": [
+        "ambient",
+        "nucleating",
+        "condensing",
+        "stabilized",
+        "transforming",
+        "dissolving"
+      ]
+    },
+    "coherence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "targetCoherence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "crystallized": {
+      "type": "boolean"
+    },
+    "particleCount": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "frameTimeMs": {
+      "type": "number",
+      "minimum": 0
+    },
+    "frameVarianceMs": {
+      "type": "number",
+      "minimum": 0
+    },
+    "meantimeQuotient": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "droppedFrameRatio": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  }
+}
