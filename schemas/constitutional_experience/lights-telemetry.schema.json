@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LIGHTS Telemetry State",
+  "type": "object",
+  "required": [
+    "veracity",
+    "consensus",
+    "contradiction",
+    "elasticity",
+    "fieldDensity",
+    "resonance"
+  ],
+  "properties": {
+    "veracity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "consensus": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "contradiction": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "elasticity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "fieldDensity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "resonance": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "meantimeQuotient": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  },
+  "additionalProperties": true
+}

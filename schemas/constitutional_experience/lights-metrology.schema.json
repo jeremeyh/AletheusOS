@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AletheusOS LIGHTS Metrology Snapshot",
+  "type": "object",
+  "required": [
+    "timestamp",
+    "loudness",
+    "phaseCorrelation",
+    "stereoWidth",
+    "practicalResonance",
+    "meantimeQuotient",
+    "harmonicStability",
+    "signalIntegrity",
+    "noiseFloor",
+    "fft",
+    "channels"
+  ],
+  "properties": {
+    "timestamp": {
+      "type": "number"
+    },
+    "loudness": {
+      "type": "object",
+      "required": [
+        "shortTerm",
+        "integrated",
+        "momentary",
+        "truePeak",
+        "range"
+      ],
+      "properties": {
+        "shortTerm": {
+          "type": "number"
+        },
+        "integrated": {
+          "type": "number"
+        },
+        "momentary": {
+          "type": "number"
+        },
+        "truePeak": {
+          "type": "number"
+        },
+        "range": {
+          "type": "number"
+        }
+      }
+    },
+    "phaseCorrelation": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "stereoWidth": {
+      "type": "number",
+      "minimum": 0
+    },
+    "practicalResonance": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "meantimeQuotient": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "harmonicStability": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "signalIntegrity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "noiseFloor": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "fft": {
+      "type": "array",
+      "minItems": 52,
+      "maxItems": 52,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      }
+    },
+    "channels": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      }
+    }
+  }
+}
