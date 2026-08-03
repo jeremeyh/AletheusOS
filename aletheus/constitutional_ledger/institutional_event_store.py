@@ -9,7 +9,7 @@ from .institutional_events import InstitutionalLedgerEvent
 
 
 def _parse_timestamp(value: str) -> datetime:
-    return datetime.fromisoformat(value.replace("Z", "+00:00"))
+    return datetime.fromisoformat(value)
 
 
 class DuplicateInstitutionalEventError(ValueError):

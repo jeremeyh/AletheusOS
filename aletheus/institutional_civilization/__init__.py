@@ -39,30 +39,30 @@ from .validation import InstitutionValidationError
 from .wiring import InstitutionWiring
 
 __all__ = [
+    "CANONICAL_SECURITY_RELATIONSHIPS",
     # Bootstrap
     "CivilizationBootstrap",
     # Civilization Framework
     "CivilizationProjector",
     "CivilizationRegistry",
-    "DuplicateCivilizationError",
-    "canonical_civilizations",
-    # Institution Framework
-    "InstitutionProjector",
-    "InstitutionRegistry",
-    "InstitutionRecord",
-    "InstitutionStatus",
-    "InstitutionCriticality",
-    "DuplicateInstitutionError",
-    "InstitutionValidationError",
-    "canonical_institutions",
     # Constitutional Model
     "ConstitutionalLayer",
     "ConstitutionalPillar",
+    "DuplicateCivilizationError",
+    "DuplicateInstitutionError",
+    "InstitutionCriticality",
+    # Institution Framework
+    "InstitutionProjector",
+    "InstitutionRecord",
+    "InstitutionRegistry",
+    "InstitutionStatus",
+    "InstitutionValidationError",
+    "InstitutionWiring",
+    # Runtime
+    "InstitutionalCivilizationEngine",
     # Security Civilization
     "SecurityCivilizationLifecycle",
     "SecurityCivilizationProjector",
-    "CANONICAL_SECURITY_RELATIONSHIPS",
-    # Runtime
-    "InstitutionalCivilizationEngine",
-    "InstitutionWiring",
+    "canonical_civilizations",
+    "canonical_institutions",
 ]

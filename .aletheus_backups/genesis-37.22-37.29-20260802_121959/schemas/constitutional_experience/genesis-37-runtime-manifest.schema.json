@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Genesis 37 Runtime Manifest",
+  "type": "object",
+  "required": [
+    "packageName",
+    "version",
+    "genesis",
+    "runtimeModules"
+  ],
+  "properties": {
+    "genesis": {
+      "const": "37.22-37.29"
+    },
+    "runtimeModules": {
+      "type": "array"
+    }
+  }
+}

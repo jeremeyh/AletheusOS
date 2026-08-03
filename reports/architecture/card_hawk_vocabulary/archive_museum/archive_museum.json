@@ -1,0 +1,8 @@
+{
+  "application": "CARD_HAWK",
+  "library": "EXPERIENCE_VOCABULARY",
+  "module": "archive_museum",
+  "semanticFaithfulness": true,
+  "status": "ready",
+  "title": "Archive, Museum, and Provenance Language"
+}

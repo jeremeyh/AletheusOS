@@ -91,10 +91,7 @@ def should_check(path: Path) -> bool:
     if any(rel.startswith(prefix) for prefix in EXCLUDE_PREFIXES):
         return False
 
-    if path.suffix not in INCLUDE_SUFFIXES:
-        return False
-
-    return True
+    return path.suffix in INCLUDE_SUFFIXES
 
 
 def main():

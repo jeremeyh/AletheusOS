@@ -1,0 +1,8 @@
+{
+  "constitutionalMotion": true,
+  "module": "adaptive_runtime",
+  "renderNeutral": true,
+  "runtime": "ADAPTIVE_UI_WORKSPACE",
+  "status": "ready",
+  "title": "Adaptive Experience Runtime"
+}

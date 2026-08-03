@@ -1,0 +1,8 @@
+{
+  "application": "CARD_HAWK",
+  "library": "EXPERIENCE_VOCABULARY",
+  "module": "signal_observation",
+  "semanticFaithfulness": true,
+  "status": "ready",
+  "title": "Signal, Observation, and Intelligence Language"
+}

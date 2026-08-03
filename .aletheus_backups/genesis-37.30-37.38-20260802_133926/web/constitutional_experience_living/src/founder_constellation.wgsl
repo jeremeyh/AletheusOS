@@ -1,0 +1,1 @@
+struct S{time:f32,health:f32,security:f32,compliance:f32};@group(0)@binding(0)var<uniform>s:S;@fragment fn main(@builtin(position)p:vec4<f32>)->@location(0)vec4<f32>{let star=step(.985,fract(sin(dot(floor(p.xy),vec2<f32>(12.9898,78.233)))*43758.5453));let pulse=.75+.25*sin(s.time*.8+length(p.xy)*.01);return vec4<f32>(vec3<f32>(s.health,s.compliance,s.security)*star*pulse,star);}

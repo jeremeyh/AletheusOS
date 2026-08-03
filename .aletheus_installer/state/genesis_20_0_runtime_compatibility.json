@@ -1,0 +1,11 @@
+{
+  "backup": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_install_backups/genesis_20_0_runtime_compatibility/20260801_072806",
+  "release_id": "genesis_20_0_runtime_compatibility",
+  "status": "installed",
+  "targets": [
+    "aletheus/tooling/runtime_compatibility",
+    "tests/tooling/runtime_compatibility",
+    "docs/architecture/RUNTIME_COMPATIBILITY_MATRIX.md"
+  ],
+  "version": "20.0.0"
+}

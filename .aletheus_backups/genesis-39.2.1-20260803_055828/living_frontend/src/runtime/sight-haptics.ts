@@ -1,0 +1,2 @@
+export type SIGHTEvent="RESONANCE_ACHIEVED"|"PHASE_CRYSTALLIZATION"|"CONTRADICTION_TURBULENCE"|"FOUNDER_DECRYPTION";
+export class SIGHTHapticsDriver{trigger(e:SIGHTEvent,i=0.5){if(typeof navigator==="undefined"||!("vibrate" in navigator))return;const n=Math.max(0,Math.min(1,i));if(e==="RESONANCE_ACHIEVED")navigator.vibrate([10,30,20,40,30,50,80]);else if(e==="PHASE_CRYSTALLIZATION")navigator.vibrate([5,10,5]);else if(e==="FOUNDER_DECRYPTION")navigator.vibrate([150,50,200]);else{const d=Math.floor(n*200);navigator.vibrate([d,50,d*.5,30,d*.8]);}}}

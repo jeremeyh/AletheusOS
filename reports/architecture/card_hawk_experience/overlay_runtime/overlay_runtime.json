@@ -1,0 +1,10 @@
+{
+  "application": "CARD_HAWK",
+  "axiomUX": true,
+  "module": "overlay_runtime",
+  "nimble": true,
+  "runtime": "EXPERIENCE_COMPOSITION",
+  "status": "ready",
+  "title": "Universal Intelligence Overlay Runtime",
+  "uxr": true
+}

@@ -14,12 +14,18 @@ class Engine:
     CAPABILITY: ClassVar[str] = "Marketplace Execution Bridge"
 
     def evaluate(
-        self, mission: Mission, opportunity: Opportunity, policy: CollectorPolicy | None = None
+        self,
+        mission: Mission,
+        opportunity: Opportunity,
+        policy: CollectorPolicy | None = None,
     ) -> dict[str, Any]:
         active_policy = policy or CollectorPolicy()
         if not mission.mission_id.strip() or not mission.objective.strip():
             raise ValueError("Mission identity and objective are required.")
-        if min(mission.budget, opportunity.asking_price, opportunity.estimated_value) < 0:
+        if (
+            min(mission.budget, opportunity.asking_price, opportunity.estimated_value)
+            < 0
+        ):
             raise ValueError("Monetary values cannot be negative.")
         if (
             active_policy.allowed_markets
@@ -64,6 +70,8 @@ class Engine:
             },
         }
         payload["evidenceDigest"] = sha256(
-            repr((asdict(mission), asdict(opportunity), asdict(active_policy), payload)).encode()
+            repr(
+                (asdict(mission), asdict(opportunity), asdict(active_policy), payload)
+            ).encode()
         ).hexdigest()
         return payload

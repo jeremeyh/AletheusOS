@@ -1,7 +1,7 @@
 import shutil
 from pathlib import Path
 
-ROOT = Path(".").resolve()
+ROOT = Path.cwd()
 
 targets = [
     Path("engine/_ _init_ _ .py"),

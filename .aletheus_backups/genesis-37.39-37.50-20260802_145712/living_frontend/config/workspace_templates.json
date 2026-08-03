@@ -1,0 +1,17 @@
+{
+  "version": "37.50.0",
+  "templates": [
+    {
+      "id": "canonical-mission-field",
+      "name": "Canonical Mission Field"
+    },
+    {
+      "id": "security-operations",
+      "name": "SPARTAN Security Operations"
+    },
+    {
+      "id": "market-intelligence",
+      "name": "Card Hawk Market Intelligence"
+    }
+  ]
+}

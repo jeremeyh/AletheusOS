@@ -1,0 +1,11 @@
+import { execFileSync } from "node:child_process";
+import { cpSync, mkdirSync, rmSync } from "node:fs";
+import { resolve } from "node:path";
+const root=resolve(import.meta.dirname,"..");
+rmSync(resolve(root,"dist"),{recursive:true,force:true});
+execFileSync("tsc",["-p",resolve(root,"tsconfig.json")],{stdio:"inherit"});
+cpSync(resolve(root,"index.html"),resolve(root,"dist/index.html"));
+cpSync(resolve(root,"src/styles.css"),resolve(root,"dist/styles.css"));
+mkdirSync(resolve(root,"dist/wasm"),{recursive:true});
+cpSync(resolve(root,"public/wasm"),resolve(root,"dist/wasm"),{recursive:true,force:true});
+console.log("AletheusOS Living Experience static build complete.");

@@ -1,0 +1,16 @@
+{
+  "metrics": [
+    {
+      "evidence": [],
+      "name": "quality",
+      "score": 100.0,
+      "weight": 1.0
+    }
+  ],
+  "rationale": [
+    "quality: 100.00 weighted at 1.00"
+  ],
+  "score": 100.0,
+  "standard": "PSS",
+  "status": "production_certified"
+}

@@ -1,0 +1,10 @@
+{
+  "application": "CARD_HAWK",
+  "axiomUX": true,
+  "module": "mission_control",
+  "nimble": true,
+  "runtime": "EXPERIENCE_COMPOSITION",
+  "status": "ready",
+  "title": "Mission Control Experience",
+  "uxr": true
+}

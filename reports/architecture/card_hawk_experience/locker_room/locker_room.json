@@ -1,0 +1,10 @@
+{
+  "application": "CARD_HAWK",
+  "axiomUX": true,
+  "module": "locker_room",
+  "nimble": true,
+  "runtime": "EXPERIENCE_COMPOSITION",
+  "status": "ready",
+  "title": "Locker Room Experience",
+  "uxr": true
+}

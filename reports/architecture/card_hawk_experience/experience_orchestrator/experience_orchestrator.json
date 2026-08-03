@@ -1,0 +1,10 @@
+{
+  "application": "CARD_HAWK",
+  "axiomUX": true,
+  "module": "experience_orchestrator",
+  "nimble": true,
+  "runtime": "EXPERIENCE_COMPOSITION",
+  "status": "ready",
+  "title": "Card Hawk Experience Orchestrator",
+  "uxr": true
+}

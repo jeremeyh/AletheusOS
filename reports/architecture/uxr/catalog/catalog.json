@@ -1,0 +1,8 @@
+{
+  "catalogConstrained": true,
+  "module": "catalog",
+  "runtime": "Universal Experience Runtime",
+  "schemaDriven": true,
+  "status": "ready",
+  "title": "Component Catalog Registry"
+}

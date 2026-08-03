@@ -1,0 +1,8 @@
+{
+  "constitutionalMotion": true,
+  "module": "experience_physics",
+  "renderNeutral": true,
+  "runtime": "ADAPTIVE_UI_WORKSPACE",
+  "status": "ready",
+  "title": "Experience Physics Runtime"
+}

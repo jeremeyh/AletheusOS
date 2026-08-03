@@ -1,0 +1,8 @@
+{
+  "catalogConstrained": true,
+  "module": "session",
+  "runtime": "Universal Experience Runtime",
+  "schemaDriven": true,
+  "status": "ready",
+  "title": "Experience Session Manager"
+}

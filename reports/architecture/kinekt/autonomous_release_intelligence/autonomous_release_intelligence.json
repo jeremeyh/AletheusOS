@@ -1,0 +1,10 @@
+{
+  "decision": "promote",
+  "evidence": {
+    "compatibility": 100,
+    "production_score": 100,
+    "regression_confidence": 100,
+    "rollback_confidence": 100
+  },
+  "release_confidence": 100.0
+}

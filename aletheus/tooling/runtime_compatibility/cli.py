@@ -21,7 +21,5 @@ def main() -> int:
         root / "process_composer/constitutional-process-composition.json",
         args.output,
     ).build()
-    print(
-        "Runtime Compatibility complete: " f"compatible={report['compatible_count']}."
-    )
+    print(f"Runtime Compatibility complete: compatible={report['compatible_count']}.")
     return 0 if report["incompatible_count"] == 0 else 1

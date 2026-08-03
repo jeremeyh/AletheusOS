@@ -1,3 +1,0 @@
-aletheus
-aletheusos-genesis-ui
-aletheusos_kernel_sprint1

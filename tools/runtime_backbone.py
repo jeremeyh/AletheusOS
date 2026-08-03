@@ -175,8 +175,8 @@ def main():
     circuits = configure_circuits(composition.services["circuits"])
     mesh = configure_mesh(composition.services["service_mesh"])
     relay = configure_relay(composition.services["relay_network"])
-    registration = configure_registration(composition.services["registration"])
-    commands = configure_commands(composition.services["command_registry"])
+    configure_registration(composition.services["registration"])
+    configure_commands(composition.services["command_registry"])
     catalyst = composition.services["catalyst"]
 
     boot_report = boot_pipeline.execute()

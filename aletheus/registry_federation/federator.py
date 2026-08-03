@@ -74,9 +74,8 @@ def discover_engines():
 
     for root, dirs, files in os.walk("aletheus/intelligence"):
         for file in files:
-            if file.endswith(".py"):
-                if "Engine" in file:
-                    engines.append(file.replace(".py", ""))
+            if file.endswith(".py") and "Engine" in file:
+                engines.append(file.replace(".py", ""))
 
     return engines
 

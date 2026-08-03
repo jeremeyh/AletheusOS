@@ -1,0 +1,8 @@
+{
+  "constitutionalMotion": true,
+  "module": "scene_projection",
+  "renderNeutral": true,
+  "runtime": "ADAPTIVE_UI_WORKSPACE",
+  "status": "ready",
+  "title": "Scene Projection Compiler"
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.aletheus.ai/v34/genesis-34-decision-package.schema.json",
+  "title": "Genesis 34 Decision Intelligence Package",
+  "type": "object",
+  "required": [
+    "genesis34DecisionExpansion",
+    "decisionStages",
+    "humanAuthority",
+    "executionAuthorized",
+    "requiresHumanAuthorization"
+  ],
+  "properties": {
+    "genesis34DecisionExpansion": {
+      "const": true
+    },
+    "decisionStages": {
+      "type": "array",
+      "minItems": 12,
+      "items": {
+        "type": "string"
+      }
+    },
+    "humanAuthority": {
+      "const": "PRESERVED"
+    },
+    "executionAuthorized": {
+      "const": false
+    },
+    "requiresHumanAuthorization": {
+      "const": true
+    },
+    "runtimeHandoff": {
+      "const": "GENESIS_33"
+    },
+    "operationsHandoff": {
+      "const": "GENESIS_35"
+    },
+    "decisionDigest": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64
+    }
+  },
+  "additionalProperties": true
+}

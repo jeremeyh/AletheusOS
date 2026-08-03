@@ -54,9 +54,7 @@ class ConstitutionalSubscription:
         ):
             return False
 
-        if self.subject_prefix is not None and not str(event.subject).startswith(
-            self.subject_prefix
-        ):
-            return False
-
-        return True
+        return not (
+            self.subject_prefix is not None
+            and not str(event.subject).startswith(self.subject_prefix)
+        )

@@ -59,9 +59,8 @@ for node in ast.walk(tree):
             if isinstance(target, ast.Name):
                 target_name = target.id
 
-    elif isinstance(node, ast.AnnAssign):
-        if isinstance(node.target, ast.Name):
-            target_name = node.target.id
+    elif isinstance(node, ast.AnnAssign) and isinstance(node.target, ast.Name):
+        target_name = node.target.id
 
     if target_name == "LEGACY_REGISTRATION_FUNCTIONS" and isinstance(
         node.value, ast.Tuple

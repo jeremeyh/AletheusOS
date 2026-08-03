@@ -1,0 +1,8 @@
+{
+  "catalogConstrained": true,
+  "module": "streaming",
+  "runtime": "Universal Experience Runtime",
+  "schemaDriven": true,
+  "status": "ready",
+  "title": "Streaming and Progressive Hydration"
+}

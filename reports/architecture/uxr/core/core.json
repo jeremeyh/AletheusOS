@@ -1,0 +1,8 @@
+{
+  "catalogConstrained": true,
+  "module": "core",
+  "runtime": "Universal Experience Runtime",
+  "schemaDriven": true,
+  "status": "ready",
+  "title": "Universal Experience Runtime Core"
+}

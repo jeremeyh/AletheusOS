@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "templates": [
+    {
+      "id": "mission-control",
+      "name": "Mission Control",
+      "layoutMode": "adaptive",
+      "instruments": [
+        "mission-timeline",
+        "evidence-graph",
+        "confidence-field"
+      ]
+    },
+    {
+      "id": "founder-observatory",
+      "name": "Founder Observatory",
+      "restricted": true,
+      "authority": "founder-root-only",
+      "layoutMode": "ecosystem-totality",
+      "instruments": [
+        "ecosystem-map",
+        "developer-contributions",
+        "admin-activity",
+        "user-marketplace-flow",
+        "platform-health"
+      ]
+    }
+  ]
+}

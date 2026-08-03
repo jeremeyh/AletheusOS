@@ -1,0 +1,8 @@
+{
+  "constitutionalMotion": true,
+  "module": "layout_graph",
+  "renderNeutral": true,
+  "runtime": "ADAPTIVE_UI_WORKSPACE",
+  "status": "ready",
+  "title": "Layout Graph Compiler"
+}

@@ -58,22 +58,19 @@ class ConceptCollisionEngine:
             source.authority
             and target.authority
             and source.authority == target.authority
+        ) and (
+            source.owns and target.owns and source.owns.lower() == target.owns.lower()
         ):
-            if (
-                source.owns
-                and target.owns
-                and source.owns.lower() == target.owns.lower()
-            ):
-                return CollisionFinding(
-                    source=source,
-                    target=target,
-                    collision_type=CollisionType.AUTHORITY,
-                    severity=CollisionSeverity.VIOLATION,
-                    confidence=0.96,
-                    recommended_outcome=CollisionOutcome.REASSIGN_AUTHORITY,
-                    rationale="Two concepts claim the same sovereign authority domain.",
-                    requires_adr=True,
-                )
+            return CollisionFinding(
+                source=source,
+                target=target,
+                collision_type=CollisionType.AUTHORITY,
+                severity=CollisionSeverity.VIOLATION,
+                confidence=0.96,
+                recommended_outcome=CollisionOutcome.REASSIGN_AUTHORITY,
+                rationale="Two concepts claim the same sovereign authority domain.",
+                requires_adr=True,
+            )
 
         source_terms = source.normalized_terms()
         target_terms = target.normalized_terms()

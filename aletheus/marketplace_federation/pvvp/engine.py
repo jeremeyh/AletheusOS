@@ -8,11 +8,16 @@ class Engine:
     MAX_DELTA = 0.02
     AUTH_MIN = 0.95
 
-    def inspect(self, manifest: tuple[float, ...], actual: tuple[float, ...]) -> dict[str, object]:
+    def inspect(
+        self, manifest: tuple[float, ...], actual: tuple[float, ...]
+    ) -> dict[str, object]:
         if len(manifest) != 6 or len(actual) != 6:
             raise ValueError("six-dimensional vectors required")
         if actual[5] < self.AUTH_MIN:
-            return {"status": "FAILED_COUNTERFEIT_RISK", "topology": "NEBULAR_PROBABILITY"}
+            return {
+                "status": "FAILED_COUNTERFEIT_RISK",
+                "topology": "NEBULAR_PROBABILITY",
+            }
         delta = math.sqrt(
             sum(w * ((a - b) ** 2) for w, a, b in zip(self.WEIGHTS, manifest, actual))
         )

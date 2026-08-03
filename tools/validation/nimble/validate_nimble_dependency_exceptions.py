@@ -62,7 +62,7 @@ REQUIRED_FIELDS = {
 def parse_datetime(
     value: str,
 ) -> datetime:
-    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    parsed = datetime.fromisoformat(value)
 
     if parsed.tzinfo is None:
         raise ValueError("Timestamp must include a timezone.")

@@ -1,0 +1,8 @@
+{
+  "application": "CARD_HAWK",
+  "library": "EXPERIENCE_VOCABULARY",
+  "module": "core",
+  "semanticFaithfulness": true,
+  "status": "ready",
+  "title": "Experience Vocabulary Core"
+}

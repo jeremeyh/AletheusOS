@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/components/adaptivefield.tsx","./src/components/founderobservatory.tsx","./src/components/instrumentcard.tsx","./src/components/orbitalfield.tsx","./src/runtime/telemetry.ts"],"version":"5.9.3"}

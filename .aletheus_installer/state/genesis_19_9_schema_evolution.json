@@ -1,0 +1,11 @@
+{
+  "backup": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_install_backups/genesis_19_9_schema_evolution/20260801_072759",
+  "release_id": "genesis_19_9_schema_evolution",
+  "status": "installed",
+  "targets": [
+    "aletheus/tooling/schema_evolution",
+    "tests/tooling/schema_evolution",
+    "docs/architecture/SCHEMA_EVOLUTION_ENGINE.md"
+  ],
+  "version": "19.9.0"
+}

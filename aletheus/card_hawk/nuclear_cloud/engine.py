@@ -12,7 +12,9 @@ class Engine:
             else (
                 "QUASI_CRYSTALLINE"
                 if density >= 0.85
-                else "FLUID_REACTIVE" if density >= 0.60 else "NEBULAR_PROBABILITY"
+                else "FLUID_REACTIVE"
+                if density >= 0.60
+                else "NEBULAR_PROBABILITY"
             )
         )
         return {

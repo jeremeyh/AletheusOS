@@ -9,7 +9,7 @@ class QDEF:
     def score(asset):
         thorx = float(asset.get("thorx_score") or 0)
         value = float(asset.get("current_value") or 0)
-        floor = float(asset.get("floor") or 0)
+        float(asset.get("floor") or 0)
         ceiling = float(asset.get("ceiling") or 0)
         confidence = float(asset.get("hawk_aeye_confidence") or 0)
 

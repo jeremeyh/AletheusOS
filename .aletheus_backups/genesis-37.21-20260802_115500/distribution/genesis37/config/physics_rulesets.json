@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "informationPhysics": {
+    "semanticGravity": {
+      "provenanceWeight": 0.35,
+      "consensusWeight": 0.35,
+      "valueWeight": 0.3
+    },
+    "respirationHz": 0.15,
+    "dynamicGlassIor": {
+      "minimum": 1.52,
+      "maximum": 2.42
+    },
+    "veracityPhases": [
+      {
+        "name": "nebular",
+        "maxExclusive": 0.6
+      },
+      {
+        "name": "fluid",
+        "minInclusive": 0.6,
+        "maxExclusive": 0.85
+      },
+      {
+        "name": "quasiCrystalline",
+        "minInclusive": 0.85,
+        "maxExclusive": 0.98
+      },
+      {
+        "name": "crystalline",
+        "minInclusive": 0.98
+      }
+    ]
+  }
+}

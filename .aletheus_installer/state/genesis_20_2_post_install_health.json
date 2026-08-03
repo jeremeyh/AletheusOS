@@ -1,0 +1,11 @@
+{
+  "backup": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_install_backups/genesis_20_2_post_install_health/20260801_072820",
+  "release_id": "genesis_20_2_post_install_health",
+  "status": "installed",
+  "targets": [
+    "aletheus/tooling/post_install_health",
+    "tests/tooling/post_install_health",
+    "docs/architecture/POST_INSTALL_HEALTH_VERIFICATION.md"
+  ],
+  "version": "20.2.0"
+}

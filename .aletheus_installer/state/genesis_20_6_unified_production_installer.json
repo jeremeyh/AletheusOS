@@ -1,0 +1,11 @@
+{
+  "backup": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_install_backups/genesis_20_6_unified_production_installer/20260801_072849",
+  "release_id": "genesis_20_6_unified_production_installer",
+  "status": "installed",
+  "targets": [
+    "aletheus/tooling/unified_production_installer",
+    "tests/tooling/unified_production_installer",
+    "docs/architecture/UNIFIED_PRODUCTION_INSTALLER.md"
+  ],
+  "version": "20.6.0"
+}

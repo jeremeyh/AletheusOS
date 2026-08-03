@@ -1,0 +1,12 @@
+{
+  "version": "37.50.0",
+  "instruments": [
+    "mission-health",
+    "runtime-topology",
+    "information-physics",
+    "constitutional-compliance",
+    "spartan-posture",
+    "market-intelligence",
+    "founder-observatory"
+  ]
+}

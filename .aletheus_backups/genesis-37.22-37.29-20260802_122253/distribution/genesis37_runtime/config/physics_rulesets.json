@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.1.0",
+  "informationalMass": {
+    "formula": "M = provenance * consensus * utility"
+  },
+  "consensusPressure": {
+    "formula": "P = weighted_consensus / total_utility"
+  },
+  "contradictionShear": {
+    "formula": "S = contradiction * (1 + min(1, abs(deltaV/deltaT)))"
+  },
+  "temporalMomentum": {
+    "formula": "T = deltaV * exp(-age/86400)"
+  },
+  "spring": {
+    "formula": "c = 2*zeta*sqrt(k*m)",
+    "substeps": 4,
+    "maxDtSeconds": 0.032
+  },
+  "poincare": {
+    "formula": "acosh(1 + 2||p-q||^2 / ((1-||p||^2)(1-||q||^2)))"
+  },
+  "respirationHz": 0.15,
+  "targetFps": [
+    60,
+    120
+  ],
+  "dynamicGlassIor": {
+    "min": 1.52,
+    "max": 2.42
+  }
+}

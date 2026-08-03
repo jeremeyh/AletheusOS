@@ -1,0 +1,11 @@
+{
+  "backup": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_install_backups/genesis_20_3_installation_provenance/20260801_072827",
+  "release_id": "genesis_20_3_installation_provenance",
+  "status": "installed",
+  "targets": [
+    "aletheus/tooling/installation_provenance",
+    "tests/tooling/installation_provenance",
+    "docs/architecture/INSTALLATION_PROVENANCE_LEDGER.md"
+  ],
+  "version": "20.3.0"
+}

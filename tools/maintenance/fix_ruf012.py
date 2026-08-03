@@ -23,10 +23,9 @@ import argparse
 import ast
 import json
 import sys
+from collections.abc import Iterable
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Iterable
-
 
 SKIP_DIR_NAMES = {
     ".git",
@@ -156,10 +155,7 @@ def should_skip(path: Path, root: Path) -> bool:
     if any(part in SKIP_DIR_NAMES for part in relative.parts[:-1]):
         return True
 
-    if any(path.name.endswith(suffix) for suffix in SKIP_FILE_SUFFIXES):
-        return True
-
-    return False
+    return bool(any(path.name.endswith(suffix) for suffix in SKIP_FILE_SUFFIXES))
 
 
 def iter_python_files(root: Path) -> Iterable[Path]:

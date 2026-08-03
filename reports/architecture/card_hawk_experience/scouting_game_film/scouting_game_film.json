@@ -1,0 +1,10 @@
+{
+  "application": "CARD_HAWK",
+  "axiomUX": true,
+  "module": "scouting_game_film",
+  "nimble": true,
+  "runtime": "EXPERIENCE_COMPOSITION",
+  "status": "ready",
+  "title": "Scouting Report and Game Film Experiences",
+  "uxr": true
+}

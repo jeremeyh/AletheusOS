@@ -1,0 +1,46 @@
+{
+  "metrics": [
+    {
+      "evidence": [],
+      "name": "deployability",
+      "score": 100,
+      "weight": 1.1
+    },
+    {
+      "evidence": [],
+      "name": "rollback",
+      "score": 100,
+      "weight": 1.2
+    },
+    {
+      "evidence": [],
+      "name": "backup",
+      "score": 100,
+      "weight": 0.9
+    },
+    {
+      "evidence": [],
+      "name": "provenance",
+      "score": 100,
+      "weight": 1.0
+    },
+    {
+      "evidence": [],
+      "name": "compatibility",
+      "score": 100,
+      "weight": 1.1
+    },
+    {
+      "evidence": [],
+      "name": "recovery",
+      "score": 100,
+      "weight": 1.2
+    }
+  ],
+  "rationale": [
+    "Operational confidence must survive failure, not only success."
+  ],
+  "score": 100.0,
+  "standard": "OEI",
+  "status": "operationally_certified"
+}

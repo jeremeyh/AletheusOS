@@ -48,10 +48,7 @@ class ConstitutionalLibraryGovernance:
         if not knowledge.statement.strip():
             return False
 
-        if knowledge.confidence < 0.50:
-            return False
-
-        return True
+        return not knowledge.confidence < 0.5
 
     #
     # Lifecycle

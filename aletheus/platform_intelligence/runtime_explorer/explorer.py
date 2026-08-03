@@ -411,15 +411,7 @@ class RuntimeExplorer:
         value: str,
     ) -> bool:
         if field == "text":
-            searchable = " ".join(
-                (
-                    item.address,
-                    item.canonical_name,
-                    item.description,
-                    item.owner,
-                    item.authority,
-                )
-            ).casefold()
+            searchable = f"{item.address} {item.canonical_name} {item.description} {item.owner} {item.authority}".casefold()
             return value in searchable
 
         values = {

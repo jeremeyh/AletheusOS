@@ -1,0 +1,8 @@
+{
+  "application": "CARD_HAWK",
+  "library": "EXPERIENCE_VOCABULARY",
+  "module": "competitive_domain",
+  "semanticFaithfulness": true,
+  "status": "ready",
+  "title": "Competitive Domain Language"
+}

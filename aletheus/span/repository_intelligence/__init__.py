@@ -1,5 +1,3 @@
-"""Genesis 36.1 — Repository Intelligence."""
-
+"""Genesis 36.20 — Repository Intelligence."""
 from .engine import Engine
-
-__all__ = ["Engine"]
+__all__=["Engine"]

@@ -1,0 +1,17 @@
+{
+  "name": "living_physics_core",
+  "type": "module",
+  "description": "Living spatial physics",
+  "version": "0.1.0",
+  "license": "Proprietary",
+  "files": [
+    "living_physics_core_bg.wasm",
+    "living_physics_core.js",
+    "living_physics_core.d.ts"
+  ],
+  "main": "living_physics_core.js",
+  "types": "living_physics_core.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

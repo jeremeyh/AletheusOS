@@ -1,0 +1,1 @@
+struct R{time:f32,coherence:f32,resonance:f32,urgency:f32};@group(0)@binding(0)var<uniform>r:R;@fragment fn main(@builtin(position)p:vec4<f32>)->@location(0)vec4<f32>{let h=.5+.5*sin(length(p.xy)*.08-r.time*2.0);let c=mix(mix(vec3<f32>(.04,.2,.38),vec3<f32>(.18,.82,.68),r.coherence),vec3<f32>(.92,.22,.08),r.urgency*.35);return vec4<f32>(c*(.8+.2*h*r.resonance),.92);}

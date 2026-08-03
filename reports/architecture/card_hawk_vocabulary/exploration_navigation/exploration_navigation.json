@@ -1,0 +1,8 @@
+{
+  "application": "CARD_HAWK",
+  "library": "EXPERIENCE_VOCABULARY",
+  "module": "exploration_navigation",
+  "semanticFaithfulness": true,
+  "status": "ready",
+  "title": "Exploration and Navigation Language"
+}

@@ -121,12 +121,8 @@ for name in sorted(dir(runtime_core)):
 
     module_name = type(value).__module__
 
-    if (
-        module_name.startswith("aletheus")
-        or name.endswith("_manager")
-        or name.endswith("_adapter")
-        or name.endswith("_domain")
-        or name.endswith("_core")
+    if module_name.startswith("aletheus") or name.endswith(
+        ("_manager", "_adapter", "_domain", "_core")
     ):
         candidate_components[name] = {
             "type": (f"{type(value).__module__}.{type(value).__qualname__}"),

@@ -90,9 +90,8 @@ class AletheusEventBus:
 
     def unsubscribe(self, topic, subscriber):
 
-        if topic in self.subscribers:
-            if subscriber in self.subscribers[topic]:
-                self.subscribers[topic].remove(subscriber)
+        if topic in self.subscribers and subscriber in self.subscribers[topic]:
+            self.subscribers[topic].remove(subscriber)
 
         return {
             "topic": topic,

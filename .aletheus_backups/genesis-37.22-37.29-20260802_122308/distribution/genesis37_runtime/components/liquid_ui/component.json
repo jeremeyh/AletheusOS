@@ -1,0 +1,11 @@
+{
+  "id": "liquid_ui",
+  "runtime": "AxiomUX",
+  "shaders": [
+    "particle_system.wgsl",
+    "dynamic_glass.wgsl",
+    "topological_mesh.wgsl",
+    "lighting_environment.wgsl",
+    "contradiction_shear.wgsl"
+  ]
+}

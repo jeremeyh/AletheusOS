@@ -6,16 +6,14 @@ class ConstitutionalSimilarityEngine:
     VERSION = "0.1.0"
 
     def score(self, query_terms: list[str], record: dict):
-        haystack = set(
-            [
-                *record.get("tags", []),
-                *record.get("keywords", []),
-                *record.get("entities", []),
-                record.get("application", ""),
-                record.get("relix_profile", ""),
-                record.get("recommendation", ""),
-            ]
-        )
+        haystack = {
+            *record.get("tags", []),
+            *record.get("keywords", []),
+            *record.get("entities", []),
+            record.get("application", ""),
+            record.get("relix_profile", ""),
+            record.get("recommendation", ""),
+        }
 
         query = set(query_terms)
 

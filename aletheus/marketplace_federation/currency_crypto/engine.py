@@ -6,4 +6,8 @@ class Engine:
         if amount < 0 or rate <= 0 or fee < 0:
             raise ValueError("invalid conversion")
         gross = amount * rate
-        return {"gross": round(gross, 8), "fee": round(fee, 8), "net": round(gross - fee, 8)}
+        return {
+            "gross": round(gross, 8),
+            "fee": round(fee, 8),
+            "net": round(gross - fee, 8),
+        }

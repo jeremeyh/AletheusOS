@@ -28,9 +28,8 @@ for py in ROOT.rglob("*.py"):
             for alias in node.names:
                 check_module(py, alias.name)
 
-        elif isinstance(node, ast.ImportFrom):
-            if node.module:
-                check_module(py, node.module)
+        elif isinstance(node, ast.ImportFrom) and node.module:
+            check_module(py, node.module)
 
 print("=" * 80)
 print("MISSING IMPORTS")

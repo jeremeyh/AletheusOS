@@ -1,0 +1,9 @@
+{
+  "application": "CARD_HAWK",
+  "contextPreserving": true,
+  "graphDriven": true,
+  "module": "intelligence_dock",
+  "runtime": "EXPERIENCE_NAVIGATION",
+  "status": "ready",
+  "title": "Intelligence Dock Runtime"
+}

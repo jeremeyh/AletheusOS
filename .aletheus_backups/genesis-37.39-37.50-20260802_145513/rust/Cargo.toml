@@ -1,0 +1,17 @@
+[workspace]
+resolver = "2"
+members = ["living_physics_core","resonance_field_core","ambient_elasticity_core"]
+[workspace.package]
+edition = "2021"
+license = "Proprietary"
+version = "0.1.0"
+[workspace.dependencies]
+wasm-bindgen = "0.2"
+serde = { version = "1", features = ["derive"] }
+serde-wasm-bindgen = "0.6"
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

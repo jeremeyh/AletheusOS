@@ -1,0 +1,8 @@
+{
+  "aggregates": {
+    "latency": 1.0,
+    "throughput": 100.0
+  },
+  "sample_count": 1,
+  "status": "observable"
+}

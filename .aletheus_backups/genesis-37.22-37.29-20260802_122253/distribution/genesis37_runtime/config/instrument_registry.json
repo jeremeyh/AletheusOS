@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.1.0",
+  "liveRegistration": true,
+  "instruments": [
+    {
+      "id": "evidence-field",
+      "type": "webgpu",
+      "userComposable": true
+    },
+    {
+      "id": "mission-health",
+      "type": "telemetry",
+      "userComposable": true
+    },
+    {
+      "id": "runtime-topology",
+      "type": "graph",
+      "userComposable": false,
+      "founderOnly": true
+    },
+    {
+      "id": "developer-activity",
+      "type": "telemetry",
+      "userComposable": false,
+      "founderOnly": true
+    },
+    {
+      "id": "admin-activity",
+      "type": "telemetry",
+      "userComposable": false,
+      "founderOnly": true
+    },
+    {
+      "id": "security-posture",
+      "type": "telemetry",
+      "userComposable": false,
+      "founderOnly": true
+    }
+  ]
+}

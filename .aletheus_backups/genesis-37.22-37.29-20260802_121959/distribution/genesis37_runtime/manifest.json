@@ -1,0 +1,44 @@
+{
+  "$schema": "schemas/constitutional_experience/genesis-37-runtime-manifest.schema.json",
+  "packageName": "AletheusOS-Genesis37-Runtime",
+  "version": "1.1.0",
+  "genesis": "37.22-37.29",
+  "artifactState": "build-pending",
+  "capabilities": [
+    "WebGPU rendering",
+    "WASM execution",
+    "physics simulation",
+    "spatial layout engines",
+    "hyperbolic navigation",
+    "high-performance telemetry",
+    "real-time UI animation",
+    "workspace composition",
+    "Founder Observatory"
+  ],
+  "runtimeModules": [
+    {
+      "id": "info_physics",
+      "crate": "info_physics_core",
+      "mount": "core/physics"
+    },
+    {
+      "id": "axiomux_renderer",
+      "crate": "axiomux_renderer",
+      "mount": "core/renderer"
+    },
+    {
+      "id": "hyperbolic_navigation",
+      "crate": "hyperbolic_engine",
+      "mount": "core/navigation"
+    },
+    {
+      "id": "telemetry",
+      "crate": "telemetry_core",
+      "mount": "core/telemetry"
+    }
+  ],
+  "security": {
+    "founderObservatory": "founder-root-only",
+    "publicExtensionSurface": false
+  }
+}

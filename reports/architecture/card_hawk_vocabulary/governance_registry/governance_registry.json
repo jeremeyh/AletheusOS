@@ -1,0 +1,8 @@
+{
+  "application": "CARD_HAWK",
+  "library": "EXPERIENCE_VOCABULARY",
+  "module": "governance_registry",
+  "semanticFaithfulness": true,
+  "status": "ready",
+  "title": "Vocabulary Governance Registry"
+}

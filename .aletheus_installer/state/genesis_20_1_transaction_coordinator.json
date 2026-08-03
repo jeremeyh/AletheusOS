@@ -1,0 +1,11 @@
+{
+  "backup": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_install_backups/genesis_20_1_transaction_coordinator/20260801_072813",
+  "release_id": "genesis_20_1_transaction_coordinator",
+  "status": "installed",
+  "targets": [
+    "aletheus/tooling/transaction_coordinator",
+    "tests/tooling/transaction_coordinator",
+    "docs/architecture/TRANSACTION_COORDINATOR.md"
+  ],
+  "version": "20.1.0"
+}

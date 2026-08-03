@@ -62,6 +62,6 @@ class RepositoryDNAScanner:
 
     def _infer_status(self, name: str) -> SubsystemStatus:
         n = name.lower()
-        if n.endswith("_v2") or n.endswith("_v3"):
+        if n.endswith(("_v2", "_v3")):
             return SubsystemStatus.TRANSITIONAL
         return SubsystemStatus.ACTIVE

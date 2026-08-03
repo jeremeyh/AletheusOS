@@ -1,0 +1,8 @@
+{
+  "constitutionalMotion": true,
+  "module": "spatial_equilibrium",
+  "renderNeutral": true,
+  "runtime": "ADAPTIVE_UI_WORKSPACE",
+  "status": "ready",
+  "title": "Spatial Equilibrium Engine"
+}

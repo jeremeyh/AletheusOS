@@ -39,8 +39,7 @@ class ActivationManager:
         allowed = self.VALID_TRANSITIONS.get(state.lifecycle, set())
         if target not in allowed:
             raise ValueError(
-                f"Invalid transition for {engine_name}: "
-                f"{state.lifecycle} -> {target}"
+                f"Invalid transition for {engine_name}: {state.lifecycle} -> {target}"
             )
         state.lifecycle = target
         state.active = target == "active"

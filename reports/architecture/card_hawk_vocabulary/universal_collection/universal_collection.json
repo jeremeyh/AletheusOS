@@ -1,0 +1,8 @@
+{
+  "application": "CARD_HAWK",
+  "library": "EXPERIENCE_VOCABULARY",
+  "module": "universal_collection",
+  "semanticFaithfulness": true,
+  "status": "ready",
+  "title": "Universal Collection Language"
+}

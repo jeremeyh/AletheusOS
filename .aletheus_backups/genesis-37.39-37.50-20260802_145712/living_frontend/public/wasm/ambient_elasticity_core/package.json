@@ -1,0 +1,17 @@
+{
+  "name": "ambient_elasticity_core",
+  "type": "module",
+  "description": "Ambient elasticity manifold",
+  "version": "0.1.0",
+  "license": "Proprietary",
+  "files": [
+    "ambient_elasticity_core_bg.wasm",
+    "ambient_elasticity_core.js",
+    "ambient_elasticity_core.d.ts"
+  ],
+  "main": "ambient_elasticity_core.js",
+  "types": "ambient_elasticity_core.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

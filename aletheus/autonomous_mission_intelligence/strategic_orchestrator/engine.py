@@ -73,3 +73,30 @@ class Engine:
         recommendations: list[AgentRecommendation] | None = None,
     ) -> dict[str, Any]:
         return self.orchestrate(objective, missions, recommendations or [])
+
+
+# BEGIN GENESIS 34 DECISION INTELLIGENCE EXPANSION
+from .decision_pipeline import DecisionPipeline as _Genesis34DecisionPipeline
+
+if not getattr(Engine, "_genesis34_decision_expansion_installed", False):
+    _method_name = None
+    for _candidate in ("orchestrate", "execute", "evaluate"):
+        if callable(getattr(Engine, _candidate, None)):
+            _method_name = _candidate
+            break
+
+    if _method_name is None:
+        raise RuntimeError(
+            "Genesis 34 Strategic Orchestrator has no supported public method "
+            "(orchestrate, execute, or evaluate)."
+        )
+
+    _original_method = getattr(Engine, _method_name)
+
+    def _genesis34_decision_wrapped(self, *args, **kwargs):
+        base_result = _original_method(self, *args, **kwargs)
+        return _Genesis34DecisionPipeline().run(base_result)
+
+    setattr(Engine, _method_name, _genesis34_decision_wrapped)
+    Engine._genesis34_decision_expansion_installed = True
+# END GENESIS 34 DECISION INTELLIGENCE EXPANSION

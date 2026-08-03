@@ -1,0 +1,8 @@
+{
+  "catalogConstrained": true,
+  "module": "schema",
+  "runtime": "Universal Experience Runtime",
+  "schemaDriven": true,
+  "status": "ready",
+  "title": "GenUI Runtime Schema"
+}

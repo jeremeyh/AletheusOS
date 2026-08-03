@@ -1,0 +1,11 @@
+{
+  "backup": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_install_backups/genesis_19_7_release_graph/20260801_072743",
+  "release_id": "genesis_19_7_release_graph",
+  "status": "installed",
+  "targets": [
+    "aletheus/tooling/release_graph",
+    "tests/tooling/release_graph",
+    "docs/architecture/RELEASE_GRAPH.md"
+  ],
+  "version": "19.7.0"
+}

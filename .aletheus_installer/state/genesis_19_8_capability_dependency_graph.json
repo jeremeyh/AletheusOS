@@ -1,0 +1,11 @@
+{
+  "backup": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_install_backups/genesis_19_8_capability_dependency_graph/20260801_072751",
+  "release_id": "genesis_19_8_capability_dependency_graph",
+  "status": "installed",
+  "targets": [
+    "aletheus/tooling/capability_dependency_graph",
+    "tests/tooling/capability_dependency_graph",
+    "docs/architecture/CAPABILITY_DEPENDENCY_GRAPH.md"
+  ],
+  "version": "19.8.0"
+}

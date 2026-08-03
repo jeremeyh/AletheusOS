@@ -266,17 +266,17 @@ class Engine:
             "PRESENTATION",
             "API",
         } and self._contains_depth(scene.root):
-            warnings.append("THREE_DIMENSIONAL_DEPTH_REQUIRES_" "SEMANTIC_FLATTENING")
+            warnings.append("THREE_DIMENSIONAL_DEPTH_REQUIRES_SEMANTIC_FLATTENING")
 
         if target in {
             "REPORT",
             "PRESENTATION",
             "API",
         }:
-            warnings.append("CONTINUOUS_PHYSICS_REPRESENTED_AS_" "STATE_SNAPSHOT")
+            warnings.append("CONTINUOUS_PHYSICS_REPRESENTED_AS_STATE_SNAPSHOT")
 
         if target == "API":
-            warnings.append("VISUAL_MATERIALS_REPRESENTED_AS_" "SEMANTIC_METADATA")
+            warnings.append("VISUAL_MATERIALS_REPRESENTED_AS_SEMANTIC_METADATA")
 
         return tuple(warnings)
 

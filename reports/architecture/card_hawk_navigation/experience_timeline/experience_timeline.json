@@ -1,0 +1,9 @@
+{
+  "application": "CARD_HAWK",
+  "contextPreserving": true,
+  "graphDriven": true,
+  "module": "experience_timeline",
+  "runtime": "EXPERIENCE_NAVIGATION",
+  "status": "ready",
+  "title": "Experience Timeline Runtime"
+}

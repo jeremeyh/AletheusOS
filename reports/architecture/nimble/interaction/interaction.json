@@ -1,0 +1,6 @@
+{
+  "engine": "Engine",
+  "module": "interaction",
+  "status": "ready",
+  "title": "Interaction Primitives"
+}

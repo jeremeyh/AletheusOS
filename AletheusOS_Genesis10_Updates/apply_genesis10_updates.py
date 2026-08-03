@@ -389,7 +389,7 @@ def merge_directory(src: Path, dst: Path, dry: bool, m: Manifest) -> None:
             )
         return
     for item in sorted(src.rglob("*")):
-        rel, target = item.relative_to(src), dst / item.relative_to(src)
+        _rel, target = item.relative_to(src), dst / item.relative_to(src)
         if item.is_dir():
             if not dry:
                 target.mkdir(parents=True, exist_ok=True)

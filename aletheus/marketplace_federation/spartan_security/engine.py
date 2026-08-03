@@ -16,4 +16,8 @@ class Engine:
             reasons.append("TRANSACTION_RISK_TOO_HIGH")
         if amount >= 1000 and assurance < 3:
             reasons.append("STEP_UP_REQUIRED")
-        return {"authorized": not reasons, "reasons": tuple(reasons), "conclaveOnFailure": True}
+        return {
+            "authorized": not reasons,
+            "reasons": tuple(reasons),
+            "conclaveOnFailure": True,
+        }

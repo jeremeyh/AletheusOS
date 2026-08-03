@@ -19,7 +19,9 @@ class Engine:
         density = (
             "compact"
             if viewport_width < 640
-            else "comfortable" if viewport_width < 1024 else "expansive"
+            else "comfortable"
+            if viewport_width < 1024
+            else "expansive"
         )
         return {
             "density": density,

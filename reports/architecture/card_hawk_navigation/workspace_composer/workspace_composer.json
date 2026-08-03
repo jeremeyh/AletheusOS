@@ -1,0 +1,9 @@
+{
+  "application": "CARD_HAWK",
+  "contextPreserving": true,
+  "graphDriven": true,
+  "module": "workspace_composer",
+  "runtime": "EXPERIENCE_NAVIGATION",
+  "status": "ready",
+  "title": "Workspace Composer"
+}

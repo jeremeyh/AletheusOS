@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "instruments": [
+    {
+      "id": "mission-timeline",
+      "type": "timeline",
+      "draggable": true
+    },
+    {
+      "id": "evidence-graph",
+      "type": "graph",
+      "draggable": true
+    },
+    {
+      "id": "confidence-field",
+      "type": "physics-field",
+      "draggable": true
+    },
+    {
+      "id": "ecosystem-map",
+      "type": "founder-only",
+      "draggable": false
+    },
+    {
+      "id": "developer-contributions",
+      "type": "founder-only",
+      "draggable": false
+    },
+    {
+      "id": "admin-activity",
+      "type": "founder-only",
+      "draggable": false
+    }
+  ]
+}

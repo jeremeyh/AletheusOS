@@ -325,13 +325,7 @@ def main() -> None:
     for path in files:
         name = path.name.lower()
 
-        if (
-            name.endswith(".bak")
-            or name.endswith(".orig")
-            or name.endswith(".old")
-            or name.endswith("~")
-            or ".backup" in name
-        ):
+        if name.endswith((".bak", ".orig", ".old", "~")) or ".backup" in name:
             backup_rows.append(
                 {
                     "path": relative(path),

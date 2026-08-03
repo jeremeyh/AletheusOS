@@ -1,0 +1,12 @@
+[package]
+name="resonance_field_core"
+version.workspace=true
+edition.workspace=true
+license.workspace=true
+description="Practical resonance field"
+[lib]
+crate-type=["cdylib","rlib"]
+[dependencies]
+wasm-bindgen.workspace=true
+serde.workspace=true
+serde-wasm-bindgen.workspace=true

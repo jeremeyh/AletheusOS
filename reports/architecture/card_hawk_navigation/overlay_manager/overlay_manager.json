@@ -1,0 +1,9 @@
+{
+  "application": "CARD_HAWK",
+  "contextPreserving": true,
+  "graphDriven": true,
+  "module": "overlay_manager",
+  "runtime": "EXPERIENCE_NAVIGATION",
+  "status": "ready",
+  "title": "Overlay Manager"
+}

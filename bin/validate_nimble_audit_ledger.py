@@ -123,12 +123,7 @@ def main() -> int:
         occurred_at = event.get("occurred_at")
 
         try:
-            timestamp = datetime.fromisoformat(
-                occurred_at.replace(
-                    "Z",
-                    "+00:00",
-                )
-            )
+            timestamp = datetime.fromisoformat(occurred_at)
 
             if timestamp.tzinfo is None:
                 raise ValueError("timestamp has no timezone")

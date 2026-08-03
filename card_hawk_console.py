@@ -50,7 +50,7 @@ def main():
     print("SYSTEM STATUS")
     print("------------------------------")
 
-    for name, engine in systems.items():
+    for name in systems:
         print(f"✓ {name}: ONLINE")
 
     print("""

@@ -1,0 +1,58 @@
+{
+  "metrics": [
+    {
+      "evidence": [
+        "ruff"
+      ],
+      "name": "lint",
+      "score": 100,
+      "weight": 1.0
+    },
+    {
+      "evidence": [
+        "black"
+      ],
+      "name": "formatting",
+      "score": 100,
+      "weight": 0.8
+    },
+    {
+      "evidence": [
+        "pytest"
+      ],
+      "name": "tests",
+      "score": 100,
+      "weight": 1.4
+    },
+    {
+      "evidence": [
+        "coverage"
+      ],
+      "name": "coverage",
+      "score": 100,
+      "weight": 1.2
+    },
+    {
+      "evidence": [
+        "radon"
+      ],
+      "name": "complexity",
+      "score": 100,
+      "weight": 0.8
+    },
+    {
+      "evidence": [
+        "maintainability"
+      ],
+      "name": "maintainability",
+      "score": 100,
+      "weight": 0.8
+    }
+  ],
+  "rationale": [
+    "Engineering quality is evidence-weighted and reproducible."
+  ],
+  "score": 100.0,
+  "standard": "EQI",
+  "status": "engineering_certified"
+}

@@ -70,7 +70,7 @@ def test_create_tenant():
 def test_workspace():
 
     tenant = runtime_core.tenancy_v3.create_tenant(
-        organization_id=list(runtime_core.tenancy_v3.organizations.keys())[0],
+        organization_id=next(iter(runtime_core.tenancy_v3.organizations.keys())),
         name="Workspace Tenant",
     )
 

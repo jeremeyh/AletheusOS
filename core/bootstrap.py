@@ -36,7 +36,7 @@ class Bootstrap:
         # Discover Services
         # ---------------------------------------------------
 
-        service_modules, service_names = service_discovery.discover("services")
+        _service_modules, service_names = service_discovery.discover("services")
 
         print(f"Registered Services       : {len(service_names)}")
 

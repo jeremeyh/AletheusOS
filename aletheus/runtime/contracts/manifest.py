@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import FrozenSet
 
 
 @dataclass(frozen=True, slots=True)
@@ -12,9 +11,9 @@ class ComponentManifest:
     name: str
     version: str
     responsibility: str
-    provides: FrozenSet[str] = field(default_factory=frozenset)
-    requires: FrozenSet[str] = field(default_factory=frozenset)
-    constitutional_tags: FrozenSet[str] = field(default_factory=frozenset)
+    provides: frozenset[str] = field(default_factory=frozenset)
+    requires: frozenset[str] = field(default_factory=frozenset)
+    constitutional_tags: frozenset[str] = field(default_factory=frozenset)
 
     def __post_init__(self) -> None:
         if not self.component_id.strip():

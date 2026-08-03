@@ -1,0 +1,46 @@
+{
+  "metrics": [
+    {
+      "evidence": [],
+      "name": "boundary_integrity",
+      "score": 100,
+      "weight": 1.2
+    },
+    {
+      "evidence": [],
+      "name": "cycle_freedom",
+      "score": 100,
+      "weight": 1.1
+    },
+    {
+      "evidence": [],
+      "name": "registry_consistency",
+      "score": 100,
+      "weight": 1.0
+    },
+    {
+      "evidence": [],
+      "name": "authority_alignment",
+      "score": 100,
+      "weight": 1.2
+    },
+    {
+      "evidence": [],
+      "name": "cohesion",
+      "score": 100,
+      "weight": 0.9
+    },
+    {
+      "evidence": [],
+      "name": "constitutional_compliance",
+      "score": 100,
+      "weight": 1.4
+    }
+  ],
+  "rationale": [
+    "Architecture is judged by integrity, not visual neatness."
+  ],
+  "score": 100.0,
+  "standard": "AII",
+  "status": "architecture_certified"
+}

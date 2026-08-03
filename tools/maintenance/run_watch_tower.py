@@ -11,7 +11,7 @@ def main():
     parser.add_argument("--json", action="store_true", help="Print JSON output")
     args = parser.parse_args()
 
-    root = Path(".").resolve()
+    root = Path.cwd()
     engine = WatchTowerEngine(root)
 
     if args.repair:

@@ -1,0 +1,166 @@
+{
+  "transaction_id": "Genesis_19_7_19_8_19_9_20_0_20_1_20_2_20_3_20_4_20_5_20_6_Production_Lifecycle_Bundle_v6",
+  "status": "rolled_back",
+  "targets": [
+    {
+      "path": "aletheus/tooling/capability_dependency_graph",
+      "existed": false
+    },
+    {
+      "path": "aletheus/tooling/deployment_policy",
+      "existed": false
+    },
+    {
+      "path": "aletheus/tooling/installation_provenance",
+      "existed": false
+    },
+    {
+      "path": "aletheus/tooling/post_install_health",
+      "existed": false
+    },
+    {
+      "path": "aletheus/tooling/production_readiness",
+      "existed": false
+    },
+    {
+      "path": "aletheus/tooling/release_graph",
+      "existed": true
+    },
+    {
+      "path": "aletheus/tooling/runtime_compatibility",
+      "existed": false
+    },
+    {
+      "path": "aletheus/tooling/schema_evolution",
+      "existed": false
+    },
+    {
+      "path": "aletheus/tooling/transaction_coordinator",
+      "existed": false
+    },
+    {
+      "path": "aletheus/tooling/unified_production_installer",
+      "existed": false
+    },
+    {
+      "path": "docs/architecture/CAPABILITY_DEPENDENCY_GRAPH.md",
+      "existed": false
+    },
+    {
+      "path": "docs/architecture/DEPLOYMENT_POLICY_ENGINE.md",
+      "existed": false
+    },
+    {
+      "path": "docs/architecture/INSTALLATION_PROVENANCE_LEDGER.md",
+      "existed": false
+    },
+    {
+      "path": "docs/architecture/POST_INSTALL_HEALTH_VERIFICATION.md",
+      "existed": false
+    },
+    {
+      "path": "docs/architecture/PRODUCTION_READINESS_CERTIFICATION.md",
+      "existed": false
+    },
+    {
+      "path": "docs/architecture/RELEASE_GRAPH.md",
+      "existed": false
+    },
+    {
+      "path": "docs/architecture/RUNTIME_COMPATIBILITY_MATRIX.md",
+      "existed": false
+    },
+    {
+      "path": "docs/architecture/SCHEMA_EVOLUTION_ENGINE.md",
+      "existed": false
+    },
+    {
+      "path": "docs/architecture/TRANSACTION_COORDINATOR.md",
+      "existed": false
+    },
+    {
+      "path": "docs/architecture/UNIFIED_PRODUCTION_INSTALLER.md",
+      "existed": false
+    },
+    {
+      "path": "reports/architecture/kinekt/capability_dependency_graph",
+      "existed": false
+    },
+    {
+      "path": "reports/architecture/kinekt/deployment_policy",
+      "existed": false
+    },
+    {
+      "path": "reports/architecture/kinekt/installation_provenance",
+      "existed": false
+    },
+    {
+      "path": "reports/architecture/kinekt/post_install_health",
+      "existed": false
+    },
+    {
+      "path": "reports/architecture/kinekt/production_readiness",
+      "existed": false
+    },
+    {
+      "path": "reports/architecture/kinekt/release_graph",
+      "existed": false
+    },
+    {
+      "path": "reports/architecture/kinekt/runtime_compatibility",
+      "existed": false
+    },
+    {
+      "path": "reports/architecture/kinekt/schema_evolution",
+      "existed": false
+    },
+    {
+      "path": "reports/architecture/kinekt/transaction_coordinator",
+      "existed": false
+    },
+    {
+      "path": "reports/architecture/kinekt/unified_production_installer",
+      "existed": false
+    },
+    {
+      "path": "tests/tooling/capability_dependency_graph",
+      "existed": false
+    },
+    {
+      "path": "tests/tooling/deployment_policy",
+      "existed": false
+    },
+    {
+      "path": "tests/tooling/installation_provenance",
+      "existed": false
+    },
+    {
+      "path": "tests/tooling/post_install_health",
+      "existed": false
+    },
+    {
+      "path": "tests/tooling/production_readiness",
+      "existed": false
+    },
+    {
+      "path": "tests/tooling/release_graph",
+      "existed": true
+    },
+    {
+      "path": "tests/tooling/runtime_compatibility",
+      "existed": false
+    },
+    {
+      "path": "tests/tooling/schema_evolution",
+      "existed": false
+    },
+    {
+      "path": "tests/tooling/transaction_coordinator",
+      "existed": false
+    },
+    {
+      "path": "tests/tooling/unified_production_installer",
+      "existed": false
+    }
+  ]
+}

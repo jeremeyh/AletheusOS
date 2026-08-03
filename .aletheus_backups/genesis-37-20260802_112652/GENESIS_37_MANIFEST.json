@@ -1,0 +1,28 @@
+{
+  "release": "Genesis 37.0-37.18",
+  "system": "Constitutional Experience Intelligence",
+  "framework": "CEIE",
+  "author": "Jeremey Kyle",
+  "founder_layer": "constitutionally isolated",
+  "modules": [
+    "ceie_core",
+    "information_physics",
+    "axiomux_runtime",
+    "topological_fluidity",
+    "perceptual_telemetry",
+    "cognitive_ergonomics",
+    "biophilic_respiration",
+    "hyperbolic_workspace",
+    "veracity_phase",
+    "contradiction_shear",
+    "temporal_physics",
+    "spatial_physics",
+    "workspace_composer",
+    "standard_experience",
+    "admin_experience",
+    "developer_experience",
+    "founder_observatory",
+    "constitutional_isolation",
+    "experience_orchestrator"
+  ]
+}

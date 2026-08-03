@@ -7,7 +7,11 @@ def main() -> int:
     _ = Engine()
     print(
         json.dumps(
-            {"component": "Commerce Value Abstraction", "version": "31.5.0", "status": "READY"},
+            {
+                "component": "Commerce Value Abstraction",
+                "version": "31.5.0",
+                "status": "READY",
+            },
             indent=2,
         )
     )

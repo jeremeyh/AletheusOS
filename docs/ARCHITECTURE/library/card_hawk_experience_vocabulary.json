@@ -1,0 +1,762 @@
+{
+  "doctrine": {
+    "applicationLanguage": "What intelligence accomplishes",
+    "experienceVocabulary": "How humans naturally understand it",
+    "platformLanguage": "How intelligence works"
+  },
+  "libraryId": "card-hawk-experience-vocabulary",
+  "platformCapabilities": [
+    "A•3ye",
+    "THORᵡ",
+    "Council",
+    "Principle X",
+    "Evidence Engine",
+    "Knowledge Engine",
+    "Reason Engine",
+    "Memory Engine",
+    "Predictive Engine",
+    "Constitution",
+    "Truth",
+    "Balance Engine",
+    "Gathering Mesh",
+    "Temporal Graph"
+  ],
+  "terms": [
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "Controlled scope of observation and evidence intake.",
+      "name": "Aperture",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "ARCHIVE_MUSEUM",
+      "meaning": "Preserved historical and documentary record.",
+      "name": "Archive",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Historical record, documentation, and preserved collection knowledge.",
+      "name": "Archive",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Comprehensive landscape map of people, properties, categories, and markets.",
+      "name": "Atlas",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Comprehensive map of collections, categories, players, creators, and markets.",
+      "name": "Atlas",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Priority alert, opportunity, or warning signal.",
+      "name": "Beacon",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "High-confidence priority signal.",
+      "name": "Beacon",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "High-priority signal, alert, or emerging opportunity.",
+      "name": "Beacon",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Secondary holdings, developmental assets, or reserve opportunities.",
+      "name": "Bench",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMMAND_OPERATIONS",
+      "meaning": "Structured plan for a collection, acquisition campaign, or portfolio objective.",
+      "name": "Blueprint",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Primary navigation and orchestration environment.",
+      "name": "Bridge",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "ARCHIVE_MUSEUM",
+      "meaning": "Specialized private grouping of high-value or thematic assets.",
+      "name": "Cabinet",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Private thematic grouping of carefully selected collectibles.",
+      "name": "Cabinet",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "ARCHIVE_MUSEUM",
+      "meaning": "Structured searchable inventory of collectible assets.",
+      "name": "Catalog",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Milestone collection, portfolio, or acquisition achievement.",
+      "name": "Championship",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "ARCHIVE_MUSEUM",
+      "meaning": "Timeline of asset and collection history.",
+      "name": "Chronicle",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Narrative timeline of asset, collection, and market history.",
+      "name": "Chronicle",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "ARCHIVE_MUSEUM",
+      "meaning": "Broad organized view of owned assets.",
+      "name": "Collection Hall",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Broad organized presentation of owned assets.",
+      "name": "Collection Hall",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMMAND_OPERATIONS",
+      "meaning": "Unified intelligence and decision environment.",
+      "name": "Command Center",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Central operational and intelligence workspace.",
+      "name": "Command Center",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Strategic orientation and next-best-action guidance.",
+      "name": "Compass",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Guidance, orientation, and strategic next-step assistance.",
+      "name": "Compass",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "ARCHIVE_MUSEUM",
+      "meaning": "Condition, preservation, and long-term stewardship workspace.",
+      "name": "Conservation",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "Network of related assets, creators, franchises, and evidence.",
+      "name": "Constellation",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMMAND_OPERATIONS",
+      "meaning": "Oversight of concurrent acquisitions, listings, alerts, and portfolio flows.",
+      "name": "Control Tower",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "ARCHIVE_MUSEUM",
+      "meaning": "Guided organization, interpretation, and presentation intelligence.",
+      "name": "Curator",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Opportunity finding, category exploration, and emerging asset identification.",
+      "name": "Discovery",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMMAND_OPERATIONS",
+      "meaning": "Routing of actions, alerts, reports, and acquisition tasks.",
+      "name": "Dispatch",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Ranked acquisition candidates and future collection targets.",
+      "name": "Draft Board",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Long-horizon strategy centered on enduring portfolio strength.",
+      "name": "Dynasty",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "Recurring pattern, repeated signal, or historical resonance.",
+      "name": "Echo",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "ARCHIVE_MUSEUM",
+      "meaning": "Focused presentation around a theme, creator, event, franchise, or period.",
+      "name": "Exhibit",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Focused presentation around a theme, creator, franchise, event, or era.",
+      "name": "Exhibit",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Guided research and discovery journey.",
+      "name": "Expedition",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Purposeful research journey through a market, collection, or category.",
+      "name": "Expedition",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Ability to perceive the broader collectible landscape beyond the asset immediately in view.",
+      "name": "Field Vision",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "Connected, contextual awareness across the entire collectible landscape.",
+      "name": "Field Vision",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Concluded decision outcome after evidence and governance review.",
+      "name": "Final Score",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Real-time operational controls and high-priority intelligence instruments.",
+      "name": "Flight Deck",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMMAND_OPERATIONS",
+      "meaning": "Construction and refinement of advanced collection intelligence artifacts.",
+      "name": "Forge",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMMAND_OPERATIONS",
+      "meaning": "Creation of reports, strategies, valuation models, and collection outputs.",
+      "name": "Foundry",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Place where collection strategies, reports, and structured outputs are formed.",
+      "name": "Foundry",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "ARCHIVE_MUSEUM",
+      "meaning": "Curated visual collection view.",
+      "name": "Gallery",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Curated visual presentation of assets and collections.",
+      "name": "Gallery",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Historical review of prior sales, market behavior, and decision outcomes.",
+      "name": "Game Film",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Staging area for assets, scans, imports, and pending preparation.",
+      "name": "Hangar",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "ARCHIVE_MUSEUM",
+      "meaning": "Historical, cultural, and generational significance of an asset or collection.",
+      "name": "Heritage",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Projected market, collection, and opportunity outlook.",
+      "name": "Horizon",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Forward-looking market outlook and projected opportunity space.",
+      "name": "Horizon",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "Interpreted understanding derived from governed evidence.",
+      "name": "Insight",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMMAND_OPERATIONS",
+      "meaning": "Controlled analytical environment for experimentation and validation.",
+      "name": "Laboratory",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "ARCHIVE_MUSEUM",
+      "meaning": "Ownership, valuation, transaction, and audit history.",
+      "name": "Ledger",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Transaction, ownership, valuation, and audit record.",
+      "name": "Ledger",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "ARCHIVE_MUSEUM",
+      "meaning": "Long-term impact, narrative, and enduring collection value.",
+      "name": "Legacy",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "Focused analytical perspective or filter.",
+      "name": "Lens",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Private collector workspace for preparation, organization, planning, and collection building.",
+      "name": "Locker Room",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Direct comparison between assets, opportunities, or market paths.",
+      "name": "Matchup",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMMAND_OPERATIONS",
+      "meaning": "Active mission orchestration and status management.",
+      "name": "Mission Control",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Coordinated execution view for active searches, acquisitions, and portfolio missions.",
+      "name": "Mission Control",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Central point where assets, markets, evidence, and intelligence converge.",
+      "name": "Nexus",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Primary long-term collecting objective or guiding principle.",
+      "name": "North Star",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "High-level market and collection observation environment.",
+      "name": "Observatory",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Whole-landscape monitoring, analysis, and discovery.",
+      "name": "Observatory",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMMAND_OPERATIONS",
+      "meaning": "Day-to-day activity and workflow coordination.",
+      "name": "Operations",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Extended review when evidence or negotiation remains unresolved.",
+      "name": "Overtime",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "Broad visual synthesis across domains.",
+      "name": "Panorama",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Broad, connected view across multiple assets and markets.",
+      "name": "Panorama",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Opportunity routing and collection-development guidance.",
+      "name": "Pathfinder",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Saved strategies, rules, acquisition plans, and portfolio tactics.",
+      "name": "Playbook",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Ordered view of assets, categories, or opportunities by governed strength.",
+      "name": "Power Rankings",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "ARCHIVE_MUSEUM",
+      "meaning": "Authenticity, origin, ownership, and evidence lineage.",
+      "name": "Provenance",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Chain of origin, ownership, authenticity, and evidentiary support.",
+      "name": "Provenance",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "Current activity, momentum, and health.",
+      "name": "Pulse",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Current state, movement, momentum, or activity level.",
+      "name": "Pulse",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMMAND_OPERATIONS",
+      "meaning": "Ordered work, review, and decision pipeline.",
+      "name": "Queue",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Continuous monitoring for market movement, listings, risk, and anomalies.",
+      "name": "Radar",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "Continuous monitoring across marketplaces and categories.",
+      "name": "Radar",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMMAND_OPERATIONS",
+      "meaning": "Process for improving metadata, evidence quality, valuation, or collection strategy.",
+      "name": "Refinery",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "ARCHIVE_MUSEUM",
+      "meaning": "Canonical identification and classification system.",
+      "name": "Registry",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Canonical index of assets, identities, provenance, and classification.",
+      "name": "Registry",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "ARCHIVE_MUSEUM",
+      "meaning": "Documented repair, recovery, or condition-improvement history.",
+      "name": "Restoration",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Focused monitoring of emerging creators, players, releases, or properties.",
+      "name": "Rookie Watch",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Defined sequence of actions toward a collecting objective.",
+      "name": "Route",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "At-a-glance portfolio, market, and acquisition performance state.",
+      "name": "Scoreboard",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Deep intelligence report on a player, creator, franchise, asset, or category.",
+      "name": "Scouting Report",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Public or presentation-focused display of selected assets.",
+      "name": "Showcase",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Watchlist, monitoring queue, and non-active opportunities.",
+      "name": "Sideline",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "Meaningful indicator extracted from data and events.",
+      "name": "Signal",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Meaningful event, condition, anomaly, or intelligence indicator.",
+      "name": "Signal",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMMAND_OPERATIONS",
+      "meaning": "Focused response space for major market, portfolio, or asset events.",
+      "name": "Situation Room",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "Multi-dimensional distribution of value, risk, scarcity, and momentum.",
+      "name": "Spectrum",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "Focused attention on a high-priority asset, creator, or event.",
+      "name": "Spotlight",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Highest-priority or core assets within a portfolio.",
+      "name": "Starting Lineup",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "Acceptable acquisition-value range under THORᵡ governance.",
+      "name": "Strike Zone",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMMAND_OPERATIONS",
+      "meaning": "Creative environment for curation, storytelling, and presentation.",
+      "name": "Studio",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Structured inspection of a market, category, asset, or collection.",
+      "name": "Surveyor",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "Live operational and market measurements.",
+      "name": "Telemetry",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Starting point for a new market, category, or research path.",
+      "name": "Trailhead",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Concentrated view of prized, rare, or strategically important assets.",
+      "name": "Treasury",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "UNIVERSAL_COLLECTION",
+      "meaning": "Secure ownership, storage, and private asset stewardship.",
+      "name": "Vault",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMPETITIVE_DOMAIN",
+      "meaning": "High-stakes evaluation and acquisition decision environment.",
+      "name": "War Room",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "SIGNAL_OBSERVATION",
+      "meaning": "Persistent high-level monitoring for risk, opportunity, and change.",
+      "name": "Watchtower",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "EXPLORATION_NAVIGATION",
+      "meaning": "Saved point within a research, acquisition, or collection journey.",
+      "name": "Waypoint",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    },
+    {
+      "canonical": true,
+      "domain_family": "COMMAND_OPERATIONS",
+      "meaning": "Hands-on asset preparation, metadata refinement, and collection maintenance.",
+      "name": "Workshop",
+      "tier": "HUMAN_EXPERIENCE_LANGUAGE"
+    }
+  ],
+  "version": "27.0.0-revb"
+}

@@ -1,0 +1,8 @@
+{
+  "constitutionalMotion": true,
+  "module": "intent_density",
+  "renderNeutral": true,
+  "runtime": "ADAPTIVE_UI_WORKSPACE",
+  "status": "ready",
+  "title": "Intent and Density Resolver"
+}

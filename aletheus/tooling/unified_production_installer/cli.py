@@ -17,5 +17,5 @@ def main() -> int:
     )
     args = parser.parse_args()
     report = Engine(args.output).plan(args.environment)
-    print("Unified Production Installer complete: " f"stages={report['stage_count']}.")
+    print(f"Unified Production Installer complete: stages={report['stage_count']}.")
     return 0

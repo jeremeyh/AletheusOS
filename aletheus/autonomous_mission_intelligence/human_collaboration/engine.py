@@ -16,7 +16,9 @@ class Engine:
         level = (
             "EXECUTIVE"
             if risk_score >= 0.8
-            else "OWNER" if risk_score >= 0.5 else "REVIEWER"
+            else "OWNER"
+            if risk_score >= 0.5
+            else "REVIEWER"
         )
         payload = {
             "requestId": request_id,

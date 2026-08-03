@@ -60,7 +60,7 @@ def test_projects_complete_security_defense_chain():
     (
         _,
         _,
-        graph,
+        _graph,
         _,
         security_projector,
     ) = build_security_projection()

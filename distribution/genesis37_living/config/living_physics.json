@@ -1,0 +1,15 @@
+{
+  "targetFps": [
+    60,
+    120
+  ],
+  "respirationHz": 0.15,
+  "elasticity": 0.6,
+  "viscosity": 0.25,
+  "turbulence": 0.08,
+  "meantimeTargetMs": 8.333333,
+  "reducedMotion": {
+    "elasticityCeiling": 0.15,
+    "resonanceCeiling": 0.1
+  }
+}

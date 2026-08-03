@@ -89,7 +89,7 @@ if missing_imports:
     last_import_index = -1
 
     for index, line in enumerate(lines):
-        if line.startswith("from ") or line.startswith("import "):
+        if line.startswith(("from ", "import ")):
             last_import_index = index
         elif last_import_index >= 0 and line.strip():
             break

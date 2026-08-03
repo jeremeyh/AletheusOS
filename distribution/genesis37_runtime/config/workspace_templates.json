@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.1.0",
+  "templates": [
+    {
+      "id": "living-mission",
+      "respirationHz": 0.15,
+      "adaptiveDensity": true,
+      "multiMonitor": true,
+      "instruments": [
+        "evidence-field",
+        "mission-health"
+      ]
+    },
+    {
+      "id": "founder-eye",
+      "founderOnly": true,
+      "constitutionalIsolation": true,
+      "instruments": [
+        "runtime-topology",
+        "developer-activity",
+        "admin-activity",
+        "security-posture"
+      ]
+    }
+  ]
+}

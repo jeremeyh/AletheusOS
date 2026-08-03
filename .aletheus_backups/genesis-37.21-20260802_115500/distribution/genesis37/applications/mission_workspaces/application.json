@@ -1,0 +1,11 @@
+{
+  "appId": "mission_workspaces",
+  "status": "source-blueprint",
+  "capabilities": [
+    "breathing layouts",
+    "adaptive density",
+    "intent-driven organization",
+    "self-reorganizing instruments",
+    "mission-centric state"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "resonance_field_core",
+  "type": "module",
+  "description": "Practical resonance field",
+  "version": "0.1.0",
+  "license": "Proprietary",
+  "files": [
+    "resonance_field_core_bg.wasm",
+    "resonance_field_core.js",
+    "resonance_field_core.d.ts"
+  ],
+  "main": "resonance_field_core.js",
+  "types": "resonance_field_core.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

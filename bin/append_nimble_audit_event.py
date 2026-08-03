@@ -97,9 +97,8 @@ def validate_metadata(
         if FORBIDDEN_KEY_PATTERN.search(key):
             raise RuntimeError(f"Sensitive metadata key is forbidden: {key}")
 
-        if isinstance(value, str):
-            if value.startswith("/"):
-                raise RuntimeError(f"Absolute path forbidden in metadata: {key}")
+        if isinstance(value, str) and value.startswith("/"):
+            raise RuntimeError(f"Absolute path forbidden in metadata: {key}")
 
         if isinstance(value, dict):
             validate_metadata(value)

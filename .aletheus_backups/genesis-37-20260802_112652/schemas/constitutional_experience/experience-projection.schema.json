@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Genesis 37 Experience Projection",
+  "type": "object",
+  "required": [
+    "phase",
+    "informational_mass",
+    "density",
+    "provenance_required"
+  ],
+  "properties": {
+    "phase": {
+      "enum": [
+        "nebular",
+        "fluid",
+        "quasi_crystalline",
+        "crystalline"
+      ]
+    },
+    "informational_mass": {
+      "type": "number",
+      "minimum": 0
+    },
+    "density": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "provenance_required": {
+      "const": true
+    }
+  }
+}

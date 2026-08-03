@@ -1,0 +1,10 @@
+{
+  "id": "liquid_ui",
+  "status": "source-blueprint",
+  "capabilities": [
+    "fluid materials",
+    "continuous transitions",
+    "adaptive lighting",
+    "reduced-motion fallback"
+  ]
+}

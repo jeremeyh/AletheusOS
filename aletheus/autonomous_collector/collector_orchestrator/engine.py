@@ -44,7 +44,9 @@ class Engine:
             "capability": self.CAPABILITY,
             "version": self.VERSION,
             "decision": (
-                DecisionState.BLOCKED.value if blocked else DecisionState.AWAITING_APPROVAL.value
+                DecisionState.BLOCKED.value
+                if blocked
+                else DecisionState.AWAITING_APPROVAL.value
             ),
             "score": round(score, 6),
             "immutableDecisionContract": True,

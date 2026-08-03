@@ -59,7 +59,7 @@ def import_insertion_offset(text: str) -> int:
     except SyntaxError:
         return 0
 
-    lines = text.splitlines(keepends=True)
+    text.splitlines(keepends=True)
     insertion_line = 0
 
     body = tree.body

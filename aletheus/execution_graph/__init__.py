@@ -35,24 +35,24 @@ from .visualization import (
 )
 
 __all__ = [
-    # Core
-    "FoundationExecutionGraph",
-    "foundation_execution_graph",
-    # Models
-    "GraphNode",
-    "GraphEdge",
-    "NodeType",
     "EdgeType",
-    # Registry
-    "ExecutionGraphRegistry",
-    "execution_graph_registry",
-    # Traversal
-    "ExecutionGraphTraversal",
-    "execution_graph_traversal",
     # Lineage
     "ExecutionGraphLineage",
-    "execution_graph_lineage",
+    # Registry
+    "ExecutionGraphRegistry",
+    # Traversal
+    "ExecutionGraphTraversal",
     # Visualization
     "ExecutionGraphVisualization",
+    # Core
+    "FoundationExecutionGraph",
+    "GraphEdge",
+    # Models
+    "GraphNode",
+    "NodeType",
+    "execution_graph_lineage",
+    "execution_graph_registry",
+    "execution_graph_traversal",
     "execution_graph_visualization",
+    "foundation_execution_graph",
 ]

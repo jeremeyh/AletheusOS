@@ -1,0 +1,11 @@
+{
+  "backup": "/Users/master_lord_6ixth/Development/AletheusOS/.aletheus_install_backups/genesis_20_5_deployment_policy/20260801_072841",
+  "release_id": "genesis_20_5_deployment_policy",
+  "status": "installed",
+  "targets": [
+    "aletheus/tooling/deployment_policy",
+    "tests/tooling/deployment_policy",
+    "docs/architecture/DEPLOYMENT_POLICY_ENGINE.md"
+  ],
+  "version": "20.5.0"
+}

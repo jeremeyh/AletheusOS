@@ -1,0 +1,57 @@
+{
+  "constitutional": true,
+  "recommendation": "promote",
+  "safe": true,
+  "self_model": [
+    {
+      "answer": "PSS enabled",
+      "evidence": [
+        "certification"
+      ],
+      "prompt": "What changed?"
+    },
+    {
+      "answer": "production assurance",
+      "evidence": [
+        "certification"
+      ],
+      "prompt": "Why did it change?"
+    },
+    {
+      "answer": "yes",
+      "evidence": [
+        "certification"
+      ],
+      "prompt": "Was it constitutional?"
+    },
+    {
+      "answer": "yes",
+      "evidence": [
+        "certification"
+      ],
+      "prompt": "Was it safe?"
+    },
+    {
+      "answer": "True",
+      "evidence": [
+        "certification"
+      ],
+      "prompt": "Did quality improve?"
+    },
+    {
+      "answer": "False",
+      "evidence": [
+        "certification"
+      ],
+      "prompt": "Did risk increase?"
+    },
+    {
+      "answer": "promote",
+      "evidence": [
+        "certification"
+      ],
+      "prompt": "What should happen next?"
+    }
+  ],
+  "status": "self_explained"
+}

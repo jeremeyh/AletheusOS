@@ -1,0 +1,15 @@
+{
+  "system": "AletheusOS",
+  "genesis": "37.39-37.50",
+  "designation": "Living Experience Frontend Realization",
+  "components": [
+    "AxiomUX WebGPU Surface",
+    "Living Workspace",
+    "Workspace Composer",
+    "Information Physics Visualization",
+    "Founder Observatory Guard",
+    "WASM Runtime Bridge"
+  ],
+  "humanAuthority": "preserved",
+  "founderObservatory": "server-claim-guarded"
+}

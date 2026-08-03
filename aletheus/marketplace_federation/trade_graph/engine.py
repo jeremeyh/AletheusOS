@@ -23,7 +23,11 @@ class Engine:
                         key = tuple(sorted((a, b, c)))
                         if key in seen:
                             continue
-                        adj = {a: round(vc - va, 6), b: round(va - vb, 6), c: round(vb - vc, 6)}
+                        adj = {
+                            a: round(vc - va, 6),
+                            b: round(va - vb, 6),
+                            c: round(vb - vc, 6),
+                        }
                         if any(abs(x) > limits.get(u, 0.0) for u, x in adj.items()):
                             continue
                         seen.add(key)

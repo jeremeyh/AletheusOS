@@ -1,0 +1,8 @@
+{
+  "application": "CARD_HAWK",
+  "library": "EXPERIENCE_VOCABULARY",
+  "module": "semantic_mapping",
+  "semanticFaithfulness": true,
+  "status": "ready",
+  "title": "Platform-to-Experience Semantic Mapping"
+}

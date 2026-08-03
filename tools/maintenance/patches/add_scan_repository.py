@@ -14,7 +14,6 @@ from __future__ import annotations
 import shutil
 from pathlib import Path
 
-
 TARGET = Path("tools/maintenance/fix_ruf012.py")
 BACKUP = Path("tools/maintenance/fix_ruf012.py.before_scan_repository.bak")
 

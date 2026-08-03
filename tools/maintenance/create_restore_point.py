@@ -68,10 +68,7 @@ def should_include(path: Path) -> bool:
     if any(rel.startswith(prefix) for prefix in EXCLUDE_PREFIXES):
         return False
 
-    if path.is_file() and path.suffix in INCLUDE_SUFFIXES:
-        return True
-
-    return False
+    return bool(path.is_file() and path.suffix in INCLUDE_SUFFIXES)
 
 
 def sha256(path: Path) -> str:

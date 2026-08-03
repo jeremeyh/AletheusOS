@@ -1,0 +1,13 @@
+{
+  "id": "founder_observatory",
+  "authority": "founder-root-only",
+  "telemetry": [
+    "developers",
+    "admins",
+    "users",
+    "runtime",
+    "security",
+    "missions",
+    "constitution"
+  ]
+}

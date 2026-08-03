@@ -2,7 +2,9 @@ from __future__ import annotations
 
 
 class Engine:
-    def profile(self, primary: str, second: str | None, session_age: int) -> dict[str, object]:
+    def profile(
+        self, primary: str, second: str | None, session_age: int
+    ) -> dict[str, object]:
         strong = primary.upper() in {"PASSKEY", "WEBAUTHN", "HARDWARE_KEY"}
         return {
             "twoFactorSatisfied": strong or bool(second),

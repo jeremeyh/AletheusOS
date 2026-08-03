@@ -7,7 +7,11 @@ def main() -> int:
     _ = Engine()
     print(
         json.dumps(
-            {"component": "Marketplace Federation API", "version": "31.15.0", "status": "READY"},
+            {
+                "component": "Marketplace Federation API",
+                "version": "31.15.0",
+                "status": "READY",
+            },
             indent=2,
         )
     )

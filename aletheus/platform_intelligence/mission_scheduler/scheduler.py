@@ -433,13 +433,10 @@ class ConstitutionalMissionScheduler:
             if dependency.last_completed_at is None:
                 return False
 
-        if (
+        return not (
             record.last_completed_at is not None
             and record.definition.cooldown > now - record.last_completed_at
-        ):
-            return False
-
-        return True
+        )
 
     @staticmethod
     def _initial_run_at(

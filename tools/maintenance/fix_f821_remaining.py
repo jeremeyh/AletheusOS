@@ -39,11 +39,7 @@ def patch_streamlit():
         while insert_at < len(lines):
             stripped = lines[insert_at].strip()
 
-            if (
-                stripped.startswith('"""')
-                or stripped.startswith("'''")
-                or stripped == ""
-            ):
+            if stripped.startswith(('"""', "'''")) or stripped == "":
                 insert_at += 1
                 continue
 

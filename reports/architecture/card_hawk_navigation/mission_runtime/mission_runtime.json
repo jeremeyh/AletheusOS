@@ -1,0 +1,9 @@
+{
+  "application": "CARD_HAWK",
+  "contextPreserving": true,
+  "graphDriven": true,
+  "module": "mission_runtime",
+  "runtime": "EXPERIENCE_NAVIGATION",
+  "status": "ready",
+  "title": "Mission Context Runtime"
+}

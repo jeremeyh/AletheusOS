@@ -1,0 +1,11 @@
+{
+  "name": "@aletheusos/living-experience-frontend",
+  "private": true,
+  "version": "37.50.0",
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 3737 -d dist",
+    "build": "node scripts/build.mjs",
+    "check": "tsc --noEmit"
+  }
+}

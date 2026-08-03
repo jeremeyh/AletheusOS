@@ -6,10 +6,9 @@ import ast
 import json
 import re
 from collections import defaultdict
+from collections.abc import Iterable
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Iterable
-
 
 ROOT = Path(__file__).resolve().parents[2]
 

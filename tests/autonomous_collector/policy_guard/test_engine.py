@@ -1,5 +1,9 @@
 from aletheus.autonomous_collector.policy_guard.engine import Engine
-from aletheus.autonomous_collector.policy_guard.models import CollectorPolicy, Mission, Opportunity
+from aletheus.autonomous_collector.policy_guard.models import (
+    CollectorPolicy,
+    Mission,
+    Opportunity,
+)
 
 
 def test_human_authority_is_preserved() -> None:

@@ -1,0 +1,7 @@
+{
+  "authority": "founder-root-only",
+  "developerAccess": false,
+  "adminAccess": false,
+  "publicExtensionSurface": false,
+  "minimumProofLength": 48
+}

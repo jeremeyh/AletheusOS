@@ -22,9 +22,12 @@ class Engine:
         policy: OperationalPolicy | None = None,
     ) -> dict[str, Any]:
         active_policy = policy or OperationalPolicy()
-        normalized = sorted({failure.strip().upper() for failure in failures if failure.strip()})
+        normalized = sorted(
+            {failure.strip().upper() for failure in failures if failure.strip()}
+        )
         allowed = active_policy.allow_self_healing and all(
-            failure not in {"AUTHORIZATION", "CONSTITUTIONAL_VIOLATION"} for failure in normalized
+            failure not in {"AUTHORIZATION", "CONSTITUTIONAL_VIOLATION"}
+            for failure in normalized
         )
         plan = [f"RESTART:{failure}" for failure in normalized] if allowed else []
         return immutable_contract(

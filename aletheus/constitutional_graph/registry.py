@@ -45,8 +45,8 @@ class ConstitutionalGraphRegistry:
         return {
             "nodes": len(self._nodes),
             "edges": len(self._edges),
-            "node_types": sorted(set(node.node_type for node in self._nodes.values())),
+            "node_types": sorted({node.node_type for node in self._nodes.values()}),
             "relationships": sorted(
-                set(edge.relationship for edge in self._edges.values())
+                {edge.relationship for edge in self._edges.values()}
             ),
         }

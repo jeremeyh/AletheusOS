@@ -1,0 +1,8 @@
+{
+  "application": "CARD_HAWK",
+  "library": "EXPERIENCE_VOCABULARY",
+  "module": "command_operations",
+  "semanticFaithfulness": true,
+  "status": "ready",
+  "title": "Command and Operations Language"
+}

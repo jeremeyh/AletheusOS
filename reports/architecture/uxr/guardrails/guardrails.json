@@ -1,0 +1,8 @@
+{
+  "catalogConstrained": true,
+  "module": "guardrails",
+  "runtime": "Universal Experience Runtime",
+  "schemaDriven": true,
+  "status": "ready",
+  "title": "Runtime Validation and Constitutional Guardrails"
+}

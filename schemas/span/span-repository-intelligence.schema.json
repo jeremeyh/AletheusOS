@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SPAN Repository Intelligence",
+  "type": "object",
+  "required": [
+    "system",
+    "version",
+    "genesis",
+    "analyses",
+    "digest"
+  ],
+  "properties": {
+    "system": {
+      "const": "SPAN Repository Intelligence"
+    },
+    "genesis": {
+      "const": "36.20"
+    },
+    "humanAuthority": {
+      "const": "PRESERVED"
+    },
+    "executionAuthorized": {
+      "const": false
+    }
+  }
+}

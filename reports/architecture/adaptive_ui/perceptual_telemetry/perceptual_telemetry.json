@@ -1,0 +1,8 @@
+{
+  "constitutionalMotion": true,
+  "module": "perceptual_telemetry",
+  "renderNeutral": true,
+  "runtime": "ADAPTIVE_UI_WORKSPACE",
+  "status": "ready",
+  "title": "Perceptual Telemetry Layer"
+}

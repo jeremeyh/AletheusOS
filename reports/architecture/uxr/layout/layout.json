@@ -1,0 +1,8 @@
+{
+  "catalogConstrained": true,
+  "module": "layout",
+  "runtime": "Universal Experience Runtime",
+  "schemaDriven": true,
+  "status": "ready",
+  "title": "Adaptive Layout Engine"
+}

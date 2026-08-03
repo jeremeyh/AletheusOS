@@ -1,0 +1,8 @@
+{
+  "catalogConstrained": true,
+  "module": "composition",
+  "runtime": "Universal Experience Runtime",
+  "schemaDriven": true,
+  "status": "ready",
+  "title": "Experience Composition Engine"
+}

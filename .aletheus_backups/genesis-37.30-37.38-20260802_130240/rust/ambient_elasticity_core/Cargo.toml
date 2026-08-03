@@ -1,0 +1,12 @@
+[package]
+name="ambient_elasticity_core"
+version.workspace=true
+edition.workspace=true
+license.workspace=true
+description="Ambient elasticity manifold"
+[lib]
+crate-type=["cdylib","rlib"]
+[dependencies]
+wasm-bindgen.workspace=true
+serde.workspace=true
+serde-wasm-bindgen.workspace=true

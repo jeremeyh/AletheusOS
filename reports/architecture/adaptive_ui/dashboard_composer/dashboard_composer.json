@@ -1,0 +1,8 @@
+{
+  "constitutionalMotion": true,
+  "module": "dashboard_composer",
+  "renderNeutral": true,
+  "runtime": "ADAPTIVE_UI_WORKSPACE",
+  "status": "ready",
+  "title": "Adaptive Dashboard Composer"
+}
