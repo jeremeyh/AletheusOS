@@ -1,0 +1,460 @@
+{
+  "schemaVersion": "1.0.0",
+  "standard": "ALETHEUSOS-GENESIS-112.29.9.1-INDEPENDENT-DOWNSTREAM-GOLD-SEAL-VERIFICATION",
+  "phase": "112.29.9.1",
+  "status": "REFUSED",
+  "canonicalPromotionAuthorized": false,
+  "verificationBasis": "INDEPENDENT_SOURCE_EVIDENCE_RECONSTRUCTION",
+  "certifierImported": false,
+  "certificationDecisionDigest": "sha256:e1e7442f71cc94e5cecbe168b06094d7d97376aeada47d60089ffe851be47014",
+  "goldSealEvidenceDigest": "sha256:6d8c96127038ab959afbf8dba96e7bd9c56d14ddde15c967f885815eec5e1074",
+  "predecessorRootDigest": "sha256:1f136efbb4a9500a606519612e987c6df8681caa015b338c8764a4ae321550d3",
+  "checks": [
+    {
+      "id": "SEALED_SOURCE_IDENTITY",
+      "passed": true,
+      "evidence": {
+        "head": "c1f80a01a7a206d93df85072980994b63e9e5532",
+        "tree": "cc92daa57cecd5e859241480ec1b53a7ff664e09",
+        "tag": "aletheusos-migration-recovery-baseline-2026-08-11"
+      },
+      "violations": []
+    },
+    {
+      "id": "INDEX_EMPTY",
+      "passed": true,
+      "evidence": {},
+      "violations": []
+    },
+    {
+      "id": "WORKTREE_HOLD_BOUNDARY",
+      "passed": true,
+      "evidence": {
+        "actualChanges": [
+          "logs/cardhawk.log",
+          "reports/runtime-health.json",
+          "reports/runtime-health.md",
+          "runtime_state/agents.json",
+          "runtime_state/applications.json",
+          "runtime_state/cluster.json",
+          "runtime_state/plans.json",
+          "runtime_state/plugins.json",
+          "runtime_state/runtime.json",
+          "runtime_state/snapshots.json",
+          "runtime_state/workflows.json"
+        ]
+      },
+      "violations": []
+    },
+    {
+      "id": "REQUIRED_EVIDENCE_PRESENT",
+      "passed": true,
+      "evidence": {
+        "requiredCount": 15
+      },
+      "violations": []
+    },
+    {
+      "id": "CERTIFIED_OUTPUT_FILES",
+      "passed": true,
+      "evidence": {
+        "refusalPresent": false
+      },
+      "violations": []
+    },
+    {
+      "id": "CERTIFICATION_OUTPUT_MANIFEST",
+      "passed": true,
+      "evidence": {
+        "certification-decision.json": {
+          "declared": "sha256:bfb31f8d5713422ba7b1fc570a36100883a00d245c788b06d763ce3880743578",
+          "actual": "sha256:bfb31f8d5713422ba7b1fc570a36100883a00d245c788b06d763ce3880743578"
+        },
+        "genesis-112.29.9.1-external-raf-gold-seal.json": {
+          "declared": "sha256:b15658366ebd184241740b00ab8e19bb588a300ea0dde6229f7ed98a23280457",
+          "actual": "sha256:b15658366ebd184241740b00ab8e19bb588a300ea0dde6229f7ed98a23280457"
+        }
+      },
+      "violations": []
+    },
+    {
+      "id": "OUTPUT_MANIFEST_DIGEST",
+      "passed": true,
+      "evidence": {
+        "recorded": "78102023310d2b912dd8d266cde48b82dad749e4ebdb290a53062d57da59eab3",
+        "actual": "78102023310d2b912dd8d266cde48b82dad749e4ebdb290a53062d57da59eab3"
+      },
+      "violations": []
+    },
+    {
+      "id": "DECISION_INTERNAL_DIGEST",
+      "passed": true,
+      "evidence": {
+        "declared": "sha256:e1e7442f71cc94e5cecbe168b06094d7d97376aeada47d60089ffe851be47014",
+        "calculated": "sha256:e1e7442f71cc94e5cecbe168b06094d7d97376aeada47d60089ffe851be47014",
+        "fileSha256": "sha256:bfb31f8d5713422ba7b1fc570a36100883a00d245c788b06d763ce3880743578"
+      },
+      "violations": []
+    },
+    {
+      "id": "GOLD_SEAL_INTERNAL_DIGEST",
+      "passed": true,
+      "evidence": {
+        "declared": "sha256:6d8c96127038ab959afbf8dba96e7bd9c56d14ddde15c967f885815eec5e1074",
+        "calculated": "sha256:6d8c96127038ab959afbf8dba96e7bd9c56d14ddde15c967f885815eec5e1074",
+        "fileSha256": "sha256:b15658366ebd184241740b00ab8e19bb588a300ea0dde6229f7ed98a23280457"
+      },
+      "violations": []
+    },
+    {
+      "id": "PREDECESSOR_MANIFEST_INDEPENDENT",
+      "passed": true,
+      "evidence": {
+        "112.29.4-assurance.json": {
+          "declared": "sha256:413ee5e417a7376d3d70277c78729bf90046d53a66e552ec76f7637cb9e0a83e",
+          "actual": "sha256:413ee5e417a7376d3d70277c78729bf90046d53a66e552ec76f7637cb9e0a83e"
+        },
+        "112.29.5-assurance.json": {
+          "declared": "sha256:f2735751617b8ef951788d5b054021edeb2813b988bdbc2cae1d8c21902968e2",
+          "actual": "sha256:f2735751617b8ef951788d5b054021edeb2813b988bdbc2cae1d8c21902968e2"
+        },
+        "112.29.6-assurance.json": {
+          "declared": "sha256:efff4fd932bc32bbc4f288a980c723a1713074b88d315e59253995d6a756128f",
+          "actual": "sha256:efff4fd932bc32bbc4f288a980c723a1713074b88d315e59253995d6a756128f"
+        },
+        "112.29.7-assurance.json": {
+          "declared": "sha256:15e9bcedce94fdf43b2dff9926d13ee4fc826347af76938e8fb75af5bb420fbd",
+          "actual": "sha256:15e9bcedce94fdf43b2dff9926d13ee4fc826347af76938e8fb75af5bb420fbd"
+        },
+        "112.29.8-assurance.json": {
+          "declared": "sha256:c0319347a7e3148562084e9bbcabdf366de9e3cb86fb28869195f57f5d73679f",
+          "actual": "sha256:c0319347a7e3148562084e9bbcabdf366de9e3cb86fb28869195f57f5d73679f"
+        },
+        "112.29.9-assurance.json": {
+          "declared": "sha256:b71ee76cc354ca6a9a04d5d3fcb927d54a98b3bc8dbcde071655f87fa1036a94",
+          "actual": "sha256:b71ee76cc354ca6a9a04d5d3fcb927d54a98b3bc8dbcde071655f87fa1036a94"
+        },
+        "effective-blocker-ledger.json": {
+          "declared": "sha256:2b4d6602d7ab5a2b3eb38e87caf969c2990cfaf6a9baff6b96e310bd2cae8a9b",
+          "actual": "sha256:2b4d6602d7ab5a2b3eb38e87caf969c2990cfaf6a9baff6b96e310bd2cae8a9b"
+        },
+        "upstream-reconciliation-evidence.json": {
+          "declared": "sha256:4068610e1417f2fc577ce666d9a7807a53b95b2d789e7044882739be656d8bc3",
+          "actual": "sha256:4068610e1417f2fc577ce666d9a7807a53b95b2d789e7044882739be656d8bc3"
+        }
+      },
+      "violations": []
+    },
+    {
+      "id": "PREDECESSOR_ROOT_DIGEST_INDEPENDENT",
+      "passed": true,
+      "evidence": {
+        "recorded": "sha256:1f136efbb4a9500a606519612e987c6df8681caa015b338c8764a4ae321550d3",
+        "calculated": "sha256:1f136efbb4a9500a606519612e987c6df8681caa015b338c8764a4ae321550d3",
+        "contract": "sha(canon({manifest,standard:STANDARD,phases:PHASES}))",
+        "generatorSha256": "d0cb63faea2967eb821a11db7f1ce4bf2241709d65c98569c7291892a7015c82"
+      },
+      "violations": []
+    },
+    {
+      "id": "SIX_PHASE_STATUS_RECONSTRUCTION",
+      "passed": true,
+      "evidence": {
+        "112.29.4": {
+          "phase": "112.29.4",
+          "status": "CANONICAL_AUTHORITY_OWNERSHIP_RESOLVED",
+          "declaredDigest": "sha256:bc884229ac72d50a889d03c7e85e12efe6a9fc96c40cf458d37fbb0cf30c67e3",
+          "calculatedDigest": "sha256:bc884229ac72d50a889d03c7e85e12efe6a9fc96c40cf458d37fbb0cf30c67e3"
+        },
+        "112.29.5": {
+          "phase": "112.29.5",
+          "status": "CONNECTION_MESH_VERIFIED",
+          "declaredDigest": "sha256:e07fb0a7af948f92710cb3bab82b3ea448808a589e4fb1deaea8d4c41f388429",
+          "calculatedDigest": "sha256:e07fb0a7af948f92710cb3bab82b3ea448808a589e4fb1deaea8d4c41f388429"
+        },
+        "112.29.6": {
+          "phase": "112.29.6",
+          "status": "BOUNDARY_PENETRATION_PASS",
+          "declaredDigest": "sha256:ee97368c31faef176be815cc8c984055fef31a53f1c1365d183abcf4dc1c560b",
+          "calculatedDigest": "sha256:ee97368c31faef176be815cc8c984055fef31a53f1c1365d183abcf4dc1c560b"
+        },
+        "112.29.7": {
+          "phase": "112.29.7",
+          "status": "CONTINUITY_VALIDATION_PASS",
+          "declaredDigest": "sha256:b39d98d6115208c52c158d06ac681fcd790502b84184de0c338a309ee6ef24e3",
+          "calculatedDigest": "sha256:b39d98d6115208c52c158d06ac681fcd790502b84184de0c338a309ee6ef24e3"
+        },
+        "112.29.8": {
+          "phase": "112.29.8",
+          "status": "WHOLE_SYSTEM_CONSTITUTIONAL_VALIDATION_PASS",
+          "declaredDigest": "sha256:c102a0d6aa9346b299e4a03694a4098a7e15e678fc097fdcb38dc516a1a671ff",
+          "calculatedDigest": "sha256:c102a0d6aa9346b299e4a03694a4098a7e15e678fc097fdcb38dc516a1a671ff"
+        },
+        "112.29.9": {
+          "phase": "112.29.9",
+          "status": "GENESIS_112_UNIFIED_PLATFORM_MASTER_CLOSURE_EVIDENCE_COMPLETE",
+          "declaredDigest": "sha256:10c5c871c9633428ad0005912019c9614be4d5e39f6f5b9d0ed91bce96fc49a1",
+          "calculatedDigest": "sha256:10c5c871c9633428ad0005912019c9614be4d5e39f6f5b9d0ed91bce96fc49a1"
+        }
+      },
+      "violations": []
+    },
+    {
+      "id": "SIX_PHASE_DIGEST_RECONSTRUCTION",
+      "passed": true,
+      "evidence": {
+        "112.29.4": {
+          "phase": "112.29.4",
+          "status": "CANONICAL_AUTHORITY_OWNERSHIP_RESOLVED",
+          "declaredDigest": "sha256:bc884229ac72d50a889d03c7e85e12efe6a9fc96c40cf458d37fbb0cf30c67e3",
+          "calculatedDigest": "sha256:bc884229ac72d50a889d03c7e85e12efe6a9fc96c40cf458d37fbb0cf30c67e3"
+        },
+        "112.29.5": {
+          "phase": "112.29.5",
+          "status": "CONNECTION_MESH_VERIFIED",
+          "declaredDigest": "sha256:e07fb0a7af948f92710cb3bab82b3ea448808a589e4fb1deaea8d4c41f388429",
+          "calculatedDigest": "sha256:e07fb0a7af948f92710cb3bab82b3ea448808a589e4fb1deaea8d4c41f388429"
+        },
+        "112.29.6": {
+          "phase": "112.29.6",
+          "status": "BOUNDARY_PENETRATION_PASS",
+          "declaredDigest": "sha256:ee97368c31faef176be815cc8c984055fef31a53f1c1365d183abcf4dc1c560b",
+          "calculatedDigest": "sha256:ee97368c31faef176be815cc8c984055fef31a53f1c1365d183abcf4dc1c560b"
+        },
+        "112.29.7": {
+          "phase": "112.29.7",
+          "status": "CONTINUITY_VALIDATION_PASS",
+          "declaredDigest": "sha256:b39d98d6115208c52c158d06ac681fcd790502b84184de0c338a309ee6ef24e3",
+          "calculatedDigest": "sha256:b39d98d6115208c52c158d06ac681fcd790502b84184de0c338a309ee6ef24e3"
+        },
+        "112.29.8": {
+          "phase": "112.29.8",
+          "status": "WHOLE_SYSTEM_CONSTITUTIONAL_VALIDATION_PASS",
+          "declaredDigest": "sha256:c102a0d6aa9346b299e4a03694a4098a7e15e678fc097fdcb38dc516a1a671ff",
+          "calculatedDigest": "sha256:c102a0d6aa9346b299e4a03694a4098a7e15e678fc097fdcb38dc516a1a671ff"
+        },
+        "112.29.9": {
+          "phase": "112.29.9",
+          "status": "GENESIS_112_UNIFIED_PLATFORM_MASTER_CLOSURE_EVIDENCE_COMPLETE",
+          "declaredDigest": "sha256:10c5c871c9633428ad0005912019c9614be4d5e39f6f5b9d0ed91bce96fc49a1",
+          "calculatedDigest": "sha256:10c5c871c9633428ad0005912019c9614be4d5e39f6f5b9d0ed91bce96fc49a1"
+        }
+      },
+      "violations": []
+    },
+    {
+      "id": "PHASE_CHAIN_CONTINUITY",
+      "passed": true,
+      "evidence": {},
+      "violations": []
+    },
+    {
+      "id": "V1_2_1_RECONCILIATION_INDEPENDENT",
+      "passed": true,
+      "evidence": {
+        "inheritedFindings": 14,
+        "totalResolved": 14,
+        "remainingBlockers": 0,
+        "receipts": 14,
+        "finalGoldSeal": "NOT_ISSUED",
+        "finalGoldSealAuthority": "EXTERNAL_RAF_112.29.9.1_ONLY"
+      },
+      "violations": []
+    },
+    {
+      "id": "EFFECTIVE_BLOCKER_LEDGER_INDEPENDENT",
+      "passed": true,
+      "evidence": {
+        "ledgerCount": 14,
+        "blockingCount": 0
+      },
+      "violations": []
+    },
+    {
+      "id": "UPSTREAM_RECONCILIATION_BINDING",
+      "passed": true,
+      "evidence": {
+        "reconciliationReportDigest": "sha256:de8802589cf890a3ece997a82be62af1961112349c848c8e8562679a9ec2df82",
+        "resolutionReceiptsDigest": "sha256:b11f25a74cf40c8ade5adfb95b2e2533e21975a89f53d9f36f8ca3842e8de777"
+      },
+      "violations": []
+    },
+    {
+      "id": "PHASE_112_29_4_RECONCILIATION_BINDING",
+      "passed": true,
+      "evidence": {
+        "declared": "sha256:de8802589cf890a3ece997a82be62af1961112349c848c8e8562679a9ec2df82",
+        "actual": "sha256:de8802589cf890a3ece997a82be62af1961112349c848c8e8562679a9ec2df82"
+      },
+      "violations": []
+    },
+    {
+      "id": "PREDECESSOR_AUTHORITY_BOUNDARY",
+      "passed": true,
+      "evidence": {
+        "blockingFindings": 0,
+        "selfCertificationPermitted": false,
+        "finalGoldSeal": "NOT_ISSUED",
+        "finalGoldSealAuthority": "EXTERNAL_RAF_112.29.9.1_ONLY"
+      },
+      "violations": []
+    },
+    {
+      "id": "ORIGINAL_HISTORICAL_REFUSAL",
+      "passed": true,
+      "evidence": {
+        "sha256": "dcbb1292b043ee0199a90decf3ba0ac89fe0215f5a835f120693da4af1b69dc0",
+        "phase": "112.29.9.1",
+        "status": "EXTERNAL_RAF_CERTIFICATION_REFUSED"
+      },
+      "violations": []
+    },
+    {
+      "id": "V100_REFUSAL_LINEAGE",
+      "passed": true,
+      "evidence": {
+        "decision": "ce06bf08bce222eaf67ff76fccb841847790fa3e8b496384baf5f0068e0bd269",
+        "refusal": "49a73c924eb00bd588b2e8c5aca086375d871ee41261d41a3666a0504b34c7d8",
+        "manifest": "89c99a2271e12da3ef0994c04f4c28dc7fab8f44e059c828ce211781d625b21e",
+        "digestFile": "51a720da275ce685946caf8582c1b5bd867f8481f68affe6a506ba579a1223e2"
+      },
+      "violations": []
+    },
+    {
+      "id": "V101_CORRECTION_RECEIPT",
+      "passed": true,
+      "evidence": {
+        "correctedGate": "PREDECESSOR_DIGEST_RECORD",
+        "predecessorRootDigest": "sha256:1f136efbb4a9500a606519612e987c6df8681caa015b338c8764a4ae321550d3"
+      },
+      "violations": []
+    },
+    {
+      "id": "MAMMOTH_SUBORDINATE_EVIDENCE",
+      "passed": true,
+      "evidence": {
+        "release": "Genesis 113.9.2",
+        "certificationStatus": "CERTIFIED",
+        "closureStatus": "MAMMOTH_COMMISSIONING_EVIDENCE_COMPLETE"
+      },
+      "violations": []
+    },
+    {
+      "id": "CERTIFICATION_INPUT_BINDINGS",
+      "passed": true,
+      "evidence": {
+        "reports/unified-platform-integration/112.29.4-to-112.29.9-reconciled/112.29.4-assurance.json": {
+          "declared": "sha256:413ee5e417a7376d3d70277c78729bf90046d53a66e552ec76f7637cb9e0a83e",
+          "actual": "sha256:413ee5e417a7376d3d70277c78729bf90046d53a66e552ec76f7637cb9e0a83e"
+        },
+        "reports/unified-platform-integration/112.29.4-to-112.29.9-reconciled/112.29.5-assurance.json": {
+          "declared": "sha256:f2735751617b8ef951788d5b054021edeb2813b988bdbc2cae1d8c21902968e2",
+          "actual": "sha256:f2735751617b8ef951788d5b054021edeb2813b988bdbc2cae1d8c21902968e2"
+        },
+        "reports/unified-platform-integration/112.29.4-to-112.29.9-reconciled/112.29.6-assurance.json": {
+          "declared": "sha256:efff4fd932bc32bbc4f288a980c723a1713074b88d315e59253995d6a756128f",
+          "actual": "sha256:efff4fd932bc32bbc4f288a980c723a1713074b88d315e59253995d6a756128f"
+        },
+        "reports/unified-platform-integration/112.29.4-to-112.29.9-reconciled/112.29.7-assurance.json": {
+          "declared": "sha256:15e9bcedce94fdf43b2dff9926d13ee4fc826347af76938e8fb75af5bb420fbd",
+          "actual": "sha256:15e9bcedce94fdf43b2dff9926d13ee4fc826347af76938e8fb75af5bb420fbd"
+        },
+        "reports/unified-platform-integration/112.29.4-to-112.29.9-reconciled/112.29.8-assurance.json": {
+          "declared": "sha256:c0319347a7e3148562084e9bbcabdf366de9e3cb86fb28869195f57f5d73679f",
+          "actual": "sha256:c0319347a7e3148562084e9bbcabdf366de9e3cb86fb28869195f57f5d73679f"
+        },
+        "reports/unified-platform-integration/112.29.4-to-112.29.9-reconciled/112.29.9-assurance.json": {
+          "declared": "sha256:b71ee76cc354ca6a9a04d5d3fcb927d54a98b3bc8dbcde071655f87fa1036a94",
+          "actual": "sha256:b71ee76cc354ca6a9a04d5d3fcb927d54a98b3bc8dbcde071655f87fa1036a94"
+        },
+        "reports/unified-platform-integration/112.29.4-to-112.29.9-reconciled/effective-blocker-ledger.json": {
+          "declared": "sha256:2b4d6602d7ab5a2b3eb38e87caf969c2990cfaf6a9baff6b96e310bd2cae8a9b",
+          "actual": "sha256:2b4d6602d7ab5a2b3eb38e87caf969c2990cfaf6a9baff6b96e310bd2cae8a9b"
+        },
+        "reports/unified-platform-integration/112.29.4-to-112.29.9-reconciled/upstream-reconciliation-evidence.json": {
+          "declared": "sha256:4068610e1417f2fc577ce666d9a7807a53b95b2d789e7044882739be656d8bc3",
+          "actual": "sha256:4068610e1417f2fc577ce666d9a7807a53b95b2d789e7044882739be656d8bc3"
+        },
+        "reports/unified-platform-integration/112.29.4-to-112.29.9-reconciled/evidence-manifest.json": {
+          "declared": "sha256:970b7f7bc6d2864dc3cb34c66e222d47c03d8e711062d72c1293df30dad462cb",
+          "actual": "sha256:970b7f7bc6d2864dc3cb34c66e222d47c03d8e711062d72c1293df30dad462cb"
+        },
+        "reports/unified-platform-integration/112.29.4-to-112.29.9-reconciled/evidence-digest.sha256": {
+          "declared": "sha256:7bcd5a0c79633e3b42af63046f9175c8ae5eb6237560a53ba1156f309505281a",
+          "actual": "sha256:7bcd5a0c79633e3b42af63046f9175c8ae5eb6237560a53ba1156f309505281a"
+        },
+        "reports/unified-platform-integration/112.29.3.3-resolution-v1.2.1/genesis-112.29.3.3-v1.2.1-independent-reconciliation-report.json": {
+          "declared": "sha256:de8802589cf890a3ece997a82be62af1961112349c848c8e8562679a9ec2df82",
+          "actual": "sha256:de8802589cf890a3ece997a82be62af1961112349c848c8e8562679a9ec2df82"
+        },
+        "reports/unified-platform-integration/112.29.3.3-resolution-v1.2.1/independent-resolution-receipts.json": {
+          "declared": "sha256:b11f25a74cf40c8ade5adfb95b2e2533e21975a89f53d9f36f8ca3842e8de777",
+          "actual": "sha256:b11f25a74cf40c8ade5adfb95b2e2533e21975a89f53d9f36f8ca3842e8de777"
+        },
+        "reports/unified-platform-integration/112.29.3-to-112.29.9.1/112.29.9.1-external-raf-certification.json": {
+          "declared": "sha256:dcbb1292b043ee0199a90decf3ba0ac89fe0215f5a835f120693da4af1b69dc0",
+          "actual": "sha256:dcbb1292b043ee0199a90decf3ba0ac89fe0215f5a835f120693da4af1b69dc0"
+        },
+        "reports/mammoth/genesis-113.9-project-certification/mammoth-project-certification.json": {
+          "declared": "sha256:2330c2ae4552ec9e27a04394cfa8920af91972f15554f25c3ed0b8374a2cad61",
+          "actual": "sha256:2330c2ae4552ec9e27a04394cfa8920af91972f15554f25c3ed0b8374a2cad61"
+        },
+        "reports/mammoth/genesis-113.9-closure/mammoth-113.9-master-closure-evidence.json": {
+          "declared": "sha256:cf4b95f002ead9bac58d9a3fe7de826fccdd1d7c12f5677dfd0d09b247efad01",
+          "actual": "sha256:cf4b95f002ead9bac58d9a3fe7de826fccdd1d7c12f5677dfd0d09b247efad01"
+        }
+      },
+      "violations": []
+    },
+    {
+      "id": "CERTIFIER_DECLARED_GATE_RECORD",
+      "passed": true,
+      "evidence": {
+        "gateCount": 17
+      },
+      "violations": []
+    },
+    {
+      "id": "CERTIFICATION_DECISION_SEMANTICS",
+      "passed": true,
+      "evidence": {
+        "phase": "112.29.9.1",
+        "status": "CERTIFIED",
+        "finalStatus": "GENESIS_112_29_UNIFIED_PLATFORM_CERTIFIED",
+        "authority": {
+          "issuer": "EXTERNAL_RAF_INDEPENDENT_CERTIFICATION_GATE",
+          "selfCertificationAccepted": false,
+          "mammothCertificationRole": "CERTIFIED_SUBORDINATE_EVIDENCE_ONLY"
+        }
+      },
+      "violations": []
+    },
+    {
+      "id": "GOLD_SEAL_SEMANTICS",
+      "passed": false,
+      "evidence": {
+        "phase": "112.29.9.1",
+        "status": "GENESIS_112_29_UNIFIED_PLATFORM_TAMPERED",
+        "issuer": "EXTERNAL_RAF_INDEPENDENT_CERTIFICATION_GATE",
+        "predecessorEvidenceDigest": "sha256:10c5c871c9633428ad0005912019c9614be4d5e39f6f5b9d0ed91bce96fc49a1",
+        "certificationDecisionDigest": "sha256:e1e7442f71cc94e5cecbe168b06094d7d97376aeada47d60089ffe851be47014",
+        "historicalRefusal": {
+          "path": "reports/unified-platform-integration/112.29.3-to-112.29.9.1/112.29.9.1-external-raf-certification.json",
+          "sha256": "sha256:dcbb1292b043ee0199a90decf3ba0ac89fe0215f5a835f120693da4af1b69dc0"
+        },
+        "mammoth": {
+          "role": "CERTIFIED_SUBORDINATE_EVIDENCE_ONLY",
+          "certificationPath": "reports/mammoth/genesis-113.9-project-certification/mammoth-project-certification.json",
+          "certificationSha256": "sha256:2330c2ae4552ec9e27a04394cfa8920af91972f15554f25c3ed0b8374a2cad61"
+        }
+      },
+      "violations": [
+        "Gold Seal semantic or evidence linkage invalid"
+      ]
+    }
+  ],
+  "failedChecks": [
+    "GOLD_SEAL_SEMANTICS"
+  ],
+  "verifiedAtIso": "2026-08-11T22:49:12.991Z"
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "phase": "112.29.9.1",
+  "component": "INDEPENDENT_DOWNSTREAM_GOLD_SEAL_VERIFIER",
+  "correctionVersion": "1.0.1",
+  "classification": "BOUNDED_VERIFIER_IMPLEMENTATION_CORRECTION",
+  "correctedCheck": "WORKTREE_HOLD_BOUNDARY",
+  "v100Disposition": "VALID_FAIL_CLOSED_VERIFICATION_REFUSAL",
+  "rootCause": "v1.0.0 normalized git status --porcelain=v1 -z output with .trim(), removing the significant leading status space from the first record before slice(3) pathname extraction",
+  "correction": "Read git status --porcelain=v1 -z stdout without trim normalization",
+  "v100Evidence": {
+    "independentVerifierSha256": "328768879ee6fc58987c24260a8a8ad7ef4c9c5c190cecf6bad38e8faf5f1c06",
+    "pristineVerificationRefusalSha256": "436f4c83917fb6061f2e41318f76c4c191812817758fcf6a70dd474a137e06b3"
+  },
+  "scope": {
+    "certificationDecisionLogicChanged": false,
+    "goldSealSemanticRulesChanged": false,
+    "predecessorEvidenceRulesChanged": false,
+    "worktreePathParserChanged": true
+  },
+  "boundaries": {
+    "v100EvidenceModified": false,
+    "certificationOutputModified": false,
+    "predecessorEvidenceModified": false,
+    "canonicalSourceModified": false,
+    "verificationRerunDuringCorrectionBuild": false,
+    "canonicalPromotionPerformed": false
+  }
+}

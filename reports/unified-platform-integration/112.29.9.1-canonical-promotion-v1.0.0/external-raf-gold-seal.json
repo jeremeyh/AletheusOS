@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "standard": "ALETHEUSOS-GENESIS-112.29.9.1-EXTERNAL-RAF-INDEPENDENT-GOLD-SEAL",
+  "phase": "112.29.9.1",
+  "status": "GENESIS_112_29_UNIFIED_PLATFORM_CERTIFIED",
+  "issuedAtIso": "2026-08-11T20:06:34.943Z",
+  "issuedBy": "EXTERNAL_RAF_INDEPENDENT_CERTIFICATION_GATE",
+  "predecessorPhase": "112.29.9",
+  "predecessorEvidenceDigest": "sha256:10c5c871c9633428ad0005912019c9614be4d5e39f6f5b9d0ed91bce96fc49a1",
+  "certificationDecisionDigest": "sha256:e1e7442f71cc94e5cecbe168b06094d7d97376aeada47d60089ffe851be47014",
+  "sourceBaseline": {
+    "head": "c1f80a01a7a206d93df85072980994b63e9e5532",
+    "tree": "cc92daa57cecd5e859241480ec1b53a7ff664e09",
+    "tag": "aletheusos-migration-recovery-baseline-2026-08-11"
+  },
+  "historicalRefusalPreserved": {
+    "path": "reports/unified-platform-integration/112.29.3-to-112.29.9.1/112.29.9.1-external-raf-certification.json",
+    "sha256": "sha256:dcbb1292b043ee0199a90decf3ba0ac89fe0215f5a835f120693da4af1b69dc0"
+  },
+  "mammoth11392": {
+    "role": "CERTIFIED_SUBORDINATE_EVIDENCE_ONLY",
+    "certificationPath": "reports/mammoth/genesis-113.9-project-certification/mammoth-project-certification.json",
+    "certificationSha256": "sha256:2330c2ae4552ec9e27a04394cfa8920af91972f15554f25c3ed0b8374a2cad61"
+  },
+  "selfCertificationPermitted": false,
+  "goldSealEvidenceDigest": "sha256:188907e206bf769c2cf30cd1916423869773dfd0f118c88775108ba19ff356a1"
+}

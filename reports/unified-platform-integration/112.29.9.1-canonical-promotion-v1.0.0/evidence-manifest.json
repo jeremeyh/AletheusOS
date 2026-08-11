@@ -1,0 +1,11 @@
+{
+  "README.md": "sha256:fc286e99a262fdb90a7b1d9ede69f3773da04a99c98ad35b408c8161c0ec95dc",
+  "canonical-promotion.json": "sha256:d9fff51da1d03eefddcc7c14ef90e515ea599e6c352b6f9857cf9eae3d27ed6e",
+  "external-raf-certification-decision.json": "sha256:bfb31f8d5713422ba7b1fc570a36100883a00d245c788b06d763ce3880743578",
+  "external-raf-gold-seal.json": "sha256:ee082002917e679ab0810e4ba7c96ea583bb77ddc396f75b1a498e77a3697a3c",
+  "external-raf-v1.0.1-correction-receipt.json": "sha256:b8550ecb6576bf2e64a85432e4e425b88093438313f58569e6bf9da46cefc11d",
+  "independent-adversarial-refusal.json": "sha256:71bf98dba404e5885e8b821cf5bd3e8deddfe389d273f55159e85998466cea62",
+  "independent-pristine-verification.json": "sha256:618b915433b5a7171d2f4783346a18b90ad6e1b19bc0679d4a7f754aee1c76de",
+  "independent-verification-summary.json": "sha256:c26b37e2dd0b84032d2a3b960d660774d03bfc2b6249df921e9406d1ab5e4862",
+  "independent-verifier-v1.0.1-correction-receipt.json": "sha256:40900aba2160f5a38341c82daa1a74a92f274fdf0070c410d0f19bd95fcea86d"
+}

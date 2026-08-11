@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "canonicalLineage": "ALETHEUSOS_UNIFIED_PLATFORM",
+  "canonicalGenesis": "112",
+  "canonicalParentPhase": "112.29.9.1",
+  "canonicalParentStatus": "GENESIS_112_29_UNIFIED_PLATFORM_CERTIFIED",
+  "designation": "CANONICAL_COMPLETED_UNIFIED_GENESIS_112_PARENT",
+  "promotionEvidence": "reports/unified-platform-integration/112.29.9.1-canonical-promotion-v1.0.0",
+  "activationMode": "GIT_TAG",
+  "requiredCanonicalTag": "aletheusos-genesis-112.29.9.1-unified-platform-gold-seal-v1.0.0",
+  "mammothGenesis11392Role": "CERTIFIED_SUBORDINATE_EVIDENCE_ONLY",
+  "successorGenesisNumber": "UNDECIDED"
+}

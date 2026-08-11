@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "phase": "112.29.9.1",
+  "standard": "ALETHEUSOS-GENESIS-112.29.9.1-INDEPENDENT-GOLD-SEAL-VERIFICATION-FINAL-EVIDENCE",
+  "externalRafCertification": "CERTIFIED",
+  "externalRafFinalStatus": "GENESIS_112_29_UNIFIED_PLATFORM_CERTIFIED",
+  "independentVerification": "VERIFIED",
+  "independentCheckCount": 27,
+  "independentFailedChecks": [],
+  "adversarialSemanticTamper": "REFUSED_AS_REQUIRED",
+  "adversarialFailedChecks": [
+    "GOLD_SEAL_SEMANTICS"
+  ],
+  "certifierImportedByIndependentVerifier": false,
+  "canonicalPromotionPerformed": false,
+  "certificationDecisionEvidenceDigest": "sha256:e1e7442f71cc94e5cecbe168b06094d7d97376aeada47d60089ffe851be47014",
+  "goldSealEvidenceDigest": "sha256:188907e206bf769c2cf30cd1916423869773dfd0f118c88775108ba19ff356a1",
+  "predecessorRootDigest": "sha256:1f136efbb4a9500a606519612e987c6df8681caa015b338c8764a4ae321550d3",
+  "issuedCertificationArchiveSha256": "088eb685c3ca7aa3c4060b21d21d78fe70fe17701f8ff341c717d3e83f453fac",
+  "externalRafV101GoldSeedArchiveSha256": "9c105a1854672209796fef4c7a858893f6764b31d180e0038bf5abf1ead25586",
+  "independentVerifierV101": {
+    "sha256": "44f2eed17e056160a1f874b91e5fe09735d2cc5655840ed2bd12e183e3b28bcc",
+    "correctionArchiveSha256": "765da87810d27af01624fba3727a9bd27de7020144a256627714905c64689b8e",
+    "correctedCheck": "WORKTREE_HOLD_BOUNDARY",
+    "correction": "PORCELAIN_Z_RAW_STDOUT_NO_TRIM"
+  },
+  "independentVerifierV100History": {
+    "verifierSha256": "328768879ee6fc58987c24260a8a8ad7ef4c9c5c190cecf6bad38e8faf5f1c06",
+    "pristineRefusalSha256": "436f4c83917fb6061f2e41318f76c4c191812817758fcf6a70dd474a137e06b3",
+    "disposition": "VALID_FAIL_CLOSED_HISTORICAL_REFUSAL"
+  },
+  "issuedCertificationArtifactSha256": {
+    "certification-decision.json": "bfb31f8d5713422ba7b1fc570a36100883a00d245c788b06d763ce3880743578",
+    "genesis-112.29.9.1-external-raf-gold-seal.json": "ee082002917e679ab0810e4ba7c96ea583bb77ddc396f75b1a498e77a3697a3c",
+    "evidence-manifest.json": "25bc3cfb499572b699936852c2b68ddc6945511c6b81fc5cb69b2d17195dba6c",
+    "evidence-digest.sha256": "a824a5e6ed0ed540fc560fe1a85e2ec5cd2888cfc11ce9cad80794a9418ce8a1"
+  },
+  "verificationResults": {
+    "pristineIssuedGoldSeal": "PASS",
+    "cryptographicallyRepairedSemanticTamper": "REFUSED"
+  },
+  "promotionReadiness": {
+    "externalRafGoldSealIssued": true,
+    "independentGoldSealVerificationPassed": true,
+    "adversarialSemanticRefusalPassed": true,
+    "evidentiaryGatesComplete": true,
+    "canonicalPromotionPerformed": false
+  },
+  "boundaries": {
+    "canonicalSourceMutation": false,
+    "predecessorMutation": false,
+    "certificationOutputMutation": false,
+    "historicalRefusalMutation": false,
+    "canonicalPromotion": false
+  }
+}

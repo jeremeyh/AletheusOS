@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "phase": "112.29.9.1",
+  "correctionVersion": "1.0.1",
+  "classification": "BOUNDED_VERIFIER_CORRECTION",
+  "correctedGate": "PREDECESSOR_DIGEST_RECORD",
+  "v100Disposition": "VALID_HISTORICAL_REFUSAL",
+  "rootCause": "v1.0.0 incorrectly required evidence-digest.sha256 to equal SHA-256(evidence-manifest.json)",
+  "authoritativeDigestContract": "sha(canon({manifest,standard:STANDARD,phases:PHASES}))",
+  "authoritativeGenerator": {
+    "path": "~/.aletheusos/releases/genesis_112_29_4_to_112_29_9_reconciled_v1_0_0/payload/downstream-assurance.mjs",
+    "sha256": "d0cb63faea2967eb821a11db7f1ce4bf2241709d65c98569c7291892a7015c82"
+  },
+  "v100Certifier": {
+    "sha256": "9b612774eade70d0cbbe308abf168037f93dc88d9bd78c7a33e7c43f9cf4035a"
+  },
+  "v100RefusalEvidence": {
+    "certificationDecisionSha256": "ce06bf08bce222eaf67ff76fccb841847790fa3e8b496384baf5f0068e0bd269",
+    "certificationRefusalSha256": "49a73c924eb00bd588b2e8c5aca086375d871ee41261d41a3666a0504b34c7d8",
+    "evidenceManifestSha256": "89c99a2271e12da3ef0994c04f4c28dc7fab8f44e059c828ce211781d625b21e",
+    "evidenceDigestFileSha256": "51a720da275ce685946caf8582c1b5bd867f8481f68affe6a506ba579a1223e2"
+  },
+  "predecessorRootDigest": "sha256:1f136efbb4a9500a606519612e987c6df8681caa015b338c8764a4ae321550d3",
+  "boundaries": {
+    "predecessorEvidenceModified": false,
+    "v100RefusalModified": false,
+    "canonicalSourceModified": false,
+    "certificationExecuted": false,
+    "goldSealIssued": false
+  }
+}

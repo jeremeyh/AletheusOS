@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0.0",
+  "phase": "112.29.9.1",
+  "standard": "ALETHEUSOS-GENESIS-112.29.9.1-UNIFIED-PLATFORM-CANONICAL-PROMOTION",
+  "status": "GENESIS_112_29_UNIFIED_PLATFORM_CERTIFIED",
+  "designation": "CANONICAL_COMPLETED_UNIFIED_GENESIS_112_PARENT",
+  "promotionAuthorityBasis": "EXTERNAL_RAF_GOLD_SEAL_PLUS_INDEPENDENT_DOWNSTREAM_VERIFICATION",
+  "activationMode": "GIT_TAG",
+  "requiredCanonicalTag": "aletheusos-genesis-112.29.9.1-unified-platform-gold-seal-v1.0.0",
+  "externalRaf": {
+    "goldSealIssued": true,
+    "certificationGatesPassed": 17,
+    "certificationGatesFailed": 0,
+    "decisionEvidenceDigest": "sha256:e1e7442f71cc94e5cecbe168b06094d7d97376aeada47d60089ffe851be47014",
+    "goldSealEvidenceDigest": "sha256:188907e206bf769c2cf30cd1916423869773dfd0f118c88775108ba19ff356a1"
+  },
+  "independentVerification": {
+    "status": "VERIFIED",
+    "checksPassed": 27,
+    "checksFailed": 0,
+    "certifierImported": false,
+    "adversarialSemanticTamper": "REFUSED_AS_REQUIRED",
+    "adversarialFailedCheck": "GOLD_SEAL_SEMANTICS"
+  },
+  "predecessor": {
+    "phase": "112.29.9",
+    "status": "GENESIS_112_UNIFIED_PLATFORM_MASTER_CLOSURE_EVIDENCE_COMPLETE",
+    "rootEvidenceDigest": "sha256:1f136efbb4a9500a606519612e987c6df8681caa015b338c8764a4ae321550d3"
+  },
+  "sourceBaselineBeforePromotion": {
+    "head": "c1f80a01a7a206d93df85072980994b63e9e5532",
+    "tree": "cc92daa57cecd5e859241480ec1b53a7ff664e09",
+    "tag": "aletheusos-migration-recovery-baseline-2026-08-11"
+  },
+  "historicalRefusals": {
+    "originalRepositoryRefusal": {
+      "preserved": true,
+      "sha256": "dcbb1292b043ee0199a90decf3ba0ac89fe0215f5a835f120693da4af1b69dc0"
+    },
+    "externalRafV100VerifierRefusal": {
+      "preserved": true,
+      "sha256": "49a73c924eb00bd588b2e8c5aca086375d871ee41261d41a3666a0504b34c7d8"
+    },
+    "independentVerifierV100Refusal": {
+      "preserved": true,
+      "sha256": "436f4c83917fb6061f2e41318f76c4c191812817758fcf6a70dd474a137e06b3"
+    }
+  },
+  "subordinateCertifiedEvidence": {
+    "mammothGenesis11392": {
+      "status": "CERTIFIED",
+      "role": "CERTIFIED_SUBORDINATE_EVIDENCE_ONLY",
+      "notUnifiedReleaseParent": true
+    }
+  },
+  "constitutionalBoundaries": {
+    "selfCertificationPermitted": false,
+    "historicalEvidenceMutationPermitted": false,
+    "predecessorMutationPerformed": false,
+    "sourceCodeMutationPerformed": false,
+    "automaticSuccessorGenesisNumberSelection": false
+  }
+}
