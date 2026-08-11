@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any
 
 
 def utc_now() -> str:
@@ -12,9 +12,9 @@ class IntelligenceSupervisor:
     VERSION = "4.0.0"
 
     def __init__(self) -> None:
-        self.health_events: List[Dict[str, Any]] = []
+        self.health_events: list[dict[str, Any]] = []
 
-    def check(self, runtime: Any) -> Dict[str, Any]:
+    def check(self, runtime: Any) -> dict[str, Any]:
         event = {
             "timestamp": utc_now(),
             "runtime_version": getattr(runtime, "version", "unknown"),
@@ -25,7 +25,7 @@ class IntelligenceSupervisor:
         self.health_events.append(event)
         return event
 
-    def statistics(self) -> Dict[str, Any]:
+    def statistics(self) -> dict[str, Any]:
         return {
             "version": self.VERSION,
             "health_events": len(self.health_events),

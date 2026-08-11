@@ -19,7 +19,7 @@ if imp not in text:
 
     end = text.find("\n", idx)
 
-    text = text[:end+1] + imp + "\n" + text[end+1:]
+    text = text[: end + 1] + imp + "\n" + text[end + 1 :]
 
 # -------------------------------------------------------------------
 # Replace initialization with lazy bootstrap
@@ -43,8 +43,7 @@ text = text.replace(old, new)
 # -------------------------------------------------------------------
 
 if "def _bootstrap_compatibility(self):" not in text:
-
-    helper = '''
+    helper = """
 
     # ==========================================================
     # Runtime Compatibility Bootstrap
@@ -61,7 +60,7 @@ if "def _bootstrap_compatibility(self):" not in text:
 
         self._apply_compatibility_aliases()
 
-'''
+"""
 
     anchor = "    def _register_compatibility_services"
 
@@ -82,11 +81,9 @@ commands = [
 ]
 
 for cmd in commands:
-
     target = f"def {cmd}(self, context: RuntimeContext)"
 
     if target in text:
-
         text = text.replace(
             target,
             target + "\n\n        self._bootstrap_compatibility()",
@@ -100,7 +97,6 @@ for cmd in commands:
 kernel = "def _cmd_kernel_bootstrap(self, context: RuntimeContext)"
 
 if kernel in text:
-
     text = text.replace(
         kernel,
         kernel + "\n\n        self._bootstrap_compatibility()",

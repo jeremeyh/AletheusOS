@@ -3,7 +3,11 @@ class PricingEngine:
 
     @staticmethod
     def estimate(listings):
-        prices = [float(getattr(x, "price", 0) or 0) for x in listings or [] if float(getattr(x, "price", 0) or 0) > 0]
+        prices = [
+            float(getattr(x, "price", 0) or 0)
+            for x in listings or []
+            if float(getattr(x, "price", 0) or 0) > 0
+        ]
         if not prices:
             return {
                 "low": 0,

@@ -1,5 +1,5 @@
-from pathlib import Path
 import sys
+from pathlib import Path
 
 CORE = Path("aletheus/runtime/core.py")
 
@@ -16,7 +16,6 @@ changed = False
 import_line = "from aletheus.runtime.governance import GovernanceEngine"
 
 if import_line not in text:
-
     anchor = "from aletheus.runtime.integrity import RuntimeDoctor"
 
     if anchor not in text:
@@ -37,7 +36,6 @@ if import_line not in text:
 assignment = "        self.governance = GovernanceEngine(self)"
 
 if assignment not in text:
-
     anchor = "        self.runtime_doctor = RuntimeDoctor(self)"
 
     if anchor not in text:

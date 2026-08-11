@@ -7,7 +7,6 @@ from core.engine_base import EngineBase
 
 
 class EngineAdapter(EngineBase):
-
     def __init__(self, module):
 
         self.module = module
@@ -35,7 +34,6 @@ class EngineAdapter(EngineBase):
             "evaluate",
             "predict",
         ):
-
             func = getattr(self.module, fn, None)
 
             if callable(func):
@@ -50,7 +48,6 @@ class EngineAdapter(EngineBase):
         handler = getattr(self.module, "handle_event", None)
 
         if callable(handler):
-
             for event in events:
                 event_bus.subscribe(event, handler)
 

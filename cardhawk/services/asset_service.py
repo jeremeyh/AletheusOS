@@ -15,7 +15,6 @@ from cardhawk.asset_vault import (
 
 
 class AssetService:
-
     def __init__(self):
 
         self.repository = AssetRepository()
@@ -50,11 +49,8 @@ class AssetService:
         updated = None
 
         for asset in assets:
-
             if asset.asset_id == asset_id:
-
                 for key, value in changes.items():
-
                     if hasattr(asset, key):
                         setattr(asset, key, value)
 
@@ -73,11 +69,7 @@ class AssetService:
 
         assets = self.repository.all()
 
-        remaining = [
-            asset
-            for asset in assets
-            if asset.asset_id != asset_id
-        ]
+        remaining = [asset for asset in assets if asset.asset_id != asset_id]
 
         self.repository.save_all(remaining)
 

@@ -1,8 +1,10 @@
 import logging
 from pathlib import Path
+
 from config.settings import settings
 
 _LOGGERS = {}
+
 
 def get_logger(name: str = "system"):
     settings.ensure_directories()

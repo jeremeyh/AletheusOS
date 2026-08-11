@@ -4,6 +4,10 @@ from __future__ import annotations
 class ServiceRegistry:
     VERSION = "4.4.0"
 
+
+    def count(self):
+        return len(self._services)
+
     def __init__(self):
         self._services = {}
 

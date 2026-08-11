@@ -15,17 +15,12 @@ def metric_card(
     """
 
     with st.container(border=True):
-
         st.caption(title)
 
-        st.markdown(
-            f"## {value}"
-        )
+        st.markdown(f"## {value}")
 
         if delta is not None:
-
             st.success(delta)
 
         if help_text:
-
             st.caption(help_text)

@@ -3,6 +3,7 @@ CardHawk OS™
 Platform Exception Hierarchy
 """
 
+
 class CardHawkError(Exception):
     """Base exception for all CardHawk OS errors."""
 

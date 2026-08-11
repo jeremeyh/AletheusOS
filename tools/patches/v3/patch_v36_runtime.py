@@ -8,7 +8,6 @@ text = core.read_text()
 # --------------------------------------------------
 
 if "from aletheus.high_availability_v3 import high_availability_core" not in text:
-
     anchor = "from aletheus.telemetry_v3 import telemetry_core\n"
 
     if anchor not in text:
@@ -16,8 +15,7 @@ if "from aletheus.high_availability_v3 import high_availability_core" not in tex
 
     text = text.replace(
         anchor,
-        anchor +
-        "from aletheus.high_availability_v3 import high_availability_core\n",
+        anchor + "from aletheus.high_availability_v3 import high_availability_core\n",
         1,
     )
 
@@ -26,7 +24,6 @@ if "from aletheus.high_availability_v3 import high_availability_core" not in tex
 # --------------------------------------------------
 
 if "self.high_availability_v3 = high_availability_core" not in text:
-
     anchor = "self.telemetry_v3 = telemetry_core"
 
     if anchor not in text:
@@ -34,8 +31,7 @@ if "self.high_availability_v3 = high_availability_core" not in text:
 
     text = text.replace(
         anchor,
-        anchor +
-        "\n        self.high_availability_v3 = high_availability_core",
+        anchor + "\n        self.high_availability_v3 = high_availability_core",
         1,
     )
 
@@ -53,7 +49,6 @@ text = text.replace(
 # --------------------------------------------------
 
 if "Aletheus High Availability Platform" not in text:
-
     anchor = 'self.services.register("Aletheus Observability Platform"'
 
     idx = text.find(anchor)
@@ -63,7 +58,7 @@ if "Aletheus High Availability Platform" not in text:
 
     end = text.find("\n", idx)
 
-    service = '''
+    service = """
 
         self.services.register(
             "Aletheus High Availability Platform",
@@ -72,24 +67,26 @@ if "Aletheus High Availability Platform" not in text:
                 "version": self.high_availability_v3.VERSION,
             },
         )
-'''
+"""
 
-    text = text[:end+1] + service + text[end+1:]
+    text = text[: end + 1] + service + text[end + 1 :]
 
 # --------------------------------------------------
 # Command registration
 # --------------------------------------------------
 
 if 'self.commands.register("ha.bootstrap"' not in text:
-
-    anchor = 'self.commands.register("telemetry.statistics", self._cmd_telemetry_statistics)'
+    anchor = (
+        'self.commands.register("telemetry.statistics", self._cmd_telemetry_statistics)'
+    )
 
     if anchor not in text:
         raise SystemExit("Telemetry command anchor not found.")
 
     text = text.replace(
         anchor,
-        anchor + '''
+        anchor
+        + """
 
         # --------------------------------------------------
         # v3.6 High Availability
@@ -105,7 +102,7 @@ if 'self.commands.register("ha.bootstrap"' not in text:
         self.commands.register("ha.replicate", self._cmd_ha_replicate)
         self.commands.register("ha.status", self._cmd_ha_status)
         self.commands.register("ha.statistics", self._cmd_ha_statistics)
-''',
+""",
         1,
     )
 

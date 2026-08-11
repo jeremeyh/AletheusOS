@@ -27,9 +27,7 @@ def test_bootstrap():
 def test_create_role():
 
     result = runtime_core.commands.dispatch(
-
         "security.role.create",
-
         {
             "name": "Developer",
             "permissions": [
@@ -49,9 +47,7 @@ def test_create_role():
 def test_assign_role():
 
     result = runtime_core.commands.dispatch(
-
         "security.role.assign",
-
         {
             "identity": "jeremey",
             "role": "Developer",
@@ -68,9 +64,7 @@ def test_assign_role():
 def test_authenticate():
 
     result = runtime_core.commands.dispatch(
-
         "security.authenticate",
-
         {
             "identity": "jeremey",
         },
@@ -86,9 +80,7 @@ def test_authenticate():
 def test_authorize():
 
     result = runtime_core.commands.dispatch(
-
         "security.authorize",
-
         {
             "identity": "jeremey",
             "permission": "workflow.execute",
@@ -105,9 +97,7 @@ def test_authorize():
 def test_policy():
 
     result = runtime_core.commands.dispatch(
-
         "security.policy",
-
         {
             "name": "Default Runtime",
             "definition": {
@@ -126,9 +116,7 @@ def test_policy():
 def test_audit():
 
     result = runtime_core.commands.dispatch(
-
         "security.audit",
-
         {
             "action": "workflow.execute",
             "actor": "jeremey",
@@ -145,9 +133,7 @@ def test_audit():
 def test_statistics():
 
     result = runtime_core.commands.dispatch(
-
         "security.statistics",
-
         {},
     )
 
@@ -159,7 +145,6 @@ def test_statistics():
 
 
 if __name__ == "__main__":
-
     test_security_service_registered()
     test_bootstrap()
     test_create_role()

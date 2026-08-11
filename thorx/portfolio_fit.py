@@ -1,7 +1,16 @@
 class PortfolioFitScorer:
     """Portfolio Fit™ scoring: answers whether the asset fits CardHawk specifically."""
 
-    CORE_TEAMS = {"Bears", "Chicago Bears", "Bulls", "Chicago Bulls", "Rockets", "Houston Rockets", "Texans", "Houston Texans"}
+    CORE_TEAMS = {
+        "Bears",
+        "Chicago Bears",
+        "Bulls",
+        "Chicago Bulls",
+        "Rockets",
+        "Houston Rockets",
+        "Texans",
+        "Houston Texans",
+    }
 
     @staticmethod
     def score(asset):

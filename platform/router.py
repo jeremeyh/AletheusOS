@@ -1,5 +1,6 @@
 import streamlit as st
 
+
 def render_route(route, state):
     routes = {
         "dashboard": ("live_platform.pages.live_dashboard", "render"),
@@ -11,7 +12,10 @@ def render_route(route, state):
         "thorx": ("platform.pages.thorx", "render"),
         "scout": ("platform.pages.scout", "render"),
         "hawk_aeye": ("platform.pages.hawk_aeye", "render"),
-        "autonomous_intelligence": ("live_platform.pages.intelligence_everywhere", "render"),
+        "autonomous_intelligence": (
+            "live_platform.pages.intelligence_everywhere",
+            "render",
+        ),
         "marketplace": ("live_platform.pages.marketplace_intelligence", "render"),
         "negotiation": ("platform.pages.negotiation", "render"),
         "portfolio": ("live_platform.pages.digital_twin", "render"),

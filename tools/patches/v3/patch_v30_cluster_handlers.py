@@ -7,7 +7,7 @@ if "def _cmd_cluster_bootstrap" in text:
     print("Cluster handlers already exist.")
     raise SystemExit(0)
 
-methods = '''
+methods = """
 
     # ============================================================
     # v3.0 Distributed Runtime Fabric
@@ -82,7 +82,7 @@ methods = '''
         )
         return context
 
-'''
+"""
 
 anchor = "    def _job_runtime_pulse(self) -> dict:"
 

@@ -1,5 +1,6 @@
 import re
 
+
 class YearDetector:
     """Detects likely year from OCR/context text."""
 

@@ -3,8 +3,8 @@ CardHawk OS™
 Runtime Metrics
 """
 
-class Metrics:
 
+class Metrics:
     def __init__(self):
 
         self.values = {}

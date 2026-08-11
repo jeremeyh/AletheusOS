@@ -13,7 +13,6 @@ from .asset import Asset
 
 
 class AssetRepository:
-
     def __init__(self, path="data/cardhawk_assets.json"):
         self.path = Path(path)
         self.path.parent.mkdir(parents=True, exist_ok=True)
@@ -22,10 +21,7 @@ class AssetRepository:
             self.path.write_text("[]")
 
     def all(self):
-        return [
-            Asset(**item)
-            for item in json.loads(self.path.read_text())
-        ]
+        return [Asset(**item) for item in json.loads(self.path.read_text())]
 
     def save_all(self, assets):
         self.path.write_text(

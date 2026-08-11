@@ -76,7 +76,10 @@ def test_governance_and_audit():
     )
     assert not check.errors, check.errors
     assert "governance" in check.results
-    assert check.results["governance"]["outcome"] in {"approved", "requires_founder_review"}
+    assert check.results["governance"]["outcome"] in {
+        "approved",
+        "requires_founder_review",
+    }
 
     audit = runtime_core.commands.dispatch("audit.history", {})
     assert not audit.errors, audit.errors

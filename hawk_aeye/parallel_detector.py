@@ -2,10 +2,30 @@ class ParallelDetector:
     """Detects likely parallels and premium terms."""
 
     KNOWN_PARALLELS = [
-        "Gold", "Black", "Silver", "Green", "Red", "Blue", "Purple", "Orange",
-        "White Sparkle", "Color Blast", "Downtown", "Kaboom", "Manga", "Galactic",
-        "Superfractor", "Finite", "Vinyl", "Pandora", "X-Fractor", "Refractor",
-        "RPA", "Patch Auto", "Rookie Auto", "Auto"
+        "Gold",
+        "Black",
+        "Silver",
+        "Green",
+        "Red",
+        "Blue",
+        "Purple",
+        "Orange",
+        "White Sparkle",
+        "Color Blast",
+        "Downtown",
+        "Kaboom",
+        "Manga",
+        "Galactic",
+        "Superfractor",
+        "Finite",
+        "Vinyl",
+        "Pandora",
+        "X-Fractor",
+        "Refractor",
+        "RPA",
+        "Patch Auto",
+        "Rookie Auto",
+        "Auto",
     ]
 
     def detect(self, text: str = "") -> dict:

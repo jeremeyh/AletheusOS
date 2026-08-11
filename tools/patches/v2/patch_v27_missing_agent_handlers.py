@@ -7,7 +7,7 @@ if "def _cmd_agent_spawn" in text:
     print("Agent handlers already exist.")
     raise SystemExit(0)
 
-methods = '''
+methods = """
     def _cmd_agent_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("agents", self.agents_v2.bootstrap())
         return context
@@ -63,7 +63,7 @@ methods = '''
         context.add_result("agent_stats", self.agents_v2.statistics())
         return context
 
-'''
+"""
 
 anchor = "    def _job_runtime_pulse(self) -> dict:"
 if anchor not in text:

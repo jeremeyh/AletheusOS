@@ -1,13 +1,17 @@
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-import uuid
+
 
 @dataclass
 class Node:
     label: str
     node_type: str
     properties: dict = field(default_factory=dict)
-    node_id: str = field(default_factory=lambda: f"NODE-{uuid.uuid4().hex[:10].upper()}")
+    node_id: str = field(
+        default_factory=lambda: f"NODE-{uuid.uuid4().hex[:10].upper()}"
+    )
+
 
 @dataclass
 class Edge:
@@ -15,8 +19,11 @@ class Edge:
     target: str
     relationship: str
     properties: dict = field(default_factory=dict)
-    edge_id: str = field(default_factory=lambda: f"EDGE-{uuid.uuid4().hex[:10].upper()}")
+    edge_id: str = field(
+        default_factory=lambda: f"EDGE-{uuid.uuid4().hex[:10].upper()}"
+    )
     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+
 
 class KnowledgeGraph:
     """CardHawk Knowledge Graph™."""
@@ -31,7 +38,12 @@ class KnowledgeGraph:
         return node
 
     def add_edge(self, source, target, relationship, **properties):
-        edge = Edge(source=source, target=target, relationship=relationship, properties=properties)
+        edge = Edge(
+            source=source,
+            target=target,
+            relationship=relationship,
+            properties=properties,
+        )
         self.edges.append(edge)
         return edge
 

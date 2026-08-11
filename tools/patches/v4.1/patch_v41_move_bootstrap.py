@@ -22,18 +22,14 @@ new = """
 """
 
 if old not in text:
-    raise SystemExit(
-        "Original compatibility bootstrap block not found."
-    )
+    raise SystemExit("Original compatibility bootstrap block not found.")
 
 text = text.replace(old, new, 1)
 
 anchor = "        self.kernel = KernelExecutor(self)\n"
 
 if anchor not in text:
-    raise SystemExit(
-        "Kernel initialization anchor not found."
-    )
+    raise SystemExit("Kernel initialization anchor not found.")
 
 text = text.replace(
     anchor,

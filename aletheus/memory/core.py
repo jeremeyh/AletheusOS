@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Any, Dict, List, Optional
-import uuid
+from typing import Any
 
 
 @dataclass
@@ -12,11 +12,11 @@ class MemoryRecord:
     value: Any
     namespace: str = "system"
     memory_type: str = "working"
-    tags: List[str] = field(default_factory=list)
+    tags: list[str] = field(default_factory=list)
     record_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return {
             "record_id": self.record_id,
             "namespace": self.namespace,
@@ -31,7 +31,7 @@ class MemoryRecord:
 class AletheusMemoryCore:
     def __init__(self) -> None:
         self.version = "0.4.0-genesis"
-        self.records: List[MemoryRecord] = []
+        self.records: list[MemoryRecord] = []
 
     def remember(
         self,
@@ -39,7 +39,7 @@ class AletheusMemoryCore:
         value: Any,
         namespace: str = "system",
         memory_type: str = "working",
-        tags: Optional[List[str]] = None,
+        tags: list[str] | None = None,
     ) -> MemoryRecord:
         record = MemoryRecord(
             key=key,
@@ -53,12 +53,12 @@ class AletheusMemoryCore:
 
     def recall(
         self,
-        key: Optional[str] = None,
-        namespace: Optional[str] = None,
-        memory_type: Optional[str] = None,
-        tag: Optional[str] = None,
+        key: str | None = None,
+        namespace: str | None = None,
+        memory_type: str | None = None,
+        tag: str | None = None,
         limit: int = 100,
-    ) -> List[Dict[str, Any]]:
+    ) -> list[dict[str, Any]]:
         results = self.records
 
         if key:
@@ -66,7 +66,9 @@ class AletheusMemoryCore:
         if namespace:
             results = [record for record in results if record.namespace == namespace]
         if memory_type:
-            results = [record for record in results if record.memory_type == memory_type]
+            results = [
+                record for record in results if record.memory_type == memory_type
+            ]
         if tag:
             results = [record for record in results if tag in record.tags]
 
@@ -74,11 +76,13 @@ class AletheusMemoryCore:
 
     def clear_working_memory(self) -> int:
         before = len(self.records)
-        self.records = [record for record in self.records if record.memory_type != "working"]
+        self.records = [
+            record for record in self.records if record.memory_type != "working"
+        ]
         return before - len(self.records)
 
-    def stats(self) -> Dict[str, Any]:
-        by_type: Dict[str, int] = {}
+    def stats(self) -> dict[str, Any]:
+        by_type: dict[str, int] = {}
 
         for record in self.records:
             by_type[record.memory_type] = by_type.get(record.memory_type, 0) + 1

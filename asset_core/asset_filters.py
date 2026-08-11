@@ -4,6 +4,7 @@ class AssetFilters:
 
     Reusable filtering helpers for Asset Vault™, Command Center™, and Portfolio Engine™.
     """
+
     @staticmethod
     def by_sport(assets, sport):
         if not sport or sport == "All":
@@ -19,7 +20,8 @@ class AssetFilters:
     @staticmethod
     def by_min_thorx(assets, minimum=0):
         return [
-            a for a in assets
+            a
+            for a in assets
             if float(getattr(a, "thorx_score", 0) or 0) >= float(minimum)
         ]
 

@@ -1,5 +1,5 @@
-from pathlib import Path
 import sys
+from pathlib import Path
 
 CORE = Path("aletheus/runtime/core.py")
 
@@ -13,7 +13,9 @@ changed = False
 # Import ServiceRegistry
 # --------------------------------------------------
 
-old_import = "from aletheus.runtime.governance import GovernanceEngine, PrincipleXValidator"
+old_import = (
+    "from aletheus.runtime.governance import GovernanceEngine, PrincipleXValidator"
+)
 new_import = old_import + "\nfrom aletheus.runtime.services import ServiceRegistry"
 
 if old_import in text and "ServiceRegistry" not in text:

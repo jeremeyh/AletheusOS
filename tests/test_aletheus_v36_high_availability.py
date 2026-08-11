@@ -29,9 +29,7 @@ def test_bootstrap():
 def test_join():
 
     result = runtime_core.commands.dispatch(
-
         "ha.join",
-
         {
             "name": "Replica Runtime",
         },
@@ -65,13 +63,9 @@ def test_status():
 def test_replicate():
 
     result = runtime_core.commands.dispatch(
-
         "ha.replicate",
-
         {
-            "payload": {
-                "asset": "Card Hawk"
-            },
+            "payload": {"asset": "Card Hawk"},
         },
     )
 
@@ -117,7 +111,6 @@ def test_statistics():
 
 
 if __name__ == "__main__":
-
     test_ha_service_registered()
 
     test_bootstrap()

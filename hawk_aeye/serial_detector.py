@@ -1,5 +1,6 @@
 import re
 
+
 class SerialDetector:
     """Detects serial numbering such as 5/10, 19/20, /99."""
 

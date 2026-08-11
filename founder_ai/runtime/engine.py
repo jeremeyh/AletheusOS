@@ -39,15 +39,10 @@ class FounderAI:
             recommendation = "PASS"
 
         return {
-
             "player": card.get("player"),
-
             "score": score,
-
             "value": value,
-
             "recommendation": recommendation,
-
             "summary": (
                 f"{card.get('player')} "
                 f"{card.get('year')} "
@@ -57,5 +52,4 @@ class FounderAI:
                 f"Estimated value ${value:.2f}. "
                 f"Recommendation: {recommendation}."
             ),
-
         }

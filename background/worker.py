@@ -1,5 +1,7 @@
 from datetime import datetime
+
 from background.job_queue import JobQueue
+
 
 class BackgroundWorker:
     """

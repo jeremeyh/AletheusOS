@@ -3,13 +3,15 @@ from pathlib import Path
 path = Path("aletheus/runtime/core.py")
 text = path.read_text()
 
-start = text.find("    # ==========================================================\n    # Runtime Compatibility Layer")
+start = text.find(
+    "    # ==========================================================\n    # Runtime Compatibility Layer"
+)
 end = text.find("    def _job_runtime_pulse", start)
 
 if start == -1 or end == -1:
     raise SystemExit("Could not locate compatibility block boundaries.")
 
-block = '''
+block = """
     # ==========================================================
     # Runtime Compatibility Layer
     # ==========================================================
@@ -75,7 +77,7 @@ block = '''
         except KeyError:
             pass
 
-'''
+"""
 
 text = text[:start] + block + text[end:]
 

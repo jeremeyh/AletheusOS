@@ -3,7 +3,7 @@ from pathlib import Path
 path = Path("aletheus/runtime/core.py")
 text = path.read_text()
 
-old = '''    def _cmd_cluster_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+old = """    def _cmd_cluster_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
         cluster = self.distributed.bootstrap_primary_cluster()
         self.kernel_v2.publish(
             event_type="cluster.bootstrapped",
@@ -12,9 +12,9 @@ old = '''    def _cmd_cluster_bootstrap(self, context: RuntimeContext) -> Runtim
         )
         context.add_result("cluster", cluster.to_dict())
         return context
-'''
+"""
 
-new = '''    def _cmd_cluster_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+new = """    def _cmd_cluster_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
         cluster = self.distributed.bootstrap_primary_cluster()
 
         self.kernel_v2.publish(
@@ -30,7 +30,7 @@ new = '''    def _cmd_cluster_bootstrap(self, context: RuntimeContext) -> Runtim
         )
 
         return context
-'''
+"""
 
 if old not in text:
     raise SystemExit("Could not locate _cmd_cluster_bootstrap().")

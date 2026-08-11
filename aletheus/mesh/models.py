@@ -1,6 +1,6 @@
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-import uuid
 
 
 def now():
@@ -9,7 +9,6 @@ def now():
 
 @dataclass
 class MeshRuntime:
-
     runtime_name: str
     runtime_type: str
 

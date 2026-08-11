@@ -1,5 +1,5 @@
-from pathlib import Path
 import sys
+from pathlib import Path
 
 CORE = Path("aletheus/runtime/core.py")
 
@@ -13,7 +13,9 @@ changed = False
 # Import PrincipleXValidator
 # --------------------------------------------------
 
-import_line = "from aletheus.runtime.governance import GovernanceEngine, PrincipleXValidator"
+import_line = (
+    "from aletheus.runtime.governance import GovernanceEngine, PrincipleXValidator"
+)
 
 old_import = "from aletheus.runtime.governance import GovernanceEngine"
 

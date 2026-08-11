@@ -1,6 +1,7 @@
 import re
 from pathlib import Path
 
+
 class OCRRuntime:
     """
     Hawk A⦿Eye™ OCR Runtime.

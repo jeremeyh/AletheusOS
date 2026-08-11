@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Any, Dict, List
-import uuid
+from typing import Any
 
 
 def now() -> str:
@@ -19,7 +19,7 @@ class DecisionPolicy:
     policy_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -44,7 +44,7 @@ class DecisionOption:
         )
         return round(score, 2)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         data = self.__dict__.copy()
         data["score"] = self.weighted_score()
         return data
@@ -54,11 +54,11 @@ class DecisionOption:
 class DecisionRecord:
     title: str
     objective: str
-    options: List[DecisionOption]
-    selected_option: Dict[str, Any] | None = None
+    options: list[DecisionOption]
+    selected_option: dict[str, Any] | None = None
     confidence: float = 0.0
     status: str = "pending"
-    reasoning_trace: Dict[str, Any] = field(default_factory=dict)
+    reasoning_trace: dict[str, Any] = field(default_factory=dict)
     policy: str = "maximize_value"
     decision_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
@@ -74,7 +74,7 @@ class DecisionRecord:
         self.status = "rolled_back"
         self.rolled_back_at = now()
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         data = self.__dict__.copy()
         data["options"] = [option.to_dict() for option in self.options]
         return data
@@ -83,25 +83,48 @@ class DecisionRecord:
 class AletheusAutonomousDecisionEngine:
     def __init__(self) -> None:
         self.version = "2.6.0"
-        self.policies: Dict[str, DecisionPolicy] = {}
-        self.decisions: Dict[str, DecisionRecord] = {}
+        self.policies: dict[str, DecisionPolicy] = {}
+        self.decisions: dict[str, DecisionRecord] = {}
 
-    def bootstrap(self) -> Dict[str, Any]:
+    def bootstrap(self) -> dict[str, Any]:
         defaults = [
             ("maximize_value", "Prefer the highest expected value.", "value", 1.0),
             ("minimize_risk", "Prefer the lowest risk profile.", "risk", 1.0),
-            ("maximize_confidence", "Prefer the option with highest confidence.", "confidence", 1.0),
-            ("fastest_execution", "Prefer the fastest executable option.", "speed", 0.75),
+            (
+                "maximize_confidence",
+                "Prefer the option with highest confidence.",
+                "confidence",
+                1.0,
+            ),
+            (
+                "fastest_execution",
+                "Prefer the fastest executable option.",
+                "speed",
+                0.75,
+            ),
             ("lowest_cost", "Prefer the lowest cost option.", "cost", 0.75),
-            ("human_required", "Require founder approval before execution.", "governance", 1.0),
+            (
+                "human_required",
+                "Require founder approval before execution.",
+                "governance",
+                1.0,
+            ),
         ]
         for name, description, policy_type, weight in defaults:
             if name not in self.policies:
                 self.add_policy(name, description, policy_type, weight)
         return self.stats()
 
-    def add_policy(self, name: str, description: str, policy_type: str = "general", weight: float = 1.0) -> Dict[str, Any]:
-        policy = DecisionPolicy(name=name, description=description, policy_type=policy_type, weight=weight)
+    def add_policy(
+        self,
+        name: str,
+        description: str,
+        policy_type: str = "general",
+        weight: float = 1.0,
+    ) -> dict[str, Any]:
+        policy = DecisionPolicy(
+            name=name, description=description, policy_type=policy_type, weight=weight
+        )
         self.policies[name] = policy
         return policy.to_dict()
 
@@ -109,10 +132,10 @@ class AletheusAutonomousDecisionEngine:
         self,
         title: str,
         objective: str,
-        options: List[Dict[str, Any]],
+        options: list[dict[str, Any]],
         policy: str,
         runtime: Any,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         if not self.policies:
             self.bootstrap()
 
@@ -156,12 +179,23 @@ class AletheusAutonomousDecisionEngine:
             },
         )
 
-        reasoning_trace = reasoning.results.get("evaluation", {}) if not reasoning.errors else {
-            "error": reasoning.errors,
-            "confidence": selected.confidence,
-        }
+        reasoning_trace = (
+            reasoning.results.get("evaluation", {})
+            if not reasoning.errors
+            else {
+                "error": reasoning.errors,
+                "confidence": selected.confidence,
+            }
+        )
 
-        confidence = round((selected.weighted_score() + float(reasoning_trace.get("confidence", selected.confidence))) / 2, 2)
+        confidence = round(
+            (
+                selected.weighted_score()
+                + float(reasoning_trace.get("confidence", selected.confidence))
+            )
+            / 2,
+            2,
+        )
 
         record = DecisionRecord(
             title=title,
@@ -176,7 +210,7 @@ class AletheusAutonomousDecisionEngine:
         self.decisions[record.decision_id] = record
         return record.to_dict()
 
-    def execute(self, decision_id: str) -> Dict[str, Any]:
+    def execute(self, decision_id: str) -> dict[str, Any]:
         decision = self.decisions.get(decision_id)
         if decision is None:
             return {"error": f"Decision not found: {decision_id}"}
@@ -188,7 +222,7 @@ class AletheusAutonomousDecisionEngine:
         decision.execute()
         return decision.to_dict()
 
-    def rollback(self, decision_id: str) -> Dict[str, Any]:
+    def rollback(self, decision_id: str) -> dict[str, Any]:
         decision = self.decisions.get(decision_id)
         if decision is None:
             return {"error": f"Decision not found: {decision_id}"}
@@ -199,7 +233,7 @@ class AletheusAutonomousDecisionEngine:
         decision.rollback()
         return decision.to_dict()
 
-    def explain(self, decision_id: str) -> Dict[str, Any]:
+    def explain(self, decision_id: str) -> dict[str, Any]:
         decision = self.decisions.get(decision_id)
         if decision is None:
             return {"error": f"Decision not found: {decision_id}"}
@@ -219,21 +253,28 @@ class AletheusAutonomousDecisionEngine:
             "reasoning_trace": decision.reasoning_trace,
         }
 
-    def history(self) -> Dict[str, Any]:
+    def history(self) -> dict[str, Any]:
         return {
             "decisions": [decision.to_dict() for decision in self.decisions.values()]
         }
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "policies": len(self.policies),
             "decisions": len(self.decisions),
-            "pending": len([d for d in self.decisions.values() if d.status == "pending"]),
-            "executed": len([d for d in self.decisions.values() if d.status == "executed"]),
-            "rolled_back": len([d for d in self.decisions.values() if d.status == "rolled_back"]),
+            "pending": len(
+                [d for d in self.decisions.values() if d.status == "pending"]
+            ),
+            "executed": len(
+                [d for d in self.decisions.values() if d.status == "executed"]
+            ),
+            "rolled_back": len(
+                [d for d in self.decisions.values() if d.status == "rolled_back"]
+            ),
             "average_confidence": round(
-                sum(d.confidence for d in self.decisions.values()) / max(len(self.decisions), 1),
+                sum(d.confidence for d in self.decisions.values())
+                / max(len(self.decisions), 1),
                 2,
             ),
         }

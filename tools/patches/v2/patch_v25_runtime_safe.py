@@ -24,7 +24,8 @@ if 'self.commands.register("reason.evaluate"' not in text:
         raise SystemExit("knowledge.statistics anchor not found.")
     text = text.replace(
         anchor,
-        anchor + '''
+        anchor
+        + """
         self.commands.register("reason.bootstrap", self._cmd_reason_bootstrap)
         self.commands.register("reason.rule.add", self._cmd_reason_rule_add)
         self.commands.register("reason.evaluate", self._cmd_reason_evaluate)
@@ -32,23 +33,23 @@ if 'self.commands.register("reason.evaluate"' not in text:
         self.commands.register("reason.trace", self._cmd_reason_trace)
         self.commands.register("reason.decision", self._cmd_reason_decision)
         self.commands.register("reason.confidence", self._cmd_reason_confidence)
-        self.commands.register("reason.statistics", self._cmd_reason_statistics)''',
+        self.commands.register("reason.statistics", self._cmd_reason_statistics)""",
     )
 
 if '"Aletheus Cognitive Reasoning Engine"' not in text:
-    service = '''
+    service = """
         self.services.register(
             "Aletheus Cognitive Reasoning Engine",
             {"status": "online", "version": self.reasoning.version},
         )
-'''
+"""
     marker = "        self.scheduler.register("
     if marker not in text:
         raise SystemExit("scheduler anchor not found.")
     text = text.replace(marker, service + "\n" + marker, 1)
 
 if "def _cmd_reason_bootstrap" not in text:
-    methods = '''
+    methods = """
     def _cmd_reason_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("reasoning", self.reasoning.bootstrap_rules())
         return context
@@ -102,7 +103,7 @@ if "def _cmd_reason_bootstrap" not in text:
         context.add_result("reasoning_stats", self.reasoning.stats())
         return context
 
-'''
+"""
     anchor = "    def _job_runtime_pulse(self) -> dict:"
     if anchor not in text:
         raise SystemExit("_job_runtime_pulse anchor not found.")

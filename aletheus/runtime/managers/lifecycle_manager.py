@@ -6,7 +6,6 @@ Version 5.0.1
 
 
 class LifecycleManager:
-
     def __init__(self, runtime):
         self.runtime = runtime
 

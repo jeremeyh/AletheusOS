@@ -1,18 +1,22 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
-from aletheus.executive.models import ExecutiveBrief, ExecutiveRecommendation, ExecutiveRisk
+from aletheus.executive.models import (
+    ExecutiveBrief,
+    ExecutiveRecommendation,
+    ExecutiveRisk,
+)
 
 
 class AletheusExecutiveCore:
     def __init__(self) -> None:
         self.version = "1.2.0"
-        self.recommendations: List[ExecutiveRecommendation] = []
-        self.risks: List[ExecutiveRisk] = []
-        self.briefs: List[ExecutiveBrief] = []
+        self.recommendations: list[ExecutiveRecommendation] = []
+        self.risks: list[ExecutiveRisk] = []
+        self.briefs: list[ExecutiveBrief] = []
 
-    def snapshot(self, runtime: Any) -> Dict[str, Any]:
+    def snapshot(self, runtime: Any) -> dict[str, Any]:
         health = runtime.commands.dispatch("runtime.health").results.get("health", {})
         diagnostics = runtime.commands.dispatch("runtime.diagnostics").results
 
@@ -29,7 +33,7 @@ class AletheusExecutiveCore:
             "executive": self.stats(),
         }
 
-    def summarize(self, runtime: Any) -> Dict[str, Any]:
+    def summarize(self, runtime: Any) -> dict[str, Any]:
         snap = self.snapshot(runtime)
         runtime_health = snap["runtime"]
 
@@ -44,16 +48,18 @@ class AletheusExecutiveCore:
 
         return {
             "title": "Aletheus Executive Summary",
-            "overall_status": "healthy" if runtime_health.get("status") == "online" else "attention_required",
+            "overall_status": "healthy"
+            if runtime_health.get("status") == "online"
+            else "attention_required",
             "highlights": highlights,
             "snapshot": snap,
         }
 
-    def generate_recommendations(self, runtime: Any) -> List[Dict[str, Any]]:
+    def generate_recommendations(self, runtime: Any) -> list[dict[str, Any]]:
         snap = self.snapshot(runtime)
         runtime_health = snap["runtime"]
 
-        recommendations: List[ExecutiveRecommendation] = []
+        recommendations: list[ExecutiveRecommendation] = []
 
         if runtime_health.get("applications", 0) <= 1:
             recommendations.append(
@@ -98,11 +104,11 @@ class AletheusExecutiveCore:
         self.recommendations.extend(recommendations)
         return [item.to_dict() for item in recommendations]
 
-    def analyze_risks(self, runtime: Any) -> List[Dict[str, Any]]:
+    def analyze_risks(self, runtime: Any) -> list[dict[str, Any]]:
         snap = self.snapshot(runtime)
         runtime_health = snap["runtime"]
 
-        risks: List[ExecutiveRisk] = []
+        risks: list[ExecutiveRisk] = []
 
         if runtime_health.get("memory_records", 0) < 5:
             risks.append(
@@ -137,7 +143,7 @@ class AletheusExecutiveCore:
         self.risks.extend(risks)
         return [item.to_dict() for item in risks]
 
-    def daily_brief(self, runtime: Any) -> Dict[str, Any]:
+    def daily_brief(self, runtime: Any) -> dict[str, Any]:
         summary = self.summarize(runtime)
         recommendations = self.generate_recommendations(runtime)
         risks = self.analyze_risks(runtime)
@@ -152,7 +158,7 @@ class AletheusExecutiveCore:
         self.briefs.append(brief)
         return brief.to_dict()
 
-    def system_report(self, runtime: Any) -> Dict[str, Any]:
+    def system_report(self, runtime: Any) -> dict[str, Any]:
         return {
             "summary": self.summarize(runtime),
             "recommendations": self.generate_recommendations(runtime),
@@ -160,7 +166,7 @@ class AletheusExecutiveCore:
             "stats": self.stats(),
         }
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "recommendations": len(self.recommendations),

@@ -1,6 +1,7 @@
+from datetime import datetime
 from pathlib import Path
 from zipfile import ZipFile
-from datetime import datetime
+
 
 class BackupManager:
     """Backup & Restore™ backup manager."""

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 from aletheus.prediction.models import (
     Forecast,
@@ -14,13 +14,13 @@ from aletheus.prediction.models import (
 class AletheusPredictiveIntelligence:
     def __init__(self) -> None:
         self.version = "1.7.0"
-        self.forecasts: List[Forecast] = []
-        self.scenarios: List[Scenario] = []
-        self.risk_history: List[PredictiveRisk] = []
-        self.opportunity_history: List[PredictiveOpportunity] = []
-        self.recommendation_history: List[PredictiveRecommendation] = []
+        self.forecasts: list[Forecast] = []
+        self.scenarios: list[Scenario] = []
+        self.risk_history: list[PredictiveRisk] = []
+        self.opportunity_history: list[PredictiveOpportunity] = []
+        self.recommendation_history: list[PredictiveRecommendation] = []
 
-    def runtime_signal(self, runtime: Any) -> Dict[str, Any]:
+    def runtime_signal(self, runtime: Any) -> dict[str, Any]:
         return runtime.commands.dispatch("runtime.health", {}).results.get("health", {})
 
     def forecast(self, runtime: Any, horizon: str = "next sprint") -> Forecast:
@@ -90,9 +90,9 @@ class AletheusPredictiveIntelligence:
         self.scenarios.append(item)
         return item
 
-    def risks(self, runtime: Any) -> List[Dict[str, Any]]:
+    def risks(self, runtime: Any) -> list[dict[str, Any]]:
         health = self.runtime_signal(runtime)
-        items: List[PredictiveRisk] = []
+        items: list[PredictiveRisk] = []
 
         if health.get("semantic_concepts", 0) < 5:
             items.append(
@@ -130,9 +130,9 @@ class AletheusPredictiveIntelligence:
         self.risk_history.extend(items)
         return [item.to_dict() for item in items]
 
-    def opportunities(self, runtime: Any) -> List[Dict[str, Any]]:
+    def opportunities(self, runtime: Any) -> list[dict[str, Any]]:
         health = self.runtime_signal(runtime)
-        items: List[PredictiveOpportunity] = []
+        items: list[PredictiveOpportunity] = []
 
         items.append(
             PredictiveOpportunity(
@@ -169,7 +169,7 @@ class AletheusPredictiveIntelligence:
         self.opportunity_history.extend(items)
         return [item.to_dict() for item in items]
 
-    def recommend(self, runtime: Any) -> List[Dict[str, Any]]:
+    def recommend(self, runtime: Any) -> list[dict[str, Any]]:
         current_risks = self.risks(runtime)
 
         items = [
@@ -203,7 +203,7 @@ class AletheusPredictiveIntelligence:
         self.recommendation_history.extend(items)
         return [item.to_dict() for item in items]
 
-    def timeline(self, runtime: Any) -> Dict[str, Any]:
+    def timeline(self, runtime: Any) -> dict[str, Any]:
         return {
             "version": self.version,
             "forecast_count": len(self.forecasts),
@@ -215,7 +215,7 @@ class AletheusPredictiveIntelligence:
             "latest_scenario": self.scenarios[-1].to_dict() if self.scenarios else None,
         }
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "forecasts": len(self.forecasts),

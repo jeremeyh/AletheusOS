@@ -1,6 +1,7 @@
 from datetime import datetime
 from pathlib import Path
 
+
 class AuditLogger:
     """Audit trail logger."""
 

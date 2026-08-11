@@ -1,4 +1,7 @@
-from aletheus.applications.application_core import AletheusApplicationManager, application_core
+from aletheus.applications.application_core import (
+    AletheusApplicationManager,
+    application_core,
+)
 from aletheus.applications.models import (
     ApplicationEvent,
     ApplicationManifest,
@@ -7,8 +10,8 @@ from aletheus.applications.models import (
 
 __all__ = [
     "AletheusApplicationManager",
-    "application_core",
     "ApplicationEvent",
     "ApplicationManifest",
     "NativeApplication",
+    "application_core",
 ]

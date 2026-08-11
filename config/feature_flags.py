@@ -8,5 +8,6 @@ FEATURE_FLAGS = {
     "enable_commercialization_layer": True,
 }
 
+
 def is_enabled(flag_name: str) -> bool:
     return bool(FEATURE_FLAGS.get(flag_name, False))

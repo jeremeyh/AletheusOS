@@ -1,8 +1,6 @@
 import pytesseract
-
-from PIL import Image
-
 from hawk_aeye.preprocessing.image_processor import ImageProcessor
+from PIL import Image
 
 
 class TesseractEngine:
@@ -20,9 +18,7 @@ class TesseractEngine:
             config="--oem 3 --psm 6",
         )
 
-        processed_image = ImageProcessor.preprocess(
-            image_path
-        )
+        processed_image = ImageProcessor.preprocess(image_path)
 
         processed_text = pytesseract.image_to_string(
             processed_image,

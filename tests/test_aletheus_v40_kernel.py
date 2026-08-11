@@ -18,9 +18,7 @@ def test_kernel_bootstrap():
 def test_kernel_execute():
 
     ctx = runtime_core.commands.dispatch(
-
         "kernel.execute",
-
         {
             "command": "runtime.diagnostics",
             "payload": {},
@@ -58,9 +56,7 @@ def test_kernel_scheduler():
     )
 
     ctx = runtime_core.commands.dispatch(
-
         "kernel.scheduler",
-
         {
             "task_id": task["task_id"],
             "priority": 3,
@@ -77,9 +73,7 @@ def test_kernel_scheduler():
 def test_kernel_dispatcher():
 
     ctx = runtime_core.commands.dispatch(
-
         "kernel.dispatcher",
-
         {
             "command": "runtime.diagnostics",
             "payload": {},
@@ -163,7 +157,6 @@ def test_kernel_multiple_execution():
 
 
 if __name__ == "__main__":
-
     test_kernel_bootstrap()
     test_kernel_execute()
     test_kernel_task_history()

@@ -5,7 +5,7 @@ text = p.read_text()
 
 anchor = 'self.commands.register("cluster.statistics", self._cmd_cluster_statistics)'
 
-block = '''
+block = """
         # Plugin Manager
         self.commands.register("plugin.bootstrap", self._cmd_plugin_bootstrap)
         self.commands.register("plugin.install", self._cmd_plugin_install)
@@ -16,7 +16,7 @@ block = '''
         self.commands.register("plugin.list", self._cmd_plugin_list)
         self.commands.register("plugin.status", self._cmd_plugin_status)
         self.commands.register("plugin.statistics", self._cmd_plugin_statistics)
-'''
+"""
 
 if 'self.commands.register("plugin.bootstrap"' not in text:
     text = text.replace(anchor, anchor + "\n" + block, 1)

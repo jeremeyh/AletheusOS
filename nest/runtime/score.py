@@ -20,7 +20,6 @@ from dataclasses import dataclass
 
 @dataclass
 class NestScore:
-
     score: float
     grade: str
     recommendation: str
@@ -28,7 +27,6 @@ class NestScore:
 
 
 class NestScoringEngine:
-
     @staticmethod
     def calculate(asset: dict) -> NestScore:
 
@@ -43,12 +41,12 @@ class NestScoringEngine:
         comp_strength = min(comps * 5, 15)
 
         intelligence = (
-            thorx * .35 +
-            qdef * .15 +
-            ddef * .20 +
-            hawk * .15 +
-            liquidity +
-            comp_strength
+            thorx * 0.35
+            + qdef * 0.15
+            + ddef * 0.20
+            + hawk * 0.15
+            + liquidity
+            + comp_strength
         )
 
         intelligence = round(min(intelligence, 100), 2)
@@ -73,10 +71,7 @@ class NestScoringEngine:
             grade = "D"
             recommendation = "PASS"
 
-        confidence = round(
-            (hawk + thorx + ddef) / 3,
-            2
-        )
+        confidence = round((hawk + thorx + ddef) / 3, 2)
 
         return NestScore(
             score=intelligence,

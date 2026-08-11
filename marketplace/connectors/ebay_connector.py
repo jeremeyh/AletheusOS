@@ -1,4 +1,5 @@
 class EbayConnector:
-    NAME="eBay"
+    NAME = "eBay"
+
     def search(self, query):
         return []

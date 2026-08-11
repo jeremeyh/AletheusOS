@@ -1,6 +1,7 @@
 import streamlit as st
 from operations_live.operations_service import LiveOperationsService
 
+
 def render(state):
     st.title("🛰️ Live Operations Center™")
     data = LiveOperationsService.snapshot(state)

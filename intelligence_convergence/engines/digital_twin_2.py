@@ -1,5 +1,6 @@
 from components.cardhawk_utils import row_value, safe_float
 
+
 class DigitalTwin2:
     """Digital Twin 2.0™ simulates portfolio futures."""
 

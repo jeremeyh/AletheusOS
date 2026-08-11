@@ -8,9 +8,9 @@ from aletheus.learning.models import (
 
 __all__ = [
     "AletheusAdaptiveLearning",
-    "learning_core",
-    "LearningExperience",
+    "ImprovementSuggestion",
     "LearnedLesson",
     "LearnedPattern",
-    "ImprovementSuggestion",
+    "LearningExperience",
+    "learning_core",
 ]

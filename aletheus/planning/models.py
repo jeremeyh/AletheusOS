@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Any, Dict, List
-import uuid
+from typing import Any
 
 
 def now() -> str:
@@ -24,7 +24,7 @@ class PlanningStep:
         self.status = "completed"
         self.completed_at = now()
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -34,7 +34,7 @@ class AutonomousPlan:
     strategy: str
     priority: str = "high"
     status: str = "active"
-    steps: List[PlanningStep] = field(default_factory=list)
+    steps: list[PlanningStep] = field(default_factory=list)
     plan_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
     completed_at: str | None = None
@@ -50,7 +50,7 @@ class AutonomousPlan:
             self.status = "completed"
             self.completed_at = now()
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         data = self.__dict__.copy()
         data["steps"] = [step.to_dict() for step in self.steps]
         data["progress"] = self.progress()

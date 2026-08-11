@@ -3,7 +3,7 @@ from aletheus.knowledge.models import Entity, Relationship
 
 __all__ = [
     "AletheusKnowledgeCore",
-    "knowledge_core",
     "Entity",
     "Relationship",
+    "knowledge_core",
 ]

@@ -1,6 +1,5 @@
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Optional
 
 
 @dataclass
@@ -17,7 +16,7 @@ class Asset:
     # Identity
     # -------------------------
 
-    asset_id: Optional[int] = None
+    asset_id: int | None = None
 
     category: str = ""
     sport: str = ""
@@ -41,7 +40,7 @@ class Asset:
 
     serial_number: str = ""
 
-    print_run: Optional[int] = None
+    print_run: int | None = None
 
     autograph: bool = False
 
@@ -121,12 +120,7 @@ class Asset:
 
     @property
     def total_cost(self) -> float:
-        return (
-            self.purchase_price
-            + self.shipping_cost
-            + self.tax
-            + self.fees
-        )
+        return self.purchase_price + self.shipping_cost + self.tax + self.fees
 
     @property
     def gain_loss(self) -> float:
@@ -137,7 +131,4 @@ class Asset:
         if self.total_cost == 0:
             return 0
 
-        return (
-            (self.current_value - self.total_cost)
-            / self.total_cost
-        ) * 100
+        return ((self.current_value - self.total_cost) / self.total_cost) * 100

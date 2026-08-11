@@ -48,21 +48,43 @@ def render_sidebar():
         safe_page_link("pages/01_Asset_Intake.py", label="Intake Wizard™", icon="📥")
         safe_page_link("pages/05_Intake_Wizard.py", label="Scan & Review™", icon="📷")
         safe_page_link("pages/03_Asset_Explorer.py", label="Asset Vault™", icon="🗂")
-        safe_page_link("pages/04_Asset_Intelligence.py", label="Asset Intelligence™", icon="🧬")
+        safe_page_link(
+            "pages/04_Asset_Intelligence.py", label="Asset Intelligence™", icon="🧬"
+        )
         safe_page_link("pages/06_Asset_Detail.py", label="Asset Detail™", icon="🔍")
-        safe_page_link("pages/08_Intelligence_Workspace.py", label="Intelligence Workspace™", icon="🧠")
+        safe_page_link(
+            "pages/08_Intelligence_Workspace.py",
+            label="Intelligence Workspace™",
+            icon="🧠",
+        )
 
         st.divider()
 
         st.markdown("### Intelligence")
 
-        safe_page_link("pages/07_Mission_Control.py", label="Mission Control™", icon="📊")
-        safe_page_link("pages/09_Marketplace_Intelligence.py", label="Marketplace Intelligence™", icon="💰")
-        safe_page_link("pages/10_DEF_Command_Center.py", label="DEF Command Center™", icon="🎯")
-        safe_page_link("pages/11_NEST_Intelligence.py", label="NEST™ Intelligence", icon="🪺")
-        safe_page_link("pages/12_FALCON_Command_Center.py", label="FALCON™ Command Center", icon="🦅")
+        safe_page_link(
+            "pages/07_Mission_Control.py", label="Mission Control™", icon="📊"
+        )
+        safe_page_link(
+            "pages/09_Marketplace_Intelligence.py",
+            label="Marketplace Intelligence™",
+            icon="💰",
+        )
+        safe_page_link(
+            "pages/10_DEF_Command_Center.py", label="DEF Command Center™", icon="🎯"
+        )
+        safe_page_link(
+            "pages/11_NEST_Intelligence.py", label="NEST™ Intelligence", icon="🪺"
+        )
+        safe_page_link(
+            "pages/12_FALCON_Command_Center.py",
+            label="FALCON™ Command Center",
+            icon="🦅",
+        )
         safe_page_link("pages/13_ORCHESTRATOR.py", label="ORCHESTRATOR™", icon="🛰")
-        safe_page_link("pages/98_Command_Center.py", label="Founder Copilot™", icon="🧠")
+        safe_page_link(
+            "pages/98_Command_Center.py", label="Founder Copilot™", icon="🧠"
+        )
         safe_page_link("pages/98_Command_Center.py", label="THORᵡ™", icon="⚡")
 
         st.divider()
@@ -70,4 +92,6 @@ def render_sidebar():
         st.markdown("### Platform")
 
         safe_page_link("pages/99_Platform.py", label="Platform™", icon="⚙")
-        safe_page_link("pages/enterprise_diagnostics.py", label="Diagnostics", icon="🔧")
+        safe_page_link(
+            "pages/enterprise_diagnostics.py", label="Diagnostics", icon="🔧"
+        )

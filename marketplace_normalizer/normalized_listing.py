@@ -1,7 +1,7 @@
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any
-import uuid
 
 
 @dataclass
@@ -19,6 +19,8 @@ class NormalizedListing:
     serial_number: str = ""
     print_run: int | None = None
     source_id: str = ""
-    listing_id: str = field(default_factory=lambda: f"LST-{uuid.uuid4().hex[:10].upper()}")
+    listing_id: str = field(
+        default_factory=lambda: f"LST-{uuid.uuid4().hex[:10].upper()}"
+    )
     normalized_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
     raw: dict[str, Any] = field(default_factory=dict)

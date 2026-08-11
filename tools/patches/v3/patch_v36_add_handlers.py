@@ -7,7 +7,7 @@ if "def _cmd_ha_bootstrap" in text:
     print("HA handlers already exist.")
     raise SystemExit(0)
 
-handlers = '''
+handlers = """
 
     # ==========================================================
     # v3.6 High Availability & Replication
@@ -75,7 +75,7 @@ handlers = '''
         context.add_result("ha_stats", self.high_availability_v3.statistics())
         return context
 
-'''
+"""
 
 anchor = "    def _job_runtime_pulse(self) -> dict:"
 if anchor not in text:

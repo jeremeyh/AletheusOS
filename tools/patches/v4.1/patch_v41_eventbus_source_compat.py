@@ -1,22 +1,12 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 path = Path("aletheus/event_bus_v3/event_bus_core.py")
 text = path.read_text()
 
-pattern = re.compile(
-    r"def publish\(\s*self,\s*event,\s*payload\s*\):"
-)
+pattern = re.compile(r"def publish\(\s*self,\s*event,\s*payload\s*\):")
 
-replacement = (
-    "def publish("
-    "self, "
-    "event, "
-    "payload, "
-    "source=None, "
-    "**kwargs"
-    "):"
-)
+replacement = "def publish(self, event, payload, source=None, **kwargs):"
 
 text, count = pattern.subn(replacement, text, count=1)
 

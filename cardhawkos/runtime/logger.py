@@ -10,11 +10,7 @@ class CardHawkLogger:
     def write(cls, level, message):
         cls.LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-        line = (
-            f"{datetime.utcnow().isoformat()} "
-            f"[{level.upper()}] "
-            f"{message}\n"
-        )
+        line = f"{datetime.utcnow().isoformat()} [{level.upper()}] {message}\n"
 
         with open(cls.LOG_FILE, "a") as f:
             f.write(line)

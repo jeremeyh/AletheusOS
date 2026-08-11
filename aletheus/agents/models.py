@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Any, Dict, List
-import uuid
+from typing import Any
 
 
 def now() -> str:
@@ -15,26 +15,26 @@ class AgentCapability:
     name: str
     description: str = ""
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
 @dataclass
 class AgentTask:
     title: str
-    payload: Dict[str, Any] = field(default_factory=dict)
+    payload: dict[str, Any] = field(default_factory=dict)
     status: str = "queued"
-    result: Dict[str, Any] = field(default_factory=dict)
+    result: dict[str, Any] = field(default_factory=dict)
     task_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
     completed_at: str | None = None
 
-    def complete(self, result: Dict[str, Any]) -> None:
+    def complete(self, result: dict[str, Any]) -> None:
         self.status = "completed"
         self.result = result
         self.completed_at = now()
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -44,12 +44,14 @@ class AletheusAgent:
     role: str
     description: str = ""
     status: str = "online"
-    capabilities: List[AgentCapability] = field(default_factory=list)
-    tasks: List[AgentTask] = field(default_factory=list)
+    capabilities: list[AgentCapability] = field(default_factory=list)
+    tasks: list[AgentTask] = field(default_factory=list)
     agent_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
 
-    def assign_task(self, title: str, payload: Dict[str, Any] | None = None) -> AgentTask:
+    def assign_task(
+        self, title: str, payload: dict[str, Any] | None = None
+    ) -> AgentTask:
         task = AgentTask(title=title, payload=payload or {})
         self.tasks.append(task)
         return task
@@ -69,7 +71,7 @@ class AletheusAgent:
         )
         return task
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         data = self.__dict__.copy()
         data["capabilities"] = [item.to_dict() for item in self.capabilities]
         data["tasks"] = [item.to_dict() for item in self.tasks]

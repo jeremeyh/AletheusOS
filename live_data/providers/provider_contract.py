@@ -1,6 +1,7 @@
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-import uuid
+
 
 @dataclass
 class LiveListing:
@@ -11,8 +12,11 @@ class LiveListing:
     seller: str = ""
     image_url: str = ""
     status: str = "active"
-    listing_id: str = field(default_factory=lambda: f"LD-{uuid.uuid4().hex[:10].upper()}")
+    listing_id: str = field(
+        default_factory=lambda: f"LD-{uuid.uuid4().hex[:10].upper()}"
+    )
     fetched_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+
 
 class ProviderContract:
     name = "Base Provider"

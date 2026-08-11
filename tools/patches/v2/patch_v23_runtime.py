@@ -18,8 +18,10 @@ if "self.memory_mesh = memory_mesh_core" not in text:
     )
 
 if 'self.commands.register("memory.mesh.store"' not in text:
-    anchor = '        self.commands.register("node.heartbeat", self._cmd_node_heartbeat)\n'
-    insert = '''        self.commands.register("memory.mesh.store", self._cmd_memory_mesh_store)
+    anchor = (
+        '        self.commands.register("node.heartbeat", self._cmd_node_heartbeat)\n'
+    )
+    insert = """        self.commands.register("memory.mesh.store", self._cmd_memory_mesh_store)
         self.commands.register("memory.mesh.retrieve", self._cmd_memory_mesh_retrieve)
         self.commands.register("memory.mesh.search", self._cmd_memory_mesh_search)
         self.commands.register("memory.mesh.snapshot", self._cmd_memory_mesh_snapshot)
@@ -29,20 +31,20 @@ if 'self.commands.register("memory.mesh.store"' not in text:
         self.commands.register("memory.mesh.history", self._cmd_memory_mesh_history)
         self.commands.register("memory.mesh.cache", self._cmd_memory_mesh_cache)
         self.commands.register("memory.mesh.stats", self._cmd_memory_mesh_stats)
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find node.heartbeat command anchor.")
     text = text.replace(anchor, anchor + insert)
 
 if '"Aletheus Universal Memory Mesh"' not in text:
-    anchor = '''        self.services.register(
+    anchor = """        self.services.register(
             "Aletheus Distributed Intelligence Fabric",
             {"status": "online", "version": self.distributed.version},
         )
 
         self.scheduler.register(
-'''
-    replacement = '''        self.services.register(
+"""
+    replacement = """        self.services.register(
             "Aletheus Distributed Intelligence Fabric",
             {"status": "online", "version": self.distributed.version},
         )
@@ -52,21 +54,21 @@ if '"Aletheus Universal Memory Mesh"' not in text:
         )
 
         self.scheduler.register(
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find distributed service registration anchor.")
     text = text.replace(anchor, replacement)
 
 if '"memory_mesh_objects": self.memory_mesh.stats()["memory_objects"]' not in text:
     text = text.replace(
-        '''                "distributed_clusters": self.distributed.stats()["clusters"],
+        """                "distributed_clusters": self.distributed.stats()["clusters"],
                 "distributed_nodes": self.distributed.stats()["nodes"],
                 "distributed_tasks": self.distributed.stats()["tasks"],
             },
         )
         return context
-''',
-        '''                "distributed_clusters": self.distributed.stats()["clusters"],
+""",
+        """                "distributed_clusters": self.distributed.stats()["clusters"],
                 "distributed_nodes": self.distributed.stats()["nodes"],
                 "distributed_tasks": self.distributed.stats()["tasks"],
                 "memory_mesh_objects": self.memory_mesh.stats()["memory_objects"],
@@ -75,23 +77,23 @@ if '"memory_mesh_objects": self.memory_mesh.stats()["memory_objects"]' not in te
             },
         )
         return context
-''',
+""",
     )
 
 if 'context.add_result("memory_mesh", self.memory_mesh.stats())' not in text:
     text = text.replace(
-        '''        context.add_result("distributed", self.distributed.stats())
+        """        context.add_result("distributed", self.distributed.stats())
         return context
-''',
-        '''        context.add_result("distributed", self.distributed.stats())
+""",
+        """        context.add_result("distributed", self.distributed.stats())
         context.add_result("memory_mesh", self.memory_mesh.stats())
         return context
-''',
+""",
     )
 
 if "def _cmd_memory_mesh_store" not in text:
     anchor = "    def _job_runtime_pulse(self) -> dict:\n"
-    methods = '''
+    methods = """
     def _cmd_memory_mesh_store(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
         result = self.memory_mesh.store(
@@ -164,7 +166,7 @@ if "def _cmd_memory_mesh_store" not in text:
         context.add_result("memory_mesh_stats", self.memory_mesh.stats())
         return context
 
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find _job_runtime_pulse anchor.")
     text = text.replace(anchor, methods + anchor)

@@ -1,16 +1,16 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 
 class RuntimeInvariantEngine:
-    VERSION = "4.2.1"
+    VERSION = "4.6.2"
 
     def __init__(self, runtime: Any):
         self.runtime = runtime
 
-    def validate(self) -> Dict[str, Any]:
-        checks: Dict[str, bool] = {
+    def validate(self) -> dict[str, Any]:
+        checks: dict[str, bool] = {
             "runtime_version": bool(getattr(self.runtime, "version", "")),
             "command_bus": hasattr(self.runtime, "commands"),
             "event_bus": hasattr(self.runtime, "events"),
@@ -25,10 +25,7 @@ class RuntimeInvariantEngine:
                 self.runtime.compat.statistics().get("registered", 0) >= 10
             )
 
-        failed: List[str] = [
-            name for name, passed in checks.items()
-            if not passed
-        ]
+        failed: list[str] = [name for name, passed in checks.items() if not passed]
 
         return {
             "version": self.VERSION,

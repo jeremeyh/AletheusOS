@@ -1,6 +1,7 @@
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-import uuid
+
 
 @dataclass
 class RecommendationFeedback:
@@ -12,15 +13,29 @@ class RecommendationFeedback:
     predicted_value: float = 0.0
     actual_value: float = 0.0
     notes: str = ""
-    feedback_id: str = field(default_factory=lambda: f"FB-{uuid.uuid4().hex[:10].upper()}")
+    feedback_id: str = field(
+        default_factory=lambda: f"FB-{uuid.uuid4().hex[:10].upper()}"
+    )
     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+
 
 class IntelligenceFeedbackLoop:
     """7.0A — Intelligence Feedback Loop™."""
+
     _feedback = []
 
     @classmethod
-    def record(cls, recommendation_type, subject, recommendation, accepted=None, predicted_value=0, actual_value=0, actual_outcome="", notes=""):
+    def record(
+        cls,
+        recommendation_type,
+        subject,
+        recommendation,
+        accepted=None,
+        predicted_value=0,
+        actual_value=0,
+        actual_outcome="",
+        notes="",
+    ):
         item = RecommendationFeedback(
             recommendation_type=recommendation_type,
             subject=subject,
@@ -43,10 +58,14 @@ class IntelligenceFeedbackLoop:
         total = len(cls._feedback)
         accepted = len([x for x in cls._feedback if x.accepted is True])
         rejected = len([x for x in cls._feedback if x.accepted is False])
-        with_actuals = [x for x in cls._feedback if x.actual_value and x.predicted_value]
+        with_actuals = [
+            x for x in cls._feedback if x.actual_value and x.predicted_value
+        ]
         prediction_error = 0
         if with_actuals:
-            prediction_error = sum(abs(x.actual_value - x.predicted_value) for x in with_actuals) / len(with_actuals)
+            prediction_error = sum(
+                abs(x.actual_value - x.predicted_value) for x in with_actuals
+            ) / len(with_actuals)
         return {
             "total_feedback": total,
             "accepted": accepted,

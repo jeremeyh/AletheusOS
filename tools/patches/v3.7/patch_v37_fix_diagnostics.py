@@ -10,7 +10,6 @@ text = diag.read_text()
 entry = '("security_v3", "Aletheus Security & Policy Engine"),'
 
 if entry not in text:
-
     anchors = [
         '("high_availability_v3", "Aletheus High Availability Platform"),',
         '("telemetry_v3", "Aletheus Observability Platform"),',
@@ -30,9 +29,7 @@ if entry not in text:
             break
 
     if not inserted:
-        raise SystemExit(
-            "Unable to locate insertion point in runtime/diagnostics.py"
-        )
+        raise SystemExit("Unable to locate insertion point in runtime/diagnostics.py")
 
     diag.write_text(text)
     print("✔ Added Security Engine to RuntimeDiagnostics.")

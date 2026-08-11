@@ -1,5 +1,6 @@
 from time import time
 
+
 class ResultCache:
     _cache = {}
 

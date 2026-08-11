@@ -2,6 +2,7 @@ def normalize_comps(comps: list[dict]) -> list[dict]:
     """Normalize comparable sales records."""
     return comps
 
+
 def median_comp_value(comps: list[dict]) -> float:
     prices = sorted(float(c.get("price", 0) or 0) for c in comps)
     if not prices:

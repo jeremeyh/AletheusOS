@@ -1,7 +1,7 @@
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any
-import uuid
 
 
 @dataclass
@@ -12,7 +12,9 @@ class ListingCandidate:
     url: str = ""
     seller: str = ""
     raw: dict[str, Any] = field(default_factory=dict)
-    candidate_id: str = field(default_factory=lambda: f"SCOUT-{uuid.uuid4().hex[:10].upper()}")
+    candidate_id: str = field(
+        default_factory=lambda: f"SCOUT-{uuid.uuid4().hex[:10].upper()}"
+    )
     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
     status: str = "Queued"
 

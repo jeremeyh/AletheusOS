@@ -2,7 +2,6 @@ import json
 
 import pandas as pd
 import streamlit as st
-
 from aletheus.runtime import runtime_core
 
 
@@ -82,7 +81,9 @@ with tabs[0]:
 with tabs[1]:
     st.subheader("Executive Intelligence Layer")
 
-    executive_status = runtime_core.commands.dispatch("executive.status", {}).results.get("executive_status", {})
+    executive_status = runtime_core.commands.dispatch(
+        "executive.status", {}
+    ).results.get("executive_status", {})
     st.markdown("### Executive Status")
     st.json(executive_status)
 
@@ -107,17 +108,23 @@ with tabs[1]:
             st.json(result.results)
 
     st.markdown("### Executive Summary")
-    summary = runtime_core.commands.dispatch("executive.summary", {}).results.get("summary", {})
+    summary = runtime_core.commands.dispatch("executive.summary", {}).results.get(
+        "summary", {}
+    )
     st.json(summary)
 
     st.markdown("### System Report")
-    report = runtime_core.commands.dispatch("executive.system_report", {}).results.get("system_report", {})
+    report = runtime_core.commands.dispatch("executive.system_report", {}).results.get(
+        "system_report", {}
+    )
     st.json(report)
 
 with tabs[2]:
     st.subheader("Founder Copilot")
 
-    copilot_stats = runtime_core.commands.dispatch("copilot.stats", {}).results.get("copilot_stats", {})
+    copilot_stats = runtime_core.commands.dispatch("copilot.stats", {}).results.get(
+        "copilot_stats", {}
+    )
     st.markdown("### Copilot Status")
     st.json(copilot_stats)
 
@@ -152,7 +159,9 @@ with tabs[2]:
             result = runtime_core.commands.dispatch("copilot.timeline", {})
             st.json(result.results)
 
-    history = runtime_core.commands.dispatch("copilot.history", {}).results.get("history", [])
+    history = runtime_core.commands.dispatch("copilot.history", {}).results.get(
+        "history", []
+    )
     if history:
         st.markdown("### Copilot History")
         st.dataframe(safe_dataframe(history), width="stretch")
@@ -162,7 +171,9 @@ with tabs[2]:
 with tabs[3]:
     st.subheader("Universal Intelligence Layer")
 
-    uil_stats = runtime_core.commands.dispatch("uil.stats", {}).results.get("uil_stats", {})
+    uil_stats = runtime_core.commands.dispatch("uil.stats", {}).results.get(
+        "uil_stats", {}
+    )
     st.markdown("### Universal Intelligence Status")
     st.json(uil_stats)
 
@@ -175,17 +186,23 @@ with tabs[3]:
 
     with col_uil_1:
         if st.button("Build Context"):
-            result = runtime_core.commands.dispatch("uil.context", {"question": question})
+            result = runtime_core.commands.dispatch(
+                "uil.context", {"question": question}
+            )
             st.json(result.results)
 
     with col_uil_2:
         if st.button("Reason"):
-            result = runtime_core.commands.dispatch("uil.reason", {"question": question})
+            result = runtime_core.commands.dispatch(
+                "uil.reason", {"question": question}
+            )
             st.json(result.results)
 
     with col_uil_3:
         if st.button("Decide"):
-            result = runtime_core.commands.dispatch("uil.decide", {"question": question})
+            result = runtime_core.commands.dispatch(
+                "uil.decide", {"question": question}
+            )
             st.success("Decision generated.")
             st.json(result.results)
 
@@ -193,7 +210,9 @@ with tabs[3]:
 
     with col_uil_4:
         if st.button("Synthesize"):
-            result = runtime_core.commands.dispatch("uil.synthesize", {"question": question})
+            result = runtime_core.commands.dispatch(
+                "uil.synthesize", {"question": question}
+            )
             st.json(result.results)
 
     with col_uil_5:
@@ -206,14 +225,18 @@ with tabs[3]:
             result = runtime_core.commands.dispatch("uil.timeline", {})
             st.json(result.results)
 
-    snapshot = runtime_core.commands.dispatch("uil.snapshot", {}).results.get("snapshot", {})
+    snapshot = runtime_core.commands.dispatch("uil.snapshot", {}).results.get(
+        "snapshot", {}
+    )
     st.markdown("### Intelligence Snapshot")
     st.json(snapshot)
 
 with tabs[4]:
     st.subheader("Predictive Intelligence Layer")
 
-    prediction_stats = runtime_core.commands.dispatch("predict.stats", {}).results.get("prediction_stats", {})
+    prediction_stats = runtime_core.commands.dispatch("predict.stats", {}).results.get(
+        "prediction_stats", {}
+    )
     st.markdown("### Prediction Stats")
     st.json(prediction_stats)
 
@@ -221,7 +244,9 @@ with tabs[4]:
 
     with col_pred_1:
         if st.button("Generate Forecast"):
-            result = runtime_core.commands.dispatch("predict.forecast", {"horizon": "next sprint"})
+            result = runtime_core.commands.dispatch(
+                "predict.forecast", {"horizon": "next sprint"}
+            )
             st.json(result.results)
 
     with col_pred_2:
@@ -237,7 +262,9 @@ with tabs[4]:
             st.json(result.results)
 
     st.markdown("### Scenario Simulator")
-    scenario_title = st.text_input("Scenario Title", value="Card Hawk Marketplace Integration")
+    scenario_title = st.text_input(
+        "Scenario Title", value="Card Hawk Marketplace Integration"
+    )
     scenario_premise = st.text_area(
         "Scenario Premise",
         value="What happens if Card Hawk Marketplace Intelligence becomes the next native service integration?",
@@ -258,14 +285,18 @@ with tabs[4]:
         st.success("Predictive recommendations generated.")
         st.json(result.results)
 
-    timeline = runtime_core.commands.dispatch("predict.timeline", {}).results.get("timeline", {})
+    timeline = runtime_core.commands.dispatch("predict.timeline", {}).results.get(
+        "timeline", {}
+    )
     st.markdown("### Prediction Timeline")
     st.json(timeline)
 
 with tabs[5]:
     st.subheader("Adaptive Learning Engine")
 
-    learning_stats = runtime_core.commands.dispatch("learn.stats", {}).results.get("learning_stats", {})
+    learning_stats = runtime_core.commands.dispatch("learn.stats", {}).results.get(
+        "learning_stats", {}
+    )
     st.markdown("### Learning Stats")
     st.json(learning_stats)
 
@@ -275,7 +306,9 @@ with tabs[5]:
         "Experience Description",
         value="Aletheus generated a predictive recommendation for Card Hawk Foundation.",
     )
-    outcome = st.selectbox("Outcome", ["unknown", "successful", "failed", "partial"], index=0)
+    outcome = st.selectbox(
+        "Outcome", ["unknown", "successful", "failed", "partial"], index=0
+    )
 
     if st.button("Record Experience"):
         result = runtime_core.commands.dispatch(
@@ -293,7 +326,9 @@ with tabs[5]:
         st.json(result.results)
 
     st.markdown("### Create Lesson")
-    lesson_title = st.text_input("Lesson Title", value="Card Hawk integration improves Aletheus utility")
+    lesson_title = st.text_input(
+        "Lesson Title", value="Card Hawk integration improves Aletheus utility"
+    )
     lesson_body = st.text_area(
         "Lesson",
         value="Native Card Hawk integration creates richer feedback loops across prediction, planning, agents, and memory.",
@@ -332,7 +367,9 @@ with tabs[5]:
 with tabs[6]:
     st.subheader("Aletheus v2 Autonomous Kernel")
 
-    kernel_stats = runtime_core.commands.dispatch("kernel.stats", {}).results.get("kernel_stats", {})
+    kernel_stats = runtime_core.commands.dispatch("kernel.stats", {}).results.get(
+        "kernel_stats", {}
+    )
     st.markdown("### Kernel Stats")
     st.json(kernel_stats)
 
@@ -358,7 +395,9 @@ with tabs[6]:
     st.markdown("### Publish Kernel Event")
     event_type = st.text_input("Event Type", value="founder.kernel.test")
     event_source = st.text_input("Event Source", value="founder_workspace")
-    event_message = st.text_area("Event Payload Message", value="Founder manually published a kernel event.")
+    event_message = st.text_area(
+        "Event Payload Message", value="Founder manually published a kernel event."
+    )
 
     if st.button("Publish Event"):
         result = runtime_core.commands.dispatch(
@@ -372,14 +411,18 @@ with tabs[6]:
         st.success("Kernel event published.")
         st.json(result.results)
 
-    status = runtime_core.commands.dispatch("kernel.status", {}).results.get("kernel", {})
+    status = runtime_core.commands.dispatch("kernel.status", {}).results.get(
+        "kernel", {}
+    )
     st.markdown("### Kernel Status")
     st.json(status)
 
 with tabs[7]:
     st.subheader("Multi-Agent Orchestration")
 
-    agent_stats = runtime_core.commands.dispatch("agent.stats", {}).results.get("agent_stats", {})
+    agent_stats = runtime_core.commands.dispatch("agent.stats", {}).results.get(
+        "agent_stats", {}
+    )
     st.markdown("### Agent Stats")
     st.json(agent_stats)
 
@@ -404,7 +447,9 @@ with tabs[7]:
 
     st.markdown("### Assign Agent Task")
     agent_name = st.text_input("Agent Name", value="Executive Agent")
-    task_title = st.text_input("Task Title", value="Summarize current system priorities")
+    task_title = st.text_input(
+        "Task Title", value="Summarize current system priorities"
+    )
 
     if st.button("Assign Task"):
         result = runtime_core.commands.dispatch(
@@ -436,7 +481,9 @@ with tabs[7]:
 with tabs[8]:
     st.subheader("Autonomous Planning Engine")
 
-    planning_stats = runtime_core.commands.dispatch("planning.stats", {}).results.get("planning_stats", {})
+    planning_stats = runtime_core.commands.dispatch("planning.stats", {}).results.get(
+        "planning_stats", {}
+    )
     st.markdown("### Planning Stats")
     st.json(planning_stats)
 
@@ -490,7 +537,9 @@ with tabs[8]:
 with tabs[9]:
     st.subheader("Native Applications")
 
-    applications = runtime_core.commands.dispatch("application.list", {}).results.get("applications", [])
+    applications = runtime_core.commands.dispatch("application.list", {}).results.get(
+        "applications", []
+    )
     if applications:
         st.dataframe(safe_dataframe(applications), width="stretch")
     else:
@@ -519,13 +568,17 @@ with tabs[9]:
             st.json(result.results)
 
     st.markdown("### Card Hawk Status")
-    cardhawk = runtime_core.commands.dispatch("cardhawk.status", {}).results.get("cardhawk", {})
+    cardhawk = runtime_core.commands.dispatch("cardhawk.status", {}).results.get(
+        "cardhawk", {}
+    )
     st.json(cardhawk)
 
 with tabs[10]:
     st.subheader("Semantic Intelligence Layer")
 
-    semantic = runtime_core.commands.dispatch("semantic.stats", {}).results.get("semantic_stats", {})
+    semantic = runtime_core.commands.dispatch("semantic.stats", {}).results.get(
+        "semantic_stats", {}
+    )
     st.markdown("### Semantic Stats")
     st.json(semantic)
 
@@ -585,12 +638,16 @@ with tabs[10]:
         )
         st.json(result.results)
 
-    concepts = runtime_core.commands.dispatch("semantic.concept.search", {}).results.get("concepts", [])
+    concepts = runtime_core.commands.dispatch(
+        "semantic.concept.search", {}
+    ).results.get("concepts", [])
     if concepts:
         st.markdown("### Concepts")
         st.dataframe(safe_dataframe(concepts), width="stretch")
 
-    assertions = runtime_core.commands.dispatch("semantic.query", {}).results.get("assertions", [])
+    assertions = runtime_core.commands.dispatch("semantic.query", {}).results.get(
+        "assertions", []
+    )
     if assertions:
         st.markdown("### Assertions")
         st.dataframe(safe_dataframe(assertions), width="stretch")
@@ -598,7 +655,10 @@ with tabs[10]:
 with tabs[11]:
     st.subheader("Strategic Objectives")
 
-    title = st.text_input("Objective Title", value="Prepare Card Hawk Foundation for native Aletheus integration")
+    title = st.text_input(
+        "Objective Title",
+        value="Prepare Card Hawk Foundation for native Aletheus integration",
+    )
     description = st.text_area(
         "Objective Description",
         value="Move Card Hawk Foundation into Aletheus as the first flagship reference application.",
@@ -618,7 +678,9 @@ with tabs[11]:
         st.success("Objective created.")
         st.json(result.results)
 
-    objectives = runtime_core.commands.dispatch("objective.list", {}).results.get("objectives", [])
+    objectives = runtime_core.commands.dispatch("objective.list", {}).results.get(
+        "objectives", []
+    )
     if objectives:
         st.dataframe(safe_dataframe(objectives), width="stretch")
     else:
@@ -627,7 +689,9 @@ with tabs[11]:
 with tabs[12]:
     st.subheader("Mission Command")
 
-    mission_title = st.text_input("Mission Title", value="Integrate Card Hawk Foundation")
+    mission_title = st.text_input(
+        "Mission Title", value="Integrate Card Hawk Foundation"
+    )
     mission_objective = st.text_area(
         "Mission Objective",
         value="Register Card Hawk Foundation as the first native Aletheus application.",
@@ -642,17 +706,31 @@ with tabs[12]:
                 "application": "founder_workspace",
                 "priority": "critical",
                 "tasks": [
-                    {"title": "Register application", "description": "Create native application record."},
-                    {"title": "Register Card Hawk services", "description": "Expose Asset Vault, Portfolio, Marketplace, and engines."},
-                    {"title": "Connect knowledge graph", "description": "Create graph entities and relationships."},
-                    {"title": "Record founder decision", "description": "Persist rationale and milestone."},
+                    {
+                        "title": "Register application",
+                        "description": "Create native application record.",
+                    },
+                    {
+                        "title": "Register Card Hawk services",
+                        "description": "Expose Asset Vault, Portfolio, Marketplace, and engines.",
+                    },
+                    {
+                        "title": "Connect knowledge graph",
+                        "description": "Create graph entities and relationships.",
+                    },
+                    {
+                        "title": "Record founder decision",
+                        "description": "Persist rationale and milestone.",
+                    },
                 ],
             },
         )
         st.success("Mission created.")
         st.json(result.results)
 
-    missions = runtime_core.commands.dispatch("mission.list", {}).results.get("missions", [])
+    missions = runtime_core.commands.dispatch("mission.list", {}).results.get(
+        "missions", []
+    )
     if missions:
         st.dataframe(safe_dataframe(missions), width="stretch")
     else:
@@ -661,7 +739,9 @@ with tabs[12]:
 with tabs[13]:
     st.subheader("Founder Journal")
 
-    journal_title = st.text_input("Journal Title", value="Genesis 0.8 Founder Workspace")
+    journal_title = st.text_input(
+        "Journal Title", value="Genesis 0.8 Founder Workspace"
+    )
     journal_body = st.text_area(
         "Journal Body",
         value="Aletheus Founder Workspace is now the executive operating surface for the platform.",
@@ -682,7 +762,9 @@ with tabs[13]:
         st.success("Journal entry created.")
         st.json(result.results)
 
-    journal = runtime_core.commands.dispatch("founder.journal.list", {}).results.get("journal", [])
+    journal = runtime_core.commands.dispatch("founder.journal.list", {}).results.get(
+        "journal", []
+    )
     if journal:
         st.dataframe(safe_dataframe(journal), width="stretch")
     else:
@@ -704,7 +786,9 @@ with tabs[14]:
         st.success("Notification created.")
         st.json(result.results)
 
-    notifications = runtime_core.commands.dispatch("notification.list", {}).results.get("notifications", [])
+    notifications = runtime_core.commands.dispatch("notification.list", {}).results.get(
+        "notifications", []
+    )
     if notifications:
         st.dataframe(safe_dataframe(notifications), width="stretch")
     else:
@@ -717,7 +801,9 @@ with tabs[15]:
 
 with tabs[16]:
     st.subheader("Memory Snapshot")
-    memory = runtime_core.commands.dispatch("memory.recall", {"limit": 50}).results.get("memory", [])
+    memory = runtime_core.commands.dispatch("memory.recall", {"limit": 50}).results.get(
+        "memory", []
+    )
     if memory:
         st.dataframe(safe_dataframe(memory), width="stretch")
     else:

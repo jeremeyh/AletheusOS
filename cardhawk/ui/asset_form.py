@@ -8,7 +8,6 @@ from cardhawk.services import AssetService
 
 
 class AssetForm:
-
     def __init__(self):
 
         self.service = AssetService()

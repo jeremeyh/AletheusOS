@@ -20,9 +20,7 @@ class PortfolioHealth:
         for asset in assets:
             purchase_price = float(asset.get("purchase_price") or 0)
             current_value = float(
-                asset.get("current_value")
-                or asset.get("market_value")
-                or 0
+                asset.get("current_value") or asset.get("market_value") or 0
             )
             thorx_score = float(asset.get("thorx_score") or 0)
 

@@ -4,5 +4,5 @@ def score_portfolio_fit(asset: dict, portfolio_context: dict | None = None) -> d
     return {
         "score": 75,
         "fit": "Strong",
-        "reason": "Portfolio fit placeholder based on player, scarcity, category, and allocation."
+        "reason": "Portfolio fit placeholder based on player, scarcity, category, and allocation.",
     }

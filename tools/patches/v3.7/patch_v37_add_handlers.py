@@ -7,7 +7,7 @@ if "def _cmd_security_bootstrap" in text:
     print("Security handlers already exist.")
     raise SystemExit(0)
 
-handlers = '''
+handlers = """
 
     # ==========================================================
     # v3.7 Security & Policy Engine
@@ -100,7 +100,7 @@ handlers = '''
         )
         return context
 
-'''
+"""
 
 anchor = "    def _job_runtime_pulse(self) -> dict:"
 

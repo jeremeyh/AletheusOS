@@ -7,7 +7,7 @@ if "def _cmd_plan_bootstrap" in text:
     print("Planning handlers already exist.")
     raise SystemExit(0)
 
-methods = '''
+methods = """
 
     # ==========================================================
     # v2.9 Autonomous Planning Engine
@@ -67,7 +67,7 @@ methods = '''
         )
         return context
 
-'''
+"""
 
 anchor = "    def _job_runtime_pulse(self) -> dict:"
 

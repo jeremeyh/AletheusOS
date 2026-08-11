@@ -62,10 +62,7 @@ class DecisionEngine:
     def evaluate_all():
         assets = AssetRepository.all(include_archived=False) or []
 
-        reports = [
-            DecisionEngine.evaluate(asset)
-            for asset in assets
-        ]
+        reports = [DecisionEngine.evaluate(asset) for asset in assets]
 
         return RankingEngine.rank(reports)
 
@@ -92,7 +89,9 @@ class DecisionEngine:
             "count": len(reports),
             "average_score": round(avg, 2),
             "top_recommendation": reports[0],
-            "strike_count": len([r for r in reports if r["recommendation"] == "STRIKE"]),
+            "strike_count": len(
+                [r for r in reports if r["recommendation"] == "STRIKE"]
+            ),
             "buy_count": len([r for r in reports if r["recommendation"] == "BUY"]),
             "hold_count": len([r for r in reports if r["recommendation"] == "HOLD"]),
             "watch_count": len([r for r in reports if r["recommendation"] == "WATCH"]),

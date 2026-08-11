@@ -1,7 +1,9 @@
 from pathlib import Path
+
 from config.settings import settings
-from registry.provider_registry import ProviderRegistry
 from registry.engine_registry import EngineRegistry
+from registry.provider_registry import ProviderRegistry
+
 
 class SystemHealth:
     """Health Dashboard™ checks core CardHawk OS™ subsystems."""

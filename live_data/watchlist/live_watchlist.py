@@ -1,6 +1,7 @@
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-import uuid
+
 
 @dataclass
 class WatchTarget:
@@ -8,8 +9,11 @@ class WatchTarget:
     max_price: float = 0.0
     min_score: float = 0.0
     status: str = "active"
-    target_id: str = field(default_factory=lambda: f"WATCH-{uuid.uuid4().hex[:10].upper()}")
+    target_id: str = field(
+        default_factory=lambda: f"WATCH-{uuid.uuid4().hex[:10].upper()}"
+    )
     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+
 
 class LiveWatchlist:
     _targets = []

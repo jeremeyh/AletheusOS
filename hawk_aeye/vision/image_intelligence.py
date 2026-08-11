@@ -1,5 +1,6 @@
-from pathlib import Path
 from hashlib import sha256
+from pathlib import Path
+
 from PIL import Image, ImageStat
 
 

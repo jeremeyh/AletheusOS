@@ -3,7 +3,7 @@ from aletheus.copilot.models import CopilotExchange, CopilotRecommendation
 
 __all__ = [
     "AletheusFounderCopilot",
-    "copilot_core",
     "CopilotExchange",
     "CopilotRecommendation",
+    "copilot_core",
 ]

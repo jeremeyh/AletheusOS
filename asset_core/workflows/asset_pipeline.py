@@ -2,8 +2,8 @@
 Canonical Asset Pipeline
 """
 
-class AssetPipeline:
 
+class AssetPipeline:
     STAGES = [
         "asset.created",
         "hawk_aeye.process",

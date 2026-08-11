@@ -1,7 +1,7 @@
+import uuid
+from datetime import datetime
 from pathlib import Path
 from shutil import copyfile
-from datetime import datetime
-import uuid
 
 
 class ImageRepository:

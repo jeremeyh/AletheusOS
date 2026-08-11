@@ -17,9 +17,7 @@ def read_events():
     events = []
 
     with LOG.open() as fp:
-
         for line in fp:
-
             try:
                 events.append(json.loads(line))
             except Exception:

@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, asdict, field
-from datetime import datetime
-from typing import Dict, List, Any
 import uuid
+from dataclasses import asdict, dataclass, field
+from datetime import datetime
+from typing import Any
 
 
 def utc_now():
@@ -17,7 +17,7 @@ class TelemetryMetric:
     value: Any
     category: str = "runtime"
     timestamp: str = field(default_factory=utc_now)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -27,7 +27,7 @@ class TelemetryLog:
     message: str
     source: str = "runtime"
     timestamp: str = field(default_factory=utc_now)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -40,18 +40,18 @@ class TelemetryTrace:
     correlation_id: str | None = None
     started_at: str = field(default_factory=utc_now)
     ended_at: str = field(default_factory=utc_now)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 class AletheusTelemetryEngine:
     VERSION = "3.5.0"
 
     def __init__(self):
-        self.metrics: List[TelemetryMetric] = []
-        self.logs: List[TelemetryLog] = []
-        self.traces: List[TelemetryTrace] = []
-        self.health_registry: Dict[str, str] = {}
-        self.timeline_events: List[Dict[str, Any]] = []
+        self.metrics: list[TelemetryMetric] = []
+        self.logs: list[TelemetryLog] = []
+        self.traces: list[TelemetryTrace] = []
+        self.health_registry: dict[str, str] = {}
+        self.timeline_events: list[dict[str, Any]] = []
 
     @property
     def version(self):
@@ -62,8 +62,12 @@ class AletheusTelemetryEngine:
         self.timeline("Telemetry Engine bootstrapped", source="telemetry")
         return self.statistics()
 
-    def record(self, name: str, value: Any = None, category: str = "runtime", metadata=None):
-        return self.metric(name=name, value=value, category=category, metadata=metadata or {})
+    def record(
+        self, name: str, value: Any = None, category: str = "runtime", metadata=None
+    ):
+        return self.metric(
+            name=name, value=value, category=category, metadata=metadata or {}
+        )
 
     def metric(self, name: str, value: Any, category: str = "runtime", metadata=None):
         item = TelemetryMetric(
@@ -88,7 +92,14 @@ class AletheusTelemetryEngine:
         self.timeline(message, source=source)
         return asdict(item)
 
-    def trace(self, name: str, status: str = "completed", parent_span=None, correlation_id=None, metadata=None):
+    def trace(
+        self,
+        name: str,
+        status: str = "completed",
+        parent_span=None,
+        correlation_id=None,
+        metadata=None,
+    ):
         item = TelemetryTrace(
             trace_id=str(uuid.uuid4()),
             span_id=str(uuid.uuid4()),
@@ -122,7 +133,8 @@ class AletheusTelemetryEngine:
 
     def statistics(self):
         unhealthy = [
-            name for name, status in self.health_registry.items()
+            name
+            for name, status in self.health_registry.items()
             if status not in {"healthy", "online"}
         ]
 

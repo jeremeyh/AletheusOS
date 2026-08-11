@@ -1,4 +1,5 @@
 class GoldinConnector:
-    NAME="Goldin"
+    NAME = "Goldin"
+
     def search(self, query):
         return []

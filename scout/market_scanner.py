@@ -25,7 +25,9 @@ class MarketScanner:
                     ListingCandidate(
                         title=row.get("title", ""),
                         price=float(row.get("price", 0) or 0),
-                        marketplace=row.get("marketplace", getattr(connector, "NAME", "")),
+                        marketplace=row.get(
+                            "marketplace", getattr(connector, "NAME", "")
+                        ),
                         url=row.get("url", ""),
                         seller=row.get("seller", ""),
                         raw=row,

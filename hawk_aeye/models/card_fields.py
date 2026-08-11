@@ -66,9 +66,7 @@ class CardFields:
     #
     # Metadata
 
-    created_at: str = field(
-        default_factory=lambda: datetime.utcnow().isoformat()
-    )
+    created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
 
     def to_dict(self):
 

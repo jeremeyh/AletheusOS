@@ -27,14 +27,10 @@ def test_bootstrap():
 def test_metric():
 
     result = runtime_core.commands.dispatch(
-
         "telemetry.metric",
-
         {
             "name": "runtime.commands",
-
             "value": 250,
-
             "category": "runtime",
         },
     )
@@ -51,12 +47,9 @@ def test_metric():
 def test_record():
 
     result = runtime_core.commands.dispatch(
-
         "telemetry.record",
-
         {
             "name": "runtime.memory",
-
             "value": 512,
         },
     )
@@ -67,14 +60,10 @@ def test_record():
 def test_log():
 
     result = runtime_core.commands.dispatch(
-
         "telemetry.log",
-
         {
             "level": "INFO",
-
             "message": "Telemetry operational",
-
             "source": "unit-test",
         },
     )
@@ -89,12 +78,9 @@ def test_log():
 def test_trace():
 
     result = runtime_core.commands.dispatch(
-
         "telemetry.trace",
-
         {
             "name": "workflow.execute",
-
             "status": "completed",
         },
     )
@@ -109,12 +95,9 @@ def test_trace():
 def test_health():
 
     result = runtime_core.commands.dispatch(
-
         "telemetry.health",
-
         {
             "component": "workflow",
-
             "status": "healthy",
         },
     )
@@ -129,12 +112,9 @@ def test_health():
 def test_timeline():
 
     result = runtime_core.commands.dispatch(
-
         "telemetry.timeline",
-
         {
             "message": "Workflow executed",
-
             "source": "workflow",
         },
     )
@@ -149,9 +129,7 @@ def test_timeline():
 def test_statistics():
 
     result = runtime_core.commands.dispatch(
-
         "telemetry.statistics",
-
         {},
     )
 
@@ -163,7 +141,6 @@ def test_statistics():
 
 
 if __name__ == "__main__":
-
     test_telemetry_service_registered()
     test_bootstrap()
     test_metric()

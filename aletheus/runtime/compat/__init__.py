@@ -1,17 +1,15 @@
+from .contracts import RuntimeContract
 from .registry import (
     CompatibilityRegistry,
     RuntimeService,
     compatibility_registry,
 )
-
 from .resolver import resolve
-
-from .contracts import RuntimeContract
 
 __all__ = [
     "CompatibilityRegistry",
+    "RuntimeContract",
     "RuntimeService",
     "compatibility_registry",
     "resolve",
-    "RuntimeContract",
 ]

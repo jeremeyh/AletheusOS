@@ -1,7 +1,7 @@
 from aletheus.runtime import runtime_core
 from aletheus.runtime.modules import (
-    runtime_health,
     register_runtime_services,
+    runtime_health,
 )
 
 

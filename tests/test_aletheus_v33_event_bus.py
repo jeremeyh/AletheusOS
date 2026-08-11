@@ -27,18 +27,11 @@ def test_bootstrap():
 def test_publish():
 
     result = runtime_core.commands.dispatch(
-
         "event.publish",
-
         {
             "topic": "runtime.test",
-
             "publisher": "unit-test",
-
-            "payload": {
-                "message": "hello"
-            },
-
+            "payload": {"message": "hello"},
             "priority": "normal",
         },
     )
@@ -55,12 +48,9 @@ def test_publish():
 def test_subscribe():
 
     result = runtime_core.commands.dispatch(
-
         "event.subscribe",
-
         {
             "topic": "runtime.test",
-
             "subscriber": "Workflow Engine",
         },
     )
@@ -75,12 +65,8 @@ def test_subscribe():
 def test_history():
 
     result = runtime_core.commands.dispatch(
-
         "event.history",
-
-        {
-            "topic": "runtime.test"
-        },
+        {"topic": "runtime.test"},
     )
 
     assert not result.errors
@@ -91,12 +77,8 @@ def test_history():
 def test_replay():
 
     result = runtime_core.commands.dispatch(
-
         "event.replay",
-
-        {
-            "topic": "runtime.test"
-        },
+        {"topic": "runtime.test"},
     )
 
     assert not result.errors
@@ -109,12 +91,9 @@ def test_replay():
 def test_unsubscribe():
 
     result = runtime_core.commands.dispatch(
-
         "event.unsubscribe",
-
         {
             "topic": "runtime.test",
-
             "subscriber": "Workflow Engine",
         },
     )
@@ -125,9 +104,7 @@ def test_unsubscribe():
 def test_statistics():
 
     result = runtime_core.commands.dispatch(
-
         "event.statistics",
-
         {},
     )
 
@@ -139,7 +116,6 @@ def test_statistics():
 
 
 if __name__ == "__main__":
-
     test_event_service_registered()
 
     test_bootstrap()

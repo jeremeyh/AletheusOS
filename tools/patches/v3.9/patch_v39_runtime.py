@@ -7,7 +7,9 @@ if "from aletheus.tenancy_v3 import tenancy_core" not in text:
     anchor = "from aletheus.security_v3 import security_core"
     if anchor not in text:
         raise SystemExit("Security import anchor not found.")
-    text = text.replace(anchor, anchor + "\nfrom aletheus.tenancy_v3 import tenancy_core", 1)
+    text = text.replace(
+        anchor, anchor + "\nfrom aletheus.tenancy_v3 import tenancy_core", 1
+    )
 
 if "self.tenancy_v3 = tenancy_core" not in text:
     anchor = "self.security_v3 = security_core"
@@ -19,11 +21,16 @@ text = text.replace('self.version = "3.7.0"', 'self.version = "3.9.0"')
 text = text.replace('self.version = "3.8.0"', 'self.version = "3.9.0"')
 
 if 'self.commands.register("tenant.bootstrap"' not in text:
-    anchor = 'self.commands.register("security.statistics", self._cmd_security_statistics)'
+    anchor = (
+        'self.commands.register("security.statistics", self._cmd_security_statistics)'
+    )
     if anchor not in text:
         raise SystemExit("Security command anchor not found.")
 
-    text = text.replace(anchor, anchor + '''
+    text = text.replace(
+        anchor,
+        anchor
+        + """
 
         # v3.9 Multi-Tenant Runtime
         self.commands.register("tenant.bootstrap", self._cmd_tenant_bootstrap)
@@ -38,7 +45,9 @@ if 'self.commands.register("tenant.bootstrap"' not in text:
         self.commands.register("organization.update", self._cmd_organization_update)
         self.commands.register("tenant.statistics", self._cmd_tenant_statistics)
         self.commands.register("tenant.health", self._cmd_tenant_health)
-''', 1)
+""",
+        1,
+    )
 
 core.write_text(text)
 print("✔ v3.9 tenancy runtime integrated.")

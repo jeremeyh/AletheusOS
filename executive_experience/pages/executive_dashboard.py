@@ -1,9 +1,16 @@
 import streamlit as st
-from services.executive_experience_service import ExecutiveExperienceService
 from components.executive_ui import (
-    hero, metric_cards, founder_brief_card, panel,
-    asset_rows, marketplace_rows, task_rows, activity_rows,
+    activity_rows,
+    asset_rows,
+    founder_brief_card,
+    hero,
+    marketplace_rows,
+    metric_cards,
+    panel,
+    task_rows,
 )
+from services.executive_experience_service import ExecutiveExperienceService
+
 
 def render(state):
     data = ExecutiveExperienceService.build_dashboard(state)
@@ -23,12 +30,21 @@ def render(state):
 
     chart_col, allocation_col = st.columns([1.2, 1])
     with chart_col:
-        st.markdown('<div class="ch-panel"><div class="ch-panel-title">Portfolio Performance™</div>', unsafe_allow_html=True)
+        st.markdown(
+            '<div class="ch-panel"><div class="ch-panel-title">Portfolio Performance™</div>',
+            unsafe_allow_html=True,
+        )
         value = data["summary"]["portfolio_value"]
         if value > 0:
-            st.line_chart([value*x for x in [.80,.84,.88,.92,.90,.96,1.0]], height=260)
+            st.line_chart(
+                [value * x for x in [0.80, 0.84, 0.88, 0.92, 0.90, 0.96, 1.0]],
+                height=260,
+            )
         else:
-            st.markdown('<span class="ch-muted">Add assets to activate live performance chart.</span>', unsafe_allow_html=True)
+            st.markdown(
+                '<span class="ch-muted">Add assets to activate live performance chart.</span>',
+                unsafe_allow_html=True,
+            )
         st.markdown("</div>", unsafe_allow_html=True)
     with allocation_col:
         panel("Live Intelligence Layer™", activity_rows(data["activity"]))

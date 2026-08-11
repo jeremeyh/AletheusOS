@@ -33,7 +33,9 @@ def test_create_concept_and_assertion():
 
 
 def test_semantic_explain():
-    result = runtime_core.commands.dispatch("semantic.explain", {"name": "Caleb Williams"})
+    result = runtime_core.commands.dispatch(
+        "semantic.explain", {"name": "Caleb Williams"}
+    )
     assert not result.errors
     assert "explanation" in result.results
 

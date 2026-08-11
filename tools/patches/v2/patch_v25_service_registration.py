@@ -3,7 +3,7 @@ from pathlib import Path
 path = Path("aletheus/runtime/core.py")
 text = path.read_text()
 
-service_block = '''
+service_block = """
         self.services.register(
             "Aletheus Cognitive Reasoning Engine",
             {
@@ -11,11 +11,11 @@ service_block = '''
                 "version": self.reasoning.version,
             },
         )
-'''
+"""
 
 # Add registration after Knowledge Graph registration
 if '"Aletheus Cognitive Reasoning Engine"' not in text:
-    anchor = '''
+    anchor = """
         self.services.register(
             "Aletheus Knowledge Graph Engine",
             {
@@ -23,7 +23,7 @@ if '"Aletheus Cognitive Reasoning Engine"' not in text:
                 "version": self.knowledge_graph.version,
             },
         )
-'''
+"""
     if anchor in text:
         text = text.replace(anchor, anchor + service_block)
     else:

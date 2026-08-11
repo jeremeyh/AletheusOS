@@ -14,3 +14,16 @@ uploads/*
 
 # Generated runtime health reports
 reports/
+
+# AletheusOS local runtime / recovery state
+.aletheusos/
+runtime_state/snapshots/
+data/runtime_state.json
+data/runtime_events.jsonl
+
+# Migration/recovery working backups
+*.pre_*
+*.backup_before_*
+
+# Generated local application logs
+logs/*.log

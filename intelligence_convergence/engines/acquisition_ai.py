@@ -7,7 +7,9 @@ class AcquisitionAI:
 
         price = float(candidate.get("price", 0) or 0)
         estimated_value = float(candidate.get("estimated_value", price) or price)
-        thorx_score = float(candidate.get("thorx_score", candidate.get("scout_score", 0)) or 0)
+        thorx_score = float(
+            candidate.get("thorx_score", candidate.get("scout_score", 0)) or 0
+        )
 
         upside = estimated_value - price
         upside_pct = (upside / price * 100) if price else 0

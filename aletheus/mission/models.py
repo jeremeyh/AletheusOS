@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Any, Dict, List
-import uuid
+from typing import Any
 
 
 def now() -> str:
@@ -23,7 +23,7 @@ class MissionTask:
         self.status = "completed"
         self.completed_at = now()
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -34,7 +34,7 @@ class Mission:
     application: str = "system"
     priority: str = "medium"
     status: str = "active"
-    tasks: List[MissionTask] = field(default_factory=list)
+    tasks: list[MissionTask] = field(default_factory=list)
     mission_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
     completed_at: str | None = None
@@ -49,7 +49,7 @@ class Mission:
         completed = len([task for task in self.tasks if task.status == "completed"])
         return round(completed / len(self.tasks), 2)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         data = self.__dict__.copy()
         data["tasks"] = [task.to_dict() for task in self.tasks]
         data["progress"] = self.progress()
@@ -60,9 +60,9 @@ class Mission:
 class MissionRun:
     mission_id: str
     status: str
-    actions: List[Dict[str, Any]]
+    actions: list[dict[str, Any]]
     run_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__

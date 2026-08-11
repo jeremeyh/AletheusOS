@@ -1,16 +1,22 @@
 from __future__ import annotations
 
-from typing import Any, Callable, Dict
+from collections.abc import Callable
+from typing import Any
 
 from services.context import utc_now_iso
 
 
 class RuntimeScheduler:
     def __init__(self) -> None:
-        self.jobs: Dict[str, Dict[str, Any]] = {}
+        self.jobs: dict[str, dict[str, Any]] = {}
 
     def register(self, name: str, description: str, handler: Callable[[], Any]) -> None:
-        self.jobs[name] = {"description": description, "handler": handler, "last_run": None, "last_result": None}
+        self.jobs[name] = {
+            "description": description,
+            "handler": handler,
+            "last_run": None,
+            "last_result": None,
+        }
 
     def run(self, name: str) -> Any:
         if name not in self.jobs:
@@ -20,5 +26,12 @@ class RuntimeScheduler:
         self.jobs[name]["last_result"] = result
         return result
 
-    def list_jobs(self) -> Dict[str, Dict[str, Any]]:
-        return {k: {"description": v["description"], "last_run": v["last_run"], "last_result": v["last_result"]} for k, v in self.jobs.items()}
+    def list_jobs(self) -> dict[str, dict[str, Any]]:
+        return {
+            k: {
+                "description": v["description"],
+                "last_run": v["last_run"],
+                "last_result": v["last_result"],
+            }
+            for k, v in self.jobs.items()
+        }

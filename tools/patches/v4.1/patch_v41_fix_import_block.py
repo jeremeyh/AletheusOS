@@ -1,13 +1,13 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 core = Path("aletheus/runtime/core.py")
 text = core.read_text()
 
 # Remove every existing compatibility import
 text = re.sub(
-    r'\n?from aletheus\.runtime\.compat import compatibility_registry\n?',
-    '\n',
+    r"\n?from aletheus\.runtime\.compat import compatibility_registry\n?",
+    "\n",
     text,
 )
 
@@ -21,8 +21,7 @@ if marker not in text:
 
 text = text.replace(
     marker,
-    marker +
-    "\nfrom aletheus.runtime.compat import compatibility_registry",
+    marker + "\nfrom aletheus.runtime.compat import compatibility_registry",
     1,
 )
 

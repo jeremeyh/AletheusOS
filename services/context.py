@@ -3,7 +3,7 @@ from __future__ import annotations
 import uuid
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 
 def utc_now_iso() -> str:
@@ -13,14 +13,14 @@ def utc_now_iso() -> str:
 @dataclass
 class PipelineContext:
     command: str
-    payload: Dict[str, Any] = field(default_factory=dict)
+    payload: dict[str, Any] = field(default_factory=dict)
     founder: str = "Founder"
     request_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=utc_now_iso)
-    metadata: Dict[str, Any] = field(default_factory=dict)
-    results: Dict[str, Any] = field(default_factory=dict)
-    warnings: List[str] = field(default_factory=list)
-    errors: List[str] = field(default_factory=list)
+    metadata: dict[str, Any] = field(default_factory=dict)
+    results: dict[str, Any] = field(default_factory=dict)
+    warnings: list[str] = field(default_factory=list)
+    errors: list[str] = field(default_factory=list)
 
     def add_result(self, key: str, value: Any) -> None:
         self.results[key] = value
@@ -35,7 +35,7 @@ class PipelineContext:
     def ok(self) -> bool:
         return not self.errors
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return {
             "request_id": self.request_id,
             "command": self.command,

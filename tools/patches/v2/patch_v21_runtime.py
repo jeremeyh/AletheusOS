@@ -19,7 +19,7 @@ if "self.enterprise = enterprise_core" not in text:
 
 if 'self.commands.register("enterprise.stats"' not in text:
     anchor = '        self.commands.register("workflow.v2.stats", self._cmd_workflow_v2_stats)\n'
-    insert = '''        self.commands.register("enterprise.bootstrap.cardhawk", self._cmd_enterprise_bootstrap_cardhawk)
+    insert = """        self.commands.register("enterprise.bootstrap.cardhawk", self._cmd_enterprise_bootstrap_cardhawk)
         self.commands.register("enterprise.create", self._cmd_enterprise_create)
         self.commands.register("enterprise.list", self._cmd_enterprise_list)
         self.commands.register("enterprise.stats", self._cmd_enterprise_stats)
@@ -28,20 +28,20 @@ if 'self.commands.register("enterprise.stats"' not in text:
         self.commands.register("policy.create", self._cmd_policy_create)
         self.commands.register("governance.check", self._cmd_governance_check)
         self.commands.register("audit.history", self._cmd_audit_history)
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find workflow.v2.stats command anchor.")
     text = text.replace(anchor, anchor + insert)
 
 if '"Aletheus Enterprise Intelligence Platform"' not in text:
-    anchor = '''        self.services.register(
+    anchor = """        self.services.register(
             "Aletheus v2 Autonomous Workflow Fabric",
             {"status": "online", "version": self.workflow_v2.version},
         )
 
         self.scheduler.register(
-'''
-    replacement = '''        self.services.register(
+"""
+    replacement = """        self.services.register(
             "Aletheus v2 Autonomous Workflow Fabric",
             {"status": "online", "version": self.workflow_v2.version},
         )
@@ -51,20 +51,20 @@ if '"Aletheus Enterprise Intelligence Platform"' not in text:
         )
 
         self.scheduler.register(
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find workflow service registration anchor.")
     text = text.replace(anchor, replacement)
 
 if '"enterprises": self.enterprise.stats()["organizations"]' not in text:
     text = text.replace(
-        '''                "v2_workflows": self.workflow_v2.stats()["workflows"],
+        """                "v2_workflows": self.workflow_v2.stats()["workflows"],
                 "v2_workflow_events": self.workflow_v2.stats()["events"],
             },
         )
         return context
-''',
-        '''                "v2_workflows": self.workflow_v2.stats()["workflows"],
+""",
+        """                "v2_workflows": self.workflow_v2.stats()["workflows"],
                 "v2_workflow_events": self.workflow_v2.stats()["events"],
                 "enterprises": self.enterprise.stats()["organizations"],
                 "enterprise_audit_events": self.enterprise.stats()["audit_events"],
@@ -72,23 +72,23 @@ if '"enterprises": self.enterprise.stats()["organizations"]' not in text:
             },
         )
         return context
-''',
+""",
     )
 
 if 'context.add_result("enterprise", self.enterprise.stats())' not in text:
     text = text.replace(
-        '''        context.add_result("workflow_v2", self.workflow_v2.stats())
+        """        context.add_result("workflow_v2", self.workflow_v2.stats())
         return context
-''',
-        '''        context.add_result("workflow_v2", self.workflow_v2.stats())
+""",
+        """        context.add_result("workflow_v2", self.workflow_v2.stats())
         context.add_result("enterprise", self.enterprise.stats())
         return context
-''',
+""",
     )
 
 if "def _cmd_enterprise_bootstrap_cardhawk" not in text:
     anchor = "    def _job_runtime_pulse(self) -> dict:\n"
-    methods = '''
+    methods = """
     def _cmd_enterprise_bootstrap_cardhawk(self, context: RuntimeContext) -> RuntimeContext:
         org = self.enterprise.bootstrap_cardhawk_enterprise()
         self.kernel_v2.publish(
@@ -167,7 +167,7 @@ if "def _cmd_enterprise_bootstrap_cardhawk" not in text:
         context.add_result("audit", self.enterprise.audit_history())
         return context
 
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find _job_runtime_pulse anchor.")
     text = text.replace(anchor, methods + anchor)

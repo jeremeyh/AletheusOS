@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any
 
 
 @dataclass
@@ -14,7 +14,7 @@ class ReleaseManifest:
     product_type: str = "Universal Intelligence Operating System"
     released_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
 
-    stable_subsystems: List[str] = field(
+    stable_subsystems: list[str] = field(
         default_factory=lambda: [
             "Runtime Core",
             "Memory Core",
@@ -34,13 +34,13 @@ class ReleaseManifest:
         ]
     )
 
-    reference_applications: List[str] = field(
+    reference_applications: list[str] = field(
         default_factory=lambda: [
             "Card Hawk Foundation™",
         ]
     )
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "codename": self.codename,
@@ -57,10 +57,10 @@ class AletheusReleaseCore:
     def __init__(self) -> None:
         self.manifest = ReleaseManifest()
 
-    def status(self) -> Dict[str, Any]:
+    def status(self) -> dict[str, Any]:
         return self.manifest.to_dict()
 
-    def validate_runtime(self, runtime: Any) -> Dict[str, Any]:
+    def validate_runtime(self, runtime: Any) -> dict[str, Any]:
         health = runtime.commands.dispatch("runtime.health").results.get("health", {})
         diagnostics = runtime.commands.dispatch("runtime.diagnostics").results
 

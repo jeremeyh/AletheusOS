@@ -1,5 +1,4 @@
 import streamlit as st
-
 from components.chds.asset_card import render_asset_card
 
 

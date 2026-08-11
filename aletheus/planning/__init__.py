@@ -1,9 +1,9 @@
-from aletheus.planning.planning_core import AletheusPlanningCore, planning_core
 from aletheus.planning.models import AutonomousPlan, PlanningStep
+from aletheus.planning.planning_core import AletheusPlanningCore, planning_core
 
 __all__ = [
     "AletheusPlanningCore",
-    "planning_core",
     "AutonomousPlan",
     "PlanningStep",
+    "planning_core",
 ]

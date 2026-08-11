@@ -3,7 +3,7 @@ from pathlib import Path
 path = Path("aletheus/runtime/core.py")
 text = path.read_text()
 
-service = '''
+service = """
         self.services.register(
             "Aletheus Plugin Manager",
             {
@@ -11,7 +11,7 @@ service = '''
                 "version": self.plugins_v3.VERSION,
             },
         )
-'''
+"""
 
 if "Aletheus Plugin Manager" in text:
     print("Plugin service already present.")

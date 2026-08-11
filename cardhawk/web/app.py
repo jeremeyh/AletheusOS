@@ -5,7 +5,6 @@ Version 5.0.0
 """
 
 import streamlit as st
-
 from cardhawk.dashboard import DashboardService
 from cardhawk.services import AssetService
 
@@ -52,11 +51,9 @@ st.divider()
 st.subheader("Asset Vault")
 
 if assets:
-
     rows = []
 
     for asset in assets:
-
         rows.append(
             {
                 "Player": asset.player,
@@ -74,7 +71,4 @@ if assets:
     )
 
 else:
-
-    st.info(
-        "No assets have been added yet."
-    )
+    st.info("No assets have been added yet.")

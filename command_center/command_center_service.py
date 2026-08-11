@@ -1,7 +1,8 @@
-from eventbus.event_bus import EventBus
-from negotiation.offer_tracker import OfferTracker
-from founder.dynamic_brief import DynamicFounderBrief
 from datalake.intelligence_store import IntelligenceStore
+from eventbus.event_bus import EventBus
+from founder.dynamic_brief import DynamicFounderBrief
+from negotiation.offer_tracker import OfferTracker
+
 
 class CommandCenterService:
     """Command Center™ 2.0 data orchestration."""

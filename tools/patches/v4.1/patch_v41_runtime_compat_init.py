@@ -16,20 +16,21 @@ if import_line not in text:
         raise SystemExit("Kernel import block not found.")
 
     end = text.find("\n", idx)
-    text = text[:end+1] + import_line + "\n" + text[end+1:]
+    text = text[: end + 1] + import_line + "\n" + text[end + 1 :]
 
 # ------------------------------------------------------------
 # Runtime initialization
 # ------------------------------------------------------------
 
 if "self.compat = compatibility_registry" not in text:
-
     anchor = "self.kernel = KernelExecutor(self)"
 
     if anchor not in text:
         raise SystemExit("KernelExecutor initialization not found.")
 
-    replacement = anchor + """
+    replacement = (
+        anchor
+        + """
 
         # Runtime Compatibility Layer
         self.compat = compatibility_registry
@@ -37,6 +38,7 @@ if "self.compat = compatibility_registry" not in text:
         self._register_compatibility_services()
         self._apply_compatibility_aliases()
 """
+    )
 
     text = text.replace(anchor, replacement, 1)
 
@@ -45,8 +47,7 @@ if "self.compat = compatibility_registry" not in text:
 # ------------------------------------------------------------
 
 if "def _register_compatibility_services" not in text:
-
-    methods = '''
+    methods = """
 
     # ==========================================================
     # Runtime Compatibility Layer
@@ -106,7 +107,7 @@ if "def _register_compatibility_services" not in text:
         except Exception:
             pass
 
-'''
+"""
 
     anchor = "    def _job_runtime_pulse"
 

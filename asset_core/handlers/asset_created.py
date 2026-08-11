@@ -2,7 +2,7 @@
 Asset Created Handler
 """
 
-class AssetCreatedHandler:
 
+class AssetCreatedHandler:
     def handle(self, asset):
         print("[EVENT] asset.created", asset)

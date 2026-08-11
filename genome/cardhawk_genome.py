@@ -1,6 +1,7 @@
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-import uuid
+
 
 @dataclass
 class GenomeRecord:
@@ -8,11 +9,15 @@ class GenomeRecord:
     event_type: str
     description: str
     payload: dict = field(default_factory=dict)
-    genome_id: str = field(default_factory=lambda: f"GEN-{uuid.uuid4().hex[:10].upper()}")
+    genome_id: str = field(
+        default_factory=lambda: f"GEN-{uuid.uuid4().hex[:10].upper()}"
+    )
     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+
 
 class CardHawkGenome:
     """CardHawk Genome™ lifecycle memory."""
+
     _records = []
 
     @classmethod

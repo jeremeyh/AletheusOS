@@ -3,8 +3,8 @@ CardHawk OS™
 Global Registry
 """
 
-class Registry:
 
+class Registry:
     def __init__(self):
         self.services = {}
         self.engines = {}
@@ -27,5 +27,6 @@ class Registry:
 
     def get_provider(self, name):
         return self.providers.get(name)
+
 
 registry = Registry()

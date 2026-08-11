@@ -1,17 +1,27 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
-from aletheus.missions_v2.models import AutonomousMissionV2, MissionTaskV2, MissionTelemetryV2
+from aletheus.missions_v2.models import (
+    AutonomousMissionV2,
+    MissionTaskV2,
+    MissionTelemetryV2,
+)
 
 
 class AletheusAutonomousMissionEngine:
     def __init__(self) -> None:
         self.version = "2.0.0-c"
-        self.missions: List[AutonomousMissionV2] = []
-        self.telemetry: List[MissionTelemetryV2] = []
+        self.missions: list[AutonomousMissionV2] = []
+        self.telemetry: list[MissionTelemetryV2] = []
 
-    def emit(self, mission_id: str, event_type: str, message: str, payload: Dict[str, Any] | None = None) -> MissionTelemetryV2:
+    def emit(
+        self,
+        mission_id: str,
+        event_type: str,
+        message: str,
+        payload: dict[str, Any] | None = None,
+    ) -> MissionTelemetryV2:
         item = MissionTelemetryV2(
             mission_id=mission_id,
             event_type=event_type,
@@ -27,7 +37,7 @@ class AletheusAutonomousMissionEngine:
         objective: str,
         application: str = "AletheusOS",
         priority: str = "high",
-        tasks: List[Dict[str, Any]] | None = None,
+        tasks: list[dict[str, Any]] | None = None,
     ) -> AutonomousMissionV2:
         mission_tasks = [
             MissionTaskV2(
@@ -49,10 +59,15 @@ class AletheusAutonomousMissionEngine:
         )
 
         self.missions.append(mission)
-        self.emit(mission.mission_id, "mission.created", f"Mission created: {title}", mission.to_dict())
+        self.emit(
+            mission.mission_id,
+            "mission.created",
+            f"Mission created: {title}",
+            mission.to_dict(),
+        )
         return mission
 
-    def default_tasks(self, objective: str, application: str) -> List[Dict[str, Any]]:
+    def default_tasks(self, objective: str, application: str) -> list[dict[str, Any]]:
         lower = objective.lower()
 
         if "card hawk" in lower or "marketplace" in lower or "asset" in lower:
@@ -111,21 +126,29 @@ class AletheusAutonomousMissionEngine:
         ]
 
     def get_mission(self, mission_id: str) -> AutonomousMissionV2 | None:
-        return next((mission for mission in self.missions if mission.mission_id == mission_id), None)
+        return next(
+            (mission for mission in self.missions if mission.mission_id == mission_id),
+            None,
+        )
 
-    def list_missions(self, status: str | None = None) -> List[Dict[str, Any]]:
+    def list_missions(self, status: str | None = None) -> list[dict[str, Any]]:
         missions = self.missions
         if status:
             missions = [mission for mission in missions if mission.status == status]
         return [mission.to_dict() for mission in missions]
 
-    def plan_mission(self, mission_id: str, runtime: Any) -> Dict[str, Any]:
+    def plan_mission(self, mission_id: str, runtime: Any) -> dict[str, Any]:
         mission = self.get_mission(mission_id)
         if mission is None:
             return {"error": f"Mission not found: {mission_id}"}
 
         mission.status = "planning"
-        self.emit(mission_id, "mission.planning", "Mission entered planning stage.", mission.to_dict())
+        self.emit(
+            mission_id,
+            "mission.planning",
+            "Mission entered planning stage.",
+            mission.to_dict(),
+        )
 
         plan = runtime.commands.dispatch(
             "planning.create",
@@ -135,7 +158,12 @@ class AletheusAutonomousMissionEngine:
             },
         )
 
-        self.emit(mission_id, "mission.plan.generated", "Planning engine generated a plan.", plan.results)
+        self.emit(
+            mission_id,
+            "mission.plan.generated",
+            "Planning engine generated a plan.",
+            plan.results,
+        )
         mission.status = "ready"
 
         return {
@@ -143,23 +171,35 @@ class AletheusAutonomousMissionEngine:
             "planning": plan.results,
         }
 
-    def execute_next(self, mission_id: str, runtime: Any) -> Dict[str, Any]:
+    def execute_next(self, mission_id: str, runtime: Any) -> dict[str, Any]:
         mission = self.get_mission(mission_id)
         if mission is None:
             return {"error": f"Mission not found: {mission_id}"}
 
         if mission.status in {"queued", "ready", "planning"}:
             mission.start()
-            self.emit(mission_id, "mission.started", "Mission execution started.", mission.to_dict())
+            self.emit(
+                mission_id,
+                "mission.started",
+                "Mission execution started.",
+                mission.to_dict(),
+            )
 
-        pending = [task for task in mission.tasks if task.status in {"queued", "pending"}]
+        pending = [
+            task for task in mission.tasks if task.status in {"queued", "pending"}
+        ]
         if not pending:
             mission.complete_if_ready()
             return {"mission": mission.to_dict(), "message": "No pending tasks."}
 
         task = pending[0]
         task.start()
-        self.emit(mission_id, "mission.task.started", f"Task started: {task.title}", task.to_dict())
+        self.emit(
+            mission_id,
+            "mission.task.started",
+            f"Task started: {task.title}",
+            task.to_dict(),
+        )
 
         assignment = runtime.commands.dispatch(
             "agent.task.assign",
@@ -187,11 +227,21 @@ class AletheusAutonomousMissionEngine:
         }
 
         task.complete(result)
-        self.emit(mission_id, "mission.task.completed", f"Task completed: {task.title}", task.to_dict())
+        self.emit(
+            mission_id,
+            "mission.task.completed",
+            f"Task completed: {task.title}",
+            task.to_dict(),
+        )
 
         mission.complete_if_ready()
         if mission.status == "completed":
-            self.emit(mission_id, "mission.completed", f"Mission completed: {mission.title}", mission.to_dict())
+            self.emit(
+                mission_id,
+                "mission.completed",
+                f"Mission completed: {mission.title}",
+                mission.to_dict(),
+            )
 
         return {
             "mission": mission.to_dict(),
@@ -199,7 +249,7 @@ class AletheusAutonomousMissionEngine:
             "result": result,
         }
 
-    def execute_mission(self, mission_id: str, runtime: Any) -> Dict[str, Any]:
+    def execute_mission(self, mission_id: str, runtime: Any) -> dict[str, Any]:
         outputs = []
 
         while True:
@@ -240,45 +290,70 @@ class AletheusAutonomousMissionEngine:
             "learning": learning.results,
         }
 
-    def pause_mission(self, mission_id: str) -> Dict[str, Any]:
+    def pause_mission(self, mission_id: str) -> dict[str, Any]:
         mission = self.get_mission(mission_id)
         if mission is None:
             return {"error": f"Mission not found: {mission_id}"}
         mission.status = "paused"
-        self.emit(mission_id, "mission.paused", f"Mission paused: {mission.title}", mission.to_dict())
+        self.emit(
+            mission_id,
+            "mission.paused",
+            f"Mission paused: {mission.title}",
+            mission.to_dict(),
+        )
         return mission.to_dict()
 
-    def resume_mission(self, mission_id: str) -> Dict[str, Any]:
+    def resume_mission(self, mission_id: str) -> dict[str, Any]:
         mission = self.get_mission(mission_id)
         if mission is None:
             return {"error": f"Mission not found: {mission_id}"}
         mission.status = "ready"
-        self.emit(mission_id, "mission.resumed", f"Mission resumed: {mission.title}", mission.to_dict())
+        self.emit(
+            mission_id,
+            "mission.resumed",
+            f"Mission resumed: {mission.title}",
+            mission.to_dict(),
+        )
         return mission.to_dict()
 
-    def cancel_mission(self, mission_id: str) -> Dict[str, Any]:
+    def cancel_mission(self, mission_id: str) -> dict[str, Any]:
         mission = self.get_mission(mission_id)
         if mission is None:
             return {"error": f"Mission not found: {mission_id}"}
         mission.status = "cancelled"
-        self.emit(mission_id, "mission.cancelled", f"Mission cancelled: {mission.title}", mission.to_dict())
+        self.emit(
+            mission_id,
+            "mission.cancelled",
+            f"Mission cancelled: {mission.title}",
+            mission.to_dict(),
+        )
         return mission.to_dict()
 
-    def mission_telemetry(self, mission_id: str = "") -> List[Dict[str, Any]]:
+    def mission_telemetry(self, mission_id: str = "") -> list[dict[str, Any]]:
         data = self.telemetry
         if mission_id:
             data = [item for item in data if item.mission_id == mission_id]
         return [item.to_dict() for item in data]
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "missions": len(self.missions),
-            "queued": len([mission for mission in self.missions if mission.status == "queued"]),
-            "running": len([mission for mission in self.missions if mission.status == "running"]),
-            "completed": len([mission for mission in self.missions if mission.status == "completed"]),
-            "paused": len([mission for mission in self.missions if mission.status == "paused"]),
-            "cancelled": len([mission for mission in self.missions if mission.status == "cancelled"]),
+            "queued": len(
+                [mission for mission in self.missions if mission.status == "queued"]
+            ),
+            "running": len(
+                [mission for mission in self.missions if mission.status == "running"]
+            ),
+            "completed": len(
+                [mission for mission in self.missions if mission.status == "completed"]
+            ),
+            "paused": len(
+                [mission for mission in self.missions if mission.status == "paused"]
+            ),
+            "cancelled": len(
+                [mission for mission in self.missions if mission.status == "cancelled"]
+            ),
             "telemetry_events": len(self.telemetry),
         }
 

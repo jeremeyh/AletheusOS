@@ -21,8 +21,7 @@ if "from aletheus.planning_v2 import planning_core" not in text:
 if "self.planning_v2 = planning_core" not in text:
     text = text.replace(
         "self.workflow_v3 = workflow_core",
-        "self.workflow_v3 = workflow_core\n"
-        "        self.planning_v2 = planning_core",
+        "self.workflow_v3 = workflow_core\n        self.planning_v2 = planning_core",
         1,
     )
 
@@ -44,7 +43,7 @@ if "Aletheus Autonomous Planning Engine" not in text:
     if start != -1:
         end = text.find("\n", start)
 
-        insertion = '''
+        insertion = """
         self.services.register(
             "Aletheus Autonomous Planning Engine",
             {
@@ -52,24 +51,26 @@ if "Aletheus Autonomous Planning Engine" not in text:
                 "version": self.planning_v2.VERSION,
             },
         )
-'''
+"""
 
-        text = text[:end + 1] + insertion + text[end + 1:]
+        text = text[: end + 1] + insertion + text[end + 1 :]
 
 # ------------------------------------------------------------
 # Command Registration
 # ------------------------------------------------------------
 
 if 'self.commands.register("plan.bootstrap"' not in text:
-
-    anchor = 'self.commands.register("workflow.statistics", self._cmd_workflow_statistics)'
+    anchor = (
+        'self.commands.register("workflow.statistics", self._cmd_workflow_statistics)'
+    )
 
     if anchor not in text:
         raise SystemExit("workflow.statistics registration not found.")
 
     text = text.replace(
         anchor,
-        anchor + '''
+        anchor
+        + """
 
         # v2.9 Planning Engine
         self.commands.register("plan.bootstrap", self._cmd_plan_bootstrap)
@@ -80,7 +81,7 @@ if 'self.commands.register("plan.bootstrap"' not in text:
         self.commands.register("plan.complete", self._cmd_plan_complete)
         self.commands.register("plan.status", self._cmd_plan_status)
         self.commands.register("plan.statistics", self._cmd_plan_statistics)
-''',
+""",
         1,
     )
 

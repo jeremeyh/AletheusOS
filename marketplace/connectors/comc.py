@@ -1,10 +1,8 @@
 class COMCConnector:
-
     @staticmethod
     def search(card):
 
         if card.get("player") == "Caleb Williams":
-
             return [
                 {
                     "marketplace": "COMC",

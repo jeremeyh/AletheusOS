@@ -1,17 +1,22 @@
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-import uuid
+
 
 @dataclass
 class LakeRecord:
     record_type: str
     payload: dict
     source: str = "CardHawk OS™"
-    record_id: str = field(default_factory=lambda: f"DL-{uuid.uuid4().hex[:10].upper()}")
+    record_id: str = field(
+        default_factory=lambda: f"DL-{uuid.uuid4().hex[:10].upper()}"
+    )
     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+
 
 class IntelligenceStore:
     """Data Lake Intelligence™ in-memory store for Alpha 1.0."""
+
     _records = []
 
     @classmethod

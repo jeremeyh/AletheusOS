@@ -1,5 +1,6 @@
 from adaptive_intelligence.feedback.feedback_loop import IntelligenceFeedbackLoop
 
+
 class IntelligenceQualityDashboard:
     """7.0D — Intelligence Quality Dashboard™."""
 

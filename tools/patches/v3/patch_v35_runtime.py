@@ -41,16 +41,14 @@ text = text.replace(
 # --------------------------------------------------
 
 if "Aletheus Observability Platform" not in text:
-
     marker = 'self.services.register("Aletheus Federated Knowledge Fabric"'
 
     idx = text.find(marker)
 
     if idx != -1:
-
         end = text.find("\n", idx)
 
-        service = '''
+        service = """
 
         self.services.register(
             "Aletheus Observability Platform",
@@ -59,16 +57,15 @@ if "Aletheus Observability Platform" not in text:
                 "version": self.telemetry_v3.VERSION,
             },
         )
-'''
+"""
 
-        text = text[:end+1] + service + text[end+1:]
+        text = text[: end + 1] + service + text[end + 1 :]
 
 # --------------------------------------------------
 # Command registration
 # --------------------------------------------------
 
 if 'self.commands.register("telemetry.bootstrap"' not in text:
-
     anchor = 'self.commands.register("federation.statistics", self._cmd_federation_statistics)'
 
     if anchor not in text:
@@ -76,7 +73,8 @@ if 'self.commands.register("telemetry.bootstrap"' not in text:
 
     text = text.replace(
         anchor,
-        anchor + '''
+        anchor
+        + """
 
         # v3.5 Observability Platform
         self.commands.register("telemetry.bootstrap", self._cmd_telemetry_bootstrap)
@@ -87,7 +85,7 @@ if 'self.commands.register("telemetry.bootstrap"' not in text:
         self.commands.register("telemetry.health", self._cmd_telemetry_health)
         self.commands.register("telemetry.timeline", self._cmd_telemetry_timeline)
         self.commands.register("telemetry.statistics", self._cmd_telemetry_statistics)
-''',
+""",
         1,
     )
 

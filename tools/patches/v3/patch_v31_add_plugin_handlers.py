@@ -7,7 +7,7 @@ if "def _cmd_plugin_bootstrap" in text:
     print("Plugin handlers already exist.")
     raise SystemExit(0)
 
-methods = '''
+methods = """
 
     # ==========================================================
     # v3.1 Plugin Manager
@@ -79,7 +79,7 @@ methods = '''
         )
         return context
 
-'''
+"""
 
 anchor = "    def _job_runtime_pulse(self) -> dict:"
 

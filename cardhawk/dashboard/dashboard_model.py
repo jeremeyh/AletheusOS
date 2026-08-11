@@ -8,7 +8,6 @@ from cardhawk.dashboard import DashboardService
 
 
 class ExecutiveDashboard:
-
     def __init__(self):
 
         self.dashboard = DashboardService()
@@ -18,31 +17,17 @@ class ExecutiveDashboard:
         snapshot = self.dashboard.snapshot()
 
         return {
-
             "title": "Card Hawk Executive Dashboard",
-
             "portfolio": snapshot["portfolio"],
-
             "analytics": snapshot["analytics"],
-
             "widgets": [
-
                 "Portfolio Value",
-
                 "Collection Allocation",
-
                 "Player Exposure",
-
                 "Team Exposure",
-
                 "Recent Acquisitions",
-
                 "Highest Value Assets",
-
                 "Newest Assets",
-
                 "Portfolio Performance",
-
-            ]
-
+            ],
         }

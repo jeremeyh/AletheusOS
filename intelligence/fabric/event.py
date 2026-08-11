@@ -1,11 +1,10 @@
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-import uuid
 
 
 @dataclass
 class Event:
-
     name: str
 
     payload: dict
@@ -18,6 +17,4 @@ class Event:
 
     causation_id: str = ""
 
-    timestamp: str = field(
-        default_factory=lambda: datetime.utcnow().isoformat()
-    )
+    timestamp: str = field(default_factory=lambda: datetime.utcnow().isoformat())

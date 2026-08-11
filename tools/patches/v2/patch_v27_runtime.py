@@ -21,8 +21,7 @@ if "from aletheus.agents_v2 import agent_core" not in text:
 if "self.agents_v2 = agent_core" not in text:
     text = text.replace(
         "self.decision = decision_core",
-        "self.decision = decision_core\n"
-        "        self.agents_v2 = agent_core",
+        "self.decision = decision_core\n        self.agents_v2 = agent_core",
         1,
     )
 
@@ -42,7 +41,7 @@ if "Aletheus Autonomous Agent Runtime" not in text:
 
     if start != -1:
         end = text.find("\n", start)
-        insertion = '''
+        insertion = """
         self.services.register(
             "Aletheus Autonomous Agent Runtime",
             {
@@ -50,20 +49,22 @@ if "Aletheus Autonomous Agent Runtime" not in text:
                 "version": self.agents_v2.VERSION,
             },
         )
-'''
-        text = text[:end + 1] + insertion + text[end + 1:]
+"""
+        text = text[: end + 1] + insertion + text[end + 1 :]
 
 # ------------------------------------------------------------------
 # Command registration
 # ------------------------------------------------------------------
 
 if 'self.commands.register("agent.bootstrap"' not in text:
-
-    anchor = 'self.commands.register("decision.statistics", self._cmd_decision_statistics)'
+    anchor = (
+        'self.commands.register("decision.statistics", self._cmd_decision_statistics)'
+    )
 
     text = text.replace(
         anchor,
-        anchor + '''
+        anchor
+        + """
 
         # v2.7 Autonomous Agent Runtime
         self.commands.register("agent.bootstrap", self._cmd_agent_bootstrap)
@@ -75,7 +76,7 @@ if 'self.commands.register("agent.bootstrap"' not in text:
         self.commands.register("agent.stop", self._cmd_agent_stop)
         self.commands.register("agent.heartbeat", self._cmd_agent_heartbeat)
         self.commands.register("agent.statistics", self._cmd_agent_statistics)
-''',
+""",
         1,
     )
 

@@ -1,6 +1,7 @@
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-import uuid
+
 
 @dataclass
 class TimelineEvent:
@@ -9,11 +10,15 @@ class TimelineEvent:
     title: str
     detail: str = ""
     payload: dict = field(default_factory=dict)
-    timeline_id: str = field(default_factory=lambda: f"TL-{uuid.uuid4().hex[:10].upper()}")
+    timeline_id: str = field(
+        default_factory=lambda: f"TL-{uuid.uuid4().hex[:10].upper()}"
+    )
     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+
 
 class IntelligenceTimelineService:
     """CardHawk OS™ 6.0C Intelligence Timeline™."""
+
     _events = []
 
     @classmethod

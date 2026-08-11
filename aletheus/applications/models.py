@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Any, Dict, List
-import uuid
+from typing import Any
 
 
 def now() -> str:
@@ -18,12 +18,12 @@ class ApplicationManifest:
     author: str = "6th Dimension Multimedia"
     description: str = ""
     autostart: bool = False
-    permissions: List[str] = field(default_factory=list)
-    dependencies: List[str] = field(default_factory=list)
-    commands: List[str] = field(default_factory=list)
-    services: List[str] = field(default_factory=list)
+    permissions: list[str] = field(default_factory=list)
+    dependencies: list[str] = field(default_factory=list)
+    commands: list[str] = field(default_factory=list)
+    services: list[str] = field(default_factory=list)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -32,11 +32,11 @@ class ApplicationEvent:
     app_id: str
     event_type: str
     message: str
-    payload: Dict[str, Any] = field(default_factory=dict)
+    payload: dict[str, Any] = field(default_factory=dict)
     event_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -46,7 +46,7 @@ class NativeApplication:
     status: str = "installed"
     health: str = "unknown"
     lifecycle: str = "installed"
-    events: List[ApplicationEvent] = field(default_factory=list)
+    events: list[ApplicationEvent] = field(default_factory=list)
     app_runtime_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     installed_at: str = field(default_factory=now)
     started_at: str | None = None
@@ -66,14 +66,16 @@ class NativeApplication:
         return self.manifest.version
 
     @property
-    def dependencies(self) -> List[str]:
+    def dependencies(self) -> list[str]:
         return self.manifest.dependencies
 
     @property
-    def commands(self) -> List[str]:
+    def commands(self) -> list[str]:
         return self.manifest.commands
 
-    def emit(self, event_type: str, message: str, payload: Dict[str, Any] | None = None) -> ApplicationEvent:
+    def emit(
+        self, event_type: str, message: str, payload: dict[str, Any] | None = None
+    ) -> ApplicationEvent:
         event = ApplicationEvent(
             app_id=self.manifest.app_id,
             event_type=event_type,
@@ -108,7 +110,7 @@ class NativeApplication:
         self.last_heartbeat = now()
         self.emit("application.heartbeat", f"{self.name} heartbeat recorded.")
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return {
             "application_id": self.application_id,
             "app_runtime_id": self.app_runtime_id,

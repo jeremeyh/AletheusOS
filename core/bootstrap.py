@@ -3,16 +3,14 @@ CardHawk OS™
 Platform Bootstrap
 """
 
-from core.discovery import discovery
 from core.container import container
+from core.discovery import discovery
 from core.engine_registry import engine_registry
-from core.service_discovery import service_discovery
 from core.event_bus import event_bus
-from core.scheduler import scheduler
+from core.service_discovery import service_discovery
 
 
 class Bootstrap:
-
     def __init__(self):
         self.initialized = False
 
@@ -47,7 +45,6 @@ class Bootstrap:
         # ---------------------------------------------------
 
         for engine in engine_registry.all().values():
-
             try:
                 engine.initialize()
             except Exception as exc:
@@ -58,7 +55,6 @@ class Bootstrap:
         # ---------------------------------------------------
 
         for engine in engine_registry.all().values():
-
             try:
                 engine.subscribe(event_bus)
             except Exception as exc:

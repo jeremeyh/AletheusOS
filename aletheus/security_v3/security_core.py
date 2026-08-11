@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, asdict, field
-from datetime import datetime
-from typing import Dict, List, Any
 import uuid
+from dataclasses import asdict, dataclass, field
+from datetime import datetime
+from typing import Any
 
 
 def utc_now():
@@ -14,7 +14,7 @@ def utc_now():
 class SecurityRole:
     role_id: str
     name: str
-    permissions: List[str] = field(default_factory=list)
+    permissions: list[str] = field(default_factory=list)
     created_at: str = field(default_factory=utc_now)
 
 
@@ -25,19 +25,18 @@ class SecurityAudit:
     actor: str
     status: str
     timestamp: str = field(default_factory=utc_now)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 class AletheusSecurityEngine:
-
     VERSION = "3.7.0"
 
     def __init__(self):
 
-        self.roles: Dict[str, SecurityRole] = {}
-        self.assignments: Dict[str, str] = {}
-        self.audit_log: List[SecurityAudit] = []
-        self.policies: Dict[str, Any] = {}
+        self.roles: dict[str, SecurityRole] = {}
+        self.assignments: dict[str, str] = {}
+        self.audit_log: list[SecurityAudit] = []
+        self.policies: dict[str, Any] = {}
 
     @property
     def version(self):
@@ -46,7 +45,6 @@ class AletheusSecurityEngine:
     def bootstrap(self):
 
         if "Administrator" not in self.roles:
-
             self.create_role(
                 "Administrator",
                 permissions=["*"],
@@ -74,10 +72,7 @@ class AletheusSecurityEngine:
         permissions = self.roles[role].permissions
 
         return {
-            "authorized": (
-                "*" in permissions or
-                permission in permissions
-            ),
+            "authorized": ("*" in permissions or permission in permissions),
             "role": role,
         }
 
@@ -114,11 +109,7 @@ class AletheusSecurityEngine:
             "definition": self.policies[name],
         }
 
-    def audit(self,
-              action: str,
-              actor: str,
-              status="success",
-              metadata=None):
+    def audit(self, action: str, actor: str, status="success", metadata=None):
 
         audit = SecurityAudit(
             audit_id=str(uuid.uuid4()),

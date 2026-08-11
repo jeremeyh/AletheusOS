@@ -1,6 +1,7 @@
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-import uuid
+
 
 @dataclass
 class ResearchNote:
@@ -13,12 +14,16 @@ class ResearchNote:
     note_id: str = field(default_factory=lambda: f"RS-{uuid.uuid4().hex[:10].upper()}")
     created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
 
+
 class ResearchWorkspace:
     """7.0E — Research Workspace™."""
+
     _notes = []
 
     @classmethod
-    def create(cls, research_type, title, body="", subject="", evidence="", status="active"):
+    def create(
+        cls, research_type, title, body="", subject="", evidence="", status="active"
+    ):
         note = ResearchNote(research_type, title, body, subject, evidence, status)
         cls._notes.append(note)
         return note
@@ -32,6 +37,14 @@ class ResearchWorkspace:
     @classmethod
     def seed(cls):
         if not cls._notes:
-            cls.create("Player Dossier", "Core prospect thesis", "Track player development, market pricing, and scarcity.")
-            cls.create("Parallel Study", "Gold /10 premium thesis", "Gold /10 remains a high-conviction scarcity lane.")
+            cls.create(
+                "Player Dossier",
+                "Core prospect thesis",
+                "Track player development, market pricing, and scarcity.",
+            )
+            cls.create(
+                "Parallel Study",
+                "Gold /10 premium thesis",
+                "Gold /10 remains a high-conviction scarcity lane.",
+            )
         return cls._notes

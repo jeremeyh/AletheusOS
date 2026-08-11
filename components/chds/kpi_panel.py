@@ -14,9 +14,7 @@ def render_kpi_panel(metrics):
     columns = st.columns(len(metrics))
 
     for column, metric in zip(columns, metrics):
-
         with column:
-
             st.metric(
                 label=metric.get("label", ""),
                 value=metric.get("value", ""),

@@ -2,10 +2,22 @@ class PlayerDetector:
     """Detects known player names from OCR/context text."""
 
     KNOWN_PLAYERS = [
-        "Caleb Williams", "Rome Odunze", "Luther Burden", "Colston Loveland",
-        "Garrett Wilson", "Isaiah Thomas", "Derrick Rose", "Noa Essengue",
-        "Matas Buzelis", "Amen Thompson", "Ausar Thompson", "Will Anderson",
-        "C.J. Stroud", "CJ Stroud", "Jalen Carter", "Austin Booker"
+        "Caleb Williams",
+        "Rome Odunze",
+        "Luther Burden",
+        "Colston Loveland",
+        "Garrett Wilson",
+        "Isaiah Thomas",
+        "Derrick Rose",
+        "Noa Essengue",
+        "Matas Buzelis",
+        "Amen Thompson",
+        "Ausar Thompson",
+        "Will Anderson",
+        "C.J. Stroud",
+        "CJ Stroud",
+        "Jalen Carter",
+        "Austin Booker",
     ]
 
     def detect(self, text: str = "") -> dict:

@@ -1,9 +1,8 @@
 from __future__ import annotations
 
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Dict, List, Any
-import uuid
 
 
 def utc_now() -> str:
@@ -38,16 +37,15 @@ class PlanMilestone:
 
 @dataclass
 class Plan:
-
     goal: str
 
-    objectives: List[str] = field(default_factory=list)
+    objectives: list[str] = field(default_factory=list)
 
-    milestones: List[PlanMilestone] = field(default_factory=list)
+    milestones: list[PlanMilestone] = field(default_factory=list)
 
-    tasks: List[PlanTask] = field(default_factory=list)
+    tasks: list[PlanTask] = field(default_factory=list)
 
-    dependencies: List[str] = field(default_factory=list)
+    dependencies: list[str] = field(default_factory=list)
 
     priority: int = 5
 
@@ -85,10 +83,7 @@ class Plan:
             self.progress = 100.0
             return
 
-        completed = sum(
-            task.status == "completed"
-            for task in self.tasks
-        )
+        completed = sum(task.status == "completed" for task in self.tasks)
 
         self.progress = round(
             completed / len(self.tasks) * 100,
@@ -103,14 +98,8 @@ class Plan:
             "plan_id": self.plan_id,
             "goal": self.goal,
             "objectives": self.objectives,
-            "milestones": [
-                m.to_dict()
-                for m in self.milestones
-            ],
-            "tasks": [
-                t.to_dict()
-                for t in self.tasks
-            ],
+            "milestones": [m.to_dict() for m in self.milestones],
+            "tasks": [t.to_dict() for t in self.tasks],
             "dependencies": self.dependencies,
             "priority": self.priority,
             "status": self.status,
@@ -122,12 +111,11 @@ class Plan:
 
 
 class AletheusPlanningEngine:
-
     VERSION = "2.9.0"
 
     def __init__(self):
 
-        self.plans: Dict[str, Plan] = {}
+        self.plans: dict[str, Plan] = {}
 
         self.strategies = []
 
@@ -148,26 +136,32 @@ class AletheusPlanningEngine:
 
         plan = Plan(goal=goal)
 
-        plan.objectives.extend([
-            "Research",
-            "Analyze",
-            "Decide",
-            "Execute",
-        ])
+        plan.objectives.extend(
+            [
+                "Research",
+                "Analyze",
+                "Decide",
+                "Execute",
+            ]
+        )
 
-        plan.milestones.extend([
-            PlanMilestone("Research Complete"),
-            PlanMilestone("Decision Complete"),
-            PlanMilestone("Execution Complete"),
-        ])
+        plan.milestones.extend(
+            [
+                PlanMilestone("Research Complete"),
+                PlanMilestone("Decision Complete"),
+                PlanMilestone("Execution Complete"),
+            ]
+        )
 
-        plan.tasks.extend([
-            PlanTask("Research"),
-            PlanTask("Marketplace Scan"),
-            PlanTask("Portfolio Review"),
-            PlanTask("Decision Engine"),
-            PlanTask("Founder Approval"),
-        ])
+        plan.tasks.extend(
+            [
+                PlanTask("Research"),
+                PlanTask("Marketplace Scan"),
+                PlanTask("Portfolio Review"),
+                PlanTask("Decision Engine"),
+                PlanTask("Founder Approval"),
+            ]
+        )
 
         self.plans[plan.plan_id] = plan
 
@@ -214,14 +208,7 @@ class AletheusPlanningEngine:
 
     def status(self):
 
-        return {
-            "plans": [
-                p.to_dict()
-                for p in self.plans.values()
-            ]
-        }
-
-
+        return {"plans": [p.to_dict() for p in self.plans.values()]}
 
     # ----------------------------------------------------
     # Runtime Compatibility API
@@ -234,11 +221,7 @@ class AletheusPlanningEngine:
         return self.VERSION
 
     def list_plans(self):
-        return [
-            plan.to_dict()
-            for plan in self.plans.values()
-        ]
-
+        return [plan.to_dict() for plan in self.plans.values()]
 
     def statistics(self):
 
@@ -246,18 +229,9 @@ class AletheusPlanningEngine:
             "version": self.VERSION,
             "strategies": len(self.strategies),
             "plans": len(self.plans),
-            "running": sum(
-                p.status == "running"
-                for p in self.plans.values()
-            ),
-            "completed": sum(
-                p.status == "completed"
-                for p in self.plans.values()
-            ),
-            "replanned": sum(
-                p.status == "replanned"
-                for p in self.plans.values()
-            ),
+            "running": sum(p.status == "running" for p in self.plans.values()),
+            "completed": sum(p.status == "completed" for p in self.plans.values()),
+            "replanned": sum(p.status == "replanned" for p in self.plans.values()),
         }
 
 

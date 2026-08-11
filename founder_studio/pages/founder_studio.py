@@ -1,15 +1,25 @@
 import streamlit as st
 from founder_studio.studio_service import FounderStudioService
 
+
 def render(state):
     st.title("🦅 Founder Intelligence Studio™")
     FounderStudioService.seed_defaults()
 
-    item_type = st.selectbox("Studio Section", [
-        "Investment Thesis", "Watchlist", "Capital Plan", "Decision Journal",
-        "Monthly Review", "Quarterly Review", "Opportunity Backlog",
-        "Conviction Ranking", "Goal Tracking"
-    ])
+    item_type = st.selectbox(
+        "Studio Section",
+        [
+            "Investment Thesis",
+            "Watchlist",
+            "Capital Plan",
+            "Decision Journal",
+            "Monthly Review",
+            "Quarterly Review",
+            "Opportunity Backlog",
+            "Conviction Ranking",
+            "Goal Tracking",
+        ],
+    )
 
     with st.expander("Create Studio Item", expanded=False):
         title = st.text_input("Title")

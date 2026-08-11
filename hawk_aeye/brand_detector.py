@@ -2,10 +2,25 @@ class BrandDetector:
     """Detects card/manufacturer brands from text."""
 
     KNOWN_BRANDS = [
-        "Prizm", "Optic", "Select", "Phoenix", "Mosaic", "Donruss",
-        "Donruss Elite", "National Treasures", "Flawless", "Immaculate",
-        "Topps Chrome", "Bowman Chrome", "Bowman", "Topps Midnight",
-        "Court Kings", "Obsidian", "Revolution", "Leaf", "Panini"
+        "Prizm",
+        "Optic",
+        "Select",
+        "Phoenix",
+        "Mosaic",
+        "Donruss",
+        "Donruss Elite",
+        "National Treasures",
+        "Flawless",
+        "Immaculate",
+        "Topps Chrome",
+        "Bowman Chrome",
+        "Bowman",
+        "Topps Midnight",
+        "Court Kings",
+        "Obsidian",
+        "Revolution",
+        "Leaf",
+        "Panini",
     ]
 
     def detect(self, text: str = "") -> dict:

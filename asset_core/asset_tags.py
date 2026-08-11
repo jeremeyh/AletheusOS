@@ -4,6 +4,7 @@ class AssetTags:
 
     Lightweight tagging helpers for filtering, grouping, and searching.
     """
+
     @staticmethod
     def normalize(tags):
         if not tags:

@@ -1,14 +1,14 @@
-from thorx.scarcity import ScarcityScorer
-from thorx.liquidity import LiquidityScorer
-from thorx.population import PopulationScorer
-from thorx.momentum import MomentumScorer
-from thorx.risk import RiskScorer
-from thorx.market_strength import MarketStrengthScorer
-from thorx.player_thesis import PlayerThesisScorer
-from thorx.visual_appeal import VisualAppealScorer
-from thorx.portfolio_fit import PortfolioFitScorer
 from thorx.def_engine import DEFEngine
 from thorx.dex_engine import DEXEngine
+from thorx.liquidity import LiquidityScorer
+from thorx.market_strength import MarketStrengthScorer
+from thorx.momentum import MomentumScorer
+from thorx.player_thesis import PlayerThesisScorer
+from thorx.population import PopulationScorer
+from thorx.portfolio_fit import PortfolioFitScorer
+from thorx.risk import RiskScorer
+from thorx.scarcity import ScarcityScorer
+from thorx.visual_appeal import VisualAppealScorer
 
 
 class ThorxScore:
@@ -45,7 +45,9 @@ class ThorxScore:
         ni = ThorxScore.nuclear_index(parts, asset)
         classification = DEFEngine.classification(score)
         recommendation = DEFEngine.recommendation(score, ni, parts["risk"])
-        strike_zone = DEFEngine.strike_zone(score, ni, parts["market_strength"], parts["scarcity"])
+        strike_zone = DEFEngine.strike_zone(
+            score, ni, parts["market_strength"], parts["scarcity"]
+        )
         price_targets = DEXEngine.price_targets(asset, score)
 
         try:
@@ -66,7 +68,9 @@ class ThorxScore:
             "components": parts,
             "price_targets": price_targets,
             "capital_strategy": DEXEngine.capital_size(score),
-            "commentary": ThorxScore.commentary(score, ni, classification, recommendation),
+            "commentary": ThorxScore.commentary(
+                score, ni, classification, recommendation
+            ),
         }
 
     @staticmethod

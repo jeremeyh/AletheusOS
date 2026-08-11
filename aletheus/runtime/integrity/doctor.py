@@ -1,10 +1,9 @@
 from __future__ import annotations
 
+import json
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict
-import json
-import subprocess
+from typing import Any
 
 
 def utc_now() -> str:
@@ -12,18 +11,16 @@ def utc_now() -> str:
 
 
 class RuntimeDoctor:
-    VERSION = "4.2.1"
+    VERSION = "4.6.2"
 
     def __init__(self, runtime: Any):
         self.runtime = runtime
 
-    def run(self) -> Dict[str, Any]:
+    def run(self) -> dict[str, Any]:
         commands = self.runtime.commands.list()
         compat = self.runtime.compat.statistics()
 
-        duplicate_commands = sorted(
-            {c for c in commands if commands.count(c) > 1}
-        )
+        duplicate_commands = sorted({c for c in commands if commands.count(c) > 1})
 
         required_aliases = [
             "memory",
@@ -38,7 +35,8 @@ class RuntimeDoctor:
         ]
 
         missing_aliases = [
-            alias for alias in required_aliases
+            alias
+            for alias in required_aliases
             if alias not in compat.get("aliases", [])
         ]
 
@@ -52,10 +50,7 @@ class RuntimeDoctor:
             "hardening_available": hasattr(self.runtime, "hardening"),
         }
 
-        failed = [
-            name for name, passed in checks.items()
-            if not passed
-        ]
+        failed = [name for name, passed in checks.items() if not passed]
 
         report = {
             "version": self.VERSION,
@@ -72,7 +67,7 @@ class RuntimeDoctor:
 
         return report
 
-    def write_reports(self) -> Dict[str, Any]:
+    def write_reports(self) -> dict[str, Any]:
         Path("reports").mkdir(exist_ok=True)
 
         report = self.run()

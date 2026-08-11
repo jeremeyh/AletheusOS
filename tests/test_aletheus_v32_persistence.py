@@ -98,7 +98,6 @@ def test_statistics():
 
 
 if __name__ == "__main__":
-
     test_persistence_service_registered()
     test_state_bootstrap()
     test_save_load()

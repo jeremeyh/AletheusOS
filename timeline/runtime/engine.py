@@ -5,7 +5,6 @@ DB = "data/cardhawk.db"
 
 
 class TimelineEngine:
-
     @staticmethod
     def initialize():
 

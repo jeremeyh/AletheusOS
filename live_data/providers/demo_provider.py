@@ -1,4 +1,5 @@
-from live_data.providers.provider_contract import ProviderContract, LiveListing
+from live_data.providers.provider_contract import LiveListing, ProviderContract
+
 
 class DemoLiveProvider(ProviderContract):
     name = "Demo Live Provider"

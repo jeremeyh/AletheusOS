@@ -1,4 +1,5 @@
 class MercariConnector:
-    NAME="Mercari"
+    NAME = "Mercari"
+
     def search(self, query):
         return []

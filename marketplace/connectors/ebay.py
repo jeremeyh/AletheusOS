@@ -9,7 +9,6 @@ class EbayConnector:
         player = card.get("player", "")
 
         if player == "Caleb Williams":
-
             return [
                 {
                     "marketplace": "eBay",

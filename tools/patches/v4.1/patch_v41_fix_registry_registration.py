@@ -1,15 +1,15 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 core = Path("aletheus/runtime/core.py")
 text = core.read_text()
 
 pattern = re.compile(
     r"def _register_compatibility_services\(self\):.*?def _apply_compatibility_aliases",
-    re.S,
+    re.DOTALL,
 )
 
-replacement = '''
+replacement = """
 def _register_compatibility_services(self):
 
         registry = [
@@ -43,14 +43,12 @@ def _register_compatibility_services(self):
             )
 
 
-    def _apply_compatibility_aliases'''
+    def _apply_compatibility_aliases"""
 
 text, count = pattern.subn(replacement, text, count=1)
 
 if count != 1:
-    raise SystemExit(
-        "Could not rebuild _register_compatibility_services()."
-    )
+    raise SystemExit("Could not rebuild _register_compatibility_services().")
 
 core.write_text(text)
 

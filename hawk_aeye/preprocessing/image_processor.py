@@ -1,6 +1,4 @@
-from PIL import Image
-from PIL import ImageOps
-from PIL import ImageEnhance
+from PIL import Image, ImageEnhance, ImageOps
 
 
 class ImageProcessor:
@@ -21,9 +19,7 @@ class ImageProcessor:
 
         width, height = image.size
 
-        image = image.resize(
-            (width * 2, height * 2)
-        )
+        image = image.resize((width * 2, height * 2))
 
         image = ImageOps.grayscale(image)
 

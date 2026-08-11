@@ -7,7 +7,7 @@ if "def bootstrap_primary_cluster" in text:
     print("Compatibility API already installed.")
     raise SystemExit(0)
 
-compat = '''
+compat = """
 
     # ============================================================
     # Legacy Runtime Compatibility Layer
@@ -58,7 +58,7 @@ compat = '''
     def broadcast(self, *args, **kwargs):
         return {"status": "broadcast"}
 
-'''
+"""
 
 anchor = "\ndistributed_v3_core = AletheusDistributedRuntimeFabric()"
 

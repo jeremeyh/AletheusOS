@@ -31,9 +31,7 @@ def test_bootstrap():
 def test_create_organization():
 
     result = runtime_core.commands.dispatch(
-
         "organization.create",
-
         {
             "name": "Test Organization",
         },
@@ -50,14 +48,10 @@ def test_create_organization():
 
 def test_create_tenant():
 
-    org = runtime_core.tenancy_v3.create_organization(
-        "Development Org"
-    )
+    org = runtime_core.tenancy_v3.create_organization("Development Org")
 
     result = runtime_core.commands.dispatch(
-
         "tenant.create",
-
         {
             "organization_id": org["organization_id"],
             "name": "Development",
@@ -76,17 +70,12 @@ def test_create_tenant():
 def test_workspace():
 
     tenant = runtime_core.tenancy_v3.create_tenant(
-
         organization_id=list(runtime_core.tenancy_v3.organizations.keys())[0],
-
         name="Workspace Tenant",
-
     )
 
     result = runtime_core.commands.dispatch(
-
         "workspace.create",
-
         {
             "tenant_id": tenant["tenant_id"],
             "name": "Engineering",
@@ -129,7 +118,6 @@ def test_health():
 
 
 if __name__ == "__main__":
-
     test_service_registered()
 
     test_bootstrap()

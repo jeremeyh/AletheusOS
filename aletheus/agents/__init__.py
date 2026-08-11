@@ -4,12 +4,12 @@ v1.3
 """
 
 from aletheus.agents.agent_core import AletheusAgentCore, agent_core
-from aletheus.agents.models import AletheusAgent, AgentCapability, AgentTask
+from aletheus.agents.models import AgentCapability, AgentTask, AletheusAgent
 
 __all__ = [
-    "AletheusAgentCore",
-    "agent_core",
-    "AletheusAgent",
     "AgentCapability",
     "AgentTask",
+    "AletheusAgent",
+    "AletheusAgentCore",
+    "agent_core",
 ]

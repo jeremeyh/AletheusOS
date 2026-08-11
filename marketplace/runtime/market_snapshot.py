@@ -46,10 +46,7 @@ class MarketSnapshot:
         if count % 2 == 1:
             median = prices_sorted[count // 2]
         else:
-            median = (
-                prices_sorted[count // 2 - 1]
-                + prices_sorted[count // 2]
-            ) / 2
+            median = (prices_sorted[count // 2 - 1] + prices_sorted[count // 2]) / 2
 
         high = max(prices_sorted)
         low = min(prices_sorted)

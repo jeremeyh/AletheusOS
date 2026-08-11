@@ -1,6 +1,7 @@
 from pathlib import Path
 from zipfile import ZipFile
 
+
 class PackageBuilder:
     """Release packaging helper."""
 

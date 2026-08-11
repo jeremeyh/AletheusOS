@@ -1,11 +1,11 @@
 from .event_bus_core import (
-    Event,
     AletheusEventBus,
+    Event,
     event_bus_core,
 )
 
 __all__ = [
-    "Event",
     "AletheusEventBus",
+    "Event",
     "event_bus_core",
 ]

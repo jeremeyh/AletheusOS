@@ -1,15 +1,15 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 core = Path("aletheus/runtime/core.py")
 text = core.read_text()
 
 pattern = re.compile(
     r"def _cmd_kernel_bootstrap\(self,\s*context:\s*RuntimeContext.*?def _cmd_kernel_execute",
-    re.S,
+    re.DOTALL,
 )
 
-replacement = '''def _cmd_kernel_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
+replacement = """def _cmd_kernel_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
 
         self._bootstrap_compatibility()
 
@@ -27,7 +27,7 @@ replacement = '''def _cmd_kernel_bootstrap(self, context: RuntimeContext) -> Run
         return context
 
 
-    def _cmd_kernel_execute'''
+    def _cmd_kernel_execute"""
 
 text, count = pattern.subn(replacement, text, count=1)
 

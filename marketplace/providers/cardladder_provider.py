@@ -2,7 +2,6 @@ from marketplace.providers.base_provider import MarketplaceProvider
 
 
 class CardLadderProvider(MarketplaceProvider):
-
     @property
     def name(self):
         return "Card Ladder"
@@ -26,6 +25,4 @@ class CardLadderProvider(MarketplaceProvider):
         return self.search(card)
 
     def health_check(self):
-        return {
-            "status": "ONLINE"
-        }
+        return {"status": "ONLINE"}

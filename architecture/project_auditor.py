@@ -1,11 +1,13 @@
-from pathlib import Path
 from dataclasses import dataclass, field
+from pathlib import Path
+
 
 @dataclass
 class AuditFinding:
     file: str
     issue: str
     detail: str
+
 
 @dataclass
 class ProjectAuditReport:
@@ -23,6 +25,7 @@ class ProjectAuditReport:
             counts[finding.issue] = counts.get(finding.issue, 0) + 1
         return counts
 
+
 class ProjectAuditor:
     """
     CardHawk OS™ Project Auditor
@@ -33,7 +36,10 @@ class ProjectAuditor:
 
     DEPRECATED_PATTERNS = {
         "deprecated_engine_package": ["from engine", "import engine"],
-        "deprecated_cardhawk_aeye_package": ["from cardhawk_aeye", "import cardhawk_aeye"],
+        "deprecated_cardhawk_aeye_package": [
+            "from cardhawk_aeye",
+            "import cardhawk_aeye",
+        ],
         "legacy_hawk_a_eye_spelling": ["hawk_a_eye"],
     }
 
@@ -54,9 +60,17 @@ class ProjectAuditor:
                         report.add(path, issue, f"Found pattern: {pattern}")
 
         if (root / "engine").exists() and (root / "engines").exists():
-            report.add("project_root", "duplicate_engine_folders", "Both engine/ and engines/ exist. Canonical package is engines/.")
+            report.add(
+                "project_root",
+                "duplicate_engine_folders",
+                "Both engine/ and engines/ exist. Canonical package is engines/.",
+            )
 
         if (root / "cardhawk_aeye").exists() and (root / "hawk_aeye").exists():
-            report.add("project_root", "duplicate_aeye_folders", "Both cardhawk_aeye/ and hawk_aeye/ exist. Canonical package is hawk_aeye/.")
+            report.add(
+                "project_root",
+                "duplicate_aeye_folders",
+                "Both cardhawk_aeye/ and hawk_aeye/ exist. Canonical package is hawk_aeye/.",
+            )
 
         return report

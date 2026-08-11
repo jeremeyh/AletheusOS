@@ -21,5 +21,7 @@ class NegotiationAI:
             "offer": offer,
             "walk_away": walk,
             "message": f"Would you consider ${offer:,.2f}? I can move quickly if that works.",
-            "strategy": "High conviction" if thorx_score >= 9 else "Disciplined value offer",
+            "strategy": "High conviction"
+            if thorx_score >= 9
+            else "Disciplined value offer",
         }

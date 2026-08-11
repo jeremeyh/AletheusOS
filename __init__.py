@@ -1,16 +1,21 @@
 """
-AletheusOS Runtime Registration Package
-
-Version 4.7.0
+AletheusOS compatibility package
 """
 
-from .runtime_commands import register_runtime_commands
-from .memory_commands import register_memory_commands
-from .reasoning_commands import register_reasoning_commands
+from aletheus.runtime.registrations.memory_commands import (
+    register_memory_commands,
+)
+
+from aletheus.runtime.registrations.reasoning_commands import (
+    register_reasoning_commands,
+)
+
+from aletheus.runtime.registrations.runtime_commands import (
+    register_runtime_commands,
+)
 
 __all__ = [
-    "register_runtime_commands",
     "register_memory_commands",
     "register_reasoning_commands",
+    "register_runtime_commands",
 ]
-

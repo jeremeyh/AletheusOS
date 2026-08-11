@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, asdict, field
-from datetime import datetime
-from typing import Dict, List, Any
 import uuid
+from dataclasses import asdict, dataclass, field
+from datetime import datetime
+from typing import Any
 
 
 def utc_now():
@@ -12,10 +12,9 @@ def utc_now():
 
 @dataclass
 class Event:
-
     event_id: str
     topic: str
-    payload: Dict[str, Any]
+    payload: dict[str, Any]
 
     publisher: str = "runtime"
 
@@ -23,20 +22,19 @@ class Event:
 
     priority: str = "normal"
 
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 class AletheusEventBus:
-
     VERSION = "3.3.0"
 
     def __init__(self):
 
-        self.subscribers: Dict[str, List[str]] = {}
+        self.subscribers: dict[str, list[str]] = {}
 
-        self.events: List[Event] = []
+        self.events: list[Event] = []
 
-        self.dead_letter_queue: List[Event] = []
+        self.dead_letter_queue: list[Event] = []
 
     @property
     def version(self):
@@ -50,24 +48,22 @@ class AletheusEventBus:
 
     # -----------------------------------------------------
 
-    def publish(self,
+    def publish(
+        self,
         topic,
         payload,
         publisher="runtime",
-        priority="normal", source=None, **kwargs):
+        priority="normal",
+        source=None,
+        **kwargs,
+    ):
 
         event = Event(
-
             event_id=str(uuid.uuid4()),
-
             topic=topic,
-
             payload=payload,
-
             publisher=publisher,
-
             priority=priority,
-
         )
 
         self.events.append(event)
@@ -84,14 +80,9 @@ class AletheusEventBus:
             self.subscribers[topic].append(subscriber)
 
         return {
-
             "topic": topic,
-
             "subscriber": subscriber,
-
-            "subscriber_count": len(
-                self.subscribers[topic]
-            ),
+            "subscriber_count": len(self.subscribers[topic]),
         }
 
     # -----------------------------------------------------
@@ -99,17 +90,12 @@ class AletheusEventBus:
     def unsubscribe(self, topic, subscriber):
 
         if topic in self.subscribers:
-
             if subscriber in self.subscribers[topic]:
-
                 self.subscribers[topic].remove(subscriber)
 
         return {
-
             "topic": topic,
-
             "subscriber": subscriber,
-
         }
 
     # -----------------------------------------------------
@@ -117,35 +103,17 @@ class AletheusEventBus:
     def history(self, topic=None):
 
         if topic:
+            return [asdict(event) for event in self.events if event.topic == topic]
 
-            return [
-
-                asdict(event)
-
-                for event in self.events
-
-                if event.topic == topic
-
-            ]
-
-        return [
-
-            asdict(event)
-
-            for event in self.events
-
-        ]
+        return [asdict(event) for event in self.events]
 
     # -----------------------------------------------------
 
     def replay(self, topic):
 
         return {
-
             "topic": topic,
-
             "events": self.history(topic),
-
         }
 
     # -----------------------------------------------------
@@ -153,29 +121,12 @@ class AletheusEventBus:
     def statistics(self):
 
         return {
-
             "version": self.VERSION,
-
             "events": len(self.events),
-
             "topics": len(self.subscribers),
-
-            "subscribers": sum(
-
-                len(v)
-
-                for v in self.subscribers.values()
-
-            ),
-
-            "dead_letters": len(
-
-                self.dead_letter_queue
-
-            ),
-
+            "subscribers": sum(len(v) for v in self.subscribers.values()),
+            "dead_letters": len(self.dead_letter_queue),
             "health": "healthy",
-
         }
 
 

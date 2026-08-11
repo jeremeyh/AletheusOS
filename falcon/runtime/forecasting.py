@@ -40,10 +40,7 @@ class FalconForecasting:
     def forecast_portfolio():
         assets = AssetRepository.all(include_archived=False) or []
 
-        forecasts = [
-            FalconForecasting.forecast_asset(asset)
-            for asset in assets
-        ]
+        forecasts = [FalconForecasting.forecast_asset(asset) for asset in assets]
 
         return {
             "current_value": round(sum(item["current_value"] for item in forecasts), 2),

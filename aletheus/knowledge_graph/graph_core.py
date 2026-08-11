@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Any, Dict, List
-import uuid
+from typing import Any
 
 
 def now() -> str:
@@ -14,20 +14,24 @@ def now() -> str:
 class GraphNode:
     name: str
     node_type: str = "entity"
-    properties: Dict[str, Any] = field(default_factory=dict)
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    properties: dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
     node_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
     updated_at: str = field(default_factory=now)
 
-    def update(self, properties: Dict[str, Any] | None = None, metadata: Dict[str, Any] | None = None) -> None:
+    def update(
+        self,
+        properties: dict[str, Any] | None = None,
+        metadata: dict[str, Any] | None = None,
+    ) -> None:
         if properties:
             self.properties.update(properties)
         if metadata:
             self.metadata.update(metadata)
         self.updated_at = now()
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -36,11 +40,11 @@ class GraphRelationship:
     source_id: str
     target_id: str
     relationship_type: str
-    properties: Dict[str, Any] = field(default_factory=dict)
+    properties: dict[str, Any] = field(default_factory=dict)
     relationship_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
@@ -54,24 +58,24 @@ class InferenceRule:
     rule_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     created_at: str = field(default_factory=now)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         return self.__dict__
 
 
 class AletheusKnowledgeGraph:
     def __init__(self) -> None:
         self.version = "2.4.0"
-        self.nodes: Dict[str, GraphNode] = {}
-        self.relationships: Dict[str, GraphRelationship] = {}
-        self.inference_rules: Dict[str, InferenceRule] = {}
+        self.nodes: dict[str, GraphNode] = {}
+        self.relationships: dict[str, GraphRelationship] = {}
+        self.inference_rules: dict[str, InferenceRule] = {}
 
     def create_entity(
         self,
         name: str,
         node_type: str = "entity",
-        properties: Dict[str, Any] | None = None,
-        metadata: Dict[str, Any] | None = None,
-    ) -> Dict[str, Any]:
+        properties: dict[str, Any] | None = None,
+        metadata: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         existing = self.find_entity_by_name(name)
         if existing:
             return existing.to_dict()
@@ -88,16 +92,16 @@ class AletheusKnowledgeGraph:
     def update_entity(
         self,
         node_id: str,
-        properties: Dict[str, Any] | None = None,
-        metadata: Dict[str, Any] | None = None,
-    ) -> Dict[str, Any]:
+        properties: dict[str, Any] | None = None,
+        metadata: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         node = self.nodes.get(node_id)
         if node is None:
             return {"error": f"Node not found: {node_id}"}
         node.update(properties=properties or {}, metadata=metadata or {})
         return node.to_dict()
 
-    def delete_entity(self, node_id: str) -> Dict[str, Any]:
+    def delete_entity(self, node_id: str) -> dict[str, Any]:
         node = self.nodes.get(node_id)
         if node is None:
             return {"error": f"Node not found: {node_id}"}
@@ -115,15 +119,17 @@ class AletheusKnowledgeGraph:
 
     def find_entity_by_name(self, name: str) -> GraphNode | None:
         lower = name.lower()
-        return next((node for node in self.nodes.values() if node.name.lower() == lower), None)
+        return next(
+            (node for node in self.nodes.values() if node.name.lower() == lower), None
+        )
 
     def create_relationship(
         self,
         source_id: str,
         target_id: str,
         relationship_type: str,
-        properties: Dict[str, Any] | None = None,
-    ) -> Dict[str, Any]:
+        properties: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         if source_id not in self.nodes:
             return {"error": f"Source node not found: {source_id}"}
         if target_id not in self.nodes:
@@ -138,13 +144,13 @@ class AletheusKnowledgeGraph:
         self.relationships[rel.relationship_id] = rel
         return rel.to_dict()
 
-    def delete_relationship(self, relationship_id: str) -> Dict[str, Any]:
+    def delete_relationship(self, relationship_id: str) -> dict[str, Any]:
         rel = self.relationships.get(relationship_id)
         if rel is None:
             return {"error": f"Relationship not found: {relationship_id}"}
         return self.relationships.pop(relationship_id).to_dict()
 
-    def search(self, query: str = "", node_type: str = "") -> List[Dict[str, Any]]:
+    def search(self, query: str = "", node_type: str = "") -> list[dict[str, Any]]:
         q = query.lower()
         results = []
 
@@ -155,7 +161,7 @@ class AletheusKnowledgeGraph:
 
         return results
 
-    def neighbors(self, node_id: str, direction: str = "both") -> Dict[str, Any]:
+    def neighbors(self, node_id: str, direction: str = "both") -> dict[str, Any]:
         if node_id not in self.nodes:
             return {"error": f"Node not found: {node_id}"}
 
@@ -164,15 +170,19 @@ class AletheusKnowledgeGraph:
 
         for rel in self.relationships.values():
             if rel.source_id == node_id:
-                outgoing.append({
-                    "relationship": rel.to_dict(),
-                    "node": self.nodes[rel.target_id].to_dict(),
-                })
+                outgoing.append(
+                    {
+                        "relationship": rel.to_dict(),
+                        "node": self.nodes[rel.target_id].to_dict(),
+                    }
+                )
             if rel.target_id == node_id:
-                incoming.append({
-                    "relationship": rel.to_dict(),
-                    "node": self.nodes[rel.source_id].to_dict(),
-                })
+                incoming.append(
+                    {
+                        "relationship": rel.to_dict(),
+                        "node": self.nodes[rel.source_id].to_dict(),
+                    }
+                )
 
         if direction == "outgoing":
             incoming = []
@@ -185,12 +195,14 @@ class AletheusKnowledgeGraph:
             "outgoing": outgoing,
         }
 
-    def graph(self) -> Dict[str, Any]:
+    def graph(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "nodes": [node.to_dict() for node in self.nodes.values()],
             "relationships": [rel.to_dict() for rel in self.relationships.values()],
-            "inference_rules": [rule.to_dict() for rule in self.inference_rules.values()],
+            "inference_rules": [
+                rule.to_dict() for rule in self.inference_rules.values()
+            ],
         }
 
     def add_inference_rule(
@@ -200,7 +212,7 @@ class AletheusKnowledgeGraph:
         source_type: str = "",
         relationship_type: str = "",
         target_type: str = "",
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         rule = InferenceRule(
             name=name,
             description=description,
@@ -211,7 +223,7 @@ class AletheusKnowledgeGraph:
         self.inference_rules[rule.rule_id] = rule
         return rule.to_dict()
 
-    def infer(self) -> Dict[str, Any]:
+    def infer(self) -> dict[str, Any]:
         inferences = []
 
         for rule in self.inference_rules.values():
@@ -222,31 +234,52 @@ class AletheusKnowledgeGraph:
                 if not source or not target:
                     continue
 
-                source_match = not rule.source_type or source.node_type == rule.source_type
-                rel_match = not rule.relationship_type or rel.relationship_type == rule.relationship_type
-                target_match = not rule.target_type or target.node_type == rule.target_type
+                source_match = (
+                    not rule.source_type or source.node_type == rule.source_type
+                )
+                rel_match = (
+                    not rule.relationship_type
+                    or rel.relationship_type == rule.relationship_type
+                )
+                target_match = (
+                    not rule.target_type or target.node_type == rule.target_type
+                )
 
                 if source_match and rel_match and target_match:
-                    inferences.append({
-                        "rule": rule.to_dict(),
-                        "source": source.to_dict(),
-                        "relationship": rel.to_dict(),
-                        "target": target.to_dict(),
-                        "inference": f"{source.name} {rel.relationship_type} {target.name}",
-                    })
+                    inferences.append(
+                        {
+                            "rule": rule.to_dict(),
+                            "source": source.to_dict(),
+                            "relationship": rel.to_dict(),
+                            "target": target.to_dict(),
+                            "inference": f"{source.name} {rel.relationship_type} {target.name}",
+                        }
+                    )
 
         return {
             "inferences": inferences,
             "count": len(inferences),
         }
 
-    def bootstrap_cardhawk_graph(self) -> Dict[str, Any]:
-        cardhawk = self.create_entity("Card Hawk Foundation™", "application", {"domain": "collectibles"})
-        asset_vault = self.create_entity("Asset Vault", "service", {"category": "asset_management"})
-        portfolio = self.create_entity("Portfolio Engine", "service", {"category": "valuation"})
-        marketplace = self.create_entity("Marketplace Intelligence", "service", {"category": "market_data"})
-        hawk_aeye = self.create_entity("Hawk A•Eye™", "service", {"category": "visual_intelligence"})
-        thorx = self.create_entity("THORᵡ", "service", {"category": "opportunity_rating"})
+    def bootstrap_cardhawk_graph(self) -> dict[str, Any]:
+        cardhawk = self.create_entity(
+            "Card Hawk Foundation™", "application", {"domain": "collectibles"}
+        )
+        asset_vault = self.create_entity(
+            "Asset Vault", "service", {"category": "asset_management"}
+        )
+        portfolio = self.create_entity(
+            "Portfolio Engine", "service", {"category": "valuation"}
+        )
+        marketplace = self.create_entity(
+            "Marketplace Intelligence", "service", {"category": "market_data"}
+        )
+        hawk_aeye = self.create_entity(
+            "Hawk A•Eye™", "service", {"category": "visual_intelligence"}
+        )
+        thorx = self.create_entity(
+            "THORᵡ", "service", {"category": "opportunity_rating"}
+        )
 
         for target in [asset_vault, portfolio, marketplace, hawk_aeye, thorx]:
             self.create_relationship(cardhawk["node_id"], target["node_id"], "owns")
@@ -261,7 +294,7 @@ class AletheusKnowledgeGraph:
 
         return self.graph()
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "nodes": len(self.nodes),

@@ -18,8 +18,10 @@ if "self.distributed = distributed_core" not in text:
     )
 
 if 'self.commands.register("cluster.create"' not in text:
-    anchor = '        self.commands.register("audit.history", self._cmd_audit_history)\n'
-    insert = '''        self.commands.register("cluster.create", self._cmd_cluster_create)
+    anchor = (
+        '        self.commands.register("audit.history", self._cmd_audit_history)\n'
+    )
+    insert = """        self.commands.register("cluster.create", self._cmd_cluster_create)
         self.commands.register("cluster.bootstrap", self._cmd_cluster_bootstrap)
         self.commands.register("cluster.list", self._cmd_cluster_list)
         self.commands.register("cluster.status", self._cmd_cluster_status)
@@ -30,20 +32,20 @@ if 'self.commands.register("cluster.create"' not in text:
         self.commands.register("node.register", self._cmd_node_register)
         self.commands.register("node.remove", self._cmd_node_remove)
         self.commands.register("node.heartbeat", self._cmd_node_heartbeat)
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find audit.history command anchor.")
     text = text.replace(anchor, anchor + insert)
 
 if '"Aletheus Distributed Intelligence Fabric"' not in text:
-    anchor = '''        self.services.register(
+    anchor = """        self.services.register(
             "Aletheus Enterprise Intelligence Platform",
             {"status": "online", "version": self.enterprise.version},
         )
 
         self.scheduler.register(
-'''
-    replacement = '''        self.services.register(
+"""
+    replacement = """        self.services.register(
             "Aletheus Enterprise Intelligence Platform",
             {"status": "online", "version": self.enterprise.version},
         )
@@ -53,21 +55,21 @@ if '"Aletheus Distributed Intelligence Fabric"' not in text:
         )
 
         self.scheduler.register(
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find enterprise service registration anchor.")
     text = text.replace(anchor, replacement)
 
 if '"distributed_clusters": self.distributed.stats()["clusters"]' not in text:
     text = text.replace(
-        '''                "enterprises": self.enterprise.stats()["organizations"],
+        """                "enterprises": self.enterprise.stats()["organizations"],
                 "enterprise_audit_events": self.enterprise.stats()["audit_events"],
                 "compliance_score": self.enterprise.stats()["compliance_score"],
             },
         )
         return context
-''',
-        '''                "enterprises": self.enterprise.stats()["organizations"],
+""",
+        """                "enterprises": self.enterprise.stats()["organizations"],
                 "enterprise_audit_events": self.enterprise.stats()["audit_events"],
                 "compliance_score": self.enterprise.stats()["compliance_score"],
                 "distributed_clusters": self.distributed.stats()["clusters"],
@@ -76,23 +78,23 @@ if '"distributed_clusters": self.distributed.stats()["clusters"]' not in text:
             },
         )
         return context
-''',
+""",
     )
 
 if 'context.add_result("distributed", self.distributed.stats())' not in text:
     text = text.replace(
-        '''        context.add_result("enterprise", self.enterprise.stats())
+        """        context.add_result("enterprise", self.enterprise.stats())
         return context
-''',
-        '''        context.add_result("enterprise", self.enterprise.stats())
+""",
+        """        context.add_result("enterprise", self.enterprise.stats())
         context.add_result("distributed", self.distributed.stats())
         return context
-''',
+""",
     )
 
 if "def _cmd_cluster_create" not in text:
     anchor = "    def _job_runtime_pulse(self) -> dict:\n"
-    methods = '''
+    methods = """
     def _cmd_cluster_create(self, context: RuntimeContext) -> RuntimeContext:
         cluster = self.distributed.create_cluster(
             name=context.payload.get("name", "Aletheus Primary Cluster"),
@@ -184,7 +186,7 @@ if "def _cmd_cluster_create" not in text:
         context.add_result("heartbeat", result)
         return context
 
-'''
+"""
     if anchor not in text:
         raise SystemExit("Could not find _job_runtime_pulse anchor.")
     text = text.replace(anchor, methods + anchor)

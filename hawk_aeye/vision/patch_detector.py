@@ -1,5 +1,4 @@
 class PatchDetector:
-
     @staticmethod
     def detect(image):
 

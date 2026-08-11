@@ -24,7 +24,8 @@ if 'self.commands.register("decision.bootstrap"' not in text:
         raise SystemExit("reason.statistics anchor not found.")
     text = text.replace(
         anchor,
-        anchor + '''
+        anchor
+        + """
 
         # v2.6 Autonomous Decision Engine
         self.commands.register("decision.bootstrap", self._cmd_decision_bootstrap)
@@ -34,24 +35,24 @@ if 'self.commands.register("decision.bootstrap"' not in text:
         self.commands.register("decision.rollback", self._cmd_decision_rollback)
         self.commands.register("decision.explain", self._cmd_decision_explain)
         self.commands.register("decision.history", self._cmd_decision_history)
-        self.commands.register("decision.statistics", self._cmd_decision_statistics)''',
+        self.commands.register("decision.statistics", self._cmd_decision_statistics)""",
         1,
     )
 
 if "Aletheus Autonomous Decision Engine" not in text:
-    service = '''
+    service = """
         self.services.register(
             "Aletheus Autonomous Decision Engine",
             {"status": "online", "version": self.decision.version},
         )
-'''
+"""
     marker = "        self.scheduler.register("
     if marker not in text:
         raise SystemExit("scheduler anchor not found.")
     text = text.replace(marker, service + "\n" + marker, 1)
 
 if "def _cmd_decision_bootstrap" not in text:
-    methods = '''
+    methods = """
     def _cmd_decision_bootstrap(self, context: RuntimeContext) -> RuntimeContext:
         context.add_result("decision", self.decision.bootstrap())
         return context
@@ -102,7 +103,7 @@ if "def _cmd_decision_bootstrap" not in text:
         context.add_result("decision_stats", self.decision.stats())
         return context
 
-'''
+"""
     anchor = "    def _job_runtime_pulse(self) -> dict:"
     if anchor not in text:
         raise SystemExit("_job_runtime_pulse anchor not found.")
@@ -110,13 +111,13 @@ if "def _cmd_decision_bootstrap" not in text:
 
 if '"decision_stats": self.decision.stats()' not in text:
     text = text.replace(
-        '''        context.add_result("reasoning", self.reasoning.stats())
+        """        context.add_result("reasoning", self.reasoning.stats())
         return context
-''',
-        '''        context.add_result("reasoning", self.reasoning.stats())
+""",
+        """        context.add_result("reasoning", self.reasoning.stats())
         context.add_result("decision", self.decision.stats())
         return context
-''',
+""",
     )
 
 p.write_text(text)

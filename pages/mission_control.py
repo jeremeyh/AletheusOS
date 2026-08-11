@@ -1,17 +1,24 @@
 import pandas as pd
 import streamlit as st
-
 from services.runtime_v3 import runtime_v3
 
-st.set_page_config(page_title="Mission Control | CardHawkOS", page_icon="🛰️", layout="wide")
+st.set_page_config(
+    page_title="Mission Control | CardHawkOS", page_icon="🛰️", layout="wide"
+)
 
 st.title("🛰️ Mission Control")
-st.caption("Live command, telemetry, event sourcing, and plugin status for CardHawkOS Runtime v3")
+st.caption(
+    "Live command, telemetry, event sourcing, and plugin status for CardHawkOS Runtime v3"
+)
 
 health = runtime_v3.command_bus.dispatch("runtime.health").results.get("health", {})
-registry = runtime_v3.command_bus.dispatch("runtime.registry").results.get("registry", {})
+registry = runtime_v3.command_bus.dispatch("runtime.registry").results.get(
+    "registry", {}
+)
 metrics = runtime_v3.command_bus.dispatch("runtime.metrics").results.get("metrics", [])
-events = runtime_v3.command_bus.dispatch("runtime.events", {"limit": 50}).results.get("events", [])
+events = runtime_v3.command_bus.dispatch("runtime.events", {"limit": 50}).results.get(
+    "events", []
+)
 
 left, right = st.columns([1, 2])
 

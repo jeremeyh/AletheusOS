@@ -1,7 +1,8 @@
-from dataclasses import dataclass, field
-from pathlib import Path
 import shutil
 import uuid
+from dataclasses import dataclass, field
+from pathlib import Path
+
 
 @dataclass
 class AssetMedia:
@@ -10,6 +11,7 @@ class AssetMedia:
 
     Media vault for front/back images, details, receipts, certificates, and videos.
     """
+
     files: list[str] = field(default_factory=list)
     cover_image: str = ""
 

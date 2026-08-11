@@ -1,17 +1,17 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
-from aletheus.cognition.models import Goal, Plan, ReasoningSession, Decision
+from aletheus.cognition.models import Decision, Goal, Plan, ReasoningSession
 
 
 class AletheusCognitionCore:
     def __init__(self) -> None:
         self.version = "0.5.0-genesis"
-        self.goals: List[Goal] = []
-        self.plans: List[Plan] = []
-        self.reasoning_sessions: List[ReasoningSession] = []
-        self.decisions: List[Decision] = []
+        self.goals: list[Goal] = []
+        self.plans: list[Plan] = []
+        self.reasoning_sessions: list[ReasoningSession] = []
+        self.decisions: list[Decision] = []
 
     def create_goal(
         self,
@@ -31,7 +31,7 @@ class AletheusCognitionCore:
         self.goals.append(goal)
         return goal
 
-    def complete_goal(self, goal_id: str) -> Dict[str, Any]:
+    def complete_goal(self, goal_id: str) -> dict[str, Any]:
         for goal in self.goals:
             if goal.goal_id == goal_id:
                 goal.status = "completed"
@@ -39,7 +39,7 @@ class AletheusCognitionCore:
                 return goal.to_dict()
         return {"error": f"Goal not found: {goal_id}"}
 
-    def list_goals(self, status: str | None = None) -> List[Dict[str, Any]]:
+    def list_goals(self, status: str | None = None) -> list[dict[str, Any]]:
         results = self.goals
         if status:
             results = [goal for goal in results if goal.status == status]
@@ -71,14 +71,14 @@ class AletheusCognitionCore:
         self.plans.append(plan)
         return plan
 
-    def list_plans(self) -> List[Dict[str, Any]]:
+    def list_plans(self) -> list[dict[str, Any]]:
         return [plan.to_dict() for plan in self.plans]
 
     def reason(
         self,
         prompt: str,
-        evidence: List[str] | None = None,
-        assumptions: List[str] | None = None,
+        evidence: list[str] | None = None,
+        assumptions: list[str] | None = None,
     ) -> ReasoningSession:
         evidence = evidence or []
         assumptions = assumptions or []
@@ -114,7 +114,7 @@ class AletheusCognitionCore:
         self.reasoning_sessions.append(session)
         return session
 
-    def list_reasoning_sessions(self) -> List[Dict[str, Any]]:
+    def list_reasoning_sessions(self) -> list[dict[str, Any]]:
         return [session.to_dict() for session in self.reasoning_sessions]
 
     def record_decision(
@@ -123,7 +123,7 @@ class AletheusCognitionCore:
         decision: str,
         rationale: str,
         confidence: float = 0.75,
-        evidence: List[str] | None = None,
+        evidence: list[str] | None = None,
     ) -> Decision:
         item = Decision(
             title=title,
@@ -135,14 +135,16 @@ class AletheusCognitionCore:
         self.decisions.append(item)
         return item
 
-    def decision_history(self) -> List[Dict[str, Any]]:
+    def decision_history(self) -> list[dict[str, Any]]:
         return [decision.to_dict() for decision in self.decisions]
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "goals": len(self.goals),
-            "active_goals": len([goal for goal in self.goals if goal.status == "active"]),
+            "active_goals": len(
+                [goal for goal in self.goals if goal.status == "active"]
+            ),
             "plans": len(self.plans),
             "reasoning_sessions": len(self.reasoning_sessions),
             "decisions": len(self.decisions),

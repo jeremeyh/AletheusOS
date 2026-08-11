@@ -41,16 +41,14 @@ text = text.replace(
 # --------------------------------------------------
 
 if "Aletheus Federated Knowledge Fabric" not in text:
-
     marker = 'self.services.register("Aletheus Event Bus"'
 
     idx = text.find(marker)
 
     if idx != -1:
-
         end = text.find("\n", idx)
 
-        service = '''
+        service = """
 
         self.services.register(
             "Aletheus Federated Knowledge Fabric",
@@ -59,16 +57,15 @@ if "Aletheus Federated Knowledge Fabric" not in text:
                 "version": self.federation_v3.VERSION,
             },
         )
-'''
+"""
 
-        text = text[:end+1] + service + text[end+1:]
+        text = text[: end + 1] + service + text[end + 1 :]
 
 # --------------------------------------------------
 # Command registration
 # --------------------------------------------------
 
 if 'self.commands.register("federation.bootstrap"' not in text:
-
     anchor = 'self.commands.register("event.statistics", self._cmd_event_statistics)'
 
     if anchor not in text:
@@ -76,7 +73,8 @@ if 'self.commands.register("federation.bootstrap"' not in text:
 
     text = text.replace(
         anchor,
-        anchor + '''
+        anchor
+        + """
 
         # v3.4 Federation
         self.commands.register("federation.bootstrap", self._cmd_federation_bootstrap)
@@ -86,7 +84,7 @@ if 'self.commands.register("federation.bootstrap"' not in text:
         self.commands.register("federation.query", self._cmd_federation_query)
         self.commands.register("federation.broadcast", self._cmd_federation_broadcast)
         self.commands.register("federation.statistics", self._cmd_federation_statistics)
-''',
+""",
         1,
     )
 

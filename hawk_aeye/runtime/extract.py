@@ -12,7 +12,7 @@ FIELDS = [
     "serial",
     "auto",
     "patch",
-    "grade"
+    "grade",
 ]
 
 print()

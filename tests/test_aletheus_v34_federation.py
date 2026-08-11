@@ -27,19 +27,14 @@ def test_bootstrap():
 def test_join():
 
     result = runtime_core.commands.dispatch(
-
         "federation.join",
-
         {
             "name": "Houston Runtime",
-
             "address": "10.0.0.15",
-
             "capabilities": [
                 "reasoning",
                 "memory",
             ],
-
             "services": [
                 "Memory",
                 "Reasoning",
@@ -87,12 +82,8 @@ def test_query():
 def test_broadcast():
 
     result = runtime_core.commands.dispatch(
-
         "federation.broadcast",
-
-        {
-            "message": "hello federation"
-        },
+        {"message": "hello federation"},
     )
 
     assert not result.errors
@@ -117,9 +108,7 @@ def test_leave():
     node_id = nodes[0]["node_id"]
 
     result = runtime_core.commands.dispatch(
-
         "federation.leave",
-
         {
             "node_id": node_id,
         },
@@ -143,7 +132,6 @@ def test_statistics():
 
 
 if __name__ == "__main__":
-
     test_federation_service_registered()
 
     test_bootstrap()

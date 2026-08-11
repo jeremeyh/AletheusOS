@@ -1,5 +1,4 @@
 import streamlit as st
-
 from components.chds.shell.sidebar import render_sidebar
 from components.chds.theme import inject_theme
 

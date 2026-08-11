@@ -4,7 +4,7 @@ path = Path("aletheus/agents_v2/agent_core.py")
 text = path.read_text()
 
 if "def status(" not in text:
-    insert = '''
+    insert = """
 
     def status(self):
         return {
@@ -14,7 +14,7 @@ if "def status(" not in text:
     def list_agents(self):
         return [a.to_dict() for a in self.agents.values()]
 
-'''
+"""
     anchor = "    def statistics(self):"
     if anchor not in text:
         raise SystemExit("statistics() not found")

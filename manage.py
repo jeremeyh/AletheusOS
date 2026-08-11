@@ -52,6 +52,7 @@ if hasattr(args, "func"):
 else:
     parser.print_help()
 
+
 def cmd_status(args):
 
     from kernel.runtime import kernel
@@ -61,5 +62,6 @@ def cmd_status(args):
     from pprint import pprint
 
     pprint(kernel.status())
+
 
 sub.add_parser("status").set_defaults(func=cmd_status)

@@ -1,5 +1,6 @@
 from pathlib import Path
 
+
 class ConfigValidator:
     """Configuration validation and startup integrity checks."""
 

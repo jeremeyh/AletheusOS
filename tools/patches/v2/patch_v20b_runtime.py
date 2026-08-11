@@ -7,20 +7,20 @@ text = text.replace('self.version = "2.0.0-alpha"', 'self.version = "2.0.0-beta"
 
 if 'self.commands.register("application.install"' not in text:
     anchor = '        self.commands.register("application.stats", self._cmd_application_stats)\n'
-    insert = '''        self.commands.register("application.install", self._cmd_application_install)
+    insert = """        self.commands.register("application.install", self._cmd_application_install)
         self.commands.register("application.uninstall", self._cmd_application_uninstall)
         self.commands.register("application.manifest", self._cmd_application_manifest)
         self.commands.register("application.events", self._cmd_application_events)
         self.commands.register("application.bootstrap.defaults", self._cmd_application_bootstrap_defaults)
-'''
+"""
     if anchor in text:
         text = text.replace(anchor, anchor + insert)
     else:
         raise SystemExit("Could not find application.stats command anchor.")
 
-if 'def _cmd_application_install' not in text:
+if "def _cmd_application_install" not in text:
     anchor = "    def _cmd_cardhawk_foundation_bootstrap(self, context: RuntimeContext) -> RuntimeContext:\n"
-    methods = '''
+    methods = """
     def _cmd_application_install(self, context: RuntimeContext) -> RuntimeContext:
         payload = context.payload
         app = self.applications.install_application(
@@ -85,7 +85,7 @@ if 'def _cmd_application_install' not in text:
         context.add_result("applications", apps)
         return context
 
-'''
+"""
     if anchor in text:
         text = text.replace(anchor, methods + anchor)
     else:

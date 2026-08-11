@@ -1,5 +1,7 @@
 import csv
+
 from data_layer.repositories.asset_repository import AssetRepository
+
 
 class AssetCSVExporter:
     @staticmethod

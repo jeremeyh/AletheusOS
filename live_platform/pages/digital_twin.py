@@ -1,6 +1,7 @@
 import streamlit as st
-from services.live_platform_service import LivePlatformService
 from components.live_platform_ui import hero
+from services.live_platform_service import LivePlatformService
+
 
 def render(state):
     assets = LivePlatformService.assets(state)
@@ -12,6 +13,7 @@ def render(state):
 
     try:
         from portfolio_digital_twin.digital_twin_service import PortfolioDigitalTwin
+
         if st.button("Simulate Portfolio Impact"):
             st.json(PortfolioDigitalTwin.simulate_add(assets, ask, est))
     except Exception:

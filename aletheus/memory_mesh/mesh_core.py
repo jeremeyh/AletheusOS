@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 from aletheus.memory_mesh.models import (
     MemoryObject,
@@ -15,12 +15,12 @@ from aletheus.memory_mesh.models import (
 class AletheusMemoryMesh:
     def __init__(self) -> None:
         self.version = "2.3.0"
-        self.objects: Dict[str, MemoryObject] = {}
-        self.versions: Dict[str, List[MemoryVersion]] = {}
-        self.snapshots: Dict[str, MemorySnapshot] = {}
-        self.replicas: List[MemoryReplica] = []
-        self.semantic_cache: Dict[str, SemanticRecord] = {}
-        self.sync_events: List[Dict[str, Any]] = []
+        self.objects: dict[str, MemoryObject] = {}
+        self.versions: dict[str, list[MemoryVersion]] = {}
+        self.snapshots: dict[str, MemorySnapshot] = {}
+        self.replicas: list[MemoryReplica] = []
+        self.semantic_cache: dict[str, SemanticRecord] = {}
+        self.sync_events: list[dict[str, Any]] = []
 
     def store(
         self,
@@ -28,17 +28,23 @@ class AletheusMemoryMesh:
         value: Any,
         namespace: str = "global",
         object_type: str = "generic",
-        tags: List[str] | None = None,
+        tags: list[str] | None = None,
         owner: str = "aletheus",
-        metadata: Dict[str, Any] | None = None,
-    ) -> Dict[str, Any]:
+        metadata: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         existing = next(
-            (obj for obj in self.objects.values() if obj.key == key and obj.namespace == namespace),
+            (
+                obj
+                for obj in self.objects.values()
+                if obj.key == key and obj.namespace == namespace
+            ),
             None,
         )
 
         if existing:
-            existing.update(value=value, tags=tags or existing.tags, metadata=metadata or {})
+            existing.update(
+                value=value, tags=tags or existing.tags, metadata=metadata or {}
+            )
             obj = existing
         else:
             obj = MemoryObject(
@@ -56,19 +62,30 @@ class AletheusMemoryMesh:
         self._cache_semantic(obj)
         return obj.to_dict()
 
-    def retrieve(self, object_id: str = "", key: str = "", namespace: str = "global") -> Dict[str, Any]:
+    def retrieve(
+        self, object_id: str = "", key: str = "", namespace: str = "global"
+    ) -> dict[str, Any]:
         obj = None
         if object_id:
             obj = self.objects.get(object_id)
         elif key:
-            obj = next((item for item in self.objects.values() if item.key == key and item.namespace == namespace), None)
+            obj = next(
+                (
+                    item
+                    for item in self.objects.values()
+                    if item.key == key and item.namespace == namespace
+                ),
+                None,
+            )
 
         if obj is None:
             return {"error": "Memory object not found."}
 
         return obj.to_dict()
 
-    def search(self, query: str = "", tags: List[str] | None = None, namespace: str = "") -> List[Dict[str, Any]]:
+    def search(
+        self, query: str = "", tags: list[str] | None = None, namespace: str = ""
+    ) -> list[dict[str, Any]]:
         tags = tags or []
         results = []
 
@@ -83,7 +100,7 @@ class AletheusMemoryMesh:
 
         return results
 
-    def snapshot(self, name: str = "Memory Mesh Snapshot") -> Dict[str, Any]:
+    def snapshot(self, name: str = "Memory Mesh Snapshot") -> dict[str, Any]:
         snap = MemorySnapshot(
             name=name,
             objects=[obj.to_dict() for obj in self.objects.values()],
@@ -91,7 +108,7 @@ class AletheusMemoryMesh:
         self.snapshots[snap.snapshot_id] = snap
         return snap.to_dict()
 
-    def restore(self, snapshot_id: str) -> Dict[str, Any]:
+    def restore(self, snapshot_id: str) -> dict[str, Any]:
         snap = self.snapshots.get(snapshot_id)
         if snap is None:
             return {"error": f"Snapshot not found: {snapshot_id}"}
@@ -119,11 +136,15 @@ class AletheusMemoryMesh:
             "objects": len(self.objects),
         }
 
-    def replicate(self, object_id: str = "", target_node: str = "primary") -> Dict[str, Any]:
+    def replicate(
+        self, object_id: str = "", target_node: str = "primary"
+    ) -> dict[str, Any]:
         if object_id and object_id not in self.objects:
             return {"error": f"Memory object not found: {object_id}"}
 
-        targets = [self.objects[object_id]] if object_id else list(self.objects.values())
+        targets = (
+            [self.objects[object_id]] if object_id else list(self.objects.values())
+        )
         created = []
 
         for obj in targets:
@@ -138,7 +159,7 @@ class AletheusMemoryMesh:
             "replicas": created,
         }
 
-    def sync(self, node: str = "distributed_fabric") -> Dict[str, Any]:
+    def sync(self, node: str = "distributed_fabric") -> dict[str, Any]:
         event = {
             "node": node,
             "objects": len(self.objects),
@@ -149,7 +170,7 @@ class AletheusMemoryMesh:
         self.sync_events.append(event)
         return event
 
-    def history(self, object_id: str = "") -> Dict[str, Any]:
+    def history(self, object_id: str = "") -> dict[str, Any]:
         if object_id:
             return {
                 "object_id": object_id,
@@ -163,16 +184,22 @@ class AletheusMemoryMesh:
             }
         }
 
-    def cache(self, object_id: str = "") -> Dict[str, Any]:
+    def cache(self, object_id: str = "") -> dict[str, Any]:
         if object_id:
             record = self.semantic_cache.get(object_id)
-            return record.to_dict() if record else {"error": "Semantic cache record not found."}
+            return (
+                record.to_dict()
+                if record
+                else {"error": "Semantic cache record not found."}
+            )
 
         return {
-            "semantic_cache": [record.to_dict() for record in self.semantic_cache.values()]
+            "semantic_cache": [
+                record.to_dict() for record in self.semantic_cache.values()
+            ]
         }
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         version_count = sum(len(items) for items in self.versions.values())
         return {
             "version": self.version,
@@ -182,7 +209,9 @@ class AletheusMemoryMesh:
             "semantic_records": len(self.semantic_cache),
             "memory_versions": version_count,
             "sync_events": len(self.sync_events),
-            "replication_status": "healthy" if self.replicas or self.objects else "idle",
+            "replication_status": "healthy"
+            if self.replicas or self.objects
+            else "idle",
             "synchronization": 1.0 if self.sync_events or self.objects else 0.0,
             "cache_hit_rate": 0.99 if self.semantic_cache else 0.0,
         }

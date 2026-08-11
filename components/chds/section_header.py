@@ -12,7 +12,6 @@ def section_header(
     st.markdown(f"## {title}")
 
     if subtitle:
-
         st.caption(subtitle)
 
     st.divider()

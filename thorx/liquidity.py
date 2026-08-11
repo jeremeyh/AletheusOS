@@ -2,8 +2,17 @@ class LiquidityScorer:
     """Liquidity™ scoring based on brand strength, asset type, grade, and player relevance."""
 
     PREMIUM_BRANDS = {
-        "Prizm", "Optic", "Select", "National Treasures", "Flawless", "Immaculate",
-        "Topps Chrome", "Bowman Chrome", "Phoenix", "Mosaic", "Obsidian"
+        "Prizm",
+        "Optic",
+        "Select",
+        "National Treasures",
+        "Flawless",
+        "Immaculate",
+        "Topps Chrome",
+        "Bowman Chrome",
+        "Phoenix",
+        "Mosaic",
+        "Obsidian",
     }
 
     @staticmethod

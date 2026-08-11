@@ -5,8 +5,8 @@ Universal Service Base
 
 from abc import ABC
 
-class ServiceBase(ABC):
 
+class ServiceBase(ABC):
     name = "Unnamed Service"
 
     version = "1.0"

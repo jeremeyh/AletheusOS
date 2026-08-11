@@ -39,7 +39,6 @@ class ServiceRegistry:
         results = []
 
         for name in sorted(cls._services):
-
             results.append(
                 {
                     "service": name,

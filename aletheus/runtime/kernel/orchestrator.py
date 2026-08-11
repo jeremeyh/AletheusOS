@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, asdict, field
-from datetime import datetime
-from typing import Any, Dict, List
 import uuid
+from dataclasses import asdict, dataclass, field
+from datetime import datetime
+from typing import Any
 
 
 def utc_now() -> str:
@@ -14,25 +14,25 @@ def utc_now() -> str:
 class IntelligenceTask:
     task_id: str
     command: str
-    payload: Dict[str, Any]
+    payload: dict[str, Any]
     status: str = "queued"
     priority: int = 5
-    result: Dict[str, Any] = field(default_factory=dict)
-    errors: List[str] = field(default_factory=list)
+    result: dict[str, Any] = field(default_factory=dict)
+    errors: list[str] = field(default_factory=list)
     created_at: str = field(default_factory=utc_now)
     started_at: str | None = None
     completed_at: str | None = None
     trace_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     correlation_id: str = field(default_factory=lambda: str(uuid.uuid4()))
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 class IntelligenceOrchestrator:
     VERSION = "4.0.0"
 
     def __init__(self) -> None:
-        self.tasks: Dict[str, IntelligenceTask] = {}
-        self.history: List[Dict[str, Any]] = []
+        self.tasks: dict[str, IntelligenceTask] = {}
+        self.history: list[dict[str, Any]] = []
 
     @property
     def version(self):
@@ -41,10 +41,10 @@ class IntelligenceOrchestrator:
     def create_task(
         self,
         command: str,
-        payload: Dict[str, Any] | None = None,
+        payload: dict[str, Any] | None = None,
         priority: int = 5,
-        metadata: Dict[str, Any] | None = None,
-    ) -> Dict[str, Any]:
+        metadata: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         task = IntelligenceTask(
             task_id=str(uuid.uuid4()),
             command=command,
@@ -65,7 +65,7 @@ class IntelligenceOrchestrator:
 
         return asdict(task)
 
-    def execute_task(self, task_id: str, runtime: Any) -> Dict[str, Any]:
+    def execute_task(self, task_id: str, runtime: Any) -> dict[str, Any]:
         task = self.tasks.get(task_id)
 
         if task is None:
@@ -110,10 +110,10 @@ class IntelligenceOrchestrator:
     def execute(
         self,
         command: str,
-        payload: Dict[str, Any] | None,
+        payload: dict[str, Any] | None,
         runtime: Any,
         priority: int = 5,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         task = self.create_task(
             command=command,
             payload=payload or {},
@@ -122,15 +122,10 @@ class IntelligenceOrchestrator:
 
         return self.execute_task(task["task_id"], runtime)
 
-    def list_tasks(self) -> Dict[str, Any]:
-        return {
-            "tasks": [
-                asdict(task)
-                for task in self.tasks.values()
-            ]
-        }
+    def list_tasks(self) -> dict[str, Any]:
+        return {"tasks": [asdict(task) for task in self.tasks.values()]}
 
-    def statistics(self) -> Dict[str, Any]:
+    def statistics(self) -> dict[str, Any]:
         return {
             "version": self.VERSION,
             "tasks": len(self.tasks),

@@ -17,8 +17,6 @@ def test_service():
 
 
 if __name__ == "__main__":
-
     test_service()
 
     print("✔ Card Hawk Asset Service tests passed.")
-

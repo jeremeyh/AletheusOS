@@ -1,4 +1,5 @@
 class COMCConnector:
-    NAME="COMC"
+    NAME = "COMC"
+
     def search(self, query):
         return []

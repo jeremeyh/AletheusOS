@@ -5,8 +5,8 @@ Dependency Injection Container
 
 from core.registry import registry
 
-class Container:
 
+class Container:
     def __init__(self):
         self._services = {}
         self._engines = {}
@@ -46,7 +46,8 @@ class Container:
         return {
             "services": list(self._services.keys()),
             "engines": list(self._engines.keys()),
-            "providers": list(self._providers.keys())
+            "providers": list(self._providers.keys()),
         }
+
 
 container = Container()

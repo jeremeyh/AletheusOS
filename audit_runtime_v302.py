@@ -1,5 +1,5 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 core = Path("aletheus/runtime/core.py").read_text()
 
@@ -12,9 +12,7 @@ print("=" * 60)
 # ----------------------------------------------------
 commands = re.findall(r'self\.commands\.register\("([^"]+)"', core)
 
-duplicates = sorted(
-    {c for c in commands if commands.count(c) > 1}
-)
+duplicates = sorted({c for c in commands if commands.count(c) > 1})
 
 print("\nDuplicate Commands")
 print("------------------")
@@ -30,9 +28,7 @@ else:
 # ----------------------------------------------------
 services = re.findall(r'self\.services\.register\("([^"]+)"', core)
 
-duplicates = sorted(
-    {s for s in services if services.count(s) > 1}
-)
+duplicates = sorted({s for s in services if services.count(s) > 1})
 
 print("\nDuplicate Services")
 print("------------------")
@@ -46,7 +42,7 @@ else:
 # ----------------------------------------------------
 # Legacy distributed references
 # ----------------------------------------------------
-legacy = re.findall(r'distributed_v3|distributed_core', core)
+legacy = re.findall(r"distributed_v3|distributed_core", core)
 
 print("\nLegacy Distributed References")
 print("-----------------------------")

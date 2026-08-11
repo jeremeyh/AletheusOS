@@ -9,13 +9,11 @@ def render_timeline(events):
     st.subheader("📜 Live Mission Timeline™")
 
     if not events:
-
         st.info("No activity recorded.")
 
         return
 
     for event in reversed(events):
-
         icon = event.get(
             "icon",
             "⚪",
@@ -37,7 +35,6 @@ def render_timeline(events):
         )
 
         with st.container(border=True):
-
             st.markdown(
                 f"""
 ### {icon} {title}

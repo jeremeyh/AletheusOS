@@ -21,12 +21,9 @@ new = """
 if old in text:
     text = text.replace(old, new, 1)
 
-import_line = (
-    "    register_memory_commands,\n"
-)
+import_line = "    register_memory_commands,\n"
 
 if "register_memory_commands" not in text:
-
     marker = "from aletheus.runtime.registrations import"
 
     idx = text.find(marker)

@@ -7,7 +7,6 @@ import uuid
 
 
 class ExecutionContext:
-
     def __init__(self):
 
         self.correlation_id = str(uuid.uuid4())

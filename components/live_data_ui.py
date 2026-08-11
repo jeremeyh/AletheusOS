@@ -1,5 +1,6 @@
 import streamlit as st
 
+
 def render_listing_cards(listings):
     if not listings:
         st.info("No listings found.")
@@ -9,9 +10,12 @@ def render_listing_cards(listings):
         with st.container(border=True):
             c1, c2, c3 = st.columns([3, 1, 1])
             c1.markdown(f"### {getattr(item, 'title', '')}")
-            c1.caption(f"{getattr(item, 'source', '')} • Seller: {getattr(item, 'seller', '')}")
+            c1.caption(
+                f"{getattr(item, 'source', '')} • Seller: {getattr(item, 'seller', '')}"
+            )
             c2.metric("Ask", f"${float(getattr(item, 'price', 0) or 0):,.2f}")
             c3.write(getattr(item, "status", "active"))
+
 
 def render_comp_summary(comp):
     estimate = comp.get("estimate", {})

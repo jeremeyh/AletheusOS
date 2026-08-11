@@ -1,5 +1,4 @@
 from pathlib import Path
-import sys
 
 CORE = Path("aletheus/runtime/core.py")
 REG_INIT = Path("aletheus/runtime/registrations/__init__.py")
@@ -22,7 +21,8 @@ required_modules = [
 ]
 
 missing = [
-    name for name in required_modules
+    name
+    for name in required_modules
     if not Path("aletheus/runtime/registrations", name).exists()
 ]
 
@@ -90,7 +90,7 @@ while i < len(lines):
     cleaned.append(line)
     i += 1
 
-canonical_import = '''from aletheus.runtime.registrations import (
+canonical_import = """from aletheus.runtime.registrations import (
     register_runtime_commands,
     register_memory_commands,
     register_reasoning_commands,
@@ -106,7 +106,7 @@ canonical_import = '''from aletheus.runtime.registrations import (
     register_copilot_commands,
     register_uil_commands,
 )
-'''
+"""
 
 text = "".join(cleaned)
 

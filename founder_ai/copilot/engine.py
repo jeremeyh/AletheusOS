@@ -1,5 +1,5 @@
-from portfolio.digital_twin.engine import PortfolioDigitalTwin
 from asset_core.runtime.enrichment import AssetEnrichmentEngine
+from portfolio.digital_twin.engine import PortfolioDigitalTwin
 
 
 class FounderCopilot:
@@ -19,7 +19,6 @@ class FounderCopilot:
         #
 
         if "portfolio" in q:
-
             snapshot = PortfolioDigitalTwin.snapshot()
 
             return {
@@ -32,7 +31,6 @@ class FounderCopilot:
         #
 
         if "refresh" in q:
-
             count = AssetEnrichmentEngine.refresh_all()
 
             return {
@@ -45,7 +43,6 @@ class FounderCopilot:
         #
 
         if "top" in q:
-
             snapshot = PortfolioDigitalTwin.snapshot()
 
             return {

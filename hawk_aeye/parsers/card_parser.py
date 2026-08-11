@@ -1,7 +1,7 @@
 import re
 
-from hawk_aeye.models.card_fields import CardFields
 from hawk_aeye.knowledge.database import KnowledgeDatabase
+from hawk_aeye.models.card_fields import CardFields
 
 
 class CardParser:
@@ -29,9 +29,7 @@ class CardParser:
         #
 
         for player in db["players"]:
-
             if player in upper:
-
                 card.player = player.title()
 
                 break
@@ -43,7 +41,6 @@ class CardParser:
         year = re.search(r"(20\d{2})", upper)
 
         if year:
-
             card.year = int(year.group(1))
 
         #
@@ -51,9 +48,7 @@ class CardParser:
         #
 
         for brand in db["brands"]:
-
             if brand in upper:
-
                 card.brand = brand.title()
 
                 break
@@ -69,9 +64,7 @@ class CardParser:
         )
 
         for s in longest_sets:
-
             if s in upper:
-
                 card.set = s.title()
 
                 break
@@ -87,9 +80,7 @@ class CardParser:
         )
 
         for parallel in longest_parallels:
-
             if parallel in upper:
-
                 card.parallel = parallel.title()
 
                 break
@@ -99,11 +90,9 @@ class CardParser:
         #
 
         if "GEM MT" in upper:
-
             card.grade = "Gem Mint"
 
         elif "MINT" in upper:
-
             card.grade = "Mint"
 
         #
@@ -111,7 +100,6 @@ class CardParser:
         #
 
         if "AUTO" in upper or "AU-" in upper:
-
             card.autograph = True
 
         #
@@ -119,7 +107,6 @@ class CardParser:
         #
 
         if "PATCH" in upper:
-
             card.patch = True
 
         #
@@ -127,7 +114,6 @@ class CardParser:
         #
 
         if " ROOKIE " in upper or " RC " in upper:
-
             card.rookie = True
 
         #
@@ -137,7 +123,6 @@ class CardParser:
         serial = re.search(r"/(\d+)", upper)
 
         if serial:
-
             card.serial = "/" + serial.group(1)
 
         return card.to_dict()

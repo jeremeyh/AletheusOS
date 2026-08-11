@@ -1,6 +1,5 @@
 from pathlib import Path
 
-
 PLACEHOLDER_IMAGE = "https://placehold.co/300x420?text=Card"
 
 

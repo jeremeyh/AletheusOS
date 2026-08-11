@@ -8,7 +8,6 @@ from aletheus.runtime import registrations
 
 
 class RegistrationManager:
-
     def __init__(self, runtime):
         self.runtime = runtime
 

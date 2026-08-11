@@ -1,5 +1,6 @@
 from marketplace_normalizer.normalizer import MarketplaceNormalizer
 
+
 class AutonomousScout:
     """Autonomous Scout™ continuous opportunity engine contract."""
 

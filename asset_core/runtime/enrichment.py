@@ -1,9 +1,8 @@
 import sqlite3
 
-from marketplace.runtime.value import MarketplaceValue
-from engines.thorx.runtime import ThorX
-
 from asset_core.repository.asset_repository import AssetRepository
+from engines.thorx.runtime import ThorX
+from marketplace.runtime.value import MarketplaceValue
 
 DB = "data/cardhawk.db"
 
@@ -30,7 +29,6 @@ class AssetEnrichmentEngine:
         updated = 0
 
         for row in rows:
-
             card = dict(row)
 
             market = MarketplaceValue.estimate(card)

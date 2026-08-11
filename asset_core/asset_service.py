@@ -1,7 +1,8 @@
 from asset_core.asset_factory import AssetFactory
-from asset_core.asset_search import AssetSearch
 from asset_core.asset_filters import AssetFilters
+from asset_core.asset_search import AssetSearch
 from services.asset_service import AssetService as CoreAssetService
+
 
 class DomainAssetService:
     """
@@ -10,6 +11,7 @@ class DomainAssetService:
     Higher-level asset package facade.
     Uses the existing Core AssetService for persistence.
     """
+
     @staticmethod
     def create_asset(**kwargs):
         asset = AssetFactory.create(**kwargs)

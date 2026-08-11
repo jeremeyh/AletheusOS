@@ -1,7 +1,8 @@
 from intelligence_convergence.engines.acquisition_ai import AcquisitionAI
-from intelligence_convergence.engines.exit_intelligence import ExitIntelligence
-from intelligence_convergence.engines.digital_twin_2 import DigitalTwin2
 from intelligence_convergence.engines.decision_model import DecisionModel
+from intelligence_convergence.engines.digital_twin_2 import DigitalTwin2
+from intelligence_convergence.engines.exit_intelligence import ExitIntelligence
+
 
 class UnifiedIntelligenceEngine:
     """
@@ -17,7 +18,9 @@ class UnifiedIntelligenceEngine:
     def analyze_candidate(self, candidate):
         candidate = dict(candidate or {})
 
-        thorx_score = float(candidate.get("thorx_score", candidate.get("scout_score", 0)) or 0)
+        thorx_score = float(
+            candidate.get("thorx_score", candidate.get("scout_score", 0)) or 0
+        )
         ni_score = float(candidate.get("ni_score", 0) or 0)
         price = float(candidate.get("price", 0) or 0)
 

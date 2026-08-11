@@ -12,11 +12,11 @@ anchor = "    def statistics(self):"
 if anchor not in text:
     raise SystemExit("statistics() anchor not found in agents_v2/agent_core.py")
 
-insert = '''
+insert = """
     def stats(self):
         return self.statistics()
 
-'''
+"""
 
 text = text.replace(anchor, insert + anchor, 1)
 

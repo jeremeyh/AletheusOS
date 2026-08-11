@@ -2,7 +2,6 @@ from marketplace.providers.base_provider import MarketplaceProvider
 
 
 class COMCProvider(MarketplaceProvider):
-
     @property
     def name(self):
         return "COMC"
@@ -26,6 +25,4 @@ class COMCProvider(MarketplaceProvider):
         return self.search(card)
 
     def health_check(self):
-        return {
-            "status": "ONLINE"
-        }
+        return {"status": "ONLINE"}

@@ -1,14 +1,14 @@
 from __future__ import annotations
 
 import time
-from typing import Any, Dict, Optional
+from typing import Any
 
 
 class RuntimeCache:
     def __init__(self) -> None:
-        self._store: Dict[str, Dict[str, Any]] = {}
+        self._store: dict[str, dict[str, Any]] = {}
 
-    def set(self, key: str, value: Any, ttl_seconds: Optional[int] = None) -> None:
+    def set(self, key: str, value: Any, ttl_seconds: int | None = None) -> None:
         expires_at = None if ttl_seconds is None else time.time() + ttl_seconds
         self._store[key] = {"value": value, "expires_at": expires_at}
 
@@ -28,5 +28,5 @@ class RuntimeCache:
     def clear(self) -> None:
         self._store.clear()
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         return {"keys": len(self._store), "key_names": sorted(self._store.keys())}

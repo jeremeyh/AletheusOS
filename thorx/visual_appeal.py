@@ -1,7 +1,17 @@
 class VisualAppealScorer:
     """Visual Appeal™ Alpha heuristic."""
 
-    PREMIUM_PARALLELS = ["Gold", "Black", "Color Blast", "Kaboom", "Downtown", "Manga", "Galactic", "Superfractor", "Pandora"]
+    PREMIUM_PARALLELS = [
+        "Gold",
+        "Black",
+        "Color Blast",
+        "Kaboom",
+        "Downtown",
+        "Manga",
+        "Galactic",
+        "Superfractor",
+        "Pandora",
+    ]
 
     @staticmethod
     def score(asset):

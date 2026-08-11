@@ -1,9 +1,8 @@
 from __future__ import annotations
 
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Dict, List, Any
-import uuid
 
 
 def utc_now() -> str:
@@ -19,9 +18,40 @@ class AgentMessage:
 
 
 @dataclass
+class CompatibilityAgentTask:
+    agent_name: str
+    title: str
+    payload: dict = field(default_factory=dict)
+
+    task_id: str = field(default_factory=lambda: str(uuid.uuid4()))
+    status: str = "queued"
+    created_at: str = field(default_factory=utc_now)
+    completed_at: str | None = None
+
+    def complete(self):
+        self.status = "completed"
+        self.completed_at = utc_now()
+
+    def to_dict(self):
+        return {
+            "task_id": self.task_id,
+            "agent_name": self.agent_name,
+            "title": self.title,
+            "payload": self.payload,
+            "status": self.status,
+            "created_at": self.created_at,
+            "completed_at": self.completed_at,
+        }
+
+
+@dataclass
 class Agent:
     name: str
     role: str
+
+    # Historical Agent V1 compatibility metadata.
+    description: str = ""
+    capabilities: list[dict[str, object]] = field(default_factory=list)
 
     agent_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     status: str = "idle"
@@ -35,7 +65,7 @@ class Agent:
     heartbeat_count: int = 0
     tasks_completed: int = 0
 
-    inbox: List[AgentMessage] = field(default_factory=list)
+    inbox: list[AgentMessage] = field(default_factory=list)
 
     def heartbeat(self):
         self.heartbeat_count += 1
@@ -74,6 +104,8 @@ class Agent:
             "agent_id": self.agent_id,
             "name": self.name,
             "role": self.role,
+            "description": self.description,
+            "capabilities": [dict(item) for item in self.capabilities],
             "status": self.status,
             "mission": self.mission,
             "priority": self.priority,
@@ -87,13 +119,46 @@ class Agent:
 
 
 class AletheusAutonomousAgentRuntime:
-
     VERSION = "2.7.0"
 
     def __init__(self):
 
-        self.agents: Dict[str, Agent] = {}
+        self.agents: dict[str, Agent] = {}
+        self._compat_tasks: dict[str, list[CompatibilityAgentTask]] = {}
 
+    def register_agent(
+        self,
+        name: str,
+        role: str,
+        description: str = "",
+        capabilities: list[dict[str, object]] | None = None,
+    ) -> Agent:
+        """
+        Historical Agent V1 compatibility adapter.
+
+        Preserves the legacy register_agent contract while storing the
+        canonical Agent V2 representation.
+        """
+        existing = self._get_agent_by_name(name)
+        if existing:
+            return existing
+
+        normalized_capabilities = [
+            {
+                "name": item.get("name", "Unnamed Capability"),
+                "description": item.get("description", ""),
+            }
+            for item in (capabilities or [])
+        ]
+
+        agent = Agent(
+            name=name,
+            role=role,
+            description=description,
+            capabilities=normalized_capabilities,
+        )
+        self.agents[agent.agent_id] = agent
+        return agent
 
     def register_default_agents(self):
         """
@@ -132,6 +197,101 @@ class AletheusAutonomousAgentRuntime:
 
         return agent.to_dict()
 
+    def _get_agent_by_name(self, name: str):
+        for agent in self.agents.values():
+            if agent.name == name:
+                return agent
+        return None
+
+    def assign_task(
+        self,
+        agent_name: str,
+        title: str,
+        payload: dict | None = None,
+    ):
+        agent = self._get_agent_by_name(agent_name)
+        if agent is None:
+            return None
+
+        task = CompatibilityAgentTask(
+            agent_name=agent_name,
+            title=title,
+            payload=payload or {},
+        )
+
+        self._compat_tasks.setdefault(agent.agent_id, []).append(task)
+
+        # Preserve the native v2 mission/state model.
+        agent.assign(title)
+
+        return task
+
+    def run_agent(self, agent_name: str):
+        agent = self._get_agent_by_name(agent_name)
+
+        if agent is None:
+            return {"error": f"Agent not found: {agent_name}"}
+
+        queue = self._compat_tasks.setdefault(agent.agent_id, [])
+
+        task = next(
+            (candidate for candidate in queue if candidate.status == "queued"),
+            None,
+        )
+
+        if task is None:
+            return {
+                "message": "No queued tasks.",
+                "agent": agent.name,
+            }
+
+        task.complete()
+        agent.complete()
+
+        return task.to_dict()
+
+    def orchestrate(
+        self,
+        objective: str,
+        participating_agents: list[str] | None = None,
+    ):
+        agents = participating_agents or [
+            agent.name for agent in self.agents.values()
+        ]
+
+        assignments = []
+
+        for agent_name in agents:
+            task = self.assign_task(
+                agent_name=agent_name,
+                title=f"Contribute to objective: {objective}",
+                payload={"objective": objective},
+            )
+
+            if task is not None:
+                assignments.append(
+                    {
+                        "agent": agent_name,
+                        "task": task.to_dict(),
+                    }
+                )
+
+        results = []
+
+        for agent_name in agents:
+            results.append(
+                {
+                    "agent": agent_name,
+                    "result": self.run_agent(agent_name),
+                }
+            )
+
+        return {
+            "objective": objective,
+            "assignments": assignments,
+            "results": results,
+        }
+
     def pause(self, agent_id: str):
 
         self.agents[agent_id].pause()
@@ -160,26 +320,18 @@ class AletheusAutonomousAgentRuntime:
     def message(self, sender: str, recipient: str, message: str):
 
         for agent in self.agents.values():
-
             if agent.name == recipient:
-
                 agent.receive(sender, message)
 
                 return agent.to_dict()
 
         return {"error": "Recipient not found"}
 
-
-
     def status(self):
-        return {
-            "agents": [a.to_dict() for a in self.agents.values()]
-        }
+        return {"agents": [a.to_dict() for a in self.agents.values()]}
 
     def list_agents(self):
         return [a.to_dict() for a in self.agents.values()]
-
-
 
     def stats(self):
         return self.statistics()

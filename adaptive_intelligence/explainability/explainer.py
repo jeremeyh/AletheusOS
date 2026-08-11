@@ -8,11 +8,17 @@ class IntelligenceExplainer:
 
         factors = []
         for key, value in sorted(components.items(), key=lambda x: x[1], reverse=True):
-            factors.append({
-                "factor": key.replace("_", " ").title(),
-                "score": value,
-                "impact": "High" if value >= 8.5 else "Medium" if value >= 6.5 else "Low",
-            })
+            factors.append(
+                {
+                    "factor": key.replace("_", " ").title(),
+                    "score": value,
+                    "impact": "High"
+                    if value >= 8.5
+                    else "Medium"
+                    if value >= 6.5
+                    else "Low",
+                }
+            )
 
         return {
             "score": score,

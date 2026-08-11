@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, asdict, field
-from datetime import datetime
-from typing import Dict, List, Any
 import uuid
+from dataclasses import asdict, dataclass, field
+from datetime import datetime
+from typing import Any
 
 
 def utc_now():
@@ -14,32 +14,32 @@ def utc_now():
 # Federation Node
 # ============================================================
 
+
 @dataclass
 class FederationNode:
-
     node_id: str
     name: str
     address: str
 
     version: str = "3.4.0"
 
-    capabilities: List[str] = field(default_factory=list)
-    services: List[str] = field(default_factory=list)
+    capabilities: list[str] = field(default_factory=list)
+    services: list[str] = field(default_factory=list)
 
     status: str = "online"
 
     last_seen: str = field(default_factory=utc_now)
 
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 # ============================================================
 # Federation
 # ============================================================
 
+
 @dataclass
 class Federation:
-
     federation_id: str
 
     name: str
@@ -48,15 +48,15 @@ class Federation:
 
     local_node: FederationNode
 
-    remote_nodes: Dict[str, FederationNode] = field(default_factory=dict)
+    remote_nodes: dict[str, FederationNode] = field(default_factory=dict)
 
 
 # ============================================================
 # Engine
 # ============================================================
 
-class AletheusFederationEngine:
 
+class AletheusFederationEngine:
     VERSION = "3.4.0"
 
     def __init__(self):
@@ -72,17 +72,12 @@ class AletheusFederationEngine:
     def bootstrap(self):
 
         if self.federation:
-
             return self.statistics()
 
         local = FederationNode(
-
             node_id=str(uuid.uuid4()),
-
             name="Local Runtime",
-
             address="localhost",
-
             capabilities=[
                 "reasoning",
                 "planning",
@@ -91,18 +86,13 @@ class AletheusFederationEngine:
                 "plugins",
                 "event_bus",
             ],
-
             services=[],
         )
 
         self.federation = Federation(
-
             federation_id=str(uuid.uuid4()),
-
             name="Aletheus Federation",
-
             created_at=utc_now(),
-
             local_node=local,
         )
 
@@ -111,31 +101,20 @@ class AletheusFederationEngine:
     # --------------------------------------------------------
 
     def join(
-
         self,
-
         name,
-
         address,
-
         capabilities=None,
-
         services=None,
-
     ):
 
         self.bootstrap()
 
         node = FederationNode(
-
             node_id=str(uuid.uuid4()),
-
             name=name,
-
             address=address,
-
             capabilities=capabilities or [],
-
             services=services or [],
         )
 
@@ -159,13 +138,7 @@ class AletheusFederationEngine:
 
         self.bootstrap()
 
-        return [
-
-            asdict(node)
-
-            for node in self.federation.remote_nodes.values()
-
-        ]
+        return [asdict(node) for node in self.federation.remote_nodes.values()]
 
     # --------------------------------------------------------
 
@@ -174,16 +147,8 @@ class AletheusFederationEngine:
         self.bootstrap()
 
         return {
-
             "local": asdict(self.federation.local_node),
-
-            "remote": [
-
-                asdict(node)
-
-                for node in self.federation.remote_nodes.values()
-
-            ],
+            "remote": [asdict(node) for node in self.federation.remote_nodes.values()],
         }
 
     # --------------------------------------------------------
@@ -193,13 +158,9 @@ class AletheusFederationEngine:
         self.bootstrap()
 
         return {
-
             "message": message,
-
             "recipients": len(self.federation.remote_nodes),
-
             "status": "broadcast",
-
         }
 
     # --------------------------------------------------------

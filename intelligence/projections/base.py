@@ -5,8 +5,8 @@ Projection Base
 
 from abc import ABC, abstractmethod
 
-class Projection(ABC):
 
+class Projection(ABC):
     name = "Projection"
 
     events = []

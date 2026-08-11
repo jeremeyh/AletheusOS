@@ -1,5 +1,7 @@
 from collections import defaultdict
-from components.cardhawk_utils import row_value, safe_float, roi_percent
+
+from components.cardhawk_utils import roi_percent, row_value, safe_float
+
 
 class PortfolioAnalyticsService:
     """CardHawk OS™ 6.0D Portfolio Analytics™."""
@@ -37,10 +39,15 @@ class PortfolioAnalyticsService:
     def capital_efficiency(assets):
         rows = []
         for asset in assets or []:
-            rows.append({
-                "asset": row_value(asset, "player", "Unknown Asset"),
-                "roi_percent": roi_percent(row_value(asset, "purchase_price", 0), row_value(asset, "current_value", 0)),
-                "thorx_score": safe_float(row_value(asset, "thorx_score", 0)),
-                "current_value": safe_float(row_value(asset, "current_value", 0)),
-            })
+            rows.append(
+                {
+                    "asset": row_value(asset, "player", "Unknown Asset"),
+                    "roi_percent": roi_percent(
+                        row_value(asset, "purchase_price", 0),
+                        row_value(asset, "current_value", 0),
+                    ),
+                    "thorx_score": safe_float(row_value(asset, "thorx_score", 0)),
+                    "current_value": safe_float(row_value(asset, "current_value", 0)),
+                }
+            )
         return sorted(rows, key=lambda x: x["roi_percent"], reverse=True)

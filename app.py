@@ -1,6 +1,5 @@
 import pandas as pd
 import streamlit as st
-
 from command_center.runtime.palette import CommandPalette
 from components.chds.asset_gallery import render_asset_gallery
 from components.chds.core.bootstrap import bootstrap
@@ -11,7 +10,6 @@ from components.chds.portfolio_health_card import render_portfolio_health_card
 from founder_ai.copilot.engine import FounderCopilot
 from portfolio.digital_twin.engine import PortfolioDigitalTwin
 from portfolio.health.engine import PortfolioHealth
-
 
 bootstrap(
     title="CardHawk OS™",
@@ -103,9 +101,7 @@ with bottom_left:
 
     if highest:
         for asset in highest[:5]:
-            st.write(
-                f"**#{asset.get('id')} — {asset.get('player') or 'Unknown'}**"
-            )
+            st.write(f"**#{asset.get('id')} — {asset.get('player') or 'Unknown'}**")
 
             st.caption(
                 f"{asset.get('brand') or ''} {asset.get('set_name') or ''} • "

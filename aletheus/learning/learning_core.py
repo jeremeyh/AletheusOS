@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 from aletheus.learning.models import (
     ImprovementSuggestion,
@@ -13,10 +13,10 @@ from aletheus.learning.models import (
 class AletheusAdaptiveLearning:
     def __init__(self) -> None:
         self.version = "1.8.0"
-        self.experiences: List[LearningExperience] = []
-        self.lessons: List[LearnedLesson] = []
-        self.pattern_history: List[LearnedPattern] = []
-        self.improvements: List[ImprovementSuggestion] = []
+        self.experiences: list[LearningExperience] = []
+        self.lessons: list[LearnedLesson] = []
+        self.pattern_history: list[LearnedPattern] = []
+        self.improvements: list[ImprovementSuggestion] = []
 
     def record_experience(
         self,
@@ -25,7 +25,7 @@ class AletheusAdaptiveLearning:
         source: str = "aletheus",
         outcome: str = "unknown",
         confidence: float = 0.75,
-        metadata: Dict[str, Any] | None = None,
+        metadata: dict[str, Any] | None = None,
     ) -> LearningExperience:
         item = LearningExperience(
             event_type=event_type,
@@ -44,7 +44,7 @@ class AletheusAdaptiveLearning:
         lesson: str,
         source_experience_id: str = "",
         confidence: float = 0.75,
-        tags: List[str] | None = None,
+        tags: list[str] | None = None,
     ) -> LearnedLesson:
         item = LearnedLesson(
             title=title,
@@ -62,7 +62,7 @@ class AletheusAdaptiveLearning:
         outcome: str,
         lesson: str = "",
         confidence: float = 0.8,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         experience = next(
             (item for item in self.experiences if item.experience_id == experience_id),
             None,
@@ -89,14 +89,14 @@ class AletheusAdaptiveLearning:
             "lesson": created_lesson.to_dict() if created_lesson else None,
         }
 
-    def discover_patterns(self) -> List[Dict[str, Any]]:
-        counts: Dict[str, int] = {}
+    def discover_patterns(self) -> list[dict[str, Any]]:
+        counts: dict[str, int] = {}
 
         for experience in self.experiences:
             key = f"{experience.event_type}:{experience.outcome}"
             counts[key] = counts.get(key, 0) + 1
 
-        patterns: List[LearnedPattern] = []
+        patterns: list[LearnedPattern] = []
 
         for key, count in counts.items():
             event_type, outcome = key.split(":", 1)
@@ -111,9 +111,11 @@ class AletheusAdaptiveLearning:
         self.pattern_history.extend(patterns)
         return [item.to_dict() for item in patterns]
 
-    def improve(self, runtime: Any) -> List[Dict[str, Any]]:
-        health = runtime.commands.dispatch("runtime.health", {}).results.get("health", {})
-        suggestions: List[ImprovementSuggestion] = []
+    def improve(self, runtime: Any) -> list[dict[str, Any]]:
+        health = runtime.commands.dispatch("runtime.health", {}).results.get(
+            "health", {}
+        )
+        suggestions: list[ImprovementSuggestion] = []
 
         if health.get("memory_records", 0) < 10:
             suggestions.append(
@@ -162,7 +164,7 @@ class AletheusAdaptiveLearning:
         self.improvements.extend(suggestions)
         return [item.to_dict() for item in suggestions]
 
-    def snapshot(self) -> Dict[str, Any]:
+    def snapshot(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "stats": self.stats(),
@@ -172,7 +174,7 @@ class AletheusAdaptiveLearning:
             "recent_improvements": [item.to_dict() for item in self.improvements[-10:]],
         }
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         total_confidence = sum(item.confidence for item in self.experiences)
         learning_score = 0.0
         if self.experiences:

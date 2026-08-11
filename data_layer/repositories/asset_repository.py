@@ -1,5 +1,7 @@
 from datetime import datetime
+
 from data_layer.database_manager import db
+
 
 class AssetRepository:
     """Repository for canonical Asset Vault™ persistence."""
@@ -42,7 +44,10 @@ class AssetRepository:
         if not clean:
             return False
         assignments = ",".join([f"{k}=?" for k in clean])
-        db.execute(f"UPDATE assets SET {assignments} WHERE asset_id=?", list(clean.values()) + [asset_id])
+        db.execute(
+            f"UPDATE assets SET {assignments} WHERE asset_id=?",
+            list(clean.values()) + [asset_id],
+        )
         return True
 
     @staticmethod
@@ -53,9 +58,12 @@ class AssetRepository:
     @staticmethod
     def search(query):
         q = f"%{query}%"
-        return db.query("""
+        return db.query(
+            """
             SELECT * FROM assets
             WHERE player LIKE ? OR team LIKE ? OR brand LIKE ? OR set_name LIKE ?
                OR parallel LIKE ? OR serial_number LIKE ? OR notes LIKE ? OR tags LIKE ?
             ORDER BY asset_id DESC
-        """, (q, q, q, q, q, q, q, q))
+        """,
+            (q, q, q, q, q, q, q, q),
+        )

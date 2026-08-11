@@ -1,6 +1,7 @@
 import sqlite3
 from pathlib import Path
 
+
 class DatabaseManager:
     """CardHawk OS™ 5.1 canonical persistence layer."""
 
@@ -39,22 +40,54 @@ class DatabaseManager:
             self.execute(f"ALTER TABLE {table} ADD COLUMN {column} {col_type}")
 
     def initialize(self):
-        self.execute("CREATE TABLE IF NOT EXISTS assets (asset_id INTEGER PRIMARY KEY AUTOINCREMENT)")
+        self.execute(
+            "CREATE TABLE IF NOT EXISTS assets (asset_id INTEGER PRIMARY KEY AUTOINCREMENT)"
+        )
         fields = {
-            "category": "TEXT", "sport": "TEXT", "player": "TEXT", "team": "TEXT",
-            "year": "INTEGER", "brand": "TEXT", "set_name": "TEXT", "subset": "TEXT",
-            "card_number": "TEXT", "parallel": "TEXT", "serial_number": "TEXT",
-            "print_run": "INTEGER", "rookie": "INTEGER", "autograph": "INTEGER",
-            "memorabilia": "INTEGER", "grade_company": "TEXT", "grade": "TEXT",
-            "condition": "TEXT", "purchase_price": "REAL", "shipping_cost": "REAL",
-            "tax": "REAL", "fees": "REAL", "purchase_date": "TEXT",
-            "marketplace": "TEXT", "seller": "TEXT", "current_value": "REAL",
-            "floor_value": "REAL", "ceiling_value": "REAL", "nuclear_value": "REAL",
-            "thorx_score": "REAL", "ni_score": "REAL", "classification": "TEXT",
-            "recommendation": "TEXT", "q_def": "REAL", "d_def": "REAL",
-            "strike_zone": "INTEGER", "opportunity_rank": "INTEGER",
-            "confidence": "REAL", "front_image": "TEXT", "back_image": "TEXT",
-            "notes": "TEXT", "tags": "TEXT", "created_at": "TEXT", "updated_at": "TEXT",
+            "category": "TEXT",
+            "sport": "TEXT",
+            "player": "TEXT",
+            "team": "TEXT",
+            "year": "INTEGER",
+            "brand": "TEXT",
+            "set_name": "TEXT",
+            "subset": "TEXT",
+            "card_number": "TEXT",
+            "parallel": "TEXT",
+            "serial_number": "TEXT",
+            "print_run": "INTEGER",
+            "rookie": "INTEGER",
+            "autograph": "INTEGER",
+            "memorabilia": "INTEGER",
+            "grade_company": "TEXT",
+            "grade": "TEXT",
+            "condition": "TEXT",
+            "purchase_price": "REAL",
+            "shipping_cost": "REAL",
+            "tax": "REAL",
+            "fees": "REAL",
+            "purchase_date": "TEXT",
+            "marketplace": "TEXT",
+            "seller": "TEXT",
+            "current_value": "REAL",
+            "floor_value": "REAL",
+            "ceiling_value": "REAL",
+            "nuclear_value": "REAL",
+            "thorx_score": "REAL",
+            "ni_score": "REAL",
+            "classification": "TEXT",
+            "recommendation": "TEXT",
+            "q_def": "REAL",
+            "d_def": "REAL",
+            "strike_zone": "INTEGER",
+            "opportunity_rank": "INTEGER",
+            "confidence": "REAL",
+            "front_image": "TEXT",
+            "back_image": "TEXT",
+            "notes": "TEXT",
+            "tags": "TEXT",
+            "created_at": "TEXT",
+            "updated_at": "TEXT",
         }
         for col, typ in fields.items():
             self.add_column("assets", col, typ)
@@ -83,5 +116,6 @@ class DatabaseManager:
                 created_at TEXT
             )
         """)
+
 
 db = DatabaseManager()

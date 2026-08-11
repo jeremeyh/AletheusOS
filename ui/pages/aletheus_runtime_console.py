@@ -2,7 +2,6 @@ import json
 
 import pandas as pd
 import streamlit as st
-
 from aletheus.runtime import runtime_core
 
 
@@ -138,7 +137,9 @@ with tabs[2]:
         "Goal Description",
         value="Use Aletheus cognition to plan, reason, and record decisions for portfolio growth.",
     )
-    goal_priority = st.selectbox("Priority", ["low", "medium", "high", "critical"], index=2)
+    goal_priority = st.selectbox(
+        "Priority", ["low", "medium", "high", "critical"], index=2
+    )
 
     if st.button("Create Goal"):
         result = runtime_core.commands.dispatch(
@@ -154,7 +155,9 @@ with tabs[2]:
         st.json(result.results)
 
     st.markdown("### Generate Plan")
-    plan_goal_title = st.text_input("Plan Goal Title", value="Increase Card Hawk portfolio value")
+    plan_goal_title = st.text_input(
+        "Plan Goal Title", value="Increase Card Hawk portfolio value"
+    )
 
     if st.button("Generate Plan"):
         result = runtime_core.commands.dispatch(
@@ -182,7 +185,9 @@ with tabs[2]:
             "reason.evaluate",
             {
                 "prompt": prompt,
-                "evidence": [item.strip() for item in evidence.split(",") if item.strip()],
+                "evidence": [
+                    item.strip() for item in evidence.split(",") if item.strip()
+                ],
                 "assumptions": ["Current marketplace data may be incomplete"],
             },
         )
@@ -190,7 +195,9 @@ with tabs[2]:
         st.json(result.results)
 
     st.markdown("### Record Decision")
-    decision_title = st.text_input("Decision Title", value="Prioritize Marketplace Intelligence")
+    decision_title = st.text_input(
+        "Decision Title", value="Prioritize Marketplace Intelligence"
+    )
     decision_value = st.text_input("Decision", value="Proceed")
     rationale = st.text_area(
         "Rationale",
@@ -226,7 +233,9 @@ with tabs[2]:
         st.info("No plans recorded.")
 
     st.markdown("### Decisions")
-    decisions = runtime_core.commands.dispatch("decision.history", {}).results.get("decisions", [])
+    decisions = runtime_core.commands.dispatch("decision.history", {}).results.get(
+        "decisions", []
+    )
     if decisions:
         st.dataframe(safe_dataframe(decisions), width="stretch")
     else:
@@ -269,7 +278,9 @@ with tabs[3]:
     if search_type:
         search_payload["entity_type"] = search_type
 
-    entities = runtime_core.commands.dispatch("entity.search", search_payload).results.get("entities", [])
+    entities = runtime_core.commands.dispatch(
+        "entity.search", search_payload
+    ).results.get("entities", [])
     if entities:
         st.dataframe(safe_dataframe(entities), width="stretch")
     else:
@@ -305,12 +316,16 @@ with tabs[4]:
     st.json(mission_stats)
 
     st.markdown("### Create Mission")
-    mission_title = st.text_input("Mission Title", value="Increase Card Hawk portfolio value")
+    mission_title = st.text_input(
+        "Mission Title", value="Increase Card Hawk portfolio value"
+    )
     mission_objective = st.text_area(
         "Mission Objective",
         value="Use Aletheus to observe, reason, evaluate, and recommend portfolio actions.",
     )
-    mission_priority = st.selectbox("Mission Priority", ["low", "medium", "high", "critical"], index=2)
+    mission_priority = st.selectbox(
+        "Mission Priority", ["low", "medium", "high", "critical"], index=2
+    )
 
     if st.button("Create Mission"):
         result = runtime_core.commands.dispatch(
@@ -321,9 +336,18 @@ with tabs[4]:
                 "application": "founder_console",
                 "priority": mission_priority,
                 "tasks": [
-                    {"title": "Refresh marketplace intelligence", "description": "Collect current market signal."},
-                    {"title": "Run cognitive evaluation", "description": "Generate plan and reasoning."},
-                    {"title": "Record decision", "description": "Persist mission rationale."},
+                    {
+                        "title": "Refresh marketplace intelligence",
+                        "description": "Collect current market signal.",
+                    },
+                    {
+                        "title": "Run cognitive evaluation",
+                        "description": "Generate plan and reasoning.",
+                    },
+                    {
+                        "title": "Record decision",
+                        "description": "Persist mission rationale.",
+                    },
                 ],
             },
         )
@@ -331,7 +355,9 @@ with tabs[4]:
         st.json(result.results)
 
     st.markdown("### Generate Mission From Goal")
-    goal_title = st.text_input("Goal → Mission Title", value="Increase Card Hawk portfolio value")
+    goal_title = st.text_input(
+        "Goal → Mission Title", value="Increase Card Hawk portfolio value"
+    )
 
     if st.button("Generate Mission From Goal"):
         result = runtime_core.commands.dispatch(
@@ -347,7 +373,9 @@ with tabs[4]:
         st.json(result.results)
 
     st.markdown("### Active Missions")
-    missions = runtime_core.commands.dispatch("mission.list", {}).results.get("missions", [])
+    missions = runtime_core.commands.dispatch("mission.list", {}).results.get(
+        "missions", []
+    )
     if missions:
         st.dataframe(safe_dataframe(missions), width="stretch")
     else:
@@ -366,7 +394,9 @@ with tabs[4]:
         st.json(result.results)
 
     st.markdown("### Mission History")
-    history = runtime_core.commands.dispatch("mission.history", {}).results.get("mission_history", [])
+    history = runtime_core.commands.dispatch("mission.history", {}).results.get(
+        "mission_history", []
+    )
     if history:
         st.dataframe(safe_dataframe(history), width="stretch")
     else:
@@ -393,7 +423,9 @@ with tabs[7]:
 
 with tabs[8]:
     st.subheader("Runtime Metrics")
-    metrics = runtime_core.commands.dispatch("runtime.metrics").results.get("metrics", [])
+    metrics = runtime_core.commands.dispatch("runtime.metrics").results.get(
+        "metrics", []
+    )
     if metrics:
         st.dataframe(safe_dataframe(metrics), width="stretch")
     else:

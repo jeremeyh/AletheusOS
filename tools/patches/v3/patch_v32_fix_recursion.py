@@ -4,7 +4,7 @@ path = Path("aletheus/persistence_v3/persistence_core.py")
 text = path.read_text()
 
 text = text.replace(
-'''    def bootstrap(self):
+    """    def bootstrap(self):
         self.base_path.mkdir(parents=True, exist_ok=True)
 
         for name in [
@@ -23,8 +23,8 @@ text = text.replace(
                 path.write_text(json.dumps({}, indent=2))
 
         return self.statistics()
-''',
-'''    def bootstrap(self):
+""",
+    """    def bootstrap(self):
         self.base_path.mkdir(parents=True, exist_ok=True)
 
         for name in [
@@ -43,11 +43,11 @@ text = text.replace(
                 path.write_text(json.dumps({}, indent=2))
 
         return self._statistics_no_bootstrap()
-'''
+""",
 )
 
 text = text.replace(
-'''    def statistics(self):
+    """    def statistics(self):
         self.bootstrap()
 
         json_files = list(self.base_path.glob("*.json"))
@@ -65,8 +65,8 @@ text = text.replace(
             "size_bytes": size,
             "health": "healthy",
         }
-''',
-'''    def statistics(self):
+""",
+    """    def statistics(self):
         self.base_path.mkdir(parents=True, exist_ok=True)
         return self._statistics_no_bootstrap()
 
@@ -86,7 +86,7 @@ text = text.replace(
             "size_bytes": size,
             "health": "healthy",
         }
-'''
+""",
 )
 
 path.write_text(text)

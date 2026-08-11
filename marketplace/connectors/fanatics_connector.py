@@ -1,4 +1,5 @@
 class FanaticsConnector:
-    NAME="Fanatics Collect"
+    NAME = "Fanatics Collect"
+
     def search(self, query):
         return []

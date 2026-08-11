@@ -1,8 +1,9 @@
 """
 Memory Command Registration
 
-Version 4.6.2
+Version 5.0.1
 """
+
 
 def register_memory_commands(runtime):
 

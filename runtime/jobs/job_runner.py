@@ -5,8 +5,8 @@ Production Job Runner
 
 from datetime import datetime
 
-class JobRunner:
 
+class JobRunner:
     def run(self, name, payload):
 
         print()
@@ -22,5 +22,5 @@ class JobRunner:
         return {
             "job": name,
             "status": "completed",
-            "timestamp": datetime.utcnow().isoformat()
+            "timestamp": datetime.utcnow().isoformat(),
         }

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 from aletheus.intelligence.models import IntelligenceContext, IntelligenceDecision
 
@@ -8,12 +8,14 @@ from aletheus.intelligence.models import IntelligenceContext, IntelligenceDecisi
 class AletheusUniversalIntelligence:
     def __init__(self) -> None:
         self.version = "1.6.0"
-        self.contexts: List[IntelligenceContext] = []
-        self.decisions: List[IntelligenceDecision] = []
+        self.contexts: list[IntelligenceContext] = []
+        self.decisions: list[IntelligenceDecision] = []
 
     def build_context(self, question: str, runtime: Any) -> IntelligenceContext:
         diagnostics = runtime.commands.dispatch("runtime.diagnostics", {}).results
-        health = runtime.commands.dispatch("runtime.health", {}).results.get("health", {})
+        health = runtime.commands.dispatch("runtime.health", {}).results.get(
+            "health", {}
+        )
 
         context = IntelligenceContext(
             question=question,
@@ -30,7 +32,7 @@ class AletheusUniversalIntelligence:
         self.contexts.append(context)
         return context
 
-    def reason(self, question: str, runtime: Any) -> Dict[str, Any]:
+    def reason(self, question: str, runtime: Any) -> dict[str, Any]:
         context = self.build_context(question, runtime)
         data = context.to_dict()
 
@@ -46,7 +48,9 @@ class AletheusUniversalIntelligence:
             reasoning.append("No active autonomous plans are currently running.")
 
         if data["runtime"].get("semantic_concepts", 0) == 0:
-            reasoning.append("Semantic concept density is low; semantic bootstrap should be prioritized.")
+            reasoning.append(
+                "Semantic concept density is low; semantic bootstrap should be prioritized."
+            )
 
         return {
             "question": question,
@@ -55,7 +59,7 @@ class AletheusUniversalIntelligence:
             "confidence": self.confidence_score(data),
         }
 
-    def synthesize(self, question: str, runtime: Any) -> Dict[str, Any]:
+    def synthesize(self, question: str, runtime: Any) -> dict[str, Any]:
         reasoning_result = self.reason(question, runtime)
         runtime_data = reasoning_result["context"]["runtime"]
 
@@ -72,20 +76,30 @@ class AletheusUniversalIntelligence:
         recommendations = []
 
         if runtime_data.get("applications", 0) >= 1:
-            opportunities.append("Card Hawk Foundation is registered as a native Aletheus application.")
+            opportunities.append(
+                "Card Hawk Foundation is registered as a native Aletheus application."
+            )
 
         if runtime_data.get("online_agents", 0) >= 6:
-            opportunities.append("Multi-agent orchestration is available for complex work.")
+            opportunities.append(
+                "Multi-agent orchestration is available for complex work."
+            )
 
         if runtime_data.get("semantic_concepts", 0) < 5:
             risks.append("Semantic layer remains under-seeded.")
-            recommendations.append("Run Card Hawk semantic bootstrap and add core asset/player/service concepts.")
+            recommendations.append(
+                "Run Card Hawk semantic bootstrap and add core asset/player/service concepts."
+            )
 
         if runtime_data.get("active_plans", 0) == 0:
             risks.append("No active autonomous plan is currently guiding execution.")
-            recommendations.append("Create an autonomous plan for the next Card Hawk Foundation milestone.")
+            recommendations.append(
+                "Create an autonomous plan for the next Card Hawk Foundation milestone."
+            )
 
-        recommendations.append("Continue integrating Card Hawk Foundation as the reference application.")
+        recommendations.append(
+            "Continue integrating Card Hawk Foundation as the reference application."
+        )
 
         return {
             "question": question,
@@ -101,7 +115,9 @@ class AletheusUniversalIntelligence:
         synthesis = self.synthesize(question, runtime)
 
         if synthesis["risks"]:
-            decision = "Proceed, but address the identified gaps before expanding scope."
+            decision = (
+                "Proceed, but address the identified gaps before expanding scope."
+            )
         else:
             decision = "Proceed with the next planned Aletheus/Card Hawk integration milestone."
 
@@ -118,7 +134,7 @@ class AletheusUniversalIntelligence:
         self.decisions.append(item)
         return item
 
-    def brief(self, runtime: Any) -> Dict[str, Any]:
+    def brief(self, runtime: Any) -> dict[str, Any]:
         question = "What is the current state of Aletheus?"
         synthesis = self.synthesize(question, runtime)
         decision = self.decide(question, runtime)
@@ -130,16 +146,18 @@ class AletheusUniversalIntelligence:
             "decision": decision.to_dict(),
         }
 
-    def snapshot(self, runtime: Any) -> Dict[str, Any]:
+    def snapshot(self, runtime: Any) -> dict[str, Any]:
         return {
             "version": self.version,
             "stats": self.stats(),
             "latest_context": self.contexts[-1].to_dict() if self.contexts else None,
             "latest_decision": self.decisions[-1].to_dict() if self.decisions else None,
-            "runtime_health": runtime.commands.dispatch("runtime.health", {}).results.get("health", {}),
+            "runtime_health": runtime.commands.dispatch(
+                "runtime.health", {}
+            ).results.get("health", {}),
         }
 
-    def confidence_score(self, context: Dict[str, Any]) -> float:
+    def confidence_score(self, context: dict[str, Any]) -> float:
         score = 0.65
         runtime = context.get("runtime", {})
 
@@ -158,13 +176,13 @@ class AletheusUniversalIntelligence:
 
         return round(min(score, 0.98), 2)
 
-    def timeline(self) -> Dict[str, Any]:
+    def timeline(self) -> dict[str, Any]:
         return {
             "contexts": [item.to_dict() for item in self.contexts[-20:]],
             "decisions": [item.to_dict() for item in self.decisions[-20:]],
         }
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         return {
             "version": self.version,
             "contexts": len(self.contexts),

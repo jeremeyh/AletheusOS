@@ -8,7 +8,6 @@ from cardhawk.services import AssetService
 
 
 class SearchPanel:
-
     def __init__(self):
 
         self.service = AssetService()

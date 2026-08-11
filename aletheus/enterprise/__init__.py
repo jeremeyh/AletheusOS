@@ -9,10 +9,10 @@ from aletheus.enterprise.models import (
 
 __all__ = [
     "AletheusEnterpriseCore",
-    "enterprise_core",
-    "EnterpriseOrganization",
-    "EnterpriseDepartment",
-    "EnterpriseTeam",
-    "EnterprisePolicy",
     "AuditRecord",
+    "EnterpriseDepartment",
+    "EnterpriseOrganization",
+    "EnterprisePolicy",
+    "EnterpriseTeam",
+    "enterprise_core",
 ]

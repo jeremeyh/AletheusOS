@@ -1,10 +1,8 @@
 class CardLadderConnector:
-
     @staticmethod
     def search(card):
 
         if card.get("player") == "Caleb Williams":
-
             return [
                 {
                     "marketplace": "Card Ladder",

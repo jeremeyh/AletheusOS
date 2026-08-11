@@ -1,9 +1,8 @@
 from __future__ import annotations
 
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Dict, List, Any
-import uuid
 
 
 def utc_now() -> str:
@@ -19,7 +18,6 @@ class WorkflowStep:
 
 @dataclass
 class Workflow:
-
     title: str
     description: str
 
@@ -33,7 +31,7 @@ class Workflow:
 
     checkpoint: int = 0
 
-    steps: List[WorkflowStep] = field(default_factory=list)
+    steps: list[WorkflowStep] = field(default_factory=list)
 
     def start(self):
         self.status = "running"
@@ -74,12 +72,11 @@ class Workflow:
 
 
 class AletheusWorkflowEngine:
-
     VERSION = "2.8.0"
 
     def __init__(self):
 
-        self.workflows: Dict[str, Workflow] = {}
+        self.workflows: dict[str, Workflow] = {}
 
     def bootstrap(self):
 
@@ -146,12 +143,7 @@ class AletheusWorkflowEngine:
 
     def status(self):
 
-        return {
-            "workflows": [
-                w.to_dict()
-                for w in self.workflows.values()
-            ]
-        }
+        return {"workflows": [w.to_dict() for w in self.workflows.values()]}
 
     def statistics(self):
 

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, List
+from typing import Any
 
 from aletheus.enterprise.models import (
     AuditRecord,
@@ -14,10 +14,17 @@ from aletheus.enterprise.models import (
 class AletheusEnterpriseCore:
     def __init__(self) -> None:
         self.version = "2.1.0"
-        self.organizations: List[EnterpriseOrganization] = []
-        self.audit_records: List[AuditRecord] = []
+        self.organizations: list[EnterpriseOrganization] = []
+        self.audit_records: list[AuditRecord] = []
 
-    def audit(self, actor: str, action: str, target: str, outcome: str = "recorded", metadata: Dict[str, Any] | None = None) -> AuditRecord:
+    def audit(
+        self,
+        actor: str,
+        action: str,
+        target: str,
+        outcome: str = "recorded",
+        metadata: dict[str, Any] | None = None,
+    ) -> AuditRecord:
         record = AuditRecord(
             actor=actor,
             action=action,
@@ -32,7 +39,7 @@ class AletheusEnterpriseCore:
         self,
         name: str,
         description: str = "",
-        applications: List[str] | None = None,
+        applications: list[str] | None = None,
     ) -> EnterpriseOrganization:
         existing = self.get_organization(name=name)
         if existing:
@@ -90,7 +97,9 @@ class AletheusEnterpriseCore:
 
         return org
 
-    def get_organization(self, organization_id: str = "", name: str = "") -> EnterpriseOrganization | None:
+    def get_organization(
+        self, organization_id: str = "", name: str = ""
+    ) -> EnterpriseOrganization | None:
         for org in self.organizations:
             if organization_id and org.organization_id == organization_id:
                 return org
@@ -98,7 +107,7 @@ class AletheusEnterpriseCore:
                 return org
         return None
 
-    def list_organizations(self) -> List[Dict[str, Any]]:
+    def list_organizations(self) -> list[dict[str, Any]]:
         return [org.to_dict() for org in self.organizations]
 
     def create_department(
@@ -106,18 +115,23 @@ class AletheusEnterpriseCore:
         organization_id: str,
         name: str,
         description: str = "",
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         org = self.get_organization(organization_id=organization_id)
         if org is None:
             return {"error": f"Organization not found: {organization_id}"}
 
-        existing = next((department for department in org.departments if department.name == name), None)
+        existing = next(
+            (department for department in org.departments if department.name == name),
+            None,
+        )
         if existing:
             return existing.to_dict()
 
         department = EnterpriseDepartment(name=name, description=description)
         org.departments.append(department)
-        self.audit("system", "department.created", name, "success", department.to_dict())
+        self.audit(
+            "system", "department.created", name, "success", department.to_dict()
+        )
         return department.to_dict()
 
     def create_team(
@@ -126,13 +140,16 @@ class AletheusEnterpriseCore:
         department_id: str,
         name: str,
         description: str = "",
-        members: List[str] | None = None,
-    ) -> Dict[str, Any]:
+        members: list[str] | None = None,
+    ) -> dict[str, Any]:
         org = self.get_organization(organization_id=organization_id)
         if org is None:
             return {"error": f"Organization not found: {organization_id}"}
 
-        department = next((item for item in org.departments if item.department_id == department_id), None)
+        department = next(
+            (item for item in org.departments if item.department_id == department_id),
+            None,
+        )
         if department is None:
             return {"error": f"Department not found: {department_id}"}
 
@@ -147,13 +164,15 @@ class AletheusEnterpriseCore:
         name: str,
         description: str = "",
         scope: str = "enterprise",
-        rules: List[str] | None = None,
-    ) -> Dict[str, Any]:
+        rules: list[str] | None = None,
+    ) -> dict[str, Any]:
         org = self.get_organization(organization_id=organization_id)
         if org is None:
             return {"error": f"Organization not found: {organization_id}"}
 
-        existing = next((policy for policy in org.policies if policy.name == name), None)
+        existing = next(
+            (policy for policy in org.policies if policy.name == name), None
+        )
         if existing:
             return existing.to_dict()
 
@@ -173,15 +192,22 @@ class AletheusEnterpriseCore:
         action: str,
         target: str,
         organization_id: str = "",
-        metadata: Dict[str, Any] | None = None,
-    ) -> Dict[str, Any]:
-        org = self.get_organization(organization_id=organization_id) if organization_id else None
+        metadata: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
+        org = (
+            self.get_organization(organization_id=organization_id)
+            if organization_id
+            else None
+        )
 
         requires_review = False
         if org:
             for policy in org.policies:
                 rules = " ".join(policy.rules).lower()
-                if "founder_approval" in rules and any(word in action.lower() for word in ["purchase", "delete", "external", "execute"]):
+                if "founder_approval" in rules and any(
+                    word in action.lower()
+                    for word in ["purchase", "delete", "external", "execute"]
+                ):
                     requires_review = True
 
         outcome = "requires_founder_review" if requires_review else "approved"
@@ -193,12 +219,16 @@ class AletheusEnterpriseCore:
             "audit": record.to_dict(),
         }
 
-    def audit_history(self) -> List[Dict[str, Any]]:
+    def audit_history(self) -> list[dict[str, Any]]:
         return [record.to_dict() for record in self.audit_records]
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         departments = sum(len(org.departments) for org in self.organizations)
-        teams = sum(len(department.teams) for org in self.organizations for department in org.departments)
+        teams = sum(
+            len(department.teams)
+            for org in self.organizations
+            for department in org.departments
+        )
         policies = sum(len(org.policies) for org in self.organizations)
         applications = sum(len(org.applications) for org in self.organizations)
 
