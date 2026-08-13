@@ -23,3 +23,12 @@ class LifecycleActionPlanner:
         if not authority_ref:
             return decision
         return replace(decision, executable=True, authority_ref=authority_ref)
+
+
+# PASS_3A5J_TX04_PLANNER_HELPER
+def authorize_with_contradiction_guard(*, contradictory_evidence: bool, otherwise_authorized: bool) -> bool:
+    from .authority import contradiction_guard
+    return contradiction_guard(
+        contradictory_evidence=contradictory_evidence,
+        otherwise_authorized=otherwise_authorized,
+    )

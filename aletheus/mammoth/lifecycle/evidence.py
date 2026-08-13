@@ -24,3 +24,25 @@ class LifecycleEvidenceBridge:
     @classmethod
     def digest(cls, decision: LifecycleDecision) -> str:
         return "sha256:" + hashlib.sha256(cls.canonical_payload(decision)).hexdigest()
+
+
+# PASS_3A5J_EV04_EVIDENCE_QUALITY
+from dataclasses import dataclass as _pass3a5j_dataclass
+
+@_pass3a5j_dataclass(frozen=True)
+class EvidenceQualityCharacterization:
+    """Bounded evidence-quality characterization."""
+    confidence: float
+    method: str = "explicit"
+    rationale: str = ""
+
+    def __post_init__(self):
+        if not 0.0 <= float(self.confidence) <= 1.0:
+            raise ValueError("confidence must be bounded to [0.0, 1.0]")
+
+def characterize_evidence_quality(confidence: float, *, method: str = "explicit", rationale: str = "") -> EvidenceQualityCharacterization:
+    return EvidenceQualityCharacterization(
+        confidence=float(confidence),
+        method=method,
+        rationale=rationale,
+    )

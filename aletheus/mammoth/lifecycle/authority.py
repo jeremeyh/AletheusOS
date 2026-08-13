@@ -15,3 +15,11 @@ class DenyByDefaultExecutionAuthority:
         if decision.action is LifecycleAction.RETAIN:
             return "non-mutating-retain"
         return None
+
+
+# PASS_3A5J_TX04_CONTRADICTION_GUARD
+def contradiction_guard(*, contradictory_evidence: bool, otherwise_authorized: bool) -> bool:
+    """Fail-closed THORx authorization guard."""
+    if contradictory_evidence:
+        return False
+    return bool(otherwise_authorized)
