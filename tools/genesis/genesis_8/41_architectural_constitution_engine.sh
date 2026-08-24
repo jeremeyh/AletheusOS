@@ -1,5 +1,84 @@
 #!/bin/bash
 
+# ----------------------------------------------------------------------
+# ALETHEUSOS_CANON_AUTHORITY_GATE_V1
+# Final canon authority gate. Fail closed before existing Genesis work.
+# ----------------------------------------------------------------------
+aletheusos_canon_authority_preflight() {
+  local _aletheusos_repo_root
+  local _aletheusos_authority_dir
+  if ! _aletheusos_repo_root="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel 2>/dev/null)"; then
+    echo "ALETHEUSOS_CANON_AUTHORITY_GATE=FAIL: repository root unavailable" >&2
+    return 86
+  fi
+  _aletheusos_authority_dir="${_aletheusos_repo_root}/docs/ARCHITECTURE/authority"
+  if ! python3 - "${_aletheusos_authority_dir}" <<'ALETHEUSOS_CANON_AUTHORITY_PY'
+import csv, json, sys
+from pathlib import Path
+
+def fail(message):
+    print(f"ALETHEUSOS_CANON_AUTHORITY_GATE=FAIL: {message}", file=sys.stderr)
+    raise SystemExit(86)
+
+if len(sys.argv)!=2: fail('authority directory argument required')
+authority=Path(sys.argv[1])
+build_path=authority/'BUILD-CONSTITUTION-INPUT-FINAL.json'
+state_path=authority/'FINAL-CANON-AUTHORITY-STATE.json'
+graph_path=authority/'FINAL-CANON-AUTHORITY-GRAPH.tsv'
+manifest_path=authority/'receipts/AUTHORITY-RECEIPT-MANIFEST.json'
+receipt_paths={
+ 'GENESIS92_RUNTIME':authority/'receipts/GENESIS92_RUNTIME-AUTHORITY-RECEIPT.md',
+ 'GENESIS92_RELEASE':authority/'receipts/GENESIS92_RELEASE-AUTHORITY-RECEIPT.md',
+ 'PROJECT_LOCAL_TOOLCHAIN':authority/'receipts/PROJECT_LOCAL_TOOLCHAIN-AUTHORITY-RECEIPT.md',
+}
+for path in [build_path,state_path,graph_path,manifest_path,*receipt_paths.values()]:
+    if not path.is_file(): fail(f'required authority artifact missing: {path.name}')
+try:
+    build=json.loads(build_path.read_text(encoding='utf-8'))
+    state=json.loads(state_path.read_text(encoding='utf-8'))
+    manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
+except Exception as exc:
+    fail(f'authority JSON malformed: {exc}')
+resolution=build.get('authority_resolution',{})
+if resolution.get('status')!='FINAL_CANON_ADJUDICATED': fail('authority_resolution.status is not FINAL_CANON_ADJUDICATED')
+if resolution.get('unresolved_count')!=0: fail('authority_resolution.unresolved_count is nonzero')
+if state.get('final_canon_adjudication_performed') is not True: fail('final_canon_adjudication_performed is not true')
+if state.get('unresolved_count')!=0: fail('final authority state unresolved_count is nonzero')
+if state.get('operative_global_architectural_constitution')!='docs/CONSTITUTION.md': fail('operative global architectural constitution is not docs/CONSTITUTION.md')
+protected=build.get('protected_authorities',{})
+required_flags={
+ 'genesis92_runtime_receipt_required':'GENESIS92_RUNTIME',
+ 'genesis92_release_receipt_required':'GENESIS92_RELEASE',
+ 'project_local_toolchain_receipt_required':'PROJECT_LOCAL_TOOLCHAIN',
+}
+for flag,aid in required_flags.items():
+    if protected.get(flag) is not True: fail(f'protected authority requirement false: {flag}')
+    if not receipt_paths[aid].is_file(): fail(f'required receipt missing: {aid}')
+if manifest.get('receipt_count')!=3: fail('reconstructed receipt count is not 3')
+manifest_ids={item.get('authority_id') for item in manifest.get('receipts',[]) if isinstance(item,dict)}
+if manifest_ids!=set(receipt_paths): fail(f'reconstructed receipt authority IDs mismatch: {sorted(manifest_ids)}')
+try:
+    with graph_path.open(encoding='utf-8',newline='') as f: graph=list(csv.DictReader(f,delimiter='\t'))
+except Exception as exc:
+    fail(f'authority graph malformed: {exc}')
+if len(graph)!=27: fail(f'authority graph source count is {len(graph)}, expected 27')
+if any(row.get('final_disposition')=='UNRESOLVED' for row in graph): fail('authority graph contains UNRESOLVED disposition')
+if any(row.get('approval_state')!='USER_APPROVED' for row in graph): fail('authority graph contains source not marked USER_APPROVED')
+print('ALETHEUSOS_CANON_AUTHORITY_GATE=PASS')
+ALETHEUSOS_CANON_AUTHORITY_PY
+  then
+    echo "ALETHEUSOS_CANON_AUTHORITY_GATE=FAIL_CLOSED" >&2
+    return 86
+  fi
+}
+if ! aletheusos_canon_authority_preflight; then
+  exit 86
+fi
+# ----------------------------------------------------------------------
+# END ALETHEUSOS_CANON_AUTHORITY_GATE_V1
+# ----------------------------------------------------------------------
+
+
 set -e
 
 echo "=== Genesis 8.41 Architectural Constitution Engine ==="

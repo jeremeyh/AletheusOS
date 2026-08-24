@@ -1,0 +1,42 @@
+{
+  "provenance": {
+    "history_indexes_used_as_original_authority": false,
+    "original_authority_specs_recovered": false,
+    "receipts_create_new_constitutional_decisions": false,
+    "reconciliation_echoes_used_as_original_authority": false
+  },
+  "receipt_count": 3,
+  "receipts": [
+    {
+      "authority_id": "GENESIS92_RUNTIME",
+      "authority_origin": "PRIOR_EXPLICIT_USER_ADJUDICATION",
+      "canonical_promotion_performed": false,
+      "implementation_evidence_count": 7,
+      "original_source_specification_recovered": false,
+      "receipt_path": "/Users/masterlord6ixth/Desktop/AletheusOS_Canon_Reconciliation_Pass2J_20260823_202718/authority_receipts/GENESIS92_RUNTIME-AUTHORITY-RECEIPT.md",
+      "receipt_sha256": "969542a8b9d6b768418df4bd405d04ed0b316abdb0210a4c8c48f89dd919d4e9",
+      "receipt_type": "RECONSTRUCTED_AUTHORITY_RECEIPT"
+    },
+    {
+      "authority_id": "GENESIS92_RELEASE",
+      "authority_origin": "PRIOR_EXPLICIT_USER_ADJUDICATION",
+      "canonical_promotion_performed": false,
+      "implementation_evidence_count": 0,
+      "original_source_specification_recovered": false,
+      "receipt_path": "/Users/masterlord6ixth/Desktop/AletheusOS_Canon_Reconciliation_Pass2J_20260823_202718/authority_receipts/GENESIS92_RELEASE-AUTHORITY-RECEIPT.md",
+      "receipt_sha256": "b4f03fcde7513eb146874eac65c6e1167e7baa9583bdb2b8b0d1c1ace587ff87",
+      "receipt_type": "RECONSTRUCTED_AUTHORITY_RECEIPT"
+    },
+    {
+      "authority_id": "PROJECT_LOCAL_TOOLCHAIN",
+      "authority_origin": "PRIOR_EXPLICIT_USER_ADJUDICATION",
+      "canonical_promotion_performed": false,
+      "implementation_evidence_count": 9,
+      "original_source_specification_recovered": false,
+      "receipt_path": "/Users/masterlord6ixth/Desktop/AletheusOS_Canon_Reconciliation_Pass2J_20260823_202718/authority_receipts/PROJECT_LOCAL_TOOLCHAIN-AUTHORITY-RECEIPT.md",
+      "receipt_sha256": "cb4b530cbbf99e0a2f865f2eb57773f7f66f04674ff60f2031ffb5042c9f05a5",
+      "receipt_type": "RECONSTRUCTED_AUTHORITY_RECEIPT"
+    }
+  ],
+  "schema": "aletheusos.reconstructed-authority-receipts.pass2j.v1"
+}

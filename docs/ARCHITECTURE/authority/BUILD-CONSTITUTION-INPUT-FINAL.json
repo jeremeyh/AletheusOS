@@ -1,0 +1,30 @@
+{
+  "authority_resolution": {
+    "authority_graph": "analysis/FINAL-CANON-AUTHORITY-GRAPH.tsv",
+    "authority_state": "analysis/FINAL-CANON-AUTHORITY-STATE.json",
+    "operative_global_architectural_constitution": "docs/CONSTITUTION.md",
+    "reconstructed_authority_receipt_manifest": "/Users/masterlord6ixth/Desktop/AletheusOS_Canon_Reconciliation_Pass2J_20260823_202718/analysis/AUTHORITY-RECEIPT-MANIFEST.json",
+    "source_count": 27,
+    "status": "FINAL_CANON_ADJUDICATED",
+    "unresolved_count": 0
+  },
+  "execution_authorizations": {
+    "canonical_promotion": false,
+    "cleanup": false,
+    "f4e_implementation": false,
+    "github_push": false,
+    "merge": false
+  },
+  "fail_closed": false,
+  "protected_authorities": {
+    "current_implementation_authority_preserved": true,
+    "genesis84_visual_ancestry_preserved": true,
+    "genesis86_89_reference_architecture_constraint": "SUBORDINATE_TO_GENESIS92_WHERE_SCOPE_OVERLAPS_OR_CONFLICTS",
+    "genesis92_release_receipt_required": true,
+    "genesis92_runtime_receipt_required": true,
+    "mc84f4d_forward_baseline_preserved": true,
+    "opus_mammoth_touchstone_semantics_preserved": true,
+    "project_local_toolchain_receipt_required": true
+  },
+  "schema": "aletheusos.build-constitution-input.pass2l.v1"
+}

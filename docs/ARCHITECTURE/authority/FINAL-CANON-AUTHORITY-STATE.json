@@ -1,0 +1,60 @@
+{
+  "active_domain_authorities": [
+    "docs/CONSTITUTION.md",
+    "docs/repository/REPOSITORY_CONSTITUTION.md",
+    "ARCHITECTURE.md",
+    "nimble/architecture/NIMBLE_ARCHITECTURE.md"
+  ],
+  "active_supplemental_authorities": [
+    "Genesis-012B-SPAN-Runtime-Integration/ADR-012B.md",
+    "docs/ARCHITECTURE/GENESIS_39_2_1_ADVANCED_METROLOGY_AND_KINETIC_FIELD.md",
+    "docs/ARCHITECTURE/GENESIS_39_LIGHTS_SIGHT_AXIOMUX_CANONICAL_ARCHITECTURE.md",
+    "docs/ARCHITECTURE/decisions/ADR-0004-crk-constitutional-boundary.md",
+    "docs/repository/docs_span_architecture.md",
+    "architecture/genesis_86_89/reference_architecture/REFERENCE_ARCHITECTURE.md",
+    "docs/ARCHITECTURE/README.md",
+    "docs/ARCHITECTURE/library/card_hawk_experience_vocabulary.json",
+    "docs/ARCHITECTURE/library/card_hawk_vocabulary_source.json",
+    "aletheus/constitution/FOUNDERS_VISION.md",
+    "docs/ARCHITECTURE/ARCHITECTURAL_INTEGRITY.md"
+  ],
+  "canonical_promotion_authorized": false,
+  "cleanup_authorized": false,
+  "evidentiary_only_sources": [
+    "Genesis10_Work_Organization/04_reports/guardian/guardian_report.md",
+    "Genesis10_Work_Organization/04_reports/repository/PHASE1_CLEANUP_REPORT.md",
+    "Genesis10_Work_Organization/04_reports/nimble/nimble_ui_foundation_audit.md",
+    "Genesis10_Work_Organization/04_reports/repository/PHASE2_RUNTIME_SPINE_REPAIR.md",
+    "reports/architecture/kinekt/finding-resolution.json",
+    "reports/architecture/kinekt/finding-resolution.md",
+    "reports/repository/PHASE2_RUNTIME_SPINE_REPAIR.md"
+  ],
+  "f4e_implementation_authorized": false,
+  "final_canon_adjudication_performed": true,
+  "final_disposition_counts": {
+    "ACTIVE_DOMAIN_AUTHORITY": 4,
+    "ACTIVE_SUPPLEMENTAL_AUTHORITY": 11,
+    "EVIDENTIARY_ONLY": 7,
+    "HISTORICAL_ONLY": 5
+  },
+  "github_push_authorized": false,
+  "historical_only_sources": [
+    "docs/ARCHITECTURE/ALETHEUS_SPEC_2026_REM_v39_2_3.md",
+    "docs/ARCHITECTURE/GENESIS_ARCHITECTURE_SPEC.md",
+    "docs/specifications/aletheusos_architecture_spec_v1.md",
+    ".aletheus_install_backups/genesis_62_82_before_85_0_0_20260805_080632/RELEASE_NOTES.md",
+    "aletheus/constitution/ARCHITECTURAL_CONSTITUTION.md"
+  ],
+  "merge_authorized": false,
+  "operative_global_architectural_constitution": "docs/CONSTITUTION.md",
+  "reconstructed_authority_receipts": [
+    "GENESIS92_RUNTIME",
+    "GENESIS92_RELEASE",
+    "PROJECT_LOCAL_TOOLCHAIN"
+  ],
+  "schema": "aletheusos.final-canon-authority-state.pass2l.v1",
+  "source_count": 27,
+  "status": "FINAL_CANON_ADJUDICATED_EXTERNAL_RECEIPT",
+  "unresolved_count": 0,
+  "user_approval_recorded": true
+}
