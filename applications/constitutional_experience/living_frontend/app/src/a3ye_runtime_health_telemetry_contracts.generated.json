@@ -1,0 +1,58 @@
+{
+  "allow_is_not_direct_execution": true,
+  "autonomous_action": false,
+  "capabilities": [
+    "health",
+    "telemetry"
+  ],
+  "direct_ungated_subsystem_reach_through": false,
+  "effect": "READ_ONLY",
+  "f4g_fail_closed_gate_authoritative": true,
+  "f4h_state_projection_foundation_required": true,
+  "general_a3ye_command_execution": false,
+  "health_contract": {
+    "adapter_id": "a3ye.runtime-observation.v1",
+    "adapter_version": "v1",
+    "contract_id": "a3ye.health.v1",
+    "contract_version": "1.0.0"
+  },
+  "health_states": [
+    "HEALTHY",
+    "DEGRADED",
+    "UNAVAILABLE",
+    "UNKNOWN"
+  ],
+  "http_endpoint_binding": false,
+  "live_probe_binding": false,
+  "mammoth_binding_implementation_authorized": false,
+  "network_transport_binding": false,
+  "observation_fields": [
+    "observed_at",
+    "observation_source",
+    "health_state",
+    "failure_reason",
+    "telemetry_payload_schema",
+    "telemetry_payload"
+  ],
+  "opus_runtime_binding": "DEFERRED_PENDING_CONCRETE_RUNTIME_CONTRACT",
+  "protected_mc84f4i_visual_change": false,
+  "repository_evidence_is_liveness": false,
+  "rpc_binding": false,
+  "runtime_liveness_established": false,
+  "runtime_producer_authority_paths": [
+    "aletheus/a3ye/runtime_observation.py"
+  ],
+  "schema": "aletheus.a3ye-runtime-observation-foundation.v1",
+  "service_identity": "A3ye",
+  "source_identity": "a3ye.runtime-observation-source.v1",
+  "source_kind": "IN_PROCESS_READ_ONLY_OBSERVATION_SOURCE_FOUNDATION",
+  "telemetry_contract": {
+    "adapter_id": "a3ye.runtime-observation.v1",
+    "adapter_version": "v1",
+    "contract_id": "a3ye.telemetry.v1",
+    "contract_version": "1.0.0"
+  },
+  "test_files_are_runtime_producer_authority": false,
+  "websocket_binding": false,
+  "write_or_mutating_capability": false
+}
