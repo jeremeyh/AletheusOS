@@ -385,3 +385,182 @@ pulseA3yeState('ready');
     value:release, enumerable:false, configurable:false, writable:false
   });
 })();
+
+/* ALETHEUSOS_MC_PLATFORM_READ_MODEL_BRIDGE_V1 */
+(() => {
+  "use strict";
+
+  const RELEASE = "MC-PLATFORM-INTEGRATION-READ-MODEL-V1";
+  const PARENT_RELEASE = "MC84F4I";
+  const F4G_METHOD = "evaluate";
+  const PLATFORM_READ_MODEL = {"a3ye_general_command_execution_authorized":false,"allow_is_not_direct_execution":true,"baseline_commit":"5204ef93c569ea5d200cd9d3c79631500e566c78","capability":"inspect","effect":"READ_ONLY","f4g_gate_required":true,"network_transport_present":false,"opus_runtime_binding":"DEFERRED_PENDING_CONCRETE_RUNTIME_CONTRACT","schema":"aletheusos.mission-control-platform-read-model.v1","services":{"A3ye":{"adapter":{"direct_subsystem_execution":false,"id":"a3ye.repository-read-model.v1","kind":"REPOSITORY_READ_MODEL","network_transport":false,"version":"1.0.0"},"contract":{"adapter_id":"a3ye.repository-read-model.v1","capability":"inspect","effect":"READ_ONLY","id":"a3ye.inspect.v1","surface":"A3ye","version":"1.0.0"},"read_model":{"evidence_count":2,"health_semantics":"TRACKED_IMPLEMENTATION_EVIDENCE_NOT_PROCESS_LIVENESS","implementation_evidence":[{"bytes":862,"clean":true,"path":"aletheus/a3ye/council_bridge/cli.py","sha256":"c58ffcc9ca6e8f6926efc58ce8467fb09d0c4843f8b71c19ad1d6f3ea592211e","tracked":true},{"bytes":804,"clean":true,"path":"aletheus/a3ye/core/cli.py","sha256":"c4b1cc76f408c28cc41b23b90173a9f1cc2c4aed7fb0db89b49ab2347a0e0646","tracked":true}],"status":"AVAILABLE_FOR_INSPECTION"}},"Mammoth":{"adapter":{"direct_subsystem_execution":false,"id":"mammoth.repository-read-model.v1","kind":"REPOSITORY_READ_MODEL","network_transport":false,"version":"1.0.0"},"contract":{"adapter_id":"mammoth.repository-read-model.v1","capability":"inspect","effect":"READ_ONLY","id":"mammoth.inspect.v1","surface":"Mammoth","version":"1.0.0"},"read_model":{"evidence_count":2,"health_semantics":"TRACKED_IMPLEMENTATION_EVIDENCE_NOT_PROCESS_LIVENESS","implementation_evidence":[{"bytes":13748,"clean":true,"path":"aletheus/institutional_civilization/civilization_catalog.py","sha256":"db6d4edf6562427964bc65b2c0720068c087b29a283730002a87bf468889d8ce","tracked":true},{"bytes":18214,"clean":true,"path":"aletheus/institutional_civilization/catalog.py","sha256":"3068c05a3944ebe80c01fda1d3dcb4170698851eb02c203f253edd17ad2524f8","tracked":true}],"status":"AVAILABLE_FOR_INSPECTION"}},"Platform Services":{"adapter":{"direct_subsystem_execution":false,"id":"platform-services.repository-read-model.v1","kind":"REPOSITORY_READ_MODEL","network_transport":false,"version":"1.0.0"},"contract":{"adapter_id":"platform-services.repository-read-model.v1","capability":"inspect","effect":"READ_ONLY","id":"platform-services.inspect.v1","surface":"Platform Services","version":"1.0.0"},"read_model":{"evidence_count":3,"health_semantics":"TRACKED_IMPLEMENTATION_EVIDENCE_NOT_PROCESS_LIVENESS","implementation_evidence":[{"bytes":35903,"clean":true,"path":"aletheus/runtime/core.py","sha256":"7c77c2f43dac57ff5c9c8b8d3203d450315caadc01f89712c3135590db5d094c","tracked":true},{"bytes":628,"clean":true,"path":"aletheus/platform/contracts/service.py","sha256":"75df703ac9f015b81ad75ae22bcd0911d7556dc5c945b144dee3e47d240c9b77","tracked":true},{"bytes":6681,"clean":true,"path":"tools/runtime_backbone.py","sha256":"6d0b62f9b9b44cdf143b04dfb28a7a39eb7562f5a10e3536c0fa606bae68a7f7","tracked":true}],"status":"AVAILABLE_FOR_INSPECTION"}}},"unknown_contract_adapter_or_service_refuses":true,"write_or_mutating_execution_authorized":false};
+
+  const freeze = (value) => {
+    if (!value || typeof value !== "object" || Object.isFrozen(value)) return value;
+    Object.freeze(value);
+    Object.values(value).forEach(freeze);
+    return value;
+  };
+
+  freeze(PLATFORM_READ_MODEL);
+
+  const contracts = freeze(
+    Object.fromEntries(
+      Object.entries(PLATFORM_READ_MODEL.services).map(([surface, service]) => [
+        surface,
+        { ...service.contract },
+      ]),
+    ),
+  );
+
+  const adapters = freeze(
+    Object.fromEntries(
+      Object.entries(PLATFORM_READ_MODEL.services).map(([surface, service]) => [
+        surface,
+        {
+          ...service.adapter,
+          inspect: () =>
+            freeze({
+              surface,
+              capability: "inspect",
+              effect: "READ_ONLY",
+              ...service.read_model,
+            }),
+        },
+      ]),
+    ),
+  );
+
+  let receiptSequence = 0;
+
+  const decisionCode = (value) => {
+    if (value === true) return "ALLOW";
+    if (value === false || value == null) return "REFUSE";
+    if (typeof value === "string") return value.toUpperCase();
+    if (typeof value === "object") {
+      if (value.allowed === true || value.ok === true) return "ALLOW";
+      if (value.allowed === false || value.ok === false) return "REFUSE";
+      for (const key of ["decision", "status", "verdict", "result"]) {
+        if (typeof value[key] === "string") return value[key].toUpperCase();
+      }
+    }
+    return "UNKNOWN";
+  };
+
+  const makeReceipt = (fields) =>
+    freeze({
+      schema: "aletheusos.mission-control-execution-receipt.v1",
+      request_id: `mcpi-${++receiptSequence}`,
+      release: RELEASE,
+      parent_release: PARENT_RELEASE,
+      ...fields,
+    });
+
+  const refuse = (surface, capability, reason, gateEvidence = null) =>
+    makeReceipt({
+      surface,
+      capability,
+      effect: "READ_ONLY",
+      result_status: "REFUSED",
+      reason,
+      gate_evidence: gateEvidence,
+      service_contract: null,
+      adapter: null,
+      evidence: null,
+    });
+
+  const evaluateF4G = (surface, capability) => {
+    const gate = globalThis.AletheusOS_MC84F4G;
+    if (!gate || typeof gate[F4G_METHOD] !== "function") {
+      return { code: "REFUSE", evidence: null, reason: "F4G_GATE_UNAVAILABLE" };
+    }
+
+    let evidence;
+    try {
+      evidence = gate[F4G_METHOD]({ surface, capability });
+    } catch (error) {
+      return {
+        code: "REFUSE",
+        evidence: freeze({
+          error_name: error && error.name ? error.name : "Error",
+          error_message: error && error.message ? error.message : "F4G evaluation failed",
+        }),
+        reason: "F4G_GATE_ERROR",
+      };
+    }
+
+    const code = decisionCode(evidence);
+    return { code, evidence, reason: code === "ALLOW" ? null : "F4G_NOT_ALLOW" };
+  };
+
+  const execute = (request = {}) => {
+    const surface = typeof request.surface === "string" ? request.surface.trim() : "";
+    const capability = typeof request.capability === "string" ? request.capability.trim() : "";
+
+    if (!surface || !capability) return refuse(surface, capability, "INVALID_REQUEST");
+
+    const gate = evaluateF4G(surface, capability);
+    if (gate.code !== "ALLOW") {
+      return refuse(surface, capability, gate.reason || "F4G_NOT_ALLOW", gate.evidence);
+    }
+
+    const contract = contracts[surface];
+    if (!contract) return refuse(surface, capability, "SERVICE_CONTRACT_NOT_FOUND", gate.evidence);
+    if (contract.capability !== capability) {
+      return refuse(surface, capability, "CAPABILITY_NOT_DECLARED_BY_CONTRACT", gate.evidence);
+    }
+    if (contract.effect !== "READ_ONLY") {
+      return refuse(surface, capability, "MUTATING_EFFECT_NOT_AUTHORIZED", gate.evidence);
+    }
+
+    const adapter = adapters[surface];
+    if (!adapter || adapter.id !== contract.adapter_id) {
+      return refuse(surface, capability, "AUTHORIZED_ADAPTER_NOT_FOUND", gate.evidence);
+    }
+    if (capability !== "inspect" || typeof adapter.inspect !== "function") {
+      return refuse(surface, capability, "BOUNDED_EXECUTOR_DOES_NOT_SUPPORT_CAPABILITY", gate.evidence);
+    }
+
+    return makeReceipt({
+      surface,
+      capability,
+      effect: "READ_ONLY",
+      result_status: "OK",
+      reason: null,
+      gate_evidence: gate.evidence,
+      service_contract: freeze({ id: contract.id, version: contract.version }),
+      adapter: freeze({ id: adapter.id, version: adapter.version, kind: adapter.kind }),
+      evidence: adapter.inspect(),
+    });
+  };
+
+  const inspect = (surface) => execute({ surface, capability: "inspect" });
+
+  const snapshot = () =>
+    freeze({
+      release: RELEASE,
+      parent_release: PARENT_RELEASE,
+      architecture: "CONSTITUTIONAL_PLATFORM_EXECUTION_BRIDGE",
+      tranche: "CONSTITUTIONAL_PLATFORM_READ_MODEL_BRIDGE",
+      initial_capability: "inspect",
+      initial_effect: "READ_ONLY",
+      f4g_gate_required: true,
+      allow_is_not_direct_execution: true,
+      network_transport_present: false,
+      write_or_mutating_capabilities_authorized: false,
+      a3ye_general_command_execution_authorized: false,
+      opus_runtime_binding: "DEFERRED_PENDING_CONCRETE_RUNTIME_CONTRACT",
+      services: Object.keys(PLATFORM_READ_MODEL.services),
+      baseline_commit: PLATFORM_READ_MODEL.baseline_commit,
+    });
+
+  globalThis.AletheusOS_MC_PLATFORM_INTEGRATION = freeze({
+    release: RELEASE,
+    architecture: "CONSTITUTIONAL_PLATFORM_EXECUTION_BRIDGE",
+    tranche: "CONSTITUTIONAL_PLATFORM_READ_MODEL_BRIDGE",
+    contracts,
+    execute,
+    inspect,
+    snapshot,
+  });
+})();

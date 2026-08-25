@@ -1,0 +1,136 @@
+{
+  "a3ye_general_command_execution_authorized": false,
+  "allow_is_not_direct_execution": true,
+  "baseline_commit": "5204ef93c569ea5d200cd9d3c79631500e566c78",
+  "capability": "inspect",
+  "effect": "READ_ONLY",
+  "f4g_gate_required": true,
+  "network_transport_present": false,
+  "opus_runtime_binding": "DEFERRED_PENDING_CONCRETE_RUNTIME_CONTRACT",
+  "schema": "aletheusos.mission-control-platform-read-model.v1",
+  "services": {
+    "A3ye": {
+      "adapter": {
+        "direct_subsystem_execution": false,
+        "id": "a3ye.repository-read-model.v1",
+        "kind": "REPOSITORY_READ_MODEL",
+        "network_transport": false,
+        "version": "1.0.0"
+      },
+      "contract": {
+        "adapter_id": "a3ye.repository-read-model.v1",
+        "capability": "inspect",
+        "effect": "READ_ONLY",
+        "id": "a3ye.inspect.v1",
+        "surface": "A3ye",
+        "version": "1.0.0"
+      },
+      "read_model": {
+        "evidence_count": 2,
+        "health_semantics": "TRACKED_IMPLEMENTATION_EVIDENCE_NOT_PROCESS_LIVENESS",
+        "implementation_evidence": [
+          {
+            "bytes": 862,
+            "clean": true,
+            "path": "aletheus/a3ye/council_bridge/cli.py",
+            "sha256": "c58ffcc9ca6e8f6926efc58ce8467fb09d0c4843f8b71c19ad1d6f3ea592211e",
+            "tracked": true
+          },
+          {
+            "bytes": 804,
+            "clean": true,
+            "path": "aletheus/a3ye/core/cli.py",
+            "sha256": "c4b1cc76f408c28cc41b23b90173a9f1cc2c4aed7fb0db89b49ab2347a0e0646",
+            "tracked": true
+          }
+        ],
+        "status": "AVAILABLE_FOR_INSPECTION"
+      }
+    },
+    "Mammoth": {
+      "adapter": {
+        "direct_subsystem_execution": false,
+        "id": "mammoth.repository-read-model.v1",
+        "kind": "REPOSITORY_READ_MODEL",
+        "network_transport": false,
+        "version": "1.0.0"
+      },
+      "contract": {
+        "adapter_id": "mammoth.repository-read-model.v1",
+        "capability": "inspect",
+        "effect": "READ_ONLY",
+        "id": "mammoth.inspect.v1",
+        "surface": "Mammoth",
+        "version": "1.0.0"
+      },
+      "read_model": {
+        "evidence_count": 2,
+        "health_semantics": "TRACKED_IMPLEMENTATION_EVIDENCE_NOT_PROCESS_LIVENESS",
+        "implementation_evidence": [
+          {
+            "bytes": 13748,
+            "clean": true,
+            "path": "aletheus/institutional_civilization/civilization_catalog.py",
+            "sha256": "db6d4edf6562427964bc65b2c0720068c087b29a283730002a87bf468889d8ce",
+            "tracked": true
+          },
+          {
+            "bytes": 18214,
+            "clean": true,
+            "path": "aletheus/institutional_civilization/catalog.py",
+            "sha256": "3068c05a3944ebe80c01fda1d3dcb4170698851eb02c203f253edd17ad2524f8",
+            "tracked": true
+          }
+        ],
+        "status": "AVAILABLE_FOR_INSPECTION"
+      }
+    },
+    "Platform Services": {
+      "adapter": {
+        "direct_subsystem_execution": false,
+        "id": "platform-services.repository-read-model.v1",
+        "kind": "REPOSITORY_READ_MODEL",
+        "network_transport": false,
+        "version": "1.0.0"
+      },
+      "contract": {
+        "adapter_id": "platform-services.repository-read-model.v1",
+        "capability": "inspect",
+        "effect": "READ_ONLY",
+        "id": "platform-services.inspect.v1",
+        "surface": "Platform Services",
+        "version": "1.0.0"
+      },
+      "read_model": {
+        "evidence_count": 3,
+        "health_semantics": "TRACKED_IMPLEMENTATION_EVIDENCE_NOT_PROCESS_LIVENESS",
+        "implementation_evidence": [
+          {
+            "bytes": 35903,
+            "clean": true,
+            "path": "aletheus/runtime/core.py",
+            "sha256": "7c77c2f43dac57ff5c9c8b8d3203d450315caadc01f89712c3135590db5d094c",
+            "tracked": true
+          },
+          {
+            "bytes": 628,
+            "clean": true,
+            "path": "aletheus/platform/contracts/service.py",
+            "sha256": "75df703ac9f015b81ad75ae22bcd0911d7556dc5c945b144dee3e47d240c9b77",
+            "tracked": true
+          },
+          {
+            "bytes": 6681,
+            "clean": true,
+            "path": "tools/runtime_backbone.py",
+            "sha256": "6d0b62f9b9b44cdf143b04dfb28a7a39eb7562f5a10e3536c0fa606bae68a7f7",
+            "tracked": true
+          }
+        ],
+        "status": "AVAILABLE_FOR_INSPECTION"
+      }
+    }
+  },
+  "unknown_contract_adapter_or_service_refuses": true,
+  "write_or_mutating_execution_authorized": false
+}
