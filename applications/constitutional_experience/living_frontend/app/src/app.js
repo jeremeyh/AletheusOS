@@ -291,3 +291,43 @@ pulseA3yeState('ready');
     value: release, enumerable: false, configurable: false, writable: false
   });
 })();
+
+/* ALETHEUSOS_MC84F4H_RUNTIME_DOCK_COORDINATOR_V1
+ * Pure runtime/dock state semantics over F4G interaction decisions.
+ * No protected visual mutation is performed.
+ */
+;(() => {
+  const parent = globalThis.AletheusOS_MC84F4G;
+  const states = Object.freeze(["idle","focused","engaged","degraded"]);
+  const normalizeHealth = health => Object.freeze({
+    parentRuntimePresent: Boolean(health?.parentRuntimePresent ?? true),
+    snapshotAvailable: Boolean(health?.snapshotAvailable ?? true),
+    protectedSurfaceCount: Number(health?.protectedSurfaceCount ?? 0)
+  });
+  const deriveState = ({ decision, health } = {}) => {
+    const h = normalizeHealth(health);
+    if (!h.parentRuntimePresent || !h.snapshotAvailable) return "degraded";
+    if (decision?.decision === "ALLOW" && decision?.capability === "open") return "engaged";
+    if (decision?.decision === "ALLOW") return "focused";
+    return "idle";
+  };
+  const transition = input => Object.freeze({
+    state: deriveState(input),
+    previousState: states.includes(input?.previousState) ? input.previousState : "idle",
+    parentRelease: parent?.release ?? null
+  });
+  const release = Object.freeze({
+    release: "MC84F4H",
+    parentRelease: "MC84F4G",
+    architecture: "RUNTIME_DOCK_STATE_COORDINATOR",
+    canonicalSurface: "Mission Control",
+    visualParent: "MC84F4D",
+    visualAncestor: "Genesis84",
+    states,
+    deriveState,
+    transition
+  });
+  Object.defineProperty(globalThis, "AletheusOS_MC84F4H", {
+    value: release, enumerable: false, configurable: false, writable: false
+  });
+})();
