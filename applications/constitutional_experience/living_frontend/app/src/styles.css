@@ -563,3 +563,11 @@
   --aletheusos-mc-forward-release-metadata: "MC84F4H";
   --aletheusos-mc-forward-architecture-f4h-metadata: "RUNTIME_DOCK_STATE_COORDINATOR";
 }
+
+/* ALETHEUSOS_MC84F4I_VISUAL_METADATA_V1
+ * Metadata only. Protected visual selectors remain unchanged.
+ */
+:root {
+  --aletheusos-mc-forward-release-metadata: "MC84F4I";
+  --aletheusos-mc-forward-architecture-f4i-metadata: "ACCESSIBILITY_RESPONSIVE_INTERACTION_HARDENING";
+}

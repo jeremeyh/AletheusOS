@@ -331,3 +331,57 @@ pulseA3yeState('ready');
     value: release, enumerable: false, configurable: false, writable: false
   });
 })();
+
+/* ALETHEUSOS_MC84F4I_ACCESSIBILITY_RESPONSIVE_HARDENING_V1
+ * Final interaction hardening contract: audit and classify, never silently mutate.
+ */
+;(() => {
+  const parent = globalThis.AletheusOS_MC84F4H;
+  const classifyViewport = width => {
+    const value = Number(width);
+    if (!Number.isFinite(value) || value <= 0) return "unknown";
+    if (value < 720) return "compact";
+    if (value < 1200) return "standard";
+    return "expanded";
+  };
+  const isActivationKey = key => key === "Enter" || key === " ";
+  const accessibleName = node => String(
+    node?.getAttribute?.("aria-label") ||
+    node?.getAttribute?.("title") ||
+    node?.textContent ||
+    ""
+  ).replace(/\s+/g," ").trim();
+  const auditAccessibility = root => {
+    const target = root || (typeof document !== "undefined" ? document : null);
+    if (!target || typeof target.querySelectorAll !== "function") {
+      return Object.freeze({ environment:"non-dom", checked:0, violations:Object.freeze([]) });
+    }
+    const nodes = Array.from(target.querySelectorAll('button,a,[role="button"],input,select,textarea'));
+    const violations=[];
+    for (const node of nodes) {
+      const tag=String(node.tagName || "").toLowerCase();
+      const type=String(node.getAttribute?.("type") || "").toLowerCase();
+      const exempt=tag==="input" && type==="hidden";
+      if (!exempt && !accessibleName(node)) violations.push("missing-accessible-name");
+    }
+    return Object.freeze({
+      environment:"dom",
+      checked:nodes.length,
+      violations:Object.freeze(violations)
+    });
+  };
+  const release = Object.freeze({
+    release:"MC84F4I",
+    parentRelease:"MC84F4H",
+    architecture:"ACCESSIBILITY_RESPONSIVE_INTERACTION_HARDENING",
+    canonicalSurface:"Mission Control",
+    visualParent:"MC84F4D",
+    visualAncestor:"Genesis84",
+    classifyViewport,
+    isActivationKey,
+    auditAccessibility
+  });
+  Object.defineProperty(globalThis,"AletheusOS_MC84F4I",{
+    value:release, enumerable:false, configurable:false, writable:false
+  });
+})();
