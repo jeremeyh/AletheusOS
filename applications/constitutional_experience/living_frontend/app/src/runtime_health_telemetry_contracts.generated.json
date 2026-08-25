@@ -1,0 +1,169 @@
+{
+  "a3ye_general_command_execution_authorized": false,
+  "accepted_platform_integration_baseline": "22a5fc205caaa67592fe762c0e6ec8f4f26b32c2",
+  "accepted_platform_read_model": {
+    "path": "applications/constitutional_experience/living_frontend/app/src/platform_read_model.generated.json",
+    "sha256": "b5dec2c9dc1c78a3fd9b0a885dca4830a7643d7a15db86a13ec29c41437915c2"
+  },
+  "allow_is_not_direct_execution": true,
+  "autonomous_action_authorized": false,
+  "capabilities": [
+    "health",
+    "telemetry"
+  ],
+  "effect": "READ_ONLY",
+  "f4g_fail_closed_gate_authoritative": true,
+  "f4h_projection": {
+    "healthy_preserves_activity_states": [
+      "idle",
+      "focused",
+      "engaged"
+    ],
+    "invalid_activity_projects": "degraded",
+    "non_healthy_projects": "degraded",
+    "projected_states": [
+      "idle",
+      "focused",
+      "engaged",
+      "degraded"
+    ],
+    "visual_restyle_required": false
+  },
+  "fail_closed_rules": [
+    "unknown service refuses",
+    "unknown capability refuses",
+    "unknown contract refuses",
+    "unknown adapter refuses",
+    "missing or invalid observation timestamp refuses",
+    "missing or invalid observation source refuses",
+    "invalid health state refuses",
+    "missing telemetry payload schema refuses",
+    "invalid telemetry payload refuses",
+    "refused observations never report HEALTHY"
+  ],
+  "health_states": [
+    "HEALTHY",
+    "DEGRADED",
+    "UNAVAILABLE",
+    "UNKNOWN"
+  ],
+  "http_endpoint_binding_authorized": false,
+  "inherited_read_model_baseline": "5204ef93c569ea5d200cd9d3c79631500e566c78",
+  "live_probe_binding_authorized": false,
+  "network_transport_implementation_authorized": false,
+  "opus_runtime_binding": "DEFERRED_PENDING_CONCRETE_RUNTIME_CONTRACT",
+  "protected_mc84f4i_visual_restyle_authorized": false,
+  "receipt_schemas": {
+    "health": {
+      "receipt_schema": "aletheus.runtime-health-receipt.v1",
+      "receipt_schema_version": "1.0.0",
+      "required_fields": [
+        "service",
+        "contract_id",
+        "contract_version",
+        "adapter_id",
+        "observed_at",
+        "observation_source",
+        "health_state",
+        "failure_reason",
+        "receipt_schema",
+        "receipt_schema_version"
+      ]
+    },
+    "telemetry": {
+      "receipt_schema": "aletheus.runtime-telemetry-receipt.v1",
+      "receipt_schema_version": "1.0.0",
+      "required_fields": [
+        "service",
+        "contract_id",
+        "contract_version",
+        "adapter_id",
+        "observed_at",
+        "observation_source",
+        "health_state",
+        "telemetry_payload_schema",
+        "telemetry_payload",
+        "failure_reason",
+        "receipt_schema",
+        "receipt_schema_version"
+      ]
+    }
+  },
+  "rpc_binding_authorized": false,
+  "schema": "aletheus.runtime-health-telemetry-contract-foundation.v1",
+  "service_adapter_registry": {
+    "A3ye": {
+      "adapter_id": "a3ye.runtime-observation.v1",
+      "direct_subsystem_execution": false,
+      "kind": "RUNTIME_OBSERVATION_FOUNDATION",
+      "live_binding_present": false,
+      "network_transport_present": false
+    },
+    "Mammoth": {
+      "adapter_id": "mammoth.runtime-observation.v1",
+      "direct_subsystem_execution": false,
+      "kind": "RUNTIME_OBSERVATION_FOUNDATION",
+      "live_binding_present": false,
+      "network_transport_present": false
+    },
+    "Platform Services": {
+      "adapter_id": "platform-services.runtime-observation.v1",
+      "direct_subsystem_execution": false,
+      "kind": "RUNTIME_OBSERVATION_FOUNDATION",
+      "live_binding_present": false,
+      "network_transport_present": false
+    }
+  },
+  "service_contract_registry": {
+    "A3ye": {
+      "health": {
+        "contract_id": "a3ye.health.v1",
+        "contract_version": "1.0.0",
+        "direct_execution": false,
+        "effect": "READ_ONLY",
+        "f4g_required": true
+      },
+      "telemetry": {
+        "contract_id": "a3ye.telemetry.v1",
+        "contract_version": "1.0.0",
+        "direct_execution": false,
+        "effect": "READ_ONLY",
+        "f4g_required": true
+      }
+    },
+    "Mammoth": {
+      "health": {
+        "contract_id": "mammoth.health.v1",
+        "contract_version": "1.0.0",
+        "direct_execution": false,
+        "effect": "READ_ONLY",
+        "f4g_required": true
+      },
+      "telemetry": {
+        "contract_id": "mammoth.telemetry.v1",
+        "contract_version": "1.0.0",
+        "direct_execution": false,
+        "effect": "READ_ONLY",
+        "f4g_required": true
+      }
+    },
+    "Platform Services": {
+      "health": {
+        "contract_id": "platform-services.health.v1",
+        "contract_version": "1.0.0",
+        "direct_execution": false,
+        "effect": "READ_ONLY",
+        "f4g_required": true
+      },
+      "telemetry": {
+        "contract_id": "platform-services.telemetry.v1",
+        "contract_version": "1.0.0",
+        "direct_execution": false,
+        "effect": "READ_ONLY",
+        "f4g_required": true
+      }
+    }
+  },
+  "websocket_binding_authorized": false,
+  "write_or_mutating_capabilities_authorized": false
+}
