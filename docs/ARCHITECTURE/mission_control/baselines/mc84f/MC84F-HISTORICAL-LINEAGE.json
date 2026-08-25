@@ -1,0 +1,73 @@
+{
+  "F4F": "fc0cf518707ab0a4dd610723b382ac2e43bc7ae4",
+  "F4G": "35d1d943058cd0aa313e4076814c604bc4de429f",
+  "F4H": "75db256525c71271be126fb16ece411aec057641",
+  "F4I": "98a63e222d67c60d95f7d6c2ba53681e550dd314",
+  "baseline_designation": "MC84F4I",
+  "baseline_designation_commit": "98a63e222d67c60d95f7d6c2ba53681e550dd314",
+  "historical_status": "COMPLETED_ACCEPTED_LINEAGE",
+  "release_commits": [
+    {
+      "commit": "35d1d943058cd0aa313e4076814c604bc4de429f",
+      "message": "feat: advance Mission Control to MC84F4G",
+      "parent": "fc0cf518707ab0a4dd610723b382ac2e43bc7ae4",
+      "release": "F4G",
+      "scope": [
+        {
+          "path": "applications/constitutional_experience/living_frontend/app/index.html",
+          "status": "M"
+        },
+        {
+          "path": "applications/constitutional_experience/living_frontend/app/src/app.js",
+          "status": "M"
+        },
+        {
+          "path": "applications/constitutional_experience/living_frontend/app/src/styles.css",
+          "status": "M"
+        }
+      ]
+    },
+    {
+      "commit": "75db256525c71271be126fb16ece411aec057641",
+      "message": "feat: advance Mission Control to MC84F4H",
+      "parent": "35d1d943058cd0aa313e4076814c604bc4de429f",
+      "release": "F4H",
+      "scope": [
+        {
+          "path": "applications/constitutional_experience/living_frontend/app/index.html",
+          "status": "M"
+        },
+        {
+          "path": "applications/constitutional_experience/living_frontend/app/src/app.js",
+          "status": "M"
+        },
+        {
+          "path": "applications/constitutional_experience/living_frontend/app/src/styles.css",
+          "status": "M"
+        }
+      ]
+    },
+    {
+      "commit": "98a63e222d67c60d95f7d6c2ba53681e550dd314",
+      "message": "feat: advance Mission Control to MC84F4I",
+      "parent": "75db256525c71271be126fb16ece411aec057641",
+      "release": "F4I",
+      "scope": [
+        {
+          "path": "applications/constitutional_experience/living_frontend/app/index.html",
+          "status": "M"
+        },
+        {
+          "path": "applications/constitutional_experience/living_frontend/app/src/app.js",
+          "status": "M"
+        },
+        {
+          "path": "applications/constitutional_experience/living_frontend/app/src/styles.css",
+          "status": "M"
+        }
+      ]
+    }
+  ],
+  "schema": "aletheusos.mc84f-published-lineage.v1",
+  "strict_sequential_lineage": true
+}

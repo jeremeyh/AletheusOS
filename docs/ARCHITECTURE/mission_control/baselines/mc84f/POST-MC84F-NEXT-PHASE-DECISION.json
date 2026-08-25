@@ -1,0 +1,48 @@
+{
+  "baseline": "MC84F4I",
+  "baseline_commit": "98a63e222d67c60d95f7d6c2ba53681e550dd314",
+  "candidate_matrix": [
+    {
+      "id": "MISSION_CONTROL_PLATFORM_INTEGRATION_PHASE",
+      "reasons": [
+        "fail-closed interaction contract is already present",
+        "runtime state coordination is already present",
+        "capability evaluation exists without real capability execution",
+        "network/service integration remains intentionally absent"
+      ],
+      "scope": "bind approved capabilities to real Platform Services behind the existing fail-closed F4G contract",
+      "score": 18
+    },
+    {
+      "id": "A3YE_COMMAND_PLANE_INTEGRATION_PHASE",
+      "reasons": [
+        "intent/capability evaluation can constrain command-plane requests",
+        "A3ye has no real bounded command execution bridge yet"
+      ],
+      "scope": "bind A3ye requests to the constitutional capability contract",
+      "score": 7
+    },
+    {
+      "id": "WORKSPACE_STUDIO_ACTIVATION_PHASE",
+      "reasons": [
+        "canonical surface registry exists",
+        "surface activation remains semantic rather than executable"
+      ],
+      "scope": "activate Workspace Studio as the first functional downstream surface",
+      "score": 6
+    },
+    {
+      "id": "MISSION_CONTROL_REACTIVE_RUNTIME_PHASE",
+      "reasons": [
+        "interaction hardening baseline is complete",
+        "live reactive observation/subscription remains absent"
+      ],
+      "scope": "introduce bounded subscriptions/observers without backend execution",
+      "score": 5
+    }
+  ],
+  "decision_status": "RECOMMENDED_PENDING_EXPLICIT_AUTHORIZATION",
+  "implementation_authorized": false,
+  "recommended_next_phase": "MISSION_CONTROL_PLATFORM_INTEGRATION_PHASE",
+  "schema": "aletheusos.post-mc84f-transition-decision.v1"
+}
