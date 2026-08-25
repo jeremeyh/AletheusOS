@@ -236,3 +236,58 @@ pulseA3yeState('ready');
     }
   }
 })();
+
+/* ALETHEUSOS_MC84F4G_INTERACTION_BRIDGE_V1
+ * Constitutional intent/capability evaluation layer.
+ * Fail closed. No network, storage, backend, navigation, or privileged side effects.
+ */
+;(() => {
+  const parent = globalThis.AletheusOS_MC84F4F;
+  const capabilities = Object.freeze({
+    "Mission Control": Object.freeze(["inspect","focus"]),
+    "Workspace Studio": Object.freeze(["inspect","open"]),
+    "Builder Studio": Object.freeze(["inspect","open"]),
+    "Admin Terminal": Object.freeze(["inspect"]),
+    "Platform Services": Object.freeze(["inspect"]),
+    "Analytics Studio": Object.freeze(["inspect","open"]),
+    "Opus": Object.freeze(["inspect","open"]),
+    "Mammoth": Object.freeze(["inspect"]),
+    "Founder": Object.freeze(["inspect"]),
+    "A3ye": Object.freeze(["inspect","focus"])
+  });
+  const normalizeIntent = intent => Object.freeze({
+    id: String(intent?.id ?? ""),
+    surface: String(intent?.surface ?? ""),
+    capability: String(intent?.capability ?? ""),
+    payload: intent?.payload ?? null
+  });
+  const evaluate = intent => {
+    const normalized = normalizeIntent(intent);
+    const allowedCapabilities = capabilities[normalized.surface] || [];
+    const allowed = Boolean(
+      normalized.surface &&
+      normalized.capability &&
+      allowedCapabilities.includes(normalized.capability)
+    );
+    return Object.freeze({
+      ...normalized,
+      allowed,
+      decision: allowed ? "ALLOW" : "REFUSE",
+      parentRelease: parent?.release ?? null
+    });
+  };
+  const release = Object.freeze({
+    release: "MC84F4G",
+    parentRelease: "MC84F4F",
+    architecture: "CONSTITUTIONAL_INTERACTION_CAPABILITY_BRIDGE",
+    canonicalSurface: "Mission Control",
+    visualParent: "MC84F4D",
+    visualAncestor: "Genesis84",
+    canonHead: "fc0cf518707ab0a4dd610723b382ac2e43bc7ae4",
+    capabilities,
+    evaluate
+  });
+  Object.defineProperty(globalThis, "AletheusOS_MC84F4G", {
+    value: release, enumerable: false, configurable: false, writable: false
+  });
+})();

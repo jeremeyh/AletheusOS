@@ -547,3 +547,11 @@
   --aletheusos-mc-forward-release-metadata: "MC84F4F";
   --aletheusos-mc-forward-parent-metadata: "MC84F4E";
 }
+
+/* ALETHEUSOS_MC84F4G_VISUAL_METADATA_V1
+ * Metadata only. Protected visual selectors remain unchanged.
+ */
+:root {
+  --aletheusos-mc-forward-release-metadata: "MC84F4G";
+  --aletheusos-mc-forward-architecture-f4g-metadata: "CONSTITUTIONAL_INTERACTION_CAPABILITY_BRIDGE";
+}
