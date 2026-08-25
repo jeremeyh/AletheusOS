@@ -115,3 +115,124 @@ pulseA3yeState('ready');
     writable: false
   });
 })();
+
+/* ALETHEUSOS_MC84F4F_RUNTIME_V1
+ * Forward runtime evolution on published MC84F4E.
+ * This layer adds constitutional surface observability and lineage introspection
+ * without replacing or restyling the protected Mission Control UI.
+ */
+;(() => {
+  const parent = globalThis.AletheusOS_MC84F4E;
+
+  const canonicalSurfaces = Object.freeze([
+    "Mission Control",
+    "Workspace Studio",
+    "Builder Studio",
+    "Admin Terminal",
+    "Platform Services",
+    "Analytics Studio",
+    "Opus",
+    "Mammoth",
+    "Founder",
+    "A3ye"
+  ]);
+
+  const protectedSurfaces = Object.freeze([
+    "outer shell",
+    "top bar",
+    "left navigation",
+    "navigation geometry",
+    "A3ye visual/lens/command plane",
+    "search",
+    "bottom dock and dock states",
+    "runtime strip",
+    "Living Intelligence Field",
+    "global material/background grammar"
+  ]);
+
+  const normalize = value => String(value ?? "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+
+  const surfaceHints = Object.freeze({
+    "Mission Control": Object.freeze(["mission control", "mission-control"]),
+    "Workspace Studio": Object.freeze(["workspace studio", "workspace"]),
+    "Builder Studio": Object.freeze(["builder studio", "builder"]),
+    "Admin Terminal": Object.freeze(["admin terminal", "admin"]),
+    "Platform Services": Object.freeze(["platform services", "services"]),
+    "Analytics Studio": Object.freeze(["analytics studio", "analytics"]),
+    "Opus": Object.freeze(["opus"]),
+    "Mammoth": Object.freeze(["mammoth"]),
+    "A3ye": Object.freeze(["a3ye", "a3ye", "3ye"])
+  });
+
+  const collectSurfaceSnapshot = () => {
+    if (typeof document === "undefined" || typeof document.querySelectorAll !== "function") {
+      return Object.freeze({
+        environment: "non-dom",
+        detected: Object.freeze([]),
+        canonicalCount: canonicalSurfaces.length,
+        protectedCount: protectedSurfaces.length
+      });
+    }
+
+    const nodes = Array.from(document.querySelectorAll(
+      '[aria-label],[title],[data-surface],button,a,[role="button"],nav,input,[placeholder]'
+    ));
+
+    const corpus = nodes.map(node => normalize([
+      node.textContent,
+      node.getAttribute?.("aria-label"),
+      node.getAttribute?.("title"),
+      node.getAttribute?.("data-surface"),
+      node.getAttribute?.("placeholder")
+    ].filter(Boolean).join(" "))).filter(Boolean);
+
+    const detected = canonicalSurfaces.filter(surface => {
+      const hints = surfaceHints[surface] || [normalize(surface)];
+      return hints.some(hint => corpus.some(text => text.includes(normalize(hint))));
+    });
+
+    return Object.freeze({
+      environment: "dom",
+      detected: Object.freeze(detected),
+      canonicalCount: canonicalSurfaces.length,
+      protectedCount: protectedSurfaces.length
+    });
+  };
+
+  const release = Object.freeze({
+    release: "MC84F4F",
+    parentRelease: "MC84F4E",
+    canonicalSurface: "Mission Control",
+    implementationMode: "forward-runtime-surface-registry",
+    visualParent: "MC84F4D",
+    visualAncestor: "Genesis84",
+    canonHead: "dad8d7c17e152703687826b008a9a6a8ba0c1e87",
+    canonicalSurfaces,
+    protectedSurfaces,
+    parentRuntimePresent: Boolean(parent),
+    snapshot: collectSurfaceSnapshot
+  });
+
+  Object.defineProperty(globalThis, "AletheusOS_MC84F4F", {
+    value: release,
+    enumerable: false,
+    configurable: false,
+    writable: false
+  });
+
+  if (typeof document !== "undefined") {
+    if (document.documentElement?.dataset) {
+      document.documentElement.dataset.aletheusosMcRelease = "MC84F4F";
+      document.documentElement.dataset.aletheusosMcParent = "MC84F4E";
+    }
+
+    if (typeof document.dispatchEvent === "function" && typeof CustomEvent === "function") {
+      document.dispatchEvent(new CustomEvent("aletheusos:mc84f4f-ready", {
+        detail: release.snapshot()
+      }));
+    }
+  }
+})();

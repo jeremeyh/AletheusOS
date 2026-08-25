@@ -539,3 +539,11 @@
 :root {
   --aletheusos-mc-release-metadata: "MC84F4E";
 }
+
+/* ALETHEUSOS_MC84F4F_VISUAL_METADATA_V1
+ * Metadata-only forward release marker. No protected visual selector is changed.
+ */
+:root {
+  --aletheusos-mc-forward-release-metadata: "MC84F4F";
+  --aletheusos-mc-forward-parent-metadata: "MC84F4E";
+}
