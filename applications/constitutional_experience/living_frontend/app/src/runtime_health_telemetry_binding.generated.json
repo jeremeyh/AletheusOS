@@ -1,0 +1,84 @@
+{
+  "a3ye": {
+    "runtime_producer_authority_path": "aletheus/a3ye/runtime_observation.py",
+    "source_class": "A3yeRuntimeObservationSource"
+  },
+  "actual_process_liveness_established": false,
+  "architecture": "CONSTITUTIONAL_PLATFORM_EXECUTION_BRIDGE",
+  "autonomous_action": false,
+  "backup_files_are_runtime_producer_authority": false,
+  "binding_mode": "IN_PROCESS_ONLY",
+  "binding_receipt_schema": "aletheus.mission-control-runtime-health-telemetry-binding-receipt.v1",
+  "capabilities": [
+    "health",
+    "telemetry"
+  ],
+  "direct_ungated_subsystem_reach_through": false,
+  "documentation_is_runtime_producer_authority": false,
+  "effect": "READ_ONLY",
+  "f4g_handoff": {
+    "allow_is_not_direct_execution": true,
+    "required_before_observation": true,
+    "schema": "aletheus.f4g-binding-authorization.v1",
+    "source": "CONSTITUTIONAL_INTERACTION_CAPABILITY_BRIDGE"
+  },
+  "f4h_projection": {
+    "non_healthy_projects_degraded": true,
+    "required": true
+  },
+  "fixture_files_are_runtime_producer_authority": false,
+  "generalized_a3ye_command_execution": false,
+  "generalized_mammoth_command_execution": false,
+  "http_endpoint": false,
+  "live_binding_performed": false,
+  "mammoth": {
+    "runtime_producer_authority_path": "aletheus/mammoth/runtime_observation.py",
+    "source_class": "MammothRuntimeObservationSource"
+  },
+  "network_transport": false,
+  "opus_runtime_binding": false,
+  "platform_services": {
+    "health_authorities": [
+      "aletheus.platform.application_runtime.ApplicationRuntime.health",
+      "aletheus.platform.contracts.service.PlatformService.health",
+      "aletheus.platform.service_registry.ServiceRegistry.health",
+      "aletheus.runtime.adapter.DefaultRuntimeAdapter.health",
+      "aletheus.runtime.adapter.DefaultRuntimeAdapter.status",
+      "aletheus.runtime.adapter.RuntimeAdapterProtocol.health",
+      "aletheus.runtime.adapter.RuntimeAdapterProtocol.status",
+      "aletheus.runtime.adapters.runtime_adapter.RuntimeCommandAdapter.health_report",
+      "aletheus.runtime.core.AletheusRuntime.health"
+    ],
+    "producer_instances_are_caller_supplied": true,
+    "runtime_instantiation_performed": false,
+    "telemetry_authorities": [
+      "aletheus.platform.contracts.service.PlatformService.metrics",
+      "aletheus.platform.contracts.service.PlatformService.snapshot",
+      "aletheus.runtime.adapters.compatibility_adapter.CompatibilityCommandAdapter.statistics",
+      "aletheus.runtime.adapters.event_adapter.EventCommandAdapter.statistics",
+      "aletheus.runtime.adapters.mission_adapter.MissionCommandAdapter.stats",
+      "aletheus.runtime.adapters.prediction_adapter.PredictionAdapter.statistics",
+      "aletheus.runtime.adapters.prediction_adapter.PredictionAdapter.stats",
+      "aletheus.runtime.adapters.runtime_adapter.RuntimeCommandAdapter.snapshot",
+      "aletheus.runtime.adapters.topology_registry_adapter.TopologyRegistryAdapter.snapshot",
+      "aletheus.runtime.adapters.universal_intelligence_adapter.UniversalIntelligenceAdapter.snapshot",
+      "aletheus.runtime.adapters.universal_intelligence_adapter.UniversalIntelligenceAdapter.stats"
+    ]
+  },
+  "process_liveness_probe": false,
+  "protected_mc84f4i_visual_change": false,
+  "report_files_are_runtime_producer_authority": false,
+  "repository_evidence_is_liveness": false,
+  "rpc": false,
+  "schema": "aletheus.mission-control-runtime-health-telemetry-in-process-binding.v1",
+  "services": [
+    "Platform Services",
+    "A3ye",
+    "Mammoth"
+  ],
+  "socket_transport": false,
+  "test_files_are_runtime_producer_authority": false,
+  "tranche": "RUNTIME_HEALTH_TELEMETRY_IN_PROCESS_BINDING",
+  "websocket": false,
+  "write_or_mutating_capability": false
+}
