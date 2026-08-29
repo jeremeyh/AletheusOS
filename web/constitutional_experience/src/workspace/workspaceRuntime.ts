@@ -41,3 +41,70 @@ export class WorkspaceRuntime {
 
   snapshot(): LayoutItem[] { return structuredClone(this.layout); }
 }
+
+/* ALETHEUSOS_WORKSPACE_STUDIO_READ_ONLY_BINDING_BEGIN */
+
+/**
+ * Snapshot-only Workspace Studio projection over the existing WorkspaceRuntime.
+ *
+ * WorkspaceRuntime retains its existing mutable runtime authority. This
+ * binding exposes none of register/move/snap/save/load and introduces no
+ * command execution, persistence ownership, transport, or autonomy.
+ */
+export interface WorkspaceStudioReadOnlyRuntime {
+  readonly snapshot: () => Readonly<ReturnType<WorkspaceRuntime["snapshot"]>>;
+}
+
+export interface WorkspaceStudioValidatedReadModel<TWorkspace> {
+  readonly workspace: TWorkspace;
+  readonly validation: {
+    readonly valid: boolean;
+    readonly failures: readonly string[];
+  };
+  readonly contractVersion?: string;
+}
+
+export interface WorkspaceStudioReadOnlyBinding<TWorkspace> {
+  readonly runtime: WorkspaceStudioReadOnlyRuntime;
+  readonly workspace: TWorkspace;
+  readonly validation: {
+    readonly valid: true;
+    readonly failures: readonly string[];
+  };
+  readonly contractVersion?: string;
+}
+
+export function bindWorkspaceStudioReadOnly<TWorkspace>(
+  runtime: WorkspaceRuntime,
+  readModel: WorkspaceStudioValidatedReadModel<TWorkspace>,
+): WorkspaceStudioReadOnlyBinding<TWorkspace> {
+  if (!readModel.validation.valid) {
+    throw new Error(
+      "Workspace Studio read-only boundary: validated read model required.",
+    );
+  }
+
+  const runtimeProjection: WorkspaceStudioReadOnlyRuntime = Object.freeze({
+    snapshot: () => Object.freeze([...runtime.snapshot()]),
+  });
+
+  const validation = Object.freeze({
+    valid: true as const,
+    failures: Object.freeze([...readModel.validation.failures]),
+  });
+
+  const binding = {
+    runtime: runtimeProjection,
+    workspace: readModel.workspace,
+    validation,
+    ...(readModel.contractVersion === undefined
+      ? {}
+      : {
+          contractVersion: readModel.contractVersion,
+        }),
+  };
+
+  return Object.freeze(binding);
+}
+
+/* ALETHEUSOS_WORKSPACE_STUDIO_READ_ONLY_BINDING_END */

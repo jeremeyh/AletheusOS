@@ -71,3 +71,100 @@ export function validateWorkspace(
     failures,
   };
 }
+
+/* ALETHEUSOS_WORKSPACE_STUDIO_BINDING_BEGIN */
+
+/**
+ * Workspace Studio compatibility binding.
+ *
+ * This is deliberately additive. It does not replace Workspace engine
+ * validation authority and does not introduce mutation, persistence,
+ * transport, command execution, or runtime ownership.
+ */
+type WorkspaceContractRecord = Record<string, unknown>;
+
+function isWorkspaceContractRecord(
+  value: unknown,
+): value is WorkspaceContractRecord {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function workspaceContractVersion(
+  contract: WorkspaceContractRecord,
+): string | undefined {
+  const meta = contract["meta"];
+
+  if (!isWorkspaceContractRecord(meta)) {
+    return undefined;
+  }
+
+  const version = meta["version"];
+
+  return typeof version === "string" && version.length > 0
+    ? version
+    : undefined;
+}
+
+export function validateWorkspaceContractCompatibility(
+  contract: unknown,
+  expectedVersion?: string,
+): WorkspaceValidationResult {
+  const failures: string[] = [];
+
+  if (!isWorkspaceContractRecord(contract)) {
+    failures.push("Workspace contract must be an object.");
+
+    return {
+      valid: false,
+      failures,
+    };
+  }
+
+  const contractVersion = workspaceContractVersion(contract);
+
+  if (contractVersion === undefined) {
+    failures.push("Workspace contract meta.version is required.");
+  }
+
+  if (
+    expectedVersion !== undefined &&
+    contractVersion !== undefined &&
+    contractVersion !== expectedVersion
+  ) {
+    failures.push(
+      `Workspace contract version "${contractVersion}" is incompatible with expected version "${expectedVersion}".`,
+    );
+  }
+
+  if (!Object.prototype.hasOwnProperty.call(contract, "workspace")) {
+    failures.push("Workspace contract workspace definition is required.");
+  }
+
+  if (!Array.isArray(contract["layout_modes"])) {
+    failures.push("Workspace contract layout_modes must be an array.");
+  }
+
+  return {
+    valid: failures.length === 0,
+    failures,
+  };
+}
+
+export function validateWorkspaceAgainstContract(
+  workspace: Parameters<typeof validateWorkspace>[0],
+  contract: unknown,
+  expectedVersion?: string,
+): WorkspaceValidationResult {
+  const compatibility = validateWorkspaceContractCompatibility(
+    contract,
+    expectedVersion,
+  );
+
+  if (!compatibility.valid) {
+    return compatibility;
+  }
+
+  return validateWorkspace(workspace);
+}
+
+/* ALETHEUSOS_WORKSPACE_STUDIO_BINDING_END */
