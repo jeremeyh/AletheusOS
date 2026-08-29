@@ -1,390 +1,56 @@
-const domains=[['▦','Workspace Studio','Workspaces & Execution'],['⌘','Builder Studio','Platform Engineering'],['>_','Admin Terminal','System & Governance'],['⌬','Platform Services','Core Services & Integrations'],['⌁','Analytics Studio','Insights & Telemetry'],['◇','Opus','Knowledge Civilization'],['◉','Mammoth','Storage Civilization'],['♙','Organizations','Teams & Tenants'],['♙','Users','Identity & Access'],['⬡','Security','Policy & Compliance']];
-const activities=[['▦','10:54:32','Workspace Studio hydrated','System'],['◇','10:54:11','Opus knowledge graph synchronized','Opus'],['⌁','10:53:47','CRK kernel heartbeat','Runtime'],['</>','10:53:19','Builder Studio project compiled','Builder'],['◉','10:52:58','Evidence review surface ready','A3ye']];
-const prompts=['What workspaces are currently active?','Verify system health and integrity','Show recent evidence collected','What is the current Qₘ stability?','List available platform services'];
-const metrics=[['Active Workspaces','7','● Online'],['Constitutional Integrity','VERIFIED','No Violations'],['Qₘ Stability','91.4','NOMINAL'],['Runtime Health','OPTIMAL','All Systems Nominal'],['Evidence Items','127','Total Collected']];
+const domains=[['■','Mission Control','Missions & executive overview'],['▦','Workspace Studio','Workspaces & execution'],['⌘','Builder Studio','Platform engineering'],['>_','Admin Terminal','System & governance'],['⬡','Platform Services','Core services & integrations'],['⌁','Analytics Studio','Insights & telemetry'],['◇','Opus','Knowledge civilization'],['◉','Mammoth','Storage civilization'],['♙','Organizations','Teams & tenants'],['⬢','Security','Policy & compliance']];
+const missions=[['M-001','AletheusOS Platform Realization','ACTIVE','78%'],['M-002','Card Hawk Asset Vault','ACTIVE','64%'],['M-003','SPARTAN Security Convergence','WATCH','41%'],['M-004','Mammoth Storage Federation','PLANNED','18%']];
+const activity=[['10:54:32','Mission Control hydrated','System'],['10:54:11','Opus knowledge graph synchronized','Opus'],['10:53:47','CRK kernel heartbeat verified','Runtime'],['10:53:19','Builder Studio project compiled','Builder'],['10:52:58','Evidence pipeline completed','A🔘3ye']];
 const app=document.querySelector('#app');
+const lens=(id,cls='')=>`<button id="${id}" class="a3ye-lens ${cls}" aria-label="Open A🔘3ye perception"><span class="lens-cradle" aria-hidden="true"></span><span class="orbit orbit-a"></span><span class="orbit orbit-b"></span><span class="lens-glass"><img src="./assets/a3ye-universal-lens.jpeg" alt="A🔘3ye universal lens"><span class="scan"></span><span class="core"></span></span><span class="aos3-cardinals" aria-hidden="true"><i class="cardinal cardinal-a">A</i><i class="cardinal cardinal-o">O</i><i class="cardinal cardinal-s">S</i><i class="cardinal cardinal-3">3</i></span></button>`;
 app.innerHTML=`<div class="shell">
-<header class="topbar"><div class="brand"><span class="aletheus-mark-breathe"><img src="./assets/aletheus-gold-mark.jpeg"></span><div><b>ALETHEUSOS</b><span>GENESIS 114</span></div></div><div class="context"><b>Workspace Studio</b><span>End-user workspaces, tools, and workflow execution</span></div><button id="commandSearch" class="search command-search" type="button" aria-label="Open command search"><span class="search-icon">⌕</span><span class="search-copy">Search or type a command...</span><kbd>⌘K</kbd></button><div class="tools">♧ ☼ ?</div><button id="a03toggle" class="a03-mini a3ye-trigger" aria-label="Open A3ye constitutional perception" aria-expanded="true"><img src="./assets/a03-lens-master.jpeg"><span>A3ye™</span></button><div class="founder"><b>Founder</b><span>6DM</span><i></i></div></header>
-<aside class="sidebar"><label>OPERATING DOMAINS</label><nav>${domains.map((d,i)=>`<button class="domain ${i===0?'active':''}"><i>${d[0]}</i><span><b>${d[1]}</b><small>${d[2]}</small></span></button>`).join('')}</nav><div class="sysstatus"><span>System Status</span><b>● OPERATIONAL</b></div></aside>
-<main class="main"><label>OVERVIEW</label><section class="metrics">${metrics.map((m,i)=>`<article><small>${m[0]}</small><strong class="m${i}">${m[1]}</strong><span>${m[2]}</span></article>`).join('')}</section>
-<section class="grid"><article class="panel activity"><h3>RECENT ACTIVITY</h3>${activities.map(a=>`<div class="row"><i>${a[0]}</i><time>${a[1]}</time><b>${a[2]}</b><span>${a[3]}</span></div>`).join('')}<a>View all activity →</a></article><article class="panel telemetry"><h3>SYSTEM TELEMETRY</h3><div class="telegrid">${['CPU|18%','Memory|42%','GPU|22%','Qₘ Stability|91.4','FPS|60','Threads|128'].map((t,i)=>{let [l,v]=t.split('|');return`<div><small>${l}</small><b>${v}</b><svg viewBox="0 0 100 30"><polyline points="0,27 12,24 25,25 38,18 50,20 62,12 75,14 88,7 100,8"/></svg></div>`}).join('')}</div><a>View full telemetry →</a></article>
-<article class="panel work"><h3>RECENT WORKSPACES</h3><div class="tiles"><div>▦ <span>Sentinel Operations<small>Active now</small></span></div><div>⬡ <span>Evidence Review<small>Active 5h ago</small></span></div><div>▣ <span>Project Aletheus<small>Active 2h ago</small></span></div><div>◇ <span>Enterprise Command<small>Active 1d ago</small></span></div></div><a>Open all workspaces →</a></article><article class="panel work"><h3>PINNED WORKSPACES</h3><div class="tiles"><div>⌘ <span>Builder Studio</span></div><div>◇ <span>Opus Knowledge</span></div><div>>_ <span>Admin Terminal</span></div><div>⚙ <span>Platform Services</span></div></div><a>Manage pinned →</a></article></section></main>
-<aside id="perception" class="perception"><div class="phead"><div class="a03-word"><span>A</span><span class="a3ye-lens-identity"><img src="./assets/a03-lens-master.jpeg" alt=""></span><span>3ye™</span></div><button id="close">×</button></div><p>Constitutional Perception Platform</p><div class="ask"><span>Ask a question or request analysis...</span><button>➤</button></div><div class="tabs"><b>Recent</b><span>Suggested</span><span>Workspaces</span></div><div class="prompts">${prompts.map((p,i)=>`<button><span>${p}</span><time>10:${54-i} AM</time></button>`).join('')}</div><label>CAPABILITIES</label><div class="caps">${['Ask','Verify','Examine','Analyze','Forecast'].map((c,i)=>`<button><i>${['◌','⬡','⌕','△','↗'][i]}</i><span>${c}</span></button>`).join('')}</div><footer><i></i>A3ye perception surface ready. No live observation asserted.</footer></aside>
-<footer class="bottom"><div class="dock"><button><img src="./assets/aletheus-gold-mark.jpeg"></button><button>📁</button><button>◇</button><button class="selected"><img src="./assets/a03-lens-master.jpeg"></button><button>>_</button><button>⌁</button><button>⚙</button></div><div class="runtime"><b>● LOCAL EXPERIENCE</b><span>Experience<strong>READY</strong></span><span>Runtime<strong>UNBOUND</strong></span><span>Telemetry<strong>NOT BOUND</strong></span><span>Build<strong>LOCAL</strong></span><span>Genesis<strong>114</strong></span><time>Workspace Studio<small>Genesis 114</small></time></div></footer></div>`;
-const panel=document.querySelector('#perception');
-const a3yeToggle=document.querySelector('#a03toggle');
+<header class="topbar">
+<div class="brand"><button class="brand-mark" aria-label="AletheusOS home"><img src="./assets/aletheus-gold-mark.jpeg" alt="AletheusOS gold mark"></button><div><b>ALETHEUSOS</b><span>GENESIS 84.0.0</span></div></div>
+<div class="context"><b>Mission Control</b><span>Constitutional Instrument Runtime</span></div>
+<div class="command-surface">${lens('lensTop','top-lens command-lens')}<button id="command" class="search"><span class="search-glyph">⌕</span><span>Ask A🔘3ye or type a command...</span><kbd>⌘K</kbd></button></div>
+<div class="tools"><button title="Connectors">♧</button><button title="Theme">☼</button><button title="Help">?</button></div>
+<div class="founder"><button id="founderAvatar" class="founder-avatar" type="button" aria-label="Upload Founder profile picture"><span class="founder-silhouette" aria-hidden="true"><svg viewBox="0 0 48 48" role="img"><circle cx="24" cy="16" r="8"></circle><path d="M10 41c1.2-9 6.8-14 14-14s12.8 5 14 14"></path></svg></span><img id="founderPhoto" alt="Founder profile" hidden></button><input id="founderPhotoInput" type="file" accept="image/*" hidden><div class="founder-copy"><b>Founder⌄</b><span>6DM</span></div></div>
+</header>
+<aside class="sidebar"><label>OPERATING DOMAINS</label><nav>${domains.map((d,i)=>`<button class="domain ${i===0?'active':''}"><i>${d[0]}</i><span><b>${d[1]}</b><small>${d[2]}</small></span></button>`).join('')}</nav><div class="sys"><span>System Status</span><b>● OPERATIONAL</b></div></aside>
+<main class="main"><div class="section-head"><div><label>MISSION CONTROL</label><h1>Platform Command Surface</h1></div><div class="view-actions"><button>Object Explorer</button><button>Runtime Map</button><button>Timeline</button></div></div>
+<section class="metrics">${[['Active Missions','4','● 3 executing'],['Constitutional Integrity','VERIFIED','No violations'],['Qₘ Stability','91.4','NOMINAL'],['Runtime Health','OPTIMAL','All systems nominal'],['Evidence Items','127','Total collected']].map((m,i)=>`<article><small>${m[0]}</small><strong class="${i===1||i===3?'green':''}">${m[1]}</strong><span>${m[2]}</span></article>`).join('')}</section>
+<section class="primary-grid"><article class="panel"><h3>ACTIVE MISSIONS</h3>${missions.map(m=>`<div class="mission"><span>${m[0]}</span><b>${m[1]}</b><em class="${m[2].toLowerCase()}">${m[2]}</em><strong>${m[3]}</strong></div>`).join('')}<a>Open Mission Center →</a></article><article class="panel"><h3>A🔘3ye RECOMMENDATIONS</h3>${['Promote Mission Control as default landing surface','Reconcile duplicate Workspace Runtime adapters','Pin SPARTAN readiness review to today'].map((x,i)=>`<div class="recommend"><i>0${i+1}</i><span><b>${x}</b><small>Confidence ${94-i*6}% · Evidence-backed</small></span></div>`).join('')}<a>Review all recommendations →</a></article></section>
+<section class="secondary-grid"><article class="panel"><h3>RECENT INTELLIGENCE</h3>${activity.map(a=>`<div class="row"><i>◈</i><time>${a[0]}</time><b>${a[1]}</b><span>${a[2]}</span></div>`).join('')}<a>View all activity →</a></article><article class="panel"><h3>RUNTIME TELEMETRY</h3><div class="telegrid">${['CPU|18%','Memory|42%','GPU|22%','Qₘ Stability|91.4','FPS|60','Threads|128'].map((t,i)=>{const [l,v]=t.split('|');return`<div><small>${l}</small><b>${v}</b><svg viewBox="0 0 100 30"><polyline points="0,27 12,24 25,25 38,18 50,20 62,12 75,14 88,7 100,8"/></svg></div>`}).join('')}</div><a>Open Runtime Visualization →</a></article></section>
+<section id="instrumentBay" class="panel instrument-bay"><div class="instrument-title"><div><label>CONSTITUTIONAL INSTRUMENT BAY</label><h2>Calibrate Runtime Observability</h2></div><span class="quality-badge">EVIDENCE-BOUND · GENESIS 84</span></div><div class="instrument-grid">
+<button class="instrument integrity-ring" data-instrument="Integrity Ring"><span class="dial"><i></i><b>100</b><small>%</small></span><strong>Integrity Ring</strong><em>VERIFIED</em><footer data-source="CRK integrity stream">CRK · sampled 0.4s ago</footer></button>
+<button class="instrument runtime-pulse" data-instrument="Runtime Pulse"><span class="pulse-field"><i></i><i></i><i></i><b>72</b></span><strong>Runtime Pulse</strong><em>NOMINAL BPM</em><footer data-source="CRK scheduler heartbeat">Scheduler · sampled 0.2s ago</footer></button>
+<button class="instrument evidence-flow" data-instrument="Evidence Flow"><span class="flow-meter"><i style="height:26%"></i><i style="height:48%"></i><i style="height:66%"></i><i style="height:82%"></i><i style="height:58%"></i><i style="height:74%"></i><i style="height:91%"></i><i style="height:68%"></i></span><strong>Evidence Flow</strong><em>127 ITEMS · 8.4/s</em><footer data-source="Evidence Engine event stream">Evidence Engine · sampled 0.8s ago</footer></button>
+<button class="instrument consensus-field" data-instrument="Consensus Field"><span class="radar"><i></i><b>88</b></span><strong>Consensus Field</strong><em>HIGH AGREEMENT</em><footer data-source="Reasoning mesh consensus">Reason Mesh · derived 1.1s ago</footer></button>
+<button class="instrument risk-horizon" data-instrument="Risk Horizon"><span class="horizon"><i></i><b>0.18</b></span><strong>Risk Horizon</strong><em>LOW EXPOSURE</em><footer data-source="Risk Engine projection">Risk Engine · forecast 2.0s ago</footer></button>
+<button class="instrument qm-instrument" data-instrument="Qm Stability"><span class="qm-scope"><svg viewBox="0 0 160 70"><polyline points="0,44 14,42 28,46 42,35 56,38 70,28 84,31 98,20 112,24 126,15 140,18 160,11"/></svg><b>91.4</b></span><strong>Qₘ Stability</strong><em>NOMINAL</em><footer data-source="Temporal isolation monitor">Temporal Monitor · sampled 0.3s ago</footer></button>
+</div></section>
+<section class="workspace-strip"><article class="panel"><h3>WORKSPACE DIRECTORY</h3><div class="tiles"><div>▦ <span>Sentinel Operations<small>Active now</small></span></div><div>⬡ <span>Evidence Review<small>Active 5h ago</small></span></div><div>⌘ <span>Builder Studio<small>Pinned</small></span></div><div>◇ <span>Opus Knowledge<small>Pinned</small></span></div></div></article><article class="panel attention"><h3>ATTENTION QUEUE</h3><div><b>2</b><span>Evidence items awaiting review</span></div><div><b>1</b><span>Security policy drift warning</span></div><div><b>3</b><span>Mission dependencies pending</span></div></article></section></main>
+<div id="drawerScrim" class="drawer-scrim"></div><aside id="drawer" class="drawer"><div class="drawer-head"><div>${lens('lensDrawer','drawer-lens')}<span><b>A🔘3ye Perception</b><small>Constitutional Perception Platform</small></span></div><button id="closeDrawer">×</button></div><div class="ask"><input placeholder="Ask a question or request analysis..."><button>➤</button></div><div class="tabs"><b>Recent</b><span>Suggested</span><span>Workspaces</span></div><div class="prompts">${['What missions need attention?','Verify system health and integrity','Show recent evidence collected','Explain current Qₘ stability','List available platform services'].map((p,i)=>`<button><span>${p}</span><time>10:${54-i} AM</time></button>`).join('')}</div><label>CAPABILITIES</label><div class="caps">${['Ask','Verify','Examine','Analyze','Forecast'].map((c,i)=>`<button><i>${['◌','⬡','⌕','△','↗'][i]}</i><span>${c}</span></button>`).join('')}</div><footer>● A🔘3ye is observing. Truth backed by SIGHT.</footer></aside>
+<aside id="instrumentInspector" class="instrument-inspector"><button id="closeInstrument">×</button><label>INSTRUMENT INSPECTION</label><h2 id="instrumentName">Integrity Ring</h2><div class="inspector-value"><strong id="instrumentValue">100%</strong><span id="instrumentState">VERIFIED</span></div><dl><div><dt>QUALITY</dt><dd>SIMULATED</dd></div><div><dt>SOURCE</dt><dd id="instrumentSource">CRK integrity stream</dd></div><div><dt>FRESHNESS</dt><dd>Under 2 seconds</dd></div><div><dt>CALIBRATION</dt><dd>Genesis 62–82 production profile</dd></div></dl><p>Values in this standalone package are simulated and must not be interpreted as live platform measurements. Runtime adapters will replace this source without changing the visual contract.</p></aside>
+<footer class="bottom"><div class="dock"><button title="Finder">▰</button><button title="Opus">◇</button><button title="Terminal">>_</button><button title="Runtime">⌁</button><button title="Settings">⚙</button></div><div class="runtime"><b>● CRK CONVERGED</b><span>Integrity<strong>VERIFIED</strong></span><span>Scheduler<strong>Optimal</strong></span><span>Threads<strong>128</strong></span><span>FPS<strong>60</strong></span><span>Qₘ<strong id="qm">91.4</strong></span><time id="clock"></time></div></footer>
+</div><div id="palette" class="overlay hidden"><section><header><span>⌕</span><input placeholder="Type a command or ask A🔘3ye..."><button id="closePalette">ESC</button></header>${['Open Mission Control','Open Builder Studio','Search Evidence','Ask A🔘3ye','Compile Project','Run Tests','Open Card Hawk','Launch SPARTAN'].map(x=>`<button>${x}</button>`).join('')}</section></div>`;
+const drawer=document.querySelector('#drawer'),scrim=document.querySelector('#drawerScrim');
+function openDrawer(){drawer.classList.add('open');scrim.classList.add('open');document.body.classList.add('perception-open')}
+function closeDrawer(){drawer.classList.remove('open');scrim.classList.remove('open');document.body.classList.remove('perception-open')}
+function toggleDrawer(){drawer.classList.contains('open')?closeDrawer():openDrawer()}
+document.querySelector('#lensTop').onclick=toggleDrawer;document.querySelector('#closeDrawer').onclick=closeDrawer;scrim.onclick=closeDrawer;
+const palette=document.querySelector('#palette');document.querySelector('#command').onclick=()=>palette.classList.remove('hidden');document.querySelector('#closePalette').onclick=()=>palette.classList.add('hidden');
+window.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();palette.classList.remove('hidden')}if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='j'){e.preventDefault();toggleDrawer()}if(e.key==='Escape'){palette.classList.add('hidden');closeDrawer()}});
+const founderAvatar=document.querySelector('#founderAvatar'),founderPhotoInput=document.querySelector('#founderPhotoInput'),founderPhoto=document.querySelector('#founderPhoto');
+founderAvatar.onclick=()=>founderPhotoInput.click();
+founderPhotoInput.addEventListener('change',()=>{const file=founderPhotoInput.files&&founderPhotoInput.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{founderPhoto.src=String(reader.result);founderPhoto.hidden=false;founderAvatar.classList.add('has-photo');try{localStorage.setItem('aletheus-founder-photo',String(reader.result))}catch{}};reader.readAsDataURL(file)});
+try{const savedPhoto=localStorage.getItem('aletheus-founder-photo');if(savedPhoto){founderPhoto.src=savedPhoto;founderPhoto.hidden=false;founderAvatar.classList.add('has-photo')}}catch{}
+const inspector=document.querySelector('#instrumentInspector');
+const valueMap={'Integrity Ring':['100%','VERIFIED'],'Runtime Pulse':['72','NOMINAL BPM'],'Evidence Flow':['127','8.4 ITEMS/S'],'Consensus Field':['88%','HIGH AGREEMENT'],'Risk Horizon':['0.18','LOW EXPOSURE'],'Qm Stability':['91.4','NOMINAL']};
+document.querySelectorAll('[data-instrument]').forEach(el=>el.addEventListener('click',()=>{const name=el.dataset.instrument;const [value,state]=valueMap[name]||['—','UNAVAILABLE'];document.querySelector('#instrumentName').textContent=name;document.querySelector('#instrumentValue').textContent=value;document.querySelector('#instrumentState').textContent=state;document.querySelector('#instrumentSource').textContent=el.querySelector('footer').dataset.source;inspector.classList.add('open')}));
+document.querySelector('#closeInstrument').onclick=()=>inspector.classList.remove('open');
+setInterval(()=>{document.querySelector('#qm').textContent=(91.4+(Math.random()*.2-.1)).toFixed(1)},1500);setInterval(()=>{document.querySelector('#clock').textContent=new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})},1000);
 
-function setA3yeOpen(open){
-  panel.classList.toggle('hidden',!open);
-  a3yeToggle.classList.toggle('is-active',open);
-  a3yeToggle.setAttribute('aria-expanded',String(open));
-}
-
-document.querySelector('#close').onclick=()=>setA3yeOpen(false);
-a3yeToggle.onclick=()=>setA3yeOpen(panel.classList.contains('hidden'));
-
-a3yeToggle.addEventListener('mouseenter',()=>a3yeToggle.classList.add('is-aware'));
-a3yeToggle.addEventListener('mouseleave',()=>a3yeToggle.classList.remove('is-aware'));
-
-setA3yeOpen(true);
-setInterval(()=>{const q=(91.2+Math.random()*.4).toFixed(1);document.querySelector('.m2').textContent=q;document.querySelectorAll('.telegrid>div')[3].querySelector('b').textContent=q;},1300);
-
-
-const commandSearch=document.querySelector('#commandSearch');
-
-function pulseA3yeState(state,duration=0){
-  a3yeToggle.dataset.a3yeState=state;
-  if(duration>0){
-    window.setTimeout(()=>{
-      if(a3yeToggle.dataset.a3yeState===state){
-        a3yeToggle.dataset.a3yeState=panel.classList.contains('hidden')?'idle':'ready';
-      }
-    },duration);
-  }
-}
-
-a3yeToggle.addEventListener('pointerdown',()=>pulseA3yeState('processing',650));
-
-a3yeToggle.addEventListener('click',()=>{
-  pulseA3yeState('thinking',1100);
-});
-
-commandSearch.addEventListener('click',()=>{
-  commandSearch.classList.add('is-engaged');
-  window.setTimeout(()=>commandSearch.classList.remove('is-engaged'),700);
-});
-
-document.addEventListener('keydown',(event)=>{
-  if((event.metaKey||event.ctrlKey)&&event.key.toLowerCase()==='k'){
-    event.preventDefault();
-    commandSearch.focus();
-    commandSearch.classList.add('is-engaged');
-    window.setTimeout(()=>commandSearch.classList.remove('is-engaged'),700);
-  }
-});
-
-pulseA3yeState('ready');
-
-/* ALETHEUSOS_MC84F4E_CANON_RUNTIME_V1
- * Additive constitutional identity for the current Mission Control implementation.
- * Existing interaction and visual geometry above this block remain authoritative.
- */
-;(() => {
-  const release = Object.freeze({
-    release: "MC84F4E",
-    canonicalSurface: "Mission Control",
-    implementationStrategy: "CURRENT_ADDITIVE_WITH_MC84F4D_PROTECTED_SURFACE_ASSERTIONS",
-    visualParent: "MC84F4D",
-    visualAncestor: "Genesis84",
-    canonHead: "cca067c25cfdddbbd48e165cdb561eaf0f36f701",
-    authorityPath: "docs/ARCHITECTURE/authority",
-    canonicalSurfaces: Object.freeze([
-      "Mission Control",
-      "Workspace Studio",
-      "Builder Studio",
-      "Admin Terminal",
-      "Platform Services",
-      "Analytics Studio",
-      "Opus",
-      "Mammoth",
-      "Founder",
-      "A3ye"
-    ]),
-    knowledgeArchitecture: Object.freeze({
-      Opus: "constitutional knowledge, documents, evidence, Genesis corpus, and institutional memory",
-      Mammoth: "storage, persistence, indexing, replication, archival, recovery, and lifecycle infrastructure"
-    }),
-    protectedMissionControlSurfaces: Object.freeze([
-      "outer shell",
-      "top bar",
-      "left navigation",
-      "navigation geometry",
-      "A3ye visual/lens/command plane",
-      "search",
-      "bottom dock and dock states",
-      "runtime strip",
-      "Living Intelligence Field",
-      "global material/background grammar"
-    ])
-  });
-
-  Object.defineProperty(globalThis, "AletheusOS_MC84F4E", {
-    value: release,
-    enumerable: false,
-    configurable: false,
-    writable: false
-  });
-})();
-
-/* ALETHEUSOS_MC84F4F_RUNTIME_V1
- * Forward runtime evolution on published MC84F4E.
- * This layer adds constitutional surface observability and lineage introspection
- * without replacing or restyling the protected Mission Control UI.
- */
-;(() => {
-  const parent = globalThis.AletheusOS_MC84F4E;
-
-  const canonicalSurfaces = Object.freeze([
-    "Mission Control",
-    "Workspace Studio",
-    "Builder Studio",
-    "Admin Terminal",
-    "Platform Services",
-    "Analytics Studio",
-    "Opus",
-    "Mammoth",
-    "Founder",
-    "A3ye"
-  ]);
-
-  const protectedSurfaces = Object.freeze([
-    "outer shell",
-    "top bar",
-    "left navigation",
-    "navigation geometry",
-    "A3ye visual/lens/command plane",
-    "search",
-    "bottom dock and dock states",
-    "runtime strip",
-    "Living Intelligence Field",
-    "global material/background grammar"
-  ]);
-
-  const normalize = value => String(value ?? "")
-    .replace(/\s+/g, " ")
-    .trim()
-    .toLowerCase();
-
-  const surfaceHints = Object.freeze({
-    "Mission Control": Object.freeze(["mission control", "mission-control"]),
-    "Workspace Studio": Object.freeze(["workspace studio", "workspace"]),
-    "Builder Studio": Object.freeze(["builder studio", "builder"]),
-    "Admin Terminal": Object.freeze(["admin terminal", "admin"]),
-    "Platform Services": Object.freeze(["platform services", "services"]),
-    "Analytics Studio": Object.freeze(["analytics studio", "analytics"]),
-    "Opus": Object.freeze(["opus"]),
-    "Mammoth": Object.freeze(["mammoth"]),
-    "A3ye": Object.freeze(["a3ye", "a3ye", "3ye"])
-  });
-
-  const collectSurfaceSnapshot = () => {
-    if (typeof document === "undefined" || typeof document.querySelectorAll !== "function") {
-      return Object.freeze({
-        environment: "non-dom",
-        detected: Object.freeze([]),
-        canonicalCount: canonicalSurfaces.length,
-        protectedCount: protectedSurfaces.length
-      });
-    }
-
-    const nodes = Array.from(document.querySelectorAll(
-      '[aria-label],[title],[data-surface],button,a,[role="button"],nav,input,[placeholder]'
-    ));
-
-    const corpus = nodes.map(node => normalize([
-      node.textContent,
-      node.getAttribute?.("aria-label"),
-      node.getAttribute?.("title"),
-      node.getAttribute?.("data-surface"),
-      node.getAttribute?.("placeholder")
-    ].filter(Boolean).join(" "))).filter(Boolean);
-
-    const detected = canonicalSurfaces.filter(surface => {
-      const hints = surfaceHints[surface] || [normalize(surface)];
-      return hints.some(hint => corpus.some(text => text.includes(normalize(hint))));
-    });
-
-    return Object.freeze({
-      environment: "dom",
-      detected: Object.freeze(detected),
-      canonicalCount: canonicalSurfaces.length,
-      protectedCount: protectedSurfaces.length
-    });
-  };
-
-  const release = Object.freeze({
-    release: "MC84F4F",
-    parentRelease: "MC84F4E",
-    canonicalSurface: "Mission Control",
-    implementationMode: "forward-runtime-surface-registry",
-    visualParent: "MC84F4D",
-    visualAncestor: "Genesis84",
-    canonHead: "dad8d7c17e152703687826b008a9a6a8ba0c1e87",
-    canonicalSurfaces,
-    protectedSurfaces,
-    parentRuntimePresent: Boolean(parent),
-    snapshot: collectSurfaceSnapshot
-  });
-
-  Object.defineProperty(globalThis, "AletheusOS_MC84F4F", {
-    value: release,
-    enumerable: false,
-    configurable: false,
-    writable: false
-  });
-
-  if (typeof document !== "undefined") {
-    if (document.documentElement?.dataset) {
-      document.documentElement.dataset.aletheusosMcRelease = "MC84F4F";
-      document.documentElement.dataset.aletheusosMcParent = "MC84F4E";
-    }
-
-    if (typeof document.dispatchEvent === "function" && typeof CustomEvent === "function") {
-      document.dispatchEvent(new CustomEvent("aletheusos:mc84f4f-ready", {
-        detail: release.snapshot()
-      }));
-    }
-  }
-})();
-
-/* ALETHEUSOS_MC84F4G_INTERACTION_BRIDGE_V1
- * Constitutional intent/capability evaluation layer.
- * Fail closed. No network, storage, backend, navigation, or privileged side effects.
- */
-;(() => {
-  const parent = globalThis.AletheusOS_MC84F4F;
-  const capabilities = Object.freeze({
-    "Mission Control": Object.freeze(["inspect","focus"]),
-    "Workspace Studio": Object.freeze(["inspect","open"]),
-    "Builder Studio": Object.freeze(["inspect","open"]),
-    "Admin Terminal": Object.freeze(["inspect"]),
-    "Platform Services": Object.freeze(["inspect"]),
-    "Analytics Studio": Object.freeze(["inspect","open"]),
-    "Opus": Object.freeze(["inspect","open"]),
-    "Mammoth": Object.freeze(["inspect"]),
-    "Founder": Object.freeze(["inspect"]),
-    "A3ye": Object.freeze(["inspect","focus"])
-  });
-  const normalizeIntent = intent => Object.freeze({
-    id: String(intent?.id ?? ""),
-    surface: String(intent?.surface ?? ""),
-    capability: String(intent?.capability ?? ""),
-    payload: intent?.payload ?? null
-  });
-  const evaluate = intent => {
-    const normalized = normalizeIntent(intent);
-    const allowedCapabilities = capabilities[normalized.surface] || [];
-    const allowed = Boolean(
-      normalized.surface &&
-      normalized.capability &&
-      allowedCapabilities.includes(normalized.capability)
-    );
-    return Object.freeze({
-      ...normalized,
-      allowed,
-      decision: allowed ? "ALLOW" : "REFUSE",
-      parentRelease: parent?.release ?? null
-    });
-  };
-  const release = Object.freeze({
-    release: "MC84F4G",
-    parentRelease: "MC84F4F",
-    architecture: "CONSTITUTIONAL_INTERACTION_CAPABILITY_BRIDGE",
-    canonicalSurface: "Mission Control",
-    visualParent: "MC84F4D",
-    visualAncestor: "Genesis84",
-    canonHead: "fc0cf518707ab0a4dd610723b382ac2e43bc7ae4",
-    capabilities,
-    evaluate
-  });
-  Object.defineProperty(globalThis, "AletheusOS_MC84F4G", {
-    value: release, enumerable: false, configurable: false, writable: false
-  });
-})();
-
-/* ALETHEUSOS_MC84F4H_RUNTIME_DOCK_COORDINATOR_V1
- * Pure runtime/dock state semantics over F4G interaction decisions.
- * No protected visual mutation is performed.
- */
-;(() => {
-  const parent = globalThis.AletheusOS_MC84F4G;
-  const states = Object.freeze(["idle","focused","engaged","degraded"]);
-  const normalizeHealth = health => Object.freeze({
-    parentRuntimePresent: Boolean(health?.parentRuntimePresent ?? true),
-    snapshotAvailable: Boolean(health?.snapshotAvailable ?? true),
-    protectedSurfaceCount: Number(health?.protectedSurfaceCount ?? 0)
-  });
-  const deriveState = ({ decision, health } = {}) => {
-    const h = normalizeHealth(health);
-    if (!h.parentRuntimePresent || !h.snapshotAvailable) return "degraded";
-    if (decision?.decision === "ALLOW" && decision?.capability === "open") return "engaged";
-    if (decision?.decision === "ALLOW") return "focused";
-    return "idle";
-  };
-  const transition = input => Object.freeze({
-    state: deriveState(input),
-    previousState: states.includes(input?.previousState) ? input.previousState : "idle",
-    parentRelease: parent?.release ?? null
-  });
-  const release = Object.freeze({
-    release: "MC84F4H",
-    parentRelease: "MC84F4G",
-    architecture: "RUNTIME_DOCK_STATE_COORDINATOR",
-    canonicalSurface: "Mission Control",
-    visualParent: "MC84F4D",
-    visualAncestor: "Genesis84",
-    states,
-    deriveState,
-    transition
-  });
-  Object.defineProperty(globalThis, "AletheusOS_MC84F4H", {
-    value: release, enumerable: false, configurable: false, writable: false
-  });
-})();
-
-/* ALETHEUSOS_MC84F4I_ACCESSIBILITY_RESPONSIVE_HARDENING_V1
- * Final interaction hardening contract: audit and classify, never silently mutate.
- */
-;(() => {
-  const parent = globalThis.AletheusOS_MC84F4H;
-  const classifyViewport = width => {
-    const value = Number(width);
-    if (!Number.isFinite(value) || value <= 0) return "unknown";
-    if (value < 720) return "compact";
-    if (value < 1200) return "standard";
-    return "expanded";
-  };
-  const isActivationKey = key => key === "Enter" || key === " ";
-  const accessibleName = node => String(
-    node?.getAttribute?.("aria-label") ||
-    node?.getAttribute?.("title") ||
-    node?.textContent ||
-    ""
-  ).replace(/\s+/g," ").trim();
-  const auditAccessibility = root => {
-    const target = root || (typeof document !== "undefined" ? document : null);
-    if (!target || typeof target.querySelectorAll !== "function") {
-      return Object.freeze({ environment:"non-dom", checked:0, violations:Object.freeze([]) });
-    }
-    const nodes = Array.from(target.querySelectorAll('button,a,[role="button"],input,select,textarea'));
-    const violations=[];
-    for (const node of nodes) {
-      const tag=String(node.tagName || "").toLowerCase();
-      const type=String(node.getAttribute?.("type") || "").toLowerCase();
-      const exempt=tag==="input" && type==="hidden";
-      if (!exempt && !accessibleName(node)) violations.push("missing-accessible-name");
-    }
-    return Object.freeze({
-      environment:"dom",
-      checked:nodes.length,
-      violations:Object.freeze(violations)
-    });
-  };
-  const release = Object.freeze({
-    release:"MC84F4I",
-    parentRelease:"MC84F4H",
-    architecture:"ACCESSIBILITY_RESPONSIVE_INTERACTION_HARDENING",
-    canonicalSurface:"Mission Control",
-    visualParent:"MC84F4D",
-    visualAncestor:"Genesis84",
-    classifyViewport,
-    isActivationKey,
-    auditAccessibility
-  });
-  Object.defineProperty(globalThis,"AletheusOS_MC84F4I",{
-    value:release, enumerable:false, configurable:false, writable:false
-  });
-})();
+/* ==========================================================================
+   ALETHEUSOS MC85E2 — CURRENT RUNTIME CONVERGENCE CANDIDATE
+   Visual authority above this boundary remains MC85E2.
+   Runtime bridge below is transplanted from the current functional donor.
+   ========================================================================== */
 
 /* ALETHEUSOS_MC_PLATFORM_READ_MODEL_BRIDGE_V1 */
 (() => {

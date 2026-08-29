@@ -1,0 +1,80 @@
+{
+  "authority": {
+    "visual": "G85PRE_before_85_0_0",
+    "semantic": "current_AletheusOS",
+    "direction": "authentic_visual_body_to_current_semantics"
+  },
+
+  "surfaces": [
+    {
+      "id": "mission-control",
+      "canonicalName": "Mission Control",
+      "aliases": ["Mission Control"],
+      "visualDisposition": "preserve",
+      "actionDisposition": "preserve-authentic-until-current-binding-proven"
+    },
+    {
+      "id": "workspace-studio",
+      "canonicalName": "Workspace Studio",
+      "aliases": ["Workspace Studio", "Workspace"],
+      "visualDisposition": "preserve-authentic-control",
+      "actionDisposition": "binding-candidate"
+    },
+    {
+      "id": "builder-studio",
+      "canonicalName": "Builder Studio",
+      "aliases": ["Builder Studio", "Builder"],
+      "visualDisposition": "preserve-authentic-control",
+      "actionDisposition": "binding-candidate"
+    },
+    {
+      "id": "admin-terminal",
+      "canonicalName": "Admin Terminal",
+      "aliases": ["Admin Terminal", "Terminal"],
+      "visualDisposition": "preserve-authentic-control",
+      "actionDisposition": "binding-candidate"
+    },
+    {
+      "id": "platform-services",
+      "canonicalName": "Platform Services",
+      "aliases": ["Platform Services", "Platform"],
+      "visualDisposition": "preserve-authentic-control",
+      "actionDisposition": "binding-candidate"
+    },
+    {
+      "id": "analytics-studio",
+      "canonicalName": "Analytics Studio",
+      "aliases": ["Analytics Studio", "Analytics"],
+      "visualDisposition": "preserve-authentic-control",
+      "actionDisposition": "binding-candidate"
+    },
+    {
+      "id": "opus",
+      "canonicalName": "Opus",
+      "aliases": ["Opus"],
+      "visualDisposition": "preserve-authentic-destination",
+      "actionDisposition": "binding-candidate"
+    },
+    {
+      "id": "mammoth",
+      "canonicalName": "Mammoth",
+      "aliases": ["Mammoth"],
+      "visualDisposition": "preserve-authentic-destination",
+      "actionDisposition": "binding-candidate"
+    },
+    {
+      "id": "a3ye",
+      "canonicalName": "A3ye",
+      "aliases": ["A3ye", "A03", "Deep Intelligence"],
+      "visualDisposition": "preserve-authentic-lens-control",
+      "actionDisposition": "binding-candidate"
+    },
+    {
+      "id": "founder",
+      "canonicalName": "Founder",
+      "aliases": ["Founder"],
+      "visualDisposition": "current-semantic-authority",
+      "actionDisposition": "binding-candidate"
+    }
+  ]
+}
