@@ -123,3 +123,230 @@
 
   console.groupEnd();
 })();
+/* ALETHEUSOS_WORKSPACE_STUDIO_READ_ONLY_BINDING_V1 */
+(async function bindWorkspaceStudioReadOnly() {
+  "use strict";
+
+  const WORKSPACE_SCHEMA =
+    "aletheusos.workspace-studio.read-model.v1";
+
+  const WORKSPACE_SURFACE_ID =
+    "workspace-studio";
+
+  const SNAPSHOT_PATH =
+    "./src/workspace_studio_read_model.generated.json";
+
+  const ADAPTER_PATH =
+    "./workspace_studio_read_model_adapter.js";
+
+  const EVENT_NAME =
+    "aletheusos:workspace-studio-inspect";
+
+  function normalize(value) {
+    return String(value || "")
+      .trim()
+      .replace(/\s+/g, " ")
+      .toLowerCase();
+  }
+
+  function dispatchInspection(
+    detail
+  ) {
+    document.dispatchEvent(
+      new CustomEvent(
+        EVENT_NAME,
+        {
+          detail
+        }
+      )
+    );
+  }
+
+  try {
+    const [
+      adapterModule,
+      snapshotResponse
+    ] = await Promise.all([
+      import(ADAPTER_PATH),
+
+      fetch(
+        SNAPSHOT_PATH,
+        {
+          cache: "no-store"
+        }
+      )
+    ]);
+
+    if (!snapshotResponse.ok) {
+      throw new Error(
+        "Workspace Studio read model unavailable"
+      );
+    }
+
+    const snapshot =
+      await snapshotResponse.json();
+
+    if (
+      snapshot.schema !==
+      WORKSPACE_SCHEMA
+    ) {
+      throw new Error(
+        "Workspace Studio schema mismatch"
+      );
+    }
+
+    const adapter =
+      adapterModule
+        .createWorkspaceStudioAdapter(
+          snapshot
+        );
+
+    const api = Object.freeze({
+      surfaceId:
+        WORKSPACE_SURFACE_ID,
+
+      status:
+        adapter.status,
+
+      inspect(operation) {
+        const result =
+          adapter.inspect(
+            operation
+          );
+
+        dispatchInspection(
+          result
+        );
+
+        return result;
+      },
+
+      snapshot() {
+        return adapter.snapshot();
+      }
+    });
+
+    Object.defineProperty(
+      window,
+      "AletheusOSWorkspaceStudio",
+      {
+        value: api,
+        configurable: false,
+        writable: false,
+        enumerable: false
+      }
+    );
+
+    const aliases =
+      new Set([
+        "workspace studio",
+        "workspace"
+      ]);
+
+    const candidates =
+      document.querySelectorAll(
+        [
+          "button",
+          "[role='button']",
+          "a",
+          "[data-surface]",
+          "[data-destination]",
+          "[data-action]"
+        ].join(",")
+      );
+
+    for (
+      const control
+      of candidates
+    ) {
+      const values = [
+        control.textContent,
+        control.getAttribute(
+          "aria-label"
+        ),
+        control.getAttribute(
+          "title"
+        ),
+        control.getAttribute(
+          "data-surface"
+        ),
+        control.getAttribute(
+          "data-destination"
+        ),
+        control.getAttribute(
+          "data-action"
+        )
+      ];
+
+      const matches =
+        values.some(
+          value =>
+            aliases.has(
+              normalize(value)
+            )
+        );
+
+      if (!matches) {
+        continue;
+      }
+
+      if (
+        control.dataset
+          .aletheusWorkspaceStudioBound
+        === "true"
+      ) {
+        continue;
+      }
+
+      control.dataset
+        .aletheusWorkspaceStudioBound =
+          "true";
+
+      control.addEventListener(
+        "click",
+        () => {
+          api.inspect(
+            "inspect_workspace_state"
+          );
+        },
+        {
+          passive: true
+        }
+      );
+    }
+
+    dispatchInspection(
+      Object.freeze({
+        status: "READ_ONLY",
+        operation:
+          "workspace_studio_binding_ready",
+        section: "runtime",
+        data: snapshot.runtime
+      })
+    );
+  } catch (error) {
+    console.error(
+      "[MC85E2] Workspace Studio "
+      + "read-only binding unavailable",
+      error
+    );
+
+    dispatchInspection(
+      Object.freeze({
+        status:
+          "DEGRADED_READ_ONLY",
+
+        operation:
+          "workspace_studio_binding",
+
+        reason:
+          String(
+            error &&
+            error.message
+              ? error.message
+              : error
+          )
+      })
+    );
+  }
+})();
