@@ -350,3 +350,28 @@
     );
   }
 })();
+
+// BEGIN ALETHEUSOS BUILDER STUDIO CONSUMER SEAM
+const ALETHEUSOS_BUILDER_STUDIO_ALLOWED_OPERATIONS = Object.freeze(
+  new Set(["development", "enterprise", "clustered", "plugins", "build"])
+);
+
+export function dispatchBuilderStudioOperation(operation, payload = undefined) {
+  if (!ALETHEUSOS_BUILDER_STUDIO_ALLOWED_OPERATIONS.has(operation)) {
+    return Object.freeze({
+      status: "REFUSED",
+      surfaceId: "builder-studio",
+      operation,
+      reason: "UNSUPPORTED_BUILDER_OPERATION"
+    });
+  }
+
+  return Object.freeze({
+    status: "DISPATCH_REQUIRED",
+    surfaceId: "builder-studio",
+    command: "builder." + operation,
+    operation,
+    payload: payload === undefined ? null : payload
+  });
+}
+// END ALETHEUSOS BUILDER STUDIO CONSUMER SEAM

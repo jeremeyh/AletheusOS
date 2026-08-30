@@ -319,3 +319,15 @@ class CommandBus:
 __all__ = [
     "CommandBus",
 ]
+
+# BEGIN ALETHEUSOS BUILDER STUDIO CONSUMER SEAM
+def dispatch_builder_operation(operation, *args, **kwargs):
+    """Route Builder Studio through the existing Builder binding authority.
+
+    Import is intentionally local so the command bus remains the dispatch
+    authority without replacing RuntimeBuilder or creating another service.
+    """
+    from tools.runtime_builder import dispatch_builder_operation as _dispatch
+
+    return _dispatch(operation, *args, **kwargs)
+# END ALETHEUSOS BUILDER STUDIO CONSUMER SEAM
