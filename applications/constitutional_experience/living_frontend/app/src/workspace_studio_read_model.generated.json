@@ -1,0 +1,153 @@
+{
+  "authorities": {
+    "domain": {
+      "available": true,
+      "members": [
+        {
+          "path": "aletheus/workspace/models.py",
+          "present": true,
+          "sha256": "21c6e391dbb70cf76c26781346cb37b5ac6a4b9f61fda163d91723c4b767e693"
+        },
+        {
+          "path": "aletheus/workspace/workspace_core.py",
+          "present": true,
+          "sha256": "6f950855e5d0e07c50184eafd10f517e8a4e06c45b51bf15bd5efbe9649883a3"
+        }
+      ]
+    },
+    "engine": {
+      "available": true,
+      "members": [
+        {
+          "path": "nimble/packages/workspace/src/index.ts",
+          "present": true,
+          "sha256": "c560aa3fe3f2e3ed9df1d71f27a0f7c957611c54d92e0fdb93ebc2c08a28e284"
+        },
+        {
+          "path": "nimble/packages/workspace/src/engine/contracts.ts",
+          "present": true,
+          "sha256": "747f86e6340cc8451054ae5fcf4ac1d200c469fdf5da4a2e1b8facc0ab6523c3"
+        },
+        {
+          "path": "nimble/packages/workspace/src/engine/layout.ts",
+          "present": true,
+          "sha256": "9f263ed391a01ad6f891702f9a91af04e81817342e350459f33825d36e10a5b7"
+        },
+        {
+          "path": "nimble/packages/workspace/src/engine/lifecycle.ts",
+          "present": true,
+          "sha256": "06a604d70884d990bc5389f0e96c610e5579da6413e279370211a0d81d7e86b9"
+        },
+        {
+          "path": "nimble/packages/workspace/src/engine/persistence.ts",
+          "present": true,
+          "sha256": "8a6919535b3544b495510144e398a5c5f50bd21e045310a804a710d16f261e75"
+        },
+        {
+          "path": "nimble/packages/workspace/src/engine/registry.ts",
+          "present": true,
+          "sha256": "ef7ed546e2f62837220f1d16259100ec7bd421007f3ef215470218716cdbd6a0"
+        },
+        {
+          "path": "nimble/packages/workspace/src/engine/validation.ts",
+          "present": true,
+          "sha256": "6eb0d5be0e74022a832c6d7997cc1f23c97e114a8bd96f1c0955490b0193871b"
+        },
+        {
+          "path": "nimble/workspace/workspace_contracts.json",
+          "present": true,
+          "sha256": "fcf6209810e40e681caf20679601941a6e47f954a1f018e051516cf1a63e5765"
+        }
+      ]
+    },
+    "experience": {
+      "available": true,
+      "members": [
+        {
+          "path": "aletheus/constitutional_experience/workspace_composer/engine.py",
+          "present": true,
+          "sha256": "6910e3c551b359efb8522eeb3f5517d6d1d0cfed5ae6630cd738167d8630b5ad"
+        },
+        {
+          "path": "aletheus/constitutional_experience/hyperbolic_workspace/engine.py",
+          "present": true,
+          "sha256": "4832a516c8361d5c3488d6ff4b63d620e4278e2bfe61265f3e4a6a519268c30f"
+        }
+      ]
+    },
+    "web_runtime": {
+      "available": true,
+      "members": [
+        {
+          "path": "web/constitutional_experience/src/workspace/workspaceRuntime.ts",
+          "present": true,
+          "sha256": "f9833c08a9a7dca4db1c48ed73824912d440f37841f36e63fe4dcc4dce13b9e7"
+        }
+      ]
+    }
+  },
+  "experience": {
+    "composer_available": true,
+    "hyperbolic_workspace_available": true,
+    "web_runtime_available": true
+  },
+  "identity": {
+    "kind": "constitutional-workspace-studio",
+    "name": "Workspace Studio",
+    "version": "v1",
+    "workspace_id": "workspace-studio"
+  },
+  "layout": {
+    "layout_valid": true,
+    "panels": [],
+    "regions": [],
+    "validation_messages": []
+  },
+  "mode": "READ_ONLY",
+  "operations": {
+    "allowed": [
+      "inspect_workspace_identity",
+      "inspect_workspace_state",
+      "inspect_workspace_layout",
+      "inspect_workspace_registry",
+      "inspect_workspace_validation",
+      "inspect_workspace_lifecycle",
+      "inspect_workspace_experience"
+    ],
+    "refused": [
+      "create_workspace",
+      "delete_workspace",
+      "execute_workspace_command",
+      "invoke_workspace_command_adapter",
+      "perform_external_workspace_transport",
+      "persist_workspace_state",
+      "register_workspace",
+      "transition_workspace_lifecycle",
+      "unregister_workspace",
+      "update_workspace",
+      "write_workspace_state"
+    ]
+  },
+  "registry": {
+    "registered_panel_count": 0,
+    "registered_workspace_count": 0,
+    "workspace_ids": []
+  },
+  "runtime": {
+    "command_adapter_invocation": false,
+    "direct_execution": false,
+    "external_transport": false,
+    "live_binding": false,
+    "mutation_authority": false,
+    "source": "canonical-local-read-model"
+  },
+  "schema": "aletheusos.workspace-studio.read-model.v1",
+  "state": {
+    "lifecycle_state": null,
+    "panel_count": 0,
+    "region_count": 0,
+    "status": "AVAILABLE_READ_ONLY",
+    "validation_status": "AUTHORITY_COMPLETE"
+  },
+  "surface": "Workspace Studio"
+}
