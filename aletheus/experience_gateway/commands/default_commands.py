@@ -131,4 +131,229 @@ def create_default_command_registry() -> CommandRegistry:
         )
     )
 
+
+    # ---------------------------------------------------------------------
+    # Admin Terminal bounded read-only runtime bindings
+    #
+    # Constitutional authority:
+    # ADMIN_TERMINAL_UNIFIED_ADJUDICATION_PACKAGE_III_GATES_28_32
+    #
+    # These gateway definitions expose existing runtime command authority.
+    # They do not create replacement runtime handlers, registries, buses,
+    # services, APIs, or result protocols.
+    # ---------------------------------------------------------------------
+
+    def _admin_runtime_read_handler(command_id: str):
+        def _handler(arguments):
+            if arguments:
+                raise ValueError(f"{command_id} does not accept gateway arguments")
+
+            runtime = getattr(registry, "runtime", None)
+            if runtime is None:
+                raise RuntimeError("Admin Terminal runtime authority is unavailable")
+
+            command_bus = getattr(runtime, "command_bus", None)
+            if command_bus is None:
+                raise RuntimeError("Admin Terminal runtime command bus is unavailable")
+
+            execute = getattr(command_bus, "execute", None)
+            if not callable(execute):
+                raise RuntimeError("Admin Terminal runtime command execution authority is unavailable")
+
+            return execute(command_id, {})
+
+        return _handler
+
+    registry.register(
+        CommandDefinition(
+            id='application.health',
+            name='Application health',
+            description='Return the current bounded application health observation.',
+            risk="read_only",
+            handler=_admin_runtime_read_handler('application.health'),
+            reversible=False,
+            reversal_handler=None,
+            required_arguments=(),
+            effects=('Reads bounded application health state', 'Does not mutate runtime state'),
+            authorization_required=True,
+            required_entitlements=("runtime.read",),
+        )
+    )
+
+    registry.register(
+        CommandDefinition(
+            id='cluster.status',
+            name='Cluster status',
+            description='Return the current bounded cluster status observation.',
+            risk="read_only",
+            handler=_admin_runtime_read_handler('cluster.status'),
+            reversible=False,
+            reversal_handler=None,
+            required_arguments=(),
+            effects=('Reads bounded cluster status', 'Does not mutate runtime state'),
+            authorization_required=True,
+            required_entitlements=("runtime.read",),
+        )
+    )
+
+    registry.register(
+        CommandDefinition(
+            id='enterprise.list',
+            name='List enterprises',
+            description='Return the currently observable enterprise collection.',
+            risk="read_only",
+            handler=_admin_runtime_read_handler('enterprise.list'),
+            reversible=False,
+            reversal_handler=None,
+            required_arguments=(),
+            effects=('Reads bounded enterprise state', 'Does not mutate runtime state'),
+            authorization_required=True,
+            required_entitlements=("runtime.read",),
+        )
+    )
+
+    registry.register(
+        CommandDefinition(
+            id='executive.snapshot',
+            name='Executive snapshot',
+            description='Return the current bounded executive runtime snapshot.',
+            risk="read_only",
+            handler=_admin_runtime_read_handler('executive.snapshot'),
+            reversible=False,
+            reversal_handler=None,
+            required_arguments=(),
+            effects=('Reads bounded executive runtime state', 'Does not mutate runtime state'),
+            authorization_required=True,
+            required_entitlements=("runtime.read",),
+        )
+    )
+
+    registry.register(
+        CommandDefinition(
+            id='executive.status',
+            name='Executive status',
+            description='Return the current bounded executive runtime status.',
+            risk="read_only",
+            handler=_admin_runtime_read_handler('executive.status'),
+            reversible=False,
+            reversal_handler=None,
+            required_arguments=(),
+            effects=('Reads bounded executive runtime state', 'Does not mutate runtime state'),
+            authorization_required=True,
+            required_entitlements=("runtime.read",),
+        )
+    )
+
+    registry.register(
+        CommandDefinition(
+            id='executive.system_report',
+            name='Executive system report',
+            description='Return the current bounded executive system report.',
+            risk="read_only",
+            handler=_admin_runtime_read_handler('executive.system_report'),
+            reversible=False,
+            reversal_handler=None,
+            required_arguments=(),
+            effects=('Reads bounded executive system state', 'Does not mutate runtime state'),
+            authorization_required=True,
+            required_entitlements=("runtime.read",),
+        )
+    )
+
+    registry.register(
+        CommandDefinition(
+            id='kernel.snapshot',
+            name='Kernel snapshot',
+            description='Return the current bounded kernel snapshot.',
+            risk="read_only",
+            handler=_admin_runtime_read_handler('kernel.snapshot'),
+            reversible=False,
+            reversal_handler=None,
+            required_arguments=(),
+            effects=('Reads bounded kernel state', 'Does not mutate runtime state'),
+            authorization_required=True,
+            required_entitlements=("runtime.read",),
+        )
+    )
+
+    registry.register(
+        CommandDefinition(
+            id='registry.health',
+            name='Registry health',
+            description='Return the current bounded runtime registry health observation.',
+            risk="read_only",
+            handler=_admin_runtime_read_handler('registry.health'),
+            reversible=False,
+            reversal_handler=None,
+            required_arguments=(),
+            effects=('Reads bounded runtime registry state', 'Does not mutate runtime state'),
+            authorization_required=True,
+            required_entitlements=("runtime.read",),
+        )
+    )
+
+    registry.register(
+        CommandDefinition(
+            id='registry.snapshot',
+            name='Registry snapshot',
+            description='Return the current bounded runtime registry snapshot.',
+            risk="read_only",
+            handler=_admin_runtime_read_handler('registry.snapshot'),
+            reversible=False,
+            reversal_handler=None,
+            required_arguments=(),
+            effects=('Reads bounded runtime registry state', 'Does not mutate runtime state'),
+            authorization_required=True,
+            required_entitlements=("runtime.read",),
+        )
+    )
+
+    registry.register(
+        CommandDefinition(
+            id='telemetry.health',
+            name='Telemetry health',
+            description='Return the current bounded telemetry health observation.',
+            risk="read_only",
+            handler=_admin_runtime_read_handler('telemetry.health'),
+            reversible=False,
+            reversal_handler=None,
+            required_arguments=(),
+            effects=('Reads bounded telemetry state', 'Does not mutate runtime state'),
+            authorization_required=True,
+            required_entitlements=("runtime.read",),
+        )
+    )
+
+    registry.register(
+        CommandDefinition(
+            id='tenant.health',
+            name='Tenant health',
+            description='Return the current bounded tenant health observation.',
+            risk="read_only",
+            handler=_admin_runtime_read_handler('tenant.health'),
+            reversible=False,
+            reversal_handler=None,
+            required_arguments=(),
+            effects=('Reads bounded tenant state', 'Does not mutate runtime state'),
+            authorization_required=True,
+            required_entitlements=("runtime.read",),
+        )
+    )
+
+    registry.register(
+        CommandDefinition(
+            id='tenant.list',
+            name='List tenants',
+            description='Return the currently observable tenant collection.',
+            risk="read_only",
+            handler=_admin_runtime_read_handler('tenant.list'),
+            reversible=False,
+            reversal_handler=None,
+            required_arguments=(),
+            effects=('Reads bounded tenant state', 'Does not mutate runtime state'),
+            authorization_required=True,
+            required_entitlements=("runtime.read",),
+        )
+    )
+
     return registry
